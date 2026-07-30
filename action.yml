@@ -1,0 +1,25 @@
+name: "readme-scoreboard"
+description: "🏆 Live sports stats on your GitHub profile README"
+branding:
+  icon: "activity"
+  color: "orange"
+inputs:
+  sport:
+    description: "Sport: nba (more coming soon)"
+    required: false
+    default: "nba"
+  team:
+    description: "Team abbreviation (e.g. LAL, BOS)"
+    required: true
+  gh_token:
+    description: "GitHub token with repo scope"
+    required: true
+  api_key:
+    description: "API key for the sport data provider"
+    required: true
+  target_repo:
+    description: "Repo to update (default: your profile repo). Format: owner/repo"
+    required: false
+runs:
+  using: "node20"
+  main: "dist/index.js"
