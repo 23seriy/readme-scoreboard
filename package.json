@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
-    "lint": "eslint .",
-    "build": "ncc build src/index.js --out dist --minify"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@octokit/rest": "^20.0.0",
@@ -16,7 +15,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@vercel/ncc": "^0.38.0",
     "eslint": "^10.7.0"
   }
 }

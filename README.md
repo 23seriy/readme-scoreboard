@@ -63,10 +63,6 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
       - uses: 23seriy/readme-scoreboard@main
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
