@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 const START_MARKER = "<!-- readme-scoreboard start -->";
 const END_MARKER = "<!-- readme-scoreboard end -->";
 
@@ -26,29 +29,7 @@ async function updateReadme(octokit, targetRepo, content) {
   }
 
   const currentContent = Buffer.from(readmeData.content, "base64").toString("utf-8");
-
-  // Find markers
-  const startIdx = currentContent.indexOf(START_MARKER);
-  const endIdx = currentContent.indexOf(END_MARKER);
-
-  if (startIdx === -1 || endIdx === -1) {
-    console.error(
-      `Markers not found in README.md. Add these lines where you want the stats:\n` +
-      `  ${START_MARKER}\n` +
-      `  ${END_MARKER}`
-    );
-    process.exit(1);
-  }
-
-  if (startIdx >= endIdx) {
-    console.error("Start marker must appear before end marker in README.md");
-    process.exit(1);
-  }
-
-  // Replace content between markers
-  const before = currentContent.substring(0, startIdx + START_MARKER.length);
-  const after = currentContent.substring(endIdx);
-  const newReadme = `${before}\n${content}\n${after}`;
+  const newReadme = injectContent(currentContent, content);
 
   // Check if content actually changed
   if (newReadme === currentContent) {
@@ -73,4 +54,48 @@ async function updateReadme(octokit, targetRepo, content) {
   }
 }
 
-module.exports = { updateReadme, START_MARKER, END_MARKER };
+function injectContent(currentContent, content) {
+  const startIdx = currentContent.indexOf(START_MARKER);
+  const endIdx = currentContent.indexOf(END_MARKER);
+
+  if (startIdx === -1 || endIdx === -1) {
+    console.error(
+      `Markers not found in README.md. Add these lines where you want the stats:\n` +
+      `  ${START_MARKER}\n` +
+      `  ${END_MARKER}`
+    );
+    process.exit(1);
+  }
+
+  if (startIdx >= endIdx) {
+    console.error("Start marker must appear before end marker in README.md");
+    process.exit(1);
+  }
+
+  const before = currentContent.substring(0, startIdx + START_MARKER.length);
+  const after = currentContent.substring(endIdx);
+  return `${before}\n${content}\n${after}`;
+}
+
+function updateReadmeLocal(workspacePath, content) {
+  const readmePath = path.join(workspacePath, "README.md");
+  console.log(`📝 Updating ${readmePath} (local file)...`);
+
+  if (!fs.existsSync(readmePath)) {
+    console.error(`README.md not found at ${readmePath}`);
+    process.exit(1);
+  }
+
+  const currentContent = fs.readFileSync(readmePath, "utf-8");
+  const newReadme = injectContent(currentContent, content);
+
+  if (newReadme === currentContent) {
+    console.log("ℹ️  No changes detected, skipping write.");
+    return;
+  }
+
+  fs.writeFileSync(readmePath, newReadme, "utf-8");
+  console.log("✅ README.md updated on disk — workflow will commit if changed.");
+}
+
+module.exports = { updateReadme, updateReadmeLocal, START_MARKER, END_MARKER };
