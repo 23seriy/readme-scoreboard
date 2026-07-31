@@ -69,12 +69,67 @@ function renderNba(data) {
   return lines.join("\n");
 }
 
+function formatMlbGameResult(game) {
+  const prefix = game.isHome ? "vs" : "@";
+  const result = game.won ? "W" : "L";
+  const dateStr = new Date(game.date + "T12:00:00").toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+
+  return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})`;
+}
+
+function renderMlb(data) {
+  const { team, recentGames, record, emoji, logoUrl } = data;
+  const lines = [];
+
+  // Team logo
+  lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
+  lines.push("");
+
+  // Header
+  lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
+  lines.push(`${team.league} · ${team.division}`);
+  lines.push("");
+
+  // Season record
+  const totalGames = record.wins + record.losses;
+  const winPct = totalGames > 0
+    ? ((record.wins / totalGames) * 100).toFixed(1)
+    : "0.0";
+
+  if (totalGames > 0) {
+    lines.push(
+      `📊 ${record.season} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+    );
+    lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
+    lines.push("");
+  }
+
+  // Recent games
+  if (recentGames.length > 0) {
+    lines.push("**📅 Recent Games:**");
+    lines.push("```");
+    for (const game of recentGames) {
+      lines.push(formatMlbGameResult(game));
+    }
+    lines.push("```");
+  } else {
+    lines.push("📅 No recent games found");
+  }
+
+  return lines.join("\n");
+}
+
 function render(sport, data) {
   switch (sport) {
     case "nba":
       return renderNba(data);
+    case "mlb":
+      return renderMlb(data);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb`);
   }
 }
 
