@@ -30,7 +30,7 @@ async function main() {
   try {
     adapter = require(`./adapters/${sportName}`);
   } catch {
-    console.error(`Unsupported sport: "${sportName}". Available adapters: nba`);
+    console.error(`Unsupported sport: "${sportName}". Available adapters: nba, mlb`);
     process.exit(1);
   }
 
@@ -40,8 +40,8 @@ async function main() {
     data = adapter.getDemoData(team);
     console.log(`[DEMO] Using sample data for ${data.team.full_name}`);
   } else {
-    if (!apiKey) {
-      console.error("BDL_API_KEY environment variable is required for live mode");
+    if (sportName === "nba" && !apiKey) {
+      console.error("BDL_API_KEY environment variable is required for NBA live mode");
       process.exit(1);
     }
     data = await adapter.fetchData(team, apiKey);
@@ -52,9 +52,12 @@ async function main() {
   }
 
   // Add sport-specific metadata for the renderer
-  const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || "🏀";
-  const nbaId = adapter.TEAM_IDS[data.team.abbreviation] || 0;
-  const logoUrl = `https://cdn.nba.com/logos/nba/${nbaId}/global/L/logo.svg`;
+  const defaultEmoji = sportName === "mlb" ? "⚾" : "🏀";
+  const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
+  const teamIdForLogo = adapter.TEAM_IDS[data.team.abbreviation] || 0;
+  const logoUrl = sportName === "mlb"
+    ? `https://www.mlbstatic.com/team-logos/${teamIdForLogo}.svg`
+    : `https://cdn.nba.com/logos/nba/${teamIdForLogo}/global/L/logo.svg`;
 
   const renderData = { ...data, emoji, logoUrl };
 

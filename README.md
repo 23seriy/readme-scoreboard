@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA** with more sports coming soon (NHL, NFL, soccer, etc.)
+Currently supports **NBA** and **MLB** with more sports coming soon (NHL, NFL, soccer, etc.)
 
 ---
 
@@ -73,16 +73,27 @@ jobs:
 
 Change `TEAM` to your team's abbreviation (see table below). Done!
 
+#### MLB Example (no `BDL_API_KEY` needed)
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          SPORT: mlb
+          TEAM: NYY
+```
+
 ---
 
 ## Supported Sports
 
-| Sport | Status | Data Source |
-|-------|--------|------------|
-| 🏀 NBA | ✅ Available | [BallDontLie API](https://www.balldontlie.io/) (free) |
-| 🏒 NHL | 🔜 Coming soon | — |
-| 🏈 NFL | 🔜 Coming soon | — |
-| ⚽ Soccer | 🔜 Coming soon | — |
+| Sport | Status | Data Source | API Key? |
+|-------|--------|------------|----------|
+| 🏀 NBA | ✅ Available | [BallDontLie API](https://www.balldontlie.io/) | Required (free) |
+| ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) | **Not needed** |
+| 🏒 NHL | 🔜 Coming soon | — | — |
+| 🏈 NFL | 🔜 Coming soon | — | — |
+| ⚽ Soccer | 🔜 Coming soon | — | — |
 
 ---
 
@@ -108,6 +119,29 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 
 ---
 
+## MLB Team Abbreviations
+
+| Team | Abbr | | Team | Abbr |
+|------|------|-|------|------|
+| Arizona Diamondbacks | AZ | | Miami Marlins | MIA |
+| Atlanta Braves | ATL | | Milwaukee Brewers | MIL |
+| Baltimore Orioles | BAL | | Minnesota Twins | MIN |
+| Boston Red Sox | BOS | | New York Mets | NYM |
+| Chicago Cubs | CHC | | New York Yankees | NYY |
+| Chicago White Sox | CWS | | Philadelphia Phillies | PHI |
+| Cincinnati Reds | CIN | | Pittsburgh Pirates | PIT |
+| Cleveland Guardians | CLE | | Sacramento Athletics | ATH |
+| Colorado Rockies | COL | | San Diego Padres | SD |
+| Detroit Tigers | DET | | San Francisco Giants | SF |
+| Houston Astros | HOU | | Seattle Mariners | SEA |
+| Kansas City Royals | KC | | St. Louis Cardinals | STL |
+| Los Angeles Angels | LAA | | Tampa Bay Rays | TB |
+| Los Angeles Dodgers | LAD | | Texas Rangers | TEX |
+| | | | Toronto Blue Jays | TOR |
+| | | | Washington Nationals | WSH |
+
+---
+
 ## Run Locally
 
 ```bash
@@ -123,6 +157,7 @@ Preview output without API keys:
 
 ```bash
 SPORT=nba TEAM=BOS node src/index.js --demo
+SPORT=mlb TEAM=NYY node src/index.js --demo
 ```
 
 ---
@@ -148,7 +183,7 @@ Each sport is a single adapter file. See `src/adapters/nba.js` as the reference.
 | `SPORT` | No | Sport adapter to use (default: `nba`) |
 | `TEAM` | Yes | Team abbreviation (e.g., `LAL`, `BOS`) |
 | `GH_TOKEN` | Yes* | GitHub token with `repo` scope |
-| `BDL_API_KEY` | Yes* | BallDontLie API key (for NBA) |
+| `BDL_API_KEY` | NBA only | BallDontLie API key (not needed for MLB) |
 | `TARGET_REPO` | No | Target repo (default: your profile repo) |
 
 \* Not required in `--demo` mode.
