@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA** and **MLB** with more sports coming soon (NHL, NFL, soccer, etc.)
+Currently supports **NBA**, **MLB**, and **NFL** with more sports coming soon (NHL, soccer, etc.)
 
 ---
 
@@ -47,7 +47,7 @@ Go to your profile repo **Settings → Secrets and variables → Actions** and a
 | Secret | Description |
 |--------|-------------|
 | `GH_TOKEN` | GitHub token with `repo` scope ([create one](https://github.com/settings/tokens/new)) |
-| `BDL_API_KEY` | Free [BallDontLie](https://app.balldontlie.io) API key |
+| `BDL_API_KEY` | Free [BallDontLie](https://app.balldontlie.io) API key (NBA only) |
 
 ### 3. Add the workflow
 
@@ -81,6 +81,16 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           SPORT: mlb
           TEAM: NYY
+```
+
+#### NFL Example (no `BDL_API_KEY` needed)
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          SPORT: nfl
+          TEAM: KC
 ```
 
 ---
@@ -145,22 +155,22 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 
 | | Team | Abbr | | | Team | Abbr |
 |---|------|------|-|---|------|------|
-| | Arizona Cardinals | ARI | | | New England Patriots | NE |
-| | Atlanta Falcons | ATL | | | New Orleans Saints | NO |
-| | Baltimore Ravens | BAL | | | New York Giants | NYG |
-| | Buffalo Bills | BUF | | | New York Jets | NYJ |
-| | Carolina Panthers | CAR | | | Oakland Raiders | LV |
-| | Chicago Bears | CHI | | | Philadelphia Eagles | PHI |
-| | Cincinnati Bengals | CIN | | | Pittsburgh Steelers | PIT |
-| | Cleveland Browns | CLE | | | San Diego Chargers | LAC |
-| | Dallas Cowboys | DAL | | | San Francisco 49ers | SF |
-| | Denver Broncos | DEN | | | Seattle Seahawks | SEA |
-| | Detroit Lions | DET | | | St. Louis Rams | LAR |
-| | Green Bay Packers | GB | | | Tampa Bay Buccaneers | TB |
-| | Houston Texans | HOU | | | Tennessee Titans | TEN |
-| | Indianapolis Colts | IND | | | Washington Commanders | WAS |
-| | Jacksonville Jaguars | JAX | | | Kansas City Chiefs | KC |
-| | Los Angeles Rams | LAR | | | Minnesota Vikings | MIN |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ari.png" width="20"> | Arizona Cardinals | ARI | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" width="20"> | New England Patriots | NE |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" width="20"> | Atlanta Falcons | ATL | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/no.png" width="20"> | New Orleans Saints | NO |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/bal.png" width="20"> | Baltimore Ravens | BAL | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" width="20"> | New York Giants | NYG |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" width="20"> | Buffalo Bills | BUF | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" width="20"> | New York Jets | NYJ |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/car.png" width="20"> | Carolina Panthers | CAR | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" width="20"> | Las Vegas Raiders | LV |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/chi.png" width="20"> | Chicago Bears | CHI | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" width="20"> | Philadelphia Eagles | PHI |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/cin.png" width="20"> | Cincinnati Bengals | CIN | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" width="20"> | Pittsburgh Steelers | PIT |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/cle.png" width="20"> | Cleveland Browns | CLE | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" width="20"> | Los Angeles Chargers | LAC |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/dal.png" width="20"> | Dallas Cowboys | DAL | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" width="20"> | San Francisco 49ers | SF |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/den.png" width="20"> | Denver Broncos | DEN | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" width="20"> | Seattle Seahawks | SEA |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/det.png" width="20"> | Detroit Lions | DET | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" width="20"> | Los Angeles Rams | LAR |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/gb.png" width="20"> | Green Bay Packers | GB | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" width="20"> | Tampa Bay Buccaneers | TB |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" width="20"> | Houston Texans | HOU | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" width="20"> | Tennessee Titans | TEN |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ind.png" width="20"> | Indianapolis Colts | IND | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/was.png" width="20"> | Washington Commanders | WAS |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" width="20"> | Jacksonville Jaguars | JAX | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/kc.png" width="20"> | Kansas City Chiefs | KC |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" width="20"> | Miami Dolphins | MIA | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/min.png" width="20"> | Minnesota Vikings | MIN |
 
 ---
 
@@ -180,6 +190,7 @@ Preview output without API keys:
 ```bash
 SPORT=nba TEAM=BOS node src/index.js --demo
 SPORT=mlb TEAM=NYY node src/index.js --demo
+SPORT=nfl TEAM=KC node src/index.js --demo
 ```
 
 ---
