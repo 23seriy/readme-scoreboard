@@ -1,10 +1,19 @@
 const fs = require("fs");
 const path = require("path");
 
-const START_MARKER = "<!-- readme-scoreboard start -->";
-const END_MARKER = "<!-- readme-scoreboard end -->";
+const DEFAULT_MARKER = "readme-scoreboard";
 
-async function updateReadme(octokit, targetRepo, content) {
+function getMarkers(markerName) {
+  const name = markerName || DEFAULT_MARKER;
+  return {
+    START_MARKER: `<!-- ${name} start -->`,
+    END_MARKER: `<!-- ${name} end -->`,
+  };
+}
+
+const { START_MARKER, END_MARKER } = getMarkers();
+
+async function updateReadme(octokit, targetRepo, content, markerName) {
   const [owner, repo] = targetRepo.split("/");
 
   if (!owner || !repo) {
@@ -29,7 +38,7 @@ async function updateReadme(octokit, targetRepo, content) {
   }
 
   const currentContent = Buffer.from(readmeData.content, "base64").toString("utf-8");
-  const newReadme = injectContent(currentContent, content);
+  const newReadme = injectContent(currentContent, content, markerName);
 
   // Check if content actually changed
   if (newReadme === currentContent) {
@@ -54,15 +63,16 @@ async function updateReadme(octokit, targetRepo, content) {
   }
 }
 
-function injectContent(currentContent, content) {
-  const startIdx = currentContent.indexOf(START_MARKER);
-  const endIdx = currentContent.indexOf(END_MARKER);
+function injectContent(currentContent, content, markerName) {
+  const { START_MARKER: start, END_MARKER: end } = getMarkers(markerName);
+  const startIdx = currentContent.indexOf(start);
+  const endIdx = currentContent.indexOf(end);
 
   if (startIdx === -1 || endIdx === -1) {
     console.error(
       `Markers not found in README.md. Add these lines where you want the stats:\n` +
-      `  ${START_MARKER}\n` +
-      `  ${END_MARKER}`
+      `  ${start}\n` +
+      `  ${end}`
     );
     process.exit(1);
   }
@@ -72,12 +82,12 @@ function injectContent(currentContent, content) {
     process.exit(1);
   }
 
-  const before = currentContent.substring(0, startIdx + START_MARKER.length);
+  const before = currentContent.substring(0, startIdx + start.length);
   const after = currentContent.substring(endIdx);
   return `${before}\n${content}\n${after}`;
 }
 
-function updateReadmeLocal(workspacePath, content) {
+function updateReadmeLocal(workspacePath, content, markerName) {
   const readmePath = path.join(workspacePath, "README.md");
   console.log(`📝 Updating ${readmePath} (local file)...`);
 
@@ -87,7 +97,7 @@ function updateReadmeLocal(workspacePath, content) {
   }
 
   const currentContent = fs.readFileSync(readmePath, "utf-8");
-  const newReadme = injectContent(currentContent, content);
+  const newReadme = injectContent(currentContent, content, markerName);
 
   if (newReadme === currentContent) {
     console.log("ℹ️  No changes detected, skipping write.");

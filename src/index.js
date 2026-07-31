@@ -10,6 +10,7 @@ const {
   TEAM: teamAbbr,
   TARGET_REPO: targetRepo,
   GITHUB_WORKSPACE: githubWorkspace,
+  MARKER: markerName,
 } = process.env;
 
 const isDemo = process.argv.includes("--demo");
@@ -78,7 +79,7 @@ async function main() {
     console.log("⚠️  Skipping README update (preview only)");
   } else if (githubWorkspace) {
     // Running inside a checked-out repo (composite action) — write to disk
-    updateReadmeLocal(githubWorkspace, content);
+    updateReadmeLocal(githubWorkspace, content, markerName);
   } else if (githubToken) {
     // Running standalone — use GitHub API
     const octokit = new Octokit({ auth: githubToken });
@@ -90,7 +91,7 @@ async function main() {
       console.log(`ℹ️  No TARGET_REPO set, using profile repo: ${repo}`);
     }
 
-    await updateReadme(octokit, repo, content);
+    await updateReadme(octokit, repo, content, markerName);
   } else {
     console.log("⚠️  Skipping README update (no GITHUB_WORKSPACE or GH_TOKEN)");
   }
