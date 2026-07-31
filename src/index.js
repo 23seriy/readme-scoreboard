@@ -30,7 +30,7 @@ async function main() {
   try {
     adapter = require(`./adapters/${sportName}`);
   } catch {
-    console.error(`Unsupported sport: "${sportName}". Available adapters: nba, mlb`);
+    console.error(`Unsupported sport: "${sportName}". Available adapters: nba, mlb, nfl`);
     process.exit(1);
   }
 
@@ -52,12 +52,17 @@ async function main() {
   }
 
   // Add sport-specific metadata for the renderer
-  const defaultEmoji = sportName === "mlb" ? "⚾" : "🏀";
+  const defaultEmoji = sportName === "mlb" ? "⚾" : sportName === "nfl" ? "🏈" : "🏀";
   const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
   const teamIdForLogo = adapter.TEAM_IDS[data.team.abbreviation] || 0;
-  const logoUrl = sportName === "mlb"
-    ? `https://www.mlbstatic.com/team-logos/${teamIdForLogo}.svg`
-    : `https://cdn.nba.com/logos/nba/${teamIdForLogo}/global/L/logo.svg`;
+  let logoUrl;
+  if (sportName === "mlb") {
+    logoUrl = `https://www.mlbstatic.com/team-logos/${teamIdForLogo}.svg`;
+  } else if (sportName === "nfl") {
+    logoUrl = `https://a.espncdn.com/i/teamlogos/nfl/500/${data.team.abbreviation.toLowerCase()}.png`;
+  } else {
+    logoUrl = `https://cdn.nba.com/logos/nba/${teamIdForLogo}/global/L/logo.svg`;
+  }
 
   const renderData = { ...data, emoji, logoUrl };
 
