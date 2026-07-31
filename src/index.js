@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { Octokit } = require("@octokit/rest");
 const { render } = require("./renderers/markdown");
-const { updateReadme } = require("./updater");
+const { updateReadme, updateReadmeLocal } = require("./updater");
 
 const {
   GH_TOKEN: githubToken,
@@ -9,6 +9,7 @@ const {
   SPORT: sport = "nba",
   TEAM: teamAbbr,
   TARGET_REPO: targetRepo,
+  GITHUB_WORKSPACE: githubWorkspace,
 } = process.env;
 
 const isDemo = process.argv.includes("--demo");
@@ -64,11 +65,16 @@ async function main() {
   console.log(content);
   console.log("--- End Preview ---\n");
 
-  // Update profile README (skip in demo mode or if no token)
-  if (githubToken && !isDemo) {
-    const octokit = new Octokit({ auth: `token ${githubToken}` });
+  // Update profile README (skip in demo mode)
+  if (isDemo) {
+    console.log("⚠️  Skipping README update (preview only)");
+  } else if (githubWorkspace) {
+    // Running inside a checked-out repo (composite action) — write to disk
+    updateReadmeLocal(githubWorkspace, content);
+  } else if (githubToken) {
+    // Running standalone — use GitHub API
+    const octokit = new Octokit({ auth: githubToken });
 
-    // Resolve target repo (default: authenticated user's profile repo)
     let repo = targetRepo;
     if (!repo) {
       const { data: user } = await octokit.users.getAuthenticated();
@@ -78,7 +84,7 @@ async function main() {
 
     await updateReadme(octokit, repo, content);
   } else {
-    console.log("⚠️  Skipping README update (preview only)");
+    console.log("⚠️  Skipping README update (no GITHUB_WORKSPACE or GH_TOKEN)");
   }
 }
 
