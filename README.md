@@ -91,13 +91,13 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 |-------|--------|------------|----------|
 | 🏀 NBA | ✅ Available | [BallDontLie API](https://www.balldontlie.io/) | Required (free) |
 | ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) | **Not needed** |
+| 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
 | 🏒 NHL | 🔜 Coming soon | — | — |
-| 🏈 NFL | 🔜 Coming soon | — | — |
 | ⚽ Soccer | 🔜 Coming soon | — | — |
 
 ---
 
-## NBA Team Abbreviations
+## 🏀 NBA Team Abbreviations
 
 | | Team | Abbr | | | Team | Abbr |
 |---|------|------|-|---|------|------|
@@ -119,7 +119,7 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 
 ---
 
-## MLB Team Abbreviations
+## ⚾ MLB Team Abbreviations
 
 | | Team | Abbr | | | Team | Abbr |
 |---|------|------|-|---|------|------|
@@ -130,15 +130,37 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 | <img src="https://www.mlbstatic.com/team-logos/112.svg" width="20"> | Chicago Cubs | CHC | | <img src="https://www.mlbstatic.com/team-logos/147.svg" width="20"> | New York Yankees | NYY |
 | <img src="https://www.mlbstatic.com/team-logos/145.svg" width="20"> | Chicago White Sox | CWS | | <img src="https://www.mlbstatic.com/team-logos/143.svg" width="20"> | Philadelphia Phillies | PHI |
 | <img src="https://www.mlbstatic.com/team-logos/113.svg" width="20"> | Cincinnati Reds | CIN | | <img src="https://www.mlbstatic.com/team-logos/134.svg" width="20"> | Pittsburgh Pirates | PIT |
-| <img src="https://www.mlbstatic.com/team-logos/114.svg" width="20"> | Cleveland Guardians | CLE | | <img src="https://www.mlbstatic.com/team-logos/133.svg" width="20"> | Sacramento Athletics | ATH |
-| <img src="https://www.mlbstatic.com/team-logos/115.svg" width="20"> | Colorado Rockies | COL | | <img src="https://www.mlbstatic.com/team-logos/135.svg" width="20"> | San Diego Padres | SD |
-| <img src="https://www.mlbstatic.com/team-logos/116.svg" width="20"> | Detroit Tigers | DET | | <img src="https://www.mlbstatic.com/team-logos/137.svg" width="20"> | San Francisco Giants | SF |
-| <img src="https://www.mlbstatic.com/team-logos/117.svg" width="20"> | Houston Astros | HOU | | <img src="https://www.mlbstatic.com/team-logos/136.svg" width="20"> | Seattle Mariners | SEA |
-| <img src="https://www.mlbstatic.com/team-logos/118.svg" width="20"> | Kansas City Royals | KC | | <img src="https://www.mlbstatic.com/team-logos/138.svg" width="20"> | St. Louis Cardinals | STL |
-| <img src="https://www.mlbstatic.com/team-logos/108.svg" width="20"> | Los Angeles Angels | LAA | | <img src="https://www.mlbstatic.com/team-logos/139.svg" width="20"> | Tampa Bay Rays | TB |
-| <img src="https://www.mlbstatic.com/team-logos/119.svg" width="20"> | Los Angeles Dodgers | LAD | | <img src="https://www.mlbstatic.com/team-logos/140.svg" width="20"> | Texas Rangers | TEX |
-| | | | | <img src="https://www.mlbstatic.com/team-logos/141.svg" width="20"> | Toronto Blue Jays | TOR |
+| <img src="https://www.mlbstatic.com/team-logos/114.svg" width="20"> | Cleveland Guardians | CLE | | <img src="https://www.mlbstatic.com/team-logos/135.svg" width="20"> | San Diego Padres | SD |
+| <img src="https://www.mlbstatic.com/team-logos/115.svg" width="20"> | Colorado Rockies | COL | | <img src="https://www.mlbstatic.com/team-logos/137.svg" width="20"> | San Francisco Giants | SF |
+| <img src="https://www.mlbstatic.com/team-logos/116.svg" width="20"> | Detroit Tigers | DET | | <img src="https://www.mlbstatic.com/team-logos/136.svg" width="20"> | Seattle Mariners | SEA |
+| <img src="https://www.mlbstatic.com/team-logos/117.svg" width="20"> | Houston Astros | HOU | | <img src="https://www.mlbstatic.com/team-logos/138.svg" width="20"> | St. Louis Cardinals | STL |
+| <img src="https://www.mlbstatic.com/team-logos/118.svg" width="20"> | Kansas City Royals | KC | | <img src="https://www.mlbstatic.com/team-logos/139.svg" width="20"> | Tampa Bay Rays | TB |
+| <img src="https://www.mlbstatic.com/team-logos/108.svg" width="20"> | Los Angeles Angels | LAA | | <img src="https://www.mlbstatic.com/team-logos/140.svg" width="20"> | Texas Rangers | TEX |
+| <img src="https://www.mlbstatic.com/team-logos/119.svg" width="20"> | Los Angeles Dodgers | LAD | | <img src="https://www.mlbstatic.com/team-logos/141.svg" width="20"> | Toronto Blue Jays | TOR |
 | | | | | <img src="https://www.mlbstatic.com/team-logos/120.svg" width="20"> | Washington Nationals | WSH |
+
+---
+
+## 🏈 NFL Team Abbreviations
+
+| | Team | Abbr | | | Team | Abbr |
+|---|------|------|-|---|------|------|
+| | Arizona Cardinals | ARI | | | New England Patriots | NE |
+| | Atlanta Falcons | ATL | | | New Orleans Saints | NO |
+| | Baltimore Ravens | BAL | | | New York Giants | NYG |
+| | Buffalo Bills | BUF | | | New York Jets | NYJ |
+| | Carolina Panthers | CAR | | | Oakland Raiders | LV |
+| | Chicago Bears | CHI | | | Philadelphia Eagles | PHI |
+| | Cincinnati Bengals | CIN | | | Pittsburgh Steelers | PIT |
+| | Cleveland Browns | CLE | | | San Diego Chargers | LAC |
+| | Dallas Cowboys | DAL | | | San Francisco 49ers | SF |
+| | Denver Broncos | DEN | | | Seattle Seahawks | SEA |
+| | Detroit Lions | DET | | | St. Louis Rams | LAR |
+| | Green Bay Packers | GB | | | Tampa Bay Buccaneers | TB |
+| | Houston Texans | HOU | | | Tennessee Titans | TEN |
+| | Indianapolis Colts | IND | | | Washington Commanders | WAS |
+| | Jacksonville Jaguars | JAX | | | Kansas City Chiefs | KC |
+| | Los Angeles Rams | LAR | | | Minnesota Vikings | MIN |
 
 ---
 
