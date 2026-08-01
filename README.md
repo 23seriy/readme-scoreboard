@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, and **NFL** with more sports coming soon (NHL, soccer, etc.)
+Currently supports **NBA**, **MLB**, **NFL**, and **NHL** with more sports coming soon (soccer, etc.)
 
 ---
 
@@ -93,6 +93,16 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
           TEAM: KC
 ```
 
+#### NHL Example (no `BDL_API_KEY` needed)
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          SPORT: nhl
+          TEAM: NYR
+```
+
 ---
 
 ## Supported Sports
@@ -102,7 +112,7 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 | 🏀 NBA | ✅ Available | [BallDontLie API](https://www.balldontlie.io/) | Required (free) |
 | ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) | **Not needed** |
 | 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
-| 🏒 NHL | 🔜 Coming soon | — | — |
+| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://statsapi.web.nhl.com/api/v1/) | **Not needed** |
 | ⚽ Soccer | 🔜 Coming soon | — | — |
 
 ---
@@ -202,6 +212,50 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 
 ---
 
+## 🏒 NHL Team Abbreviations
+
+<span style="font-size: 0.85em;">
+
+### Eastern Conference
+
+#### Atlantic Division
+| Team | Abbr | | Team | Abbr |
+|------|------|---|------|------|
+| Boston Bruins | BOS | | Toronto Maple Leafs | TOR |
+| Buffalo Sabres | BUF | | Detroit Red Wings | DET |
+| Florida Panthers | FLA | | Ottawa Senators | OTT |
+| Montreal Canadiens | MTL | | Tampa Bay Lightning | TBL |
+
+#### Metropolitan Division
+| Team | Abbr | | Team | Abbr |
+|------|------|---|------|------|
+| Carolina Hurricanes | CAR | | New York Islanders | NYI |
+| Columbus Blue Jackets | CBJ | | New York Rangers | NYR |
+| New Jersey Devils | NJD | | Philadelphia Flyers | PHI |
+| Pittsburgh Penguins | PIT | | Washington Capitals | WSH |
+
+### Western Conference
+
+#### Central Division
+| Team | Abbr | | Team | Abbr |
+|------|------|---|------|------|
+| Chicago Blackhawks | CHI | | St. Louis Blues | STL |
+| Colorado Avalanche | COL | | Winnipeg Jets | WPG |
+| Dallas Stars | DAL | | Nashville Predators | NSH |
+| Detroit Red Wings* | DET | | Calgary Flames | CGY |
+
+#### Pacific Division
+| Team | Abbr | | Team | Abbr |
+|------|------|---|------|------|
+| Anaheim Ducks | ANA | | Las Vegas Golden Knights | VGK |
+| Arizona Coyotes | ARI | | Los Angeles Kings | LAK |
+| Edmonton Oilers | EDM | | San Jose Sharks | SJS |
+| Vancouver Canucks | VAN | | Seattle Kraken | SEA |
+
+</span>
+
+---
+
 ## Run Locally
 
 ```bash
@@ -219,18 +273,19 @@ Preview output without API keys:
 SPORT=nba TEAM=BOS node src/index.js --demo
 SPORT=mlb TEAM=NYY node src/index.js --demo
 SPORT=nfl TEAM=KC node src/index.js --demo
+SPORT=nhl TEAM=NYR node src/index.js --demo
 ```
 
 ---
 
 ## Adding a New Sport
 
-Each sport is a single adapter file. See `src/adapters/nba.js` as the reference.
+Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/adapters/nhl.js` as the reference.
 
-1. Create `src/adapters/your-sport.js`
-2. Export `fetchData(teamAbbr, apiKey)` → returns `{ team, recentGames, record }`
-3. Export `getDemoData(teamAbbr)` for demo mode
-4. Export `TEAM_EMOJI` and `TEAM_IDS` for metadata
+1. Create `src/adapters/your-sport.js` extending `BaseFreeApiAdapter`
+2. Implement abstract methods: `fetchTeam()`, `getGamesUrl()`, `parseGameResponse()`, `parseTeamResponse()`
+3. Define `TEAM_EMOJI`, `TEAM_IDS`, and `DEMO_TEAMS`
+4. Create tests in `tests/adapters/your-sport.test.js`
 5. Add the sport case to `src/renderers/markdown.js`
 6. Update this README
 7. Open a PR!

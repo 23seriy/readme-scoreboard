@@ -1,4 +1,5 @@
 const axios = require("axios");
+const BaseFreeApiAdapter = require("./base-free-api");
 
 const MLB_BASE = "https://statsapi.mlb.com/api/v1";
 
@@ -11,7 +12,6 @@ const TEAM_EMOJI = {
   TB: "😈", TEX: "🤠", TOR: "🐦", WSH: "🇺🇸",
 };
 
-// MLB team IDs for logo URLs
 const TEAM_IDS = {
   ATH: 133, AZ: 109, BAL: 110, BOS: 111, CHC: 112,
   CWS: 145, CIN: 113, CLE: 114, COL: 115, DET: 116,
@@ -39,195 +39,87 @@ const DEMO_TEAMS = {
   HOU: { id: 117, abbreviation: "HOU", name: "Astros", full_name: "Houston Astros", league: "American League", division: "AL West" },
 };
 
-async function fetchTeamInfo(teamAbbr) {
-  try {
-    const { data } = await axios.get(`${MLB_BASE}/teams`, {
-      params: { sportId: 1 },
-    });
-    const team = data.teams.find(
-      (t) => t.abbreviation.toUpperCase() === teamAbbr.toUpperCase()
-    );
-    if (!team) {
-      console.error(`MLB team ${teamAbbr} not found`);
+class MlbAdapter extends BaseFreeApiAdapter {
+  TEAM_EMOJI = TEAM_EMOJI;
+  TEAM_IDS = TEAM_IDS;
+  DEMO_TEAMS = DEMO_TEAMS;
+
+  getSeasonYear() {
+    return new Date().getFullYear();
+  }
+
+  async fetchTeam(abbr) {
+    try {
+      const { data } = await axios.get(`${MLB_BASE}/teams`, {
+        params: { sportId: 1 },
+      });
+      const team = data.teams.find(
+        (t) => t.abbreviation.toUpperCase() === abbr.toUpperCase()
+      );
+      if (!team) {
+        console.error(`MLB team ${abbr} not found`);
+        return null;
+      }
+
+      const leagueName = LEAGUE_NAMES[team.league.id] || team.league.name;
+      const divisionName = DIVISION_NAMES[team.division.id] || team.division.name;
+
+      return {
+        id: team.id,
+        abbreviation: team.abbreviation,
+        name: team.teamName,
+        full_name: team.name,
+        league: leagueName,
+        division: divisionName,
+      };
+    } catch (error) {
+      console.error(`Failed to fetch MLB team: ${error.message}`);
       return null;
     }
-    const leagueName = LEAGUE_NAMES[team.league.id] || team.league.name;
-    const divisionName = DIVISION_NAMES[team.division.id] || team.division.name;
+  }
+
+  getGamesUrl(teamId, fromDate, toDate) {
+    const from = fromDate.toISOString().split("T")[0];
+    const to = toDate.toISOString().split("T")[0];
+    return `${MLB_BASE}/schedule?sportId=1&teamId=${teamId}&startDate=${from}&endDate=${to}`;
+  }
+
+  parseGameResponse(data) {
+    if (!data.dates) return [];
+    const games = [];
+    for (const dateEntry of data.dates) {
+      for (const game of dateEntry.games) {
+        games.push({
+          date: game.gameDateTime,
+          home_team: {
+            id: game.teams.home.team.id,
+            abbreviation: game.teams.home.team.abbreviation,
+          },
+          visitor_team: {
+            id: game.teams.away.team.id,
+            abbreviation: game.teams.away.team.abbreviation,
+          },
+          home_team_score: game.teams.home.score || 0,
+          visitor_team_score: game.teams.away.score || 0,
+          status: game.status.abstractGameState === "Final" ? "Final" : game.status.abstractGameState,
+        });
+      }
+    }
+    return games;
+  }
+
+  parseTeamResponse(data) {
+    if (!data.teams || data.teams.length === 0) return null;
+    const team = data.teams[0];
     return {
       id: team.id,
       abbreviation: team.abbreviation,
       name: team.teamName,
       full_name: team.name,
-      league: leagueName,
-      division: divisionName,
+      league: LEAGUE_NAMES[team.league.id] || team.league.name,
+      division: DIVISION_NAMES[team.division.id] || team.division.name,
     };
-  } catch (error) {
-    console.error(`Failed to fetch MLB team: ${error.message}`);
-    return null;
   }
 }
 
-async function fetchSeasonRecord(teamId) {
-  try {
-    const currentYear = new Date().getFullYear();
-    // Try current year first, fall back to previous if no data
-    const { data } = await axios.get(`${MLB_BASE}/standings`, {
-      params: {
-        leagueId: "103,104",
-        season: currentYear,
-        standingsTypes: "regularSeason",
-      },
-    });
-
-    for (const division of data.records) {
-      const teamRecord = division.teamRecords.find(
-        (t) => t.team.id === teamId
-      );
-      if (teamRecord) {
-        return {
-          wins: teamRecord.wins,
-          losses: teamRecord.losses,
-          season: currentYear,
-          winPct: teamRecord.winningPercentage,
-        };
-      }
-    }
-
-    // Try previous year if current year has no data
-    const { data: prevData } = await axios.get(`${MLB_BASE}/standings`, {
-      params: {
-        leagueId: "103,104",
-        season: currentYear - 1,
-        standingsTypes: "regularSeason",
-      },
-    });
-
-    for (const division of prevData.records) {
-      const teamRecord = division.teamRecords.find(
-        (t) => t.team.id === teamId
-      );
-      if (teamRecord) {
-        return {
-          wins: teamRecord.wins,
-          losses: teamRecord.losses,
-          season: currentYear - 1,
-          winPct: teamRecord.winningPercentage,
-        };
-      }
-    }
-
-    return { wins: 0, losses: 0, season: currentYear, winPct: ".000" };
-  } catch (error) {
-    console.error(`Failed to fetch MLB standings: ${error.message}`);
-    return { wins: 0, losses: 0, season: new Date().getFullYear(), winPct: ".000" };
-  }
-}
-
-async function fetchRecentGames(teamId, count = 5) {
-  try {
-    const today = new Date();
-    const pastDate = new Date(today);
-    pastDate.setDate(today.getDate() - 30);
-
-    const { data } = await axios.get(`${MLB_BASE}/schedule`, {
-      params: {
-        sportId: 1,
-        teamId,
-        startDate: pastDate.toISOString().split("T")[0],
-        endDate: today.toISOString().split("T")[0],
-      },
-    });
-
-    const games = [];
-    for (const date of (data.dates || [])) {
-      for (const game of date.games) {
-        if (game.status.abstractGameState === "Final") {
-          const isHome = game.teams.home.team.id === teamId;
-          const teamData = isHome ? game.teams.home : game.teams.away;
-          const oppData = isHome ? game.teams.away : game.teams.home;
-          games.push({
-            date: game.officialDate,
-            teamScore: teamData.score,
-            oppScore: oppData.score,
-            opponent: oppData.team.name,
-            oppAbbr: "", // Will be resolved below
-            oppId: oppData.team.id,
-            isHome,
-            won: teamData.isWinner,
-          });
-        }
-      }
-    }
-
-    // Resolve opponent abbreviations
-    if (games.length > 0) {
-      const { data: teamsData } = await axios.get(`${MLB_BASE}/teams`, {
-        params: { sportId: 1 },
-      });
-      const teamsMap = {};
-      for (const t of teamsData.teams) {
-        teamsMap[t.id] = t.abbreviation;
-      }
-      for (const game of games) {
-        game.oppAbbr = teamsMap[game.oppId] || "???";
-      }
-    }
-
-    return games
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .slice(0, count);
-  } catch (error) {
-    console.error(`Failed to fetch MLB schedule: ${error.message}`);
-    return [];
-  }
-}
-
-function getDemoData(teamAbbr) {
-  const abbr = teamAbbr.toUpperCase();
-  const team = DEMO_TEAMS[abbr] || {
-    id: 147, abbreviation: abbr, name: abbr,
-    full_name: `${abbr} Team`, league: "American League", division: "AL East",
-  };
-  const opponents = ["BOS", "NYM", "PHI", "ATL", "TOR"].filter((t) => t !== abbr);
-  const games = opponents.slice(0, 5).map((opp, i) => {
-    const won = Math.random() > 0.4;
-    const teamScore = won ? 4 + Math.floor(Math.random() * 6) : 1 + Math.floor(Math.random() * 3);
-    const oppScore = won ? 1 + Math.floor(Math.random() * 3) : 4 + Math.floor(Math.random() * 6);
-    const d = new Date();
-    d.setDate(d.getDate() - (i + 1));
-    return {
-      date: d.toISOString().split("T")[0],
-      teamScore,
-      oppScore,
-      oppAbbr: opp,
-      isHome: i % 2 === 0,
-      won,
-    };
-  });
-  return {
-    team,
-    recentGames: games,
-    record: { wins: 55, losses: 40, season: new Date().getFullYear(), winPct: ".579" },
-  };
-}
-
-async function fetchData(teamAbbr) {
-  const team = await fetchTeamInfo(teamAbbr);
-  if (!team) {
-    return null;
-  }
-
-  const [record, recentGames] = await Promise.all([
-    fetchSeasonRecord(team.id),
-    fetchRecentGames(team.id, 5),
-  ]);
-
-  return { team, recentGames, record };
-}
-
-module.exports = {
-  fetchData,
-  getDemoData,
-  TEAM_EMOJI,
-  TEAM_IDS,
-};
+module.exports = new MlbAdapter();

@@ -175,6 +175,44 @@ function renderNfl(data) {
   return lines.join("\n");
 }
 
+function renderNhl(data) {
+  const { team, recentGames, record, emoji, logoUrl } = data;
+  const lines = [];
+
+  lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
+  lines.push("");
+
+  lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
+  lines.push(`${team.conference} Conference · ${team.division} Division`);
+  lines.push("");
+
+  const winPct =
+    record.wins + record.losses > 0
+      ? ((record.wins / (record.wins + record.losses)) * 100).toFixed(1)
+      : "0.0";
+
+  if (record.wins + record.losses > 0) {
+    lines.push(
+      `📊 ${record.season}-${record.season + 1} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+    );
+    lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
+    lines.push("");
+  }
+
+  if (recentGames.length > 0) {
+    lines.push("**📅 Recent Games:**");
+    lines.push("```");
+    for (const game of recentGames) {
+      lines.push(formatGameResult(game, team.id));
+    }
+    lines.push("```");
+  } else {
+    lines.push("📅 No recent games found");
+  }
+
+  return lines.join("\n");
+}
+
 function render(sport, data) {
   switch (sport) {
     case "nba":
@@ -183,8 +221,10 @@ function render(sport, data) {
       return renderMlb(data);
     case "nfl":
       return renderNfl(data);
+    case "nhl":
+      return renderNhl(data);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl`);
   }
 }
 
