@@ -135,4 +135,4 @@ class NHLAdapter extends BaseFreeApiAdapter {
   }
 }
 
-module.exports = NHLAdapter;
+module.exports = new NHLAdapter();
