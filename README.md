@@ -64,43 +64,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: 23seriy/readme-scoreboard@main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          BDL_API_KEY: ${{ secrets.BDL_API_KEY }}
-          SPORT: nba
-          TEAM: LAL
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          api_key: ${{ secrets.BDL_API_KEY }}
+          sport: nba
+          team: LAL
 ```
 
-Change `TEAM` to your team's abbreviation (see table below). Done!
+Change `team` to your team's abbreviation (see table below). Done!
 
-#### MLB Example (no `BDL_API_KEY` needed)
+#### MLB Example (no `api_key` needed)
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SPORT: mlb
-          TEAM: NYY
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: mlb
+          team: NYY
 ```
 
-#### NFL Example (no `BDL_API_KEY` needed)
+#### NFL Example (no `api_key` needed)
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SPORT: nfl
-          TEAM: KC
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nfl
+          team: KC
 ```
 
-#### NHL Example (no `BDL_API_KEY` needed)
+#### NHL Example (no `api_key` needed)
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SPORT: nhl
-          TEAM: NYR
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nhl
+          team: NYR
 ```
 
 ---
@@ -112,7 +112,7 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 | 🏀 NBA | ✅ Available | [BallDontLie API](https://www.balldontlie.io/) | Required (free) |
 | ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) | **Not needed** |
 | 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
-| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://statsapi.web.nhl.com/api/v1/) | **Not needed** |
+| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) | **Not needed** |
 | ⚽ Soccer | 🔜 Coming soon | — | — |
 
 ---
@@ -130,14 +130,14 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 | <img src="https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg" width="20"> Chicago Bulls | CHI | | <img src="https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg" width="20"> LA Clippers | LAC |
 | <img src="https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg" width="20"> Cleveland Cavaliers | CLE | | <img src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg" width="20"> Los Angeles Lakers | LAL |
 | <img src="https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg" width="20"> Detroit Pistons | DET | | <img src="https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg" width="20"> Memphis Grizzlies | MEM |
-| <img src="https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg" width="20"> Indiana Pacers | IND | | <img src="https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg" width="20"> Milwaukee Bucks | MIL |
-| <img src="https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg" width="20"> Miami Heat | MIA | | <img src="https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg" width="20"> Minnesota Timberwolves | MIN |
-| <img src="https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg" width="20"> Milwaukee Bucks | MIL | | <img src="https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg" width="20"> New Orleans Pelicans | NOP |
-| <img src="https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg" width="20"> New York Knicks | NYK | | <img src="https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg" width="20"> Oklahoma City Thunder | OKC |
-| <img src="https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg" width="20"> Orlando Magic | ORL | | <img src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg" width="20"> Phoenix Suns | PHX |
-| <img src="https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg" width="20"> Philadelphia 76ers | PHI | | <img src="https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg" width="20"> Portland Trail Blazers | POR |
-| <img src="https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg" width="20"> Toronto Raptors | TOR | | <img src="https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg" width="20"> Sacramento Kings | SAC |
-| <img src="https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg" width="20"> Washington Wizards | WAS | | <img src="https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg" width="20"> San Antonio Spurs | SAS |
+| <img src="https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg" width="20"> Indiana Pacers | IND | | <img src="https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg" width="20"> Minnesota Timberwolves | MIN |
+| <img src="https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg" width="20"> Miami Heat | MIA | | <img src="https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg" width="20"> New Orleans Pelicans | NOP |
+| <img src="https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg" width="20"> Milwaukee Bucks | MIL | | <img src="https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg" width="20"> Oklahoma City Thunder | OKC |
+| <img src="https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg" width="20"> New York Knicks | NYK | | <img src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg" width="20"> Phoenix Suns | PHX |
+| <img src="https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg" width="20"> Orlando Magic | ORL | | <img src="https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg" width="20"> Portland Trail Blazers | POR |
+| <img src="https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg" width="20"> Philadelphia 76ers | PHI | | <img src="https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg" width="20"> Sacramento Kings | SAC |
+| <img src="https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg" width="20"> Toronto Raptors | TOR | | <img src="https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg" width="20"> San Antonio Spurs | SAS |
+| <img src="https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg" width="20"> Washington Wizards | WAS | | <img src="https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg" width="20"> Utah Jazz | UTA |
 
 </span>
 
@@ -182,16 +182,15 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/den.png" width="20"> Denver Broncos | DEN | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/dal.png" width="20"> Dallas Cowboys | DAL |
 | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" width="20"> Houston Texans | HOU | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/det.png" width="20"> Detroit Lions | DET |
 | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ind.png" width="20"> Indianapolis Colts | IND | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/gb.png" width="20"> Green Bay Packers | GB |
-| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" width="20"> Jacksonville Jaguars | JAX | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" width="20"> Los Angeles Chargers | LAC |
-| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/kc.png" width="20"> Kansas City Chiefs | KC | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" width="20"> Los Angeles Rams | LAR |
-| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" width="20"> Las Vegas Raiders | LV | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/min.png" width="20"> Minnesota Vikings | MIN |
-| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" width="20"> Miami Dolphins | MIA | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/no.png" width="20"> New Orleans Saints | NO |
-| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" width="20"> New England Patriots | NE | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" width="20"> New York Giants | NYG |
-| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" width="20"> New York Jets | NYJ | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" width="20"> Philadelphia Eagles | PHI |
-| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" width="20"> Pittsburgh Steelers | PIT | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" width="20"> San Francisco 49ers | SF |
-| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" width="20"> Tennessee Titans | TEN | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" width="20"> Seattle Seahawks | SEA |
-| | | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" width="20"> Tampa Bay Buccaneers | TB |
-| | | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/was.png" width="20"> Washington Commanders | WAS |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" width="20"> Jacksonville Jaguars | JAX | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" width="20"> Los Angeles Rams | LAR |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/kc.png" width="20"> Kansas City Chiefs | KC | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/min.png" width="20"> Minnesota Vikings | MIN |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" width="20"> Los Angeles Chargers | LAC | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/no.png" width="20"> New Orleans Saints | NO |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" width="20"> Las Vegas Raiders | LV | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" width="20"> New York Giants | NYG |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" width="20"> Miami Dolphins | MIA | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" width="20"> Philadelphia Eagles | PHI |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" width="20"> New England Patriots | NE | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" width="20"> San Francisco 49ers | SF |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" width="20"> New York Jets | NYJ | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" width="20"> Seattle Seahawks | SEA |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" width="20"> Pittsburgh Steelers | PIT | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" width="20"> Tampa Bay Buccaneers | TB |
+| <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" width="20"> Tennessee Titans | TEN | | <img src="https://a.espncdn.com/i/teamlogos/nfl/500/was.png" width="20"> Washington Commanders | WAS |
 
 </span>
 
@@ -204,19 +203,19 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 | 🏒 Eastern Conference | Abbr | | 🏒 Western Conference | Abbr |
 |---|------|---|---|------|
 | <img src="https://assets.nhle.com/logos/nhl/svg/BOS_dark.svg" width="20"> Boston Bruins | BOS | | <img src="https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg" width="20"> Anaheim Ducks | ANA |
-| <img src="https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg" width="20"> Buffalo Sabres | BUF | | <img src="https://assets.nhle.com/logos/nhl/svg/ARI_dark.svg" width="20"> Arizona Coyotes | ARI |
+| <img src="https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg" width="20"> Buffalo Sabres | BUF | | <img src="https://assets.nhle.com/logos/nhl/svg/UTA_dark.svg" width="20"> Utah Hockey Club | UTA |
 | <img src="https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg" width="20"> Carolina Hurricanes | CAR | | <img src="https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg" width="20"> Calgary Flames | CGY |
 | <img src="https://assets.nhle.com/logos/nhl/svg/CBJ_dark.svg" width="20"> Columbus Blue Jackets | CBJ | | <img src="https://assets.nhle.com/logos/nhl/svg/CHI_dark.svg" width="20"> Chicago Blackhawks | CHI |
 | <img src="https://assets.nhle.com/logos/nhl/svg/DET_dark.svg" width="20"> Detroit Red Wings | DET | | <img src="https://assets.nhle.com/logos/nhl/svg/COL_dark.svg" width="20"> Colorado Avalanche | COL |
 | <img src="https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg" width="20"> Florida Panthers | FLA | | <img src="https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg" width="20"> Dallas Stars | DAL |
 | <img src="https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg" width="20"> Montreal Canadiens | MTL | | <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" width="20"> Edmonton Oilers | EDM |
-| <img src="https://assets.nhle.com/logos/nhl/svg/NJ_dark.svg" width="20"> New Jersey Devils | NJ | | <img src="https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg" width="20"> Los Angeles Kings | LAK |
+| <img src="https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg" width="20"> New Jersey Devils | NJ | | <img src="https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg" width="20"> Los Angeles Kings | LAK |
 | <img src="https://assets.nhle.com/logos/nhl/svg/NYI_dark.svg" width="20"> New York Islanders | NYI | | <img src="https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg" width="20"> Minnesota Wild | MIN |
 | <img src="https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg" width="20"> New York Rangers | NYR | | <img src="https://assets.nhle.com/logos/nhl/svg/NSH_dark.svg" width="20"> Nashville Predators | NSH |
 | <img src="https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg" width="20"> Ottawa Senators | OTT | | <img src="https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg" width="20"> Seattle Kraken | SEA |
-| <img src="https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg" width="20"> Philadelphia Flyers | PHI | | <img src="https://assets.nhle.com/logos/nhl/svg/SJ_dark.svg" width="20"> San Jose Sharks | SJ |
+| <img src="https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg" width="20"> Philadelphia Flyers | PHI | | <img src="https://assets.nhle.com/logos/nhl/svg/SJS_dark.svg" width="20"> San Jose Sharks | SJ |
 | <img src="https://assets.nhle.com/logos/nhl/svg/PIT_dark.svg" width="20"> Pittsburgh Penguins | PIT | | <img src="https://assets.nhle.com/logos/nhl/svg/STL_dark.svg" width="20"> St. Louis Blues | STL |
-| <img src="https://assets.nhle.com/logos/nhl/svg/TB_dark.svg" width="20"> Tampa Bay Lightning | TB | | <img src="https://assets.nhle.com/logos/nhl/svg/VAN_dark.svg" width="20"> Vancouver Canucks | VAN |
+| <img src="https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg" width="20"> Tampa Bay Lightning | TB | | <img src="https://assets.nhle.com/logos/nhl/svg/VAN_dark.svg" width="20"> Vancouver Canucks | VAN |
 | <img src="https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg" width="20"> Toronto Maple Leafs | TOR | | <img src="https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg" width="20"> Vegas Golden Knights | VGK |
 | <img src="https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg" width="20"> Washington Capitals | WSH | | <img src="https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg" width="20"> Winnipeg Jets | WPG |
 
@@ -260,15 +259,16 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 
 ---
 
-## Environment Variables
+## Action Inputs (`with:`)
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `SPORT` | No | Sport adapter to use (default: `nba`) |
-| `TEAM` | Yes | Team abbreviation (e.g., `LAL`, `BOS`) |
-| `GH_TOKEN` | Yes* | GitHub token with `repo` scope |
-| `BDL_API_KEY` | NBA only | BallDontLie API key (not needed for MLB) |
-| `TARGET_REPO` | No | Target repo (default: your profile repo) |
+| Input | Required | Default | Description |
+|-------|----------|---------|-------------|
+| `gh_token` | Yes* | — | GitHub token with `repo` scope |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl` |
+| `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`) |
+| `api_key` | NBA only | — | BallDontLie API key (not needed for other sports) |
+| `marker` | No | `readme-scoreboard` | HTML comment marker name — use unique names for multiple scoreboards in one README |
+| `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
 
 \* Not required in `--demo` mode.
 
