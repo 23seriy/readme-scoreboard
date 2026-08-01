@@ -11,8 +11,6 @@ function getMarkers(markerName) {
   };
 }
 
-const { START_MARKER, END_MARKER } = getMarkers();
-
 async function updateReadme(octokit, targetRepo, content, markerName) {
   const [owner, repo] = targetRepo.split("/");
 
@@ -108,4 +106,4 @@ function updateReadmeLocal(workspacePath, content, markerName) {
   console.log("✅ README.md updated on disk — workflow will commit if changed.");
 }
 
-module.exports = { updateReadme, updateReadmeLocal, START_MARKER, END_MARKER };
+module.exports = { updateReadme, updateReadmeLocal };

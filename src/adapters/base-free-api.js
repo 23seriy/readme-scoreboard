@@ -7,19 +7,34 @@ class BaseFreeApiAdapter {
     }
   }
 
-  async fetchData(teamAbbr, apiKey) {
+  async fetchData(teamAbbr) {
     try {
       const team = await this.fetchTeamByAbbr(teamAbbr);
       if (!team) return null;
 
-      const record = await this.fetchSeasonRecord(team.id);
-      const recentGames = await this.fetchRecentGames(team.id, 5);
+      const fromDate = new Date();
+      fromDate.setDate(fromDate.getDate() - 365);
+      const url = this.getGamesUrl(team.id, fromDate, new Date());
+      const { data } = await axios.get(url);
+      const allGames = this.parseGameResponse(data);
+      const season = this.getSeasonYear();
 
-      return {
-        team,
-        record,
-        recentGames,
-      };
+      let wins = 0, losses = 0;
+      const finalGames = allGames.filter((g) => g.status === "Final");
+      for (const game of finalGames) {
+        const isHome = game.home_team.id === team.id;
+        const teamScore = isHome ? game.home_team_score : game.visitor_team_score;
+        const oppScore = isHome ? game.visitor_team_score : game.home_team_score;
+        if (teamScore > oppScore) wins++;
+        else losses++;
+      }
+
+      const record = { wins, losses, season };
+      const recentGames = finalGames
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 5);
+
+      return { team, record, recentGames };
     } catch (error) {
       console.error(`Failed to fetch data: ${error.message}`);
       return null;
@@ -135,19 +150,19 @@ class BaseFreeApiAdapter {
     }
   }
 
-  async fetchTeam(abbr) {
+  async fetchTeam(_abbr) {
     throw new Error("fetchTeam() must be implemented by subclass");
   }
 
-  getGamesUrl(teamId, fromDate, toDate) {
+  getGamesUrl(_teamId, _fromDate, _toDate) {
     throw new Error("getGamesUrl() must be implemented by subclass");
   }
 
-  parseGameResponse(data) {
+  parseGameResponse(_data) {
     throw new Error("parseGameResponse() must be implemented by subclass");
   }
 
-  parseTeamResponse(data) {
+  parseTeamResponse(_data) {
     throw new Error("parseTeamResponse() must be implemented by subclass");
   }
 

@@ -9,42 +9,18 @@ describe("BaseFreeApiAdapter", () => {
 
   it("should calculate season year correctly for months 1-9", () => {
     const mockAdapter = createMockAdapter();
-    const originalDate = Date;
-    const mockDate = new Date("2026-05-15");
-    global.Date = class extends originalDate {
-      constructor(...args) {
-        if (args.length === 0) return mockDate;
-        return super(...args);
-      }
-      static now() {
-        return mockDate.getTime();
-      }
-    };
-    global.Date.prototype = originalDate.prototype;
-
+    const RealDate = Date;
+    jest.spyOn(global, "Date").mockImplementation(() => new RealDate("2026-05-15"));
     expect(mockAdapter.getSeasonYear()).toBe(2025);
-
-    global.Date = originalDate;
+    jest.restoreAllMocks();
   });
 
   it("should calculate season year correctly for months 10-12", () => {
     const mockAdapter = createMockAdapter();
-    const originalDate = Date;
-    const mockDate = new Date("2026-10-15");
-    global.Date = class extends originalDate {
-      constructor(...args) {
-        if (args.length === 0) return mockDate;
-        return super(...args);
-      }
-      static now() {
-        return mockDate.getTime();
-      }
-    };
-    global.Date.prototype = originalDate.prototype;
-
+    const RealDate = Date;
+    jest.spyOn(global, "Date").mockImplementation(() => new RealDate("2026-10-15"));
     expect(mockAdapter.getSeasonYear()).toBe(2026);
-
-    global.Date = originalDate;
+    jest.restoreAllMocks();
   });
 
   it("should return demo data for valid team", () => {
@@ -83,15 +59,15 @@ function createMockAdapter() {
       return this.DEMO_TEAMS[abbr.toUpperCase()] || null;
     }
 
-    getGamesUrl(teamId, fromDate, toDate) {
+    getGamesUrl(_teamId, _fromDate, _toDate) {
       return `https://api.example.com/games`;
     }
 
-    parseGameResponse(data) {
+    parseGameResponse(_data) {
       return [];
     }
 
-    parseTeamResponse(data) {
+    parseTeamResponse(_data) {
       return null;
     }
   }

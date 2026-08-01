@@ -1,15 +1,15 @@
 const axios = require("axios");
 const BaseFreeApiAdapter = require("./base-free-api");
 
-const NHL_BASE = "https://statsapi.web.nhl.com/api/v1";
+const NHL_BASE = "https://api-web.nhle.com/v1";
 
 class NHLAdapter extends BaseFreeApiAdapter {
   TEAM_EMOJI = {
     ANA: "🦆", ARI: "🐺", BOS: "🐻", BUF: "🦬", CAR: "🐱",
     CBJ: "💣", CGY: "🔥", CHI: "🐂", COL: "🏔️", DAL: "⭐",
-    DET: "🐙", EDM: "🧡", FLA: "🐆", LAK: "👑", MIN: "🐺",
-    MTL: "🔴", NJ: "😈", NSH: "⚡", NYI: "🗽", NYR: "🦢",
-    OTT: "🦴", PHI: "🔔", PIT: "🐧", SJ: "🦈", SEA: "⚓",
+    DET: "🐙", EDM: "🧡", FLA: "🐆", LAK: "👑", MIN: "🌲",
+    MTL: "🔴", NJ: "😈", NSH: "🎸", NYI: "🗽", NYR: "🦢",
+    OTT: "🏛️", PHI: "🔔", PIT: "🐧", SJ: "🦈", SEA: "⚓",
     STL: "🦁", TB: "⚡", TOR: "🍁", VAN: "🐋", VGK: "🏆",
     WPG: "✈️", WSH: "🧙",
   };
@@ -75,19 +75,20 @@ class NHLAdapter extends BaseFreeApiAdapter {
 
   async fetchTeam(abbr) {
     try {
-      const { data } = await axios.get(`${NHL_BASE}/teams`);
-      const team = data.teams.find(
-        (t) => t.abbreviation.toUpperCase() === abbr.toUpperCase()
+      const { data } = await axios.get(`${NHL_BASE}/standings/now`);
+      const standings = data.standings || [];
+      const entry = standings.find(
+        (s) => s.teamAbbrev.default.toUpperCase() === abbr.toUpperCase()
       );
-      if (!team) return null;
+      if (!entry) return null;
 
       return {
-        id: team.id,
-        abbreviation: team.abbreviation,
-        name: team.teamName,
-        full_name: team.name,
-        conference: team.conference.name,
-        division: team.division.name,
+        id: entry.teamId,
+        abbreviation: entry.teamAbbrev.default,
+        name: entry.teamCommonName.default,
+        full_name: entry.teamName.default,
+        conference: entry.conferenceName,
+        division: entry.divisionName,
       };
     } catch (error) {
       console.error(`Failed to fetch NHL team: ${error.message}`);
@@ -95,50 +96,41 @@ class NHLAdapter extends BaseFreeApiAdapter {
     }
   }
 
-  getGamesUrl(teamId, fromDate, toDate) {
-    const from = fromDate.toISOString().split("T")[0];
-    const to = toDate.toISOString().split("T")[0];
-    return `${NHL_BASE}/schedule?teamId=${teamId}&startDate=${from}&endDate=${to}`;
+  getGamesUrl(teamId) {
+    const abbr = Object.keys(this.TEAM_IDS).find((k) => this.TEAM_IDS[k] === teamId);
+    if (!abbr) throw new Error(`Unknown NHL team ID: ${teamId}`);
+    return `${NHL_BASE}/club-schedule-season/${abbr.toLowerCase()}/now`;
   }
 
   parseGameResponse(data) {
-    if (!data.dates || !Array.isArray(data.dates)) return [];
-
-    const games = [];
-    for (const dateEntry of data.dates) {
-      if (dateEntry.games && Array.isArray(dateEntry.games)) {
-        for (const game of dateEntry.games) {
-          games.push({
-            date: game.gameDateTime,
-            home_team: {
-              id: game.teams.home.team.id,
-              abbreviation: game.teams.home.team.abbreviation,
-            },
-            visitor_team: {
-              id: game.teams.away.team.id,
-              abbreviation: game.teams.away.team.abbreviation,
-            },
-            home_team_score: game.teams.home.score || 0,
-            visitor_team_score: game.teams.away.score || 0,
-            status: game.status.abstractGameState === "Final" ? "Final" : "InProgress",
-          });
-        }
-      }
-    }
-    return games;
+    const games = data.games || [];
+    return games.map((game) => ({
+      date: game.startTimeUTC,
+      home_team: {
+        id: game.homeTeam.id,
+        abbreviation: game.homeTeam.abbrev,
+      },
+      visitor_team: {
+        id: game.awayTeam.id,
+        abbreviation: game.awayTeam.abbrev,
+      },
+      home_team_score: game.homeTeam.score ?? 0,
+      visitor_team_score: game.awayTeam.score ?? 0,
+      status: game.gameState === "OFF" || game.gameState === "FINAL" ? "Final" : "InProgress",
+    }));
   }
 
   parseTeamResponse(data) {
-    if (!data.teams || data.teams.length === 0) return null;
-
-    const team = data.teams[0];
+    const standings = data.standings || [];
+    if (standings.length === 0) return null;
+    const entry = standings[0];
     return {
-      id: team.id,
-      abbreviation: team.abbreviation,
-      name: team.teamName,
-      full_name: team.name,
-      conference: team.conference.name,
-      division: team.division.name,
+      id: entry.teamId,
+      abbreviation: entry.teamAbbrev.default,
+      name: entry.teamCommonName.default,
+      full_name: entry.teamName.default,
+      conference: entry.conferenceName,
+      division: entry.divisionName,
     };
   }
 }
