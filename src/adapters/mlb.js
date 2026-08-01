@@ -89,19 +89,22 @@ class MlbAdapter extends BaseFreeApiAdapter {
     const games = [];
     for (const dateEntry of data.dates) {
       for (const game of dateEntry.games) {
+        const homeTeam = game.teams?.home?.team;
+        const awayTeam = game.teams?.away?.team;
+        if (!homeTeam?.id || !awayTeam?.id) continue;
         games.push({
-          date: game.gameDateTime,
+          date: game.gameDateTime || game.officialDate,
           home_team: {
-            id: game.teams.home.team.id,
-            abbreviation: game.teams.home.team.abbreviation,
+            id: homeTeam.id,
+            abbreviation: homeTeam.abbreviation || "???",
           },
           visitor_team: {
-            id: game.teams.away.team.id,
-            abbreviation: game.teams.away.team.abbreviation,
+            id: awayTeam.id,
+            abbreviation: awayTeam.abbreviation || "???",
           },
           home_team_score: game.teams.home.score || 0,
           visitor_team_score: game.teams.away.score || 0,
-          status: game.status.abstractGameState === "Final" ? "Final" : game.status.abstractGameState,
+          status: game.status?.abstractGameState === "Final" ? "Final" : (game.status?.abstractGameState || "Unknown"),
         });
       }
     }
