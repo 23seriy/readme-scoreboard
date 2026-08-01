@@ -69,15 +69,20 @@ function renderNba(data) {
   return lines.join("\n");
 }
 
-function formatMlbGameResult(game) {
-  const prefix = game.isHome ? "vs" : "@";
-  const result = game.won ? "W" : "L";
-  const dateStr = new Date(game.date + "T12:00:00").toLocaleDateString("en-US", {
+function formatMlbGameResult(game, teamId) {
+  const isHome = game.home_team.id === teamId;
+  const teamScore = isHome ? game.home_team_score : game.visitor_team_score;
+  const oppScore = isHome ? game.visitor_team_score : game.home_team_score;
+  const opponent = isHome ? game.visitor_team : game.home_team;
+  const won = teamScore > oppScore;
+  const prefix = isHome ? "vs" : "@";
+  const result = won ? "W" : "L";
+  const dateStr = new Date(game.date).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
   });
 
-  return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})`;
+  return `${won ? "✅" : "❌"} ${result} ${String(teamScore).padStart(2)}-${String(oppScore).padEnd(2)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})`;
 }
 
 function renderMlb(data) {
@@ -112,7 +117,7 @@ function renderMlb(data) {
     lines.push("**📅 Recent Games:**");
     lines.push("```");
     for (const game of recentGames) {
-      lines.push(formatMlbGameResult(game));
+      lines.push(formatMlbGameResult(game, team.id));
     }
     lines.push("```");
   } else {
