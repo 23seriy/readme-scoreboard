@@ -1,11 +1,6 @@
-const NHLAdapter = require("../../src/adapters/nhl");
+const adapter = require("../../src/adapters/nhl");
 
 describe("NHLAdapter", () => {
-  let adapter;
-
-  beforeEach(() => {
-    adapter = new NHLAdapter();
-  });
 
   describe("TEAM_EMOJI", () => {
     it("should have emojis for all 32 NHL teams", () => {

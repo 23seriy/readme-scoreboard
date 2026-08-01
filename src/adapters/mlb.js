@@ -84,6 +84,10 @@ class MlbAdapter extends BaseFreeApiAdapter {
     return `${MLB_BASE}/schedule?sportId=1&teamId=${teamId}&startDate=${from}&endDate=${to}`;
   }
 
+  abbrById(id) {
+    return Object.keys(TEAM_IDS).find((k) => TEAM_IDS[k] === id) || "???";
+  }
+
   parseGameResponse(data) {
     if (!data.dates) return [];
     const games = [];
@@ -96,11 +100,11 @@ class MlbAdapter extends BaseFreeApiAdapter {
           date: game.gameDateTime || game.officialDate,
           home_team: {
             id: homeTeam.id,
-            abbreviation: homeTeam.abbreviation || "???",
+            abbreviation: homeTeam.abbreviation || this.abbrById(homeTeam.id),
           },
           visitor_team: {
             id: awayTeam.id,
-            abbreviation: awayTeam.abbreviation || "???",
+            abbreviation: awayTeam.abbreviation || this.abbrById(awayTeam.id),
           },
           home_team_score: game.teams.home.score || 0,
           visitor_team_score: game.teams.away.score || 0,
