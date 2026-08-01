@@ -64,43 +64,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: 23seriy/readme-scoreboard@main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          BDL_API_KEY: ${{ secrets.BDL_API_KEY }}
-          SPORT: nba
-          TEAM: LAL
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          api_key: ${{ secrets.BDL_API_KEY }}
+          sport: nba
+          team: LAL
 ```
 
-Change `TEAM` to your team's abbreviation (see table below). Done!
+Change `team` to your team's abbreviation (see table below). Done!
 
-#### MLB Example (no `BDL_API_KEY` needed)
+#### MLB Example (no `api_key` needed)
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SPORT: mlb
-          TEAM: NYY
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: mlb
+          team: NYY
 ```
 
-#### NFL Example (no `BDL_API_KEY` needed)
+#### NFL Example (no `api_key` needed)
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SPORT: nfl
-          TEAM: KC
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nfl
+          team: KC
 ```
 
-#### NHL Example (no `BDL_API_KEY` needed)
+#### NHL Example (no `api_key` needed)
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SPORT: nhl
-          TEAM: NYR
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nhl
+          team: NYR
 ```
 
 ---
@@ -112,7 +112,7 @@ Change `TEAM` to your team's abbreviation (see table below). Done!
 | 🏀 NBA | ✅ Available | [BallDontLie API](https://www.balldontlie.io/) | Required (free) |
 | ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) | **Not needed** |
 | 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
-| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://statsapi.web.nhl.com/api/v1/) | **Not needed** |
+| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) | **Not needed** |
 | ⚽ Soccer | 🔜 Coming soon | — | — |
 
 ---
