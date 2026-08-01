@@ -1,3 +1,4 @@
+const axios = require("axios");
 const BaseFreeApiAdapter = require("./base-free-api");
 
 const NHL_BASE = "https://api-web.nhle.com/v1";

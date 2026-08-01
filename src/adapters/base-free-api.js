@@ -7,17 +7,15 @@ class BaseFreeApiAdapter {
     }
   }
 
-  async fetchData(teamAbbr, apiKey) {
+  async fetchData(teamAbbr) {
     try {
       const team = await this.fetchTeamByAbbr(teamAbbr);
       if (!team) return null;
 
-      const url = this.getGamesUrl(team.id, (() => {
-        const d = new Date();
-        d.setDate(d.getDate() - 365);
-        return d;
-      })(), new Date());
-      const { data } = await require("axios").get(url);
+      const fromDate = new Date();
+      fromDate.setDate(fromDate.getDate() - 365);
+      const url = this.getGamesUrl(team.id, fromDate, new Date());
+      const { data } = await axios.get(url);
       const allGames = this.parseGameResponse(data);
       const season = this.getSeasonYear();
 
@@ -152,19 +150,19 @@ class BaseFreeApiAdapter {
     }
   }
 
-  async fetchTeam(abbr) {
+  async fetchTeam(_abbr) {
     throw new Error("fetchTeam() must be implemented by subclass");
   }
 
-  getGamesUrl(teamId, fromDate, toDate) {
+  getGamesUrl(_teamId, _fromDate, _toDate) {
     throw new Error("getGamesUrl() must be implemented by subclass");
   }
 
-  parseGameResponse(data) {
+  parseGameResponse(_data) {
     throw new Error("parseGameResponse() must be implemented by subclass");
   }
 
-  parseTeamResponse(data) {
+  parseTeamResponse(_data) {
     throw new Error("parseTeamResponse() must be implemented by subclass");
   }
 

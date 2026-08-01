@@ -245,37 +245,17 @@ describe("NHLAdapter", () => {
 
   describe("getSeasonYear", () => {
     it("should return previous year for months 1-9", () => {
-      const originalDate = global.Date;
-      const mockDate = new Date("2025-05-15");
-
-      global.Date = class extends originalDate {
-        constructor(...args) {
-          if (args.length === 0) return mockDate;
-          return super(...args);
-        }
-        static now() { return mockDate.getTime(); }
-      };
-      global.Date.prototype = originalDate.prototype;
-
+      const RealDate = Date;
+      jest.spyOn(global, "Date").mockImplementation(() => new RealDate("2025-05-15"));
       expect(adapter.getSeasonYear()).toBe(2024);
-      global.Date = originalDate;
+      jest.restoreAllMocks();
     });
 
     it("should return current year for months 10-12", () => {
-      const originalDate = global.Date;
-      const mockDate = new Date("2025-10-15");
-
-      global.Date = class extends originalDate {
-        constructor(...args) {
-          if (args.length === 0) return mockDate;
-          return super(...args);
-        }
-        static now() { return mockDate.getTime(); }
-      };
-      global.Date.prototype = originalDate.prototype;
-
+      const RealDate = Date;
+      jest.spyOn(global, "Date").mockImplementation(() => new RealDate("2025-10-15"));
       expect(adapter.getSeasonYear()).toBe(2025);
-      global.Date = originalDate;
+      jest.restoreAllMocks();
     });
   });
 });
