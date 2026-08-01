@@ -130,14 +130,14 @@ Change `team` to your team's abbreviation (see table below). Done!
 | <img src="https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg" width="20"> Chicago Bulls | CHI | | <img src="https://cdn.nba.com/logos/nba/1610612746/global/L/logo.svg" width="20"> LA Clippers | LAC |
 | <img src="https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg" width="20"> Cleveland Cavaliers | CLE | | <img src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg" width="20"> Los Angeles Lakers | LAL |
 | <img src="https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg" width="20"> Detroit Pistons | DET | | <img src="https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg" width="20"> Memphis Grizzlies | MEM |
-| <img src="https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg" width="20"> Indiana Pacers | IND | | <img src="https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg" width="20"> Milwaukee Bucks | MIL |
-| <img src="https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg" width="20"> Miami Heat | MIA | | <img src="https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg" width="20"> Minnesota Timberwolves | MIN |
-| <img src="https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg" width="20"> Milwaukee Bucks | MIL | | <img src="https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg" width="20"> New Orleans Pelicans | NOP |
-| <img src="https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg" width="20"> New York Knicks | NYK | | <img src="https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg" width="20"> Oklahoma City Thunder | OKC |
-| <img src="https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg" width="20"> Orlando Magic | ORL | | <img src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg" width="20"> Phoenix Suns | PHX |
-| <img src="https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg" width="20"> Philadelphia 76ers | PHI | | <img src="https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg" width="20"> Portland Trail Blazers | POR |
-| <img src="https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg" width="20"> Toronto Raptors | TOR | | <img src="https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg" width="20"> Sacramento Kings | SAC |
-| <img src="https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg" width="20"> Washington Wizards | WAS | | <img src="https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg" width="20"> San Antonio Spurs | SAS |
+| <img src="https://cdn.nba.com/logos/nba/1610612754/global/L/logo.svg" width="20"> Indiana Pacers | IND | | <img src="https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg" width="20"> Minnesota Timberwolves | MIN |
+| <img src="https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg" width="20"> Miami Heat | MIA | | <img src="https://cdn.nba.com/logos/nba/1610612740/global/L/logo.svg" width="20"> New Orleans Pelicans | NOP |
+| <img src="https://cdn.nba.com/logos/nba/1610612749/global/L/logo.svg" width="20"> Milwaukee Bucks | MIL | | <img src="https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg" width="20"> Oklahoma City Thunder | OKC |
+| <img src="https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg" width="20"> New York Knicks | NYK | | <img src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg" width="20"> Phoenix Suns | PHX |
+| <img src="https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg" width="20"> Orlando Magic | ORL | | <img src="https://cdn.nba.com/logos/nba/1610612757/global/L/logo.svg" width="20"> Portland Trail Blazers | POR |
+| <img src="https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg" width="20"> Philadelphia 76ers | PHI | | <img src="https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg" width="20"> Sacramento Kings | SAC |
+| <img src="https://cdn.nba.com/logos/nba/1610612761/global/L/logo.svg" width="20"> Toronto Raptors | TOR | | <img src="https://cdn.nba.com/logos/nba/1610612759/global/L/logo.svg" width="20"> San Antonio Spurs | SAS |
+| <img src="https://cdn.nba.com/logos/nba/1610612764/global/L/logo.svg" width="20"> Washington Wizards | WAS | | <img src="https://cdn.nba.com/logos/nba/1610612762/global/L/logo.svg" width="20"> Utah Jazz | UTA |
 
 </span>
 
@@ -203,7 +203,7 @@ Change `team` to your team's abbreviation (see table below). Done!
 | 🏒 Eastern Conference | Abbr | | 🏒 Western Conference | Abbr |
 |---|------|---|---|------|
 | <img src="https://assets.nhle.com/logos/nhl/svg/BOS_dark.svg" width="20"> Boston Bruins | BOS | | <img src="https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg" width="20"> Anaheim Ducks | ANA |
-| <img src="https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg" width="20"> Buffalo Sabres | BUF | | <img src="https://assets.nhle.com/logos/nhl/svg/ARI_dark.svg" width="20"> Arizona Coyotes | ARI |
+| <img src="https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg" width="20"> Buffalo Sabres | BUF | | <img src="https://assets.nhle.com/logos/nhl/svg/UTA_dark.svg" width="20"> Utah Hockey Club | UTA |
 | <img src="https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg" width="20"> Carolina Hurricanes | CAR | | <img src="https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg" width="20"> Calgary Flames | CGY |
 | <img src="https://assets.nhle.com/logos/nhl/svg/CBJ_dark.svg" width="20"> Columbus Blue Jackets | CBJ | | <img src="https://assets.nhle.com/logos/nhl/svg/CHI_dark.svg" width="20"> Chicago Blackhawks | CHI |
 | <img src="https://assets.nhle.com/logos/nhl/svg/DET_dark.svg" width="20"> Detroit Red Wings | DET | | <img src="https://assets.nhle.com/logos/nhl/svg/COL_dark.svg" width="20"> Colorado Avalanche | COL |
@@ -259,15 +259,16 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 
 ---
 
-## Environment Variables
+## Action Inputs (`with:`)
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `SPORT` | No | Sport adapter to use (default: `nba`) |
-| `TEAM` | Yes | Team abbreviation (e.g., `LAL`, `BOS`) |
-| `GH_TOKEN` | Yes* | GitHub token with `repo` scope |
-| `BDL_API_KEY` | NBA only | BallDontLie API key (not needed for MLB) |
-| `TARGET_REPO` | No | Target repo (default: your profile repo) |
+| Input | Required | Default | Description |
+|-------|----------|---------|-------------|
+| `gh_token` | Yes* | — | GitHub token with `repo` scope |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl` |
+| `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`) |
+| `api_key` | NBA only | — | BallDontLie API key (not needed for other sports) |
+| `marker` | No | `readme-scoreboard` | HTML comment marker name — use unique names for multiple scoreboards in one README |
+| `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
 
 \* Not required in `--demo` mode.
 
