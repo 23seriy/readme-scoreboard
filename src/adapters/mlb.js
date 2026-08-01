@@ -96,6 +96,11 @@ class MlbAdapter extends BaseFreeApiAdapter {
         const homeTeam = game.teams?.home?.team;
         const awayTeam = game.teams?.away?.team;
         if (!homeTeam?.id || !awayTeam?.id) continue;
+        const homeScore = game.teams.home.score ?? 0;
+        const awayScore = game.teams.away.score ?? 0;
+        const isFinal = game.status?.abstractGameState === "Final";
+        // Exclude postponed/cancelled games recorded as Final with 0-0 score
+        const isRealFinal = isFinal && (homeScore > 0 || awayScore > 0);
         games.push({
           date: game.gameDateTime || game.officialDate,
           home_team: {
@@ -106,9 +111,9 @@ class MlbAdapter extends BaseFreeApiAdapter {
             id: awayTeam.id,
             abbreviation: awayTeam.abbreviation || this.abbrById(awayTeam.id),
           },
-          home_team_score: game.teams.home.score || 0,
-          visitor_team_score: game.teams.away.score || 0,
-          status: game.status?.abstractGameState === "Final" ? "Final" : "Other",
+          home_team_score: homeScore,
+          visitor_team_score: awayScore,
+          status: isRealFinal ? "Final" : "Other",
         });
       }
     }

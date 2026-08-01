@@ -33,6 +33,17 @@ describe("MlbAdapter", () => {
       expect(games[0].visitor_team_score).toBe(2);
     });
 
+    it("should mark postponed/cancelled games (Final, 0-0) as Other", () => {
+      const response = {
+        dates: [{
+          games: [makeGame({ homeId: 141, awayId: 112, homeAbbr: "TOR", awayAbbr: "CHC", homeScore: 0, awayScore: 0, state: "Final" })],
+        }],
+      };
+      const games = adapter.parseGameResponse(response);
+      expect(games.length).toBe(1);
+      expect(games[0].status).toBe("Other");
+    });
+
     it("should mark non-Final games as Other (not Final)", () => {
       const response = {
         dates: [{
