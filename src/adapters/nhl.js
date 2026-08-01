@@ -74,30 +74,38 @@ class NHLAdapter extends BaseFreeApiAdapter {
   };
 
   async fetchTeam(abbr) {
-    try {
-      const { data } = await axios.get(`${NHL_BASE}/standings/now`);
-      const standings = data.standings || [];
-      const entry = standings.find(
-        (s) => s.teamAbbrev.default.toUpperCase() === abbr.toUpperCase()
-      );
-      if (!entry) return null;
+    const upper = abbr.toUpperCase();
+    const id = this.TEAM_IDS[upper];
+    if (!id) return null;
 
-      return {
-        id: entry.teamId,
-        abbreviation: entry.teamAbbrev.default,
-        name: entry.teamCommonName.default,
-        full_name: entry.teamName.default,
-        conference: entry.conferenceName,
-        division: entry.divisionName,
-      };
+    try {
+      const { data } = await axios.get(`${NHL_BASE}/club-schedule-season/${upper.toLowerCase()}/now`);
+      const games = data.games || [];
+      const sample = games[0];
+
+      let teamName = upper;
+      let fullName = upper;
+      let conference = "";
+      let division = "";
+
+      if (sample) {
+        const isHome = sample.homeTeam.abbrev === upper;
+        const teamData = isHome ? sample.homeTeam : sample.awayTeam;
+        teamName = teamData.commonName?.default || upper;
+        fullName = teamData.placeName?.default
+          ? `${teamData.placeName.default} ${teamName}`
+          : teamName;
+      }
+
+      return { id, abbreviation: upper, name: teamName, full_name: fullName, conference, division };
     } catch (error) {
-      console.error(`Failed to fetch NHL team: ${error.message}`);
-      return null;
+      console.error(`Failed to fetch NHL team info: ${error.message}`);
+      return { id, abbreviation: upper, name: upper, full_name: upper, conference: "", division: "" };
     }
   }
 
   getGamesUrl(teamId) {
-    const abbr = Object.keys(this.TEAM_IDS).find((k) => this.TEAM_IDS[k] === teamId);
+    const abbr = Object.keys(this.TEAM_IDS).find((k) => this.TEAM_IDS[k] === Number(teamId));
     if (!abbr) throw new Error(`Unknown NHL team ID: ${teamId}`);
     return `${NHL_BASE}/club-schedule-season/${abbr.toLowerCase()}/now`;
   }
