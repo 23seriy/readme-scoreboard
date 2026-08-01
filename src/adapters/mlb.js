@@ -108,7 +108,7 @@ class MlbAdapter extends BaseFreeApiAdapter {
           },
           home_team_score: game.teams.home.score || 0,
           visitor_team_score: game.teams.away.score || 0,
-          status: game.status?.abstractGameState === "Final" ? "Final" : (game.status?.abstractGameState || "Unknown"),
+          status: game.status?.abstractGameState === "Final" ? "Final" : "Other",
         });
       }
     }

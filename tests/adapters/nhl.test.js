@@ -238,6 +238,54 @@ describe("NHLAdapter", () => {
     });
   });
 
+  describe("getSeasonCode", () => {
+    it("should format season as concatenated years", () => {
+      expect(adapter.getSeasonCode(2024)).toBe("20242025");
+      expect(adapter.getSeasonCode(2023)).toBe("20232024");
+    });
+  });
+
+  describe("getGamesUrl with season override", () => {
+    it("should use 'now' by default", () => {
+      const url = adapter.getGamesUrl(10);
+      expect(url).toContain("/now");
+    });
+
+    it("should accept an explicit season code", () => {
+      const url = adapter.getGamesUrl(10, null, null, "20242025");
+      expect(url).toContain("/20242025");
+      expect(url).not.toContain("/now");
+    });
+  });
+
+  describe("parseGameResponse — status filtering", () => {
+    it("should mark OFF games as Final", () => {
+      const response = {
+        games: [{ startTimeUTC: "2025-04-10T00:00:00Z", homeTeam: { id: 10, abbrev: "TOR", score: 4 }, awayTeam: { id: 6, abbrev: "BOS", score: 2 }, gameState: "OFF" }],
+      };
+      expect(adapter.parseGameResponse(response)[0].status).toBe("Final");
+    });
+
+    it("should mark FINAL games as Final", () => {
+      const response = {
+        games: [{ startTimeUTC: "2025-04-10T00:00:00Z", homeTeam: { id: 10, abbrev: "TOR", score: 4 }, awayTeam: { id: 6, abbrev: "BOS", score: 2 }, gameState: "FINAL" }],
+      };
+      expect(adapter.parseGameResponse(response)[0].status).toBe("Final");
+    });
+
+    it("should mark LIVE and PRE games as InProgress", () => {
+      const response = {
+        games: [
+          { startTimeUTC: "2025-04-10T00:00:00Z", homeTeam: { id: 10, abbrev: "TOR" }, awayTeam: { id: 6, abbrev: "BOS" }, gameState: "LIVE" },
+          { startTimeUTC: "2025-04-11T00:00:00Z", homeTeam: { id: 10, abbrev: "TOR" }, awayTeam: { id: 6, abbrev: "BOS" }, gameState: "PRE" },
+        ],
+      };
+      const games = adapter.parseGameResponse(response);
+      expect(games[0].status).toBe("InProgress");
+      expect(games[1].status).toBe("InProgress");
+    });
+  });
+
   describe("getSeasonYear", () => {
     it("should return previous year for months 1-9", () => {
       const RealDate = Date;

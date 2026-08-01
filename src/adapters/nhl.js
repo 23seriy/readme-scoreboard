@@ -104,10 +104,51 @@ class NHLAdapter extends BaseFreeApiAdapter {
     }
   }
 
-  getGamesUrl(teamId) {
+  getSeasonCode(year) {
+    return `${year}${year + 1}`;
+  }
+
+  getGamesUrl(teamId, _fromDate, _toDate, season = "now") {
     const abbr = Object.keys(this.TEAM_IDS).find((k) => this.TEAM_IDS[k] === Number(teamId));
     if (!abbr) throw new Error(`Unknown NHL team ID: ${teamId}`);
-    return `${NHL_BASE}/club-schedule-season/${abbr.toLowerCase()}/now`;
+    return `${NHL_BASE}/club-schedule-season/${abbr.toLowerCase()}/${season}`;
+  }
+
+  async fetchData(teamAbbr) {
+    try {
+      const team = await this.fetchTeamByAbbr(teamAbbr);
+      if (!team) return null;
+
+      // Try current season first, fall back to previous season (off-season support)
+      let allGames = [];
+      for (const season of ["now", this.getSeasonCode(this.getSeasonYear() - 1)]) {
+        const url = this.getGamesUrl(team.id, null, null, season);
+        const { data } = await axios.get(url);
+        allGames = this.parseGameResponse(data);
+        if (allGames.some((g) => g.status === "Final")) break;
+      }
+
+      const seasonYear = this.getSeasonYear();
+      let wins = 0, losses = 0;
+      const finalGames = allGames.filter((g) => g.status === "Final");
+      for (const game of finalGames) {
+        const isHome = game.home_team.id === team.id;
+        const teamScore = isHome ? game.home_team_score : game.visitor_team_score;
+        const oppScore = isHome ? game.visitor_team_score : game.home_team_score;
+        if (teamScore > oppScore) wins++;
+        else losses++;
+      }
+
+      const record = { wins, losses, season: seasonYear };
+      const recentGames = finalGames
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 5);
+
+      return { team, record, recentGames };
+    } catch (error) {
+      console.error(`Failed to fetch NHL data: ${error.message}`);
+      return null;
+    }
   }
 
   parseGameResponse(data) {
