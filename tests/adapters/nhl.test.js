@@ -24,6 +24,16 @@ describe("NHLAdapter", () => {
         expect(typeof adapter.TEAM_EMOJI[team]).toBe("string");
       }
     });
+
+    it("should not have duplicate emojis", () => {
+      const emojis = Object.values(adapter.TEAM_EMOJI);
+      const unique = new Set(emojis);
+      expect(unique.size).toBe(emojis.length);
+    });
+
+    it("OTT should not use the bone emoji", () => {
+      expect(adapter.TEAM_EMOJI.OTT).not.toBe("🦴");
+    });
   });
 
   describe("TEAM_IDS", () => {
@@ -96,55 +106,35 @@ describe("NHLAdapter", () => {
   });
 
   describe("getGamesUrl", () => {
-    it("should generate correct NHL schedule URL", () => {
-      const fromDate = new Date("2024-10-01");
-      const toDate = new Date("2024-10-31");
-      const url = adapter.getGamesUrl(3, fromDate, toDate);
-
-      expect(url).toContain("https://statsapi.web.nhl.com/api/v1/schedule");
-      expect(url).toContain("teamId=3");
-      expect(url).toContain("startDate=2024-10-01");
-      expect(url).toContain("endDate=2024-10-31");
+    it("should generate correct NHLv2 club-schedule URL for NYR (id=3)", () => {
+      const url = adapter.getGamesUrl(3);
+      expect(url).toBe("https://api-web.nhle.com/v1/club-schedule-season/nyr/now");
     });
 
-    it("should handle date formatting correctly", () => {
-      const fromDate = new Date("2024-01-05");
-      const toDate = new Date("2024-01-15");
-      const url = adapter.getGamesUrl(10, fromDate, toDate);
+    it("should use lowercase abbreviation in URL for TOR (id=10)", () => {
+      const url = adapter.getGamesUrl(10);
+      expect(url).toContain("tor");
+    });
 
-      expect(url).toContain("startDate=2024-01-05");
-      expect(url).toContain("endDate=2024-01-15");
+    it("should throw for unknown team ID", () => {
+      expect(() => adapter.getGamesUrl(99999)).toThrow("Unknown NHL team ID");
     });
   });
 
   describe("parseGameResponse", () => {
-    it("should return empty array for missing dates", () => {
-      const response = { dates: undefined };
-      expect(adapter.parseGameResponse(response)).toEqual([]);
+    it("should return empty array for missing games", () => {
+      expect(adapter.parseGameResponse({})).toEqual([]);
+      expect(adapter.parseGameResponse({ games: [] })).toEqual([]);
     });
 
-    it("should parse game data correctly", () => {
+    it("should parse NHLv2 game data correctly", () => {
       const response = {
-        dates: [
+        games: [
           {
-            games: [
-              {
-                gameDateTime: "2024-10-10T20:00:00Z",
-                teams: {
-                  home: {
-                    team: { id: 3, abbreviation: "NYR" },
-                    score: 4,
-                  },
-                  away: {
-                    team: { id: 6, abbreviation: "BOS" },
-                    score: 2,
-                  },
-                },
-                status: {
-                  abstractGameState: "Final",
-                },
-              },
-            ],
+            startTimeUTC: "2024-10-10T20:00:00Z",
+            homeTeam: { id: 3, abbrev: "NYR", score: 4 },
+            awayTeam: { id: 6, abbrev: "BOS", score: 2 },
+            gameState: "OFF",
           },
         ],
       };
@@ -155,28 +145,17 @@ describe("NHLAdapter", () => {
       expect(games[0].visitor_team.abbreviation).toBe("BOS");
       expect(games[0].home_team_score).toBe(4);
       expect(games[0].visitor_team_score).toBe(2);
+      expect(games[0].status).toBe("Final");
     });
 
     it("should handle missing scores gracefully", () => {
       const response = {
-        dates: [
+        games: [
           {
-            games: [
-              {
-                gameDateTime: "2024-10-10T20:00:00Z",
-                teams: {
-                  home: {
-                    team: { id: 3, abbreviation: "NYR" },
-                  },
-                  away: {
-                    team: { id: 6, abbreviation: "BOS" },
-                  },
-                },
-                status: {
-                  abstractGameState: "InProgress",
-                },
-              },
-            ],
+            startTimeUTC: "2024-10-10T20:00:00Z",
+            homeTeam: { id: 3, abbrev: "NYR" },
+            awayTeam: { id: 6, abbrev: "BOS" },
+            gameState: "LIVE",
           },
         ],
       };
@@ -185,30 +164,23 @@ describe("NHLAdapter", () => {
       expect(games.length).toBe(1);
       expect(games[0].home_team_score).toBe(0);
       expect(games[0].visitor_team_score).toBe(0);
+      expect(games[0].status).toBe("InProgress");
     });
 
-    it("should correctly filter game status", () => {
+    it("should map OFF and FINAL gameState to Final", () => {
       const response = {
-        dates: [
+        games: [
           {
-            games: [
-              {
-                gameDateTime: "2024-10-10T20:00:00Z",
-                teams: {
-                  home: { team: { id: 3, abbreviation: "NYR" }, score: 4 },
-                  away: { team: { id: 6, abbreviation: "BOS" }, score: 2 },
-                },
-                status: { abstractGameState: "Final" },
-              },
-              {
-                gameDateTime: "2024-10-11T20:00:00Z",
-                teams: {
-                  home: { team: { id: 10, abbreviation: "TOR" }, score: 3 },
-                  away: { team: { id: 17, abbreviation: "DET" }, score: 1 },
-                },
-                status: { abstractGameState: "InProgress" },
-              },
-            ],
+            startTimeUTC: "2024-10-10T20:00:00Z",
+            homeTeam: { id: 3, abbrev: "NYR", score: 4 },
+            awayTeam: { id: 6, abbrev: "BOS", score: 2 },
+            gameState: "FINAL",
+          },
+          {
+            startTimeUTC: "2024-10-11T20:00:00Z",
+            homeTeam: { id: 10, abbrev: "TOR", score: 3 },
+            awayTeam: { id: 17, abbrev: "DET", score: 1 },
+            gameState: "LIVE",
           },
         ],
       };
@@ -218,32 +190,20 @@ describe("NHLAdapter", () => {
       expect(games[1].status).toBe("InProgress");
     });
 
-    it("should handle multiple date entries", () => {
+    it("should handle multiple games", () => {
       const response = {
-        dates: [
+        games: [
           {
-            games: [
-              {
-                gameDateTime: "2024-10-10T20:00:00Z",
-                teams: {
-                  home: { team: { id: 3, abbreviation: "NYR" }, score: 4 },
-                  away: { team: { id: 6, abbreviation: "BOS" }, score: 2 },
-                },
-                status: { abstractGameState: "Final" },
-              },
-            ],
+            startTimeUTC: "2024-10-10T20:00:00Z",
+            homeTeam: { id: 3, abbrev: "NYR", score: 4 },
+            awayTeam: { id: 6, abbrev: "BOS", score: 2 },
+            gameState: "OFF",
           },
           {
-            games: [
-              {
-                gameDateTime: "2024-10-11T20:00:00Z",
-                teams: {
-                  home: { team: { id: 10, abbreviation: "TOR" }, score: 3 },
-                  away: { team: { id: 17, abbreviation: "DET" }, score: 1 },
-                },
-                status: { abstractGameState: "Final" },
-              },
-            ],
+            startTimeUTC: "2024-10-11T20:00:00Z",
+            homeTeam: { id: 10, abbrev: "TOR", score: 3 },
+            awayTeam: { id: 17, abbrev: "DET", score: 1 },
+            gameState: "OFF",
           },
         ],
       };
@@ -253,22 +213,22 @@ describe("NHLAdapter", () => {
     });
   });
 
-  describe("parseTeamResponse", () => {
-    it("should return null for empty teams array", () => {
-      const response = { teams: [] };
-      expect(adapter.parseTeamResponse(response)).toBeNull();
+  describe("parseTeamResponse (standings shape)", () => {
+    it("should return null for empty standings", () => {
+      expect(adapter.parseTeamResponse({ standings: [] })).toBeNull();
+      expect(adapter.parseTeamResponse({})).toBeNull();
     });
 
-    it("should parse team data correctly", () => {
+    it("should parse NHLv2 standings entry correctly", () => {
       const response = {
-        teams: [
+        standings: [
           {
-            id: 3,
-            abbreviation: "NYR",
-            teamName: "Rangers",
-            name: "New York Rangers",
-            conference: { name: "Eastern" },
-            division: { name: "Metropolitan" },
+            teamId: 3,
+            teamAbbrev: { default: "NYR" },
+            teamCommonName: { default: "Rangers" },
+            teamName: { default: "New York Rangers" },
+            conferenceName: "Eastern",
+            divisionName: "Metropolitan",
           },
         ],
       };
@@ -285,7 +245,6 @@ describe("NHLAdapter", () => {
 
   describe("getSeasonYear", () => {
     it("should return previous year for months 1-9", () => {
-      const mockAdapter = createMockAdapter();
       const originalDate = global.Date;
       const mockDate = new Date("2025-05-15");
 
@@ -294,18 +253,15 @@ describe("NHLAdapter", () => {
           if (args.length === 0) return mockDate;
           return super(...args);
         }
-        static now() {
-          return mockDate.getTime();
-        }
+        static now() { return mockDate.getTime(); }
       };
       global.Date.prototype = originalDate.prototype;
 
-      expect(mockAdapter.getSeasonYear()).toBe(2024);
+      expect(adapter.getSeasonYear()).toBe(2024);
       global.Date = originalDate;
     });
 
     it("should return current year for months 10-12", () => {
-      const mockAdapter = createMockAdapter();
       const originalDate = global.Date;
       const mockDate = new Date("2025-10-15");
 
@@ -314,18 +270,12 @@ describe("NHLAdapter", () => {
           if (args.length === 0) return mockDate;
           return super(...args);
         }
-        static now() {
-          return mockDate.getTime();
-        }
+        static now() { return mockDate.getTime(); }
       };
       global.Date.prototype = originalDate.prototype;
 
-      expect(mockAdapter.getSeasonYear()).toBe(2025);
+      expect(adapter.getSeasonYear()).toBe(2025);
       global.Date = originalDate;
     });
   });
 });
-
-function createMockAdapter() {
-  return new NHLAdapter();
-}

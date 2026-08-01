@@ -5,18 +5,22 @@ branding:
   color: "orange"
 inputs:
   sport:
-    description: "Sport: nba (more coming soon)"
+    description: "Sport: nba, mlb, nfl, nhl"
     required: false
     default: "nba"
   team:
-    description: "Team abbreviation (e.g. LAL, BOS)"
+    description: "Team abbreviation (e.g. LAL, TOR, NYR)"
     required: true
   gh_token:
     description: "GitHub token with repo scope"
     required: true
   api_key:
-    description: "API key for the sport data provider"
-    required: true
+    description: "API key for the sport data provider (required for NBA only)"
+    required: false
+  marker:
+    description: "HTML comment marker name (default: readme-scoreboard). Use unique names for multiple scoreboards."
+    required: false
+    default: "readme-scoreboard"
   target_repo:
     description: "Repo to update (default: your profile repo). Format: owner/repo"
     required: false
@@ -32,3 +36,10 @@ runs:
     - run: node src/index.js
       shell: bash
       working-directory: ${{ github.action_path }}
+      env:
+        GH_TOKEN: ${{ inputs.gh_token }}
+        BDL_API_KEY: ${{ inputs.api_key }}
+        SPORT: ${{ inputs.sport }}
+        TEAM: ${{ inputs.team }}
+        MARKER: ${{ inputs.marker }}
+        TARGET_REPO: ${{ inputs.target_repo }}
