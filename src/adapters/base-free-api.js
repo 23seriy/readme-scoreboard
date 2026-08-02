@@ -18,9 +18,12 @@ class BaseFreeApiAdapter {
       const allGames = this.parseGameResponse(data);
       const season = this.getSeasonYear();
 
+      // Regular season only for W-L record (exclude spring training "S" and playoffs)
       let wins = 0, losses = 0;
-      const finalGames = allGames.filter((g) => g.status === "Final");
-      for (const game of finalGames) {
+      const regularFinals = allGames.filter(
+        (g) => g.status === "Final" && g.gameType === "R"
+      );
+      for (const game of regularFinals) {
         const isHome = game.home_team.id === team.id;
         const teamScore = isHome ? game.home_team_score : game.visitor_team_score;
         const oppScore = isHome ? game.visitor_team_score : game.home_team_score;
@@ -29,7 +32,9 @@ class BaseFreeApiAdapter {
       }
 
       const record = { wins, losses, season };
-      const recentGames = finalGames
+      // Recent games: regular season + playoffs, no spring training
+      const recentGames = allGames
+        .filter((g) => g.status === "Final" && g.gameType !== "S")
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 

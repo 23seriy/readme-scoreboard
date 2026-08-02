@@ -103,6 +103,7 @@ class MlbAdapter extends BaseFreeApiAdapter {
         const isRealFinal = isFinal && (homeScore > 0 || awayScore > 0);
         games.push({
           date: game.gameDateTime || game.officialDate,
+          gameType: game.gameType,
           home_team: {
             id: homeTeam.id,
             abbreviation: homeTeam.abbreviation || this.abbrById(homeTeam.id),

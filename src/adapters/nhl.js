@@ -147,7 +147,7 @@ class NHLAdapter extends BaseFreeApiAdapter {
         }
       }
 
-      // Only count regular-season games (gameType 2) for the record
+      // Regular season (gameType 2) only for the W-L record
       const regularFinals = allGames.filter((g) => g.status === "Final" && g.gameType === 2);
       let wins = 0, losses = 0;
       for (const game of regularFinals) {
@@ -159,9 +159,9 @@ class NHLAdapter extends BaseFreeApiAdapter {
       }
 
       const record = { wins, losses, season: usedSeasonYear };
-      // Recent games from all types (playoffs count as recent activity)
+      // Recent games: regular season + playoffs (gameType 2 or 3), not pre-season
       const recentGames = allGames
-        .filter((g) => g.status === "Final")
+        .filter((g) => g.status === "Final" && g.gameType !== 1)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 
