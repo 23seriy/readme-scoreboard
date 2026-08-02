@@ -85,24 +85,38 @@ async function fetchSeasonRecord(teamId, teamAbbr) {
 
 async function fetchRecentGames(teamAbbr, count = 5) {
   try {
-    const { data } = await axios.get(`${ESPN_BASE}/teams/${teamAbbr.toUpperCase()}/schedule`);
+    const upper = teamAbbr.toUpperCase();
+    const season = new Date().getFullYear();
+    // Fetch regular season and postseason separately; exclude preseason (type 1)
+    const [regData, postData] = await Promise.all([
+      axios.get(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=2`),
+      axios.get(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=3`),
+    ]);
+
+    const events = [
+      ...(regData.data.events || []),
+      ...(postData.data.events || []),
+    ];
+
     const games = [];
-
-    for (const game of (data.schedule || []).slice(-count * 2)) {
-      if (game.status.type.name === "STATUS_FINAL") {
-        const isHome = game.home.team.abbreviation.toUpperCase() === teamAbbr.toUpperCase();
-        const teamData = isHome ? game.home : game.away;
-        const oppData = isHome ? game.away : game.home;
-
-        games.push({
-          date: game.date.split("T")[0],
-          teamScore: teamData.score,
-          oppScore: oppData.score,
-          oppAbbr: oppData.team.abbreviation,
-          isHome,
-          won: teamData.score > oppData.score,
-        });
-      }
+    for (const event of events) {
+      const comp = event.competitions?.[0];
+      if (!comp) continue;
+      if (comp.status?.type?.name !== "STATUS_FINAL") continue;
+      const competitors = comp.competitors || [];
+      const teamComp = competitors.find((c) => c.team?.abbreviation?.toUpperCase() === upper);
+      const oppComp = competitors.find((c) => c.team?.abbreviation?.toUpperCase() !== upper);
+      if (!teamComp || !oppComp) continue;
+      const teamScore = parseFloat(teamComp.score?.value ?? teamComp.score ?? 0);
+      const oppScore = parseFloat(oppComp.score?.value ?? oppComp.score ?? 0);
+      games.push({
+        date: event.date?.split("T")[0] || comp.date?.split("T")[0],
+        teamScore,
+        oppScore,
+        oppAbbr: oppComp.team.abbreviation,
+        isHome: teamComp.homeAway === "home",
+        won: teamScore > oppScore,
+      });
     }
 
     return games
