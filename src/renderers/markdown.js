@@ -1,4 +1,5 @@
-// Season windows: [activeStartMonth-day] (1-indexed, inclusive)
+// Season windows: [activeStartMonth, activeEndMonth] (1-indexed, inclusive)
+// "active" means regular season or playoffs are ongoing
 const SEASON_WINDOWS = {
   nba: { start: [10, 1], end: [6, 30], nextLabel: "October" },
   mlb: { start: [3, 20], end: [11, 10], nextLabel: "late March" },
@@ -24,7 +25,12 @@ function isSeasonActive(sport) {
 function seasonStatusLine(sport) {
   if (isSeasonActive(sport)) return "🟢 Season in progress";
   const window = SEASON_WINDOWS[sport] || {};
-  return `⚪ Off-season · Next season starts ${window.nextLabel || "soon"}`;
+  const now = new Date();
+  const year = now.getFullYear();
+  const [sm] = window.start || [];
+  // If next season starts in a month already past this year, it'll be next year
+  const nextYear = sm && now.getMonth() + 1 >= sm ? year + 1 : year;
+  return `🔴 Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
 }
 
 function generateBarChart(percent, size) {
