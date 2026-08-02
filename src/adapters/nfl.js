@@ -110,8 +110,8 @@ async function fetchRecentGames(teamAbbr, count = 5) {
     ]);
 
     const events = [
-      ...(regData.data.events || []),
-      ...(postData.data.events || []),
+      ...(regData.data.events || []).map((e) => ({ ...e, seasonType: 2 })),
+      ...(postData.data.events || []).map((e) => ({ ...e, seasonType: 3 })),
     ];
 
     const games = [];
@@ -127,6 +127,7 @@ async function fetchRecentGames(teamAbbr, count = 5) {
       const oppScore = parseFloat(oppComp.score?.value ?? oppComp.score ?? 0);
       games.push({
         date: event.date?.split("T")[0] || comp.date?.split("T")[0],
+        gameType: event.seasonType,
         teamScore,
         oppScore,
         oppAbbr: oppComp.team.abbreviation,
