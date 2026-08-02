@@ -1,3 +1,34 @@
+// Season windows: [activeStartMonth, activeEndMonth] (1-indexed, inclusive)
+// "active" means regular season or playoffs are ongoing
+const SEASON_WINDOWS = {
+  nba: { start: [10, 1], end: [6, 30], nextLabel: "October" },
+  mlb: { start: [3, 20], end: [11, 10], nextLabel: "late March" },
+  nfl: { start: [9, 1], end: [2, 15], nextLabel: "September" },
+  nhl: { start: [10, 1], end: [6, 30], nextLabel: "October" },
+};
+
+function isSeasonActive(sport) {
+  const window = SEASON_WINDOWS[sport];
+  if (!window) return true;
+  const now = new Date();
+  const m = now.getMonth() + 1;
+  const d = now.getDate();
+  const [sm, sd] = window.start;
+  const [em, ed] = window.end;
+  const after = m > sm || (m === sm && d >= sd);
+  const before = m < em || (m === em && d <= ed);
+  // Handle wrap-around seasons (NFL: Sep–Feb crosses year boundary)
+  if (sm > em) return after || before;
+  return after && before;
+}
+
+function seasonStatusLine(sport, record) {
+  const active = isSeasonActive(sport);
+  if (active) return "🟢 Season in progress";
+  const window = SEASON_WINDOWS[sport] || {};
+  return `⚪ Off-season · Next season starts ${window.nextLabel || "soon"}`;
+}
+
 function generateBarChart(percent, size) {
   const syms = "░▏▎▍▌▋▊▉█";
   const frac = Math.floor((size * 8 * percent) / 100);
@@ -22,6 +53,7 @@ function formatGameResult(game, teamId) {
   const dateStr = new Date(game.date).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
+    year: "numeric",
   });
 
   return `${result === "W" ? "✅" : "❌"} ${result} ${String(teamScore).padStart(3)}-${String(oppScore).padEnd(3)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})`;
@@ -38,6 +70,7 @@ function renderNba(data) {
   // Header
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.conference} Conference · ${team.division} Division`);
+  lines.push(seasonStatusLine("nba", record));
   lines.push("");
 
   // Season record
@@ -80,6 +113,7 @@ function formatMlbGameResult(game, teamId) {
   const dateStr = new Date(game.date).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
+    year: "numeric",
   });
 
   return `${won ? "✅" : "❌"} ${result} ${String(teamScore).padStart(2)}-${String(oppScore).padEnd(2)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})`;
@@ -96,6 +130,7 @@ function renderMlb(data) {
   // Header
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.league} · ${team.division}`);
+  lines.push(seasonStatusLine("mlb", record));
   lines.push("");
 
   // Season record
@@ -133,6 +168,7 @@ function formatNflGameResult(game) {
   const dateStr = new Date(game.date + "T12:00:00").toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
+    year: "numeric",
   });
 
   return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})`;
@@ -149,6 +185,7 @@ function renderNfl(data) {
   // Header
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.conference} · ${team.division}`);
+  lines.push(seasonStatusLine("nfl", record));
   lines.push("");
 
   // Season record
@@ -189,6 +226,7 @@ function renderNhl(data) {
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.conference} Conference · ${team.division} Division`);
+  lines.push(seasonStatusLine("nhl", record));
   lines.push("");
 
   const winPct =
