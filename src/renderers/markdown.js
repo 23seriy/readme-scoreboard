@@ -22,9 +22,8 @@ function isSeasonActive(sport) {
   return after && before;
 }
 
-function seasonStatusLine(sport, record) {
-  const active = isSeasonActive(sport);
-  if (active) return "🟢 Season in progress";
+function seasonStatusLine(sport) {
+  if (isSeasonActive(sport)) return "🟢 Season in progress";
   const window = SEASON_WINDOWS[sport] || {};
   return `⚪ Off-season · Next season starts ${window.nextLabel || "soon"}`;
 }
@@ -63,17 +62,14 @@ function renderNba(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  // Team logo
   lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
   lines.push("");
 
-  // Header
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.conference} Conference · ${team.division} Division`);
-  lines.push(seasonStatusLine("nba", record));
+  lines.push(seasonStatusLine("nba"));
   lines.push("");
 
-  // Season record
   const winPct =
     record.wins + record.losses > 0
       ? ((record.wins / (record.wins + record.losses)) * 100).toFixed(1)
@@ -87,7 +83,6 @@ function renderNba(data) {
     lines.push("");
   }
 
-  // Recent games
   if (recentGames.length > 0) {
     lines.push("**📅 Recent Games:**");
     lines.push("```");
@@ -123,17 +118,14 @@ function renderMlb(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  // Team logo
   lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
   lines.push("");
 
-  // Header
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.league} · ${team.division}`);
-  lines.push(seasonStatusLine("mlb", record));
+  lines.push(seasonStatusLine("mlb"));
   lines.push("");
 
-  // Season record
   const totalGames = record.wins + record.losses;
   const winPct = totalGames > 0
     ? ((record.wins / totalGames) * 100).toFixed(1)
@@ -147,7 +139,6 @@ function renderMlb(data) {
     lines.push("");
   }
 
-  // Recent games
   if (recentGames.length > 0) {
     lines.push("**📅 Recent Games:**");
     lines.push("```");
@@ -178,17 +169,14 @@ function renderNfl(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  // Team logo
   lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
   lines.push("");
 
-  // Header
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.conference} · ${team.division}`);
-  lines.push(seasonStatusLine("nfl", record));
+  lines.push(seasonStatusLine("nfl"));
   lines.push("");
 
-  // Season record
   const totalGames = record.wins + record.losses;
   const winPct = totalGames > 0
     ? ((record.wins / totalGames) * 100).toFixed(1)
@@ -202,7 +190,6 @@ function renderNfl(data) {
     lines.push("");
   }
 
-  // Recent games
   if (recentGames.length > 0) {
     lines.push("**📅 Recent Games:**");
     lines.push("```");
@@ -226,7 +213,7 @@ function renderNhl(data) {
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.conference} Conference · ${team.division} Division`);
-  lines.push(seasonStatusLine("nhl", record));
+  lines.push(seasonStatusLine("nhl"));
   lines.push("");
 
   const winPct =
