@@ -25,7 +25,12 @@ function isSeasonActive(sport) {
 function seasonStatusLine(sport) {
   if (isSeasonActive(sport)) return "🟢 Season in progress";
   const window = SEASON_WINDOWS[sport] || {};
-  return `⚪ Off-season · Next season starts ${window.nextLabel || "soon"}`;
+  const now = new Date();
+  const year = now.getFullYear();
+  const [sm] = window.start || [];
+  // If next season starts in a month already past this year, it'll be next year
+  const nextYear = sm && now.getMonth() + 1 >= sm ? year + 1 : year;
+  return `⚪ Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
 }
 
 function generateBarChart(percent, size) {
