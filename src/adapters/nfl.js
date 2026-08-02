@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const ESPN_BASE = "https://site.api.espn.com/v2/site/en/sports/football/nfl";
+const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/football/nfl";
 
 const TEAM_EMOJI = {
   ARI: "🔴", ATL: "🔴", BAL: "🦅", BUF: "🐴", CAR: "🐯",
@@ -32,10 +32,11 @@ const DEMO_TEAMS = {
 
 async function fetchTeamInfo(teamAbbr) {
   try {
-    const { data } = await axios.get(`${ESPN_BASE}/teams`);
-    const team = data.teams.find(
-      (t) => t.abbreviation.toUpperCase() === teamAbbr.toUpperCase()
-    );
+    const { data } = await axios.get(`${ESPN_BASE}/teams?limit=35`);
+    const entries = data.sports?.[0]?.leagues?.[0]?.teams || data.teams || [];
+    const team = entries
+      .map((e) => e.team || e)
+      .find((t) => t.abbreviation?.toUpperCase() === teamAbbr.toUpperCase());
     if (!team) {
       console.error(`NFL team ${teamAbbr} not found`);
       return null;
