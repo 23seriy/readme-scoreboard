@@ -30,7 +30,7 @@ function seasonStatusLine(sport) {
   const [sm] = window.start || [];
   // If next season starts in a month already past this year, it'll be next year
   const nextYear = sm && now.getMonth() + 1 >= sm ? year + 1 : year;
-  return `⚪ Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
+  return `🔴 Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
 }
 
 function generateBarChart(percent, size) {
