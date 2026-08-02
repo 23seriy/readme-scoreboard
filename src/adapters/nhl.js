@@ -83,12 +83,13 @@ class NHLAdapter extends BaseFreeApiAdapter {
 
   async fetchConferenceDivision(abbr) {
     try {
-      // standings/now is unavailable off-season; use last regular-season date
-      const seasonCode = this.getSeasonCode(this.getSeasonYear() - 1);
+      // standings/now is unavailable off-season; find the most recently completed season
       const { data: seasonData } = await axios.get(`${NHL_BASE}/standings-season`);
       const seasons = seasonData.seasons || [];
-      const prev = seasons.slice().reverse().find((s) => s.id === Number(seasonCode));
-      const endDate = prev?.standingsEnd || "2025-04-17";
+      const today = new Date().toISOString().slice(0, 10);
+      // Pick the latest season whose standingsEnd is in the past
+      const completed = seasons.slice().reverse().find((s) => s.standingsEnd && s.standingsEnd <= today);
+      const endDate = completed?.standingsEnd || "2026-04-17";
       const { data } = await axios.get(`${NHL_BASE}/standings/${endDate}`);
       const entry = (data.standings || []).find(
         (s) => s.teamAbbrev?.default?.toUpperCase() === abbr.toUpperCase()
@@ -122,15 +123,22 @@ class NHLAdapter extends BaseFreeApiAdapter {
       team.conference = confDiv.conference;
       team.division = confDiv.division;
 
-      // Try current season first; fall back to previous season during off-season
+      // Try "now", then this calendar year's season, then last year's — whichever has Final games
+      const currentYear = new Date().getFullYear();
+      const seasonsToTry = [
+        "now",
+        this.getSeasonCode(currentYear - 1), // e.g. 20252026 when year=2026
+        this.getSeasonCode(currentYear - 2), // e.g. 20242025 as last resort
+      ];
       let allGames = [];
-      let usedSeasonYear = this.getSeasonYear();
-      for (const season of ["now", this.getSeasonCode(this.getSeasonYear() - 1)]) {
+      let usedSeasonYear = currentYear - 1;
+      for (const season of seasonsToTry) {
         const url = this.getGamesUrl(team.id, null, null, season);
         const { data } = await axios.get(url);
         allGames = this.parseGameResponse(data);
         if (allGames.some((g) => g.status === "Final")) {
-          if (season !== "now") usedSeasonYear = this.getSeasonYear() - 1;
+          // Derive the display year from the season code (first 4 digits)
+          usedSeasonYear = season === "now" ? currentYear - 1 : parseInt(season.slice(0, 4), 10);
           // Extract team name from schedule now that we have games
           const sample = (data.games || []).find(
             (g) => g.homeTeam?.abbrev === team.abbreviation || g.awayTeam?.abbrev === team.abbreviation
