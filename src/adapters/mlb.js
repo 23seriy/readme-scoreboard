@@ -48,6 +48,56 @@ class MlbAdapter extends BaseFreeApiAdapter {
     return new Date().getFullYear();
   }
 
+  async fetchSeasonRecord(teamId) {
+    try {
+      const season = this.getSeasonYear();
+      const { data } = await axios.get(`${MLB_BASE}/standings`, {
+        params: { leagueId: "103,104", season, standingsTypes: "regularSeason" },
+      });
+      for (const record of data.records || []) {
+        for (const teamRecord of record.teamRecords || []) {
+          if (teamRecord.team.id === teamId) {
+            return {
+              wins: teamRecord.wins,
+              losses: teamRecord.losses,
+              season,
+            };
+          }
+        }
+      }
+      return { wins: 0, losses: 0, season };
+    } catch (error) {
+      console.error(`Failed to fetch MLB standings: ${error.message}`);
+      return { wins: 0, losses: 0, season: this.getSeasonYear() };
+    }
+  }
+
+  async fetchData(teamAbbr) {
+    try {
+      const team = await this.fetchTeamByAbbr(teamAbbr);
+      if (!team) return null;
+
+      const fromDate = this.getSeasonStart();
+      const url = this.getGamesUrl(team.id, fromDate, new Date());
+      const [{ data }, record] = await Promise.all([
+        axios.get(url),
+        this.fetchSeasonRecord(team.id),
+      ]);
+      const allGames = this.parseGameResponse(data);
+
+      // Recent games: regular season + playoffs, no spring training
+      const recentGames = allGames
+        .filter((g) => g.status === "Final" && g.gameType !== "S")
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 5);
+
+      return { team, record, recentGames };
+    } catch (error) {
+      console.error(`Failed to fetch MLB data: ${error.message}`);
+      return null;
+    }
+  }
+
   async fetchTeam(abbr) {
     try {
       const { data } = await axios.get(`${MLB_BASE}/teams`, {
