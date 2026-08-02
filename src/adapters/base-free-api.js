@@ -12,8 +12,7 @@ class BaseFreeApiAdapter {
       const team = await this.fetchTeamByAbbr(teamAbbr);
       if (!team) return null;
 
-      const fromDate = new Date();
-      fromDate.setDate(fromDate.getDate() - 365);
+      const fromDate = this.getSeasonStart();
       const url = this.getGamesUrl(team.id, fromDate, new Date());
       const { data } = await axios.get(url);
       const allGames = this.parseGameResponse(data);
@@ -73,6 +72,13 @@ class BaseFreeApiAdapter {
     const now = new Date();
     const month = now.getMonth() + 1;
     return month >= 10 ? now.getFullYear() : now.getFullYear() - 1;
+  }
+
+  // Returns the date from which the current season's games should be counted.
+  // MLB/NBA default to April 1; NFL overrides to September 1.
+  getSeasonStart() {
+    const year = new Date().getFullYear();
+    return new Date(`${year}-04-01`);
   }
 
   async fetchTeamByAbbr(abbr) {
