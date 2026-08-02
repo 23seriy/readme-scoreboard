@@ -59,7 +59,7 @@ function formatGameResult(game, teamId) {
     day: "numeric",
     year: "numeric",
   });
-  const tag = game.gameType === 3 ? " [Playoffs]" : "";
+  const tag = game.gameType === 3 || game.postseason ? " [Playoffs]" : "";
 
   return `${result === "W" ? "✅" : "❌"} ${result} ${String(teamScore).padStart(3)}-${String(oppScore).padEnd(3)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})${tag}`;
 }
