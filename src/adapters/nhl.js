@@ -77,30 +77,28 @@ class NHLAdapter extends BaseFreeApiAdapter {
     const upper = abbr.toUpperCase();
     const id = this.TEAM_IDS[upper];
     if (!id) return null;
+    // Name is populated from the schedule response in fetchData; return a stub here.
+    return { id, abbreviation: upper, name: upper, full_name: upper, conference: "", division: "" };
+  }
 
+  async fetchConferenceDivision(abbr) {
     try {
-      const { data } = await axios.get(`${NHL_BASE}/club-schedule-season/${upper.toLowerCase()}/now`);
-      const games = data.games || [];
-      const sample = games[0];
-
-      let teamName = upper;
-      let fullName = upper;
-      let conference = "";
-      let division = "";
-
-      if (sample) {
-        const isHome = sample.homeTeam.abbrev === upper;
-        const teamData = isHome ? sample.homeTeam : sample.awayTeam;
-        teamName = teamData.commonName?.default || upper;
-        fullName = teamData.placeName?.default
-          ? `${teamData.placeName.default} ${teamName}`
-          : teamName;
-      }
-
-      return { id, abbreviation: upper, name: teamName, full_name: fullName, conference, division };
-    } catch (error) {
-      console.error(`Failed to fetch NHL team info: ${error.message}`);
-      return { id, abbreviation: upper, name: upper, full_name: upper, conference: "", division: "" };
+      // standings/now is unavailable off-season; use last regular-season date
+      const seasonCode = this.getSeasonCode(this.getSeasonYear() - 1);
+      const { data: seasonData } = await axios.get(`${NHL_BASE}/standings-season`);
+      const seasons = seasonData.seasons || [];
+      const prev = seasons.slice().reverse().find((s) => s.id === Number(seasonCode));
+      const endDate = prev?.standingsEnd || "2025-04-17";
+      const { data } = await axios.get(`${NHL_BASE}/standings/${endDate}`);
+      const entry = (data.standings || []).find(
+        (s) => s.teamAbbrev?.default?.toUpperCase() === abbr.toUpperCase()
+      );
+      return {
+        conference: entry?.conferenceName || "",
+        division: entry?.divisionName || "",
+      };
+    } catch {
+      return { conference: "", division: "" };
     }
   }
 
@@ -116,22 +114,43 @@ class NHLAdapter extends BaseFreeApiAdapter {
 
   async fetchData(teamAbbr) {
     try {
-      const team = await this.fetchTeamByAbbr(teamAbbr);
+      const [team, confDiv] = await Promise.all([
+        this.fetchTeamByAbbr(teamAbbr),
+        this.fetchConferenceDivision(teamAbbr),
+      ]);
       if (!team) return null;
+      team.conference = confDiv.conference;
+      team.division = confDiv.division;
 
-      // Try current season first, fall back to previous season (off-season support)
+      // Try current season first; fall back to previous season during off-season
       let allGames = [];
+      let usedSeasonYear = this.getSeasonYear();
       for (const season of ["now", this.getSeasonCode(this.getSeasonYear() - 1)]) {
         const url = this.getGamesUrl(team.id, null, null, season);
         const { data } = await axios.get(url);
         allGames = this.parseGameResponse(data);
-        if (allGames.some((g) => g.status === "Final")) break;
+        if (allGames.some((g) => g.status === "Final")) {
+          if (season !== "now") usedSeasonYear = this.getSeasonYear() - 1;
+          // Extract team name from schedule now that we have games
+          const sample = (data.games || []).find(
+            (g) => g.homeTeam?.abbrev === team.abbreviation || g.awayTeam?.abbrev === team.abbreviation
+          );
+          if (sample) {
+            const isHome = sample.homeTeam.abbrev === team.abbreviation;
+            const td = isHome ? sample.homeTeam : sample.awayTeam;
+            team.name = td.commonName?.default || team.abbreviation;
+            team.full_name = td.placeName?.default
+              ? `${td.placeName.default} ${team.name}`
+              : team.name;
+          }
+          break;
+        }
       }
 
-      const seasonYear = this.getSeasonYear();
+      // Only count regular-season games (gameType 2) for the record
+      const regularFinals = allGames.filter((g) => g.status === "Final" && g.gameType === 2);
       let wins = 0, losses = 0;
-      const finalGames = allGames.filter((g) => g.status === "Final");
-      for (const game of finalGames) {
+      for (const game of regularFinals) {
         const isHome = game.home_team.id === team.id;
         const teamScore = isHome ? game.home_team_score : game.visitor_team_score;
         const oppScore = isHome ? game.visitor_team_score : game.home_team_score;
@@ -139,8 +158,10 @@ class NHLAdapter extends BaseFreeApiAdapter {
         else losses++;
       }
 
-      const record = { wins, losses, season: seasonYear };
-      const recentGames = finalGames
+      const record = { wins, losses, season: usedSeasonYear };
+      // Recent games from all types (playoffs count as recent activity)
+      const recentGames = allGames
+        .filter((g) => g.status === "Final")
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 
@@ -155,6 +176,7 @@ class NHLAdapter extends BaseFreeApiAdapter {
     const games = data.games || [];
     return games.map((game) => ({
       date: game.startTimeUTC,
+      gameType: game.gameType,
       home_team: {
         id: game.homeTeam.id,
         abbreviation: game.homeTeam.abbrev,
