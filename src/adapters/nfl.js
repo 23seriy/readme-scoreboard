@@ -30,24 +30,37 @@ const DEMO_TEAMS = {
   PHI: { id: 26, abbreviation: "PHI", name: "Eagles", full_name: "Philadelphia Eagles", conference: "NFC", division: "NFC East" },
 };
 
+// Static conf/division map — NFL divisions never change
+const TEAM_CONF_DIV = {
+  ARI: ["NFC", "NFC West"],  ATL: ["NFC", "NFC South"], BAL: ["AFC", "AFC North"], BUF: ["AFC", "AFC East"],
+  CAR: ["NFC", "NFC South"], CHI: ["NFC", "NFC North"], CIN: ["AFC", "AFC North"], CLE: ["AFC", "AFC North"],
+  DAL: ["NFC", "NFC East"],  DEN: ["AFC", "AFC West"],  DET: ["NFC", "NFC North"], GB:  ["NFC", "NFC North"],
+  HOU: ["AFC", "AFC South"], IND: ["AFC", "AFC South"], JAX: ["AFC", "AFC South"], KC:  ["AFC", "AFC West"],
+  LAC: ["AFC", "AFC West"],  LAR: ["NFC", "NFC West"],  LV:  ["AFC", "AFC West"],  MIA: ["AFC", "AFC East"],
+  MIN: ["NFC", "NFC North"], NE:  ["AFC", "AFC East"],  NO:  ["NFC", "NFC South"], NYG: ["NFC", "NFC East"],
+  NYJ: ["AFC", "AFC East"],  PHI: ["NFC", "NFC East"],  PIT: ["AFC", "AFC North"], SF:  ["NFC", "NFC West"],
+  SEA: ["NFC", "NFC West"],  TB:  ["NFC", "NFC South"], TEN: ["AFC", "AFC South"], WAS: ["NFC", "NFC East"],
+};
+
 async function fetchTeamInfo(teamAbbr) {
   try {
-    const { data } = await axios.get(`${ESPN_BASE}/teams?limit=35`);
-    const entries = data.sports?.[0]?.leagues?.[0]?.teams || data.teams || [];
-    const team = entries
-      .map((e) => e.team || e)
-      .find((t) => t.abbreviation?.toUpperCase() === teamAbbr.toUpperCase());
+    const upper = teamAbbr.toUpperCase();
+    const { data } = await axios.get(`${ESPN_BASE}/teams/${upper}`);
+    const team = data.team;
     if (!team) {
-      console.error(`NFL team ${teamAbbr} not found`);
+      console.error(`NFL team ${upper} not found`);
       return null;
     }
+    const [conference, division] = TEAM_CONF_DIV[upper] || ["", ""];
     return {
       id: team.id,
       abbreviation: team.abbreviation,
       name: team.name,
       full_name: team.displayName,
-      conference: team.conference?.name || "Unknown",
-      division: team.division?.name || "Unknown",
+      conference,
+      division,
+      // Carry record from team endpoint for fetchSeasonRecord to use
+      _record: team.record,
     };
   } catch (error) {
     console.error(`Failed to fetch NFL team: ${error.message}`);
@@ -55,39 +68,41 @@ async function fetchTeamInfo(teamAbbr) {
   }
 }
 
-async function fetchSeasonRecord(teamId, teamAbbr) {
+function parseRecordFromTeam(teamRecord, season) {
+  const total = (teamRecord?.items || []).find((i) => i.type === "total");
+  const stats = (total?.stats || []).reduce((acc, s) => { acc[s.name] = s.value; return acc; }, {});
+  const wins = stats.wins || 0;
+  const losses = stats.losses || 0;
+  const winPct = wins + losses > 0 ? (wins / (wins + losses)).toFixed(3) : ".000";
+  return { wins, losses, season, winPct };
+}
+
+async function fetchSeasonRecord(team) {
+  // If the current season hasn't started yet, fetch last year's team data for the record
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  // NFL season runs Sep–Feb; if before Sep use previous year's season
+  const nflSeason = now.getMonth() < 8 ? currentYear - 1 : currentYear;
+
+  if (nflSeason === currentYear && team._record) {
+    return parseRecordFromTeam(team._record, currentYear);
+  }
+
   try {
-    const currentYear = new Date().getFullYear();
-    const { data } = await axios.get(`${ESPN_BASE}/standings`);
-
-    for (const group of (data.standings?.[0]?.groups || [])) {
-      for (const entry of group.entries) {
-        if (entry.team.abbreviation.toUpperCase() === teamAbbr.toUpperCase()) {
-          const stats = entry.stats.reduce((acc, stat) => {
-            acc[stat.name] = stat.value;
-            return acc;
-          }, {});
-          return {
-            wins: stats.wins || 0,
-            losses: stats.losses || 0,
-            season: currentYear,
-            winPct: stats["winPercent"] || ".000",
-          };
-        }
-      }
-    }
-
-    return { wins: 0, losses: 0, season: currentYear, winPct: ".000" };
+    const { data } = await axios.get(`${ESPN_BASE}/teams/${team.abbreviation}?season=${nflSeason}`);
+    return parseRecordFromTeam(data.team?.record, nflSeason);
   } catch (error) {
     console.error(`Failed to fetch NFL standings: ${error.message}`);
-    return { wins: 0, losses: 0, season: new Date().getFullYear(), winPct: ".000" };
+    return { wins: 0, losses: 0, season: nflSeason, winPct: ".000" };
   }
 }
 
 async function fetchRecentGames(teamAbbr, count = 5) {
   try {
     const upper = teamAbbr.toUpperCase();
-    const season = new Date().getFullYear();
+    const now = new Date();
+    // NFL season runs Sep–Feb; if before Sep use previous year's season
+    const season = now.getMonth() < 8 ? now.getFullYear() - 1 : now.getFullYear();
     // Fetch regular season and postseason separately; exclude preseason (type 1)
     const [regData, postData] = await Promise.all([
       axios.get(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=2`),
@@ -165,7 +180,7 @@ async function fetchData(teamAbbr) {
   }
 
   const [record, recentGames] = await Promise.all([
-    fetchSeasonRecord(team.id, teamAbbr),
+    fetchSeasonRecord(team),
     fetchRecentGames(teamAbbr, 5),
   ]);
 
