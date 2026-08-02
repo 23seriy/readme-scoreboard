@@ -59,8 +59,9 @@ function formatGameResult(game, teamId) {
     day: "numeric",
     year: "numeric",
   });
+  const tag = game.gameType === 3 ? " [Playoffs]" : "";
 
-  return `${result === "W" ? "✅" : "❌"} ${result} ${String(teamScore).padStart(3)}-${String(oppScore).padEnd(3)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})`;
+  return `${result === "W" ? "✅" : "❌"} ${result} ${String(teamScore).padStart(3)}-${String(oppScore).padEnd(3)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})${tag}`;
 }
 
 function renderNba(data) {
@@ -116,7 +117,8 @@ function formatMlbGameResult(game, teamId) {
     year: "numeric",
   });
 
-  return `${won ? "✅" : "❌"} ${result} ${String(teamScore).padStart(2)}-${String(oppScore).padEnd(2)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})`;
+  const tag = game.gameType !== "R" && game.gameType !== undefined ? " [Playoffs]" : "";
+  return `${won ? "✅" : "❌"} ${result} ${String(teamScore).padStart(2)}-${String(oppScore).padEnd(2)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})${tag}`;
 }
 
 function renderMlb(data) {
@@ -167,7 +169,8 @@ function formatNflGameResult(game) {
     year: "numeric",
   });
 
-  return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})`;
+  const tag = game.gameType === 3 ? " [Playoffs]" : "";
+  return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})${tag}`;
 }
 
 function renderNfl(data) {
