@@ -5,6 +5,7 @@ const SEASON_WINDOWS = {
   mlb: { start: [3, 20], end: [11, 10], nextLabel: "late March" },
   nfl: { start: [9, 1], end: [2, 15], nextLabel: "September" },
   nhl: { start: [10, 1], end: [6, 30], nextLabel: "October" },
+  mls: { start: [2, 20], end: [12, 10], nextLabel: "late February" },
 };
 
 function isSeasonActive(sport) {
@@ -251,6 +252,53 @@ function renderNhl(data) {
   return lines.join("\n");
 }
 
+function formatMlsGameResult(game) {
+  const prefix = game.isHome ? "vs" : "@";
+  const result = game.won ? "W" : game.drew ? "D" : "L";
+  const icon = game.won ? "✅" : game.drew ? "🟡" : "❌";
+  const dateStr = new Date(game.date).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+  return `${icon} ${result} ${String(game.teamScore)}-${String(game.oppScore)} ${prefix} ${(game.oppAbbr || "???").padEnd(5)} (${dateStr})`;
+}
+
+function renderMls(data) {
+  const { team, recentGames, record, emoji, logoUrl } = data;
+  const lines = [];
+
+  lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
+  lines.push("");
+
+  lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
+  lines.push(`${team.conference ? team.conference + " Conference" : "MLS"}`);
+  lines.push(seasonStatusLine("mls"));
+  lines.push("");
+
+  const totalGames = record.wins + record.losses + record.draws;
+  const pts = record.wins * 3 + record.draws;
+  if (totalGames > 0) {
+    lines.push(`📊 ${record.season} Record: ${record.wins}W - ${record.losses}L - ${record.draws}D  (${pts} pts)`);
+    const winPct = ((record.wins + record.draws * 0.5) / totalGames) * 100;
+    lines.push(`   ${generateBarChart(winPct, 25)}`);
+    lines.push("");
+  }
+
+  if (recentGames.length > 0) {
+    lines.push("**📅 Recent Games:**");
+    lines.push("```");
+    for (const game of recentGames) {
+      lines.push(formatMlsGameResult(game));
+    }
+    lines.push("```");
+  } else {
+    lines.push("📅 No recent games found");
+  }
+
+  return lines.join("\n");
+}
+
 function render(sport, data) {
   switch (sport) {
     case "nba":
@@ -261,8 +309,10 @@ function render(sport, data) {
       return renderNfl(data);
     case "nhl":
       return renderNhl(data);
+    case "mls":
+      return renderMls(data);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls`);
   }
 }
 

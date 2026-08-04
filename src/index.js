@@ -53,7 +53,7 @@ async function main() {
   }
 
   // Add sport-specific metadata for the renderer
-  const defaultEmoji = sportName === "mlb" ? "⚾" : sportName === "nfl" ? "🏈" : "🏀";
+  const defaultEmoji = sportName === "mlb" ? "⚾" : sportName === "nfl" ? "🏈" : sportName === "mls" ? "⚽" : "🏀";
   const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
   const teamIdForLogo = adapter.TEAM_IDS[data.team.abbreviation] || 0;
   let logoUrl;
@@ -63,6 +63,8 @@ async function main() {
     logoUrl = `https://a.espncdn.com/i/teamlogos/nfl/500/${data.team.abbreviation.toLowerCase()}.png`;
   } else if (sportName === "nhl") {
     logoUrl = `https://assets.nhle.com/logos/nhl/svg/${data.team.abbreviation}_dark.svg`;
+  } else if (sportName === "mls") {
+    logoUrl = `https://a.espncdn.com/i/teamlogos/soccer/${teamIdForLogo}/scoreboard.png`;
   } else {
     logoUrl = `https://cdn.nba.com/logos/nba/${teamIdForLogo}/global/L/logo.svg`;
   }
