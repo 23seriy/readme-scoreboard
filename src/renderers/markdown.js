@@ -272,7 +272,10 @@ function renderMls(data) {
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  lines.push(`${team.conference ? team.conference + " Conference" : "MLS"}`);
+  const confLabel = team.conference
+    ? (team.conference.toLowerCase().includes("conference") ? team.conference : `${team.conference} Conference`)
+    : "MLS";
+  lines.push(confLabel);
   lines.push(seasonStatusLine("mls"));
   lines.push("");
 

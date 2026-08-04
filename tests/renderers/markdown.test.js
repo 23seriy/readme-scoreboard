@@ -110,6 +110,103 @@ describe("renderNba / formatGameResult", () => {
   });
 });
 
+const BASE_MLS_DATA = {
+  team: {
+    id: 20232,
+    abbreviation: "MIA",
+    name: "Inter Miami CF",
+    full_name: "Inter Miami CF",
+    conference: "Eastern Conference",
+    division: "",
+  },
+  record: { wins: 11, losses: 2, draws: 5, season: 2026 },
+  emoji: "🦩",
+  logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
+};
+
+function makeMlsGame({ teamId = 20232, oppId = 999, oppAbbr = "CLB", teamScore, oppScore, isHome = true, date = "2026-07-15T02:00:00Z" }) {
+  const won = teamScore > oppScore;
+  const drew = teamScore === oppScore;
+  return {
+    date,
+    gameType: "R",
+    home_team: { id: isHome ? teamId : oppId, abbreviation: isHome ? "MIA" : oppAbbr },
+    visitor_team: { id: isHome ? oppId : teamId, abbreviation: isHome ? oppAbbr : "MIA" },
+    home_team_score: isHome ? teamScore : oppScore,
+    visitor_team_score: isHome ? oppScore : teamScore,
+    status: "Final",
+    isHome,
+    teamScore,
+    oppScore,
+    oppAbbr,
+    won,
+    drew,
+  };
+}
+
+describe("renderMls", () => {
+  it("renders team name and abbreviation", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).toContain("Inter Miami CF");
+    expect(output).toContain("(MIA)");
+  });
+
+  it("does not duplicate the word Conference in the label", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).not.toContain("Conference Conference");
+    expect(output).toContain("Eastern Conference");
+  });
+
+  it("appends Conference when API value does not already include it", () => {
+    const data = { ...BASE_MLS_DATA, team: { ...BASE_MLS_DATA.team, conference: "Western" }, recentGames: [] };
+    const output = render("mls", data);
+    expect(output).toContain("Western Conference");
+    expect(output).not.toContain("Conference Conference");
+  });
+
+  it("renders W/L/D record with points", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).toContain("11W - 2L - 5D");
+    // Points = 11*3 + 5 = 38
+    expect(output).toContain("38 pts");
+  });
+
+  it("renders win as ✅ W", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 3, oppScore: 1 })] });
+    expect(output).toContain("✅");
+    expect(output).toContain("W 3-1");
+  });
+
+  it("renders draw as 🟡 D", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 2, oppScore: 2 })] });
+    expect(output).toContain("🟡");
+    expect(output).toContain("D 2-2");
+  });
+
+  it("renders loss as ❌ L", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 0, oppScore: 2 })] });
+    expect(output).toContain("❌");
+    expect(output).toContain("L 0-2");
+  });
+
+  it("shows vs for home games and @ for away games", () => {
+    const homeOutput = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 1, oppScore: 0, isHome: true })] });
+    expect(homeOutput).toContain("vs");
+    const awayOutput = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 1, oppScore: 0, isHome: false })] });
+    expect(awayOutput).toContain("@");
+  });
+
+  it("renders fallback when no recent games", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).toContain("No recent games found");
+  });
+
+  it("includes the season status line", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).toMatch(/🟢 Season in progress|🔴 Off-season/);
+  });
+});
+
 describe("render dispatch", () => {
   it("throws for unsupported sport", () => {
     expect(() => render("cricket", {})).toThrow("Unsupported sport");
