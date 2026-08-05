@@ -95,18 +95,57 @@ describe("renderMlb / formatMlbGameResult", () => {
   });
 });
 
+const BASE_NBA_DATA = {
+  team: { id: 1610612747, abbreviation: "LAL", name: "Lakers", full_name: "Los Angeles Lakers", conference: "West", division: "Pacific" },
+  record: { wins: 57, losses: 25, season: 2025 },
+  emoji: "👑",
+  logoUrl: "https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg",
+};
+
 describe("renderNba / formatGameResult", () => {
   it("renders NBA output with team info", () => {
-    const data = {
-      team: { id: 1610612747, abbreviation: "LAL", name: "Lakers", full_name: "Los Angeles Lakers", conference: "West", division: "Pacific" },
-      record: { wins: 57, losses: 25, season: 2025 },
-      emoji: "👑",
-      logoUrl: "https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg",
-      recentGames: [makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 })],
-    };
+    const data = { ...BASE_NBA_DATA, recentGames: [makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 })] };
     const output = render("nba", data);
     expect(output).toContain("Los Angeles Lakers");
     expect(output).toContain("✅");
+  });
+
+  it("shows season as start-end using ESPN end-year convention (season=2025 → 2024-2025)", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    expect(output).toContain("2024-2025");
+    expect(output).not.toContain("2025-2026");
+  });
+
+  it("renders season record with win percentage", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    expect(output).toContain("57W - 25L");
+    expect(output).toContain("69.5%");
+  });
+
+  it("renders W when home team wins", () => {
+    const data = { ...BASE_NBA_DATA, recentGames: [makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 })] };
+    expect(render("nba", data)).toContain("W");
+  });
+
+  it("renders L when away team loses", () => {
+    const data = { ...BASE_NBA_DATA, recentGames: [makeGame({ homeId: 2, awayId: 1610612747, homeScore: 110, awayScore: 98 })] };
+    expect(render("nba", data)).toContain("L");
+  });
+
+  it("renders [Playoffs] tag for postseason games", () => {
+    const game = { ...makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 }), postseason: true };
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [game] });
+    expect(output).toContain("[Playoffs]");
+  });
+
+  it("does not render [Playoffs] tag for regular season games", () => {
+    const game = { ...makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 }), postseason: false };
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [game] });
+    expect(output).not.toContain("[Playoffs]");
+  });
+
+  it("renders fallback when no recent games", () => {
+    expect(render("nba", { ...BASE_NBA_DATA, recentGames: [] })).toContain("No recent games found");
   });
 });
 
