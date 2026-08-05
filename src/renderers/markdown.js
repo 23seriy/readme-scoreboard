@@ -84,7 +84,7 @@ function renderNba(data) {
 
   if (record.wins + record.losses > 0) {
     lines.push(
-      `📊 ${record.season}-${record.season + 1} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      `📊 ${record.season - 1}-${record.season} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
     );
     lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
@@ -232,7 +232,7 @@ function renderNhl(data) {
 
   if (record.wins + record.losses > 0) {
     lines.push(
-      `📊 ${record.season}-${record.season + 1} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      `📊 ${record.season - 1}-${record.season} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
     );
     lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
