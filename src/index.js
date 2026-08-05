@@ -5,7 +5,6 @@ const { updateReadme, updateReadmeLocal } = require("./updater");
 
 const {
   GH_TOKEN: githubToken,
-  BDL_API_KEY: apiKey,
   SPORT: sport = "nba",
   TEAM: teamAbbr,
   TARGET_REPO: targetRepo,
@@ -31,7 +30,7 @@ async function main() {
   try {
     adapter = require(`./adapters/${sportName}`);
   } catch {
-    console.error(`Unsupported sport: "${sportName}". Available adapters: nba, mlb, nfl`);
+    console.error(`Unsupported sport: "${sportName}". Available adapters: nba, mlb, nfl, nhl, mls`);
     process.exit(1);
   }
 
@@ -41,11 +40,7 @@ async function main() {
     data = adapter.getDemoData(team);
     console.log(`[DEMO] Using sample data for ${data.team.full_name}`);
   } else {
-    if (sportName === "nba" && !apiKey) {
-      console.error("BDL_API_KEY environment variable is required for NBA live mode");
-      process.exit(1);
-    }
-    data = await adapter.fetchData(team, apiKey);
+    data = await adapter.fetchData(team);
     if (!data) {
       console.error("Could not fetch team data. Check your TEAM abbreviation.");
       process.exit(1);

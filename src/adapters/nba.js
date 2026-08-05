@@ -1,6 +1,13 @@
 const axios = require("axios");
 
-const BDL_BASE = "https://api.balldontlie.io/v1";
+const ESPN_BASE = "https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba";
+const ESPN_BASE_V2 = "https://site.web.api.espn.com/apis/v2/sports/basketball/nba";
+const ESPN_HEADERS = {
+  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+  "Accept": "application/json",
+  "Origin": "https://www.espn.com",
+  "Referer": "https://www.espn.com/",
+};
 
 const TEAM_EMOJI = {
   ATL: "🦅", BOS: "☘️", BKN: "🏙️", CHA: "🐝", CHI: "🐂",
@@ -11,6 +18,7 @@ const TEAM_EMOJI = {
   SAC: "👑", SAS: "🤠", TOR: "🦖", UTA: "🎵", WAS: "🧙",
 };
 
+// NBA CDN team IDs (for logo URLs) — separate from ESPN team IDs
 const TEAM_IDS = {
   ATL: 1610612737, BOS: 1610612738, BKN: 1610612751, CHA: 1610612766,
   CHI: 1610612741, CLE: 1610612739, DAL: 1610612742, DEN: 1610612743,
@@ -22,125 +30,156 @@ const TEAM_IDS = {
   UTA: 1610612762, WAS: 1610612764,
 };
 
-const DEMO_TEAMS = {
-  LAL: { id: 14, abbreviation: "LAL", city: "Los Angeles", name: "Lakers", full_name: "Los Angeles Lakers", conference: "West", division: "Pacific" },
-  BOS: { id: 2, abbreviation: "BOS", city: "Boston", name: "Celtics", full_name: "Boston Celtics", conference: "East", division: "Atlantic" },
-  GSW: { id: 10, abbreviation: "GSW", city: "Golden State", name: "Warriors", full_name: "Golden State Warriors", conference: "West", division: "Pacific" },
-  NYK: { id: 20, abbreviation: "NYK", city: "New York", name: "Knicks", full_name: "New York Knicks", conference: "East", division: "Atlantic" },
-  CHI: { id: 5, abbreviation: "CHI", city: "Chicago", name: "Bulls", full_name: "Chicago Bulls", conference: "East", division: "Central" },
-  MIA: { id: 16, abbreviation: "MIA", city: "Miami", name: "Heat", full_name: "Miami Heat", conference: "East", division: "Southeast" },
-  DAL: { id: 7, abbreviation: "DAL", city: "Dallas", name: "Mavericks", full_name: "Dallas Mavericks", conference: "West", division: "Southwest" },
-  DEN: { id: 8, abbreviation: "DEN", city: "Denver", name: "Nuggets", full_name: "Denver Nuggets", conference: "West", division: "Northwest" },
-  PHX: { id: 25, abbreviation: "PHX", city: "Phoenix", name: "Suns", full_name: "Phoenix Suns", conference: "West", division: "Pacific" },
-  OKC: { id: 21, abbreviation: "OKC", city: "Oklahoma City", name: "Thunder", full_name: "Oklahoma City Thunder", conference: "West", division: "Northwest" },
+// ESPN uses shorter abbreviations for some teams
+const ESPN_ABBR = {
+  GSW: "GS", NOP: "NO", NYK: "NY", SAS: "SA", UTA: "UTAH", WAS: "WSH",
 };
 
-async function fetchTeam(teamAbbr, apiKey) {
+// ESPN team IDs (for schedule/standings API calls)
+const ESPN_TEAM_IDS = {
+  ATL: 1,  BOS: 2,  BKN: 17, CHA: 30, CHI: 4,  CLE: 5,  DAL: 6,  DEN: 7,
+  DET: 8,  GSW: 9,  HOU: 10, IND: 11, LAC: 12, LAL: 13, MEM: 29, MIA: 14,
+  MIL: 15, MIN: 16, NOP: 3,  NYK: 18, OKC: 25, ORL: 19, PHI: 20, PHX: 21,
+  POR: 22, SAC: 23, SAS: 24, TOR: 28, UTA: 26, WAS: 27,
+};
+
+const DEMO_TEAMS = {
+  LAL: { id: 13, abbreviation: "LAL", name: "Lakers", full_name: "Los Angeles Lakers", conference: "West", division: "Pacific" },
+  BOS: { id: 2,  abbreviation: "BOS", name: "Celtics", full_name: "Boston Celtics", conference: "East", division: "Atlantic" },
+  GSW: { id: 9,  abbreviation: "GSW", name: "Warriors", full_name: "Golden State Warriors", conference: "West", division: "Pacific" },
+  NYK: { id: 18, abbreviation: "NYK", name: "Knicks", full_name: "New York Knicks", conference: "East", division: "Atlantic" },
+  CHI: { id: 4,  abbreviation: "CHI", name: "Bulls", full_name: "Chicago Bulls", conference: "East", division: "Central" },
+};
+
+async function fetchTeamInfo(teamAbbr) {
   try {
-    const { data } = await axios.get(`${BDL_BASE}/teams`, {
-      headers: { Authorization: apiKey },
-    });
-    const team = data.data.find(
-      (t) => t.abbreviation.toUpperCase() === teamAbbr.toUpperCase()
-    );
-    if (!team) {
-      console.error(`Team ${teamAbbr} not found`);
-      return null;
-    }
-    return team;
+    const upper = teamAbbr.toUpperCase();
+    const espnId = ESPN_TEAM_IDS[upper];
+    if (!espnId) { console.error(`Unknown NBA team: ${upper}`); return null; }
+    const { data } = await axios.get(`${ESPN_BASE}/teams/${espnId}`, { headers: ESPN_HEADERS });
+    const team = data.team;
+    if (!team) return null;
+    return {
+      id: espnId,
+      abbreviation: upper,
+      name: team.name,
+      full_name: team.displayName,
+      conference: "",
+      division: "",
+    };
   } catch (error) {
-    console.error(`Failed to fetch team: ${error.message}`);
+    console.error(`Failed to fetch NBA team: ${error.message}`);
     return null;
   }
 }
 
-async function fetchRecentGames(teamId, apiKey, count = 5) {
+async function fetchStandings(teamAbbr) {
   try {
-    const today = new Date();
-    // Look back 180 days to cover offseason gaps (no NBA games Jul-Sep)
-    const pastDate = new Date(today);
-    pastDate.setDate(today.getDate() - 180);
-
-    const { data } = await axios.get(`${BDL_BASE}/games`, {
-      headers: { Authorization: apiKey },
-      params: {
-        "team_ids[]": teamId,
-        start_date: pastDate.toISOString().split("T")[0],
-        end_date: today.toISOString().split("T")[0],
-        per_page: 50,
-      },
-    });
-
-    return data.data
-      .filter((g) => g.status === "Final")
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .slice(0, count);
+    const upper = teamAbbr.toUpperCase();
+    const espnAbbr = ESPN_ABBR[upper] || upper;
+    const now = new Date();
+    // NBA season: Oct–Jun; if before Oct use previous year
+    const season = now.getMonth() < 9 ? now.getFullYear() - 1 : now.getFullYear();
+    const { data } = await axios.get(
+      `${ESPN_BASE_V2}/standings?level=3&season=${season}&seasontype=2`,
+      { headers: ESPN_HEADERS }
+    );
+    for (const conf of (data.children || [])) {
+      for (const div of (conf.children || [])) {
+        const entry = (div.standings?.entries || []).find(
+          (e) => e.team?.abbreviation?.toUpperCase() === espnAbbr.toUpperCase()
+        );
+        if (entry) {
+          const stats = Object.fromEntries((entry.stats || []).map((s) => [s.name, s.value]));
+          return {
+            wins: stats.wins || 0,
+            losses: stats.losses || 0,
+            season,
+            conference: conf.name?.replace(" Conference", "") || "",
+            division: div.name?.replace(" Division", "") || "",
+          };
+        }
+      }
+    }
+    return { wins: 0, losses: 0, season, conference: "", division: "" };
   } catch (error) {
-    console.error(`Failed to fetch games: ${error.message}`);
-    return [];
+    console.error(`Failed to fetch NBA standings: ${error.message}`);
+    return { wins: 0, losses: 0, season: new Date().getFullYear() - 1, conference: "", division: "" };
   }
 }
 
-async function fetchSeasonRecord(teamId, apiKey) {
+async function fetchRecentGames(teamAbbr, count = 5) {
   try {
-    const currentYear = new Date().getFullYear();
-    const season =
-      new Date().getMonth() >= 9 ? currentYear : currentYear - 1;
+    const upper = teamAbbr.toUpperCase();
+    const espnId = ESPN_TEAM_IDS[upper];
+    const espnAbbr = ESPN_ABBR[upper] || upper;
+    const now = new Date();
+    const season = now.getMonth() < 9 ? now.getFullYear() - 1 : now.getFullYear();
 
-    const { data } = await axios.get(`${BDL_BASE}/games`, {
-      headers: { Authorization: apiKey },
-      params: {
-        "team_ids[]": teamId,
-        seasons: [season],
-        per_page: 100,
-      },
-    });
+    const [regData, postData] = await Promise.all([
+      axios.get(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
+      axios.get(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
+    ]);
 
-    const finalGames = data.data.filter((g) => g.status === "Final");
-    let wins = 0;
-    let losses = 0;
+    const events = [
+      ...(regData.data.events || []).map((e) => ({ ...e, gameType: 2 })),
+      ...(postData.data.events || []).map((e) => ({ ...e, gameType: 3 })),
+    ];
 
-    for (const game of finalGames) {
-      const isHome = game.home_team.id === teamId;
-      const teamScore = isHome
-        ? game.home_team_score
-        : game.visitor_team_score;
-      const oppScore = isHome
-        ? game.visitor_team_score
-        : game.home_team_score;
-
-      if (teamScore > oppScore) {
-        wins++;
-      } else {
-        losses++;
-      }
-    }
-
-    return { wins, losses, season };
+    return events
+      .filter((e) => e.competitions?.[0]?.status?.type?.completed)
+      .map((e) => {
+        const comp = e.competitions[0];
+        const teamComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() === espnAbbr.toUpperCase());
+        const oppComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() !== espnAbbr.toUpperCase());
+        if (!teamComp || !oppComp) return null;
+        const teamScore = teamComp.score?.value ?? parseFloat(teamComp.score) ?? 0;
+        const oppScore = oppComp.score?.value ?? parseFloat(oppComp.score) ?? 0;
+        const isHome = teamComp.homeAway === "home";
+        return {
+          date: e.date,
+          postseason: e.gameType === 3,
+          status: "Final",
+          home_team: {
+            id: isHome ? espnId : 0,
+            abbreviation: isHome ? upper : oppComp.team.abbreviation,
+          },
+          visitor_team: {
+            id: isHome ? 0 : espnId,
+            abbreviation: isHome ? oppComp.team.abbreviation : upper,
+          },
+          home_team_score: isHome ? teamScore : oppScore,
+          visitor_team_score: isHome ? oppScore : teamScore,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, count);
   } catch (error) {
-    console.error(`Failed to fetch season record: ${error.message}`);
-    return { wins: 0, losses: 0, season: 0 };
+    console.error(`Failed to fetch NBA games: ${error.message}`);
+    return [];
   }
 }
 
 function getDemoData(teamAbbr) {
   const abbr = teamAbbr.toUpperCase();
   const team = DEMO_TEAMS[abbr] || {
-    id: 1, abbreviation: abbr, city: abbr, name: abbr,
+    id: 13, abbreviation: abbr, name: abbr,
     full_name: `${abbr} Team`, conference: "West", division: "Pacific",
   };
   const opponents = ["GSW", "DEN", "PHX", "SAC", "DAL"].filter((t) => t !== abbr);
   const games = opponents.slice(0, 5).map((opp, i) => {
-    const won = Math.random() > 0.4;
-    const teamScore = won ? 105 + Math.floor(Math.random() * 20) : 95 + Math.floor(Math.random() * 10);
-    const oppScore = won ? 95 + Math.floor(Math.random() * 10) : 105 + Math.floor(Math.random() * 20);
-    const d = new Date();
-    d.setDate(d.getDate() - (i * 3 + 1));
+    const won = i % 3 !== 2;
+    const teamScore = won ? 110 + i * 3 : 98 + i;
+    const oppScore = won ? 98 + i : 110 + i * 3;
+    const d = new Date("2026-04-01");
+    d.setDate(d.getDate() - i * 3);
     return {
       date: d.toISOString(),
+      postseason: false,
       status: "Final",
-      home_team: i % 2 === 0 ? team : { id: 99, abbreviation: opp },
-      visitor_team: i % 2 === 0 ? { id: 99, abbreviation: opp } : team,
+      home_team: i % 2 === 0 ? team : { id: 0, abbreviation: opp },
+      visitor_team: i % 2 === 0 ? { id: 0, abbreviation: opp } : team,
       home_team_score: i % 2 === 0 ? teamScore : oppScore,
       visitor_team_score: i % 2 === 0 ? oppScore : teamScore,
     };
@@ -148,20 +187,22 @@ function getDemoData(teamAbbr) {
   return {
     team,
     recentGames: games,
-    record: { wins: 48, losses: 22, season: new Date().getFullYear() - 1 },
+    record: { wins: 50, losses: 32, season: new Date().getFullYear() - 1 },
   };
 }
 
-async function fetchData(teamAbbr, apiKey) {
-  const team = await fetchTeam(teamAbbr, apiKey);
-  if (!team) {
-    return null;
-  }
+async function fetchData(teamAbbr) {
+  const [team, standings] = await Promise.all([
+    fetchTeamInfo(teamAbbr),
+    fetchStandings(teamAbbr),
+  ]);
+  if (!team) return null;
 
-  // Sequential calls with delay to respect free-tier rate limit (5 req/min)
-  const recentGames = await fetchRecentGames(team.id, apiKey, 5);
-  await new Promise((r) => setTimeout(r, 15000));
-  const record = await fetchSeasonRecord(team.id, apiKey);
+  team.conference = standings.conference;
+  team.division = standings.division;
+
+  const recentGames = await fetchRecentGames(teamAbbr, 5);
+  const record = { wins: standings.wins, losses: standings.losses, season: standings.season };
 
   return { team, recentGames, record };
 }
@@ -171,4 +212,6 @@ module.exports = {
   getDemoData,
   TEAM_EMOJI,
   TEAM_IDS,
+  ESPN_TEAM_IDS,
+  ESPN_ABBR,
 };

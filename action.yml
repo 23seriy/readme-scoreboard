@@ -5,7 +5,7 @@ branding:
   color: "orange"
 inputs:
   sport:
-    description: "Sport: nba, mlb, nfl, nhl"
+    description: "Sport: nba, mlb, nfl, nhl, mls"
     required: false
     default: "nba"
   team:
@@ -14,9 +14,6 @@ inputs:
   gh_token:
     description: "GitHub token with repo scope"
     required: true
-  api_key:
-    description: "API key for the sport data provider (required for NBA only)"
-    required: false
   marker:
     description: "HTML comment marker name (default: readme-scoreboard). Use unique names for multiple scoreboards."
     required: false
@@ -38,7 +35,6 @@ runs:
       working-directory: ${{ github.action_path }}
       env:
         GH_TOKEN: ${{ inputs.gh_token }}
-        BDL_API_KEY: ${{ inputs.api_key }}
         SPORT: ${{ inputs.sport }}
         TEAM: ${{ inputs.team }}
         MARKER: ${{ inputs.marker }}
