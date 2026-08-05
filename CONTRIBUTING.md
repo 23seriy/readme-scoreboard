@@ -19,7 +19,7 @@ Thanks for your interest in contributing! Here's how you can help.
 This is the most impactful contribution you can make! Each sport is a single adapter file:
 
 1. Create `src/adapters/your-sport.js`
-2. Export a `fetchData(teamAbbr, apiKey)` function that returns `{ team, recentGames, record }`
+2. Export a `fetchData(teamAbbr)` function that returns `{ team, recentGames, record }`
 3. Export `TEAM_EMOJI`, `TEAM_IDS`, and `getDemoData(teamAbbr)` for metadata and demo mode
 4. Update `README.md` with the new sport's team abbreviations
 5. Open a PR

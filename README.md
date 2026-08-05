@@ -47,7 +47,8 @@ Go to your profile repo **Settings → Secrets and variables → Actions** and a
 | Secret | Description |
 |--------|-------------|
 | `GH_TOKEN` | GitHub token with `repo` scope ([create one](https://github.com/settings/tokens/new)) |
-| `BDL_API_KEY` | Free [BallDontLie](https://app.balldontlie.io) API key (NBA only) |
+
+No API keys needed — all sports use free, no-auth APIs.
 
 ### 3. Add the workflow
 
@@ -66,14 +67,13 @@ jobs:
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
-          api_key: ${{ secrets.BDL_API_KEY }}
           sport: nba
           team: LAL
 ```
 
 Change `team` to your team's abbreviation (see table below). Done!
 
-#### MLB Example (no `api_key` needed)
+#### MLB Example
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
@@ -83,7 +83,7 @@ Change `team` to your team's abbreviation (see table below). Done!
           team: NYY
 ```
 
-#### NFL Example (no `api_key` needed)
+#### NFL Example
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
@@ -93,7 +93,7 @@ Change `team` to your team's abbreviation (see table below). Done!
           team: KC
 ```
 
-#### NHL Example (no `api_key` needed)
+#### NHL Example
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
@@ -103,17 +103,28 @@ Change `team` to your team's abbreviation (see table below). Done!
           team: NYR
 ```
 
+#### MLS Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: mls
+          team: MIA
+          marker: readme-scoreboard-mls
+```
+
 ---
 
 ## Supported Sports
 
 | Sport | Status | Data Source | API Key? |
 |-------|--------|------------|----------|
-| 🏀 NBA | ✅ Available | [BallDontLie API](https://www.balldontlie.io/) | Required (free) |
+| 🏀 NBA | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
 | ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) | **Not needed** |
 | 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
 | 🏒 NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) | **Not needed** |
-| ⚽ Soccer | 🔜 Coming soon | — | — |
+| ⚽ MLS | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
 
 ---
 
@@ -264,9 +275,8 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl` |
-| `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`) |
-| `api_key` | NBA only | — | BallDontLie API key (not needed for other sports) |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls` |
+| `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name — use unique names for multiple scoreboards in one README |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
 
