@@ -57,7 +57,7 @@ async function main() {
   } else if (sportName === "nfl") {
     logoUrl = `https://a.espncdn.com/i/teamlogos/nfl/500/${data.team.abbreviation.toLowerCase()}.png`;
   } else if (sportName === "nhl") {
-    logoUrl = `https://assets.nhle.com/logos/nhl/svg/${data.team.abbreviation}.svg`;
+    logoUrl = `https://assets.nhle.com/logos/nhl/svg/${data.team.abbreviation}_dark.svg`;
   } else if (sportName === "mls") {
     logoUrl = `https://a.espncdn.com/i/teamlogos/soccer/500/${teamIdForLogo}.png`;
   } else {
