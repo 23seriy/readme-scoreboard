@@ -40,7 +40,7 @@ In your `username/username` repo's `README.md`, add these markers wherever you w
 <!-- readme-scoreboard end -->
 ```
 
-### 2. Create secrets
+### 2. Create secret
 
 Go to your profile repo **Settings → Secrets and variables → Actions** and add:
 
@@ -48,7 +48,7 @@ Go to your profile repo **Settings → Secrets and variables → Actions** and a
 |--------|-------------|
 | `GH_TOKEN` | GitHub token with `repo` scope ([create one](https://github.com/settings/tokens/new)) |
 
-No API keys needed — all sports use free, no-auth APIs.
+**That's all!** No sports-specific API keys needed — all adapters use free, no-auth public APIs (ESPN, MLB Stats API, NHL.com, etc).
 
 ### 3. Add the workflow
 
