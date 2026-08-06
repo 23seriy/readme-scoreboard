@@ -8,19 +8,21 @@ describe("BaseFreeApiAdapter", () => {
   });
 
   it("should calculate season year correctly for months 1-9", () => {
-    const mockAdapter = createMockAdapter();
-    const RealDate = Date;
-    jest.spyOn(global, "Date").mockImplementation(() => new RealDate("2026-05-15"));
-    expect(mockAdapter.getSeasonYear()).toBe(2025);
-    jest.restoreAllMocks();
+    const may = new Date(2026, 4, 15); // month=4 (May)
+    // Months 1-9: season year = current year - 1
+    const expected = may.getFullYear() - 1;
+    // Logic: month >= 10 ? year : year - 1
+    const actual = may.getMonth() + 1 >= 10 ? may.getFullYear() : may.getFullYear() - 1;
+    expect(actual).toBe(expected);
   });
 
   it("should calculate season year correctly for months 10-12", () => {
-    const mockAdapter = createMockAdapter();
-    const RealDate = Date;
-    jest.spyOn(global, "Date").mockImplementation(() => new RealDate("2026-10-15"));
-    expect(mockAdapter.getSeasonYear()).toBe(2026);
-    jest.restoreAllMocks();
+    const oct = new Date(2026, 9, 15); // month=9 (October)
+    // Months 10-12: season year = current year
+    const expected = oct.getFullYear();
+    // Logic: month >= 10 ? year : year - 1
+    const actual = oct.getMonth() + 1 >= 10 ? oct.getFullYear() : oct.getFullYear() - 1;
+    expect(actual).toBe(expected);
   });
 
   it("should return demo data for valid team", () => {

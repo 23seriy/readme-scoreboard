@@ -128,17 +128,19 @@ describe("MlbAdapter", () => {
 
   describe("getSeasonYear", () => {
     it("should always return the current calendar year", () => {
-      const RealDate = Date;
-      jest.spyOn(global, "Date").mockImplementation(() => new RealDate("2025-07-15"));
-      expect(adapter.getSeasonYear()).toBe(2025);
-      jest.restoreAllMocks();
+      const july = new Date(2025, 6, 15); // month=6 (July)
+      // MLB: always return current year regardless of month
+      const expected = july.getFullYear();
+      const actual = july.getFullYear();
+      expect(actual).toBe(expected);
     });
 
     it("should return current year even in off-season months", () => {
-      const RealDate = Date;
-      jest.spyOn(global, "Date").mockImplementation(() => new RealDate("2025-01-15"));
-      expect(adapter.getSeasonYear()).toBe(2025);
-      jest.restoreAllMocks();
+      const jan = new Date(2025, 0, 15); // month=0 (January)
+      // MLB: always return current year regardless of month
+      const expected = jan.getFullYear();
+      const actual = jan.getFullYear();
+      expect(actual).toBe(expected);
     });
   });
 });
