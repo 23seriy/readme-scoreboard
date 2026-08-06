@@ -118,13 +118,15 @@ Change `team` to your team's abbreviation (see table below). Done!
 
 ## Supported Sports
 
-| Sport | Status | Data Source | API Key? |
-|-------|--------|------------|----------|
-| 🏀 NBA | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
-| ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) | **Not needed** |
-| 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
-| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) | **Not needed** |
-| ⚽ MLS | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
+All sports use **free, no-auth APIs** — no secrets required.
+
+| Sport | Status | Data Source |
+|-------|--------|------------|
+| 🏀 NBA | ✅ Available | [ESPN API](https://www.espn.com/) |
+| ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) |
+| 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) |
+| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) |
+| ⚽ MLS | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
@@ -213,22 +215,22 @@ Change `team` to your team's abbreviation (see table below). Done!
 
 | 🏒 Eastern Conference | Abbr | | 🏒 Western Conference | Abbr |
 |---|------|---|---|------|
-| <img src="https://assets.nhle.com/logos/nhl/svg/BOS_dark.svg" width="26"> Boston Bruins | BOS | | <img src="https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg" width="26"> Anaheim Ducks | ANA |
-| <img src="https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg" width="26"> Buffalo Sabres | BUF | | <img src="https://assets.nhle.com/logos/nhl/svg/UTA_dark.svg" width="26"> Utah Hockey Club | UTA |
-| <img src="https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg" width="26"> Carolina Hurricanes | CAR | | <img src="https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg" width="26"> Calgary Flames | CGY |
-| <img src="https://assets.nhle.com/logos/nhl/svg/CBJ_dark.svg" width="26"> Columbus Blue Jackets | CBJ | | <img src="https://assets.nhle.com/logos/nhl/svg/CHI_dark.svg" width="26"> Chicago Blackhawks | CHI |
-| <img src="https://assets.nhle.com/logos/nhl/svg/DET_dark.svg" width="26"> Detroit Red Wings | DET | | <img src="https://assets.nhle.com/logos/nhl/svg/COL_dark.svg" width="26"> Colorado Avalanche | COL |
-| <img src="https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg" width="26"> Florida Panthers | FLA | | <img src="https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg" width="26"> Dallas Stars | DAL |
-| <img src="https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg" width="26"> Montreal Canadiens | MTL | | <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" width="26"> Edmonton Oilers | EDM |
-| <img src="https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg" width="26"> New Jersey Devils | NJ | | <img src="https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg" width="26"> Los Angeles Kings | LAK |
-| <img src="https://assets.nhle.com/logos/nhl/svg/NYI_dark.svg" width="26"> New York Islanders | NYI | | <img src="https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg" width="26"> Minnesota Wild | MIN |
-| <img src="https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg" width="26"> New York Rangers | NYR | | <img src="https://assets.nhle.com/logos/nhl/svg/NSH_dark.svg" width="26"> Nashville Predators | NSH |
-| <img src="https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg" width="26"> Ottawa Senators | OTT | | <img src="https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg" width="26"> Seattle Kraken | SEA |
-| <img src="https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg" width="26"> Philadelphia Flyers | PHI | | <img src="https://assets.nhle.com/logos/nhl/svg/SJS_dark.svg" width="26"> San Jose Sharks | SJ |
-| <img src="https://assets.nhle.com/logos/nhl/svg/PIT_dark.svg" width="26"> Pittsburgh Penguins | PIT | | <img src="https://assets.nhle.com/logos/nhl/svg/STL_dark.svg" width="26"> St. Louis Blues | STL |
-| <img src="https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg" width="26"> Tampa Bay Lightning | TB | | <img src="https://assets.nhle.com/logos/nhl/svg/VAN_dark.svg" width="26"> Vancouver Canucks | VAN |
-| <img src="https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg" width="26"> Toronto Maple Leafs | TOR | | <img src="https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg" width="26"> Vegas Golden Knights | VGK |
-| <img src="https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg" width="26"> Washington Capitals | WSH | | <img src="https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg" width="26"> Winnipeg Jets | WPG |
+| <img src="https://assets.nhle.com/logos/nhl/svg/BOS.svg" width="26"> Boston Bruins | BOS | | <img src="https://assets.nhle.com/logos/nhl/svg/ANA.svg" width="26"> Anaheim Ducks | ANA |
+| <img src="https://assets.nhle.com/logos/nhl/svg/BUF.svg" width="26"> Buffalo Sabres | BUF | | <img src="https://assets.nhle.com/logos/nhl/svg/UTA.svg" width="26"> Utah Hockey Club | UTA |
+| <img src="https://assets.nhle.com/logos/nhl/svg/CAR.svg" width="26"> Carolina Hurricanes | CAR | | <img src="https://assets.nhle.com/logos/nhl/svg/CGY.svg" width="26"> Calgary Flames | CGY |
+| <img src="https://assets.nhle.com/logos/nhl/svg/CBJ.svg" width="26"> Columbus Blue Jackets | CBJ | | <img src="https://assets.nhle.com/logos/nhl/svg/CHI.svg" width="26"> Chicago Blackhawks | CHI |
+| <img src="https://assets.nhle.com/logos/nhl/svg/DET.svg" width="26"> Detroit Red Wings | DET | | <img src="https://assets.nhle.com/logos/nhl/svg/COL.svg" width="26"> Colorado Avalanche | COL |
+| <img src="https://assets.nhle.com/logos/nhl/svg/FLA.svg" width="26"> Florida Panthers | FLA | | <img src="https://assets.nhle.com/logos/nhl/svg/DAL.svg" width="26"> Dallas Stars | DAL |
+| <img src="https://assets.nhle.com/logos/nhl/svg/MTL.svg" width="26"> Montreal Canadiens | MTL | | <img src="https://assets.nhle.com/logos/nhl/svg/EDM.svg" width="26"> Edmonton Oilers | EDM |
+| <img src="https://assets.nhle.com/logos/nhl/svg/NJD.svg" width="26"> New Jersey Devils | NJ | | <img src="https://assets.nhle.com/logos/nhl/svg/LAK.svg" width="26"> Los Angeles Kings | LAK |
+| <img src="https://assets.nhle.com/logos/nhl/svg/NYI.svg" width="26"> New York Islanders | NYI | | <img src="https://assets.nhle.com/logos/nhl/svg/MIN.svg" width="26"> Minnesota Wild | MIN |
+| <img src="https://assets.nhle.com/logos/nhl/svg/NYR.svg" width="26"> New York Rangers | NYR | | <img src="https://assets.nhle.com/logos/nhl/svg/NSH.svg" width="26"> Nashville Predators | NSH |
+| <img src="https://assets.nhle.com/logos/nhl/svg/OTT.svg" width="26"> Ottawa Senators | OTT | | <img src="https://assets.nhle.com/logos/nhl/svg/SEA.svg" width="26"> Seattle Kraken | SEA |
+| <img src="https://assets.nhle.com/logos/nhl/svg/PHI.svg" width="26"> Philadelphia Flyers | PHI | | <img src="https://assets.nhle.com/logos/nhl/svg/SJS.svg" width="26"> San Jose Sharks | SJ |
+| <img src="https://assets.nhle.com/logos/nhl/svg/PIT.svg" width="26"> Pittsburgh Penguins | PIT | | <img src="https://assets.nhle.com/logos/nhl/svg/STL.svg" width="26"> St. Louis Blues | STL |
+| <img src="https://assets.nhle.com/logos/nhl/svg/TBL.svg" width="26"> Tampa Bay Lightning | TB | | <img src="https://assets.nhle.com/logos/nhl/svg/VAN.svg" width="26"> Vancouver Canucks | VAN |
+| <img src="https://assets.nhle.com/logos/nhl/svg/TOR.svg" width="26"> Toronto Maple Leafs | TOR | | <img src="https://assets.nhle.com/logos/nhl/svg/VGK.svg" width="26"> Vegas Golden Knights | VGK |
+| <img src="https://assets.nhle.com/logos/nhl/svg/WSH.svg" width="26"> Washington Capitals | WSH | | <img src="https://assets.nhle.com/logos/nhl/svg/WPG.svg" width="26"> Winnipeg Jets | WPG |
 
 </span>
 
@@ -241,15 +243,16 @@ Change `team` to your team's abbreviation (see table below). Done!
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18418.png" width="20"> Atlanta United | ATL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20906.png" width="20"> Austin FC | ATX |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9720.png" width="20"> CF Montréal | MTL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/6977.png" width="20"> Dallas FC | DAL |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21300.png" width="20"> Charlotte FC | CLT | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/16467.png" width="20"> Houston Dynamo | HOU |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/183.png" width="20"> Columbus Crew | CLB | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/187.png" width="20"> LA Galaxy | LA |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/193.png" width="20"> D.C. United | DC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18966.png" width="20"> LAFC | LAFC |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20232.png" width="20"> Inter Miami CF | MIA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9726.png" width="20"> Minnesota United | MIN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/183.png" width="20"> Columbus Crew | CLB | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/182.png" width="20"> Chicago Fire | CHI |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/193.png" width="20"> D.C. United | DC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/187.png" width="20"> LA Galaxy | LA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20232.png" width="20"> Inter Miami CF | MIA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18966.png" width="20"> LAFC | LAFC |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17606.png" width="20"> New York City FC | NYC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18986.png" width="20"> Nashville SC | NSH |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/1906.png" width="20"> New York Red Bulls | NYRB | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9727.png" width="20"> Portland Timbers | POR |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17609.png" width="20"> Orlando City SC | ORL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22529.png" width="20"> San Diego Loyal | SD |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/10739.png" width="20"> Philadelphia Union | PHI | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/185.png" width="20"> San Jose Earthquakes | SJ |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/189.png" width="20"> New England Revolution | NE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21812.png" width="20"> St. Louis City SC | STL |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9728.png" width="20"> Toronto FC | TOR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/188.png" width="20"> Sporting Kansas City | SKC |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9728.png" width="20"> Toronto FC | TOR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/6900.png" width="20"> Vancouver Whitecaps | VAN |
+| | | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/188.png" width="20"> Sporting Kansas City | SKC |
 
 ---
 
