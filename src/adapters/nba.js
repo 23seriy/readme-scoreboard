@@ -78,8 +78,9 @@ async function fetchStandings(teamAbbr) {
     const upper = teamAbbr.toUpperCase();
     const espnAbbr = ESPN_ABBR[upper] || upper;
     const now = new Date();
-    // NBA season: Oct–Jun; if before Oct use previous year
-    const season = now.getMonth() < 9 ? now.getFullYear() - 1 : now.getFullYear();
+    // NBA season ends in June; ESPN season param = end year
+    // Oct-Dec: new season (ends next year), Jan-Sep: current season (ends this year)
+    const season = now.getMonth() >= 9 ? now.getFullYear() + 1 : now.getFullYear();
     const { data } = await axios.get(
       `${ESPN_BASE_V2}/standings?level=3&season=${season}&seasontype=2`,
       { headers: ESPN_HEADERS }
@@ -114,7 +115,7 @@ async function fetchRecentGames(teamAbbr, count = 5) {
     const espnId = ESPN_TEAM_IDS[upper];
     const espnAbbr = ESPN_ABBR[upper] || upper;
     const now = new Date();
-    const season = now.getMonth() < 9 ? now.getFullYear() - 1 : now.getFullYear();
+    const season = now.getMonth() >= 9 ? now.getFullYear() + 1 : now.getFullYear();
 
     const [regData, postData] = await Promise.all([
       axios.get(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
