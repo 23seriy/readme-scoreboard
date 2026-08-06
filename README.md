@@ -215,22 +215,22 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 | 🏒 Eastern Conference | Abbr | | 🏒 Western Conference | Abbr |
 |---|------|---|---|------|
-| <img src="https://assets.nhle.com/logos/nhl/svg/BOS_dark.svg" width="26"> Boston Bruins | BOS | | <img src="https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg" width="26"> Anaheim Ducks | ANA |
-| <img src="https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg" width="26"> Buffalo Sabres | BUF | | <img src="https://assets.nhle.com/logos/nhl/svg/UTA_dark.svg" width="26"> Utah Hockey Club | UTA |
-| <img src="https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg" width="26"> Carolina Hurricanes | CAR | | <img src="https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg" width="26"> Calgary Flames | CGY |
-| <img src="https://assets.nhle.com/logos/nhl/svg/CBJ_dark.svg" width="26"> Columbus Blue Jackets | CBJ | | <img src="https://assets.nhle.com/logos/nhl/svg/CHI_dark.svg" width="26"> Chicago Blackhawks | CHI |
-| <img src="https://assets.nhle.com/logos/nhl/svg/DET_dark.svg" width="26"> Detroit Red Wings | DET | | <img src="https://assets.nhle.com/logos/nhl/svg/COL_dark.svg" width="26"> Colorado Avalanche | COL |
-| <img src="https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg" width="26"> Florida Panthers | FLA | | <img src="https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg" width="26"> Dallas Stars | DAL |
-| <img src="https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg" width="26"> Montreal Canadiens | MTL | | <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" width="26"> Edmonton Oilers | EDM |
-| <img src="https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg" width="26"> New Jersey Devils | NJ | | <img src="https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg" width="26"> Los Angeles Kings | LAK |
-| <img src="https://assets.nhle.com/logos/nhl/svg/NYI_dark.svg" width="26"> New York Islanders | NYI | | <img src="https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg" width="26"> Minnesota Wild | MIN |
-| <img src="https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg" width="26"> New York Rangers | NYR | | <img src="https://assets.nhle.com/logos/nhl/svg/NSH_dark.svg" width="26"> Nashville Predators | NSH |
-| <img src="https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg" width="26"> Ottawa Senators | OTT | | <img src="https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg" width="26"> Seattle Kraken | SEA |
-| <img src="https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg" width="26"> Philadelphia Flyers | PHI | | <img src="https://assets.nhle.com/logos/nhl/svg/SJS_dark.svg" width="26"> San Jose Sharks | SJ |
-| <img src="https://assets.nhle.com/logos/nhl/svg/PIT_dark.svg" width="26"> Pittsburgh Penguins | PIT | | <img src="https://assets.nhle.com/logos/nhl/svg/STL_dark.svg" width="26"> St. Louis Blues | STL |
-| <img src="https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg" width="26"> Tampa Bay Lightning | TB | | <img src="https://assets.nhle.com/logos/nhl/svg/VAN_dark.svg" width="26"> Vancouver Canucks | VAN |
-| <img src="https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg" width="26"> Toronto Maple Leafs | TOR | | <img src="https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg" width="26"> Vegas Golden Knights | VGK |
-| <img src="https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg" width="26"> Washington Capitals | WSH | | <img src="https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg" width="26"> Winnipeg Jets | WPG |
+| <img src="https://assets.nhle.com/logos/nhl/svg/BOS.svg" width="26"> Boston Bruins | BOS | | <img src="https://assets.nhle.com/logos/nhl/svg/ANA.svg" width="26"> Anaheim Ducks | ANA |
+| <img src="https://assets.nhle.com/logos/nhl/svg/BUF.svg" width="26"> Buffalo Sabres | BUF | | <img src="https://assets.nhle.com/logos/nhl/svg/UTA.svg" width="26"> Utah Hockey Club | UTA |
+| <img src="https://assets.nhle.com/logos/nhl/svg/CAR.svg" width="26"> Carolina Hurricanes | CAR | | <img src="https://assets.nhle.com/logos/nhl/svg/CGY.svg" width="26"> Calgary Flames | CGY |
+| <img src="https://assets.nhle.com/logos/nhl/svg/CBJ.svg" width="26"> Columbus Blue Jackets | CBJ | | <img src="https://assets.nhle.com/logos/nhl/svg/CHI.svg" width="26"> Chicago Blackhawks | CHI |
+| <img src="https://assets.nhle.com/logos/nhl/svg/DET.svg" width="26"> Detroit Red Wings | DET | | <img src="https://assets.nhle.com/logos/nhl/svg/COL.svg" width="26"> Colorado Avalanche | COL |
+| <img src="https://assets.nhle.com/logos/nhl/svg/FLA.svg" width="26"> Florida Panthers | FLA | | <img src="https://assets.nhle.com/logos/nhl/svg/DAL.svg" width="26"> Dallas Stars | DAL |
+| <img src="https://assets.nhle.com/logos/nhl/svg/MTL.svg" width="26"> Montreal Canadiens | MTL | | <img src="https://assets.nhle.com/logos/nhl/svg/EDM.svg" width="26"> Edmonton Oilers | EDM |
+| <img src="https://assets.nhle.com/logos/nhl/svg/NJD.svg" width="26"> New Jersey Devils | NJ | | <img src="https://assets.nhle.com/logos/nhl/svg/LAK.svg" width="26"> Los Angeles Kings | LAK |
+| <img src="https://assets.nhle.com/logos/nhl/svg/NYI.svg" width="26"> New York Islanders | NYI | | <img src="https://assets.nhle.com/logos/nhl/svg/MIN.svg" width="26"> Minnesota Wild | MIN |
+| <img src="https://assets.nhle.com/logos/nhl/svg/NYR.svg" width="26"> New York Rangers | NYR | | <img src="https://assets.nhle.com/logos/nhl/svg/NSH.svg" width="26"> Nashville Predators | NSH |
+| <img src="https://assets.nhle.com/logos/nhl/svg/OTT.svg" width="26"> Ottawa Senators | OTT | | <img src="https://assets.nhle.com/logos/nhl/svg/SEA.svg" width="26"> Seattle Kraken | SEA |
+| <img src="https://assets.nhle.com/logos/nhl/svg/PHI.svg" width="26"> Philadelphia Flyers | PHI | | <img src="https://assets.nhle.com/logos/nhl/svg/SJS.svg" width="26"> San Jose Sharks | SJ |
+| <img src="https://assets.nhle.com/logos/nhl/svg/PIT.svg" width="26"> Pittsburgh Penguins | PIT | | <img src="https://assets.nhle.com/logos/nhl/svg/STL.svg" width="26"> St. Louis Blues | STL |
+| <img src="https://assets.nhle.com/logos/nhl/svg/TBL.svg" width="26"> Tampa Bay Lightning | TB | | <img src="https://assets.nhle.com/logos/nhl/svg/VAN.svg" width="26"> Vancouver Canucks | VAN |
+| <img src="https://assets.nhle.com/logos/nhl/svg/TOR.svg" width="26"> Toronto Maple Leafs | TOR | | <img src="https://assets.nhle.com/logos/nhl/svg/VGK.svg" width="26"> Vegas Golden Knights | VGK |
+| <img src="https://assets.nhle.com/logos/nhl/svg/WSH.svg" width="26"> Washington Capitals | WSH | | <img src="https://assets.nhle.com/logos/nhl/svg/WPG.svg" width="26"> Winnipeg Jets | WPG |
 
 </span>
 
