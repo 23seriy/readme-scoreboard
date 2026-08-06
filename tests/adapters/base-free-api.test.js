@@ -8,7 +8,6 @@ describe("BaseFreeApiAdapter", () => {
   });
 
   it("should calculate season year correctly for months 1-9", () => {
-    const mockAdapter = createMockAdapter();
     const may = new Date(2026, 4, 15); // month=4 (May)
     // Months 1-9: season year = current year - 1
     const expected = may.getFullYear() - 1;
@@ -18,7 +17,6 @@ describe("BaseFreeApiAdapter", () => {
   });
 
   it("should calculate season year correctly for months 10-12", () => {
-    const mockAdapter = createMockAdapter();
     const oct = new Date(2026, 9, 15); // month=9 (October)
     // Months 10-12: season year = current year
     const expected = oct.getFullYear();
