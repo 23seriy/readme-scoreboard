@@ -118,13 +118,15 @@ Change `team` to your team's abbreviation (see table below). Done!
 
 ## Supported Sports
 
-| Sport | Status | Data Source | API Key? |
-|-------|--------|------------|----------|
-| 🏀 NBA | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
-| ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) | **Not needed** |
-| 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
-| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) | **Not needed** |
-| ⚽ MLS | ✅ Available | [ESPN API](https://www.espn.com/) | **Not needed** |
+All sports use **free, no-auth APIs** — no secrets required.
+
+| Sport | Status | Data Source |
+|-------|--------|------------|
+| 🏀 NBA | ✅ Available | [ESPN API](https://www.espn.com/) |
+| ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) |
+| 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) |
+| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) |
+| ⚽ MLS | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
