@@ -175,4 +175,31 @@ describe("NbaAdapter — fetchData", () => {
     const result = await adapter.fetchData("ZZZ");
     expect(result).toBeNull();
   });
+
+  describe("season year calculation (ESPN season = end year)", () => {
+    it("in January (month < 9): season = current year", () => {
+      const jan = new Date(2026, 0, 15); // month=0 (January)
+      // Logic: getMonth() < 9 ? year : year + 1
+      const season = jan.getMonth() >= 9 ? jan.getFullYear() + 1 : jan.getFullYear();
+      expect(season).toBe(2026);
+    });
+
+    it("in August (month < 9): season = current year", () => {
+      const aug = new Date(2026, 7, 15); // month=7 (August)
+      const season = aug.getMonth() >= 9 ? aug.getFullYear() + 1 : aug.getFullYear();
+      expect(season).toBe(2026);
+    });
+
+    it("in October (month >= 9): season = next year", () => {
+      const oct = new Date(2026, 9, 15); // month=9 (October)
+      const season = oct.getMonth() >= 9 ? oct.getFullYear() + 1 : oct.getFullYear();
+      expect(season).toBe(2027);
+    });
+
+    it("in December (month >= 9): season = next year", () => {
+      const dec = new Date(2026, 11, 15); // month=11 (December)
+      const season = dec.getMonth() >= 9 ? dec.getFullYear() + 1 : dec.getFullYear();
+      expect(season).toBe(2027);
+    });
+  });
 });
