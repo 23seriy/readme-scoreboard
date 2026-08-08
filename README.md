@@ -238,6 +238,8 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 ## ⚽ MLS Team Abbreviations
 
+**Logos available for 20 teams.** All 28 MLS teams are supported by the adapter; logos are shown for teams with verified ESPN logo URLs.
+
 | ⚽ Eastern Conference | Abbr | | ⚽ Western Conference | Abbr |
 |---|------|---|---|------|
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18418.png" width="20"> Atlanta United | ATL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20906.png" width="20"> Austin FC | ATX |
