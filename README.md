@@ -2,14 +2,14 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, and **NHL** with more sports coming soon (soccer, etc.)
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, and **MLS** with more sports coming soon
 
 ---
 
 ## Preview
 
 <!-- readme-scoreboard start -->
-<img src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo_dark.svg" width="60" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" width="60" align="right" />
 
 ### 👑 Los Angeles Lakers (LAL)
 West Conference · Pacific Division
@@ -132,53 +132,45 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 ## 🏀 NBA Team Abbreviations
 
-<span style="font-size: 0.85em;">
-
 | 🏀 Eastern Conference | Abbr | | 🏀 Western Conference | Abbr |
 |---|------|---|---|------|
-| <img src="https://cdn.nba.com/logos/nba/1610612737/global/L/logo_dark.svg" width="20"> Atlanta Hawks | ATL | | <img src="https://cdn.nba.com/logos/nba/1610612742/global/L/logo_dark.svg" width="20"> Dallas Mavericks | DAL |
-| <img src="https://cdn.nba.com/logos/nba/1610612738/global/L/logo_dark.svg" width="20"> Boston Celtics | BOS | | <img src="https://cdn.nba.com/logos/nba/1610612743/global/L/logo_dark.svg" width="20"> Denver Nuggets | DEN |
-| <img src="https://cdn.nba.com/logos/nba/1610612751/global/L/logo_dark.svg" width="20"> Brooklyn Nets | BKN | | <img src="https://cdn.nba.com/logos/nba/1610612744/global/L/logo_dark.svg" width="20"> Golden State Warriors | GSW |
-| <img src="https://cdn.nba.com/logos/nba/1610612766/global/L/logo_dark.svg" width="20"> Charlotte Hornets | CHA | | <img src="https://cdn.nba.com/logos/nba/1610612745/global/L/logo_dark.svg" width="20"> Houston Rockets | HOU |
-| <img src="https://cdn.nba.com/logos/nba/1610612741/global/L/logo_dark.svg" width="20"> Chicago Bulls | CHI | | <img src="https://cdn.nba.com/logos/nba/1610612746/global/L/logo_dark.svg" width="20"> LA Clippers | LAC |
-| <img src="https://cdn.nba.com/logos/nba/1610612739/global/L/logo_dark.svg" width="20"> Cleveland Cavaliers | CLE | | <img src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo_dark.svg" width="20"> Los Angeles Lakers | LAL |
-| <img src="https://cdn.nba.com/logos/nba/1610612765/global/L/logo_dark.svg" width="20"> Detroit Pistons | DET | | <img src="https://cdn.nba.com/logos/nba/1610612763/global/L/logo_dark.svg" width="20"> Memphis Grizzlies | MEM |
-| <img src="https://cdn.nba.com/logos/nba/1610612754/global/L/logo_dark.svg" width="20"> Indiana Pacers | IND | | <img src="https://cdn.nba.com/logos/nba/1610612750/global/L/logo_dark.svg" width="20"> Minnesota Timberwolves | MIN |
-| <img src="https://cdn.nba.com/logos/nba/1610612748/global/L/logo_dark.svg" width="20"> Miami Heat | MIA | | <img src="https://cdn.nba.com/logos/nba/1610612740/global/L/logo_dark.svg" width="20"> New Orleans Pelicans | NOP |
-| <img src="https://cdn.nba.com/logos/nba/1610612749/global/L/logo_dark.svg" width="20"> Milwaukee Bucks | MIL | | <img src="https://cdn.nba.com/logos/nba/1610612760/global/L/logo_dark.svg" width="20"> Oklahoma City Thunder | OKC |
-| <img src="https://cdn.nba.com/logos/nba/1610612752/global/L/logo_dark.svg" width="20"> New York Knicks | NYK | | <img src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo_dark.svg" width="20"> Phoenix Suns | PHX |
-| <img src="https://cdn.nba.com/logos/nba/1610612753/global/L/logo_dark.svg" width="20"> Orlando Magic | ORL | | <img src="https://cdn.nba.com/logos/nba/1610612757/global/L/logo_dark.svg" width="20"> Portland Trail Blazers | POR |
-| <img src="https://cdn.nba.com/logos/nba/1610612755/global/L/logo_dark.svg" width="20"> Philadelphia 76ers | PHI | | <img src="https://cdn.nba.com/logos/nba/1610612758/global/L/logo_dark.svg" width="20"> Sacramento Kings | SAC |
-| <img src="https://cdn.nba.com/logos/nba/1610612761/global/L/logo_dark.svg" width="20"> Toronto Raptors | TOR | | <img src="https://cdn.nba.com/logos/nba/1610612759/global/L/logo_dark.svg" width="20"> San Antonio Spurs | SAS |
-| <img src="https://cdn.nba.com/logos/nba/1610612764/global/L/logo_dark.svg" width="20"> Washington Wizards | WAS | | <img src="https://cdn.nba.com/logos/nba/1610612762/global/L/logo_dark.svg" width="20"> Utah Jazz | UTA |
-
-</span>
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/atl.png" width="20"> Atlanta Hawks | ATL | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" width="20"> Dallas Mavericks | DAL |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" width="20"> Boston Celtics | BOS | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/den.png" width="20"> Denver Nuggets | DEN |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/bkn.png" width="20"> Brooklyn Nets | BKN | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/gs.png" width="20"> Golden State Warriors | GSW |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/cha.png" width="20"> Charlotte Hornets | CHA | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/hou.png" width="20"> Houston Rockets | HOU |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" width="20"> Chicago Bulls | CHI | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/lac.png" width="20"> LA Clippers | LAC |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/cle.png" width="20"> Cleveland Cavaliers | CLE | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" width="20"> Los Angeles Lakers | LAL |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/det.png" width="20"> Detroit Pistons | DET | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/mem.png" width="20"> Memphis Grizzlies | MEM |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/ind.png" width="20"> Indiana Pacers | IND | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/min.png" width="20"> Minnesota Timberwolves | MIN |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" width="20"> Miami Heat | MIA | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/no.png" width="20"> New Orleans Pelicans | NOP |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/mil.png" width="20"> Milwaukee Bucks | MIL | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/okc.png" width="20"> Oklahoma City Thunder | OKC |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/ny.png" width="20"> New York Knicks | NYK | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" width="20"> Phoenix Suns | PHX |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/orl.png" width="20"> Orlando Magic | ORL | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/por.png" width="20"> Portland Trail Blazers | POR |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/phi.png" width="20"> Philadelphia 76ers | PHI | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/sac.png" width="20"> Sacramento Kings | SAC |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/tor.png" width="20"> Toronto Raptors | TOR | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/sa.png" width="20"> San Antonio Spurs | SAS |
+| <img src="https://a.espncdn.com/i/teamlogos/nba/500/wsh.png" width="20"> Washington Wizards | WAS | | <img src="https://a.espncdn.com/i/teamlogos/nba/500/utah.png" width="20"> Utah Jazz | UTA |
 
 ---
 
 ## ⚾ MLB Team Abbreviations
 
-<span style="font-size: 0.85em;">
-
 | ⚾ American League | Abbr | | ⚾ National League | Abbr |
 |---|------|---|---|------|
-| <img src="https://www.mlbstatic.com/team-logos/133.png" width="20"> Athletics | ATH | | <img src="https://www.mlbstatic.com/team-logos/109.png" width="20"> Arizona Diamondbacks | AZ |
-| <img src="https://www.mlbstatic.com/team-logos/110.png" width="20"> Baltimore Orioles | BAL | | <img src="https://www.mlbstatic.com/team-logos/144.png" width="20"> Atlanta Braves | ATL |
-| <img src="https://www.mlbstatic.com/team-logos/111.png" width="20"> Boston Red Sox | BOS | | <img src="https://www.mlbstatic.com/team-logos/112.png" width="20"> Chicago Cubs | CHC |
-| <img src="https://www.mlbstatic.com/team-logos/145.png" width="20"> Chicago White Sox | CWS | | <img src="https://www.mlbstatic.com/team-logos/113.png" width="20"> Cincinnati Reds | CIN |
-| <img src="https://www.mlbstatic.com/team-logos/114.png" width="20"> Cleveland Guardians | CLE | | <img src="https://www.mlbstatic.com/team-logos/115.png" width="20"> Colorado Rockies | COL |
-| <img src="https://www.mlbstatic.com/team-logos/116.png" width="20"> Detroit Tigers | DET | | <img src="https://www.mlbstatic.com/team-logos/119.png" width="20"> Los Angeles Dodgers | LAD |
-| <img src="https://www.mlbstatic.com/team-logos/117.png" width="20"> Houston Astros | HOU | | <img src="https://www.mlbstatic.com/team-logos/146.png" width="20"> Miami Marlins | MIA |
-| <img src="https://www.mlbstatic.com/team-logos/118.png" width="20"> Kansas City Royals | KC | | <img src="https://www.mlbstatic.com/team-logos/158.png" width="20"> Milwaukee Brewers | MIL |
-| <img src="https://www.mlbstatic.com/team-logos/108.png" width="20"> Los Angeles Angels | LAA | | <img src="https://www.mlbstatic.com/team-logos/121.png" width="20"> New York Mets | NYM |
-| <img src="https://www.mlbstatic.com/team-logos/142.png" width="20"> Minnesota Twins | MIN | | <img src="https://www.mlbstatic.com/team-logos/143.png" width="20"> Philadelphia Phillies | PHI |
-| <img src="https://www.mlbstatic.com/team-logos/147.png" width="20"> New York Yankees | NYY | | <img src="https://www.mlbstatic.com/team-logos/134.png" width="20"> Pittsburgh Pirates | PIT |
-| <img src="https://www.mlbstatic.com/team-logos/136.png" width="20"> Seattle Mariners | SEA | | <img src="https://www.mlbstatic.com/team-logos/135.png" width="20"> San Diego Padres | SD |
-| <img src="https://www.mlbstatic.com/team-logos/139.png" width="20"> Tampa Bay Rays | TB | | <img src="https://www.mlbstatic.com/team-logos/137.png" width="20"> San Francisco Giants | SF |
-| <img src="https://www.mlbstatic.com/team-logos/140.png" width="20"> Texas Rangers | TEX | | <img src="https://www.mlbstatic.com/team-logos/138.png" width="20"> St. Louis Cardinals | STL |
-| <img src="https://www.mlbstatic.com/team-logos/141.png" width="20"> Toronto Blue Jays | TOR | | <img src="https://www.mlbstatic.com/team-logos/120.png" width="20"> Washington Nationals | WSH |
-
-</span>
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/ath.png" width="20"> Athletics | ATH | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/ari.png" width="20"> Arizona Diamondbacks | AZ |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/bal.png" width="20"> Baltimore Orioles | BAL | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/atl.png" width="20"> Atlanta Braves | ATL |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/bos.png" width="20"> Boston Red Sox | BOS | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/chc.png" width="20"> Chicago Cubs | CHC |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/cws.png" width="20"> Chicago White Sox | CWS | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/cin.png" width="20"> Cincinnati Reds | CIN |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/cle.png" width="20"> Cleveland Guardians | CLE | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/col.png" width="20"> Colorado Rockies | COL |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/det.png" width="20"> Detroit Tigers | DET | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/lad.png" width="20"> Los Angeles Dodgers | LAD |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/hou.png" width="20"> Houston Astros | HOU | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/mia.png" width="20"> Miami Marlins | MIA |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/kc.png" width="20"> Kansas City Royals | KC | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/mil.png" width="20"> Milwaukee Brewers | MIL |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/laa.png" width="20"> Los Angeles Angels | LAA | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/nym.png" width="20"> New York Mets | NYM |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/min.png" width="20"> Minnesota Twins | MIN | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/phi.png" width="20"> Philadelphia Phillies | PHI |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/nyy.png" width="20"> New York Yankees | NYY | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/pit.png" width="20"> Pittsburgh Pirates | PIT |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/sea.png" width="20"> Seattle Mariners | SEA | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/sd.png" width="20"> San Diego Padres | SD |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/tb.png" width="20"> Tampa Bay Rays | TB | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/sf.png" width="20"> San Francisco Giants | SF |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/tex.png" width="20"> Texas Rangers | TEX | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/stl.png" width="20"> St. Louis Cardinals | STL |
+| <img src="https://a.espncdn.com/i/teamlogos/mlb/500/tor.png" width="20"> Toronto Blue Jays | TOR | | <img src="https://a.espncdn.com/i/teamlogos/mlb/500/wsh.png" width="20"> Washington Nationals | WSH |
 
 ---
 
@@ -238,23 +230,23 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 ## ⚽ MLS Team Abbreviations
 
-All 28 MLS teams are supported. Logos shown for teams with available ESPN URLs.
-
 | ⚽ Eastern Conference | Abbr | | ⚽ Western Conference | Abbr |
 |---|------|---|---|------|
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18418.png" width="20"> Atlanta United | ATL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20906.png" width="20"> Austin FC | ATX |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9720.png" width="20"> CF Montréal | MTL | | Dallas FC | DAL |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21300.png" width="20"> Charlotte FC | CLT | | Houston Dynamo | HOU |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/183.png" width="20"> Columbus Crew | CLB | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/187.png" width="20"> LA Galaxy | LA |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/193.png" width="20"> D.C. United | DC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18966.png" width="20"> LAFC | LAFC |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20232.png" width="20"> Inter Miami CF | MIA | | Minnesota United | MIN |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17606.png" width="20"> New York City FC | NYC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18986.png" width="20"> Nashville SC | NSH |
-| New York Red Bulls | NYRB | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9727.png" width="20"> Portland Timbers | POR |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/10739.png" width="20"> Philadelphia Union | PHI | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22529.png" width="20"> San Diego Loyal | SD |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/189.png" width="20"> New England Revolution | NE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/185.png" width="20"> San Jose Earthquakes | SJ |
-| | | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21812.png" width="20"> St. Louis City SC | STL |
-| | | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/188.png" width="20"> Sporting Kansas City | SKC |
-| Toronto FC | TOR | | |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21300.png" width="20"> Charlotte FC | CLT | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/184.png" width="20"> Colorado Rapids | COL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/182.png" width="20"> Chicago Fire FC | CHI | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/185.png" width="20"> FC Dallas | DAL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/183.png" width="20"> Columbus Crew | CLB | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/6077.png" width="20"> Houston Dynamo FC | HOU |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/193.png" width="20"> D.C. United | DC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/187.png" width="20"> LA Galaxy | LA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18267.png" width="20"> FC Cincinnati | CIN | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18966.png" width="20"> LAFC | LAFC |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20232.png" width="20"> Inter Miami CF | MIA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17362.png" width="20"> Minnesota United FC | MIN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9720.png" width="20"> CF Montréal | MTL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9723.png" width="20"> Portland Timbers | POR |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18986.png" width="20"> Nashville SC | NSH | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/4771.png" width="20"> Real Salt Lake | RSL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/189.png" width="20"> New England Revolution | NE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22529.png" width="20"> San Diego FC | SD |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17606.png" width="20"> New York City FC | NYC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/191.png" width="20"> San Jose Earthquakes | SJ |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/12011.png" width="20"> Orlando City SC | ORL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9726.png" width="20"> Seattle Sounders FC | SEA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/10739.png" width="20"> Philadelphia Union | PHI | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/186.png" width="20"> Sporting Kansas City | SKC |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/190.png" width="20"> Red Bull New York | RBNY | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21812.png" width="20"> St. Louis CITY SC | STL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7318.png" width="20"> Toronto FC | TOR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9727.png" width="20"> Vancouver Whitecaps | VAN |
 
 ---
 

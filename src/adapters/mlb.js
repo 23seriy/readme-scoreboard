@@ -21,6 +21,11 @@ const TEAM_IDS = {
   TB: 139, TEX: 140, TOR: 141, WSH: 120,
 };
 
+// ESPN logo abbreviations, where they differ from MLB Stats API abbreviations.
+const ESPN_LOGO_ABBR = {
+  AZ: "ari",
+};
+
 const DIVISION_NAMES = {
   200: "AL West", 201: "AL East", 202: "AL Central",
   203: "NL West", 204: "NL East", 205: "NL Central",
@@ -136,6 +141,12 @@ class MlbAdapter extends BaseFreeApiAdapter {
 
   abbrById(id) {
     return Object.keys(TEAM_IDS).find((k) => TEAM_IDS[k] === id) || "???";
+  }
+
+  getLogoUrl(abbr) {
+    const upper = abbr.toUpperCase();
+    const slug = ESPN_LOGO_ABBR[upper] || upper.toLowerCase();
+    return `https://a.espncdn.com/i/teamlogos/mlb/500/${slug}.png`;
   }
 
   parseGameResponse(data) {
