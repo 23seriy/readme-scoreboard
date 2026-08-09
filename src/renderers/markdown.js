@@ -6,6 +6,7 @@ const SEASON_WINDOWS = {
   nfl: { start: [9, 1], end: [2, 15], nextLabel: "September" },
   nhl: { start: [10, 1], end: [6, 30], nextLabel: "October" },
   mls: { start: [2, 20], end: [12, 10], nextLabel: "late February" },
+  epl: { start: [8, 10], end: [5, 25], nextLabel: "August" },
 };
 
 function isSeasonActive(sport) {
@@ -28,9 +29,13 @@ function seasonStatusLine(sport) {
   const window = SEASON_WINDOWS[sport] || {};
   const now = new Date();
   const year = now.getFullYear();
-  const [sm] = window.start || [];
-  // If next season starts in a month already past this year, it'll be next year
-  const nextYear = sm && now.getMonth() + 1 >= sm ? year + 1 : year;
+  const [sm, sd] = window.start || [];
+  // If this year's start date has already passed, the next one is next year.
+  // Compare the full date: on Aug 8 a season starting Aug 10 is still this year.
+  const m = now.getMonth() + 1;
+  const d = now.getDate();
+  const startPassed = sm && (m > sm || (m === sm && d > sd));
+  const nextYear = startPassed ? year + 1 : year;
   return `🔴 Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
 }
 
@@ -264,7 +269,7 @@ function formatMlsGameResult(game) {
   return `${icon} ${result} ${String(game.teamScore)}-${String(game.oppScore)} ${prefix} ${(game.oppAbbr || "???").padEnd(5)} (${dateStr})`;
 }
 
-function renderMls(data) {
+function renderSoccer(data, sport = "mls", fallbackLabel = "MLS") {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
@@ -272,11 +277,17 @@ function renderMls(data) {
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  const confLabel = team.conference
-    ? (team.conference.toLowerCase().includes("conference") ? team.conference : `${team.conference} Conference`)
-    : "MLS";
+  // MLS splits into conferences; single-table leagues report their own
+  // name here, which should be shown as-is.
+  const group = team.conference;
+  let confLabel = fallbackLabel;
+  if (group) {
+    const isConference = group.toLowerCase().includes("conference");
+    const isEasternWestern = /^(eastern|western)$/i.test(group.trim());
+    confLabel = isConference || !isEasternWestern ? group : `${group} Conference`;
+  }
   lines.push(confLabel);
-  lines.push(seasonStatusLine("mls"));
+  lines.push(seasonStatusLine(sport));
   lines.push("");
 
   const totalGames = record.wins + record.losses + record.draws;
@@ -313,9 +324,11 @@ function render(sport, data) {
     case "nhl":
       return renderNhl(data);
     case "mls":
-      return renderMls(data);
+      return renderSoccer(data, "mls", "MLS");
+    case "epl":
+      return renderSoccer(data, "epl", "Premier League");
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl`);
   }
 }
 
