@@ -43,8 +43,8 @@ describe("Logo URL construction", () => {
 
     it("constructs NFL logo URL with lowercase abbreviations", () => {
       const abbrs = ["kc", "dal", "nyj"];
-      abbrs.forEach((abbr) => {
-        const logoUrl = `https://a.espncdn.com/i/teamlogos/nfl/500/${abbr}.png`;
+      abbrs.forEach((team) => {
+        const logoUrl = `https://a.espncdn.com/i/teamlogos/nfl/500/${team}.png`;
         expect(logoUrl).toMatch(/^https:\/\/a\.espncdn\.com\/i\/teamlogos\/nfl\/500\/[a-z]+\.png$/);
       });
     });
@@ -86,13 +86,12 @@ describe("Logo URL construction", () => {
       const teamIds = {
         DAL: 0, HOU: 0, NYRB: 0, ORL: 0, SKC: 0, TOR: 0, VAN: 0,
       };
-      Object.entries(teamIds).forEach(([team, id]) => {
+      Object.entries(teamIds).forEach(([_team, id]) => {
         expect(id).toBe(0);
       });
     });
 
     it("corrects duplicate team IDs", () => {
-      // MNU and RSL/SEA should have distinct IDs
       const teamIds = {
         MNU: 9725, RSL: 9726, SEA: 9726, MIN: 9729, NAS: 18986,
       };
