@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, and **MLS** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, and the **Premier League** with more sports coming soon
 
 ---
 
@@ -114,6 +114,17 @@ Change `team` to your team's abbreviation (see table below). Done!
           marker: readme-scoreboard-mls
 ```
 
+#### Premier League Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: epl
+          team: LIV
+          marker: readme-scoreboard-epl
+```
+
 ---
 
 ## Supported Sports
@@ -127,6 +138,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 | 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) |
 | 🏒 NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) |
 | ⚽ MLS | ✅ Available | [ESPN API](https://www.espn.com/) |
+| ⚽ Premier League | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
@@ -248,6 +260,24 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/190.png" width="20"> Red Bull New York | RBNY | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21812.png" width="20"> St. Louis CITY SC | STL |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7318.png" width="20"> Toronto FC | TOR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9727.png" width="20"> Vancouver Whitecaps | VAN |
 
+
+---
+
+## ⚽ Premier League Team Abbreviations
+
+| ⚽ Club | Abbr | | ⚽ Club | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/349.png" width="20"> AFC Bournemouth | BOU | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/357.png" width="20"> Leeds United | LEE |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/359.png" width="20"> Arsenal | ARS | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/364.png" width="20"> Liverpool | LIV |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/362.png" width="20"> Aston Villa | AVL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/382.png" width="20"> Manchester City | MNC |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/337.png" width="20"> Brentford | BRE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/360.png" width="20"> Manchester United | MAN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/331.png" width="20"> Brighton & Hove Albion | BHA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/361.png" width="20"> Newcastle United | NEW |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/379.png" width="20"> Burnley | BUR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/393.png" width="20"> Nottingham Forest | NFO |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/363.png" width="20"> Chelsea | CHE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/366.png" width="20"> Sunderland | SUN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/384.png" width="20"> Crystal Palace | CRY | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/367.png" width="20"> Tottenham Hotspur | TOT |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/368.png" width="20"> Everton | EVE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/371.png" width="20"> West Ham United | WHU |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/370.png" width="20"> Fulham | FUL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/380.png" width="20"> Wolverhampton Wanderers | WOL |
+
 ---
 
 ## Run Locally
@@ -269,6 +299,7 @@ SPORT=mlb TEAM=NYY node src/index.js --demo
 SPORT=nfl TEAM=KC node src/index.js --demo
 SPORT=nhl TEAM=TOR node src/index.js --demo
 SPORT=mls TEAM=MIA node src/index.js --demo
+SPORT=epl TEAM=LIV node src/index.js --demo
 ```
 
 ---
@@ -292,7 +323,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name — use unique names for multiple scoreboards in one README |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
