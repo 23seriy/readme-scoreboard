@@ -22,6 +22,15 @@ class NHLAdapter extends BaseFreeApiAdapter {
     VGK: 54, WPG: 52, WSH: 15,
   };
 
+  // NHL logo CDN codes, where they differ from the abbreviations above.
+  LOGO_ABBR = { NJ: "NJD", SJ: "SJS", TB: "TBL" };
+
+  getLogoUrl(abbr) {
+    const upper = abbr.toUpperCase();
+    const slug = this.LOGO_ABBR[upper] || upper;
+    return `https://assets.nhle.com/logos/nhl/svg/${slug}_dark.svg`;
+  }
+
   DEMO_TEAMS = {
     NYR: {
       id: 3,

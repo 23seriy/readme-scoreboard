@@ -208,9 +208,16 @@ async function fetchData(teamAbbr) {
   return { team, recentGames, record };
 }
 
+function getLogoUrl(abbr) {
+  const upper = abbr.toUpperCase();
+  const slug = (ESPN_ABBR[upper] || upper).toLowerCase();
+  return `https://a.espncdn.com/i/teamlogos/nba/500/${slug}.png`;
+}
+
 module.exports = {
   fetchData,
   getDemoData,
+  getLogoUrl,
   TEAM_EMOJI,
   TEAM_IDS,
   ESPN_TEAM_IDS,

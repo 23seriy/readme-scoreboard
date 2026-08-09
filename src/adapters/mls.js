@@ -5,21 +5,22 @@ const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1";
 const ESPN_BASE_V2 = "https://site.api.espn.com/apis/v2/sports/soccer/usa.1";
 
 const TEAM_EMOJI = {
-  ATL: "🦅", ATX: "🌵", MTL: "⚜️", CLT: "👑", CHI: "🔥",
-  CLB: "⚓", DAL: "🌟", DC: "🦅", HOU: "🚀", LA: "⭐",
-  LAFC: "🖤", MIA: "🦩", MNU: "🌲", NSH: "🎸", NE: "🔵",
-  NYC: "🗽", NYRB: "🔴", ORL: "🏰", PHI: "🔔", POR: "🌹",
-  RSL: "👑", SJ: "🌊", SEA: "🪝", SD: "🌊", SKC: "🔵",
-  STL: "⚽", TOR: "🍁", VAN: "🐋", MIN: "🦁", NAS: "🎸",
+  ATL: "🦅", ATX: "🌵", CHI: "🔥", CIN: "🔵", CLB: "⚓",
+  CLT: "👑", COL: "🏔️", DAL: "🌟", DC: "🦅", HOU: "🚀",
+  LA: "⭐", LAFC: "🖤", MIA: "🦩", MIN: "🌲", MTL: "⚜️",
+  NE: "🔵", NSH: "🎸", NYC: "🗽", ORL: "🏰", PHI: "🔔",
+  POR: "🌹", RBNY: "🔴", RSL: "👑", SD: "🌊", SEA: "🪝",
+  SJ: "🌊", SKC: "🔵", STL: "⚽", TOR: "🍁", VAN: "🐋",
 };
 
+// ESPN team IDs — sourced from ESPN's MLS standings API (authoritative).
 const TEAM_IDS = {
-  ATL: 18418, ATX: 20906, MTL: 9720, CLT: 21300, CHI: 182,
-  CLB: 183, DAL: 0, DC: 193, HOU: 0, LA: 187,
-  LAFC: 18966, MIA: 20232, MNU: 9725, NSH: 18986, NE: 189,
-  NYC: 17606, NYRB: 0, ORL: 0, PHI: 10739, POR: 9727,
-  RSL: 9726, SJ: 185, SEA: 9726, SD: 22529, SKC: 0,
-  STL: 21812, TOR: 0, VAN: 0, MIN: 9729, NAS: 18986,
+  ATL: 18418, ATX: 20906, CHI: 182, CIN: 18267, CLB: 183,
+  CLT: 21300, COL: 184, DAL: 185, DC: 193, HOU: 6077,
+  LA: 187, LAFC: 18966, MIA: 20232, MIN: 17362, MTL: 9720,
+  NE: 189, NSH: 18986, NYC: 17606, ORL: 12011, PHI: 10739,
+  POR: 9723, RBNY: 190, RSL: 4771, SD: 22529, SEA: 9726,
+  SJ: 191, SKC: 186, STL: 21812, TOR: 7318, VAN: 9727,
 };
 
 const DEMO_TEAMS = {
@@ -32,6 +33,11 @@ class MlsAdapter extends BaseFreeApiAdapter {
   TEAM_EMOJI = TEAM_EMOJI;
   TEAM_IDS = TEAM_IDS;
   DEMO_TEAMS = DEMO_TEAMS;
+
+  getLogoUrl(abbr) {
+    const id = TEAM_IDS[abbr.toUpperCase()];
+    return id ? `https://a.espncdn.com/i/teamlogos/soccer/500/${id}.png` : null;
+  }
 
   async fetchTeam(abbr) {
     try {

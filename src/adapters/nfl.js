@@ -188,9 +188,14 @@ async function fetchData(teamAbbr) {
   return { team, recentGames, record };
 }
 
+function getLogoUrl(abbr) {
+  return `https://a.espncdn.com/i/teamlogos/nfl/500/${abbr.toLowerCase()}.png`;
+}
+
 module.exports = {
   fetchData,
   getDemoData,
+  getLogoUrl,
   TEAM_EMOJI,
   TEAM_IDS,
 };
