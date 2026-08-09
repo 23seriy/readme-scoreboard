@@ -251,3 +251,100 @@ describe("render dispatch", () => {
     expect(() => render("cricket", {})).toThrow("Unsupported sport");
   });
 });
+
+describe("Soccer renderer — EPL", () => {
+  const demoData = (overrides = {}) => ({
+    team: { abbreviation: "LIV", full_name: "Liverpool", conference: "English Premier League" },
+    record: { wins: 17, losses: 12, draws: 9, season: 2025 },
+    recentGames: [],
+    emoji: "🔴",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("epl", demoData());
+    expect(out).toContain("Liverpool (LIV)");
+    expect(out).toContain("teamlogos/soccer/500/364.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("epl", demoData());
+    expect(out).toContain("English Premier League");
+    expect(out).not.toContain("English Premier League Conference");
+  });
+
+  it("falls back to 'Premier League' when the group is missing", () => {
+    const out = render("epl", demoData({ team: { abbreviation: "LIV", full_name: "Liverpool", conference: "" } }));
+    expect(out).toContain("Premier League");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("epl", demoData());
+    expect(out).toContain("17W - 12L - 9D");
+    expect(out).toContain("(60 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("epl", demoData({
+      recentGames: [{ date: "2026-05-24T14:00:00Z", teamScore: 1, oppScore: 1, oppAbbr: "BRE", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+
+  it("still appends 'Conference' for MLS's Eastern/Western groups", () => {
+    const out = render("mls", demoData({
+      team: { abbreviation: "MIA", full_name: "Inter Miami CF", conference: "Eastern" },
+    }));
+    expect(out).toContain("Eastern Conference");
+  });
+
+  it("does not double up when MLS already says 'Conference'", () => {
+    const out = render("mls", demoData({
+      team: { abbreviation: "MIA", full_name: "Inter Miami CF", conference: "Eastern Conference" },
+    }));
+    expect(out).toContain("Eastern Conference");
+    expect(out).not.toContain("Eastern Conference Conference");
+  });
+});
+
+describe("Season status — next-season year", () => {
+  afterEach(() => jest.useRealTimers());
+
+  const line = (sport, y, mIdx, d) => {
+    jest.useFakeTimers().setSystemTime(new Date(y, mIdx, d));
+    return render(sport, {
+      team: { abbreviation: "LIV", full_name: "Liverpool", conference: "English Premier League" },
+      record: { wins: 0, losses: 0, draws: 0, season: y },
+      recentGames: [], emoji: "🔴", logoUrl: "x",
+    });
+  };
+
+  it("names the current year when the start date is still ahead", () => {
+    // Aug 8 with a season starting Aug 10 — starts in 2 days, not next year
+    expect(line("epl", 2026, 7, 8)).toContain("August 2026");
+  });
+
+  it("names next year once this year's start date has passed", () => {
+    // Jun 1 is after May's end and after no Aug start yet this year
+    expect(line("epl", 2026, 5, 1)).toContain("August 2026");
+  });
+
+  it("reports the season as active once it has kicked off", () => {
+    // Sep 20 sits inside the Aug–May window
+    expect(line("epl", 2026, 8, 20)).toContain("🟢 Season in progress");
+  });
+
+  it("names the upcoming August throughout the summer gap", () => {
+    // Jun and Jul sit between May's end and August's start, so the next
+    // kickoff is still this year — never next year.
+    expect(line("epl", 2026, 5, 1)).toContain("August 2026");
+    expect(line("epl", 2026, 6, 15)).toContain("August 2026");
+  });
+
+  it("regression: does not skip a year on the eve of kickoff", () => {
+    // The bug: month >= startMonth ignored the day, so Aug 8 (start Aug 10)
+    // reported August 2027 — a full year late.
+    expect(line("epl", 2026, 7, 8)).not.toContain("2027");
+  });
+});
