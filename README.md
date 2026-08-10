@@ -133,16 +133,16 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 | Sport | Status | Data Source |
 |-------|--------|------------|
-| 🏀 NBA | ✅ Available | [ESPN API](https://www.espn.com/) |
-| ⚾ MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) |
-| 🏈 NFL | ✅ Available | [ESPN API](https://www.espn.com/) |
-| 🏒 NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) |
-| ⚽ MLS | ✅ Available | [ESPN API](https://www.espn.com/) |
-| ⚽ Premier League | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA logo" height="20"></picture> NBA | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/mlb.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/mlb.png" alt="MLB logo" height="20"></picture> MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nfl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png" alt="NFL logo" height="20"></picture> NFL | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nhl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nhl.png" alt="NHL logo" height="20"></picture> NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/19.png" alt="MLS logo" height="20"></picture> MLS | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/23.png" alt="Premier League logo" height="20"></picture> Premier League | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
-## 🏀 NBA Team Abbreviations
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA logo" height="28"></picture> NBA Team Abbreviations
 
 | 🏀 Eastern Conference | Abbr | | 🏀 Western Conference | Abbr |
 |---|------|---|---|------|
@@ -164,7 +164,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 ---
 
-## ⚾ MLB Team Abbreviations
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/mlb.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/mlb.png" alt="MLB logo" height="28"></picture> MLB Team Abbreviations
 
 | ⚾ American League | Abbr | | ⚾ National League | Abbr |
 |---|------|---|---|------|
@@ -186,7 +186,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 ---
 
-## 🏈 NFL Team Abbreviations
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nfl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png" alt="NFL logo" height="28"></picture> NFL Team Abbreviations
 
 <span style="font-size: 0.85em;">
 
@@ -213,7 +213,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 ---
 
-## 🏒 NHL Team Abbreviations
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nhl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nhl.png" alt="NHL logo" height="28"></picture> NHL Team Abbreviations
 
 <span style="font-size: 0.85em;">
 
@@ -240,7 +240,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 ---
 
-## ⚽ MLS Team Abbreviations
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/19.png" alt="MLS logo" height="28"></picture> MLS Team Abbreviations
 
 | ⚽ Eastern Conference | Abbr | | ⚽ Western Conference | Abbr |
 |---|------|---|---|------|
@@ -263,7 +263,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 ---
 
-## ⚽ Premier League Team Abbreviations
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/23.png" alt="Premier League logo" height="28"></picture> Premier League Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
 |---|------|---|---|------|
