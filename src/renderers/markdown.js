@@ -9,6 +9,29 @@ const SEASON_WINDOWS = {
   epl: { start: [8, 10], end: [5, 25], nextLabel: "August" },
 };
 
+// League logos on ESPN's free CDN. Several marks are single-colour on
+// transparent (the Premier League wordmark is dark purple, the MLS crest
+// has a white half), so each needs both variants to stay readable in
+// GitHub's light and dark themes.
+const LEAGUE_LOGOS = {
+  nba: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nba.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png", alt: "NBA" },
+  mlb: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/mlb.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/mlb.png", alt: "MLB" },
+  nfl: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nfl.png", alt: "NFL" },
+  nhl: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nhl.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nhl.png", alt: "NHL" },
+  mls: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/19.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png", alt: "MLS" },
+  epl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/23.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png", alt: "Premier League" },
+};
+
+/**
+ * A small league mark to prefix the conference/division line. Returns ""
+ * for unknown sports so the line renders unchanged.
+ */
+function leagueBadge(sport) {
+  const logo = LEAGUE_LOGOS[sport];
+  if (!logo) return "";
+  return `<picture><source media="(prefers-color-scheme: dark)" srcset="${logo.dark}"><img src="${logo.light}" alt="${logo.alt}" height="16" align="top"></picture> `;
+}
+
 function isSeasonActive(sport) {
   const window = SEASON_WINDOWS[sport];
   if (!window) return true;
@@ -78,7 +101,7 @@ function renderNba(data) {
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  lines.push(`${team.conference} Conference · ${team.division} Division`);
+  lines.push(`${leagueBadge("nba")}${team.conference} Conference · ${team.division} Division`);
   lines.push(seasonStatusLine("nba"));
   lines.push("");
 
@@ -135,7 +158,7 @@ function renderMlb(data) {
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  lines.push(`${team.league} · ${team.division}`);
+  lines.push(`${leagueBadge("mlb")}${team.league} · ${team.division}`);
   lines.push(seasonStatusLine("mlb"));
   lines.push("");
 
@@ -187,7 +210,7 @@ function renderNfl(data) {
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  lines.push(`${team.conference} · ${team.division}`);
+  lines.push(`${leagueBadge("nfl")}${team.conference} · ${team.division}`);
   lines.push(seasonStatusLine("nfl"));
   lines.push("");
 
@@ -226,7 +249,7 @@ function renderNhl(data) {
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  lines.push(`${team.conference} Conference · ${team.division} Division`);
+  lines.push(`${leagueBadge("nhl")}${team.conference} Conference · ${team.division} Division`);
   lines.push(seasonStatusLine("nhl"));
   lines.push("");
 
@@ -286,7 +309,7 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS") {
     const isEasternWestern = /^(eastern|western)$/i.test(group.trim());
     confLabel = isConference || !isEasternWestern ? group : `${group} Conference`;
   }
-  lines.push(confLabel);
+  lines.push(`${leagueBadge(sport)}${confLabel}`);
   lines.push(seasonStatusLine(sport));
   lines.push("");
 
