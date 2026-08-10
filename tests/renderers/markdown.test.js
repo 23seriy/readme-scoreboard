@@ -372,3 +372,48 @@ describe("Team logo sizing", () => {
     });
   });
 });
+
+describe("Soccer renderer — La Liga", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "RMA", full_name: "Real Madrid", conference: "LALIGA" },
+    record: { wins: 27, losses: 6, draws: 5, season: 2025 },
+    recentGames: [],
+    emoji: "👑",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("laliga", data());
+    expect(out).toContain("Real Madrid (RMA)");
+    expect(out).toContain("teamlogos/soccer/500/86.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("laliga", data());
+    expect(out).toContain("LALIGA");
+    expect(out).not.toContain("LALIGA Conference");
+  });
+
+  it("falls back to 'La Liga' when the group is missing", () => {
+    const out = render("laliga", data({ team: { abbreviation: "RMA", full_name: "Real Madrid", conference: "" } }));
+    expect(out).toContain("La Liga");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("laliga", data());
+    expect(out).toContain("27W - 6L - 5D");
+    expect(out).toContain("(86 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("laliga", data({
+      recentGames: [{ date: "2026-05-23T19:00:00Z", teamScore: 2, oppScore: 2, oppAbbr: "BAR", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+
+  it("renders the team logo at 72px like every other sport", () => {
+    expect(render("laliga", data())).toContain('width="72" align="right"');
+  });
+});

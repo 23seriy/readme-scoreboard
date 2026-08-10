@@ -5,7 +5,7 @@ branding:
   color: "orange"
 inputs:
   sport:
-    description: "Sport: nba, mlb, nfl, nhl, mls, epl"
+    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga"
     required: false
     default: "nba"
   team:
