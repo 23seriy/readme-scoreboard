@@ -348,3 +348,27 @@ describe("Season status — next-season year", () => {
     expect(line("epl", 2026, 7, 8)).not.toContain("2027");
   });
 });
+
+describe("Team logo sizing", () => {
+  const cases = [
+    ["nba", { ...BASE_NBA_DATA, recentGames: [] }],
+    ["mlb", { ...BASE_MLB_DATA, recentGames: [] }],
+    ["mls", { ...BASE_MLS_DATA, recentGames: [] }],
+  ];
+
+  cases.forEach(([sport, data]) => {
+    it(`${sport} renders the team logo at 72px, right-aligned`, () => {
+      const out = render(sport, data);
+      expect(out).toContain('width="72" align="right"');
+      expect(out).not.toContain('width="60"');
+    });
+  });
+
+  it("does not render a league badge in the generated block", () => {
+    // The league logo lives in the profile README's section headings;
+    // duplicating it here made it too small to read.
+    cases.forEach(([sport, data]) => {
+      expect(render(sport, data)).not.toContain("<picture>");
+    });
+  });
+});

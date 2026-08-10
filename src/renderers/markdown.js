@@ -74,7 +74,7 @@ function renderNba(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
+  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
@@ -131,7 +131,7 @@ function renderMlb(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
+  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
@@ -183,7 +183,7 @@ function renderNfl(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
+  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
@@ -222,7 +222,7 @@ function renderNhl(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
+  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
@@ -273,7 +273,7 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS") {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(`<img src="${logoUrl}" width="60" align="right" />`);
+  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
