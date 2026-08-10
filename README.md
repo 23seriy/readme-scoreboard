@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, and the **Premier League** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, and **La Liga** with more sports coming soon
 
 ---
 
@@ -125,6 +125,17 @@ Change `team` to your team's abbreviation (see table below). Done!
           marker: readme-scoreboard-epl
 ```
 
+#### La Liga Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: laliga
+          team: RMA
+          marker: readme-scoreboard-laliga
+```
+
 ---
 
 ## Supported Sports
@@ -139,6 +150,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nhl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nhl.png" alt="NHL logo" height="20"></picture> NHL | ✅ Available | [NHL.com Stats API](https://api-web.nhle.com/v1/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/19.png" alt="MLS logo" height="20"></picture> MLS | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/23.png" alt="Premier League logo" height="20"></picture> Premier League | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" alt="Premier League logo" height="20"></picture> La Liga | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
@@ -278,6 +290,24 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/368.png" width="20"> Everton | EVE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/371.png" width="20"> West Ham United | WHU |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/370.png" width="20"> Fulham | FUL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/380.png" width="20"> Wolverhampton Wanderers | WOL |
 
+
+---
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" alt="Premier League logo" height="28"></picture> La Liga Team Abbreviations
+
+| ⚽ Club | Abbr | | ⚽ Club | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/93.png" width="20"> Athletic Club | ATH | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/84.png" width="20"> Mallorca | MLL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/1068.png" width="20"> Atlético Madrid | ATM | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/97.png" width="20"> Osasuna | OSA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/83.png" width="20"> Barcelona | BAR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/101.png" width="20"> Rayo Vallecano | RAY |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/85.png" width="20"> Celta Vigo | CEL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/244.png" width="20"> Real Betis | BET |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/96.png" width="20"> Deportivo Alavés | ALA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/86.png" width="20"> Real Madrid | RMA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3751.png" width="20"> Elche | ELC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/92.png" width="20"> Real Oviedo | OVI |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/88.png" width="20"> Espanyol | ESP | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/89.png" width="20"> Real Sociedad | RSO |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2922.png" width="20"> Getafe | GET | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/243.png" width="20"> Sevilla | SEV |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9812.png" width="20"> Girona | GIR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/94.png" width="20"> Valencia | VAL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/1538.png" width="20"> Levante | LEV | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/102.png" width="20"> Villarreal | VIL |
+
 ---
 
 ## Run Locally
@@ -300,6 +330,7 @@ SPORT=nfl TEAM=KC node src/index.js --demo
 SPORT=nhl TEAM=TOR node src/index.js --demo
 SPORT=mls TEAM=MIA node src/index.js --demo
 SPORT=epl TEAM=LIV node src/index.js --demo
+SPORT=laliga TEAM=RMA node src/index.js --demo
 ```
 
 ---
@@ -323,7 +354,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name — use unique names for multiple scoreboards in one README |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
