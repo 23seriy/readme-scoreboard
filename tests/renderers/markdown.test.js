@@ -417,3 +417,44 @@ describe("Soccer renderer — La Liga", () => {
     expect(render("laliga", data())).toContain('width="72" align="right"');
   });
 });
+
+describe("Soccer renderer — Bundesliga", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "MUN", full_name: "Bayern Munich", conference: "German Bundesliga" },
+    record: { wins: 28, losses: 1, draws: 5, season: 2025 },
+    recentGames: [],
+    emoji: "🔴",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("bundesliga", data());
+    expect(out).toContain("Bayern Munich (MUN)");
+    expect(out).toContain("teamlogos/soccer/500/132.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("bundesliga", data());
+    expect(out).toContain("German Bundesliga");
+    expect(out).not.toContain("Bundesliga Conference");
+  });
+
+  it("falls back to 'Bundesliga' when the group is missing", () => {
+    const out = render("bundesliga", data({ team: { abbreviation: "MUN", full_name: "Bayern Munich", conference: "" } }));
+    expect(out).toContain("Bundesliga");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("bundesliga", data());
+    expect(out).toContain("28W - 1L - 5D");
+    expect(out).toContain("(89 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("bundesliga", data({
+      recentGames: [{ date: "2026-05-02T13:30:00Z", teamScore: 3, oppScore: 3, oppAbbr: "HDH", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});

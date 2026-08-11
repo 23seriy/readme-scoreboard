@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, and **La Liga** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, and the **Bundesliga** with more sports coming soon
 
 ---
 
@@ -136,6 +136,17 @@ Change `team` to your team's abbreviation (see table below). Done!
           marker: readme-scoreboard-laliga
 ```
 
+#### Bundesliga Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: bundesliga
+          team: MUN
+          marker: readme-scoreboard-bundesliga
+```
+
 ---
 
 ## Supported Sports
@@ -151,6 +162,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/19.png" alt="MLS logo" height="20"></picture> MLS | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/23.png" alt="Premier League logo" height="20"></picture> Premier League | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" alt="Premier League logo" height="20"></picture> La Liga | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/10.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/10.png" alt="Premier League logo" height="20"></picture> Bundesliga | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
@@ -308,6 +320,23 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9812.png" width="20"> Girona | GIR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/94.png" width="20"> Valencia | VAL |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/1538.png" width="20"> Levante | LEV | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/102.png" width="20"> Villarreal | VIL |
 
+
+---
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/10.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/10.png" alt="Premier League logo" height="28"></picture> Bundesliga Team Abbreviations
+
+| ⚽ Club | Abbr | | ⚽ Club | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/6418.png" width="20"> 1. FC Heidenheim | HDH | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/127.png" width="20"> Hamburger SV | HSV |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/598.png" width="20"> 1. FC Union Berlin | FCU | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2950.png" width="20"> Mainz 05 | M05 |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/131.png" width="20"> Bayer Leverkusen | B04 | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/11420.png" width="20"> RB Leipzig | RBL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/132.png" width="20"> Bayern Munich | MUN | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/126.png" width="20"> SC Freiburg | SCF |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/124.png" width="20"> Borussia Dortmund | DOR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/270.png" width="20"> St. Pauli | STP |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/268.png" width="20"> Borussia Mönchengladbach | BMG | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7911.png" width="20"> TSG Hoffenheim | TSG |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/125.png" width="20"> Eintracht Frankfurt | SGE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/134.png" width="20"> VfB Stuttgart | VFB |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3841.png" width="20"> FC Augsburg | FCA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/138.png" width="20"> VfL Wolfsburg | WOB |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/122.png" width="20"> FC Cologne | KOE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/137.png" width="20"> Werder Bremen | SVW |
+
 ---
 
 ## Run Locally
@@ -331,6 +360,7 @@ SPORT=nhl TEAM=TOR node src/index.js --demo
 SPORT=mls TEAM=MIA node src/index.js --demo
 SPORT=epl TEAM=LIV node src/index.js --demo
 SPORT=laliga TEAM=RMA node src/index.js --demo
+SPORT=bundesliga TEAM=MUN node src/index.js --demo
 ```
 
 ---
@@ -354,7 +384,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name — use unique names for multiple scoreboards in one README |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
