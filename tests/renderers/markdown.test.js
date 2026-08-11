@@ -458,3 +458,45 @@ describe("Soccer renderer — Bundesliga", () => {
     expect(out).toContain("🟡");
   });
 });
+
+describe("Soccer renderer — Serie A", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "INT", full_name: "Internazionale", conference: "Italian Serie A" },
+    record: { wins: 27, losses: 5, draws: 6, season: 2025 },
+    recentGames: [],
+    emoji: "🐍",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("seriea", data());
+    expect(out).toContain("Internazionale (INT)");
+    expect(out).toContain("teamlogos/soccer/500/110.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("seriea", data());
+    expect(out).toContain("Italian Serie A");
+    expect(out).not.toContain("Serie A Conference");
+  });
+
+  it("falls back to 'Serie A' when the group is missing", () => {
+    const out = render("seriea", data({ team: { abbreviation: "INT", full_name: "Internazionale", conference: "" } }));
+    expect(out).toContain("Serie A");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("seriea", data());
+    expect(out).toContain("27W - 5L - 6D");
+    expect(out).toContain("(87 pts)");
+  });
+
+  it("marks a 0-0 draw with the draw icon", () => {
+    const out = render("seriea", data({
+      recentGames: [{ date: "2026-04-26T18:45:00Z", teamScore: 0, oppScore: 0, oppAbbr: "JUV", isHome: false, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+    expect(out).toContain("0-0");
+  });
+});
