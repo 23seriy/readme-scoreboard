@@ -500,3 +500,44 @@ describe("Soccer renderer — Serie A", () => {
     expect(out).toContain("0-0");
   });
 });
+
+describe("Soccer renderer — Ligue 1", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "PSG", full_name: "Paris Saint-Germain", conference: "French Ligue 1" },
+    record: { wins: 24, losses: 6, draws: 4, season: 2025 },
+    recentGames: [],
+    emoji: "🗼",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("ligue1", data());
+    expect(out).toContain("Paris Saint-Germain (PSG)");
+    expect(out).toContain("teamlogos/soccer/500/160.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("ligue1", data());
+    expect(out).toContain("French Ligue 1");
+    expect(out).not.toContain("Ligue 1 Conference");
+  });
+
+  it("falls back to 'Ligue 1' when the group is missing", () => {
+    const out = render("ligue1", data({ team: { abbreviation: "PSG", full_name: "Paris Saint-Germain", conference: "" } }));
+    expect(out).toContain("Ligue 1");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("ligue1", data());
+    expect(out).toContain("24W - 6L - 4D");
+    expect(out).toContain("(76 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("ligue1", data({
+      recentGames: [{ date: "2026-05-02T19:00:00Z", teamScore: 2, oppScore: 2, oppAbbr: "LOR", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});

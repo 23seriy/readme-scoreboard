@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, and **Serie A** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, and **Ligue 1** with more sports coming soon
 
 ---
 
@@ -158,6 +158,17 @@ Change `team` to your team's abbreviation (see table below). Done!
           marker: readme-scoreboard-seriea
 ```
 
+#### Ligue 1 Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: ligue1
+          team: PSG
+          marker: readme-scoreboard-ligue1
+```
+
 ---
 
 ## Supported Sports
@@ -175,6 +186,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" alt="Premier League logo" height="20"></picture> La Liga | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/10.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/10.png" alt="Premier League logo" height="20"></picture> Bundesliga | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/12.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/12.png" alt="Premier League logo" height="20"></picture> Serie A | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/9.png" alt="Premier League logo" height="20"></picture> Ligue 1 | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
@@ -367,6 +379,23 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3263.png" width="20"> Genoa | GEN | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/239.png" width="20"> Torino | TOR |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/119.png" width="20"> Hellas Verona | VER | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/118.png" width="20"> Udinese | UDI |
 
+
+---
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/9.png" alt="Premier League logo" height="28"></picture> Ligue 1 Team Abbreviations
+
+| ⚽ Club | Abbr | | ⚽ Club | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/172.png" width="20"> AJ Auxerre | AUX | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/176.png" width="20"> Marseille | OLM |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/174.png" width="20"> AS Monaco | MON | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/177.png" width="20"> Metz | METZ |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7868.png" width="20"> Angers | ANG | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/165.png" width="20"> Nantes | NAN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/6997.png" width="20"> Brest | BRE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2502.png" width="20"> Nice | NICE |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3236.png" width="20"> Le Havre AC | HAC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/6851.png" width="20"> Paris FC | PAR |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/175.png" width="20"> Lens | RCL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/160.png" width="20"> Paris Saint-Germain | PSG |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/166.png" width="20"> Lille | LILL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/169.png" width="20"> Stade Rennais | REN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/273.png" width="20"> Lorient | LOR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/180.png" width="20"> Strasbourg | STR |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/167.png" width="20"> Lyon | LYON | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/179.png" width="20"> Toulouse | TOU |
+
 ---
 
 ## Run Locally
@@ -392,6 +421,7 @@ SPORT=epl TEAM=LIV node src/index.js --demo
 SPORT=laliga TEAM=RMA node src/index.js --demo
 SPORT=bundesliga TEAM=MUN node src/index.js --demo
 SPORT=seriea TEAM=INT node src/index.js --demo
+SPORT=ligue1 TEAM=PSG node src/index.js --demo
 ```
 
 ---
@@ -415,7 +445,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name — use unique names for multiple scoreboards in one README |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |

@@ -10,6 +10,7 @@ const SEASON_WINDOWS = {
   laliga: { start: [8, 15], end: [5, 25], nextLabel: "August" },
   bundesliga: { start: [8, 20], end: [5, 20], nextLabel: "August" },
   seriea: { start: [8, 20], end: [5, 25], nextLabel: "August" },
+  ligue1: { start: [8, 15], end: [5, 20], nextLabel: "August" },
 };
 
 function isSeasonActive(sport) {
@@ -336,8 +337,10 @@ function render(sport, data) {
       return renderSoccer(data, "bundesliga", "Bundesliga");
     case "seriea":
       return renderSoccer(data, "seriea", "Serie A");
+    case "ligue1":
+      return renderSoccer(data, "ligue1", "Ligue 1");
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1`);
   }
 }
 
