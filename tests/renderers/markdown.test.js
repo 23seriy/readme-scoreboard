@@ -541,3 +541,50 @@ describe("Soccer renderer — Ligue 1", () => {
     expect(out).toContain("🟡");
   });
 });
+
+describe("Soccer renderer — Primeira Liga", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "SLB", full_name: "Benfica", conference: "Portuguese Liga" },
+    record: { wins: 24, losses: 4, draws: 6, season: 2025 },
+    recentGames: [],
+    emoji: "🦅",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("primeiraliga", data());
+    expect(out).toContain("Benfica (SLB)");
+    expect(out).toContain("teamlogos/soccer/500/1929.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("primeiraliga", data());
+    expect(out).toContain("Portuguese Liga");
+    expect(out).not.toContain("Portuguese Liga Conference");
+  });
+
+  it("falls back to 'Primeira Liga' when the group is missing", () => {
+    const out = render("primeiraliga", data({ team: { abbreviation: "SLB", full_name: "Benfica", conference: "" } }));
+    expect(out).toContain("Primeira Liga");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("primeiraliga", data());
+    expect(out).toContain("24W - 4L - 6D");
+    expect(out).toContain("(78 pts)");
+  });
+
+  it("handles a single-match season without dividing by zero", () => {
+    const out = render("primeiraliga", data({ record: { wins: 0, losses: 0, draws: 1, season: 2026 } }));
+    expect(out).toContain("0W - 0L - 1D");
+    expect(out).toContain("(1 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("primeiraliga", data({
+      recentGames: [{ date: "2026-08-09T19:00:00Z", teamScore: 2, oppScore: 2, oppAbbr: "ACV", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
