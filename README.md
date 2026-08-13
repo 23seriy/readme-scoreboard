@@ -40,6 +40,24 @@ In your `username/username` repo's `README.md`, add these markers wherever you w
 <!-- readme-scoreboard end -->
 ```
 
+**Tracking more than one sport? Give each its own marker pair.** Every step
+rewrites whatever sits between its markers, so two sports sharing one pair means
+the second silently overwrites the first — with no error. Add a pair per sport and
+point each step at it with `marker:`:
+
+```md
+## My NBA Team
+<!-- readme-scoreboard-nba start -->
+<!-- readme-scoreboard-nba end -->
+
+## My MLB Team
+<!-- readme-scoreboard-mlb start -->
+<!-- readme-scoreboard-mlb end -->
+```
+
+The name is yours to choose — it just has to match the step's `marker:` exactly.
+A step whose marker is missing from the README fails the job.
+
 ### 2. Create secret
 
 Go to your profile repo **Settings → Secrets and variables → Actions** and add:
@@ -72,6 +90,30 @@ jobs:
 ```
 
 Change `team` to your team's abbreviation (see table below). Done!
+
+#### Multiple sports in one README
+
+Add a step per sport, each with a `marker` matching a pair in your README:
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nba
+          team: LAL
+          marker: readme-scoreboard-nba
+
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: mlb
+          team: NYY
+          marker: readme-scoreboard-mlb
+```
+
+Once you use named markers, set one on **every** step — including the first.
+A step left on the default `readme-scoreboard` will look for a pair by that
+name, and fail the job if you renamed it.
 
 #### MLB Example
 
@@ -477,7 +519,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
 | `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
-| `marker` | No | `readme-scoreboard` | HTML comment marker name — use unique names for multiple scoreboards in one README |
+| `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
 
 \* Not required in `--demo` mode.
