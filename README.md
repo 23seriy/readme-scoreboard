@@ -36,9 +36,12 @@ West Conference · Pacific Division
 In your `username/username` repo's `README.md`, add these markers wherever you want the stats to appear:
 
 ```md
-<!-- readme-scoreboard start -->
-<!-- readme-scoreboard end -->
+<!-- readme-scoreboard-nba start -->
+<!-- readme-scoreboard-nba end -->
 ```
+
+The name is yours to choose — it just has to match the `marker:` on the workflow
+step below. Naming it after the sport keeps things clear once you add a second one.
 
 **Tracking more than one sport? Give each its own marker pair.** Every step
 rewrites whatever sits between its markers, so two sports sharing one pair means
@@ -55,7 +58,6 @@ point each step at it with `marker:`:
 <!-- readme-scoreboard-mlb end -->
 ```
 
-The name is yours to choose — it just has to match the step's `marker:` exactly.
 A step whose marker is missing from the README fails the job.
 
 ### 2. Create secret
@@ -87,9 +89,11 @@ jobs:
           gh_token: ${{ secrets.GH_TOKEN }}
           sport: nba
           team: LAL
+          marker: readme-scoreboard-nba
 ```
 
-Change `team` to your team's abbreviation (see table below). Done!
+Change `team` to your team's abbreviation (see table below), and keep `marker`
+matching the pair you added in step 1. Done!
 
 #### Multiple sports in one README
 
@@ -123,6 +127,7 @@ name, and fail the job if you renamed it.
           gh_token: ${{ secrets.GH_TOKEN }}
           sport: mlb
           team: NYY
+          marker: readme-scoreboard-mlb
 ```
 
 #### NFL Example
@@ -133,6 +138,7 @@ name, and fail the job if you renamed it.
           gh_token: ${{ secrets.GH_TOKEN }}
           sport: nfl
           team: KC
+          marker: readme-scoreboard-nfl
 ```
 
 #### NHL Example
@@ -143,6 +149,7 @@ name, and fail the job if you renamed it.
           gh_token: ${{ secrets.GH_TOKEN }}
           sport: nhl
           team: NYR
+          marker: readme-scoreboard-nhl
 ```
 
 #### MLS Example
