@@ -29,6 +29,36 @@ West Conference · Pacific Division
 
 ---
 
+## Table of Contents
+
+- [Quick Start (3 steps)](#quick-start-3-steps)
+  - [1. Add markers to your profile README](#1-add-markers-to-your-profile-readme)
+  - [2. Create secret](#2-create-secret)
+  - [3. Add the workflow](#3-add-the-workflow)
+- [Supported Sports](#supported-sports)
+- Team Abbreviations
+  - [NBA](#-nba-team-abbreviations)
+  - [MLB](#-mlb-team-abbreviations)
+  - [NFL](#-nfl-team-abbreviations)
+  - [NHL](#-nhl-team-abbreviations)
+  - [MLS](#-mls-team-abbreviations)
+  - [Premier League](#-premier-league-team-abbreviations)
+  - [La Liga](#-la-liga-team-abbreviations)
+  - [Bundesliga](#-bundesliga-team-abbreviations)
+  - [Serie A](#-serie-a-team-abbreviations)
+  - [Ligue 1](#-ligue-1-team-abbreviations)
+  - [Primeira Liga](#-primeira-liga-team-abbreviations)
+  - [Eredivisie](#-eredivisie-team-abbreviations)
+  - [WNBA](#-wnba-team-abbreviations)
+  - [Liga MX](#-liga-mx-team-abbreviations)
+  - [Brasileirão](#-brasileirão-team-abbreviations)
+- [Run Locally](#run-locally)
+- [Adding a New Sport](#adding-a-new-sport)
+- [Action Inputs (`with:`)](#action-inputs-with)
+- [License](#license)
+
+---
+
 ## Quick Start (3 steps)
 
 ### 1. Add markers to your profile README
