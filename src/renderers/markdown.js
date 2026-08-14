@@ -12,6 +12,7 @@ const SEASON_WINDOWS = {
   seriea: { start: [8, 20], end: [5, 25], nextLabel: "August" },
   ligue1: { start: [8, 15], end: [5, 20], nextLabel: "August" },
   primeiraliga: { start: [8, 8], end: [5, 20], nextLabel: "August" },
+  eredivisie: { start: [8, 8], end: [5, 20], nextLabel: "August" },
 };
 
 // League logos on ESPN's free CDN. Several marks are single-colour on
@@ -29,6 +30,7 @@ const LEAGUE_LOGOS = {
   seriea: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/12.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/12.png", alt: "Serie A" },
   ligue1: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/9.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png", alt: "Ligue 1" },
   primeiraliga: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/14.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png", alt: "Primeira Liga" },
+  eredivisie: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/11.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png", alt: "Eredivisie" },
 };
 
 /**
@@ -377,8 +379,10 @@ function render(sport, data) {
       return renderSoccer(data, "ligue1", "Ligue 1");
     case "primeiraliga":
       return renderSoccer(data, "primeiraliga", "Primeira Liga");
+    case "eredivisie":
+      return renderSoccer(data, "eredivisie", "Eredivisie");
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie`);
   }
 }
 

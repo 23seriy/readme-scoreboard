@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, and the **Primeira Liga** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, and the **Eredivisie** with more sports coming soon
 
 ---
 
@@ -230,6 +230,17 @@ name, and fail the job if you renamed it.
           marker: readme-scoreboard-primeiraliga
 ```
 
+#### Eredivisie Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: eredivisie
+          team: AJA
+          marker: readme-scoreboard-eredivisie
+```
+
 ---
 
 ## Supported Sports
@@ -249,6 +260,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/12.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/12.png" alt="Premier League logo" height="20"></picture> Serie A | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/9.png" alt="Premier League logo" height="20"></picture> Ligue 1 | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/14.png" alt="Premier League logo" height="20"></picture> Primeira Liga | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/11.png" alt="Premier League logo" height="20"></picture> Eredivisie | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
@@ -475,6 +487,23 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/12216.png" width="20"> Estoril | EPF | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/12706.png" width="20"> Tondela | CDT |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21610.png" width="20"> Estrela | EST | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5309.png" width="20"> Vitória de Guimarães | VSC |
 
+
+---
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/11.png" alt="Premier League logo" height="28"></picture> Eredivisie Team Abbreviations
+
+| ⚽ Club | Abbr | | ⚽ Club | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/140.png" width="20"> AZ Alkmaar | AZ | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3706.png" width="20"> Go Ahead Eagles | GAE |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/139.png" width="20"> Ajax Amsterdam | AJA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/146.png" width="20"> Heerenveen | HEE |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2566.png" width="20"> Excelsior | EXC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3708.png" width="20"> Heracles Almelo | HER |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/145.png" width="20"> FC Groningen | GRO | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/141.png" width="20"> NAC Breda | NAC |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/152.png" width="20"> FC Twente | TWE | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/147.png" width="20"> NEC Nijmegen | NEC |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/153.png" width="20"> FC Utrecht | UTR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2565.png" width="20"> PEC Zwolle | PEC |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2727.png" width="20"> FC Volendam | VOL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/148.png" width="20"> PSV Eindhoven | PSV |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/142.png" width="20"> Feyenoord | FEY | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/151.png" width="20"> Sparta Rotterdam | SPA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/143.png" width="20"> Fortuna Sittard | FOR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3735.png" width="20"> Telstar | TEL |
+
 ---
 
 ## Run Locally
@@ -502,6 +531,7 @@ SPORT=bundesliga TEAM=MUN node src/index.js --demo
 SPORT=seriea TEAM=INT node src/index.js --demo
 SPORT=ligue1 TEAM=PSG node src/index.js --demo
 SPORT=primeiraliga TEAM=SLB node src/index.js --demo
+SPORT=eredivisie TEAM=AJA node src/index.js --demo
 ```
 
 ---
@@ -525,7 +555,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
