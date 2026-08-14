@@ -837,3 +837,43 @@ describe("Soccer renderer — Brasileirão", () => {
     expect(out).toContain("🟡");
   });
 });
+
+describe("Soccer renderer — NWSL", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "GFC", full_name: "Gotham FC", conference: "NWSL Regular Season" },
+    record: { wins: 12, losses: 3, draws: 4, season: 2026 },
+    recentGames: [],
+    emoji: "🦇",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/15364.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("nwsl", data());
+    expect(out).toContain("Gotham FC (GFC)");
+    expect(out).toContain("teamlogos/soccer/500/15364.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("nwsl", data())).toContain("My Favourite NWSL Team");
+  });
+
+  it("uses the NWSL league logo, not the MLS one", () => {
+    const out = render("nwsl", data());
+    expect(out).toContain("leaguelogos/soccer/500/2323.png");
+    expect(out).not.toContain("leaguelogos/soccer/500/19.png");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("nwsl", data());
+    expect(out).toContain("12W - 3L - 4D");
+    expect(out).toContain("(40 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("nwsl", data({
+      recentGames: [{ date: "2026-07-24T23:00:00Z", teamScore: 2, oppScore: 2, oppAbbr: "POR", isHome: false, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
