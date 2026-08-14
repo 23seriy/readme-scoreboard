@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, and **Liga MX** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, and the **Brasileirão** with more sports coming soon
 
 ---
 
@@ -263,6 +263,17 @@ name, and fail the job if you renamed it.
           marker: readme-scoreboard-ligamx
 ```
 
+#### Brasileirão Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: brasileirao
+          team: PAL
+          marker: readme-scoreboard-brasileirao
+```
+
 ---
 
 ## Supported Sports
@@ -285,6 +296,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/11.png" alt="Premier League logo" height="20"></picture> Eredivisie | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA logo" height="20"></picture> WNBA | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/22.png" alt="Premier League logo" height="20"></picture> Liga MX | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/85.png" alt="Premier League logo" height="20"></picture> Brasileirão | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
@@ -561,6 +573,24 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20702.png" width="20"> Mazatlán FC | MAZ | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/10125.png" width="20"> Tijuana | TIJ |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/220.png" width="20"> Monterrey | MTY | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/223.png" width="20"> Toluca | TOL |
 
+
+---
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/85.png" alt="Premier League logo" height="28"></picture> Brasileirão Team Abbreviations
+
+| ⚽ Club | Abbr | | ⚽ Club | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3458.png" width="20"> Athletico Paranaense | CAP | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/6273.png" width="20"> Grêmio | GRE |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7632.png" width="20"> Atlético Mineiro | CAM | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/1936.png" width="20"> Internacional | INT |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9967.png" width="20"> Bahia | BAH | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9169.png" width="20"> Mirassol | MIR |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/6086.png" width="20"> Botafogo | BOT | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2029.png" width="20"> Palmeiras | PAL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9318.png" width="20"> Chapecoense | CHA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/6079.png" width="20"> Red Bull Bragantino | BRA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/874.png" width="20"> Corinthians | COR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/4936.png" width="20"> Remo | REMO |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3456.png" width="20"> Coritiba | CFC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2674.png" width="20"> Santos | SAN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2022.png" width="20"> Cruzeiro | CRU | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2026.png" width="20"> São Paulo | SAO |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/819.png" width="20"> Flamengo | FLA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3454.png" width="20"> Vasco da Gama | VAS |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3445.png" width="20"> Fluminense | FLU | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3457.png" width="20"> Vitória | VIT |
+
 ---
 
 ## Run Locally
@@ -591,6 +621,7 @@ SPORT=primeiraliga TEAM=SLB node src/index.js --demo
 SPORT=eredivisie TEAM=AJA node src/index.js --demo
 SPORT=wnba TEAM=MIN node src/index.js --demo
 SPORT=ligamx TEAM=AME node src/index.js --demo
+SPORT=brasileirao TEAM=PAL node src/index.js --demo
 ```
 
 ---
@@ -614,7 +645,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
