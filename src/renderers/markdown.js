@@ -13,6 +13,7 @@ const SEASON_WINDOWS = {
   ligue1: { start: [8, 15], end: [5, 20], nextLabel: "August" },
   primeiraliga: { start: [8, 8], end: [5, 20], nextLabel: "August" },
   eredivisie: { start: [8, 8], end: [5, 20], nextLabel: "August" },
+  wnba: { start: [5, 1], end: [10, 20], nextLabel: "May" },
 };
 
 // League logos on ESPN's free CDN. Several marks are single-colour on
@@ -31,6 +32,7 @@ const LEAGUE_LOGOS = {
   ligue1: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/9.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png", alt: "Ligue 1" },
   primeiraliga: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/14.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png", alt: "Primeira Liga" },
   eredivisie: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/11.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png", alt: "Eredivisie" },
+  wnba: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png", alt: "WNBA" },
 };
 
 /**
@@ -107,17 +109,23 @@ function formatGameResult(game, teamId) {
   return `${result === "W" ? "✅" : "❌"} ${result} ${String(teamScore).padStart(3)}-${String(oppScore).padEnd(3)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})${tag}`;
 }
 
-function renderNba(data) {
+function renderNba(data, sport = "nba") {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(...headingLines("nba"));
+  lines.push(...headingLines(sport));
   lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  lines.push(`${team.conference} Conference · ${team.division} Division`);
-  lines.push(seasonStatusLine("nba"));
+  // The WNBA has conferences but no divisions, so the division half is omitted
+  // rather than rendered as a dangling separator.
+  lines.push(
+    team.division
+      ? `${team.conference} Conference · ${team.division} Division`
+      : `${team.conference} Conference`
+  );
+  lines.push(seasonStatusLine(sport));
   lines.push("");
 
   const winPct =
@@ -126,8 +134,13 @@ function renderNba(data) {
       : "0.0";
 
   if (record.wins + record.losses > 0) {
+    // The NBA season crosses the new year, so ESPN's end-year is shown as a
+    // span. The WNBA plays May–October, so its season is a single year.
+    const seasonLabel = sport === "wnba"
+      ? `${record.season}`
+      : `${record.season - 1}-${record.season}`;
     lines.push(
-      `📊 ${record.season - 1}-${record.season} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      `📊 ${seasonLabel} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
     );
     lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
@@ -359,6 +372,8 @@ function render(sport, data) {
   switch (sport) {
     case "nba":
       return renderNba(data);
+    case "wnba":
+      return renderNba(data, "wnba");
     case "mlb":
       return renderMlb(data);
     case "nfl":
@@ -382,7 +397,7 @@ function render(sport, data) {
     case "eredivisie":
       return renderSoccer(data, "eredivisie", "Eredivisie");
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba`);
   }
 }
 

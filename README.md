@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, and the **Eredivisie** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, and the **WNBA** with more sports coming soon
 
 ---
 
@@ -241,6 +241,17 @@ name, and fail the job if you renamed it.
           marker: readme-scoreboard-eredivisie
 ```
 
+#### WNBA Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: wnba
+          team: MIN
+          marker: readme-scoreboard-wnba
+```
+
 ---
 
 ## Supported Sports
@@ -261,6 +272,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/9.png" alt="Premier League logo" height="20"></picture> Ligue 1 | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/14.png" alt="Premier League logo" height="20"></picture> Primeira Liga | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/11.png" alt="Premier League logo" height="20"></picture> Eredivisie | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA logo" height="20"></picture> WNBA | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
@@ -504,6 +516,22 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/142.png" width="20"> Feyenoord | FEY | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/151.png" width="20"> Sparta Rotterdam | SPA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/143.png" width="20"> Fortuna Sittard | FOR | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3735.png" width="20"> Telstar | TEL |
 
+
+---
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="Premier League logo" height="28"></picture> WNBA Team Abbreviations
+
+| 🏀 Eastern Conference | Abbr | | 🏀 Western Conference | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/wnba/500/atl.png" width="20"> Atlanta Dream | ATL | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/dal.png" width="20"> Dallas Wings | DAL |
+| <img src="https://a.espncdn.com/i/teamlogos/wnba/500/chi.png" width="20"> Chicago Sky | CHI | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/gs.png" width="20"> Golden State Valkyries | GS |
+| <img src="https://a.espncdn.com/i/teamlogos/wnba/500/con.png" width="20"> Connecticut Sun | CON | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/la.png" width="20"> Los Angeles Sparks | LA |
+| <img src="https://a.espncdn.com/i/teamlogos/wnba/500/ind.png" width="20"> Indiana Fever | IND | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/lv.png" width="20"> Las Vegas Aces | LV |
+| <img src="https://a.espncdn.com/i/teamlogos/wnba/500/ny.png" width="20"> New York Liberty | NY | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/min.png" width="20"> Minnesota Lynx | MIN |
+| <img src="https://a.espncdn.com/i/teamlogos/wnba/500/tor.png" width="20"> Toronto Tempo | TOR | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/phx.png" width="20"> Phoenix Mercury | PHX |
+| <img src="https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png" width="20"> Washington Mystics | WSH | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/por.png" width="20"> Portland Fire | POR |
+|  |  | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/sea.png" width="20"> Seattle Storm | SEA |
+
 ---
 
 ## Run Locally
@@ -532,6 +560,7 @@ SPORT=seriea TEAM=INT node src/index.js --demo
 SPORT=ligue1 TEAM=PSG node src/index.js --demo
 SPORT=primeiraliga TEAM=SLB node src/index.js --demo
 SPORT=eredivisie TEAM=AJA node src/index.js --demo
+SPORT=wnba TEAM=MIN node src/index.js --demo
 ```
 
 ---
@@ -555,7 +584,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
