@@ -685,3 +685,58 @@ describe("Soccer renderer — Eredivisie", () => {
     expect(out).toContain("🟡");
   });
 });
+
+describe("renderNba — WNBA variant", () => {
+  const data = (overrides = {}) => ({
+    team: { id: 8, abbreviation: "MIN", full_name: "Minnesota Lynx", conference: "Western", division: "" },
+    record: { wins: 28, losses: 7, season: 2026 },
+    recentGames: [],
+    emoji: "🐆",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/wnba/500/min.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("wnba", data());
+    expect(out).toContain("Minnesota Lynx (MIN)");
+    expect(out).toContain("teamlogos/wnba/500/min.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("wnba", data())).toContain("My Favourite WNBA Team");
+  });
+
+  it("uses the WNBA league logo, not the NBA one", () => {
+    const out = render("wnba", data());
+    expect(out).toContain("leagues/500/wnba.png");
+    expect(out).not.toContain("leagues/500/nba.png");
+  });
+
+  it("shows the season as a single year, not a span", () => {
+    const out = render("wnba", data());
+    expect(out).toContain("2026 Record");
+    expect(out).not.toContain("2025-2026");
+  });
+
+  it("omits the division half when there is no division", () => {
+    const out = render("wnba", data());
+    expect(out).toContain("Western Conference");
+    expect(out).not.toContain("Division");
+    expect(out).not.toContain("· ");
+  });
+
+  it("still renders the division for the NBA, which has them", () => {
+    const out = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    expect(out).toContain("Conference · ");
+    expect(out).toContain("Division");
+  });
+
+  it("tags playoff games", () => {
+    const out = render("wnba", data({
+      recentGames: [{ date: "2026-09-29T02:00:00Z", postseason: true, status: "Final",
+        home_team: { id: 0, abbreviation: "PHX" }, visitor_team: { id: 8, abbreviation: "MIN" },
+        home_team_score: 86, visitor_team_score: 81 }],
+    }));
+    expect(out).toContain("[Playoffs]");
+  });
+});
