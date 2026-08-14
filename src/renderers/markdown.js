@@ -14,6 +14,36 @@ const SEASON_WINDOWS = {
   primeiraliga: { start: [8, 8], end: [5, 20], nextLabel: "August" },
 };
 
+// League logos on ESPN's free CDN. Several marks are single-colour on
+// transparent (the Premier League wordmark is dark purple, the MLS crest has a
+// white half), so each needs both variants to stay readable in either theme.
+const LEAGUE_LOGOS = {
+  nba: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nba.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png", alt: "NBA" },
+  mlb: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/mlb.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/mlb.png", alt: "MLB" },
+  nfl: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nfl.png", alt: "NFL" },
+  nhl: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nhl.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nhl.png", alt: "NHL" },
+  mls: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/19.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png", alt: "MLS" },
+  epl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/23.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png", alt: "Premier League" },
+  laliga: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/15.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png", alt: "La Liga" },
+  bundesliga: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/10.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/10.png", alt: "Bundesliga" },
+  seriea: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/12.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/12.png", alt: "Serie A" },
+  ligue1: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/9.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png", alt: "Ligue 1" },
+  primeiraliga: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/14.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png", alt: "Primeira Liga" },
+};
+
+/**
+ * Section heading rendered inside the marker block, so the whole section is
+ * generated rather than half-authored by hand. Placing it inside the markers
+ * means it survives every run — a heading written above them would be outside
+ * the tool's reach, and one written inside by hand would be overwritten.
+ */
+function headingLines(sport) {
+  const logo = LEAGUE_LOGOS[sport];
+  if (!logo) return [];
+  const mark = `<picture><source media="(prefers-color-scheme: dark)" srcset="${logo.dark}"><img src="${logo.light}" alt="${logo.alt}" height="28" align="top"></picture> `;
+  return [`## ${mark}My Favourite ${logo.alt} Team`, ""];
+}
+
 function isSeasonActive(sport) {
   const window = SEASON_WINDOWS[sport];
   if (!window) return true;
@@ -79,6 +109,7 @@ function renderNba(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
+  lines.push(...headingLines("nba"));
   lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
@@ -136,6 +167,7 @@ function renderMlb(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
+  lines.push(...headingLines("mlb"));
   lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
@@ -188,6 +220,7 @@ function renderNfl(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
+  lines.push(...headingLines("nfl"));
   lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
@@ -227,6 +260,7 @@ function renderNhl(data) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
+  lines.push(...headingLines("nhl"));
   lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
@@ -278,6 +312,7 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS") {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
+  lines.push(...headingLines(sport));
   lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 

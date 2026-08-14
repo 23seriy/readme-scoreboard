@@ -364,12 +364,63 @@ describe("Team logo sizing", () => {
     });
   });
 
-  it("does not render a league badge in the generated block", () => {
-    // The league logo lives in the profile README's section headings;
-    // duplicating it here made it too small to read.
+  it("renders the league logo in the section heading, not beside the team", () => {
+    // The heading now lives inside the markers so it survives every run. The
+    // logo belongs there at 28px — an earlier attempt put a 16px badge on the
+    // conference line instead, which was too small to read.
     cases.forEach(([sport, data]) => {
-      expect(render(sport, data)).not.toContain("<picture>");
+      const out = render(sport, data);
+      expect(out).toContain('height="28"');
+      expect(out).not.toContain('height="16"');
     });
+  });
+});
+
+describe("Section heading", () => {
+  const SPORTS = [
+    ["nba", "NBA"], ["mlb", "MLB"], ["nfl", "NFL"], ["nhl", "NHL"],
+    ["mls", "MLS"], ["epl", "Premier League"], ["laliga", "La Liga"],
+    ["bundesliga", "Bundesliga"], ["seriea", "Serie A"], ["ligue1", "Ligue 1"],
+    ["primeiraliga", "Primeira Liga"],
+  ];
+
+  const dataFor = (sport) => {
+    if (sport === "mlb") return { ...BASE_MLB_DATA, recentGames: [] };
+    if (sport === "nba") return { ...BASE_NBA_DATA, recentGames: [] };
+    return {
+      team: { abbreviation: "XYZ", full_name: "Test Club", conference: "Test", division: "Test" },
+      record: { wins: 1, losses: 1, draws: 1, season: 2026 },
+      recentGames: [], emoji: "⚽", logoUrl: "https://example.com/x.png",
+    };
+  };
+
+  SPORTS.forEach(([sport, label]) => {
+    it(`${sport} renders "My Favourite ${label} Team" as an h2`, () => {
+      const out = render(sport, dataFor(sport));
+      expect(out).toContain(`My Favourite ${label} Team`);
+      expect(out.split("\n")[0]).toMatch(/^## /);
+    });
+  });
+
+  it("puts the heading first so it lands inside the markers", () => {
+    // A heading above the start marker would be outside the tool's reach.
+    const out = render("nba", dataFor("nba"));
+    const lines = out.split("\n");
+    expect(lines[0]).toContain("My Favourite NBA Team");
+    expect(lines[1]).toBe("");
+    expect(lines[2]).toContain("<img src=");
+  });
+
+  it("gives the heading logo both theme variants", () => {
+    const out = render("nba", dataFor("nba"));
+    expect(out).toContain("prefers-color-scheme: dark");
+    expect(out).toContain("leagues/500/nba.png");
+    expect(out).toContain("leagues/500-dark/nba.png");
+  });
+
+  it("renders exactly one heading per block", () => {
+    const out = render("nba", dataFor("nba"));
+    expect(out.split("\n").filter((l) => l.startsWith("## ")).length).toBe(1);
   });
 });
 
