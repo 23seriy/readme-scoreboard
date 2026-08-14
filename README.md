@@ -8,15 +8,14 @@ Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier Le
 
 ## Preview
 
-The action replaces everything between your markers with this — heading,
-logos and all. Live output for the Lakers:
+This is what the action writes between your markers — heading, logos and all.
+Live output for the Lakers (heading levels lowered by one so it nests here):
 
-````md
-## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA" height="28" align="top"></picture> My Favourite NBA Team
+### <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA" height="28" align="top"></picture> My Favourite NBA Team
 
 <img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" width="72" align="right" />
 
-### 👑 Los Angeles Lakers (LAL)
+#### 👑 Los Angeles Lakers (LAL)
 Western Conference · Pacific Division
 🔴 Off-season · Next season starts October 2026
 
@@ -31,7 +30,6 @@ Western Conference · Pacific Division
 ❌ L  90-108 @ OKC (May 5, 2026) [Playoffs]
 ✅ W  98-78  @ HOU (May 1, 2026) [Playoffs]
 ```
-````
 
 ---
 
