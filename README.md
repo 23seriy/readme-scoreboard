@@ -62,6 +62,7 @@ Western Conference · Pacific Division
 - [Adding a New Sport](#adding-a-new-sport)
 - [Action Inputs (`with:`)](#action-inputs-with)
 - [License](#license)
+- [Changelog](CHANGELOG.md)
 
 ---
 
