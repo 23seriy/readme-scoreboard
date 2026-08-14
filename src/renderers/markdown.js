@@ -14,6 +14,7 @@ const SEASON_WINDOWS = {
   primeiraliga: { start: [8, 8], end: [5, 20], nextLabel: "August" },
   eredivisie: { start: [8, 8], end: [5, 20], nextLabel: "August" },
   wnba: { start: [5, 1], end: [10, 20], nextLabel: "May" },
+  gleague: { start: [11, 1], end: [4, 15], nextLabel: "November" },
   // Liga MX plays two tournaments a year — Apertura (Jul–Dec) and Clausura
   // (Jan–May) — so the only real gap is the June break.
   ligamx: { start: [7, 1], end: [5, 31], nextLabel: "July" },
@@ -38,6 +39,7 @@ const LEAGUE_LOGOS = {
   primeiraliga: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/14.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png", alt: "Primeira Liga" },
   eredivisie: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/11.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png", alt: "Eredivisie" },
   wnba: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png", alt: "WNBA" },
+  gleague: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png", alt: "NBA G League" },
   ligamx: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/22.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png", alt: "Liga MX" },
   brasileirao: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/85.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png", alt: "Brasileirão" },
   nwsl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png", alt: "NWSL" },
@@ -382,6 +384,8 @@ function render(sport, data) {
       return renderNba(data);
     case "wnba":
       return renderNba(data, "wnba");
+    case "gleague":
+      return renderNba(data, "gleague");
     case "mlb":
       return renderMlb(data);
     case "nfl":
@@ -411,7 +415,7 @@ function render(sport, data) {
     case "nwsl":
       return renderSoccer(data, "nwsl", "NWSL");
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, gleague`);
   }
 }
 

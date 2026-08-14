@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, and the **NWSL** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, and the **NBA G League** with more sports coming soon
 
 ---
 
@@ -57,6 +57,7 @@ Western Conference · Pacific Division
   - [Liga MX](#-liga-mx-team-abbreviations)
   - [Brasileirão](#-brasileirão-team-abbreviations)
   - [NWSL](#-nwsl-team-abbreviations)
+  - [NBA G League](#-nba-g-league-team-abbreviations)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
 - [Action Inputs (`with:`)](#action-inputs-with)
@@ -311,6 +312,7 @@ name, and fail the job if you renamed it.
 ```
 
 #### NWSL Example
+#### NBA G League Example
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
@@ -319,6 +321,9 @@ name, and fail the job if you renamed it.
           sport: nwsl
           team: GFC
           marker: readme-scoreboard-nwsl
+          sport: gleague
+          team: OSC
+          marker: readme-scoreboard-gleague
 ```
 
 ---
@@ -347,6 +352,7 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/22.png" alt="Premier League logo" height="20"></picture> Liga MX | ✅ Available | [`soccer/mex.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/mex.1/teams) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/85.png" alt="Premier League logo" height="20"></picture> Brasileirão | ✅ Available | [`soccer/bra.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/teams) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="Premier League logo" height="20"></picture> NWSL | ✅ Available | [`soccer/usa.nwsl`](https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png" alt="NBA G League logo" height="20"></picture> NBA G League | ✅ Available | [`basketball/nba-development`](https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development/teams) |
 
 ---
 
@@ -656,6 +662,26 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15364.png" width="20"> Gotham FC | GFC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15363.png" width="20"> Seattle Reign FC | SEA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17346.png" width="20"> Houston Dash | HOU | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/19141.png" width="20"> Utah Royals | UTA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20907.png" width="20"> Kansas City Current | KC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15365.png" width="20"> Washington Spirit | WAS |
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png" alt="Premier League logo" height="28"></picture> NBA G League Team Abbreviations
+
+| 🏀 Eastern Conference | Abbr | | 🏀 Western Conference | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/cap.png" width="20"> Capital City Go-Go | CAP | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/aus.png" width="20"> Austin Spurs | AUS |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/clc.png" width="20"> Cleveland Charge | CLC | | <img src="https://a.espncdn.com/guid/ed81f2d5-eaa5-343d-5b76-c685a731f733/logos/default.png" width="20"> Coachella Valley Lakers | CVL |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/cps.png" width="20"> College Park Skyhawks | CPS | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/iwa.png" width="20"> Iowa Wolves | IWA |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/del.png" width="20"> Delaware Blue Coats | DEL | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/mhu.png" width="20"> Memphis Hustle | MHU |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/gbo.png" width="20"> Greensboro Swarm | GBO | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/mxc.png" width="20"> Mexico City Capitanes | MXC |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/grd.png" width="20"> Grand Rapids Gold | GRD | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/okl.png" width="20"> Oklahoma City Blue | OKL |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/lak.png" width="20"> Laketown Squadron | LAK | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/rcity.png" width="20"> Rip City Remix | RCITY |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/lin.png" width="20"> Long Island Nets | LIN | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/rgv.png" width="20"> Rio Grande Valley Vipers | RGV |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/mcc.png" width="20"> Motor City Cruise | MCC | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/san.png" width="20"> San Diego Clippers | SAN |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/mne.png" width="20"> Maine Celtics | MNE | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/scw.png" width="20"> Santa Cruz Warriors | SCW |
+| <img src="https://a.espncdn.com/guid/373d77e0-4edd-aaeb-ec83-eefc2ca511cb/logos/default.png" width="20"> Noblesville Boom | NOB | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/slc.png" width="20"> Salt Lake City Stars | SLC |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/osc.png" width="20"> Osceola Magic | OSC | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/sto.png" width="20"> Stockton Kings | STO |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/rap.png" width="20"> Raptors 905 | RAP | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/sxf.png" width="20"> Sioux Falls Skyforce | SXF |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/wcb.png" width="20"> Windy City Bulls | WCB | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/tex.png" width="20"> Texas Legends | TEX |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/wes.png" width="20"> Westchester Knicks | WES | | <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/valley.png" width="20"> Valley Suns | VALLEY |
+| <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/wis.png" width="20"> Wisconsin Herd | WIS | |  |  |
 
 ---
 
@@ -689,6 +715,7 @@ SPORT=wnba TEAM=MIN node src/index.js --demo
 SPORT=ligamx TEAM=AME node src/index.js --demo
 SPORT=brasileirao TEAM=PAL node src/index.js --demo
 SPORT=nwsl TEAM=GFC node src/index.js --demo
+SPORT=gleague TEAM=OSC node src/index.js --demo
 ```
 
 ---
@@ -712,7 +739,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl`, `gleague` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |

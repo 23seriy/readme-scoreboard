@@ -877,3 +877,51 @@ describe("Soccer renderer — NWSL", () => {
     expect(out).toContain("🟡");
   });
 });
+
+describe("renderNba — G League variant", () => {
+  const data = (overrides = {}) => ({
+    team: { id: 11, abbreviation: "OSC", full_name: "Osceola Magic", conference: "Eastern", division: "" },
+    record: { wins: 26, losses: 10, season: 2026 },
+    recentGames: [],
+    emoji: "✨",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/nba-development/500/osc.png",
+    ...overrides,
+  });
+
+  it("renders the team name and logo", () => {
+    const out = render("gleague", data());
+    expect(out).toContain("Osceola Magic (OSC)");
+    expect(out).toContain("nba-development/500/osc.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("gleague", data())).toContain("My Favourite NBA G League Team");
+  });
+
+  it("uses the G League logo, not the NBA one", () => {
+    const out = render("gleague", data());
+    expect(out).toContain("leagues/500/nba_gleague.png");
+    expect(out).not.toContain("leagues/500/nba.png");
+  });
+
+  it("shows the season as a span, since it crosses the new year", () => {
+    // Unlike the WNBA, whose season sits inside one calendar year.
+    const out = render("gleague", data());
+    expect(out).toContain("2025-2026 Record");
+  });
+
+  it("omits the division half, since the G League has none", () => {
+    const out = render("gleague", data());
+    expect(out).toContain("Eastern Conference");
+    expect(out).not.toContain("Division");
+  });
+
+  it("tags playoff games", () => {
+    const out = render("gleague", data({
+      recentGames: [{ date: "2026-04-05T00:00:00Z", postseason: true, status: "Final",
+        home_team: { id: 11, abbreviation: "OSC" }, visitor_team: { id: 0, abbreviation: "GBO" },
+        home_team_score: 121, visitor_team_score: 134 }],
+    }));
+    expect(out).toContain("[Playoffs]");
+  });
+});
