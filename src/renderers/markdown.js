@@ -17,6 +17,7 @@ const SEASON_WINDOWS = {
   // Liga MX plays two tournaments a year — Apertura (Jul–Dec) and Clausura
   // (Jan–May) — so the only real gap is the June break.
   ligamx: { start: [7, 1], end: [5, 31], nextLabel: "July" },
+  brasileirao: { start: [3, 25], end: [12, 15], nextLabel: "late March" },
 };
 
 // League logos on ESPN's free CDN. Several marks are single-colour on
@@ -37,6 +38,7 @@ const LEAGUE_LOGOS = {
   eredivisie: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/11.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png", alt: "Eredivisie" },
   wnba: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png", alt: "WNBA" },
   ligamx: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/22.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png", alt: "Liga MX" },
+  brasileirao: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/85.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png", alt: "Brasileirão" },
 };
 
 /**
@@ -402,8 +404,10 @@ function render(sport, data) {
       return renderSoccer(data, "eredivisie", "Eredivisie");
     case "ligamx":
       return renderSoccer(data, "ligamx", "Liga MX");
+    case "brasileirao":
+      return renderSoccer(data, "brasileirao", "Série A");
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao`);
   }
 }
 

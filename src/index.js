@@ -30,7 +30,7 @@ async function main() {
   try {
     adapter = require(`./adapters/${sportName}`);
   } catch {
-    console.error(`Unsupported sport: "${sportName}". Available adapters: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx`);
+    console.error(`Unsupported sport: "${sportName}". Available adapters: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao`);
     process.exit(1);
   }
 
@@ -48,7 +48,7 @@ async function main() {
   }
 
   // Add sport-specific metadata for the renderer
-  const SPORT_EMOJI = { mlb: "⚾", nfl: "🏈", nhl: "🏒", mls: "⚽", epl: "⚽", laliga: "⚽", bundesliga: "⚽", seriea: "⚽", ligue1: "⚽", primeiraliga: "⚽", eredivisie: "⚽", wnba: "🏀", ligamx: "⚽" };
+  const SPORT_EMOJI = { mlb: "⚾", nfl: "🏈", nhl: "🏒", mls: "⚽", epl: "⚽", laliga: "⚽", bundesliga: "⚽", seriea: "⚽", ligue1: "⚽", primeiraliga: "⚽", eredivisie: "⚽", wnba: "🏀", ligamx: "⚽", brasileirao: "⚽" };
   const defaultEmoji = SPORT_EMOJI[sportName] || "🏀";
   const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
   const logoUrl = adapter.getLogoUrl(data.team.abbreviation);

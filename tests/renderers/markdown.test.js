@@ -791,3 +791,49 @@ describe("Soccer renderer — Liga MX", () => {
     expect(out).toContain("🟡");
   });
 });
+
+describe("Soccer renderer — Brasileirão", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "PAL", full_name: "Palmeiras", conference: "" },
+    record: { wins: 14, losses: 2, draws: 6, season: 2026 },
+    recentGames: [],
+    emoji: "🟩",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/2029.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("brasileirao", data());
+    expect(out).toContain("Palmeiras (PAL)");
+    expect(out).toContain("teamlogos/soccer/500/2029.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("brasileirao", data())).toContain("My Favourite Brasileirão Team");
+  });
+
+  it("uses the Brasileirão league logo in the heading", () => {
+    const out = render("brasileirao", data());
+    expect(out).toContain("leaguelogos/soccer/500/85.png");
+    expect(out).toContain("leaguelogos/soccer/500-dark/85.png");
+  });
+
+  it("falls back to 'Série A' rather than showing a bare year", () => {
+    const out = render("brasileirao", data());
+    expect(out).toContain("Série A");
+    expect(out).not.toMatch(/\n2026\n/);
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("brasileirao", data());
+    expect(out).toContain("14W - 2L - 6D");
+    expect(out).toContain("(48 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("brasileirao", data({
+      recentGames: [{ date: "2026-08-09T20:00:00Z", teamScore: 0, oppScore: 0, oppAbbr: "INT", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
