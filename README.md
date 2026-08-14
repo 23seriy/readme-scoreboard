@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, and the **WNBA** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, and **Liga MX** with more sports coming soon
 
 ---
 
@@ -252,6 +252,17 @@ name, and fail the job if you renamed it.
           marker: readme-scoreboard-wnba
 ```
 
+#### Liga MX Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: ligamx
+          team: AME
+          marker: readme-scoreboard-ligamx
+```
+
 ---
 
 ## Supported Sports
@@ -273,6 +284,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/14.png" alt="Premier League logo" height="20"></picture> Primeira Liga | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/11.png" alt="Premier League logo" height="20"></picture> Eredivisie | ✅ Available | [ESPN API](https://www.espn.com/) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA logo" height="20"></picture> WNBA | ✅ Available | [ESPN API](https://www.espn.com/) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/22.png" alt="Premier League logo" height="20"></picture> Liga MX | ✅ Available | [ESPN API](https://www.espn.com/) |
 
 ---
 
@@ -532,6 +544,23 @@ All sports use **free, no-auth APIs** — no secrets required.
 | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png" width="20"> Washington Mystics | WSH | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/por.png" width="20"> Portland Fire | POR |
 |  |  | | <img src="https://a.espncdn.com/i/teamlogos/wnba/500/sea.png" width="20"> Seattle Storm | SEA |
 
+
+---
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/22.png" alt="Premier League logo" height="28"></picture> Liga MX Team Abbreviations
+
+| ⚽ Club | Abbr | | ⚽ Club | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/227.png" width="20"> América | AME | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/229.png" width="20"> Necaxa | NCX |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/216.png" width="20"> Atlas | ATS | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/234.png" width="20"> Pachuca | PAC |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15720.png" width="20"> Atlético de San Luis | ASL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/231.png" width="20"> Puebla | PUE |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/218.png" width="20"> Cruz Azul | CAZ | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/233.png" width="20"> Pumas UNAM | UNAM |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17851.png" width="20"> FC Juárez | JUA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/222.png" width="20"> Querétaro | QRO |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/219.png" width="20"> Guadalajara | GDL | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/225.png" width="20"> Santos Laguna | SAN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/228.png" width="20"> León | LEO | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/232.png" width="20"> Tigres UANL | UANL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20702.png" width="20"> Mazatlán FC | MAZ | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/10125.png" width="20"> Tijuana | TIJ |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/220.png" width="20"> Monterrey | MTY | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/223.png" width="20"> Toluca | TOL |
+
 ---
 
 ## Run Locally
@@ -561,6 +590,7 @@ SPORT=ligue1 TEAM=PSG node src/index.js --demo
 SPORT=primeiraliga TEAM=SLB node src/index.js --demo
 SPORT=eredivisie TEAM=AJA node src/index.js --demo
 SPORT=wnba TEAM=MIN node src/index.js --demo
+SPORT=ligamx TEAM=AME node src/index.js --demo
 ```
 
 ---
@@ -584,7 +614,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |

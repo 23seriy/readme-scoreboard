@@ -740,3 +740,54 @@ describe("renderNba — WNBA variant", () => {
     expect(out).toContain("[Playoffs]");
   });
 });
+
+describe("Soccer renderer — Liga MX", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "AME", full_name: "América", conference: "2026 Torneo Apertura" },
+    record: { wins: 2, losses: 0, draws: 1, season: 2026 },
+    recentGames: [],
+    emoji: "🦅",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/227.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("ligamx", data());
+    expect(out).toContain("América (AME)");
+    expect(out).toContain("teamlogos/soccer/500/227.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("ligamx", data())).toContain("My Favourite Liga MX Team");
+  });
+
+  it("uses the Liga MX league logo in the heading", () => {
+    const out = render("ligamx", data());
+    expect(out).toContain("leaguelogos/soccer/500/22.png");
+    expect(out).toContain("leaguelogos/soccer/500-dark/22.png");
+  });
+
+  it("shows the tournament name as-is, without appending 'Conference'", () => {
+    const out = render("ligamx", data());
+    expect(out).toContain("2026 Torneo Apertura");
+    expect(out).not.toContain("Torneo Apertura Conference");
+  });
+
+  it("falls back to 'Liga MX' when the tournament is missing", () => {
+    const out = render("ligamx", data({ team: { abbreviation: "AME", full_name: "América", conference: "" } }));
+    expect(out).toContain("Liga MX");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("ligamx", data());
+    expect(out).toContain("2W - 0L - 1D");
+    expect(out).toContain("(7 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("ligamx", data({
+      recentGames: [{ date: "2026-07-24T02:00:00Z", teamScore: 1, oppScore: 1, oppAbbr: "ATL", isHome: false, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
