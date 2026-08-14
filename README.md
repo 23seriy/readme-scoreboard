@@ -8,24 +8,61 @@ Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier Le
 
 ## Preview
 
-<!-- readme-scoreboard start -->
-<img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" width="60" align="right" />
+The action replaces everything between your markers with this — heading,
+logos and all. Live output for the Lakers:
+
+````md
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA" height="28" align="top"></picture> My Favourite NBA Team
+
+<img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" width="72" align="right" />
 
 ### 👑 Los Angeles Lakers (LAL)
-West Conference · Pacific Division
+Western Conference · Pacific Division
+🔴 Off-season · Next season starts October 2026
 
-📊 2025-2026 Record: 57W - 35L (62.0%)
-&nbsp;&nbsp;&nbsp;███████████████▌░░░░░░░░░
+📊 2025-2026 Record: 53W - 29L (64.6%)
+   ████████████████▏░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L 110-115 vs OKC (May 10)
-❌ L 108-131 vs OKC (May 8)
-❌ L 107-125 @ OKC (May 6)
-❌ L  90-108 @ OKC (May 4)
-✅ W  98-78  @ HOU (Apr 30)
+❌ L 110-115 vs OKC (May 11, 2026) [Playoffs]
+❌ L 108-131 vs OKC (May 9, 2026) [Playoffs]
+❌ L 107-125 @ OKC (May 7, 2026) [Playoffs]
+❌ L  90-108 @ OKC (May 5, 2026) [Playoffs]
+✅ W  98-78  @ HOU (May 1, 2026) [Playoffs]
 ```
-<!-- readme-scoreboard end -->
+````
+
+---
+
+## Table of Contents
+
+- [Quick Start (3 steps)](#quick-start-3-steps)
+  - [1. Add markers to your profile README](#1-add-markers-to-your-profile-readme)
+  - [2. Create secret](#2-create-secret)
+  - [3. Add the workflow](#3-add-the-workflow)
+- [Supported Sports](#supported-sports)
+- Team Abbreviations
+  - [NBA](#-nba-team-abbreviations)
+  - [MLB](#-mlb-team-abbreviations)
+  - [NFL](#-nfl-team-abbreviations)
+  - [NHL](#-nhl-team-abbreviations)
+  - [MLS](#-mls-team-abbreviations)
+  - [Premier League](#-premier-league-team-abbreviations)
+  - [La Liga](#-la-liga-team-abbreviations)
+  - [Bundesliga](#-bundesliga-team-abbreviations)
+  - [Serie A](#-serie-a-team-abbreviations)
+  - [Ligue 1](#-ligue-1-team-abbreviations)
+  - [Primeira Liga](#-primeira-liga-team-abbreviations)
+  - [Eredivisie](#-eredivisie-team-abbreviations)
+  - [WNBA](#-wnba-team-abbreviations)
+  - [Liga MX](#-liga-mx-team-abbreviations)
+  - [Brasileirão](#-brasileirão-team-abbreviations)
+- [Run Locally](#run-locally)
+- [Adding a New Sport](#adding-a-new-sport)
+- [Action Inputs (`with:`)](#action-inputs-with)
+- [License](#license)
+- [Changelog](CHANGELOG.md)
 
 ---
 
@@ -280,25 +317,25 @@ name, and fail the job if you renamed it.
 
 All sports use **free, no-auth APIs** — no secrets required.
 
-Most leagues come from ESPN's public [`site.api.espn.com`](https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams) endpoints; the **Endpoint** column shows the path segment that identifies each one. MLB and the NHL have their own official APIs.
+Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link below opens the live team list for that league. MLB and the NHL have their own official APIs.
 
 | Sport | Status | Endpoint |
 |-------|--------|----------|
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA logo" height="20"></picture> NBA | ✅ Available | `basketball/nba` |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA logo" height="20"></picture> NBA | ✅ Available | [`basketball/nba`](https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/mlb.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/mlb.png" alt="MLB logo" height="20"></picture> MLB | ✅ Available | [MLB Stats API](https://statsapi.mlb.com/api/v1/teams?sportId=1) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nfl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png" alt="NFL logo" height="20"></picture> NFL | ✅ Available | `football/nfl` |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nfl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png" alt="NFL logo" height="20"></picture> NFL | ✅ Available | [`football/nfl`](https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nhl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nhl.png" alt="NHL logo" height="20"></picture> NHL | ✅ Available | [NHL Web API](https://api-web.nhle.com/v1/standings/now) |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/19.png" alt="MLS logo" height="20"></picture> MLS | ✅ Available | `soccer/usa.1` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/23.png" alt="Premier League logo" height="20"></picture> Premier League | ✅ Available | `soccer/eng.1` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" alt="Premier League logo" height="20"></picture> La Liga | ✅ Available | `soccer/esp.1` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/10.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/10.png" alt="Premier League logo" height="20"></picture> Bundesliga | ✅ Available | `soccer/ger.1` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/12.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/12.png" alt="Premier League logo" height="20"></picture> Serie A | ✅ Available | `soccer/ita.1` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/9.png" alt="Premier League logo" height="20"></picture> Ligue 1 | ✅ Available | `soccer/fra.1` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/14.png" alt="Premier League logo" height="20"></picture> Primeira Liga | ✅ Available | `soccer/por.1` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/11.png" alt="Premier League logo" height="20"></picture> Eredivisie | ✅ Available | `soccer/ned.1` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA logo" height="20"></picture> WNBA | ✅ Available | `basketball/wnba` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/22.png" alt="Premier League logo" height="20"></picture> Liga MX | ✅ Available | `soccer/mex.1` |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/85.png" alt="Premier League logo" height="20"></picture> Brasileirão | ✅ Available | `soccer/bra.1` |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/19.png" alt="MLS logo" height="20"></picture> MLS | ✅ Available | [`soccer/usa.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/23.png" alt="Premier League logo" height="20"></picture> Premier League | ✅ Available | [`soccer/eng.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" alt="Premier League logo" height="20"></picture> La Liga | ✅ Available | [`soccer/esp.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/10.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/10.png" alt="Premier League logo" height="20"></picture> Bundesliga | ✅ Available | [`soccer/ger.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/12.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/12.png" alt="Premier League logo" height="20"></picture> Serie A | ✅ Available | [`soccer/ita.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/9.png" alt="Premier League logo" height="20"></picture> Ligue 1 | ✅ Available | [`soccer/fra.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/14.png" alt="Premier League logo" height="20"></picture> Primeira Liga | ✅ Available | [`soccer/por.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/11.png" alt="Premier League logo" height="20"></picture> Eredivisie | ✅ Available | [`soccer/ned.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA logo" height="20"></picture> WNBA | ✅ Available | [`basketball/wnba`](https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/22.png" alt="Premier League logo" height="20"></picture> Liga MX | ✅ Available | [`soccer/mex.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/mex.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/85.png" alt="Premier League logo" height="20"></picture> Brasileirão | ✅ Available | [`soccer/bra.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/teams) |
 
 ---
 
