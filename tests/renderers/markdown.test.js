@@ -639,3 +639,49 @@ describe("Soccer renderer — Primeira Liga", () => {
     expect(out).toContain("🟡");
   });
 });
+
+describe("Soccer renderer — Eredivisie", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "AJA", full_name: "Ajax Amsterdam", conference: "Dutch Eredivisie" },
+    record: { wins: 25, losses: 4, draws: 5, season: 2025 },
+    recentGames: [],
+    emoji: "🔴",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/139.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("eredivisie", data());
+    expect(out).toContain("Ajax Amsterdam (AJA)");
+    expect(out).toContain("teamlogos/soccer/500/139.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("eredivisie", data())).toContain("My Favourite Eredivisie Team");
+  });
+
+  it("uses the Eredivisie league logo in the heading", () => {
+    const out = render("eredivisie", data());
+    expect(out).toContain("leaguelogos/soccer/500/11.png");
+    expect(out).toContain("leaguelogos/soccer/500-dark/11.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("eredivisie", data());
+    expect(out).toContain("Dutch Eredivisie");
+    expect(out).not.toContain("Eredivisie Conference");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("eredivisie", data());
+    expect(out).toContain("25W - 4L - 5D");
+    expect(out).toContain("(80 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("eredivisie", data({
+      recentGames: [{ date: "2026-08-08T13:30:00Z", teamScore: 2, oppScore: 2, oppAbbr: "PSV", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
