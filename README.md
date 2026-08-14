@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, and the **Brasileirão** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, and the **NWSL** with more sports coming soon
 
 ---
 
@@ -56,6 +56,7 @@ Western Conference · Pacific Division
   - [WNBA](#-wnba-team-abbreviations)
   - [Liga MX](#-liga-mx-team-abbreviations)
   - [Brasileirão](#-brasileirão-team-abbreviations)
+  - [NWSL](#-nwsl-team-abbreviations)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
 - [Action Inputs (`with:`)](#action-inputs-with)
@@ -309,6 +310,17 @@ name, and fail the job if you renamed it.
           marker: readme-scoreboard-brasileirao
 ```
 
+#### NWSL Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nwsl
+          team: GFC
+          marker: readme-scoreboard-nwsl
+```
+
 ---
 
 ## Supported Sports
@@ -334,6 +346,7 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA logo" height="20"></picture> WNBA | ✅ Available | [`basketball/wnba`](https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/22.png" alt="Premier League logo" height="20"></picture> Liga MX | ✅ Available | [`soccer/mex.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/mex.1/teams) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/85.png" alt="Premier League logo" height="20"></picture> Brasileirão | ✅ Available | [`soccer/bra.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="Premier League logo" height="20"></picture> NWSL | ✅ Available | [`soccer/usa.nwsl`](https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/teams) |
 
 ---
 
@@ -628,6 +641,22 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/819.png" width="20"> Flamengo | FLA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3454.png" width="20"> Vasco da Gama | VAS |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3445.png" width="20"> Fluminense | FLU | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3457.png" width="20"> Vitória | VIT |
 
+
+---
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="Premier League logo" height="28"></picture> NWSL Team Abbreviations
+
+| ⚽ Club | Abbr | | ⚽ Club | Abbr |
+|---|------|---|---|------|
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21422.png" width="20"> Angel City FC | LA | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15366.png" width="20"> North Carolina Courage | NC |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22187.png" width="20"> Bay FC | BAY | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18206.png" width="20"> Orlando Pride | ORL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/131562.png" width="20"> Boston Legacy FC | BOS | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15362.png" width="20"> Portland Thorns FC | POR |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15360.png" width="20"> Chicago Stars FC | CHI | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20905.png" width="20"> Racing Louisville FC | LOU |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/131563.png" width="20"> Denver Summit FC | DEN | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21423.png" width="20"> San Diego Wave FC | SD |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15364.png" width="20"> Gotham FC | GFC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15363.png" width="20"> Seattle Reign FC | SEA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17346.png" width="20"> Houston Dash | HOU | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/19141.png" width="20"> Utah Royals | UTA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20907.png" width="20"> Kansas City Current | KC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15365.png" width="20"> Washington Spirit | WAS |
+
 ---
 
 ## Run Locally
@@ -659,6 +688,7 @@ SPORT=eredivisie TEAM=AJA node src/index.js --demo
 SPORT=wnba TEAM=MIN node src/index.js --demo
 SPORT=ligamx TEAM=AME node src/index.js --demo
 SPORT=brasileirao TEAM=PAL node src/index.js --demo
+SPORT=nwsl TEAM=GFC node src/index.js --demo
 ```
 
 ---
@@ -682,7 +712,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |

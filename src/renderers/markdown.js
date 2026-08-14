@@ -18,6 +18,7 @@ const SEASON_WINDOWS = {
   // (Jan–May) — so the only real gap is the June break.
   ligamx: { start: [7, 1], end: [5, 31], nextLabel: "July" },
   brasileirao: { start: [3, 25], end: [12, 15], nextLabel: "late March" },
+  nwsl: { start: [3, 10], end: [11, 30], nextLabel: "March" },
 };
 
 // League logos on ESPN's free CDN. Several marks are single-colour on
@@ -39,6 +40,7 @@ const LEAGUE_LOGOS = {
   wnba: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png", alt: "WNBA" },
   ligamx: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/22.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png", alt: "Liga MX" },
   brasileirao: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/85.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png", alt: "Brasileirão" },
+  nwsl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png", alt: "NWSL" },
 };
 
 /**
@@ -406,8 +408,10 @@ function render(sport, data) {
       return renderSoccer(data, "ligamx", "Liga MX");
     case "brasileirao":
       return renderSoccer(data, "brasileirao", "Série A");
+    case "nwsl":
+      return renderSoccer(data, "nwsl", "NWSL");
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl`);
   }
 }
 
