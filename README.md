@@ -49,16 +49,17 @@ the second silently overwrites the first — with no error. Add a pair per sport
 point each step at it with `marker:`:
 
 ```md
-## My NBA Team
 <!-- readme-scoreboard-nba start -->
 <!-- readme-scoreboard-nba end -->
 
-## My MLB Team
 <!-- readme-scoreboard-mlb start -->
 <!-- readme-scoreboard-mlb end -->
 ```
 
 A step whose marker is missing from the README fails the job.
+
+You only add the marker pairs — the action fills in everything between them,
+including the section heading (`## My Favourite NBA Team`) and its league logo.
 
 ### 2. Create secret
 
