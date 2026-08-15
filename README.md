@@ -125,6 +125,7 @@ jobs:
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: nba
           team: LAL
           marker: readme-scoreboard-nba
@@ -142,6 +143,7 @@ Add a step per sport, each with a `marker` matching a pair in your README:
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: nba
           team: LAL
           marker: readme-scoreboard-nba
@@ -149,6 +151,7 @@ Add a step per sport, each with a `marker` matching a pair in your README:
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: mlb
           team: NYY
           marker: readme-scoreboard-mlb
@@ -164,6 +167,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: mlb
           team: NYY
           marker: readme-scoreboard-mlb
@@ -175,6 +179,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: nfl
           team: KC
           marker: readme-scoreboard-nfl
@@ -186,6 +191,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: nhl
           team: NYR
           marker: readme-scoreboard-nhl
@@ -197,6 +203,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: mls
           team: MIA
           marker: readme-scoreboard-mls
@@ -208,6 +215,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: epl
           team: LIV
           marker: readme-scoreboard-epl
@@ -219,6 +227,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: laliga
           team: RMA
           marker: readme-scoreboard-laliga
@@ -230,6 +239,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: bundesliga
           team: MUN
           marker: readme-scoreboard-bundesliga
@@ -241,6 +251,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: seriea
           team: INT
           marker: readme-scoreboard-seriea
@@ -252,6 +263,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: ligue1
           team: PSG
           marker: readme-scoreboard-ligue1
@@ -263,6 +275,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: primeiraliga
           team: SLB
           marker: readme-scoreboard-primeiraliga
@@ -274,6 +287,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: eredivisie
           team: AJA
           marker: readme-scoreboard-eredivisie
@@ -285,6 +299,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: wnba
           team: MIN
           marker: readme-scoreboard-wnba
@@ -296,6 +311,7 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: ligamx
           team: AME
           marker: readme-scoreboard-ligamx
@@ -307,21 +323,31 @@ name, and fail the job if you renamed it.
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
           sport: brasileirao
           team: PAL
           marker: readme-scoreboard-brasileirao
 ```
 
 #### NWSL Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
+          sport: nwsl
+          team: GFC
+          marker: readme-scoreboard-nwsl
+```
+
 #### NBA G League Example
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@main
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
-          sport: nwsl
-          team: GFC
-          marker: readme-scoreboard-nwsl
+          target_repo: 23seriy/23seriy
           sport: gleague
           team: OSC
           marker: readme-scoreboard-gleague
