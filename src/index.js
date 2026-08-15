@@ -65,11 +65,9 @@ async function main() {
   // Update profile README (skip in demo mode)
   if (isDemo) {
     console.log("⚠️  Skipping README update (preview only)");
-  } else if (githubWorkspace) {
-    // Running inside a checked-out repo (composite action) — write to disk
-    updateReadmeLocal(githubWorkspace, content, markerName);
   } else if (githubToken) {
-    // Running standalone — use GitHub API
+    // Use the GitHub API whenever a token is available. GitHub Actions always
+    // sets GITHUB_WORKSPACE, even when no repository has been checked out.
     const octokit = new Octokit({ auth: githubToken });
 
     let repo = targetRepo;
@@ -80,11 +78,16 @@ async function main() {
     }
 
     await updateReadme(octokit, repo, content, markerName);
+  } else if (githubWorkspace) {
+    // Running locally inside a checked-out repository — write to disk.
+    updateReadmeLocal(githubWorkspace, content, markerName);
   } else {
     console.log("⚠️  Skipping README update (no GITHUB_WORKSPACE or GH_TOKEN)");
   }
 }
 
-(async () => {
-  await main();
-})();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { main };
