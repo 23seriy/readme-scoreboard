@@ -131,7 +131,8 @@ jobs:
 ```
 
 Change `team` to your team's abbreviation (see table below), and keep `marker`
-matching the pair you added in step 1. Done!
+matching the pair you added in step 1. Done! The action updates your profile
+README through the GitHub API, so no checkout or separate commit step is needed.
 
 #### Multiple sports in one README
 
