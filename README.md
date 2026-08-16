@@ -57,6 +57,8 @@ Western Conference · Pacific Division
   - [Liga MX](#-liga-mx-team-abbreviations)
   - [Brasileirão](#-brasileirão-team-abbreviations)
   - [NWSL](#-nwsl-team-abbreviations)
+  - [Saudi Pro League](#-saudi-pro-league-team-abbreviations)
+  - [J1 League](#-j1-league-team-abbreviations)
   - [NBA G League](#-nba-g-league-team-abbreviations)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
@@ -341,6 +343,30 @@ name, and fail the job if you renamed it.
           marker: readme-scoreboard-nwsl
 ```
 
+#### Saudi Pro League Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
+          sport: saudipro
+          team: HIL
+          marker: readme-scoreboard-saudipro
+```
+
+#### J1 League Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
+          sport: j1
+          team: KAW
+          marker: readme-scoreboard-j1
+```
+
 #### NBA G League Example
 
 ```yaml
@@ -379,6 +405,8 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/22.png" alt="Premier League logo" height="20"></picture> Liga MX | ✅ Available | [`soccer/mex.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/mex.1/teams) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/85.png" alt="Premier League logo" height="20"></picture> Brasileirão | ✅ Available | [`soccer/bra.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/teams) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="Premier League logo" height="20"></picture> NWSL | ✅ Available | [`soccer/usa.nwsl`](https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png" alt="Saudi Pro League logo" height="20"></picture> Saudi Pro League | ✅ Available | [`soccer/ksa.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/ksa.1/teams) |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2199.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2199.png" alt="J1 League logo" height="20"></picture> J1 League | ✅ Available | [`soccer/jpn.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/jpn.1/teams) |
 | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png" alt="NBA G League logo" height="20"></picture> NBA G League | ✅ Available | [`basketball/nba-development`](https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development/teams) |
 
 ---
@@ -689,6 +717,42 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15364.png" width="20"> Gotham FC | GFC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15363.png" width="20"> Seattle Reign FC | SEA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17346.png" width="20"> Houston Dash | HOU | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/19141.png" width="20"> Utah Royals | UTA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/20907.png" width="20"> Kansas City Current | KC | | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/15365.png" width="20"> Washington Spirit | WAS |
+
+---
+
+## Saudi Pro League Team Abbreviations
+
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| Al Ahli | AHL | Al Hilal | HIL |
+| Al Nassr | NSR | Al Ittihad | ITT |
+| Al Ettifaq | ETT | Al Shabab | SHA |
+| Al Qadsiah | QAD | Al Fateh | FAT |
+| Al Fayha | FAY | Al Taawoun | TAA |
+| Al Riyadh | RIY | Al Khaleej | KHA |
+| Al Hazem | HAZ | Al Kholood | KHO |
+| Abha | ABH | Al Diriyah | DIR |
+| Al-Faisaly | ALF | Neom SC | NEOM |
+
+---
+
+## J1 League Team Abbreviations
+
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| Kawasaki Frontale | KAW | Urawa Red Diamonds | URA |
+| Vissel Kobe | VIS | Yokohama F. Marinos | YOK |
+| Kashima Antlers | KAN | Kashiwa Reysol | KRE |
+| Gamba Osaka | GAM | Cerezo Osaka | CER |
+| FC Tokyo | TOK | Tokyo Verdy 1969 | TYKV |
+| Nagoya Grampus | NAG | Sanfrecce Hiroshima | SAN |
+| Shimizu S-Pulse | SHI | Avispa Fukuoka | AVF |
+| Kyoto Sanga | KYO | Fagiano Okayama | OKA |
+| JEF United Ichihara-Chiba | JEF | Mito Hollyhock | MITO |
+| V-Varen Nagasaki | VVN | Machida Zelvia | ZEL |
+
+---
+
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png" alt="Premier League logo" height="28"></picture> NBA G League Team Abbreviations
 
 | 🏀 Eastern Conference | Abbr | | 🏀 Western Conference | Abbr |
@@ -742,6 +806,8 @@ SPORT=wnba TEAM=MIN node src/index.js --demo
 SPORT=ligamx TEAM=AME node src/index.js --demo
 SPORT=brasileirao TEAM=PAL node src/index.js --demo
 SPORT=nwsl TEAM=GFC node src/index.js --demo
+SPORT=saudipro TEAM=HIL node src/index.js --demo
+SPORT=j1 TEAM=KAW node src/index.js --demo
 SPORT=gleague TEAM=OSC node src/index.js --demo
 ```
 
@@ -766,7 +832,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl`, `gleague` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl`, `saudipro`, `j1`, `gleague` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
