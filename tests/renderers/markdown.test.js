@@ -95,6 +95,29 @@ describe("renderMlb / formatMlbGameResult", () => {
   });
 });
 
+describe("Soccer renderer — Saudi Pro League and J1 League", () => {
+  const data = (team, overrides = {}) => ({
+    team: { abbreviation: team.abbreviation, full_name: team.full_name, conference: team.league },
+    record: { wins: 10, losses: 2, draws: 3, season: 2026 },
+    recentGames: [],
+    emoji: "⚽",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
+    ...overrides,
+  });
+
+  it("renders Saudi Pro League output", () => {
+    const out = render("saudipro", data({ abbreviation: "HIL", full_name: "Al Hilal", league: "Saudi Pro League" }));
+    expect(out).toContain("My Favourite Saudi Pro League Team");
+    expect(out).toContain("Al Hilal (HIL)");
+  });
+
+  it("renders J1 League output", () => {
+    const out = render("j1", data({ abbreviation: "KAW", full_name: "Kawasaki Frontale", league: "J1 League" }));
+    expect(out).toContain("My Favourite J1 League Team");
+    expect(out).toContain("Kawasaki Frontale (KAW)");
+  });
+});
+
 const BASE_NBA_DATA = {
   team: { id: 1610612747, abbreviation: "LAL", name: "Lakers", full_name: "Los Angeles Lakers", conference: "West", division: "Pacific" },
   record: { wins: 57, losses: 25, season: 2025 },
