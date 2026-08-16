@@ -724,15 +724,15 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 
 | Club | Abbr | Club | Abbr |
 |---|---|---|---|
-| Al Ahli | AHL | Al Hilal | HIL |
-| Al Nassr | NSR | Al Ittihad | ITT |
-| Al Ettifaq | ETT | Al Shabab | SHA |
-| Al Qadsiah | QAD | Al Fateh | FAT |
-| Al Fayha | FAY | Al Taawoun | TAA |
-| Al Riyadh | RIY | Al Khaleej | KHA |
-| Al Hazem | HAZ | Al Kholood | KHO |
-| Abha | ABH | Al Diriyah | DIR |
-| Al-Faisaly | ALF | Neom SC | NEOM |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/8346.png" width="20"> Al Ahli | AHL | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/929.png" width="20"> Al Hilal | HIL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/817.png" width="20"> Al Nassr | NSR | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2276.png" width="20"> Al Ittihad | ITT |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/8363.png" width="20"> Al Ettifaq | ETT | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/793.png" width="20"> Al Shabab | SHA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22022.png" width="20"> Al Qadsiah | QAD | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/13033.png" width="20"> Al Fateh | FAT |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21827.png" width="20"> Al Fayha | FAY | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18459.png" width="20"> Al Taawoun | TAA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21965.png" width="20"> Al Riyadh | RIY | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21829.png" width="20"> Al Khaleej | KHA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21964.png" width="20"> Al Hazem | HAZ | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22028.png" width="20"> Al Kholood | KHO |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21833.png" width="20"> Abha | ABH | Al Diriyah | DIR |
+| Al-Faisaly | ALF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/130899.png" width="20"> Neom SC | NEOM |
 
 ---
 
@@ -740,16 +740,16 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 
 | Club | Abbr | Club | Abbr |
 |---|---|---|---|
-| Kawasaki Frontale | KAW | Urawa Red Diamonds | URA |
-| Vissel Kobe | VIS | Yokohama F. Marinos | YOK |
-| Kashima Antlers | KAN | Kashiwa Reysol | KRE |
-| Gamba Osaka | GAM | Cerezo Osaka | CER |
-| FC Tokyo | TOK | Tokyo Verdy 1969 | TYKV |
-| Nagoya Grampus | NAG | Sanfrecce Hiroshima | SAN |
-| Shimizu S-Pulse | SHI | Avispa Fukuoka | AVF |
-| Kyoto Sanga | KYO | Fagiano Okayama | OKA |
-| JEF United Ichihara-Chiba | JEF | Mito Hollyhock | MITO |
-| V-Varen Nagasaki | VVN | Machida Zelvia | ZEL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7112.png" width="20"> Kawasaki Frontale | KAW | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3385.png" width="20"> Urawa Red Diamonds | URA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7477.png" width="20"> Vissel Kobe | VIS | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7116.png" width="20"> Yokohama F. Marinos | YOK |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7115.png" width="20"> Kashima Antlers | KAN | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7476.png" width="20"> Kashiwa Reysol | KRE |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7102.png" width="20"> Gamba Osaka | GAM | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7109.png" width="20"> Cerezo Osaka | CER |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3384.png" width="20"> FC Tokyo | TOK | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3393.png" width="20"> Tokyo Verdy 1969 | TYKV |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7108.png" width="20"> Nagoya Grampus | NAG | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7114.png" width="20"> Sanfrecce Hiroshima | SAN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7104.png" width="20"> Shimizu S-Pulse | SHI | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7107.png" width="20"> Avispa Fukuoka | AVF |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21361.png" width="20"> Kyoto Sanga | KYO | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22522.png" width="20"> Fagiano Okayama | OKA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7111.png" width="20"> JEF United Ichihara-Chiba | JEF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/131701.png" width="20"> Mito Hollyhock | MITO |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/19001.png" width="20"> V-Varen Nagasaki | VVN | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22167.png" width="20"> Machida Zelvia | ZEL |
 
 ---
 
