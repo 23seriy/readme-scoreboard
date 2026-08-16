@@ -731,8 +731,8 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21827.png" width="20"> Al Fayha | FAY | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18459.png" width="20"> Al Taawoun | TAA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21965.png" width="20"> Al Riyadh | RIY | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21829.png" width="20"> Al Khaleej | KHA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21964.png" width="20"> Al Hazem | HAZ | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22028.png" width="20"> Al Kholood | KHO |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21833.png" width="20"> Abha | ABH | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/131746.png" width="20"> Al Diriyah | DIR |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21446.png" width="20"> Al-Faisaly | ALF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/130899.png" width="20"> Neom SC | NEOM |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21833.png" width="20"> Abha | ABH | Al Diriyah | DIR |
+| Al-Faisaly | ALF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/130899.png" width="20"> Neom SC | NEOM |
 
 ---
 
