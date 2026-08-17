@@ -59,6 +59,10 @@ Western Conference · Pacific Division
   - [NWSL](#-nwsl-team-abbreviations)
   - [Saudi Pro League](#-saudi-pro-league-team-abbreviations)
   - [J1 League](#-j1-league-team-abbreviations)
+  - [Scottish Premiership](#scottish-premiership-team-abbreviations)
+  - [Belgian Pro League](#belgian-pro-league-team-abbreviations)
+  - [UEFA Champions League](#uefa-champions-league-team-abbreviations)
+  - [UEFA Europa League](#uefa-europa-league-team-abbreviations)
   - [NBA G League](#-nba-g-league-team-abbreviations)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
@@ -806,6 +810,51 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21361.png" width="20"> Kyoto Sanga | KYO | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22522.png" width="20"> Fagiano Okayama | OKA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7111.png" width="20"> JEF United Ichihara-Chiba | JEF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/131701.png" width="20"> Mito Hollyhock | MITO |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/19001.png" width="20"> V-Varen Nagasaki | VVN | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22167.png" width="20"> Machida Zelvia | ZEL |
+
+---
+
+## Scottish Premiership Team Abbreviations
+
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| Celtic | CEL | Rangers | RAN |
+| Aberdeen | ABD | Hibernian | HIB |
+
+Use the abbreviation shown by ESPN for any other current Scottish Premiership club. The adapter resolves unlisted clubs from ESPN's live team directory.
+
+---
+
+## Belgian Pro League Team Abbreviations
+
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| Club Brugge | BRU | Anderlecht | AND |
+| Gent | GEN | Royal Antwerp | ANT |
+
+Use the abbreviation shown by ESPN for any other current Belgian Pro League club. The adapter resolves unlisted clubs from ESPN's live team directory.
+
+---
+
+## UEFA Champions League Team Abbreviations
+
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| Real Madrid | RMA | Barcelona | BAR |
+| Liverpool | LIV | Arsenal | ARS |
+| Paris Saint-Germain | PSG | |
+
+Champions League participants change each season. The adapter resolves current participating clubs from ESPN's live team directory, so the list above is a set of common examples rather than a fixed roster.
+
+---
+
+## UEFA Europa League Team Abbreviations
+
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| Manchester United | MUN | Tottenham Hotspur | TOT |
+| Liverpool | LIV | |
+
+Europa League participants change each season. The adapter resolves current participating clubs from ESPN's live team directory, so the list above is a set of common examples rather than a fixed roster.
 
 ---
 
