@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, and the **NBA G League** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, and the **NBA G League** with more sports coming soon
 
 ---
 
@@ -379,6 +379,54 @@ name, and fail the job if you renamed it.
           marker: readme-scoreboard-gleague
 ```
 
+#### Scottish Premiership Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
+          sport: scottish
+          team: CEL
+          marker: readme-scoreboard-scottish
+```
+
+#### Belgian Pro League Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
+          sport: belgian
+          team: BRU
+          marker: readme-scoreboard-belgian
+```
+
+#### UEFA Champions League Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
+          sport: ucl
+          team: RMA
+          marker: readme-scoreboard-ucl
+```
+
+#### UEFA Europa League Example
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@main
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          target_repo: 23seriy/23seriy
+          sport: uel
+          team: MUN
+          marker: readme-scoreboard-uel
+```
+
 ---
 
 ## Supported Sports
@@ -410,6 +458,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="NWSL logo" height="20"></picture> NWSL | 🟢 In progress · ends 2026-11-30 | [`soccer/usa.nwsl`](https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/teams) |
 | Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png" alt="Saudi Pro League logo" height="20"></picture> Saudi Pro League | 🟢 In progress · ends 2027-05-31 | [`soccer/ksa.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/ksa.1/teams) |
 | Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2199.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2199.png" alt="J1 League logo" height="20"></picture> J1 League | 🟢 In progress · ends 2027-05-31 | [`soccer/jpn.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/jpn.1/teams) |
+| Soccer | Scottish Premiership | 🟢 In progress · ends 2027-05-31 | [`soccer/sco.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams) |
+| Soccer | Belgian Pro League | 🟢 In progress · ends 2027-05-31 | [`soccer/bel.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/teams) |
+| Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2.png" alt="UEFA Champions League logo" height="20"></picture> UEFA Champions League | 🟢 In progress · ends 2027-06-30 | [`soccer/uefa.champions`](https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams) |
+| Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/3.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/3.png" alt="UEFA Europa League logo" height="20"></picture> UEFA Europa League | 🟢 In progress · ends 2027-06-30 | [`soccer/uefa.europa`](https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams) |
 | Basketball | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png" alt="NBA G League logo" height="20"></picture> NBA G League | 🔴 Off-season · starts 2026-11-01 | [`basketball/nba-development`](https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development/teams) |
 <!-- supported-sports:end -->
 

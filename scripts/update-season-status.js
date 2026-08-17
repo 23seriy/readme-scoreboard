@@ -27,6 +27,10 @@ const LEAGUES = [
   ["Soccer", "NWSL", "soccer/usa.nwsl"],
   ["Soccer", "Saudi Pro League", "soccer/ksa.1"],
   ["Soccer", "J1 League", "soccer/jpn.1"],
+  ["Soccer", "Scottish Premiership", "soccer/sco.1"],
+  ["Soccer", "Belgian Pro League", "soccer/bel.1"],
+  ["Soccer", "UEFA Champions League", "soccer/uefa.champions"],
+  ["Soccer", "UEFA Europa League", "soccer/uefa.europa"],
   ["Basketball", "NBA G League", "basketball/nba-development"],
 ];
 
@@ -50,6 +54,8 @@ const LEAGUE_LOGOS = {
   NWSL: ["leaguelogos/soccer/500/2323.png", "leaguelogos/soccer/500-dark/2323.png"],
   "Saudi Pro League": ["leaguelogos/soccer/500/2488.png", "leaguelogos/soccer/500-dark/2488.png"],
   "J1 League": ["leaguelogos/soccer/500/2199.png", "leaguelogos/soccer/500-dark/2199.png"],
+  "UEFA Champions League": ["leaguelogos/soccer/500/2.png", "leaguelogos/soccer/500-dark/2.png"],
+  "UEFA Europa League": ["leaguelogos/soccer/500/3.png", "leaguelogos/soccer/500-dark/3.png"],
 };
 
 // Conservative fallback windows keep the table useful if an upstream API is
@@ -66,6 +72,10 @@ const FALLBACK_WINDOWS = {
   Brasileirão: ["2026-03-25", "2026-12-15"], NWSL: ["2026-03-10", "2026-11-30"],
   "Saudi Pro League": ["2026-08-01", "2027-05-31"], "J1 League": ["2026-08-01", "2027-05-31"],
   "NBA G League": ["2026-11-01", "2027-04-15"],
+  "Scottish Premiership": ["2026-08-01", "2027-05-31"],
+  "Belgian Pro League": ["2026-07-25", "2027-05-31"],
+  "UEFA Champions League": ["2026-07-01", "2027-06-30"],
+  "UEFA Europa League": ["2026-07-01", "2027-06-30"],
 };
 
 const ENDPOINT_OVERRIDES = {
