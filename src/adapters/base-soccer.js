@@ -88,9 +88,20 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
   async fetchTeam(abbr) {
     try {
       const upper = abbr.toUpperCase();
-      const { data } = await axios.get(`${this.baseUrl}/teams/${this.TEAM_IDS[upper] || upper}`);
-      const team = data.team;
+      const configuredId = this.TEAM_IDS[upper];
+      let data;
+      if (configuredId) {
+        ({ data } = await axios.get(`${this.baseUrl}/teams/${configuredId}`));
+      } else {
+        ({ data } = await axios.get(`${this.baseUrl}/teams?limit=1000`));
+      }
+      const teams = [
+        ...(data.teams || []),
+        ...(data.sports || []).flatMap((sport) => sport.leagues || []).flatMap((league) => league.teams || []),
+      ].map((entry) => entry.team || entry);
+      const team = configuredId ? data.team : teams.find((candidate) => candidate.abbreviation?.toUpperCase() === upper);
       if (!team) return null;
+      this.TEAM_IDS[upper] = Number(team.id);
       return {
         id: team.id,
         abbreviation: team.abbreviation,

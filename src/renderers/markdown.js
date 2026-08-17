@@ -22,6 +22,10 @@ const SEASON_WINDOWS = {
   nwsl: { start: [3, 10], end: [11, 30], nextLabel: "March" },
   saudipro: { start: [8, 1], end: [5, 31], nextLabel: "August" },
   j1: { start: [8, 1], end: [5, 31], nextLabel: "August" },
+  scottish: { start: [8, 1], end: [5, 31], nextLabel: "August" },
+  belgian: { start: [7, 25], end: [5, 31], nextLabel: "July" },
+  ucl: { start: [7, 1], end: [6, 30], nextLabel: "July" },
+  uel: { start: [7, 1], end: [6, 30], nextLabel: "July" },
 };
 
 // League logos on ESPN's free CDN. Several marks are single-colour on
@@ -47,6 +51,8 @@ const LEAGUE_LOGOS = {
   nwsl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png", alt: "NWSL" },
   saudipro: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png", alt: "Saudi Pro League" },
   j1: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2199.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2199.png", alt: "J1 League" },
+  ucl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png", alt: "UEFA Champions League" },
+  uel: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/3.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/3.png", alt: "UEFA Europa League" },
 };
 
 /**
@@ -422,8 +428,16 @@ function render(sport, data) {
       return renderSoccer(data, "saudipro", "Saudi Pro League");
     case "j1":
       return renderSoccer(data, "j1", "J1 League");
+    case "scottish":
+      return renderSoccer(data, "scottish", "Scottish Premiership");
+    case "belgian":
+      return renderSoccer(data, "belgian", "Belgian Pro League");
+    case "ucl":
+      return renderSoccer(data, "ucl", "UEFA Champions League");
+    case "uel":
+      return renderSoccer(data, "uel", "UEFA Europa League");
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, gleague`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague`);
   }
 }
 
