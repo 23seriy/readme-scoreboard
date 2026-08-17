@@ -735,8 +735,8 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21827.png" width="20"> Al Fayha | FAY | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18459.png" width="20"> Al Taawoun | TAA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21965.png" width="20"> Al Riyadh | RIY | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21829.png" width="20"> Al Khaleej | KHA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21964.png" width="20"> Al Hazem | HAZ | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22028.png" width="20"> Al Kholood | KHO |
-| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21833.png" width="20"> Abha | ABH | Al Diriyah | DIR |
-| Al-Faisaly | ALF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/130899.png" width="20"> Neom SC | NEOM |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21833.png" width="20"> Abha | ABH | <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%D8%B4%D8%B9%D8%A7%D8%B1_%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%AF%D8%B1%D8%B9%D9%8A%D8%A9.png?width=64" width="20"> Al Diriyah | DIR |
+| <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%D8%B4%D8%B9%D8%A7%D8%B1_%D9%81%D8%B1%D9%8A%D9%82_%D8%A7%D9%84%D9%81%D9%8A%D8%B5%D9%84%D9%8A.png?width=64" width="20"> Al-Faisaly | ALF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/130899.png" width="20"> Neom SC | NEOM |
 
 ---
 
