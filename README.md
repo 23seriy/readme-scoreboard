@@ -817,10 +817,12 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 | Club | Abbr | Club | Abbr |
 |---|---|---|---|
-| Celtic | CEL | Rangers | RAN |
-| Aberdeen | ABD | Hibernian | HIB |
-
-Use the abbreviation shown by ESPN for any other current Scottish Premiership club. The adapter resolves unlisted clubs from ESPN's live team directory.
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/263.png" width="20"> Aberdeen | ABE | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/256.png" width="20"> Celtic | CEL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/261.png" width="20"> Dundee | DUN | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/264.png" width="20"> Dundee United | DUN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/254.png" width="20"> Falkirk | FALK | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/262.png" width="20"> Heart of Midlothian | HOM |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/258.png" width="20"> Hibernian | HIBS | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/260.png" width="20"> Kilmarnock | KIL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/266.png" width="20"> Motherwell | MOT | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/257.png" width="20"> Rangers | RAN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/267.png" width="20"> St Johnstone | STJ | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/250.png" width="20"> St Mirren | STM |
 
 ---
 
@@ -828,10 +830,15 @@ Use the abbreviation shown by ESPN for any other current Scottish Premiership cl
 
 | Club | Abbr | Club | Abbr |
 |---|---|---|---|
-| Club Brugge | BRU | Anderlecht | AND |
-| Gent | GEN | Royal Antwerp | ANT |
-
-Use the abbreviation shown by ESPN for any other current Belgian Pro League club. The adapter resolves unlisted clubs from ESPN's live team directory.
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/441.png" width="20"> Anderlecht | AND | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17544.png" width="20"> Antwerp | ANT |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3610.png" width="20"> Cercle Brugge KSV | CBK | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/570.png" width="20"> Club Brugge | BRU |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3611.png" width="20"> KAA Gent | GENT | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5786.png" width="20"> KV Kortrijk | KVK |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7879.png" width="20"> KV Mechelen | KVM | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/606.png" width="20"> KVC Westerlo | KVCW |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22269.png" width="20"> Lommel SK | LOM | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5579.png" width="20"> OH Leuven | OHL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/131235.png" width="20"> RAAL La Louvière | RLL | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/938.png" width="20"> Racing Genk | GENK |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3616.png" width="20"> Royal Charleroi SC | CHA | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/936.png" width="20"> Sint-Truidense | STVV |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/559.png" width="20"> Standard Liege | STL | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5807.png" width="20"> Union St.-Gilloise | USG |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/13450.png" width="20"> Waasland-Beveren | WAA | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/4691.png" width="20"> Zulte-Waregem | ZUL |
 
 ---
 
@@ -839,11 +846,26 @@ Use the abbreviation shown by ESPN for any other current Belgian Pro League club
 
 | Club | Abbr | Club | Abbr |
 |---|---|---|---|
-| Real Madrid | RMA | Barcelona | BAR |
-| Liverpool | LIV | Arsenal | ARS |
-| Paris Saint-Germain | PSG | |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/174.png" width="20"> AS Monaco | MON | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/139.png" width="20"> Ajax Amsterdam | AJA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/359.png" width="20"> Arsenal | ARS | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/105.png" width="20"> Atalanta | ATA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/93.png" width="20"> Athletic Club | ATH | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/1068.png" width="20"> Atlético Madrid | ATM |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/83.png" width="20"> Barcelona | BAR | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/131.png" width="20"> Bayer Leverkusen | B04 |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/132.png" width="20"> Bayern Munich | MUN | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/1929.png" width="20"> Benfica | SLB |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2980.png" width="20"> Bodo/Glimt | BODO | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/124.png" width="20"> Borussia Dortmund | DOR |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/363.png" width="20"> Chelsea | CHE | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/570.png" width="20"> Club Brugge | BRU |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/125.png" width="20"> Eintracht Frankfurt | SGE | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/909.png" width="20"> F.C. København | KBH |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/10414.png" width="20"> FK Qarabag | QAR | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/432.png" width="20"> Galatasaray | GAL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/110.png" width="20"> Internazionale | INT | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/111.png" width="20"> Juventus | JUV |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2528.png" width="20"> Kairat Almaty | KAI | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/364.png" width="20"> Liverpool | LIV |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/382.png" width="20"> Manchester City | MNC | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/176.png" width="20"> Marseille | OLM |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/114.png" width="20"> Napoli | NAP | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/361.png" width="20"> Newcastle United | NEW |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/435.png" width="20"> Olympiacos | OLY | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/148.png" width="20"> PSV Eindhoven | PSV |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/22281.png" width="20"> Pafos | PAF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/160.png" width="20"> Paris Saint-Germain | PSG |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/86.png" width="20"> Real Madrid | RMA | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/494.png" width="20"> Slavia Prague | SLP |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2250.png" width="20"> Sporting CP | SCP | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/367.png" width="20"> Tottenham Hotspur | TOT |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5807.png" width="20"> Union St.-Gilloise | USG | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/102.png" width="20"> Villarreal | VIL |
 
-Champions League participants change each season. The adapter resolves current participating clubs from ESPN's live team directory, so the list above is a set of common examples rather than a fixed roster.
+This table reflects ESPN's current 2025–26 participant directory and will change when the competition draw changes.
 
 ---
 
@@ -851,10 +873,26 @@ Champions League participants change each season. The adapter resolves current p
 
 | Club | Abbr | Club | Abbr |
 |---|---|---|---|
-| Manchester United | MUN | Tottenham Hotspur | TOT |
-| Liverpool | LIV | |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/104.png" width="20"> AS Roma | ROMA | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/362.png" width="20"> Aston Villa | AVL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/107.png" width="20"> Bologna | BOL | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2994.png" width="20"> Braga | SCB |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/85.png" width="20"> Celta Vigo | CEL | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/256.png" width="20"> Celtic | CEL |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/597.png" width="20"> Dinamo Zagreb | DZG | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/989.png" width="20"> FC Basel | FCB |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/572.png" width="20"> FC Midtjylland | MID | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/437.png" width="20"> FC Porto | FCP |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/153.png" width="20"> FC Utrecht | UTR | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/484.png" width="20"> FCSB | FCSB |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/436.png" width="20"> Fenerbahce | FEN | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/622.png" width="20"> Ferencvaros | FER |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/142.png" width="20"> Feyenoord Rotterdam | FEY | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3706.png" width="20"> Go Ahead Eagles | GAE |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/166.png" width="20"> Lille | LILL | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/13018.png" width="20"> Ludogorets Razgrad | LUD |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/167.png" width="20"> Lyon | LYON | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/524.png" width="20"> Maccabi Tel-Aviv | MTA |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2720.png" width="20"> Malmö FF | MAL | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2502.png" width="20"> Nice | NICE |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/393.png" width="20"> Nottingham Forest | NFO | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/605.png" width="20"> PAOK | PAOK |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/443.png" width="20"> Panathinaikos | PAO | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2790.png" width="20"> RB Salzburg | SLZ |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/938.png" width="20"> Racing Genk | GENK | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/257.png" width="20"> Rangers | RAN |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/244.png" width="20"> Real Betis | BET | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2290.png" width="20"> Red Star Belgrade | RSB |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/126.png" width="20"> SC Freiburg | SCF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/620.png" width="20"> SK Brann | SKBR |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3746.png" width="20"> SK Sturm Graz | STG | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/134.png" width="20"> VfB Stuttgart | VFB |
+| <img src="https://a.espncdn.com/i/teamlogos/soccer/500/11706.png" width="20"> Viktoria Plzen | PLZ | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2722.png" width="20"> Young Boys | YB |
 
-Europa League participants change each season. The adapter resolves current participating clubs from ESPN's live team directory, so the list above is a set of common examples rather than a fixed roster.
+This table reflects ESPN's current 2025–26 participant directory and will change when the competition draw changes.
 
 ---
 
