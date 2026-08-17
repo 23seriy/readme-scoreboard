@@ -37,7 +37,9 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
   }
 
   getLogoUrl(abbr) {
-    const id = this.TEAM_IDS[abbr.toUpperCase()];
+    const upper = abbr.toUpperCase();
+    if (this.TEAM_LOGO_OVERRIDES?.[upper]) return this.TEAM_LOGO_OVERRIDES[upper];
+    const id = this.TEAM_IDS[upper];
     return id ? `https://a.espncdn.com/i/teamlogos/soccer/500/${id}.png` : null;
   }
 

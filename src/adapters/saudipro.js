@@ -29,6 +29,10 @@ class SaudiProAdapter extends BaseSoccerAdapter {
 
   TEAM_EMOJI = TEAM_EMOJI;
   TEAM_IDS = TEAM_IDS;
+  TEAM_LOGO_OVERRIDES = {
+    DIR: "https://commons.wikimedia.org/wiki/Special:FilePath/%D8%B4%D8%B9%D8%A7%D8%B1_%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%AF%D8%B1%D8%B9%D9%8A%D8%A9.png?width=64",
+    ALF: "https://commons.wikimedia.org/wiki/Special:FilePath/%D8%B4%D8%B9%D8%A7%D8%B1_%D9%81%D8%B1%D9%8A%D9%82_%D8%A7%D9%84%D9%81%D9%8A%D8%B5%D9%84%D9%8A.png?width=64",
+  };
   DEMO_TEAMS = DEMO_TEAMS;
 }
 
