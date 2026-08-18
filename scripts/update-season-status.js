@@ -32,6 +32,10 @@ const LEAGUES = [
   ["Soccer", "UEFA Champions League", "soccer/uefa.champions"],
   ["Soccer", "UEFA Europa League", "soccer/uefa.europa"],
   ["Basketball", "NBA G League", "basketball/nba-development"],
+  ["Basketball", "NCAA Men's Basketball", "basketball/mens-college-basketball"],
+  ["Basketball", "NCAA Women's Basketball", "basketball/womens-college-basketball"],
+  ["Football", "College Football", "football/college-football"],
+  ["Hockey", "NCAA Men's Ice Hockey", "hockey/mens-college-hockey"],
 ];
 
 const LEAGUE_LOGOS = {
@@ -58,6 +62,10 @@ const LEAGUE_LOGOS = {
   "Belgian Pro League": ["leaguelogos/soccer/500/6.png", "leaguelogos/soccer/500-dark/6.png"],
   "UEFA Champions League": ["leaguelogos/soccer/500/2.png", "leaguelogos/soccer/500-dark/2.png"],
   "UEFA Europa League": ["leaguelogos/soccer/500/2310.png", "leaguelogos/soccer/500-dark/2310.png"],
+  "NCAA Men's Basketball": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"],
+  "NCAA Women's Basketball": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"],
+  "College Football": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png"],
+  "NCAA Men's Ice Hockey": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png"],
 };
 
 // Conservative fallback windows keep the table useful if an upstream API is
@@ -78,6 +86,10 @@ const FALLBACK_WINDOWS = {
   "Belgian Pro League": ["2026-07-01", "2027-07-01"],
   "UEFA Champions League": ["2026-07-01", "2027-07-01"],
   "UEFA Europa League": ["2026-08-27", "2027-07-01"],
+  "NCAA Men's Basketball": ["2026-07-13", "2027-04-07"],
+  "NCAA Women's Basketball": ["2026-07-13", "2027-04-07"],
+  "College Football": ["2026-02-01", "2027-01-28"],
+  "NCAA Men's Ice Hockey": ["2026-09-01", "2027-05-01"],
 };
 
 const ENDPOINT_OVERRIDES = {
@@ -88,7 +100,7 @@ const ENDPOINT_OVERRIDES = {
 function leagueCell(name) {
   const logo = LEAGUE_LOGOS[name];
   if (!logo) return name;
-  const [light, dark] = logo.map((asset) => `https://a.espncdn.com/i/${asset}`);
+  const [light, dark] = logo.map((asset) => asset.startsWith("http") ? asset : `https://a.espncdn.com/i/${asset}`);
   return `<picture><source media="(prefers-color-scheme: dark)" srcset="${dark}"><img src="${light}" alt="${name} logo" height="20"></picture> ${name}`;
 }
 

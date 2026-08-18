@@ -26,6 +26,10 @@ const SEASON_WINDOWS = {
   belgian: { start: [7, 25], end: [5, 31], nextLabel: "July" },
   ucl: { start: [7, 1], end: [6, 30], nextLabel: "July" },
   uel: { start: [7, 1], end: [6, 30], nextLabel: "July" },
+  ncaab: { start: [11, 1], end: [4, 15], nextLabel: "November" },
+  ncaaw: { start: [11, 1], end: [4, 15], nextLabel: "November" },
+  ncaaf: { start: [8, 24], end: [1, 20], nextLabel: "August" },
+  ncaa_hockey: { start: [10, 1], end: [4, 15], nextLabel: "October" },
 };
 
 // League logos on ESPN's free CDN. Several marks are single-colour on
@@ -55,6 +59,10 @@ const LEAGUE_LOGOS = {
   belgian: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/6.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/6.png", alt: "Belgian Pro League" },
   ucl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png", alt: "UEFA Champions League" },
   uel: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2310.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2310.png", alt: "UEFA Europa League" },
+  ncaab: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", alt: "NCAA Men's Basketball" },
+  ncaaw: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", alt: "NCAA Women's Basketball" },
+  ncaaf: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png", alt: "College Football" },
+  ncaa_hockey: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png", alt: "NCAA Men's Ice Hockey" },
 };
 
 /**
@@ -253,17 +261,17 @@ function formatNflGameResult(game) {
   return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})${tag}`;
 }
 
-function renderNfl(data) {
+function renderNfl(data, sport = "nfl") {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(...headingLines("nfl"));
+  lines.push(...headingLines(sport));
   lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.conference} · ${team.division}`);
-  lines.push(seasonStatusLine("nfl"));
+  lines.push(seasonStatusLine(sport));
   lines.push("");
 
   const totalGames = record.wins + record.losses;
@@ -293,17 +301,19 @@ function renderNfl(data) {
   return lines.join("\n");
 }
 
-function renderNhl(data) {
+function renderNhl(data, sport = "nhl") {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(...headingLines("nhl"));
+  lines.push(...headingLines(sport));
   lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  lines.push(`${team.conference} Conference · ${team.division} Division`);
-  lines.push(seasonStatusLine("nhl"));
+  lines.push(team.division
+    ? `${team.conference} Conference · ${team.division} Division`
+    : `${team.conference} Conference`);
+  lines.push(seasonStatusLine(sport));
   lines.push("");
 
   const winPct =
@@ -398,12 +408,20 @@ function render(sport, data) {
       return renderNba(data, "wnba");
     case "gleague":
       return renderNba(data, "gleague");
+    case "ncaab":
+      return renderNba(data, "ncaab");
+    case "ncaaw":
+      return renderNba(data, "ncaaw");
     case "mlb":
       return renderMlb(data);
     case "nfl":
       return renderNfl(data);
+    case "ncaaf":
+      return renderNfl(data, "ncaaf");
     case "nhl":
       return renderNhl(data);
+    case "ncaa_hockey":
+      return renderNhl(data, "ncaa_hockey");
     case "mls":
       return renderSoccer(data, "mls", "MLS");
     case "epl":
