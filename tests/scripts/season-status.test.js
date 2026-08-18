@@ -10,6 +10,10 @@ const workflow = fs.readFileSync(
   path.join(__dirname, "../../.github/workflows/update-season-status.yml"),
   "utf-8"
 );
+const collegeWorkflow = fs.readFileSync(
+  path.join(__dirname, "../../.github/workflows/update-college-rosters.yml"),
+  "utf-8"
+);
 
 describe("season status updater", () => {
   it("serializes scheduled runs and protects the automation branch push", () => {
@@ -17,6 +21,17 @@ describe("season status updater", () => {
     expect(workflow).toContain("cancel-in-progress: false");
     expect(workflow).toContain("git push --force-with-lease=");
     expect(workflow).not.toContain("git push --force origin automation/season-status");
+  });
+
+  it.each([
+    [workflow, "season status"],
+    [collegeWorkflow, "college roster"],
+  ])("opens one %s maintenance PR with the workflow token", (workflowText) => {
+    expect(workflowText).toContain("pull-requests: write");
+    expect(workflowText).toContain("GH_TOKEN: ${{ github.token }}");
+    expect(workflowText).toContain("gh pr list");
+    expect(workflowText).toContain("gh pr create");
+    expect(workflowText).toContain("--state open");
   });
 
   it("marks a season in progress and shows its end date", () => {
