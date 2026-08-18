@@ -27,14 +27,22 @@ class BaseEspnLeagueAdapter {
     const day = 24 * 60 * 60 * 1000;
     const games = [
       [3, 1, "OPP"], [2, 4, "RIV"], [5, 2, "UTD"],
-    ].map(([teamScore, oppScore, oppAbbr], index) => ({
-      date: new Date(Date.now() - (index + 1) * 3 * day).toISOString(),
-      status: "Final",
-      home_team: { id: index % 2 ? 0 : team.id, abbreviation: index % 2 ? oppAbbr : team.abbreviation },
-      visitor_team: { id: index % 2 ? team.id : 0, abbreviation: index % 2 ? team.abbreviation : oppAbbr },
-      home_team_score: index % 2 ? oppScore : teamScore,
-      visitor_team_score: index % 2 ? teamScore : oppScore,
-    }));
+    ].map(([teamScore, oppScore, oppAbbr], index) => {
+      const isHome = index % 2 === 0;
+      return {
+        date: new Date(Date.now() - (index + 1) * 3 * day).toISOString(),
+        status: "Final",
+        home_team: { id: isHome ? team.id : 0, abbreviation: isHome ? team.abbreviation : oppAbbr },
+        visitor_team: { id: isHome ? 0 : team.id, abbreviation: isHome ? oppAbbr : team.abbreviation },
+        home_team_score: isHome ? teamScore : oppScore,
+        visitor_team_score: isHome ? oppScore : teamScore,
+        teamScore,
+        oppScore,
+        oppAbbr,
+        isHome,
+        won: teamScore > oppScore,
+      };
+    });
     return { team, record: { wins: 18, losses: 6, season: this.getSeasonYear() }, recentGames: games };
   }
 

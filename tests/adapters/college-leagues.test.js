@@ -12,6 +12,7 @@ const workflow = fs.readFileSync(
   "utf8"
 );
 const { renderSection } = require("../../scripts/update-college-abbreviations");
+const { render } = require("../../src/renderers/markdown");
 
 describe("college roster automation", () => {
   it("has a weekly workflow that invokes the roster generator", () => {
@@ -32,6 +33,16 @@ describe("college roster automation", () => {
 
   it("refuses to render an empty roster", () => {
     expect(() => renderSection("ncaab", "NCAA Men's Basketball", [])).toThrow(/No teams returned/);
+  });
+
+  it("renders the college football demo without missing opponent data", () => {
+    const adapter = require("../../src/adapters/ncaaf");
+    const data = adapter.getDemoData("ALA");
+    expect(() => render("ncaaf", {
+      ...data,
+      emoji: adapter.TEAM_EMOJI.ALA,
+      logoUrl: adapter.getLogoUrl("ALA"),
+    })).not.toThrow();
   });
 });
 
