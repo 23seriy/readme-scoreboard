@@ -927,21 +927,841 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 
 ---
 
-## NCAA Men's Basketball
+<!-- college-abbreviations:ncaab:start -->
+## NCAA Men's Basketball Team Abbreviations
 
-Use ESPN's current team directory for abbreviations. Common examples: `ARIZ` (Arizona), `ARK` (Arkansas), `ASU` (Arizona State), `AUB` (Auburn).
+Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
 
-## NCAA Women's Basketball
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2000.png" width="20"> Abilene Christian Wildcats | `ACU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" width="20"> Air Force Falcons | `AF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2006.png" width="20"> Akron Zips | `AKR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2010.png" width="20"> Alabama A&M Bulldogs | `AAMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" width="20"> Alabama Crimson Tide | `ALA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2011.png" width="20"> Alabama State Hornets | `ALST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2016.png" width="20"> Alcorn State Braves | `ALCN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/44.png" width="20"> American University Eagles | `AMER` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png" width="20"> App State Mountaineers | `APP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/9.png" width="20"> Arizona State Sun Devils | `ASU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/12.png" width="20"> Arizona Wildcats | `ARIZ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/8.png" width="20"> Arkansas Razorbacks | `ARK` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png" width="20"> Arkansas State Red Wolves | `ARST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2029.png" width="20"> Arkansas-Pine Bluff Golden Lions | `UAPB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" width="20"> Army Black Knights | `ARMY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2.png" width="20"> Auburn Tigers | `AUB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2046.png" width="20"> Austin Peay Governors | `APSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2050.png" width="20"> Ball State Cardinals | `BALL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/239.png" width="20"> Baylor Bears | `BAY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/91.png" width="20"> Bellarmine Knights | `BELL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2057.png" width="20"> Belmont Bruins | `BEL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2065.png" width="20"> Bethune-Cookman Wildcats | `BCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2066.png" width="20"> Binghamton Bearcats | `BING` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/68.png" width="20"> Boise State Broncos | `BOIS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" width="20"> Boston College Eagles | `BC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/104.png" width="20"> Boston University Terriers | `BU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/189.png" width="20"> Bowling Green Falcons | `BGSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/71.png" width="20"> Bradley Braves | `BRAD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/225.png" width="20"> Brown Bears | `BRWN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2803.png" width="20"> Bryant Bulldogs | `BRY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2083.png" width="20"> Bucknell Bison | `BUCK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2084.png" width="20"> Buffalo Bulls | `BUF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2086.png" width="20"> Butler Bulldogs | `BTLR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/252.png" width="20"> BYU Cougars | `BYU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/13.png" width="20"> Cal Poly Mustangs | `CP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2934.png" width="20"> Cal State Bakersfield Roadrunners | `CSUB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2239.png" width="20"> Cal State Fullerton Titans | `CSUF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2463.png" width="20"> Cal State Northridge Matadors | `CSUN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2856.png" width="20"> California Baptist Lancers | `CBU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/25.png" width="20"> California Golden Bears | `CAL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2097.png" width="20"> Campbell Fighting Camels | `CAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2099.png" width="20"> Canisius Golden Griffins | `CAN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2110.png" width="20"> Central Arkansas Bears | `CARK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2115.png" width="20"> Central Connecticut Blue Devils | `CCSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png" width="20"> Central Michigan Chippewas | `CMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/232.png" width="20"> Charleston Cougars | `COFC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2127.png" width="20"> Charleston Southern Buccaneers | `CHSO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png" width="20"> Charlotte 49ers | `CLT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/236.png" width="20"> Chattanooga Mocs | `UTC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2130.png" width="20"> Chicago State Cougars | `CHST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png" width="20"> Cincinnati Bearcats | `CIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/228.png" width="20"> Clemson Tigers | `CLEM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/325.png" width="20"> Cleveland State Vikings | `CLE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/324.png" width="20"> Coastal Carolina Chanticleers | `CCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2142.png" width="20"> Colgate Raiders | `COLG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/38.png" width="20"> Colorado Buffaloes | `COLO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/36.png" width="20"> Colorado State Rams | `CSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/171.png" width="20"> Columbia Lions | `COLU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2154.png" width="20"> Coppin State Eagles | `COPP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/172.png" width="20"> Cornell Big Red | `COR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/156.png" width="20"> Creighton Bluejays | `CREI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/159.png" width="20"> Dartmouth Big Green | `DART` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2166.png" width="20"> Davidson Wildcats | `DAV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2168.png" width="20"> Dayton Flyers | `DAY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/48.png" width="20"> Delaware Blue Hens | `DEL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2169.png" width="20"> Delaware State Hornets | `DSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2172.png" width="20"> Denver Pioneers | `DEN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/305.png" width="20"> DePaul Blue Demons | `DEP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2174.png" width="20"> Detroit Mercy Titans | `DETM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2181.png" width="20"> Drake Bulldogs | `DRKE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2182.png" width="20"> Drexel Dragons | `DREX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/150.png" width="20"> Duke Blue Devils | `DUKE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2184.png" width="20"> Duquesne Dukes | `DUQ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/151.png" width="20"> East Carolina Pirates | `ECU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2193.png" width="20"> East Tennessee State Buccaneers | `ETSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2837.png" width="20"> East Texas A&M Lions | `ETAM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2197.png" width="20"> Eastern Illinois Panthers | `EIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2198.png" width="20"> Eastern Kentucky Colonels | `EKU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2199.png" width="20"> Eastern Michigan Eagles | `EMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/331.png" width="20"> Eastern Washington Eagles | `EWU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2210.png" width="20"> Elon Phoenix | `ELON` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/339.png" width="20"> Evansville Purple Aces | `EVAN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2217.png" width="20"> Fairfield Stags | `FAIR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/161.png" width="20"> Fairleigh Dickinson Knights | `FDU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/50.png" width="20"> Florida A&M Rattlers | `FAMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png" width="20"> Florida Atlantic Owls | `FAU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/57.png" width="20"> Florida Gators | `FLA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/526.png" width="20"> Florida Gulf Coast Eagles | `FGCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2229.png" width="20"> Florida International Panthers | `FIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/52.png" width="20"> Florida State Seminoles | `FSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2230.png" width="20"> Fordham Rams | `FOR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/278.png" width="20"> Fresno State Bulldogs | `FRES` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/231.png" width="20"> Furman Paladins | `FUR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2241.png" width="20"> Gardner-Webb Runnin' Bulldogs | `GWEB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2244.png" width="20"> George Mason Patriots | `GMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/45.png" width="20"> George Washington Revolutionaries | `GW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/46.png" width="20"> Georgetown Hoyas | `GTWN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" width="20"> Georgia Bulldogs | `UGA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/290.png" width="20"> Georgia Southern Eagles | `GASO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2247.png" width="20"> Georgia State Panthers | `GAST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/59.png" width="20"> Georgia Tech Yellow Jackets | `GT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2250.png" width="20"> Gonzaga Bulldogs | `GONZ` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2755.png" width="20"> Grambling Tigers | `GRAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2253.png" width="20"> Grand Canyon Lopes | `GCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2739.png" width="20"> Green Bay Phoenix | `GB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2261.png" width="20"> Hampton Pirates | `HAMP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/108.png" width="20"> Harvard Crimson | `HARV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/62.png" width="20"> Hawai'i Rainbow Warriors | `HAW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2272.png" width="20"> High Point Panthers | `HPU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2275.png" width="20"> Hofstra Pride | `HOF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/107.png" width="20"> Holy Cross Crusaders | `HC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2277.png" width="20"> Houston Christian Huskies | `HCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/248.png" width="20"> Houston Cougars | `HOU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/47.png" width="20"> Howard Bison | `HOW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/304.png" width="20"> Idaho State Bengals | `IDST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/70.png" width="20"> Idaho Vandals | `IDHO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/356.png" width="20"> Illinois Fighting Illini | `ILL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2287.png" width="20"> Illinois State Redbirds | `ILST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2916.png" width="20"> Incarnate Word Cardinals | `UIW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" width="20"> Indiana Hoosiers | `IU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/282.png" width="20"> Indiana State Sycamores | `INST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/314.png" width="20"> Iona Gaels | `IONA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png" width="20"> Iowa Hawkeyes | `IOWA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/66.png" width="20"> Iowa State Cyclones | `ISU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/85.png" width="20"> IU Indianapolis Jaguars | `IUIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2296.png" width="20"> Jackson State Tigers | `JKST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/294.png" width="20"> Jacksonville Dolphins | `JAX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/55.png" width="20"> Jacksonville State Gamecocks | `JXST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" width="20"> James Madison Dukes | `JMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/140.png" width="20"> Kansas City Roos | `KC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2305.png" width="20"> Kansas Jayhawks | `KU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2306.png" width="20"> Kansas State Wildcats | `KSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/338.png" width="20"> Kennesaw State Owls | `KENN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2309.png" width="20"> Kent State Golden Flashes | `KENT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/96.png" width="20"> Kentucky Wildcats | `UK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2325.png" width="20"> La Salle Explorers | `LAS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/322.png" width="20"> Lafayette Leopards | `LAF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2320.png" width="20"> Lamar Cardinals | `LAM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2330.png" width="20"> Le Moyne Dolphins | `LEM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2329.png" width="20"> Lehigh Mountain Hawks | `LEH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png" width="20"> Liberty Flames | `LIB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/288.png" width="20"> Lipscomb Bisons | `LIP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2031.png" width="20"> Little Rock Trojans | `LR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/299.png" width="20"> Long Beach State Beach | `LBSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/112358.png" width="20"> Long Island University Sharks | `LIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2344.png" width="20"> Longwood Lancers | `LONG` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/309.png" width="20"> Louisiana Ragin' Cajuns | `UL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2348.png" width="20"> Louisiana Tech Bulldogs | `LT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/97.png" width="20"> Louisville Cardinals | `LOU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2350.png" width="20"> Loyola Chicago Ramblers | `LUC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2352.png" width="20"> Loyola Maryland Greyhounds | `L-MD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2351.png" width="20"> Loyola Marymount Lions | `LMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2443.png" width="20"> LSU New Orleans Privateers | `NOLA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/99.png" width="20"> LSU Tigers | `LSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/311.png" width="20"> Maine Black Bears | `ME` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2363.png" width="20"> Manhattan Jaspers | `MAN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2368.png" width="20"> Marist Red Foxes | `MRST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/269.png" width="20"> Marquette Golden Eagles | `MARQ` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/276.png" width="20"> Marshall Thundering Herd | `MRSH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2379.png" width="20"> Maryland Eastern Shore Hawks | `UMES` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/120.png" width="20"> Maryland Terrapins | `MD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/113.png" width="20"> Massachusetts Minutemen | `MASS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2377.png" width="20"> McNeese Cowboys | `MCN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/235.png" width="20"> Memphis Tigers | `MEM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2382.png" width="20"> Mercer Bears | `MER` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2385.png" width="20"> Mercyhurst Lakers | `MERC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2771.png" width="20"> Merrimack Warriors | `MRMK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/193.png" width="20"> Miami (OH) RedHawks | `M-OH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" width="20"> Miami Hurricanes | `MIA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/127.png" width="20"> Michigan State Spartans | `MSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/130.png" width="20"> Michigan Wolverines | `MICH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2393.png" width="20"> Middle Tennessee Blue Raiders | `MTSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/270.png" width="20"> Milwaukee Panthers | `MILW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/135.png" width="20"> Minnesota Golden Gophers | `MINN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/344.png" width="20"> Mississippi State Bulldogs | `MSST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2400.png" width="20"> Mississippi Valley State Delta Devils | `MVSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2623.png" width="20"> Missouri State Bears | `MOST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/142.png" width="20"> Missouri Tigers | `MIZ` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2405.png" width="20"> Monmouth Hawks | `MONM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/149.png" width="20"> Montana Grizzlies | `MONT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/147.png" width="20"> Montana State Bobcats | `MTST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2413.png" width="20"> Morehead State Eagles | `MORE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2415.png" width="20"> Morgan State Bears | `MORG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/116.png" width="20"> Mount St. Mary's Mountaineers | `MSM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/93.png" width="20"> Murray State Racers | `MUR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png" width="20"> Navy Midshipmen | `NAVY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/152.png" width="20"> NC State Wolfpack | `NCSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/158.png" width="20"> Nebraska Cornhuskers | `NEB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2440.png" width="20"> Nevada Wolf Pack | `NEV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/160.png" width="20"> New Hampshire Wildcats | `UNH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2441.png" width="20"> New Haven Chargers | `NHVN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/167.png" width="20"> New Mexico Lobos | `UNM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/166.png" width="20"> New Mexico State Aggies | `NMSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/315.png" width="20"> Niagara Purple Eagles | `NIA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2447.png" width="20"> Nicholls Colonels | `NICH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2885.png" width="20"> NJIT Highlanders | `NJIT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2450.png" width="20"> Norfolk State Spartans | `NORF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2453.png" width="20"> North Alabama Lions | `UNA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2448.png" width="20"> North Carolina A&T Aggies | `NCAT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2428.png" width="20"> North Carolina Central Eagles | `NCCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/153.png" width="20"> North Carolina Tar Heels | `UNC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/155.png" width="20"> North Dakota Fighting Hawks | `UND` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2449.png" width="20"> North Dakota State Bison | `NDSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2454.png" width="20"> North Florida Ospreys | `UNF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/249.png" width="20"> North Texas Mean Green | `UNT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/111.png" width="20"> Northeastern Huskies | `NE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2464.png" width="20"> Northern Arizona Lumberjacks | `NAU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2458.png" width="20"> Northern Colorado Bears | `UNCO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2459.png" width="20"> Northern Illinois Huskies | `NIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2460.png" width="20"> Northern Iowa Panthers | `UNI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/94.png" width="20"> Northern Kentucky Norse | `NKU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2466.png" width="20"> Northwestern State Demons | `NWST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/77.png" width="20"> Northwestern Wildcats | `NU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/87.png" width="20"> Notre Dame Fighting Irish | `ND` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2473.png" width="20"> Oakland Golden Grizzlies | `OAK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/195.png" width="20"> Ohio Bobcats | `OHIO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" width="20"> Ohio State Buckeyes | `OSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/201.png" width="20"> Oklahoma Sooners | `OU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/197.png" width="20"> Oklahoma State Cowboys | `OKST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/295.png" width="20"> Old Dominion Monarchs | `ODU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" width="20"> Ole Miss Rebels | `MISS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2437.png" width="20"> Omaha Mavericks | `OMA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/198.png" width="20"> Oral Roberts Golden Eagles | `ORU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" width="20"> Oregon Ducks | `ORE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/204.png" width="20"> Oregon State Beavers | `ORST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/279.png" width="20"> Pacific Tigers | `PAC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/213.png" width="20"> Penn State Nittany Lions | `PSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/219.png" width="20"> Pennsylvania Quakers | `PENN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2492.png" width="20"> Pepperdine Waves | `PEPP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/221.png" width="20"> Pittsburgh Panthers | `PITT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2501.png" width="20"> Portland Pilots | `PORT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2502.png" width="20"> Portland State Vikings | `PRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2504.png" width="20"> Prairie View A&M Panthers | `PV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2506.png" width="20"> Presbyterian Blue Hose | `PRES` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/163.png" width="20"> Princeton Tigers | `PRIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2507.png" width="20"> Providence Friars | `PROV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2509.png" width="20"> Purdue Boilermakers | `PUR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2870.png" width="20"> Purdue Fort Wayne Mastodons | `PFW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2514.png" width="20"> Quinnipiac Bobcats | `QUIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2515.png" width="20"> Radford Highlanders | `RAD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/227.png" width="20"> Rhode Island Rams | `URI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/242.png" width="20"> Rice Owls | `RICE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/257.png" width="20"> Richmond Spiders | `RICH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2520.png" width="20"> Rider Broncs | `RID` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2523.png" width="20"> Robert Morris Colonials | `RMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/164.png" width="20"> Rutgers Scarlet Knights | `RUTG` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/16.png" width="20"> Sacramento State Hornets | `SAC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2529.png" width="20"> Sacred Heart Pioneers | `SHU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2603.png" width="20"> Saint Joseph's Hawks | `JOES` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/139.png" width="20"> Saint Louis Billikens | `SLU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2608.png" width="20"> Saint Mary's Gaels | `SMC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2612.png" width="20"> Saint Peter's Peacocks | `SPU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2534.png" width="20"> Sam Houston Bearkats | `SHSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2535.png" width="20"> Samford Bulldogs | `SAM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/21.png" width="20"> San Diego State Aztecs | `SDSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/301.png" width="20"> San Diego Toreros | `USD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2539.png" width="20"> San Francisco Dons | `SF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/23.png" width="20"> San José State Spartans | `SJSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2541.png" width="20"> Santa Clara Broncos | `SCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2545.png" width="20"> SE Louisiana Lions | `SELA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2547.png" width="20"> Seattle U Redhawks | `SEA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2550.png" width="20"> Seton Hall Pirates | `HALL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2561.png" width="20"> Siena Saints | `SIE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2565.png" width="20"> SIU Edwardsville Cougars | `SIUE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2567.png" width="20"> SMU Mustangs | `SMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/6.png" width="20"> South Alabama Jaguars | `USA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png" width="20"> South Carolina Gamecocks | `SC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2569.png" width="20"> South Carolina State Bulldogs | `SCST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2908.png" width="20"> South Carolina Upstate Spartans | `UPST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/233.png" width="20"> South Dakota Coyotes | `SDAK` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2571.png" width="20"> South Dakota State Jackrabbits | `SDST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/58.png" width="20"> South Florida Bulls | `USF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2546.png" width="20"> Southeast Missouri State Redhawks | `SEMO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/79.png" width="20"> Southern Illinois Salukis | `SIU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2582.png" width="20"> Southern Jaguars | `SOU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2572.png" width="20"> Southern Miss Golden Eagles | `USM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/253.png" width="20"> Southern Utah Thunderbirds | `SUU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/179.png" width="20"> St. Bonaventure Bonnies | `SBU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2599.png" width="20"> St. John's Red Storm | `SJU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2900.png" width="20"> St. Thomas Tommies | `STMN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/24.png" width="20"> Stanford Cardinal | `STAN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2617.png" width="20"> Stephen F. Austin Lumberjacks | `SFA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/56.png" width="20"> Stetson Hatters | `STET` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/284.png" width="20"> Stonehill Skyhawks | `STO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2619.png" width="20"> Stony Brook Seawolves | `STBK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/183.png" width="20"> Syracuse Orange | `SYR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2627.png" width="20"> Tarleton State Texans | `TAR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2628.png" width="20"> TCU Horned Frogs | `TCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/218.png" width="20"> Temple Owls | `TEM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2634.png" width="20"> Tennessee State Tigers | `TNST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2635.png" width="20"> Tennessee Tech Golden Eagles | `TNTC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2633.png" width="20"> Tennessee Volunteers | `TENN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" width="20"> Texas A&M Aggies | `TA&M` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/357.png" width="20"> Texas A&M-Corpus Christi Islanders | `AMCC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/251.png" width="20"> Texas Longhorns | `TEX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2640.png" width="20"> Texas Southern Tigers | `TXSO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/326.png" width="20"> Texas State Bobcats | `TXST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" width="20"> Texas Tech Red Raiders | `TTU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2643.png" width="20"> The Citadel Bulldogs | `CIT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2649.png" width="20"> Toledo Rockets | `TOL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/119.png" width="20"> Towson Tigers | `TOW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png" width="20"> Troy Trojans | `TROY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" width="20"> Tulane Green Wave | `TULN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/202.png" width="20"> Tulsa Golden Hurricane | `TLSA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/5.png" width="20"> UAB Blazers | `UAB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/399.png" width="20"> UAlbany Great Danes | `UALB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/302.png" width="20"> UC Davis Aggies | `UCD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/300.png" width="20"> UC Irvine Anteaters | `UCI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/27.png" width="20"> UC Riverside Highlanders | `UCR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/28.png" width="20"> UC San Diego Tritons | `UCSD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2540.png" width="20"> UC Santa Barbara Gauchos | `UCSB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2116.png" width="20"> UCF Knights | `UCF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/26.png" width="20"> UCLA Bruins | `UCLA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/41.png" width="20"> UConn Huskies | `CONN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/82.png" width="20"> UIC Flames | `UIC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2433.png" width="20"> UL Monroe Warhawks | `ULM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2349.png" width="20"> UMass Lowell River Hawks | `UML` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2378.png" width="20"> UMBC Retrievers | `UMBC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2427.png" width="20"> UNC Asheville Bulldogs | `UNCA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2430.png" width="20"> UNC Greensboro Spartans | `UNCG` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/350.png" width="20"> UNC Wilmington Seahawks | `UNCW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png" width="20"> UNLV Rebels | `UNLV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/30.png" width="20"> USC Trojans | `USC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/250.png" width="20"> UT Arlington Mavericks | `UTA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2630.png" width="20"> UT Martin Skyhawks | `UTM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/292.png" width="20"> UT Rio Grande Valley Vaqueros | `RGV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/328.png" width="20"> Utah State Aggies | `USU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3101.png" width="20"> Utah Tech Trailblazers | `UTU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/254.png" width="20"> Utah Utes | `UTAH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3084.png" width="20"> Utah Valley Wolverines | `UVU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2638.png" width="20"> UTEP Miners | `UTEP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2636.png" width="20"> UTSA Roadrunners | `UTSA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2674.png" width="20"> Valparaiso Beacons | `VAL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/238.png" width="20"> Vanderbilt Commodores | `VAN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2670.png" width="20"> VCU Rams | `VCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/261.png" width="20"> Vermont Catamounts | `UVM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/222.png" width="20"> Villanova Wildcats | `VILL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/258.png" width="20"> Virginia Cavaliers | `UVA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/259.png" width="20"> Virginia Tech Hokies | `VT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2678.png" width="20"> VMI Keydets | `VMI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2681.png" width="20"> Wagner Seahawks | `WAG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/154.png" width="20"> Wake Forest Demon Deacons | `WAKE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" width="20"> Washington Huskies | `WASH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/265.png" width="20"> Washington State Cougars | `WSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2692.png" width="20"> Weber State Wildcats | `WEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2697.png" width="20"> West Florida Argonauts | `WFL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2698.png" width="20"> West Georgia Wolves | `WGA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/277.png" width="20"> West Virginia Mountaineers | `WVU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2717.png" width="20"> Western Carolina Catamounts | `WCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2710.png" width="20"> Western Illinois Leathernecks | `WIU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/98.png" width="20"> Western Kentucky Hilltoppers | `WKU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png" width="20"> Western Michigan Broncos | `WMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2724.png" width="20"> Wichita State Shockers | `WICH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2729.png" width="20"> William & Mary Tribe | `W&M` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2737.png" width="20"> Winthrop Eagles | `WIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/275.png" width="20"> Wisconsin Badgers | `WIS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2747.png" width="20"> Wofford Terriers | `WOF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2750.png" width="20"> Wright State Raiders | `WRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" width="20"> Wyoming Cowboys | `WYO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2752.png" width="20"> Xavier Musketeers | `XAV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" width="20"> Yale Bulldogs | `YALE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2754.png" width="20"> Youngstown State Penguins | `YSU` |
+<!-- college-abbreviations:ncaab:end -->
 
-Use ESPN's current team directory for abbreviations. Common examples: `UCONN` (Connecticut), `SC` (South Carolina), `ND` (Notre Dame), `TENN` (Tennessee).
+<!-- college-abbreviations:ncaaw:start -->
+## NCAA Women's Basketball Team Abbreviations
 
-## College Football
+Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
 
-Use ESPN's current team directory for abbreviations. Common examples: `ALA` (Alabama), `UGA` (Georgia), `OSU` (Ohio State), `MICH` (Michigan).
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2000.png" width="20"> Abilene Christian Wildcats | `ACU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" width="20"> Air Force Falcons | `AF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2006.png" width="20"> Akron Zips | `AKR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2010.png" width="20"> Alabama A&M Bulldogs | `AAMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" width="20"> Alabama Crimson Tide | `ALA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2011.png" width="20"> Alabama State Lady Hornets | `ALST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2016.png" width="20"> Alcorn State Lady Braves | `ALCN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/44.png" width="20"> American University Eagles | `AMER` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png" width="20"> App State Mountaineers | `APP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/9.png" width="20"> Arizona State Sun Devils | `ASU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/12.png" width="20"> Arizona Wildcats | `ARIZ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/8.png" width="20"> Arkansas Razorbacks | `ARK` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png" width="20"> Arkansas State Red Wolves | `ARST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2029.png" width="20"> Arkansas-Pine Bluff Golden Lions | `UAPB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" width="20"> Army Black Knights | `ARMY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2.png" width="20"> Auburn Tigers | `AUB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2046.png" width="20"> Austin Peay Governors | `APSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2050.png" width="20"> Ball State Cardinals | `BALL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/239.png" width="20"> Baylor Bears | `BAY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/91.png" width="20"> Bellarmine Knights | `BELL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2057.png" width="20"> Belmont Bruins | `BEL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2065.png" width="20"> Bethune-Cookman Wildcats | `BCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2066.png" width="20"> Binghamton Bearcats | `BING` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/68.png" width="20"> Boise State Broncos | `BOIS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" width="20"> Boston College Eagles | `BC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/104.png" width="20"> Boston University Terriers | `BU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/189.png" width="20"> Bowling Green Falcons | `BGSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/71.png" width="20"> Bradley Braves | `BRAD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/225.png" width="20"> Brown Bears | `BRWN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2803.png" width="20"> Bryant Bulldogs | `BRY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2083.png" width="20"> Bucknell Bison | `BUCK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2084.png" width="20"> Buffalo Bulls | `BUF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2086.png" width="20"> Butler Bulldogs | `BTLR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/252.png" width="20"> BYU Cougars | `BYU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/13.png" width="20"> Cal Poly Mustangs | `CP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2934.png" width="20"> Cal State Bakersfield Roadrunners | `CSUB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2239.png" width="20"> Cal State Fullerton Titans | `CSUF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2463.png" width="20"> Cal State Northridge Matadors | `CSUN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2856.png" width="20"> California Baptist Lancers | `CBU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/25.png" width="20"> California Golden Bears | `CAL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2097.png" width="20"> Campbell Fighting Camels | `CAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2099.png" width="20"> Canisius Golden Griffins | `CAN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2110.png" width="20"> Central Arkansas Bears | `CARK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2115.png" width="20"> Central Connecticut Blue Devils | `CCSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png" width="20"> Central Michigan Chippewas | `CMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/232.png" width="20"> Charleston Cougars | `COFC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2127.png" width="20"> Charleston Southern Buccaneers | `CHSO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png" width="20"> Charlotte 49ers | `CLT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/236.png" width="20"> Chattanooga Mocs | `UTC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2130.png" width="20"> Chicago State Cougars | `CHST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png" width="20"> Cincinnati Bearcats | `CIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/228.png" width="20"> Clemson Tigers | `CLEM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/325.png" width="20"> Cleveland State Vikings | `CLE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/324.png" width="20"> Coastal Carolina Chanticleers | `CCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2142.png" width="20"> Colgate Raiders | `COLG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/38.png" width="20"> Colorado Buffaloes | `COLO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/36.png" width="20"> Colorado State Rams | `CSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/171.png" width="20"> Columbia Lions | `COLU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2154.png" width="20"> Coppin State Eagles | `COPP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/172.png" width="20"> Cornell Big Red | `COR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/156.png" width="20"> Creighton Bluejays | `CREI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/159.png" width="20"> Dartmouth Big Green | `DART` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2166.png" width="20"> Davidson Wildcats | `DAV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2168.png" width="20"> Dayton Flyers | `DAY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/48.png" width="20"> Delaware Blue Hens | `DEL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2169.png" width="20"> Delaware State Hornets | `DSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2172.png" width="20"> Denver Pioneers | `DEN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/305.png" width="20"> DePaul Blue Demons | `DEP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2174.png" width="20"> Detroit Mercy Titans | `DETM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2181.png" width="20"> Drake Bulldogs | `DRKE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2182.png" width="20"> Drexel Dragons | `DREX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/150.png" width="20"> Duke Blue Devils | `DUKE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2184.png" width="20"> Duquesne Dukes | `DUQ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/151.png" width="20"> East Carolina Pirates | `ECU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2193.png" width="20"> East Tennessee State Bucs | `ETSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2837.png" width="20"> East Texas A&M Lions | `ETAM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2197.png" width="20"> Eastern Illinois Panthers | `EIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2198.png" width="20"> Eastern Kentucky Colonels | `EKU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2199.png" width="20"> Eastern Michigan Eagles | `EMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/331.png" width="20"> Eastern Washington Eagles | `EWU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2210.png" width="20"> Elon Phoenix | `ELON` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/339.png" width="20"> Evansville Purple Aces | `EVAN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2217.png" width="20"> Fairfield Stags | `FAIR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/161.png" width="20"> Fairleigh Dickinson Knights | `FDU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/50.png" width="20"> Florida A&M Rattlers | `FAMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png" width="20"> Florida Atlantic Owls | `FAU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/57.png" width="20"> Florida Gators | `FLA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/526.png" width="20"> Florida Gulf Coast Eagles | `FGCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2229.png" width="20"> Florida International Panthers | `FIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/52.png" width="20"> Florida State Seminoles | `FSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2230.png" width="20"> Fordham Rams | `FOR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/278.png" width="20"> Fresno State Bulldogs | `FRES` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/231.png" width="20"> Furman Paladins | `FUR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2241.png" width="20"> Gardner-Webb Runnin' Bulldogs | `GWEB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2244.png" width="20"> George Mason Patriots | `GMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/45.png" width="20"> George Washington Revolutionaries | `GW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/46.png" width="20"> Georgetown Hoyas | `GTWN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" width="20"> Georgia Lady Bulldogs | `UGA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/290.png" width="20"> Georgia Southern Eagles | `GASO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2247.png" width="20"> Georgia State Panthers | `GAST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/59.png" width="20"> Georgia Tech Yellow Jackets | `GT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2250.png" width="20"> Gonzaga Bulldogs | `GONZ` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2755.png" width="20"> Grambling Lady Tigers | `GRAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2253.png" width="20"> Grand Canyon Lopes | `GCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2739.png" width="20"> Green Bay Phoenix | `GB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2261.png" width="20"> Hampton Lady Pirates | `HAMP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/108.png" width="20"> Harvard Crimson | `HARV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/62.png" width="20"> Hawai'i Rainbow Warriors | `HAW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2272.png" width="20"> High Point Panthers | `HPU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2275.png" width="20"> Hofstra Pride | `HOF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/107.png" width="20"> Holy Cross Crusaders | `HC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2277.png" width="20"> Houston Christian Huskies | `HCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/248.png" width="20"> Houston Cougars | `HOU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/47.png" width="20"> Howard Bison | `HOW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/304.png" width="20"> Idaho State Bengals | `IDST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/70.png" width="20"> Idaho Vandals | `IDHO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/356.png" width="20"> Illinois Fighting Illini | `ILL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2287.png" width="20"> Illinois State Redbirds | `ILST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2916.png" width="20"> Incarnate Word Cardinals | `UIW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" width="20"> Indiana Hoosiers | `IU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/282.png" width="20"> Indiana State Sycamores | `INST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/314.png" width="20"> Iona Gaels | `IONA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png" width="20"> Iowa Hawkeyes | `IOWA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/66.png" width="20"> Iowa State Cyclones | `ISU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/85.png" width="20"> IU Indianapolis Jaguars | `IUIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2296.png" width="20"> Jackson State Lady Tigers | `JKST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/294.png" width="20"> Jacksonville Dolphins | `JAX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/55.png" width="20"> Jacksonville State Gamecocks | `JXST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" width="20"> James Madison Dukes | `JMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/140.png" width="20"> Kansas City Roos | `KC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2305.png" width="20"> Kansas Jayhawks | `KU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2306.png" width="20"> Kansas State Wildcats | `KSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/338.png" width="20"> Kennesaw State Owls | `KENN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2309.png" width="20"> Kent State Golden Flashes | `KENT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/96.png" width="20"> Kentucky Wildcats | `UK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2325.png" width="20"> La Salle Explorers | `LAS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/322.png" width="20"> Lafayette Leopards | `LAF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2320.png" width="20"> Lamar Cardinals | `LAM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2330.png" width="20"> Le Moyne Dolphins | `LEM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2329.png" width="20"> Lehigh Mountain Hawks | `LEH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png" width="20"> Liberty Flames | `LIB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2815.png" width="20"> Lindenwood Lions | `LIN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/288.png" width="20"> Lipscomb Bisons | `LIP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2031.png" width="20"> Little Rock Trojans | `LR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/299.png" width="20"> Long Beach State Beach | `LBSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/112358.png" width="20"> Long Island University Sharks | `LIU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2344.png" width="20"> Longwood Lancers | `LONG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/309.png" width="20"> Louisiana Ragin' Cajuns | `UL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2348.png" width="20"> Louisiana Tech Lady Techsters | `LT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/97.png" width="20"> Louisville Cardinals | `LOU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2350.png" width="20"> Loyola Chicago Ramblers | `LUC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2352.png" width="20"> Loyola Maryland Greyhounds | `L-MD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2351.png" width="20"> Loyola Marymount Lions | `LMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2443.png" width="20"> LSU New Orleans Privateers | `NOLA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/99.png" width="20"> LSU Tigers | `LSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/311.png" width="20"> Maine Black Bears | `ME` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2363.png" width="20"> Manhattan Jaspers | `MAN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2368.png" width="20"> Marist Red Foxes | `MRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/269.png" width="20"> Marquette Golden Eagles | `MARQ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/276.png" width="20"> Marshall Thundering Herd | `MRSH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2379.png" width="20"> Maryland Eastern Shore Hawks | `UMES` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/120.png" width="20"> Maryland Terrapins | `MD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/113.png" width="20"> Massachusetts Minutewomen | `MASS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2377.png" width="20"> McNeese Cowgirls | `MCN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/235.png" width="20"> Memphis Tigers | `MEM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2382.png" width="20"> Mercer Bears | `MER` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2771.png" width="20"> Merrimack Warriors | `MRMK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/193.png" width="20"> Miami (OH) RedHawks | `M-OH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" width="20"> Miami Hurricanes | `MIA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/127.png" width="20"> Michigan State Spartans | `MSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/130.png" width="20"> Michigan Wolverines | `MICH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2393.png" width="20"> Middle Tennessee Blue Raiders | `MTSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/270.png" width="20"> Milwaukee Panthers | `MILW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/135.png" width="20"> Minnesota Golden Gophers | `MINN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/344.png" width="20"> Mississippi State Bulldogs | `MSST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2400.png" width="20"> Mississippi Valley State Devilettes | `MVSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2623.png" width="20"> Missouri State Lady Bears | `MOST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/142.png" width="20"> Missouri Tigers | `MIZ` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2405.png" width="20"> Monmouth Hawks | `MONM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/149.png" width="20"> Montana Lady Griz | `MONT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/147.png" width="20"> Montana State Bobcats | `MTST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2413.png" width="20"> Morehead State Eagles | `MORE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2415.png" width="20"> Morgan State Lady Bears | `MORG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/116.png" width="20"> Mount St. Mary's Mountaineers | `MSM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/93.png" width="20"> Murray State Racers | `MUR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png" width="20"> Navy Midshipmen | `NAVY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/152.png" width="20"> NC State Wolfpack | `NCSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/158.png" width="20"> Nebraska Cornhuskers | `NEB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2440.png" width="20"> Nevada Wolf Pack | `NEV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/160.png" width="20"> New Hampshire Wildcats | `UNH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2441.png" width="20"> New Haven Chargers | `NHVN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/167.png" width="20"> New Mexico Lobos | `UNM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/166.png" width="20"> New Mexico State Aggies | `NMSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/315.png" width="20"> Niagara Purple Eagles | `NIA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2447.png" width="20"> Nicholls Colonels | `NICH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2885.png" width="20"> NJIT Highlanders | `NJIT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2450.png" width="20"> Norfolk State Spartans | `NORF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2453.png" width="20"> North Alabama Lions | `UNA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2448.png" width="20"> North Carolina A&T Aggies | `NCAT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2428.png" width="20"> North Carolina Central Eagles | `NCCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/153.png" width="20"> North Carolina Tar Heels | `UNC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/155.png" width="20"> North Dakota Fighting Hawks | `UND` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2449.png" width="20"> North Dakota State Bison | `NDSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2454.png" width="20"> North Florida Ospreys | `UNF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/249.png" width="20"> North Texas Mean Green | `UNT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/111.png" width="20"> Northeastern Huskies | `NE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2464.png" width="20"> Northern Arizona Lumberjacks | `NAU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2458.png" width="20"> Northern Colorado Bears | `UNCO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2459.png" width="20"> Northern Illinois Huskies | `NIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2460.png" width="20"> Northern Iowa Panthers | `UNI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/94.png" width="20"> Northern Kentucky Norse | `NKU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2466.png" width="20"> Northwestern State Lady Demons | `NWST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/77.png" width="20"> Northwestern Wildcats | `NU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/87.png" width="20"> Notre Dame Fighting Irish | `ND` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2473.png" width="20"> Oakland Golden Grizzlies | `OAK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/195.png" width="20"> Ohio Bobcats | `OHIO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" width="20"> Ohio State Buckeyes | `OSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/201.png" width="20"> Oklahoma Sooners | `OU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/197.png" width="20"> Oklahoma State Cowgirls | `OKST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/295.png" width="20"> Old Dominion Monarchs | `ODU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" width="20"> Ole Miss Rebels | `MISS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2437.png" width="20"> Omaha Mavericks | `OMA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/198.png" width="20"> Oral Roberts Golden Eagles | `ORU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" width="20"> Oregon Ducks | `ORE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/204.png" width="20"> Oregon State Beavers | `ORST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/279.png" width="20"> Pacific Tigers | `PAC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/213.png" width="20"> Penn State Lady Lions | `PSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/219.png" width="20"> Pennsylvania Quakers | `PENN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2492.png" width="20"> Pepperdine Waves | `PEPP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/221.png" width="20"> Pittsburgh Panthers | `PITT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2501.png" width="20"> Portland Pilots | `PORT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2502.png" width="20"> Portland State Vikings | `PRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2504.png" width="20"> Prairie View A&M Lady Panthers | `PV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2506.png" width="20"> Presbyterian Blue Hose | `PRES` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/163.png" width="20"> Princeton Tigers | `PRIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2507.png" width="20"> Providence Friars | `PROV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2509.png" width="20"> Purdue Boilermakers | `PUR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2870.png" width="20"> Purdue Fort Wayne Mastodons | `PFW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2511.png" width="20"> Queens University Royals | `QUC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2514.png" width="20"> Quinnipiac Bobcats | `QUIN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2515.png" width="20"> Radford Highlanders | `RAD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/227.png" width="20"> Rhode Island Rams | `URI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/242.png" width="20"> Rice Owls | `RICE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/257.png" width="20"> Richmond Spiders | `RICH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2520.png" width="20"> Rider Broncs | `RID` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2523.png" width="20"> Robert Morris Colonials | `RMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/164.png" width="20"> Rutgers Scarlet Knights | `RUTG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/16.png" width="20"> Sacramento State Hornets | `SAC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2529.png" width="20"> Sacred Heart Pioneers | `SHU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2603.png" width="20"> Saint Joseph's Hawks | `JOES` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/139.png" width="20"> Saint Louis Billikens | `SLU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2608.png" width="20"> Saint Mary's Gaels | `SMC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2612.png" width="20"> Saint Peter's Peacocks | `SPU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2534.png" width="20"> Sam Houston Bearkats | `SHSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2535.png" width="20"> Samford Bulldogs | `SAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/21.png" width="20"> San Diego State Aztecs | `SDSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/301.png" width="20"> San Diego Toreros | `USD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2539.png" width="20"> San Francisco Dons | `SF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/23.png" width="20"> San José State Spartans | `SJSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2541.png" width="20"> Santa Clara Broncos | `SCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2545.png" width="20"> SE Louisiana Lady Lions | `SELA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2547.png" width="20"> Seattle U Redhawks | `SEA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2550.png" width="20"> Seton Hall Pirates | `HALL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2561.png" width="20"> Siena Saints | `SIE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2565.png" width="20"> SIU Edwardsville Cougars | `SIUE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2567.png" width="20"> SMU Mustangs | `SMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/6.png" width="20"> South Alabama Jaguars | `USA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png" width="20"> South Carolina Gamecocks | `SC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2569.png" width="20"> South Carolina State Lady Bulldogs | `SCST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2908.png" width="20"> South Carolina Upstate Spartans | `UPST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/233.png" width="20"> South Dakota Coyotes | `SDAK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2571.png" width="20"> South Dakota State Jackrabbits | `SDST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/58.png" width="20"> South Florida Bulls | `USF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2546.png" width="20"> Southeast Missouri State Redhawks | `SEMO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/79.png" width="20"> Southern Illinois Salukis | `SIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/88.png" width="20"> Southern Indiana Screaming Eagles | `USI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2582.png" width="20"> Southern Jaguars | `SOU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2572.png" width="20"> Southern Miss Lady Eagles | `USM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/253.png" width="20"> Southern Utah Thunderbirds | `SUU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/179.png" width="20"> St. Bonaventure Bonnies | `SBU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2599.png" width="20"> St. John's Red Storm | `SJU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2900.png" width="20"> St. Thomas Tommies | `STMN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/24.png" width="20"> Stanford Cardinal | `STAN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2617.png" width="20"> Stephen F. Austin Ladyjacks | `SFA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/56.png" width="20"> Stetson Hatters | `STET` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/284.png" width="20"> Stonehill Skyhawks | `STO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2619.png" width="20"> Stony Brook Seawolves | `STBK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/183.png" width="20"> Syracuse Orange | `SYR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2627.png" width="20"> Tarleton State Texans | `TAR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2628.png" width="20"> TCU Horned Frogs | `TCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/218.png" width="20"> Temple Owls | `TEM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2633_ncw.png" width="20"> Tennessee Lady Volunteers | `TENN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2634.png" width="20"> Tennessee State Lady Tigers | `TNST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2635.png" width="20"> Tennessee Tech Golden Eagles | `TNTC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" width="20"> Texas A&M Aggies | `TA&M` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/357.png" width="20"> Texas A&M-Corpus Christi Islanders | `AMCC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/251.png" width="20"> Texas Longhorns | `TEX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2640.png" width="20"> Texas Southern Tigers | `TXSO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/326.png" width="20"> Texas State Bobcats | `TXST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" width="20"> Texas Tech Lady Raiders | `TTU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2649.png" width="20"> Toledo Rockets | `TOL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/119.png" width="20"> Towson Tigers | `TOW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png" width="20"> Troy Trojans | `TROY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" width="20"> Tulane Green Wave | `TULN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/202.png" width="20"> Tulsa Golden Hurricane | `TLSA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/5.png" width="20"> UAB Blazers | `UAB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/399.png" width="20"> UAlbany Great Danes | `UALB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/302.png" width="20"> UC Davis Aggies | `UCD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/300.png" width="20"> UC Irvine Anteaters | `UCI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/27.png" width="20"> UC Riverside Highlanders | `UCR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/28.png" width="20"> UC San Diego Tritons | `UCSD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2540.png" width="20"> UC Santa Barbara Gauchos | `UCSB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2116.png" width="20"> UCF Knights | `UCF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/26.png" width="20"> UCLA Bruins | `UCLA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/41.png" width="20"> UConn Huskies | `CONN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/82.png" width="20"> UIC Flames | `UIC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2433.png" width="20"> UL Monroe Warhawks | `ULM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2349.png" width="20"> UMass Lowell River Hawks | `UML` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2378.png" width="20"> UMBC Retrievers | `UMBC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2427.png" width="20"> UNC Asheville Bulldogs | `UNCA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2430.png" width="20"> UNC Greensboro Spartans | `UNCG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/350.png" width="20"> UNC Wilmington Seahawks | `UNCW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png" width="20"> UNLV Lady Rebels | `UNLV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/30.png" width="20"> USC Trojans | `USC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/250.png" width="20"> UT Arlington Mavericks | `UTA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2630.png" width="20"> UT Martin Skyhawks | `UTM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/292.png" width="20"> UT Rio Grande Valley Vaqueros | `RGV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/328.png" width="20"> Utah State Aggies | `USU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3101.png" width="20"> Utah Tech Trailblazers | `UTU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/254.png" width="20"> Utah Utes | `UTAH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3084.png" width="20"> Utah Valley Wolverines | `UVU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2638.png" width="20"> UTEP Miners | `UTEP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2636.png" width="20"> UTSA Roadrunners | `UTSA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2674.png" width="20"> Valparaiso Beacons | `VAL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/238.png" width="20"> Vanderbilt Commodores | `VAN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2670.png" width="20"> VCU Rams | `VCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/261.png" width="20"> Vermont Catamounts | `UVM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/222.png" width="20"> Villanova Wildcats | `VILL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/258.png" width="20"> Virginia Cavaliers | `UVA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/259.png" width="20"> Virginia Tech Hokies | `VT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2681.png" width="20"> Wagner Seahawks | `WAG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/154.png" width="20"> Wake Forest Demon Deacons | `WAKE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" width="20"> Washington Huskies | `WASH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/265.png" width="20"> Washington State Cougars | `WSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2692.png" width="20"> Weber State Wildcats | `WEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2697.png" width="20"> West Florida Argonauts | `WFL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2698.png" width="20"> West Georgia Wolves | `WGA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/277.png" width="20"> West Virginia Mountaineers | `WVU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2717.png" width="20"> Western Carolina Catamounts | `WCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2710.png" width="20"> Western Illinois Leathernecks | `WIU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/98.png" width="20"> Western Kentucky Lady Toppers | `WKU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png" width="20"> Western Michigan Broncos | `WMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2724.png" width="20"> Wichita State Shockers | `WICH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2729.png" width="20"> William & Mary Tribe | `W&M` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2737.png" width="20"> Winthrop Eagles | `WIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/275.png" width="20"> Wisconsin Badgers | `WIS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2747.png" width="20"> Wofford Terriers | `WOF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2750.png" width="20"> Wright State Raiders | `WRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" width="20"> Wyoming Cowgirls | `WYO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2752.png" width="20"> Xavier Musketeers | `XAV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" width="20"> Yale Bulldogs | `YALE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2754.png" width="20"> Youngstown State Penguins | `YSU` |
+<!-- college-abbreviations:ncaaw:end -->
 
-## NCAA Men's Ice Hockey
+<!-- college-abbreviations:ncaaf:start -->
+## College Football Team Abbreviations
 
-Use ESPN's current team directory for abbreviations. Common examples: `BC` (Boston College), `MICH` (Michigan), `UND` (North Dakota), `BU` (Boston University).
+Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
+
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2000.png" width="20"> Abilene Christian Wildcats | `ACU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2001.png" width="20"> Adams State Grizzlies | `ADSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2003.png" width="20"> Adrian Bulldogs | `ADR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" width="20"> Air Force Falcons | `AF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2006.png" width="20"> Akron Zips | `AKR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2010.png" width="20"> Alabama A&M Bulldogs | `AAMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" width="20"> Alabama Crimson Tide | `ALA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2011.png" width="20"> Alabama State Hornets | `ALST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2013.png" width="20"> Albany State Golden Rams | `ABSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2790.png" width="20"> Albion Britons | `ALBI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2015.png" width="20"> Albright Lions | `ALBR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2016.png" width="20"> Alcorn State Braves | `ALCN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/365.png" width="20"> Alfred Saxons | `ALFR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3162.png" width="20"> Alfred State Pioneers | `AFST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2018.png" width="20"> Allegheny Gators | `ALLG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2019.png" width="20"> Allen Yellow Jackets | `ALNU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2800.png" width="20"> Alma Scots | `ALMA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/111674.png" width="20"> Alvernia Golden Wolves | `ALVR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2022.png" width="20"> American International Yellow Jackets | `AIC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/7.png" width="20"> Amherst Mammoths | `AMH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2023.png" width="20"> Anderson (IN) Ravens | `ANIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/129469.png" width="20"> Anderson (SC) Trojans | `ANSC` |
+| Andrew Fighting Tigers | `AND` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2025.png" width="20"> Angelo State Rams | `AGSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png" width="20"> App State Mountaineers | `APP` | Apprentice School Builders | `APPRE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/9.png" width="20"> Arizona State Sun Devils | `ASU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/12.png" width="20"> Arizona Wildcats | `ARIZ` |
+| Arkansas Baptist Buffaloes | `ARBA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2028.png" width="20"> Arkansas Monticello Boll Weevils | `UAM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/8.png" width="20"> Arkansas Razorbacks | `ARK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png" width="20"> Arkansas State Red Wolves | `ARST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2033.png" width="20"> Arkansas Tech Wonder Boys | `ARTE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2029.png" width="20"> Arkansas-Pine Bluff Golden Lions | `UAPB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" width="20"> Army Black Knights | `ARMY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/308.png" width="20"> Ashland Eagles | `ASH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2038.png" width="20"> Assumption Greyhounds | `ASP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2.png" width="20"> Auburn Tigers | `AUB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/124.png" width="20"> Augsburg Auggies | `AUGS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2042.png" width="20"> Augustana (IL) Vikings | `AUGC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2043.png" width="20"> Augustana (SD) Vikings | `AUSD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2044.png" width="20"> Aurora Spartans | `AUR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2045.png" width="20"> Austin 'Roos | `AUS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2046.png" width="20"> Austin Peay Governors | `APSU` |
+| Ave Maria University Gyrenes | `AVE M` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2047.png" width="20"> Averett Cougars | `AVER` |
+| Avila University Eagles | `AVILA` | Azusa Pacific Cougars | `APU` |
+| <img src="https://a.espncdn.com/guid/e67b5e1d-5f51-36a1-11d3-ae7bd11285f6/logos/default.png" width="20"> Baker University Baker | `BAK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/188.png" width="20"> Baldwin Wallace Yellow Jackets | `BW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2050.png" width="20"> Ball State Cardinals | `BALL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/122666.png" width="20"> Barton Bulldogs | `BART` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/121.png" width="20"> Bates Bobcats | `BATE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/239.png" width="20"> Baylor Bears | `BAY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2056.png" width="20"> Belhaven Blazers | `BELH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/266.png" width="20"> Beloit Buccaneers | `BELO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/132.png" width="20"> Bemidji State Beavers | `BST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/490.png" width="20"> Benedict Tigers | `BEN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2283.png" width="20"> Benedictine (IL) Eagles | `BNIL` | Benedictine College Ravens | `BENC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2060.png" width="20"> Bentley Falcons | `BENT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2757.png" width="20"> Berry Vikings | `BERR` |
+| Bethany (Ks) | `BETHA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2062.png" width="20"> Bethany (WV) Bison | `BCWV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2802.png" width="20"> Bethel (MN) Royals | `BUMN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2064.png" width="20"> Bethel University Tennessee Wildcats | `BETHTN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2065.png" width="20"> Bethune-Cookman Wildcats | `BCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2069.png" width="20"> Black Hills State Yellow Jackets | `BHSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2071.png" width="20"> Bloomsburg Huskies | `BBU` | BLUEFIELD Ramblin' Rams | `BLU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/124180.png" width="20"> Bluefield State Big Blue | `BLUS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2074.png" width="20"> Bluffton Beavers | `BLF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/68.png" width="20"> Boise State Broncos | `BOIS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" width="20"> Boston College Eagles | `BC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/340.png" width="20"> Bowdoin Polar Bears | `BOW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2075.png" width="20"> Bowie State Bulldogs | `BOWE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/189.png" width="20"> Bowling Green Falcons | `BGSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2913.png" width="20"> Brevard Tornados | `BRE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2079.png" width="20"> Bridgewater Eagles | `BRI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/18.png" width="20"> Bridgewater State Bears | `BRIS` |
+| British Columbia British Col | `BBM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2781.png" width="20"> Brockport Golden Eagles | `BRO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/225.png" width="20"> Brown Bears | `BRWN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2803.png" width="20"> Bryant Bulldogs | `BRY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2083.png" width="20"> Bucknell Bison | `BUCK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/63.png" width="20"> Buena Vista Beavers | `BVU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2084.png" width="20"> Buffalo Bulls | `BUF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2085.png" width="20"> Buffalo State Bengals | `BSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2086.png" width="20"> Butler Bulldogs | `BTLR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/252.png" width="20"> BYU Cougars | `BYU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2094.png" width="20"> Cal Lutheran Kingsmen | `CLU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/13.png" width="20"> Cal Poly Mustangs | `CP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2858.png" width="20"> California (PA) Vulcans | `CAPA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/25.png" width="20"> California Golden Bears | `CAL` |
+| Calvin Knights | `CALU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2097.png" width="20"> Campbell Fighting Camels | `CAM` |
+| <img src="https://a.espncdn.com/guid/f76ae38d-adc8-ca05-8b1f-566b0bd32457/logos/default.png" width="20"> Campbellsville University Tigers | `CMPBVIL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/424.png" width="20"> Capital Comets | `CAPU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2101.png" width="20"> Carleton Knights | `CAR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2102.png" width="20"> Carnegie Mellon Tartans | `CGMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/32.png" width="20"> Carroll (WI) Pioneers | `CRU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2105.png" width="20"> Carson Newman Eagles | `CN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2106.png" width="20"> Carthage Firebirds | `CCW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2963.png" width="20"> Case Western Reserve Spartans | `CWRU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2107.png" width="20"> Catawba Indians | `CAT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2108.png" width="20"> Catholic Cardinals | `CATH` |
+| Centenary (LA) Gentlemen | `CTLA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2110.png" width="20"> Central Arkansas Bears | `CARK` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2964.png" width="20"> Central College Dutch | `CNTC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2115.png" width="20"> Central Connecticut Blue Devils | `CCSU` |
+| Central Methodist Eagles | `CDF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png" width="20"> Central Michigan Chippewas | `CMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2118.png" width="20"> Central Missouri Mules | `UCM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2122.png" width="20"> Central Oklahoma Bronchos | `UCO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2119.png" width="20"> Central State Marauders | `CNSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2120.png" width="20"> Central Washington Wildcats | `CWAU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2121.png" width="20"> Centre Colonels | `CCO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2123.png" width="20"> Chadron State Eagles | `CHAD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/411.png" width="20"> Chapman Panthers | `CHAP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2128.png" width="20"> Charleston (WV) Golden Eagles | `UCWV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2127.png" width="20"> Charleston Southern Buccaneers | `CHSO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png" width="20"> Charlotte 49ers | `CLT` |
+| Charlotte Saints | `COLLE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/236.png" width="20"> Chattanooga Mocs | `UTC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/80.png" width="20"> Chicago Maroons | `CHI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2804.png" width="20"> Chowan Hawks | `CWAN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3112.png" width="20"> Christopher Newport Captains | `CNU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png" width="20"> Cincinnati Bearcats | `CIN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/17.png" width="20"> Claremont Mudd Scripps Stags | `CMS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2134.png" width="20"> Clarion Golden Eagles | `CLRN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2805.png" width="20"> Clark Atlanta Panthers | `CKGA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/228.png" width="20"> Clemson Tigers | `CLEM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2557.png" width="20"> Coast Guard Bears | `USCG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/324.png" width="20"> Coastal Carolina Chanticleers | `CCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2141.png" width="20"> Coe Kohawks | `COE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/33.png" width="20"> Colby White Mules | `CLBY` |
+| Cole College Jaguars | `COLE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2142.png" width="20"> Colgate Raiders | `COLG` |
+| College of Idaho Yotes | `COI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/38.png" width="20"> Colorado Buffaloes | `COLO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/11.png" width="20"> Colorado Mesa Mavericks | `COMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2146.png" width="20"> Colorado School of Mines Orediggers | `CMIN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/36.png" width="20"> Colorado State Rams | `CSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/171.png" width="20"> Columbia Lions | `COLU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2148.png" width="20"> Concord Mountain Lions | `CONC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2152.png" width="20"> Concordia (MN) Cobbers | `CCMN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/409.png" width="20"> Concordia (WI) Falcons | `CUW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2151.png" width="20"> Concordia Chicago Cougars | `CUC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3066.png" width="20"> Concordia St. Paul Golden Bears | `CSP` | Concordia University Nebraska Clippers | `CONCONE` |
+| Concordia-Michigan Cardinals | `CONCMI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2155.png" width="20"> Cornell (IA) Rams | `CNIA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/172.png" width="20"> Cornell Big Red | `COR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/509.png" width="20"> Crown Polars | `CRWN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2570.png" width="20"> CSU Pueblo ThunderWolves | `CSUP` | Culver-Stockton College Wildcats | `CULVE` |
+| Cumberland (TN) Bulldogs | `CUMBTN` | Cumberlands Indians | `CMBS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/40.png" width="20"> Curry Colonels | `CC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/512.png" width="20"> Dakota State University Trojans | `DAKOT` |
+| Dakota Wesleyan Tigers | `DWU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/159.png" width="20"> Dartmouth Big Green | `DART` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2166.png" width="20"> Davidson Wildcats | `DAV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2168.png" width="20"> Dayton Flyers | `DAY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/110438.png" width="20"> Dean Bulldogs | `DEAN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/190.png" width="20"> Defiance College Yellow Jackets | `DEF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/48.png" width="20"> Delaware Blue Hens | `DEL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2169.png" width="20"> Delaware State Hornets | `DSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2808.png" width="20"> Delaware Valley Aggies | `DVU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2170.png" width="20"> Delta State Statesmen | `DLST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2171.png" width="20"> Denison Big Red | `DSN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/83.png" width="20"> DePauw Tigers | `DPU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2254.png" width="20"> Des Moines Vikings | `GRANDVIEW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2175.png" width="20"> Dickinson Red Devils | `DKSN` |
+| <img src="https://a.espncdn.com/guid/ddfd8c06-89f1-9e9f-d698-ec5ed6637891/logos/default.png" width="20"> Dickinson State University Blue Hawks | `DIC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2181.png" width="20"> Drake Bulldogs | `DRKE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/49.png" width="20"> Dubuque Spartans | `DBQ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/150.png" width="20"> Duke Blue Devils | `DUKE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2184.png" width="20"> Duquesne Dukes | `DUQ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/151.png" width="20"> East Carolina Pirates | `ECU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2191.png" width="20"> East Central Tigers | `ECNU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2188.png" width="20"> East Stroudsburg Warriors | `ESU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2193.png" width="20"> East Tennessee State Buccaneers | `ETSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2837.png" width="20"> East Texas A&M Lions | `ETAM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2194.png" width="20"> East Texas Baptist Tigers | `ETBU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/127954.png" width="20"> Eastern Eagles | `EU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2197.png" width="20"> Eastern Illinois Panthers | `EIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2198.png" width="20"> Eastern Kentucky Colonels | `EKU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2199.png" width="20"> Eastern Michigan Eagles | `EMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2201.png" width="20"> Eastern New Mexico Greyhounds | `ENMU` |
+| Eastern Oregon | `EORE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/331.png" width="20"> Eastern Washington Eagles | `EWU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2205.png" width="20"> Edinboro Fighting Scots | `EDBR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2206.png" width="20"> Edward Waters Tigers | `EDW` |
+| Elgin Eagles | `JUDSO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2207.png" width="20"> Elizabeth City State Vikings | `ECSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/72.png" width="20"> Elmhurst Bluejays | `ELMH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2210.png" width="20"> Elon Phoenix | `ELON` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2213.png" width="20"> Emory & Henry Wasps | `EHC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2214.png" width="20"> Emporia State Hornets | `EMSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/452.png" width="20"> Endicott Gulls | `ENDC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/101784.png" width="20"> Erskine Flying Fleet | `ERSK` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/101.png" width="20"> Eureka Red Devils | `ERKA` | Evangel University Crusaders | `EVA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2986.png" width="20"> Fairmont State Falcons | `FMSU` | Faulkner University Eagles | `FAULKNER` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2220.png" width="20"> Fayetteville State Broncos | `FAYU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2221.png" width="20"> FDU Florham Devils | `FDUF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2222.png" width="20"> Ferris State Bulldogs | `FRST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/366.png" width="20"> Ferrum Panthers | `FC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2224.png" width="20"> Findlay Oilers | `UF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/114.png" width="20"> Fitchburg State Falcons | `FBSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/50.png" width="20"> Florida A&M Rattlers | `FAMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png" width="20"> Florida Atlantic Owls | `FAU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/57.png" width="20"> Florida Gators | `FLA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2229.png" width="20"> Florida International Panthers | `FIU` |
+| Florida Memorial University Lions | `FLAMEMRL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/52.png" width="20"> Florida State Seminoles | `FSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2230.png" width="20"> Fordham Rams | `FOR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2231.png" width="20"> Fort Hays Tigers | `FHSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2237.png" width="20"> Fort Lewis Skyhawks | `FLWC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2232.png" width="20"> Fort Valley State Wildcats | `FVSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2967.png" width="20"> Framingham State Rams | `FRSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2234.png" width="20"> Franklin & Marshall Diplomats | `FMC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2233.png" width="20"> Franklin Grizzlies | `FRKL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/112334.png" width="20"> Franklin Pierce Ravens | `FP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/278.png" width="20"> Fresno State Bulldogs | `FRES` | Friends University Friends | `FRIE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/341.png" width="20"> Frostburg State Bobcats | `FSTU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/231.png" width="20"> Furman Paladins | `FUR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/417.png" width="20"> Gallaudet Bison | `GLDT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/367.png" width="20"> Gannon Golden Knights | `GANN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2241.png" width="20"> Gardner-Webb Runnin' Bulldogs | `GWEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2242.png" width="20"> Geneva Golden Tornadoes | `GEN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/415.png" width="20"> George Fox Bruins | `GFU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2244.png" width="20"> George Mason University Patriots | `GMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2245.png" width="20"> Georgetown College Kentucky Tigers | `GTOWNCOLL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/46.png" width="20"> Georgetown Hoyas | `GTWN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" width="20"> Georgia Bulldogs | `UGA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/290.png" width="20"> Georgia Southern Eagles | `GASO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2247.png" width="20"> Georgia State Panthers | `GAST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/59.png" width="20"> Georgia Tech Yellow Jackets | `GT` |
+| <img src="https://a.espncdn.com/guid/729c7315-1812-052c-1123-f44cf21b435c/logos/default.png" width="20"> Gettysburg Bullets | `GTYB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2249.png" width="20"> Glenville State Pioneers | `GVLS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/530.png" width="20"> Graceland University Graceland | `GRC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2755.png" width="20"> Grambling Tigers | `GRAM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/125.png" width="20"> Grand Valley State Lakers | `GVSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2256.png" width="20"> Greensboro Pride | `GRNB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2257.png" width="20"> Greenville Panthers | `GRNV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/65.png" width="20"> Grinnell Pioneers | `GRNL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/146.png" width="20"> Grove City Wolverines | `GRO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2258.png" width="20"> Guilford Quakers | `GLFD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2968.png" width="20"> Gustavus Adolphus Golden Gusties | `GAC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/348.png" width="20"> Hamilton Continentals | `HAM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/162.png" width="20"> Hamline Pipers | `HMLN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/297.png" width="20"> Hampden Sydney Tigers | `HSC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2261.png" width="20"> Hampton Pirates | `HAMP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2262.png" width="20"> Hanover Panthers | `HNVR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2810.png" width="20"> Hardin Simmons Cowboys | `HSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2264.png" width="20"> Harding Bisons | `HARD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/173.png" width="20"> Hartwick Hawks | `HRTW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/108.png" width="20"> Harvard Crimson | `HARV` |
+| Haskell Indian Nations Univ Jayhawks | `HASKELL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/62.png" width="20"> Hawai'i Rainbow Warriors | `HAW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/191.png" width="20"> Heidelberg Student Princes | `HDBG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2271.png" width="20"> Henderson State Reddies | `HSTU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/418.png" width="20"> Hendrix Warriors | `HDX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/125974.png" width="20"> Hilbert Hawks | `HLBT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2273.png" width="20"> Hillsdale Chargers | `HLDL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2274.png" width="20"> Hiram Terriers | `HIRM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/174.png" width="20"> Hobart Statesmen | `HBRT` | Holland College Hurricanes | `HOL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/107.png" width="20"> Holy Cross Crusaders | `HC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2812.png" width="20"> Hope Flying Dutchmen | `HOPE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2277.png" width="20"> Houston Christian Huskies | `HCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/248.png" width="20"> Houston Cougars | `HOU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/47.png" width="20"> Howard Bison | `HOW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2758.png" width="20"> Howard Payne Yellow Jackets | `HWPU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2938.png" width="20"> Huntingdon Hawks | `HNTC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2280.png" width="20"> Husson Eagles | `HUSS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/304.png" width="20"> Idaho State Bengals | `IDST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/70.png" width="20"> Idaho Vandals | `IDHO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2286.png" width="20"> Illinois College Blueboys | `ILLC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/356.png" width="20"> Illinois Fighting Illini | `ILL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2287.png" width="20"> Illinois State Redbirds | `ILST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/306.png" width="20"> Illinois Wesleyan Titans | `ILWU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2916.png" width="20"> Incarnate Word Cardinals | `UIW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/84.png" width="20"> Indiana Hoosiers | `IU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/282.png" width="20"> Indiana State Sycamores | `INST` | Indiana Wesleyan Wildcats | `INWESL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2292.png" width="20"> Indianapolis Greyhounds | `INDY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png" width="20"> Iowa Hawkeyes | `IOWA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/66.png" width="20"> Iowa State Cyclones | `ISU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/175.png" width="20"> Ithaca Bombers | `ITH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2291.png" width="20"> IU Pennsylvania Crimson Hawks | `IUP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2296.png" width="20"> Jackson State Tigers | `JKST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/55.png" width="20"> Jacksonville State Gamecocks | `JXST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/256.png" width="20"> James Madison Dukes | `JMU` |
+| Jamestown Jimmies | `UJ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2302.png" width="20"> John Carroll Blue Streaks | `JCU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/118.png" width="20"> Johns Hopkins Blue Jays | `JHU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2304.png" width="20"> Johnson C. Smith Golden Bulls | `JCSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/246.png" width="20"> Juniata Eagles | `JUN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/126.png" width="20"> Kalamazoo Hornets | `KALC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2305.png" width="20"> Kansas Jayhawks | `KU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2306.png" width="20"> Kansas State Wildcats | `KSU` |
+| Kansas Wesleyan Ks Wesleyan | `KANSA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2871.png" width="20"> Kean Cougars | `KEAN` |
+| Keiser University Keiser | `KEISER` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/338.png" width="20"> Kennesaw State Owls | `KENN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2309.png" width="20"> Kent State Golden Flashes | `KENT` | Kentucky Christian Knights | `KYCHR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2310.png" width="20"> Kentucky State Thorobreds | `KYSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2316.png" width="20"> Kentucky Wesleyan Panthers | `KWC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/96.png" width="20"> Kentucky Wildcats | `UK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/352.png" width="20"> Kenyon Owls | `KNY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/122774.png" width="20"> Keystone Giants | `KYSN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/247.png" width="20"> King's Monarchs | `KNGS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/255.png" width="20"> Knox Prairie Fire | `KNOX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2315.png" width="20"> Kutztown Golden Bears | `KUTZ` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2318.png" width="20"> La Verne Leopards | `ULV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/322.png" width="20"> Lafayette Leopards | `LAF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/548.png" width="20"> LaGrange Panthers | `LGC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/437.png" width="20"> Lake Erie Storm | `LKER` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/262.png" width="20"> Lake Forest Foresters | `LFC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/6353.png" width="20"> Lakeland Muskies | `LKLD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2320.png" width="20"> Lamar Cardinals | `LAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2323.png" width="20"> Lane College Dragons | `LANE` |
+| Langston Lions | `LNGT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/268.png" width="20"> Lawrence Vikings | `LAW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/388.png" width="20"> Lebanon Valley Flying Dutchmen | `LVC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2329.png" width="20"> Lehigh Mountain Hawks | `LEH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2331.png" width="20"> Lenoir Rhyne Bears | `LENR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2333.png" width="20"> Lewis & Clark River Otters | `LC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png" width="20"> Liberty Flames | `LIB` | Lincoln (CA) Oaklanders | `LNCA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2876.png" width="20"> Lincoln (MO) Blue Tigers | `LNMO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2339.png" width="20"> Lincoln (PA) Lions | `LNPA` |
+| Lindenwood Belleville Lynx | `LINB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2815.png" width="20"> Lindenwood Lions | `LIN` |
+| Lindsey Wilson LINDSEY | `LWU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/203.png" width="20"> Linfield Wildcats | `LINF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2940.png" width="20"> Livingstone Blue Bears | `LIV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/209.png" width="20"> Lock Haven Bald Eagles | `LHU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2341.png" width="20"> Long Island University Sharks | `LIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/263.png" width="20"> Loras Duhawks | `LOR` |
+| <img src="https://a.espncdn.com/guid/e678dcd8-a1e1-55e8-5dcb-4b1076cb6629/logos/default.png" width="20"> Louisiana Christian Wildcats | `LCHR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/309.png" width="20"> Louisiana Ragin' Cajuns | `UL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2348.png" width="20"> Louisiana Tech Bulldogs | `LT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/97.png" width="20"> Louisville Cardinals | `LOU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/99.png" width="20"> LSU Tigers | `LSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/67.png" width="20"> Luther Norse | `LUTH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2354.png" width="20"> Lycoming Warriors | `LYCO` | Lyon Scots | `LYON` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2359.png" width="20"> Macalester Scots | `MAC` | MADONNA | `MDNN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/311.png" width="20"> Maine Black Bears | `ME` | Maine Maritime Mariners | `UMMA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2362.png" width="20"> Manchester Spartans | `MNCH` | MANITOBA | `MB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2365.png" width="20"> Mansfield Mountaineers | `MNFD` | Marian (IN) MARIAN | `MUIN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/317.png" width="20"> Marietta Pioneers | `MRTT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2368.png" width="20"> Marist Red Foxes | `MRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2369.png" width="20"> Mars Hill Lions | `MHU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/276.png" width="20"> Marshall Thundering Herd | `MRSH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/446.png" width="20"> Martin Luther Knights | `MLC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2371.png" width="20"> Mary Hardin Baylor Crusaders | `MHB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/120.png" width="20"> Maryland Terrapins | `MD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2373.png" width="20"> Maryville (TN) Scots | `MCTN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/110.png" width="20"> Mass Maritime Buccaneers | `MMT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/113.png" width="20"> Massachusetts Minutemen | `MASS` |
+| Mayville State Comets | `MYSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2700.png" width="20"> McDaniel Green Terror | `MCD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2816.png" width="20"> McKendree Bearcats | `MCK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/241.png" width="20"> McMurry War Hawks | `MCM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2377.png" width="20"> McNeese Cowboys | `MCN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/235.png" width="20"> Memphis Tigers | `MEM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2382.png" width="20"> Mercer Bears | `MER` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2383.png" width="20"> Merchant Marine Mariners | `MMA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2385.png" width="20"> Mercyhurst Lakers | `MERC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2771.png" width="20"> Merrimack Warriors | `MRMK` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/291.png" width="20"> Methodist Monarchs | `MU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/193.png" width="20"> Miami (OH) RedHawks | `M-OH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png" width="20"> Miami Hurricanes | `MIA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/127.png" width="20"> Michigan State Spartans | `MSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2392.png" width="20"> Michigan Tech Huskies | `MTU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/130.png" width="20"> Michigan Wolverines | `MICH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2393.png" width="20"> Middle Tennessee Blue Raiders | `MTSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2394.png" width="20"> Middlebury Panthers | `MIDB` |
+| Midland MIDLAND LUTHERAN | `MIDL` | Midwestern State Mustangs | `MWSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2396.png" width="20"> Miles Golden Bears | `MILE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/210.png" width="20"> Millersville Marauders | `MILL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/74.png" width="20"> Millikin Big Blue | `MILK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2398.png" width="20"> Millsaps Majors | `MLSP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/134.png" width="20"> Minnesota Duluth Bulldogs | `UMD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/135.png" width="20"> Minnesota Golden Gophers | `MINN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2399.png" width="20"> Minnesota Morris Cougars | `MNMO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2817.png" width="20"> Minnesota St Moorhead Dragons | `MSUM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2364.png" width="20"> Minnesota State Mavericks | `MNST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/568.png" width="20"> Minot State Beavers | `MINS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2969.png" width="20"> Misericordia Cougars | `MISE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/344.png" width="20"> Mississippi State Bulldogs | `MSST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2400.png" width="20"> Mississippi Valley State Delta Devils | `MVSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2880.png" width="20"> Missouri Baptist Spartans | `MOBU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2402.png" width="20"> Missouri S&T Miners | `MS&T` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2403.png" width="20"> Missouri Southern State Lions | `MSSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2623.png" width="20"> Missouri State Bears | `MOST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/142.png" width="20"> Missouri Tigers | `MIZ` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/137.png" width="20"> Missouri Western Griffons | `MOWE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/109.png" width="20"> MIT Engineers | `MIT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2919.png" width="20"> Monmouth (IL) Fighting Scots | `MNIL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2405.png" width="20"> Monmouth Hawks | `MONM` |
+| Monroe Mustangs | `MON` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/149.png" width="20"> Montana Grizzlies | `MONT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/147.png" width="20"> Montana State Bobcats | `MTST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2701.png" width="20"> Montana Western Bulldogs | `UMW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2818.png" width="20"> Montclair State Red Hawks | `MCST` | Monterrey Tech Borregos | `MITE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/323.png" width="20"> Moravian Greyhounds | `MOR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2413.png" width="20"> Morehead State Eagles | `MORE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/60.png" width="20"> Morehouse Maroon Tigers | `MRHO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2415.png" width="20"> Morgan State Bears | `MORG` |
+| <img src="https://a.espncdn.com/guid/98f21645-3b08-3b73-6d0a-0994f8bee411/logos/default.png" width="20"> Morningside Chiefs | `MNGS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2419.png" width="20"> Mount St Joseph Lions | `MSJ` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/426.png" width="20"> Mount Union Purple Raiders | `UMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2422.png" width="20"> Muhlenberg Mules | `MUHL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/93.png" width="20"> Murray State Racers | `MUR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/332.png" width="20"> Muskingum Fighting Muskies | `MSK` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png" width="20"> Navy Midshipmen | `NAVY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/152.png" width="20"> NC State Wolfpack | `NCSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/158.png" width="20"> Nebraska Cornhuskers | `NEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2438.png" width="20"> Nebraska Kearney Lopers | `NEBK` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/6845.png" width="20"> Nebraska Wesleyan Prairie Wolves | `NWU` | <img src="https://a.espncdn.com/guid/a3ffa68e-753d-aec1-08f4-870dc7d77760/logos/default.png" width="20"> Nelson (TX) Lions | `NEL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2440.png" width="20"> Nevada Wolf Pack | `NEV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/111675.png" width="20"> New England Nor'easters | `UNE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/160.png" width="20"> New Hampshire Wildcats | `UNH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2441.png" width="20"> New Haven Chargers | `NHVN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2424.png" width="20"> New Mexico Highlands Cowboys | `NMHU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/167.png" width="20"> New Mexico Lobos | `UNM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/166.png" width="20"> New Mexico State Aggies | `NMSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2444.png" width="20"> Newberry Wolves | `NBRY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2447.png" width="20"> Nicholls Colonels | `NICH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2884.png" width="20"> Nichols Bison | `NICC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2450.png" width="20"> Norfolk State Spartans | `NORF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2453.png" width="20"> North Alabama Lions | `UNA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/123086.png" width="20"> North American Stallions | `NAMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2448.png" width="20"> North Carolina A&T Aggies | `NCAT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2428.png" width="20"> North Carolina Central Eagles | `NCCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/153.png" width="20"> North Carolina Tar Heels | `UNC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/286.png" width="20"> North Carolina Wesleyan Battling Bishops | `NCW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3071.png" width="20"> North Central College Cardinals | `NCC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/155.png" width="20"> North Dakota Fighting Hawks | `UND` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2449.png" width="20"> North Dakota State Bison | `NDSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2822.png" width="20"> North Greenville Trailblazers | `NGU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/75.png" width="20"> North Park Vikings | `NPU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/249.png" width="20"> North Texas Mean Green | `UNT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/196.png" width="20"> Northeastern State RiverHawks | `NESU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2464.png" width="20"> Northern Arizona Lumberjacks | `NAU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2458.png" width="20"> Northern Colorado Bears | `UNCO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2459.png" width="20"> Northern Illinois Huskies | `NIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2460.png" width="20"> Northern Iowa Panthers | `UNI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/128.png" width="20"> Northern Michigan Wildcats | `NMI` | Northern State Wolves | `NSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/138.png" width="20"> Northwest Missouri State Bearcats | `MWMO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/583.png" width="20"> Northwestern (MN) Eagles | `UNW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2823.png" width="20"> Northwestern (OK) Rangers | `NWOK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2466.png" width="20"> Northwestern State Demons | `NWST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/77.png" width="20"> Northwestern Wildcats | `NU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2886.png" width="20"> Northwood Timberwolves | `NWD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2467.png" width="20"> Norwich Cadets | `NWCH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/87.png" width="20"> Notre Dame Fighting Irish | `ND` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/391.png" width="20"> Oberlin Yeomen | `OBE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/195.png" width="20"> Ohio Bobcats | `OHIO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/427.png" width="20"> Ohio Northern Polar Bears | `OHNU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" width="20"> Ohio State Buckeyes | `OSU` |
+| Ohio State Newark Titans | `OSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2980.png" width="20"> Ohio Wesleyan Battling Bishops | `OWU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/319.png" width="20"> Oklahoma Baptist Bison | `OKBU` | Oklahoma Panhandle OK PANHANDLE ST | `OPSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/201.png" width="20"> Oklahoma Sooners | `OU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/197.png" width="20"> Oklahoma State Cowboys | `OKST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/295.png" width="20"> Old Dominion Monarchs | `ODU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" width="20"> Ole Miss Rebels | `MISS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/354.png" width="20"> Olivet Comets | `UOO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png" width="20"> Oregon Ducks | `ORE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/204.png" width="20"> Oregon State Beavers | `ORST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/359.png" width="20"> Otterbein Cardinals | `OTTB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2888.png" width="20"> Ouachita Baptist Tigers | `OBU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2487.png" width="20"> Pace Setters | `PACE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/205.png" width="20"> Pacific (OR) Boxers | `PCOR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2486.png" width="20"> Pacific Lutheran Lutes | `PCLT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/213.png" width="20"> Penn State Nittany Lions | `PSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/219.png" width="20"> Pennsylvania Quakers | `PENN` |
+| Phoenix Firestorm | `AZCHR` | <img src="https://a.espncdn.com/guid/3b75f5c6-221d-212e-7a9a-a38339e0993d/logos/default.png" width="20"> Pikeville Bears | `PIKEV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/90.png" width="20"> Pittsburg State Gorillas | `PTSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/221.png" width="20"> Pittsburgh Panthers | `PITT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2972.png" width="20"> Plymouth State Panthers | `PLYM` | Point University Skyhawks | `POINT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2923.png" width="20"> Pomona Pitzer Sagehens | `POPI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2502.png" width="20"> Portland State Vikings | `PRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/126086.png" width="20"> Post Eagles | `POST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2504.png" width="20"> Prairie View A&M Panthers | `PV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2506.png" width="20"> Presbyterian Blue Hose | `PRES` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/163.png" width="20"> Princeton Tigers | `PRIN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2508.png" width="20"> Puget Sound Loggers | `PUG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2509.png" width="20"> Purdue Boilermakers | `PUR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2825.png" width="20"> Quincy Hawks | `QUI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2516.png" width="20"> Randolph Macon Yellow Jackets | `RMC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/29.png" width="20"> Redlands Bulldogs | `REDL` | Reinhardt Eagles | `RHDT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2528.png" width="20"> Rensselaer Engineers | `RPI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/227.png" width="20"> Rhode Island Rams | `URI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2519.png" width="20"> Rhodes Lynx | `RHDS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/242.png" width="20"> Rice Owls | `RICE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/257.png" width="20"> Richmond Spiders | `RICH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2891.png" width="20"> Ripon Red Hawks | `RIP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2523.png" width="20"> Robert Morris Colonials | `RMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/184.png" width="20"> Rochester (NY) Yellow Jackets | `URNY` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2524.png" width="20"> Rockford Regents | `RFU` | Roosevelt Lakers | `RSVT` |
+| Roosevelt Lakers | `RSVT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/86.png" width="20"> Rose Hulman Fightin' Engineers | `RHIT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2827.png" width="20"> Rowan Profs | `ROW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/164.png" width="20"> Rutgers Scarlet Knights | `RUTG` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/16.png" width="20"> Sacramento State Hornets | `SAC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2529.png" width="20"> Sacred Heart Pioneers | `SHU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/129.png" width="20"> Saginaw Valley State Cardinals | `SVSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2830.png" width="20"> Saint Anselm Hawks | `SANS` |
+| <img src="https://a.espncdn.com/guid/082f83e0-cde2-7736-7389-21e88d6e8bf0/logos/default.png" width="20"> Saint Francis (IN) Cougars | `SFIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2598.png" width="20"> Saint Francis Red Flash | `SFPA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2600.png" width="20"> Saint John's (MN) Johnnies | `STJM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2614.png" width="20"> Saint Vincent Bearcats | `SVC` |
+| Saint Xavier Cougars | `STX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2532.png" width="20"> Salisbury Sea Gulls | `SAL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2776.png" width="20"> Salve Regina Seahawks | `SALV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2534.png" width="20"> Sam Houston Bearkats | `SHSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2535.png" width="20"> Samford Bulldogs | `SAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/21.png" width="20"> San Diego State Aztecs | `SDSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/301.png" width="20"> San Diego Toreros | `USD` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/23.png" width="20"> San José State Spartans | `SJSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2542.png" width="20"> Savannah State Tigers | `SAV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2545.png" width="20"> SE Louisiana Lions | `SELA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/611.png" width="20"> Seton Hill Griffins | `SEHI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2553.png" width="20"> Sewanee Tigers | `SEWA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2551.png" width="20"> Shaw Bears | `SHAW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2828.png" width="20"> Shenandoah Hornets | `SHEN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2974.png" width="20"> Shepherd Rams | `SHEP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2559.png" width="20"> Shippensburg Raiders | `SHIP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2560.png" width="20"> Shorter Hawks | `SHOU` | Siena Heights Saints | `SHTU` |
+| Simpson (CA) Red Hawks | `SUCA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2564.png" width="20"> Simpson (IA) Storm | `SCIA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2894.png" width="20"> Sioux Falls Cougars | `SFU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/215.png" width="20"> Slippery Rock The Rock | `SRU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2567.png" width="20"> SMU Mustangs | `SMU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/6.png" width="20"> South Alabama Jaguars | `USA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png" width="20"> South Carolina Gamecocks | `SC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2569.png" width="20"> South Carolina State Bulldogs | `SCST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/233.png" width="20"> South Dakota Coyotes | `SDAK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/613.png" width="20"> South Dakota Mines Hardrockers | `SDMT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2571.png" width="20"> South Dakota State Jackrabbits | `SDST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/58.png" width="20"> South Florida Bulls | `USF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2546.png" width="20"> Southeast Missouri State Redhawks | `SEMO` | Southeastern Fires | `SEU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/199.png" width="20"> Southeastern Oklahoma State Savage Storm | `SEOK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2568.png" width="20"> Southern Arkansas Muleriders | `SAR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2583.png" width="20"> Southern Connecticut State Owls | `SCTS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/79.png" width="20"> Southern Illinois Salukis | `SIU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2582.png" width="20"> Southern Jaguars | `SOU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2572.png" width="20"> Southern Miss Golden Eagles | `USM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/200.png" width="20"> Southern Nazarene Crimson Storm | `SNU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2584.png" width="20"> Southern Oregon Raiders | `SOR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/253.png" width="20"> Southern Utah Thunderbirds | `SUU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2896.png" width="20"> Southern Virginia Knights | `SOVA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2586.png" width="20"> Southwest Baptist Bearcats | `SWBU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2587.png" width="20"> Southwest Minnesota State Mustangs | `SWMS` |
+| Southwestern (KS) Moundbuilders | `SWKS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2927.png" width="20"> Southwestern Oklahoma State Bulldogs | `SOSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2588.png" width="20"> Southwestern U Pirates | `SWU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/81.png" width="20"> Springfield Pride | `SPR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2591.png" width="20"> St. Ambrose Fighting Bees | `STAM` | St. Andrews Knights | `STAU` |
+| St. Francis (IL) Fighting Saints | `SFIL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/374.png" width="20"> St. John Fisher Cardinals | `STJF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2779.png" width="20"> St. Lawrence Saints | `USL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2832.png" width="20"> St. Norbert Green Knights | `STNC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/133.png" width="20"> St. Olaf Oles | `OLAF` | St. Petersburg Glory Eagles | `UFFL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/375.png" width="20"> St. Scholastica Saints | `CSS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2900.png" width="20"> St. Thomas Tommies | `STMN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/24.png" width="20"> Stanford Cardinal | `STAN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2617.png" width="20"> Stephen F. Austin Lumberjacks | `SFA` |
+| Sterling STERLING KS | `STLG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/56.png" width="20"> Stetson Hatters | `STET` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/471.png" width="20"> Stevenson Mustangs | `STVS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/284.png" width="20"> Stonehill Skyhawks | `STO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2619.png" width="20"> Stony Brook Seawolves | `STBK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2834.png" width="20"> Sul Ross State Lobos | `SRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2782.png" width="20"> SUNY Cortland Red Dragons | `NYCL` | SUNY Erie Kats | `NYER` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2951.png" width="20"> SUNY Maritime Privateers | `NYMT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3110.png" width="20"> SUNY Morrisville Mustangs | `NYMS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/216.png" width="20"> Susquehanna River Hawks | `SUSQ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/183.png" width="20"> Syracuse Orange | `SYR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2627.png" width="20"> Tarleton State Texans | `TAR` | Taylor Trojans | `TLRU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2628.png" width="20"> TCU Horned Frogs | `TCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/218.png" width="20"> Temple Owls | `TEM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2634.png" width="20"> Tennessee State Tigers | `TNST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2635.png" width="20"> Tennessee Tech Golden Eagles | `TNTC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2633.png" width="20"> Tennessee Volunteers | `TENN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" width="20"> Texas A&M Aggies | `TA&M` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2658.png" width="20"> Texas A&M-Kingsville Javelinas | `TAMK` | <img src="https://a.espncdn.com/guid/43f30dfa-e0d9-ad12-1cb6-f8ceae32ffb4/logos/default.png" width="20"> Texas College Steers | `TXCL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/251.png" width="20"> Texas Longhorns | `TEX` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2639.png" width="20"> Texas Lutheran Bulldogs | `TXLU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2640.png" width="20"> Texas Southern Tigers | `TXSO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/326.png" width="20"> Texas State Bobcats | `TXST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png" width="20"> Texas Tech Red Raiders | `TTU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2643.png" width="20"> The Citadel Bulldogs | `CIT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2442.png" width="20"> The College of New Jersey Lions | `TCNJ` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2644.png" width="20"> Thiel Tomcats | `THI` |
+| Thomas More Saints | `TMOR` | Thomas Night Hawks | `THO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2838.png" width="20"> Tiffin Dragons | `TIFF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2649.png" width="20"> Toledo Rockets | `TOL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/119.png" width="20"> Towson Tigers | `TOW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2651.png" width="20"> Trine Thunder | `TRNE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2977.png" width="20"> Trinity (CT) Bantams | `TCCT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/386.png" width="20"> Trinity (TX) Tigers | `TUTX` |
+| Trinity Bible Lions | `TBIB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png" width="20"> Troy Trojans | `TROY` |
+| Troy Vikings | `HVCC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2654.png" width="20"> Truman State Bulldogs | `TRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/112.png" width="20"> Tufts Jumbos | `TUFT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png" width="20"> Tulane Green Wave | `TULN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/202.png" width="20"> Tulsa Golden Hurricane | `TLSA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2839.png" width="20"> Tusculum Pioneers | `TUSC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2657.png" width="20"> Tuskegee Golden Tigers | `TUSK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/5.png" width="20"> UAB Blazers | `UAB` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/399.png" width="20"> UAlbany Great Danes | `UALB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/302.png" width="20"> UC Davis Aggies | `UCD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2116.png" width="20"> UCF Knights | `UCF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/26.png" width="20"> UCLA Bruins | `UCLA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/41.png" width="20"> UConn Huskies | `CONN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2433.png" width="20"> UL Monroe Warhawks | `ULM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/379.png" width="20"> UMass Dartmouth Corsairs | `MDAR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2882.png" width="20"> UNC Pembroke Braves | `UNCP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/237.png" width="20"> Union Garnet Chargers | `UNNY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/559.png" width="20"> University of Mary Marauders | `MARY` |
+| University of Mexico MEXICO U | `UNAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png" width="20"> UNLV Rebels | `UNLV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/389.png" width="20"> Upper Iowa Peacocks | `UIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2667.png" width="20"> Ursinus Bears | `URSN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/30.png" width="20"> USC Trojans | `USC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2630.png" width="20"> UT Martin Skyhawks | `UTM` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/110243.png" width="20"> UT Permian Basin Falcons | `UTPB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/328.png" width="20"> Utah State Aggies | `USU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/3101.png" width="20"> Utah Tech Trailblazers | `UTU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/254.png" width="20"> Utah Utes | `UTAH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2638.png" width="20"> UTEP Miners | `UTEP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/390.png" width="20"> Utica Pioneers | `UTIC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2636.png" width="20"> UTSA Roadrunners | `UTSA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2842.png" width="20"> UVA Wise Cavaliers | `UVAW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2673.png" width="20"> Valdosta State Blazers | `VALD` | Valley City State VALLEY CITY ST | `VCSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2674.png" width="20"> Valparaiso Beacons | `VAL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/238.png" width="20"> Vanderbilt Commodores | `VAN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/293.png" width="20"> Vermont State Castleton Spartans | `VTSC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/222.png" width="20"> Villanova Wildcats | `VILL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/258.png" width="20"> Virginia Cavaliers | `UVA` | Virginia Lynchburg Dragons | `VUL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/330.png" width="20"> Virginia State Trojans | `VSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/259.png" width="20"> Virginia Tech Hokies | `VT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2676.png" width="20"> Virginia Union Panthers | `VUU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2678.png" width="20"> VMI Keydets | `VMI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/89.png" width="20"> Wabash Little Giants | `WAB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2681.png" width="20"> Wagner Seahawks | `WAG` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/154.png" width="20"> Wake Forest Demon Deacons | `WAKE` | Waldorf Warriors | `WLDF` |
+| <img src="https://a.espncdn.com/guid/01ca3293-0266-38e6-4100-d8767b860a96/logos/default.png" width="20"> Walsh Cavaliers | `WLSH` | Warner Royals | `WRNR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2685.png" width="20"> Wartburg Knights | `WTBG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2687.png" width="20"> Washburn Ichabods | `WSBN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2686.png" width="20"> Washington & Jefferson Presidents | `W&J` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2688.png" width="20"> Washington and Lee Generals | `W&L` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" width="20"> Washington Huskies | `WASH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/143.png" width="20"> Washington St. Louis Bears | `WUMO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/265.png" width="20"> Washington State Cougars | `WSU` | Wayland Baptist Pioneers | `WYBU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/131.png" width="20"> Wayne State (MI) Warriors | `WSMI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2844.png" width="20"> Wayne State (NE) Wildcats | `WSNE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2845.png" width="20"> Waynesburg Yellow Jackets | `WAYN` | Webber International Warriors | `WINT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2692.png" width="20"> Weber State Wildcats | `WEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/336.png" width="20"> Wesleyan (CT) Cardinals | `WSCT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2695.png" width="20"> West Alabama Tigers | `UWA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/223.png" width="20"> West Chester Golden Rams | `WCHT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/110242.png" width="20"> West Florida Argonauts | `WFL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2698.png" width="20"> West Georgia Wolves | `WGA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2699.png" width="20"> West Liberty Hilltoppers | `WLU` | West Memphis Crusaders | `FAI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2704.png" width="20"> West Texas Buffaloes | `WTAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/277.png" width="20"> West Virginia Mountaineers | `WVU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2707.png" width="20"> West Virginia State Yellow Jackets | `WVSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/455.png" width="20"> West Virginia Wesleyan Bobcats | `WVWC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2717.png" width="20"> Western Carolina Catamounts | `WCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2714.png" width="20"> Western Colorado Mountaineers | `WCOL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2843.png" width="20"> Western Connecticut State Wolves | `WCSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2710.png" width="20"> Western Illinois Leathernecks | `WIU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/98.png" width="20"> Western Kentucky Hilltoppers | `WKU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png" width="20"> Western Michigan Broncos | `WMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2702.png" width="20"> Western New England Golden Bears | `WNE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2703.png" width="20"> Western New Mexico Mustangs | `WNMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2848.png" width="20"> Western Oregon Wolves | `WORU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2909.png" width="20"> Westfield State Owls | `WFST` |
+| Westgate Christian University Ravens | `WES` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/433.png" width="20"> Westminster (MO) Blue Jays | `WCMO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2849.png" width="20"> Westminster (PA) Titans | `WCPA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/396.png" width="20"> Wheaton (IL) Thunder | `WCIL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/112335.png" width="20"> Wheeling Cardinals | `WHLG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2850.png" width="20"> Whittier Poets | `WHTR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2721.png" width="20"> Whitworth Pirates | `WHIW` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2725.png" width="20"> Widener Pride | `WIDE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/398.png" width="20"> Wilkes Colonels | `WILK` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2930.png" width="20"> Willamette Bearcats | `WLMT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2729.png" width="20"> William & Mary Tribe | `W&M` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2911.png" width="20"> William Jewell Cardinals | `WJC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2970.png" width="20"> William Paterson Pioneers | `WPU` | William Penn Statesmen | `WPEN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2731.png" width="20"> Williams Ephs | `WLM` | Williamson Mechanics | `WMSN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2733.png" width="20"> Wilmington (OH) Fightin' Quakers | `WCOH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/351.png" width="20"> Wingate Bulldogs | `WINU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2851.png" width="20"> Winona State Warriors | `WNST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2736.png" width="20"> Winston-Salem State Rams | `WSSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/275.png" width="20"> Wisconsin Badgers | `WIS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2738.png" width="20"> Wisconsin Eau Claire Blugolds | `UWEC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2740.png" width="20"> Wisconsin La Crosse Eagles | `UWL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2741.png" width="20"> Wisconsin Lutheran Warriors | `WLC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/271.png" width="20"> Wisconsin Oshkosh Titans | `UWO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/272.png" width="20"> Wisconsin Platteville Pioneers | `UWP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2723.png" width="20"> Wisconsin River Falls Falcons | `UWRF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2743.png" width="20"> Wisconsin Stevens Point Pointers | `UWSP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2744.png" width="20"> Wisconsin Stout Blue Devils | `UWST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2745.png" width="20"> Wisconsin Whitewater Warhawks | `UWW` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2746.png" width="20"> Wittenberg Tigers | `WITT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2747.png" width="20"> Wofford Terriers | `WOF` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2748.png" width="20"> Wooster Fighting Scots | `WOO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/402.png" width="20"> Worcester State Lancers | `WORC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2749.png" width="20"> WPI Engineers | `WPI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2706.png" width="20"> WVU Tech Golden Bears | `WVUT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" width="20"> Wyoming Cowboys | `WYO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" width="20"> Yale Bulldogs | `YALE` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2754.png" width="20"> Youngstown State Penguins | `YSU` |  |  |
+<!-- college-abbreviations:ncaaf:end -->
+
+<!-- college-abbreviations:ncaa_hockey:start -->
+## NCAA Men's Ice Hockey Team Abbreviations
+
+Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
+
+| Club | Abbr | Club | Abbr |
+|---|---|---|---|
+| Adrian Bulldogs | `ADR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png" width="20"> Air Force Falcons | `AF` |
+| Alabama Huntsville Chargers | `AH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/1.png" width="20"> Alaska Anchorage Seawolves | `UAA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/298.png" width="20"> Alaska Nanooks | `AKFB` | Alberta Golden Bears & Pandas | `ABCA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2022.png" width="20"> American International Yellow Jackets | `AIC` | Anna Maria Amcats | `ANMR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/9.png" width="20"> Arizona State Sun Devils | `ASU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/12.png" width="20"> Arizona Wildcats | `ARIZ` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/349.png" width="20"> Army Black Knights | `ARMY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2038.png" width="20"> Assumption Greyhounds | `ASP` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/124.png" width="20"> Augsburg Auggies | `AUGS` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2043.png" width="20"> Augustana University (SD) Vikings | `AUSD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/132.png" width="20"> Bemidji State Beavers | `BST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2060.png" width="20"> Bentley Falcons | `BENT` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2802.png" width="20"> Bethel College Minnesota Falcons | `BET` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" width="20"> Boston College Eagles | `BC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/104.png" width="20"> Boston University Terriers | `BU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/189.png" width="20"> Bowling Green Falcons | `BGSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2781.png" width="20"> Brockport Golden Eagles | `BRO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/225.png" width="20"> Brown Bears | `BRWN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2099.png" width="20"> Canisius Golden Griffins | `CAN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2137.png" width="20"> Clarkson Golden Knights | `CLAR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2142.png" width="20"> Colgate Raiders | `COLG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2144.png" width="20"> Colorado College Tigers | `COLC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2152.png" width="20"> Concordia (MN) Cobbers | `CCMN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/172.png" width="20"> Cornell Big Red | `COR` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/159.png" width="20"> Dartmouth Big Green | `DART` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2172.png" width="20"> Denver Pioneers | `DEN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2217.png" width="20"> Fairfield Badgers | `FAIR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2222.png" width="20"> Ferris State Bulldogs | `FRST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2224.png" width="20"> Findlay Falcons | `FIN` | Framingham State Rams | `FRSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/112334.png" width="20"> FRANKLIN PIERCE | `FP` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/108.png" width="20"> Harvard Crimson | `HARV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/107.png" width="20"> Holy Cross Crusaders | `HC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/314.png" width="20"> Iona Gaels | `IONA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/285.png" width="20"> Lake Superior State Lakers | `LSS` | Laurentian Voyageur | `LAUREN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png" width="20"> Liberty Flames | `LIB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2815.png" width="20"> Lindenwood Lions | `LIN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/110133.png" width="20"> Long Island University Sharks | `LIU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/311.png" width="20"> Maine Black Bears | `ME` |
+| Manhattanville Valiants | `MNHV` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/113.png" width="20"> Massachusetts Minutemen | `MASS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2385.png" width="20"> Mercyhurst Lakers | `MERC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2771.png" width="20"> Merrimack Warriors | `MRMK` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/193.png" width="20"> Miami (OH) RedHawks | `M-OH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/127.png" width="20"> Michigan State Spartans | `MSU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2392.png" width="20"> Michigan Tech Huskies | `MTU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/130.png" width="20"> Michigan Wolverines | `MICH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2394.png" width="20"> Middlebury Panthers | `MIDB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/134.png" width="20"> Minnesota Duluth Bulldogs | `UMD` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/135.png" width="20"> Minnesota Golden Gophers | `MINN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2364.png" width="20"> Minnesota State Mavericks | `MNST` |
+| Minnesota-Crookston Golden Eagles | `MNCK` | New England College Pilgrims | `NEC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/160.png" width="20"> New Hampshire Wildcats | `UNH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/315.png" width="20"> Niagara Purple Eagles | `NIA` |
+| Nichols Bison | `NICC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/155.png" width="20"> North Dakota Fighting Hawks | `UND` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/111.png" width="20"> Northeastern Huskies | `NE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/128.png" width="20"> Northern Michigan Wildcats | `NMI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/87.png" width="20"> Notre Dame Fighting Irish | `ND` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/195.png" width="20"> Ohio Bobcats | `OHIO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/194.png" width="20"> Ohio State Buckeyes | `OSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2437.png" width="20"> Omaha Mavericks | `OMA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/213.png" width="20"> Penn State Nittany Lions | `PSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/430.png" width="20"> Post Eagles | `POST` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/163.png" width="20"> Princeton Tigers | `PRIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2507.png" width="20"> Providence Friars | `PROV` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2514.png" width="20"> Quinnipiac Bobcats | `QUIN` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2528.png" width="20"> Rensselaer Engineers | `RPI` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/178.png" width="20"> RIT Tigers | `RIT` | Rivier Raiders | `RIVI` |
+| Rob Morris Ill Falcons | `RM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2523.png" width="20"> Robert Morris Colonials | `RMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2529.png" width="20"> Sacred Heart Pioneers | `SHU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2830.png" width="20"> Saint Anselm Hawks | `SANS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/260.png" width="20"> Saint Michael's Purple Knights | `STM` | Salem State Vikings | `SAST` |
+| Scranton Falcons | `SCRN` | Seneca Sting | `SEN` |
+| Southern Maine Huskies | `SME` | SOUTHERN NEW HAMPSHIRE | `SNH` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2594.png" width="20"> St. Cloud State Huskies | `SCSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2779.png" width="20"> St. Lawrence Saints | `USL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/127963.png" width="20"> St. Michael'S College Purple Knights | `ST.` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2900.png" width="20"> St. Thomas-Minnesota Tommies | `STMN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/284.png" width="20"> Stonehill Skyhawks | `STO` | SUNY Canton SUNY CANT | `NYCA` |
+| SUNY Cortland Red Dragons | `CORTLAND` | SUNY Cortland Red Dragons | `NYCL` |
+| SUNY Geneseo SUNY-GENESEO | `SNYG` | SUNY Morrisville Mustangs | `NYMS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/182.png" width="20"> SUNY Potsdam SUNY-POTSDAM | `NYPM` | Toronto Metropolitan | `TMU` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2651.png" width="20"> Trine Thunder | `TRNE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/41.png" width="20"> UConn Huskies | `CONN` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/379.png" width="20"> UMASS DARTMOUTH | `MDAR` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2349.png" width="20"> UMass Lowell River Hawks | `UML` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2785.png" width="20"> Union Garnet Chargers | `UNNY` | Utica Pioneers | `UTIC` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/261.png" width="20"> Vermont Catamounts | `UVM` | Waterloo King Warrior | `WTLO` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/131.png" width="20"> Wayne St. Falcons | `WAY` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png" width="20"> Western Michigan Broncos | `WMU` |
+| Westfield State Owls | `WFST` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2731.png" width="20"> Williams Ephs | `WLM` |
+| WINDSOR | `WIND` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/275.png" width="20"> Wisconsin Badgers | `WIS` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2738.png" width="20"> Wisconsin Eau Claire Blugolds | `UWEC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2744.png" width="20"> Wisconsin Stout Blue Devils | `UWST` |
+| Worcester State Lancers | `WORC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" width="20"> Yale Bulldogs | `YALE` |
+<!-- college-abbreviations:ncaa_hockey:end -->
 
 ## Run Locally
 
