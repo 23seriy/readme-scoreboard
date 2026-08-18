@@ -782,7 +782,7 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ## Saudi Pro League Team Abbreviations
 
-| Club | Abbr | Club | Abbr |
+| ⚽ Club | Abbr | ⚽ Club | Abbr |
 |---|---|---|---|
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/8346.png" width="20"> Al Ahli | AHL | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/929.png" width="20"> Al Hilal | HIL |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/817.png" width="20"> Al Nassr | NSR | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2276.png" width="20"> Al Ittihad | ITT |
@@ -798,7 +798,7 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ## J1 League Team Abbreviations
 
-| Club | Abbr | Club | Abbr |
+| ⚽ Club | Abbr | ⚽ Club | Abbr |
 |---|---|---|---|
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7112.png" width="20"> Kawasaki Frontale | KAW | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3385.png" width="20"> Urawa Red Diamonds | URA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7477.png" width="20"> Vissel Kobe | VIS | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/7116.png" width="20"> Yokohama F. Marinos | YOK |
@@ -815,7 +815,7 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ## Scottish Premiership Team Abbreviations
 
-| Club | Abbr | Club | Abbr |
+| ⚽ Club | Abbr | ⚽ Club | Abbr |
 |---|---|---|---|
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/263.png" width="20"> Aberdeen | ABE | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/256.png" width="20"> Celtic | CEL |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/261.png" width="20"> Dundee | DUN | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/264.png" width="20"> Dundee United | DUN |
@@ -828,7 +828,7 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ## Belgian Pro League Team Abbreviations
 
-| Club | Abbr | Club | Abbr |
+| ⚽ Club | Abbr | ⚽ Club | Abbr |
 |---|---|---|---|
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/441.png" width="20"> Anderlecht | AND | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/17544.png" width="20"> Antwerp | ANT |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3610.png" width="20"> Cercle Brugge KSV | CBK | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/570.png" width="20"> Club Brugge | BRU |
@@ -844,7 +844,7 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ## UEFA Champions League Team Abbreviations
 
-| Club | Abbr | Club | Abbr |
+| ⚽ Club | Abbr | ⚽ Club | Abbr |
 |---|---|---|---|
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/174.png" width="20"> AS Monaco | MON | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/139.png" width="20"> Ajax Amsterdam | AJA |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/359.png" width="20"> Arsenal | ARS | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/105.png" width="20"> Atalanta | ATA |
@@ -871,7 +871,7 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 
 ## UEFA Europa League Team Abbreviations
 
-| Club | Abbr | Club | Abbr |
+| ⚽ Club | Abbr | ⚽ Club | Abbr |
 |---|---|---|---|
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/104.png" width="20"> AS Roma | ROMA | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/362.png" width="20"> Aston Villa | AVL |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/107.png" width="20"> Bologna | BOL | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2994.png" width="20"> Braga | SCB |
