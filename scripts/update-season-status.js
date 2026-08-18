@@ -133,7 +133,7 @@ function updateSupportedSportsTable(readme, rows) {
   const table = [
     "| Sport | League | Season | Endpoint |",
     "|-------|--------|--------|----------|",
-    ...rows.map((row) => `| ${sportIcons[row.sport] || "🏆"} ${row.sport} | ${row.league || row.name} | ${row.season} | ${row.endpoint} |`),
+    ...rows.map((row) => `| ${sportIcons[row.sport] || "🏆"}&nbsp;${row.sport} | ${row.league || row.name} | ${row.season} | ${row.endpoint} |`),
   ].join("\n");
   return `${readme.slice(0, start + START_MARKER.length)}\n${table}\n${readme.slice(end)}`;
 }

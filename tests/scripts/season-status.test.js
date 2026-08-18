@@ -40,7 +40,7 @@ describe("season status updater", () => {
     ]);
 
     expect(updated).toContain("| Sport | League | Season | Endpoint |");
-    expect(updated).toContain("| 🏀 Basketball | NBA | 🟢 In progress · ends 2027-06-30 | [`basketball/nba`](https://example.com) |");
+    expect(updated).toContain("| 🏀&nbsp;Basketball | NBA | 🟢 In progress · ends 2027-06-30 | [`basketball/nba`](https://example.com) |");
     expect(updated).toContain("before\n<!-- supported-sports:start -->");
     expect(updated).toContain("<!-- supported-sports:end -->\nafter");
   });
