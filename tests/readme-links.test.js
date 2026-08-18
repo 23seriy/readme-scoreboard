@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const readme = fs.readFileSync("README.md", "utf8");
+const ci = fs.readFileSync(".github/workflows/ci.yml", "utf8");
 
 describe("README navigation links", () => {
   const collegeLinks = [
@@ -25,5 +26,13 @@ describe("README navigation links", () => {
     endpoints.forEach((endpoint) => {
       expect(readme).toMatch(new RegExp(`https://site\\.api\\.espn\\.com/apis/site/v2/sports/${endpoint}/teams`));
     });
+  });
+});
+
+describe("repository CI configuration", () => {
+  it("uses a locked install and runs tests and lint", () => {
+    expect(ci).toContain("npm ci --ignore-scripts");
+    expect(ci).toContain("npm test -- --runInBand");
+    expect(ci).toContain("npm run lint");
   });
 });
