@@ -54,28 +54,30 @@ const LEAGUE_LOGOS = {
   NWSL: ["leaguelogos/soccer/500/2323.png", "leaguelogos/soccer/500-dark/2323.png"],
   "Saudi Pro League": ["leaguelogos/soccer/500/2488.png", "leaguelogos/soccer/500-dark/2488.png"],
   "J1 League": ["leaguelogos/soccer/500/2199.png", "leaguelogos/soccer/500-dark/2199.png"],
+  "Scottish Premiership": ["leaguelogos/soccer/500/45.png", "leaguelogos/soccer/500-dark/45.png"],
+  "Belgian Pro League": ["leaguelogos/soccer/500/6.png", "leaguelogos/soccer/500-dark/6.png"],
   "UEFA Champions League": ["leaguelogos/soccer/500/2.png", "leaguelogos/soccer/500-dark/2.png"],
-  "UEFA Europa League": ["leaguelogos/soccer/500/3.png", "leaguelogos/soccer/500-dark/3.png"],
+  "UEFA Europa League": ["leaguelogos/soccer/500/2310.png", "leaguelogos/soccer/500-dark/2310.png"],
 };
 
 // Conservative fallback windows keep the table useful if an upstream API is
 // temporarily unavailable. The next successful daily run replaces these with
 // the API's exact season dates.
 const FALLBACK_WINDOWS = {
-  NBA: ["2026-10-01", "2027-06-30"], MLB: ["2026-03-20", "2026-11-10"],
-  NFL: ["2026-09-01", "2027-02-15"], NHL: ["2026-10-01", "2027-06-30"],
-  MLS: ["2026-02-20", "2026-12-10"], "Premier League": ["2026-08-10", "2027-05-25"],
-  "La Liga": ["2026-08-15", "2027-05-25"], Bundesliga: ["2026-08-20", "2027-05-20"],
-  "Serie A": ["2026-08-20", "2027-05-25"], "Ligue 1": ["2026-08-15", "2027-05-20"],
-  "Primeira Liga": ["2026-08-08", "2027-05-20"], Eredivisie: ["2026-08-08", "2027-05-20"],
-  WNBA: ["2026-05-01", "2026-10-20"], "Liga MX": ["2026-07-01", "2026-12-15"],
-  Brasileirão: ["2026-03-25", "2026-12-15"], NWSL: ["2026-03-10", "2026-11-30"],
-  "Saudi Pro League": ["2026-08-01", "2027-05-31"], "J1 League": ["2026-08-01", "2027-05-31"],
-  "NBA G League": ["2026-11-01", "2027-04-15"],
-  "Scottish Premiership": ["2026-08-01", "2027-05-31"],
-  "Belgian Pro League": ["2026-07-25", "2027-05-31"],
-  "UEFA Champions League": ["2026-07-01", "2027-06-30"],
-  "UEFA Europa League": ["2026-07-01", "2027-06-30"],
+  NBA: ["2026-09-30", "2027-06-26"], MLB: ["2026-02-19", "2026-11-12"],
+  NFL: ["2026-08-06", "2027-02-16"], NHL: ["2026-09-15", "2027-07-01"],
+  MLS: ["2026-01-01", "2026-12-31"], "Premier League": ["2026-06-01", "2027-06-01"],
+  "La Liga": ["2026-06-01", "2027-06-01"], Bundesliga: ["2026-07-01", "2027-07-01"],
+  "Serie A": ["2026-06-05", "2027-07-01"], "Ligue 1": ["2026-06-01", "2027-06-01"],
+  "Primeira Liga": ["2026-07-01", "2027-07-01"], Eredivisie: ["2026-06-01", "2027-06-01"],
+  WNBA: ["2026-04-03", "2026-10-20"], "Liga MX": ["2026-06-01", "2027-06-01"],
+  Brasileirão: ["2026-01-01", "2026-12-31"], NWSL: ["2026-01-01", "2026-12-31"],
+  "Saudi Pro League": ["2026-07-01", "2027-07-01"], "J1 League": ["2026-01-01", "2027-07-01"],
+  "NBA G League": ["2025-09-01", "2026-05-01"],
+  "Scottish Premiership": ["2026-06-01", "2027-06-01"],
+  "Belgian Pro League": ["2026-07-01", "2027-07-01"],
+  "UEFA Champions League": ["2026-07-01", "2027-07-01"],
+  "UEFA Europa League": ["2026-08-27", "2027-07-01"],
 };
 
 const ENDPOINT_OVERRIDES = {
@@ -127,10 +129,11 @@ function updateSupportedSportsTable(readme, rows) {
     throw new Error("Supported sports table markers are missing or out of order");
   }
 
+  const sportIcons = { Basketball: "🏀", Baseball: "⚾", Football: "🏈", Hockey: "🏒", Soccer: "⚽" };
   const table = [
     "| Sport | League | Season | Endpoint |",
     "|-------|--------|--------|----------|",
-    ...rows.map((row) => `| ${row.sport} | ${row.league || row.name} | ${row.season} | ${row.endpoint} |`),
+    ...rows.map((row) => `| ${sportIcons[row.sport] || "🏆"} ${row.sport} | ${row.league || row.name} | ${row.season} | ${row.endpoint} |`),
   ].join("\n");
   return `${readme.slice(0, start + START_MARKER.length)}\n${table}\n${readme.slice(end)}`;
 }
