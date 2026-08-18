@@ -1,5 +1,7 @@
 // Season windows: [activeStartMonth, activeEndMonth] (1-indexed, inclusive)
 // "active" means regular season or playoffs are ongoing
+const { LEAGUES: LEAGUE_REGISTRY } = require("../config/leagues");
+
 const SEASON_WINDOWS = {
   nba: { start: [10, 1], end: [6, 30], nextLabel: "October" },
   mlb: { start: [3, 20], end: [11, 10], nextLabel: "late March" },
@@ -64,6 +66,13 @@ const LEAGUE_LOGOS = {
   ncaaf: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png", alt: "College Football" },
   ncaa_hockey: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png", alt: "NCAA Men's Ice Hockey" },
 };
+
+// The registry is authoritative; these assignments preserve the renderer's
+// existing lookup shape while keeping all league metadata in one place.
+LEAGUE_REGISTRY.forEach((entry) => {
+  SEASON_WINDOWS[entry.key] = entry.seasonWindow;
+  LEAGUE_LOGOS[entry.key] = { ...entry.logo, alt: entry.name };
+});
 
 /**
  * Section heading rendered inside the marker block, so the whole section is

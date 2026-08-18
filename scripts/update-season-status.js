@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const axios = require("axios");
+const { LEAGUES: LEAGUE_REGISTRY } = require("../src/config/leagues");
 
 const START_MARKER = "<!-- supported-sports:start -->";
 const END_MARKER = "<!-- supported-sports:end -->";
@@ -96,6 +97,19 @@ const ENDPOINT_OVERRIDES = {
   MLB: "[MLB Stats API](https://statsapi.mlb.com/api/v1/teams?sportId=1)",
   NHL: "[NHL Web API](https://api-web.nhle.com/v1/standings/now)",
 };
+
+// Keep this script's existing row shape while taking all public metadata from
+// the registry. The assignments below are intentionally centralized here so
+// future league additions cannot silently omit a season row or logo.
+LEAGUES.splice(0, LEAGUES.length, ...LEAGUE_REGISTRY.map(({ category, name, endpoint }) => [category, name, endpoint]));
+Object.keys(LEAGUE_LOGOS).forEach((name) => delete LEAGUE_LOGOS[name]);
+Object.keys(FALLBACK_WINDOWS).forEach((name) => delete FALLBACK_WINDOWS[name]);
+Object.keys(ENDPOINT_OVERRIDES).forEach((name) => delete ENDPOINT_OVERRIDES[name]);
+LEAGUE_REGISTRY.forEach((entry) => {
+  LEAGUE_LOGOS[entry.name] = [entry.logo.light, entry.logo.dark];
+  FALLBACK_WINDOWS[entry.name] = entry.fallback;
+  if (entry.endpointOverride) ENDPOINT_OVERRIDES[entry.name] = entry.endpointOverride;
+});
 
 function leagueCell(name) {
   const logo = LEAGUE_LOGOS[name];
