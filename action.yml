@@ -5,7 +5,7 @@ branding:
   color: "orange"
 inputs:
   sport:
-    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, gleague"
+    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, ncaab, ncaaw, ncaaf, ncaa_hockey"
     required: false
     default: "nba"
   team:
@@ -27,7 +27,7 @@ runs:
     - uses: actions/setup-node@v7
       with:
         node-version: "24"
-    - run: npm install --production
+    - run: npm ci --omit=dev --ignore-scripts
       shell: bash
       working-directory: ${{ github.action_path }}
     - run: node src/index.js

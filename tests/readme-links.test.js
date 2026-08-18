@@ -2,6 +2,8 @@ const fs = require("fs");
 
 const readme = fs.readFileSync("README.md", "utf8");
 const ci = fs.readFileSync(".github/workflows/ci.yml", "utf8");
+const action = fs.readFileSync("action.yml", "utf8");
+const contributing = fs.readFileSync("CONTRIBUTING.md", "utf8");
 
 describe("README navigation links", () => {
   const collegeLinks = [
@@ -34,5 +36,25 @@ describe("repository CI configuration", () => {
     expect(ci).toContain("npm ci --ignore-scripts");
     expect(ci).toContain("npm test -- --runInBand");
     expect(ci).toContain("npm run lint");
+  });
+});
+
+describe("documentation and action metadata", () => {
+  it("documents the current supported inputs and maintenance workflow", () => {
+    expect(readme).toContain("target_repo: 23seriy/23seriy");
+    expect(readme).toContain("node scripts/update-college-abbreviations.js");
+    expect(readme).toContain("Pin the action to a release tag (for example, `@v1`)");
+    expect(readme).toContain("NCAA Men's Ice Hockey");
+  });
+
+  it("keeps action metadata aligned with every supported league key", () => {
+    const keys = require("../src/config/leagues").LEAGUES.map(({ key }) => key);
+    keys.forEach((key) => expect(action).toContain(key));
+  });
+
+  it("documents the locked Node 24 development workflow", () => {
+    expect(contributing).toContain("Node.js 24+");
+    expect(contributing).toContain("npm ci --ignore-scripts");
+    expect(contributing).toContain("npm test -- --runInBand");
   });
 });

@@ -7,9 +7,9 @@ Thanks for your interest in contributing! Here's how you can help.
 1. Fork the repository
 2. Clone your fork locally
 3. Create a branch for your change: `git checkout -b feat/your-feature`
-4. Install dependencies: `npm install`
+4. Install dependencies: `npm ci --ignore-scripts`
 5. Make your changes
-6. Run the linter: `npm run lint`
+6. Run the checks: `npm test -- --runInBand && npm run lint`
 7. Test with demo mode: `SPORT=nba TEAM=LAL node src/index.js --demo`
 8. Commit and push your branch
 9. Open a Pull Request
@@ -30,7 +30,7 @@ See `src/adapters/nba.js` as the reference implementation.
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js 24+
 - npm
 
 ### Running Locally
@@ -38,7 +38,9 @@ See `src/adapters/nba.js` as the reference implementation.
 ```bash
 cp sample.env .env
 # Fill in your values
-npm install
+npm ci --ignore-scripts
+npm test -- --runInBand
+npm run lint
 npm start
 ```
 
@@ -56,6 +58,7 @@ SPORT=nba TEAM=BOS node src/index.js --demo
 - Run `npm run lint` before submitting
 - Update the README if your change affects usage
 - Add a clear description of what your PR does
+- Include tests for new behavior and confirm the full local checks pass
 
 ## Code Style
 
