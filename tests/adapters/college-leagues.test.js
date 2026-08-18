@@ -5,7 +5,35 @@ const leagues = [
   ["ncaa_hockey", "hockey", "mens-college-hockey", "NCAA Men's Ice Hockey"],
 ];
 const fs = require("fs");
+const path = require("path");
 const readme = fs.readFileSync("README.md", "utf8");
+const workflow = fs.readFileSync(
+  path.join(__dirname, "../../.github/workflows/update-college-rosters.yml"),
+  "utf8"
+);
+const { renderSection } = require("../../scripts/update-college-abbreviations");
+
+describe("college roster automation", () => {
+  it("has a weekly workflow that invokes the roster generator", () => {
+    expect(workflow).toContain('cron: "23 5 * * 1"');
+    expect(workflow).toContain("workflow_dispatch:");
+    expect(workflow).toContain("node scripts/update-college-abbreviations.js");
+    expect(workflow).toContain("group: college-rosters");
+    expect(workflow).toContain("git push --force-with-lease=");
+  });
+
+  it.each(leagues)("keeps a non-empty generated section for %s", (sport) => {
+    const start = `<!-- college-abbreviations:${sport}:start -->`;
+    const end = `<!-- college-abbreviations:${sport}:end -->`;
+    const section = readme.slice(readme.indexOf(start), readme.indexOf(end));
+    expect(section).toContain("| Club | Abbr | Club | Abbr |");
+    expect(section).toMatch(/\| .+ \| `[^`]+` \|/);
+  });
+
+  it("refuses to render an empty roster", () => {
+    expect(() => renderSection("ncaab", "NCAA Men's Basketball", [])).toThrow(/No teams returned/);
+  });
+});
 
 describe.each(leagues)("%s adapter", (sport, espnSport, slug, name) => {
   const adapter = require(`../../src/adapters/${sport}`);
