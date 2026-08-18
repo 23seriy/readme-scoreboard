@@ -10,6 +10,16 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- Weekly automation for refreshing NCAA team abbreviation tables from ESPN.
+- Safer README update retries and serialized maintenance workflows.
+
+### Changed
+
+- Action metadata now documents every supported league and installs production
+  dependencies with the locked package file.
+
 ## [1.3.0] - 2026-08-14
 
 Five new leagues, and the generated block now includes its own section heading.

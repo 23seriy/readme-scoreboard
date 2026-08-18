@@ -145,6 +145,10 @@ Change `team` to your team's abbreviation (see table below), and keep `marker`
 matching the pair you added in step 1. Done! The action updates your profile
 README through the GitHub API, so no checkout or separate commit step is needed.
 
+Pin the action to a release tag (for example, `@v1`) for reproducible workflows,
+or to a commit SHA after reviewing the release. Using `@main` follows the
+latest changes and is best suited to trying upcoming features.
+
 #### Multiple sports in one README
 
 Add a step per sport, each with a `marker` matching a pair in your README:
@@ -928,6 +932,7 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 ---
 
 <!-- college-abbreviations:ncaab:start -->
+<details><summary>NCAA Men's Basketball roster</summary>
 ## NCAA Men's Basketball Team Abbreviations
 
 Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
@@ -1115,9 +1120,11 @@ Current teams from ESPN's public directory. The directory can change as schools 
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2747.png" width="20"> Wofford Terriers | `WOF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2750.png" width="20"> Wright State Raiders | `WRST` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" width="20"> Wyoming Cowboys | `WYO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2752.png" width="20"> Xavier Musketeers | `XAV` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" width="20"> Yale Bulldogs | `YALE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2754.png" width="20"> Youngstown State Penguins | `YSU` |
+</details>
 <!-- college-abbreviations:ncaab:end -->
 
 <!-- college-abbreviations:ncaaw:start -->
+<details><summary>NCAA Women's Basketball roster</summary>
 ## NCAA Women's Basketball Team Abbreviations
 
 Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
@@ -1305,9 +1312,11 @@ Current teams from ESPN's public directory. The directory can change as schools 
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2747.png" width="20"> Wofford Terriers | `WOF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2750.png" width="20"> Wright State Raiders | `WRST` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" width="20"> Wyoming Cowgirls | `WYO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2752.png" width="20"> Xavier Musketeers | `XAV` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" width="20"> Yale Bulldogs | `YALE` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2754.png" width="20"> Youngstown State Penguins | `YSU` |
+</details>
 <!-- college-abbreviations:ncaaw:end -->
 
 <!-- college-abbreviations:ncaaf:start -->
+<details><summary>College Football roster</summary>
 ## College Football Team Abbreviations
 
 Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
@@ -1694,9 +1703,11 @@ Current teams from ESPN's public directory. The directory can change as schools 
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2749.png" width="20"> WPI Engineers | `WPI` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2706.png" width="20"> WVU Tech Golden Bears | `WVUT` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png" width="20"> Wyoming Cowboys | `WYO` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" width="20"> Yale Bulldogs | `YALE` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2754.png" width="20"> Youngstown State Penguins | `YSU` |  |  |
+</details>
 <!-- college-abbreviations:ncaaf:end -->
 
 <!-- college-abbreviations:ncaa_hockey:start -->
+<details><summary>NCAA Men's Ice Hockey roster</summary>
 ## NCAA Men's Ice Hockey Team Abbreviations
 
 Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
@@ -1761,6 +1772,7 @@ Current teams from ESPN's public directory. The directory can change as schools 
 | WINDSOR | `WIND` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/275.png" width="20"> Wisconsin Badgers | `WIS` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2738.png" width="20"> Wisconsin Eau Claire Blugolds | `UWEC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2744.png" width="20"> Wisconsin Stout Blue Devils | `UWST` |
 | Worcester State Lancers | `WORC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" width="20"> Yale Bulldogs | `YALE` |
+</details>
 <!-- college-abbreviations:ncaa_hockey:end -->
 
 ## Run Locally
@@ -1816,6 +1828,13 @@ needed. Common examples:
 | NCAA Men's Ice Hockey | `ncaa_hockey` | `BC` (Boston College) |
 
 The corresponding ESPN directories are [men's basketball](https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams), [women's basketball](https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams), [college football](https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams), and [men's ice hockey](https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/teams).
+
+To refresh the generated tables after cloning this repository, run:
+
+```bash
+npm ci --ignore-scripts
+node scripts/update-college-abbreviations.js
+```
 
 ---
 

@@ -5,6 +5,7 @@
 ## Checklist
 
 - [ ] `npm run lint` passes
+- [ ] `npm test -- --runInBand` passes
 - [ ] Tested with `--demo` mode
 - [ ] README updated (if applicable)
 - [ ] No secrets or API keys committed
