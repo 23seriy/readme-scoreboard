@@ -2,7 +2,7 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, and the **NBA G League** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, and **NCAA Men's Ice Hockey** with more sports coming soon
 
 ---
 
@@ -64,6 +64,10 @@ Western Conference · Pacific Division
   - [UEFA Champions League](#uefa-champions-league-team-abbreviations)
   - [UEFA Europa League](#uefa-europa-league-team-abbreviations)
   - [NBA G League](#-nba-g-league-team-abbreviations)
+  - [NCAA Men's Basketball](#ncaa-mens-basketball)
+  - [NCAA Women's Basketball](#ncaa-womens-basketball)
+  - [College Football](#college-football)
+  - [NCAA Men's Ice Hockey](#ncaa-mens-ice-hockey)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
 - [Action Inputs (`with:`)](#action-inputs-with)
@@ -467,6 +471,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2.png" alt="UEFA Champions League logo" height="20"></picture> UEFA Champions League | 🔴 Off-season · starts 2026-07-01 | [`soccer/uefa.champions`](https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2310.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2310.png" alt="UEFA Europa League logo" height="20"></picture> UEFA Europa League | 🔴 Off-season · starts 2026-08-27 | [`soccer/uefa.europa`](https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams) |
 | 🏀&nbsp;Basketball | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png" alt="NBA G League logo" height="20"></picture> NBA G League | 🔴 Off-season · starts 2026-09-01 | [`basketball/nba-development`](https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development/teams) |
+| 🏀&nbsp;Basketball | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png" alt="NCAA Men's Basketball logo" height="20"></picture> NCAA Men's Basketball | 🟢 In progress · ends 2027-04-07 | [`basketball/mens-college-basketball`](https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams) |
+| 🏀&nbsp;Basketball | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png" alt="NCAA Women's Basketball logo" height="20"></picture> NCAA Women's Basketball | 🟢 In progress · ends 2027-04-07 | [`basketball/womens-college-basketball`](https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams) |
+| 🏈&nbsp;Football | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png" alt="College Football logo" height="20"></picture> College Football | 🟢 In progress · ends 2027-01-28 | [`football/college-football`](https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams) |
+| 🏒&nbsp;Hockey | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png" alt="NCAA Men's Ice Hockey logo" height="20"></picture> NCAA Men's Ice Hockey | 🔴 Off-season · starts 2026-09-01 | [`hockey/mens-college-hockey`](https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/teams) |
 <!-- supported-sports:end -->
 
 ---
@@ -919,6 +927,22 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 
 ---
 
+## NCAA Men's Basketball
+
+Use ESPN's current team directory for abbreviations. Common examples: `ARIZ` (Arizona), `ARK` (Arkansas), `ASU` (Arizona State), `AUB` (Auburn).
+
+## NCAA Women's Basketball
+
+Use ESPN's current team directory for abbreviations. Common examples: `UCONN` (Connecticut), `SC` (South Carolina), `ND` (Notre Dame), `TENN` (Tennessee).
+
+## College Football
+
+Use ESPN's current team directory for abbreviations. Common examples: `ALA` (Alabama), `UGA` (Georgia), `OSU` (Ohio State), `MICH` (Michigan).
+
+## NCAA Men's Ice Hockey
+
+Use ESPN's current team directory for abbreviations. Common examples: `BC` (Boston College), `MICH` (Michigan), `UND` (North Dakota), `BU` (Boston University).
+
 ## Run Locally
 
 ```bash
@@ -952,7 +976,26 @@ SPORT=nwsl TEAM=GFC node src/index.js --demo
 SPORT=saudipro TEAM=HIL node src/index.js --demo
 SPORT=j1 TEAM=KAW node src/index.js --demo
 SPORT=gleague TEAM=OSC node src/index.js --demo
+SPORT=ncaab TEAM=ARIZ node src/index.js --demo
+SPORT=ncaaw TEAM=UCONN node src/index.js --demo
+SPORT=ncaaf TEAM=ALA node src/index.js --demo
+SPORT=ncaa_hockey TEAM=BC node src/index.js --demo
 ```
+
+### College competition examples
+
+These ESPN college leagues have large, changing team directories. Use the
+abbreviation shown by ESPN; the adapter discovers the current team list when
+needed. Common examples:
+
+| Competition | Sport input | Example team |
+|---|---|---|
+| NCAA Men's Basketball | `ncaab` | `ARIZ` (Arizona) |
+| NCAA Women's Basketball | `ncaaw` | `UCONN` (Connecticut) |
+| College Football | `ncaaf` | `ALA` (Alabama) |
+| NCAA Men's Ice Hockey | `ncaa_hockey` | `BC` (Boston College) |
+
+The corresponding ESPN directories are [men's basketball](https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams), [women's basketball](https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams), [college football](https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams), and [men's ice hockey](https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/teams).
 
 ---
 
@@ -975,7 +1018,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | GitHub token with `repo` scope |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl`, `saudipro`, `j1`, `gleague` |
+| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl`, `saudipro`, `j1`, `scottish`, `belgian`, `ucl`, `uel`, `gleague`, `ncaab`, `ncaaw`, `ncaaf`, `ncaa_hockey` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
