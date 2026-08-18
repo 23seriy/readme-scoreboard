@@ -3,8 +3,22 @@ const {
   formatSeasonCell,
   updateSupportedSportsTable,
 } = require("../../scripts/update-season-status");
+const fs = require("fs");
+const path = require("path");
+
+const workflow = fs.readFileSync(
+  path.join(__dirname, "../../.github/workflows/update-season-status.yml"),
+  "utf-8"
+);
 
 describe("season status updater", () => {
+  it("serializes scheduled runs and protects the automation branch push", () => {
+    expect(workflow).toContain("group: season-status");
+    expect(workflow).toContain("cancel-in-progress: false");
+    expect(workflow).toContain("git push --force-with-lease=");
+    expect(workflow).not.toContain("git push --force origin automation/season-status");
+  });
+
   it("marks a season in progress and shows its end date", () => {
     const status = classifySeason(
       { startDate: "2026-08-01T00:00:00Z", endDate: "2027-05-31T23:59:59Z" },
