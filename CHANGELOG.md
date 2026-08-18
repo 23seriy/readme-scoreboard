@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-08-18
+
 ### Added
 
 - Weekly automation for refreshing NCAA team abbreviation tables from ESPN.
