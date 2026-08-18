@@ -4,6 +4,7 @@ const readme = fs.readFileSync("README.md", "utf8");
 const ci = fs.readFileSync(".github/workflows/ci.yml", "utf8");
 const action = fs.readFileSync("action.yml", "utf8");
 const contributing = fs.readFileSync("CONTRIBUTING.md", "utf8");
+const release = fs.readFileSync(".github/workflows/release.yml", "utf8");
 
 describe("README navigation links", () => {
   const collegeLinks = [
@@ -40,6 +41,14 @@ describe("repository CI configuration", () => {
 });
 
 describe("documentation and action metadata", () => {
+  it("keeps the release metadata and v1 alias workflow aligned", () => {
+    expect(require("../package.json").version).toBe("1.4.0");
+    expect(fs.readFileSync("CHANGELOG.md", "utf8")).toContain("## [1.4.0]");
+    expect(release).toContain("types: [published]");
+    expect(release).toContain('git tag -fa "$major"');
+    expect(release).toContain("git push origin \"$major\" --force");
+  });
+
   it("documents the current supported inputs and maintenance workflow", () => {
     expect(readme).toContain("target_repo: 23seriy/23seriy");
     expect(readme).toContain("node scripts/update-college-abbreviations.js");
