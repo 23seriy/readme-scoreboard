@@ -1,0 +1,43 @@
+name: Update college rosters
+
+on:
+  schedule:
+    - cron: "23 5 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: college-rosters
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: node scripts/update-college-abbreviations.js
+      - name: Publish college roster branch
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "College rosters are already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C automation/college-rosters
+          git add README.md
+          git commit -m "docs: update college team abbreviations"
+          git fetch origin automation/college-rosters || true
+          if git show-ref --verify --quiet refs/remotes/origin/automation/college-rosters; then
+            git push --force-with-lease=refs/heads/automation/college-rosters:$(git rev-parse refs/remotes/origin/automation/college-rosters) origin automation/college-rosters
+          else
+            git push origin automation/college-rosters
+          fi
+          echo "Updated automation/college-rosters. Open or update a PR from that branch."

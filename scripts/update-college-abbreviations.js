@@ -18,6 +18,10 @@ function flattenTeams(data) {
 }
 
 function renderSection(slug, title, teams) {
+  if (!teams.length) {
+    throw new Error(`No teams returned for ${slug}; refusing to replace its README section`);
+  }
+
   const rows = [
     `<!-- college-abbreviations:${slug}:start -->`,
     `## ${title} Team Abbreviations`,
