@@ -51,8 +51,10 @@ const LEAGUE_LOGOS = {
   nwsl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png", alt: "NWSL" },
   saudipro: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png", alt: "Saudi Pro League" },
   j1: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2199.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2199.png", alt: "J1 League" },
+  scottish: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/45.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/45.png", alt: "Scottish Premiership" },
+  belgian: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/6.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/6.png", alt: "Belgian Pro League" },
   ucl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png", alt: "UEFA Champions League" },
-  uel: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/3.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/3.png", alt: "UEFA Europa League" },
+  uel: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2310.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2310.png", alt: "UEFA Europa League" },
 };
 
 /**

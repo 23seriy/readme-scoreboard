@@ -34,8 +34,8 @@ describe("Saudi Pro League adapter", () => {
     });
   });
 
-  it("uses fallback crest assets when ESPN has no logo for DIR and ALF", () => {
-    expect(saudipro.getLogoUrl("DIR")).toContain("commons.wikimedia.org/wiki/Special:FilePath/");
-    expect(saudipro.getLogoUrl("ALF")).toContain("commons.wikimedia.org/wiki/Special:FilePath/");
+  it("uses stable fallback crest assets when ESPN has no logo for DIR and ALF", () => {
+    expect(saudipro.getLogoUrl("DIR")).toContain("upload.wikimedia.org/wikipedia/commons/thumb/");
+    expect(saudipro.getLogoUrl("ALF")).toContain("upload.wikimedia.org/wikipedia/commons/thumb/");
   });
 });
