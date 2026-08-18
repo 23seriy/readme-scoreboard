@@ -3,7 +3,7 @@ const fs = require("fs");
 const os = require("os");
 
 // injectContent is not exported, so we test through updateReadmeLocal
-const { updateReadmeLocal } = require("../src/updater");
+const { updateReadme, updateReadmeLocal, parseTargetRepo } = require("../src/updater");
 
 function makeReadme(markerName, inner = "") {
   const start = `<!-- ${markerName} start -->`;
@@ -95,5 +95,30 @@ describe("updateReadmeLocal / injectContent", () => {
     // timing precision, so just verify the content is still valid
     const result = fs.readFileSync(readmePath, "utf-8");
     expect(result).toContain("same content");
+  });
+});
+
+describe("updateReadme target handling", () => {
+  it.each(["owner/repo/extra", "/repo", "owner/", "owner", ""]) (
+    "rejects malformed target %s before API use",
+    (target) => {
+      expect(() => parseTargetRepo(target)).toThrow(/owner\/repo/);
+    }
+  );
+
+  it("retries once after a stale README SHA conflict", async () => {
+    const getContent = jest.fn()
+      .mockResolvedValueOnce({ data: { content: Buffer.from(makeReadme("readme-scoreboard")).toString("base64"), sha: "old-sha" } })
+      .mockResolvedValueOnce({ data: { content: Buffer.from(makeReadme("readme-scoreboard")).toString("base64"), sha: "new-sha" } });
+    const createOrUpdateFileContents = jest.fn()
+      .mockRejectedValueOnce({ status: 409, message: "sha conflict" })
+      .mockResolvedValueOnce({ data: {} });
+    const octokit = { repos: { getContent, createOrUpdateFileContents } };
+
+    await updateReadme(octokit, "owner/repo", "fresh content");
+
+    expect(getContent).toHaveBeenCalledTimes(2);
+    expect(createOrUpdateFileContents).toHaveBeenCalledTimes(2);
+    expect(createOrUpdateFileContents.mock.calls[1][0].sha).toBe("new-sha");
   });
 });

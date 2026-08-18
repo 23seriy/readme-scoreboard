@@ -11,12 +11,39 @@ function getMarkers(markerName) {
   };
 }
 
-async function updateReadme(octokit, targetRepo, content, markerName) {
-  const [owner, repo] = targetRepo.split("/");
+function parseTargetRepo(targetRepo) {
+  const parts = typeof targetRepo === "string" ? targetRepo.split("/") : [];
+  if (parts.length !== 2 || !parts[0] || !parts[1]) {
+    throw new Error(`Invalid TARGET_REPO format: "${targetRepo}". Expected: owner/repo`);
+  }
+  return { owner: parts[0], repo: parts[1] };
+}
 
-  if (!owner || !repo) {
-    console.error(`Invalid TARGET_REPO format: "${targetRepo}". Expected: owner/repo`);
+async function fetchReadme(octokit, owner, repo) {
+  const { data } = await octokit.repos.getContent({ owner, repo, path: "README.md" });
+  return data;
+}
+
+async function writeReadme(octokit, owner, repo, readmeData, content) {
+  return octokit.repos.createOrUpdateFileContents({
+    owner,
+    repo,
+    path: "README.md",
+    message: "📊 Update sports stats via readme-scoreboard",
+    content: Buffer.from(content).toString("base64"),
+    sha: readmeData.sha,
+  });
+}
+
+async function updateReadme(octokit, targetRepo, content, markerName) {
+  let owner;
+  let repo;
+  try {
+    ({ owner, repo } = parseTargetRepo(targetRepo));
+  } catch (error) {
+    console.error(error.message);
     process.exit(1);
+    return;
   }
 
   console.log(`📝 Updating README in ${owner}/${repo}...`);
@@ -24,15 +51,11 @@ async function updateReadme(octokit, targetRepo, content, markerName) {
   // Fetch current README
   let readmeData;
   try {
-    const { data } = await octokit.repos.getContent({
-      owner,
-      repo,
-      path: "README.md",
-    });
-    readmeData = data;
+    readmeData = await fetchReadme(octokit, owner, repo);
   } catch (error) {
     console.error(`Failed to fetch README.md from ${owner}/${repo}: ${error.message}`);
     process.exit(1);
+    return;
   }
 
   const currentContent = Buffer.from(readmeData.content, "base64").toString("utf-8");
@@ -44,20 +67,38 @@ async function updateReadme(octokit, targetRepo, content, markerName) {
     return;
   }
 
-  // Commit updated README
   try {
-    await octokit.repos.createOrUpdateFileContents({
-      owner,
-      repo,
-      path: "README.md",
-      message: "📊 Update sports stats via readme-scoreboard",
-      content: Buffer.from(newReadme).toString("base64"),
-      sha: readmeData.sha,
-    });
+    await writeReadme(octokit, owner, repo, readmeData, newReadme);
     console.log("✅ README.md updated successfully!");
   } catch (error) {
+    const status = error.status || error.response?.status;
+    if (status === 409) {
+      let retryError;
+      try {
+        const latestReadme = await fetchReadme(octokit, owner, repo);
+        const latestContent = Buffer.from(latestReadme.content, "base64").toString("utf-8");
+        const latestReadmeContent = injectContent(latestContent, content, markerName);
+
+        if (latestReadmeContent === latestContent) {
+          console.log("ℹ️  No changes detected after refreshing README, skipping commit.");
+          return;
+        }
+
+        await writeReadme(octokit, owner, repo, latestReadme, latestReadmeContent);
+        console.log("✅ README.md updated successfully after refreshing its version!");
+        return;
+      } catch (caughtError) {
+        retryError = caughtError;
+      }
+      if (retryError) {
+        console.error(`Failed to update README.md: ${retryError.message}`);
+        process.exit(1);
+        return;
+      }
+    }
     console.error(`Failed to update README.md: ${error.message}`);
     process.exit(1);
+    return;
   }
 }
 
@@ -106,4 +147,4 @@ function updateReadmeLocal(workspacePath, content, markerName) {
   console.log("✅ README.md updated on disk — workflow will commit if changed.");
 }
 
-module.exports = { updateReadme, updateReadmeLocal };
+module.exports = { updateReadme, updateReadmeLocal, parseTargetRepo };
