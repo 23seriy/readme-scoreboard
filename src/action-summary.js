@@ -22,4 +22,13 @@ function writeStepSummary(details, summaryPath = process.env.GITHUB_STEP_SUMMARY
   return true;
 }
 
-module.exports = { summaryMarkdown, writeStepSummary };
+function writeActionOutputs({ updated, mode, targetRepo }, outputPath = process.env.GITHUB_OUTPUT) {
+  if (!outputPath) return false;
+  fs.appendFileSync(
+    outputPath,
+    `updated=${updated}\nmode=${mode}\ntarget_repo=${targetRepo || ""}\n`
+  );
+  return true;
+}
+
+module.exports = { summaryMarkdown, writeStepSummary, writeActionOutputs };

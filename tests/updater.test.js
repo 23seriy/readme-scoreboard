@@ -26,7 +26,7 @@ describe("updateReadmeLocal / injectContent", () => {
     const readmePath = path.join(tmpDir, "README.md");
     fs.writeFileSync(readmePath, makeReadme("readme-scoreboard"));
 
-    updateReadmeLocal(tmpDir, "new content");
+    expect(updateReadmeLocal(tmpDir, "new content")).toBe(true);
 
     const result = fs.readFileSync(readmePath, "utf-8");
     expect(result).toContain("new content");
@@ -89,7 +89,7 @@ describe("updateReadmeLocal / injectContent", () => {
     fs.writeFileSync(readmePath, initial);
 
     // Inject the same content that's already there after injection
-    updateReadmeLocal(tmpDir, "same content");
+    expect(updateReadmeLocal(tmpDir, "same content")).toBe(false);
 
     // mtimeMs should be the same if no write happened — but Jest doesn't guarantee
     // timing precision, so just verify the content is still valid
@@ -115,7 +115,7 @@ describe("updateReadme target handling", () => {
       .mockResolvedValueOnce({ data: {} });
     const octokit = { repos: { getContent, createOrUpdateFileContents } };
 
-    await updateReadme(octokit, "owner/repo", "fresh content");
+    await expect(updateReadme(octokit, "owner/repo", "fresh content")).resolves.toBe(true);
 
     expect(getContent).toHaveBeenCalledTimes(2);
     expect(createOrUpdateFileContents).toHaveBeenCalledTimes(2);

@@ -86,6 +86,20 @@ describe("documentation and action metadata", () => {
     expect(readme).toContain("Accepts `true`/`false`");
   });
 
+  it("documents the action outputs", () => {
+    expect(readme).toContain("## Action Outputs");
+    expect(readme).toContain("`${{ steps.scoreboard.outputs.updated }}`");
+    expect(readme).toContain("`target_repo`");
+  });
+
+  it("exposes machine-readable outputs from the runtime step", () => {
+    expect(action).toMatch(/outputs:\n[\s\S]*updated:/);
+    expect(action).toContain("value: ${{ steps.run.outputs.updated }}");
+    expect(action).toContain("value: ${{ steps.run.outputs.mode }}");
+    expect(action).toContain("value: ${{ steps.run.outputs.target_repo }}");
+    expect(action).toContain("- id: run");
+  });
+
   it("documents least-privilege token permissions", () => {
     expect(readme).toContain("Contents: Read and write on the target repo");
     expect(readme).toMatch(/Only select\s+repositories/);

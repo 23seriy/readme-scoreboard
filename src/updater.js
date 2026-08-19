@@ -64,12 +64,13 @@ async function updateReadme(octokit, targetRepo, content, markerName) {
   // Check if content actually changed
   if (newReadme === currentContent) {
     console.log("ℹ️  No changes detected, skipping commit.");
-    return;
+    return false;
   }
 
   try {
     await writeReadme(octokit, owner, repo, readmeData, newReadme);
     console.log("✅ README.md updated successfully!");
+    return true;
   } catch (error) {
     const status = error.status || error.response?.status;
     if (status === 409) {
@@ -81,12 +82,12 @@ async function updateReadme(octokit, targetRepo, content, markerName) {
 
         if (latestReadmeContent === latestContent) {
           console.log("ℹ️  No changes detected after refreshing README, skipping commit.");
-          return;
+          return false;
         }
 
         await writeReadme(octokit, owner, repo, latestReadme, latestReadmeContent);
         console.log("✅ README.md updated successfully after refreshing its version!");
-        return;
+        return true;
       } catch (caughtError) {
         retryError = caughtError;
       }
@@ -140,11 +141,12 @@ function updateReadmeLocal(workspacePath, content, markerName) {
 
   if (newReadme === currentContent) {
     console.log("ℹ️  No changes detected, skipping write.");
-    return;
+    return false;
   }
 
   fs.writeFileSync(readmePath, newReadme, "utf-8");
   console.log("✅ README.md updated on disk — workflow will commit if changed.");
+  return true;
 }
 
 module.exports = { updateReadme, updateReadmeLocal, parseTargetRepo };
