@@ -4,6 +4,7 @@ const { render } = require("./renderers/markdown");
 const { updateReadme, updateReadmeLocal } = require("./updater");
 const { LEAGUE_BY_KEY } = require("./config/leagues");
 const { validateInputs } = require("./validation");
+const { writeStepSummary } = require("./action-summary");
 
 const {
   GH_TOKEN: githubToken,
@@ -80,8 +81,11 @@ async function main() {
   console.log("--- End Preview ---\n");
 
   // Update profile README (skip in demo mode)
+  let summaryResult;
+  let summaryDestination = targetRepo;
   if (isDemo) {
     console.log("⚠️  Skipping README update (preview only)");
+    summaryResult = "⏭️ README update skipped (preview only)";
   } else if (githubToken) {
     // Use the GitHub API whenever a token is available. GitHub Actions always
     // sets GITHUB_WORKSPACE, even when no repository has been checked out.
@@ -95,12 +99,24 @@ async function main() {
     }
 
     await updateReadme(octokit, repo, content, markerName);
+    summaryDestination = repo;
+    summaryResult = "✅ README updated";
   } else if (githubWorkspace) {
     // Running locally inside a checked-out repository — write to disk.
     updateReadmeLocal(githubWorkspace, content, markerName);
+    summaryResult = "✅ README updated locally";
   } else {
     console.log("⚠️  Skipping README update (no GITHUB_WORKSPACE or GH_TOKEN)");
+    summaryResult = "⏭️ README update skipped (no destination configured)";
   }
+
+  writeStepSummary({
+    sport: sportName,
+    team,
+    mode: isDemo ? "preview" : "live",
+    result: summaryResult,
+    targetRepo: summaryDestination,
+  });
 }
 
 if (require.main === module) {
