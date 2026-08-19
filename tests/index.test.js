@@ -1,3 +1,7 @@
+const fs = require("node:fs");
+const os = require("node:os");
+const path = require("node:path");
+
 describe("main", () => {
   const originalEnv = process.env;
   let updateReadme;
@@ -14,7 +18,7 @@ describe("main", () => {
       TARGET_REPO: "",
     };
 
-    updateReadme = jest.fn().mockResolvedValue();
+    updateReadme = jest.fn().mockResolvedValue(true);
     updateReadmeLocal = jest.fn();
 
     jest.doMock("@octokit/rest", () => ({
@@ -42,12 +46,19 @@ describe("main", () => {
   });
 
   it("uses the GitHub API when an Actions workspace and token are both present", async () => {
+    const outputPath = path.join(os.tmpdir(), `readme-scoreboard-index-output-${process.pid}`);
+    process.env.GITHUB_OUTPUT = outputPath;
     const { main } = require("../src/index");
 
-    await main();
+    try {
+      await main();
 
-    expect(updateReadme).toHaveBeenCalledWith(expect.anything(), "octocat/octocat", "scoreboard", undefined);
-    expect(updateReadmeLocal).not.toHaveBeenCalled();
+      expect(updateReadme).toHaveBeenCalledWith(expect.anything(), "octocat/octocat", "scoreboard", undefined);
+      expect(updateReadmeLocal).not.toHaveBeenCalled();
+      expect(fs.readFileSync(outputPath, "utf8")).toBe("updated=true\nmode=live\ntarget_repo=octocat/octocat\n");
+    } finally {
+      fs.rmSync(outputPath, { force: true });
+    }
   });
 
   it("renders live data without writing when dry run is enabled", async () => {

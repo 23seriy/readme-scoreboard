@@ -71,6 +71,7 @@ Western Conference · Pacific Division
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
 - [Action Inputs (`with:`)](#action-inputs-with)
+- [Action Outputs](#action-outputs)
 - [License](#license)
 - [Changelog](CHANGELOG.md)
 
@@ -1908,6 +1909,19 @@ is not recognized, the action reports several valid abbreviations for that leagu
 `target_repo` must use the `owner/repository` format.
 
 \* Required for live remote README updates. Not required in `--demo` or `dry_run` mode.
+
+## Action Outputs
+
+The action exposes outputs for downstream workflow steps:
+
+| Output | Values | Description |
+|--------|--------|-------------|
+| `updated` | `true` / `false` | Whether the target README changed during this run |
+| `mode` | `live`, `dry-run`, `preview` | How the action ran |
+| `target_repo` | `owner/repo` or empty | Repository selected for the update |
+
+For example, use `${{ steps.scoreboard.outputs.updated }}` after giving your
+action step the id `scoreboard`.
 
 ---
 

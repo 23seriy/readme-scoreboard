@@ -4,7 +4,7 @@ const { render } = require("./renderers/markdown");
 const { updateReadme, updateReadmeLocal } = require("./updater");
 const { LEAGUE_BY_KEY } = require("./config/leagues");
 const { validateInputs } = require("./validation");
-const { writeStepSummary } = require("./action-summary");
+const { writeStepSummary, writeActionOutputs } = require("./action-summary");
 
 const {
   GH_TOKEN: githubToken,
@@ -90,6 +90,8 @@ async function main() {
   console.log("--- End Preview ---\n");
 
   // Update profile README (skip in demo and dry-run modes)
+  const mode = isDemo ? "preview" : isDryRun ? "dry-run" : "live";
+  let updated = false;
   let summaryResult;
   let summaryDestination = targetRepo;
   if (isDemo || isDryRun) {
@@ -108,13 +110,13 @@ async function main() {
       console.log(`ℹ️  No TARGET_REPO set, using profile repo: ${repo}`);
     }
 
-    await updateReadme(octokit, repo, content, markerName);
+    updated = Boolean(await updateReadme(octokit, repo, content, markerName));
     summaryDestination = repo;
-    summaryResult = "✅ README updated";
+    summaryResult = updated ? "✅ README updated" : "ℹ️ README unchanged";
   } else if (githubWorkspace) {
     // Running locally inside a checked-out repository — write to disk.
-    updateReadmeLocal(githubWorkspace, content, markerName);
-    summaryResult = "✅ README updated locally";
+    updated = Boolean(updateReadmeLocal(githubWorkspace, content, markerName));
+    summaryResult = updated ? "✅ README updated locally" : "ℹ️ README unchanged locally";
   } else {
     console.log("⚠️  Skipping README update (no GITHUB_WORKSPACE or GH_TOKEN)");
     summaryResult = "⏭️ README update skipped (no destination configured)";
@@ -123,10 +125,11 @@ async function main() {
   writeStepSummary({
     sport: sportName,
     team,
-    mode: isDemo ? "preview" : isDryRun ? "dry-run" : "live",
+    mode,
     result: summaryResult,
     targetRepo: summaryDestination,
   });
+  writeActionOutputs({ updated, mode, targetRepo: summaryDestination });
 }
 
 if (require.main === module) {

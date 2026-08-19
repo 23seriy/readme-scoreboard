@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
-const { summaryMarkdown, writeStepSummary } = require("../src/action-summary");
+const { summaryMarkdown, writeStepSummary, writeActionOutputs } = require("../src/action-summary");
 
 describe("GitHub Actions step summary", () => {
   it("renders the run details as a compact table", () => {
@@ -27,6 +27,17 @@ describe("GitHub Actions step summary", () => {
       expect(writeStepSummary({ sport: "nba", team: "LAL", mode: "live", result: "✅ README updated" }, "")).toBe(false);
     } finally {
       fs.rmSync(summaryPath, { force: true });
+    }
+  });
+
+  it("writes machine-readable outputs for downstream workflow steps", () => {
+    const outputPath = path.join(os.tmpdir(), `readme-scoreboard-output-${process.pid}`);
+    try {
+      expect(writeActionOutputs({ updated: true, mode: "live", targetRepo: "owner/repo" }, outputPath)).toBe(true);
+      expect(fs.readFileSync(outputPath, "utf8")).toBe("updated=true\nmode=live\ntarget_repo=owner/repo\n");
+      expect(writeActionOutputs({ updated: false, mode: "dry-run", targetRepo: "" }, "")).toBe(false);
+    } finally {
+      fs.rmSync(outputPath, { force: true });
     }
   });
 });
