@@ -132,7 +132,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -154,7 +154,7 @@ latest changes and is best suited to trying upcoming features.
 Add a step per sport, each with a `marker` matching a pair in your README:
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -162,7 +162,7 @@ Add a step per sport, each with a `marker` matching a pair in your README:
           team: LAL
           marker: readme-scoreboard-nba
 
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -178,7 +178,7 @@ name, and fail the job if you renamed it.
 #### MLB Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -190,7 +190,7 @@ name, and fail the job if you renamed it.
 #### NFL Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -202,7 +202,7 @@ name, and fail the job if you renamed it.
 #### NHL Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -214,7 +214,7 @@ name, and fail the job if you renamed it.
 #### MLS Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -226,7 +226,7 @@ name, and fail the job if you renamed it.
 #### Premier League Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -238,7 +238,7 @@ name, and fail the job if you renamed it.
 #### La Liga Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -250,7 +250,7 @@ name, and fail the job if you renamed it.
 #### Bundesliga Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -262,7 +262,7 @@ name, and fail the job if you renamed it.
 #### Serie A Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -274,7 +274,7 @@ name, and fail the job if you renamed it.
 #### Ligue 1 Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -286,7 +286,7 @@ name, and fail the job if you renamed it.
 #### Primeira Liga Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -298,7 +298,7 @@ name, and fail the job if you renamed it.
 #### Eredivisie Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -310,7 +310,7 @@ name, and fail the job if you renamed it.
 #### WNBA Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -322,7 +322,7 @@ name, and fail the job if you renamed it.
 #### Liga MX Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -334,7 +334,7 @@ name, and fail the job if you renamed it.
 #### Brasileirão Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -346,7 +346,7 @@ name, and fail the job if you renamed it.
 #### NWSL Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -358,7 +358,7 @@ name, and fail the job if you renamed it.
 #### Saudi Pro League Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -370,7 +370,7 @@ name, and fail the job if you renamed it.
 #### J1 League Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -382,7 +382,7 @@ name, and fail the job if you renamed it.
 #### NBA G League Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -394,7 +394,7 @@ name, and fail the job if you renamed it.
 #### Scottish Premiership Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -406,7 +406,7 @@ name, and fail the job if you renamed it.
 #### Belgian Pro League Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -418,7 +418,7 @@ name, and fail the job if you renamed it.
 #### UEFA Champions League Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
@@ -430,7 +430,7 @@ name, and fail the job if you renamed it.
 #### UEFA Europa League Example
 
 ```yaml
-      - uses: 23seriy/readme-scoreboard@main
+      - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy

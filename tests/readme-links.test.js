@@ -81,6 +81,14 @@ describe("documentation and action metadata", () => {
     expect(readme).toContain("NCAA Men's Ice Hockey");
   });
 
+  it("pins every README action example to the stable major release", () => {
+    const examples = readme.match(/uses: 23seriy\/readme-scoreboard@[^\s]+/g) || [];
+    expect(examples.length).toBeGreaterThan(0);
+    expect(examples).toEqual(expect.arrayContaining(["uses: 23seriy/readme-scoreboard@v1"]));
+    expect(examples).not.toContain("uses: 23seriy/readme-scoreboard@main");
+    expect(examples.every((example) => example.endsWith("@v1"))).toBe(true);
+  });
+
   it("keeps action metadata aligned with every supported league key", () => {
     const keys = require("../src/config/leagues").LEAGUES.map(({ key }) => key);
     keys.forEach((key) => expect(action).toContain(key));
