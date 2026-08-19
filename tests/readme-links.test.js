@@ -39,6 +39,22 @@ describe("README navigation links", () => {
       expect(readme).toContain(`${league.name} Team Abbreviations`);
     });
   });
+
+  it("keeps every supported-sports row aligned with the league registry", () => {
+    const start = readme.indexOf("<!-- supported-sports:start -->");
+    const end = readme.indexOf("<!-- supported-sports:end -->");
+    const table = readme.slice(start, end);
+
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    LEAGUES.forEach((league) => {
+      expect(table).toContain(` ${league.name} |`);
+      const endpoint = league.endpointOverride
+        ? league.endpointOverride.match(/\((https:\/\/[^)]+)\)/)[1]
+        : `https://site.api.espn.com/apis/site/v2/sports/${league.endpoint}/teams`;
+      expect(table).toContain(endpoint);
+    });
+  });
 });
 
 describe("repository CI configuration", () => {
