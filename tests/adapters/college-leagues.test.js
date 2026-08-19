@@ -19,7 +19,7 @@ describe("college roster automation", () => {
     expect(workflow).toContain('cron: "23 5 * * 1"');
     expect(workflow).toContain("workflow_dispatch:");
     expect(workflow).toContain("node scripts/update-college-abbreviations.js");
-    expect(workflow).toContain("group: college-rosters");
+    expect(workflow).toContain("group: readme-maintenance");
     expect(workflow).toContain("git push --force-with-lease=");
   });
 
