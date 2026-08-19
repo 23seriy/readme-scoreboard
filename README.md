@@ -1784,6 +1784,16 @@ npm install
 npm start
 ```
 
+Before a live run, check the configuration without making any API requests:
+
+```bash
+npm run doctor
+```
+
+For a preview configuration, use `npm run doctor -- --demo`. The doctor checks
+the sport, team abbreviation, marker, and `target_repo` format and reports
+several valid team examples when one is unknown.
+
 ### Demo Mode
 
 Preview output without API keys:
