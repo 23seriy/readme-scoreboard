@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: college-rosters
+  group: readme-maintenance
   cancel-in-progress: false
 
 permissions:

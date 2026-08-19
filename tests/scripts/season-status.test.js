@@ -17,7 +17,7 @@ const collegeWorkflow = fs.readFileSync(
 
 describe("season status updater", () => {
   it("serializes scheduled runs and protects the automation branch push", () => {
-    expect(workflow).toContain("group: season-status");
+    expect(workflow).toContain("group: readme-maintenance");
     expect(workflow).toContain("cancel-in-progress: false");
     expect(workflow).toContain("git push --force-with-lease=");
     expect(workflow).not.toContain("git push --force origin automation/season-status");
