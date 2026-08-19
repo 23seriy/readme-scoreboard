@@ -86,6 +86,13 @@ describe("documentation and action metadata", () => {
     expect(readme).toContain("| `dry_run` | No | `false`");
   });
 
+  it("documents least-privilege token permissions", () => {
+    expect(readme).toContain("Contents: Read and write on the target repo");
+    expect(readme).toMatch(/Only select\s+repositories/);
+    expect(readme).toContain("Classic tokens with `repo` scope are also");
+    expect(action).toContain("Contents read/write access to target_repo");
+  });
+
   it("declares write permission in the canonical workflow example", () => {
     const workflowStart = readme.indexOf("name: Update Scoreboard");
     const workflowEnd = readme.indexOf("```", workflowStart);

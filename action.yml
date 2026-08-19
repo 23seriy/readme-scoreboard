@@ -12,7 +12,7 @@ inputs:
     description: "Team abbreviation (e.g. LAL, TOR, NYR)"
     required: true
   gh_token:
-    description: "GitHub token with repo scope (required for live README updates)"
+    description: "Token with Contents read/write access to target_repo (required for live README updates)"
     required: false
   marker:
     description: "HTML comment marker name (default: readme-scoreboard). Use unique names for multiple scoreboards."
