@@ -142,6 +142,10 @@ on:
         description: "Team abbreviation (for example, LAL or TOR)"
         required: true
         default: LAL
+      marker:
+        description: "README marker (for example, readme-scoreboard-nba)"
+        required: true
+        default: readme-scoreboard-nba
 permissions:
   contents: write
 jobs:
@@ -154,13 +158,13 @@ jobs:
           target_repo: 23seriy/23seriy
           sport: ${{ inputs.sport || 'nba' }}
           team: ${{ inputs.team || 'LAL' }}
-          marker: readme-scoreboard-nba
+          marker: ${{ inputs.marker || 'readme-scoreboard-nba' }}
 ```
 
 Scheduled runs use the NBA/LAL defaults above. When you choose **Run workflow**
-in GitHub, the inputs let you select a different supported league and team
-without editing the file. Change `marker` if you switch sports, and keep it
-matching the pair you added in step 1. Done! The action updates your profile
+in GitHub, the inputs let you select a different supported league, team, and
+README marker without editing the file. Set the marker to the pair you added in
+step 1; each sport should have its own marker. Done! The action updates your profile
 README through the GitHub API, so no checkout or separate commit step is needed.
 
 To verify live API data without changing a README, set `dry_run: true`. Dry runs
