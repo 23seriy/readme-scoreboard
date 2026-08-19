@@ -1,6 +1,7 @@
 const {
   classifySeason,
   formatSeasonCell,
+  normalizeSeasonWindow,
   updateSupportedSportsTable,
 } = require("../../scripts/update-season-status");
 const fs = require("fs");
@@ -55,6 +56,16 @@ describe("season status updater", () => {
 
     expect(status).toEqual({ active: false, date: "2027-03-01" });
     expect(formatSeasonCell(status)).toBe("🔴 Off-season · starts 2027-03-01");
+  });
+
+  it("uses the first regular-season contest date for NCAA men's basketball", () => {
+    expect(normalizeSeasonWindow("NCAA Men's Basketball", {
+      startDate: "2026-07-13T00:00:00Z",
+      endDate: "2027-04-07T23:59:59Z",
+    })).toEqual({
+      startDate: "2026-11-02T00:00:00Z",
+      endDate: "2027-04-07T23:59:59Z",
+    });
   });
 
   it("updates only the marked supported-sports table", () => {
