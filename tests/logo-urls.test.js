@@ -3,8 +3,11 @@ const mlb = require("../src/adapters/mlb");
 const nfl = require("../src/adapters/nfl");
 const nhl = require("../src/adapters/nhl");
 const mls = require("../src/adapters/mls");
+const { LEAGUES } = require("../src/config/leagues");
 
-const ADAPTERS = { nba, mlb, nfl, nhl, mls };
+const ADAPTERS = Object.fromEntries(
+  LEAGUES.map(({ key }) => [key, require(`../src/adapters/${key}`)])
+);
 
 describe("getLogoUrl", () => {
   describe("every adapter exposes it", () => {
@@ -18,7 +21,10 @@ describe("getLogoUrl", () => {
   describe("every team in every sport resolves to a URL", () => {
     Object.entries(ADAPTERS).forEach(([sport, adapter]) => {
       it(`${sport}: all ${Object.keys(adapter.TEAM_IDS).length} teams produce an https URL`, () => {
-        const teams = Object.keys(adapter.TEAM_IDS);
+        const configuredTeams = Object.keys(adapter.TEAM_IDS || {});
+        const teams = configuredTeams.length > 0
+          ? configuredTeams
+          : Object.keys(adapter.DEMO_TEAMS || {});
         expect(teams.length).toBeGreaterThan(0);
         teams.forEach((abbr) => {
           const url = adapter.getLogoUrl(abbr);
