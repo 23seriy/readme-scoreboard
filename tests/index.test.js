@@ -61,4 +61,16 @@ describe("main", () => {
     expect(updateReadme).not.toHaveBeenCalled();
     expect(updateReadmeLocal).not.toHaveBeenCalled();
   });
+
+  it("accepts explicit dry-run boolean values and rejects typos", () => {
+    const { parseDryRun } = require("../src/index");
+
+    expect(parseDryRun("true")).toBe(true);
+    expect(parseDryRun("1")).toBe(true);
+    expect(parseDryRun("yes")).toBe(true);
+    expect(parseDryRun("false")).toBe(false);
+    expect(parseDryRun("0")).toBe(false);
+    expect(parseDryRun("no")).toBe(false);
+    expect(() => parseDryRun("tru")).toThrow(/DRY_RUN must be true or false/);
+  });
 });

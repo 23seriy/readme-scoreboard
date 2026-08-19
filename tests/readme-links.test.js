@@ -83,7 +83,7 @@ describe("documentation and action metadata", () => {
 
   it("documents the dry-run action input", () => {
     expect(action).toContain("  dry_run:");
-    expect(readme).toContain("| `dry_run` | No | `false`");
+    expect(readme).toContain("Accepts `true`/`false`");
   });
 
   it("documents least-privilege token permissions", () => {

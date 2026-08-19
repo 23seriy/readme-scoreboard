@@ -16,7 +16,15 @@ const {
 } = process.env;
 
 const isDemo = process.argv.includes("--demo");
-const isDryRun = /^(1|true|yes)$/i.test(process.env.DRY_RUN || "");
+
+function parseDryRun(value) {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  if (["true", "1", "yes"].includes(normalized)) return true;
+  if (["", "false", "0", "no"].includes(normalized)) return false;
+  throw new Error(`DRY_RUN must be true or false; received "${value}"`);
+}
+
+const isDryRun = parseDryRun(process.env.DRY_RUN);
 
 async function main() {
   if (!teamAbbr && !isDemo) {
@@ -125,4 +133,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { main };
+module.exports = { main, parseDryRun };

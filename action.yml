@@ -22,7 +22,7 @@ inputs:
     description: "Repo to update (default: your profile repo). Format: owner/repo"
     required: false
   dry_run:
-    description: "Fetch and render live data without updating a README"
+    description: "Fetch and render live data without updating a README (true/false)"
     required: false
     default: "false"
 runs:
