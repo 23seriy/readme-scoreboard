@@ -25,9 +25,11 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: node scripts/update-season-status.js
       - name: Publish season status branch
+        id: publish
         run: |
           if git diff --quiet -- README.md; then
             echo "Season status is already current"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -41,7 +43,9 @@ jobs:
           else
             git push origin automation/season-status
           fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
       - name: Open or update season status PR
+        if: steps.publish.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
