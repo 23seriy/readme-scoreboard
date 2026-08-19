@@ -208,5 +208,6 @@ module.exports = {
   getLogoUrl,
   getSeasonYear,
   TEAM_EMOJI,
+  DEMO_TEAMS,
   TEAM_IDS,
 };

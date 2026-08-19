@@ -219,6 +219,7 @@ module.exports = {
   getDemoData,
   getLogoUrl,
   TEAM_EMOJI,
+  DEMO_TEAMS,
   TEAM_IDS,
   ESPN_TEAM_IDS,
   ESPN_ABBR,
