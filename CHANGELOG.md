@@ -10,6 +10,26 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-08-19
+
+### Added
+
+- All-adapter demo smoke tests and a scheduled API health check workflow.
+- `npm run doctor` for local configuration and connectivity diagnostics.
+- GitHub Actions step summaries for generated README output and run results.
+
+### Changed
+
+- Shared API requests now use bounded timeouts and retries across adapters and
+  maintenance scripts.
+- Action inputs are validated before a run can modify a README.
+- Maintenance workflows serialize updates to avoid competing README changes.
+
+### Fixed
+
+- README league headings and registry links are checked for complete logos,
+  accessible alt text, and supported endpoints.
+
 ## [1.4.0] - 2026-08-18
 
 ### Added
@@ -114,7 +134,9 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.4.0...v1.5.0
+[1.4.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.0.0...v1.1.0
