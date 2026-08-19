@@ -1839,6 +1839,10 @@ needed. Common examples:
 
 The corresponding ESPN directories are [men's basketball](https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams), [women's basketball](https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams), [college football](https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams), and [men's ice hockey](https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/teams).
 
+When the action runs in GitHub Actions, it also adds a concise run summary to
+the job with the sport, team, destination, and whether the README was updated
+or skipped.
+
 To refresh the generated tables after cloning this repository, run:
 
 ```bash
