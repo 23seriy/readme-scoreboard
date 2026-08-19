@@ -27,6 +27,9 @@ describe("season status updater", () => {
     [workflow, "season status"],
     [collegeWorkflow, "college roster"],
   ])("opens one %s maintenance PR with the workflow token", (workflowText) => {
+    expect(workflowText).toContain("id: publish");
+    expect(workflowText).toContain('echo "changed=false" >> "$GITHUB_OUTPUT"');
+    expect(workflowText).toContain("if: steps.publish.outputs.changed == 'true'");
     expect(workflowText).toContain("pull-requests: write");
     expect(workflowText).toContain("GH_TOKEN: ${{ github.token }}");
     expect(workflowText).toContain("gh pr list");
