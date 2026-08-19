@@ -1,4 +1,4 @@
-const axios = require("axios");
+const { get: httpGet } = require("../http");
 
 const ESPN_BASE = "https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba";
 const ESPN_BASE_V2 = "https://site.web.api.espn.com/apis/v2/sports/basketball/nba";
@@ -56,7 +56,7 @@ async function fetchTeamInfo(teamAbbr) {
     const upper = teamAbbr.toUpperCase();
     const espnId = ESPN_TEAM_IDS[upper];
     if (!espnId) { console.error(`Unknown NBA team: ${upper}`); return null; }
-    const { data } = await axios.get(`${ESPN_BASE}/teams/${espnId}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}`, { headers: ESPN_HEADERS });
     const team = data.team;
     if (!team) return null;
     return {
@@ -81,7 +81,7 @@ async function fetchStandings(teamAbbr) {
     // NBA season ends in June; ESPN season param = end year
     // Oct-Dec: new season (ends next year), Jan-Sep: current season (ends this year)
     const season = now.getMonth() >= 9 ? now.getFullYear() + 1 : now.getFullYear();
-    const { data } = await axios.get(
+    const { data } = await httpGet(
       `${ESPN_BASE_V2}/standings?level=3&season=${season}&seasontype=2`,
       { headers: ESPN_HEADERS }
     );
@@ -118,8 +118,8 @@ async function fetchRecentGames(teamAbbr, count = 5) {
     const season = now.getMonth() >= 9 ? now.getFullYear() + 1 : now.getFullYear();
 
     const [regData, postData] = await Promise.all([
-      axios.get(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
-      axios.get(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
+      httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
+      httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
     ]);
 
     const events = [

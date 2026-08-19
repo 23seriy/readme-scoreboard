@@ -1,4 +1,4 @@
-const axios = require("axios");
+const { get: httpGet } = require("../http");
 const BaseFreeApiAdapter = require("./base-free-api");
 
 const NHL_BASE = "https://api-web.nhle.com/v1";
@@ -93,13 +93,13 @@ class NHLAdapter extends BaseFreeApiAdapter {
   async fetchConferenceDivision(abbr) {
     try {
       // standings/now is unavailable off-season; find the most recently completed season
-      const { data: seasonData } = await axios.get(`${NHL_BASE}/standings-season`);
+      const { data: seasonData } = await httpGet(`${NHL_BASE}/standings-season`);
       const seasons = seasonData.seasons || [];
       const today = new Date().toISOString().slice(0, 10);
       // Pick the latest season whose standingsEnd is in the past
       const completed = seasons.slice().reverse().find((s) => s.standingsEnd && s.standingsEnd <= today);
       const endDate = completed?.standingsEnd || "2026-04-17";
-      const { data } = await axios.get(`${NHL_BASE}/standings/${endDate}`);
+      const { data } = await httpGet(`${NHL_BASE}/standings/${endDate}`);
       const entry = (data.standings || []).find(
         (s) => s.teamAbbrev?.default?.toUpperCase() === abbr.toUpperCase()
       );
@@ -143,7 +143,7 @@ class NHLAdapter extends BaseFreeApiAdapter {
       let usedSeasonYear = currentYear - 1;
       for (const season of seasonsToTry) {
         const url = this.getGamesUrl(team.id, null, null, season);
-        const { data } = await axios.get(url);
+        const { data } = await httpGet(url);
         allGames = this.parseGameResponse(data);
         if (allGames.some((g) => g.status === "Final")) {
           // Derive the display year from the season code (first 4 digits)

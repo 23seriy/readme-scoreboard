@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const axios = require("axios");
+const { get: httpGet } = require("../src/http");
 const { LEAGUES: LEAGUE_REGISTRY } = require("../src/config/leagues");
 
 const START_MARKER = "<!-- supported-sports:start -->";
@@ -165,7 +165,7 @@ function updateSupportedSportsTable(readme, rows) {
 }
 
 async function fetchSeason(slug) {
-  const { data } = await axios.get(`https://site.api.espn.com/apis/site/v2/sports/${slug}/scoreboard`, {
+  const { data } = await httpGet(`https://site.api.espn.com/apis/site/v2/sports/${slug}/scoreboard`, {
     timeout: 15000,
   });
   const season = data.leagues?.[0]?.season;

@@ -1,4 +1,4 @@
-const axios = require("axios");
+const { get: httpGet } = require("../http");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development";
 const ESPN_BASE_V2 = "https://site.api.espn.com/apis/v2/sports/basketball/nba-development";
@@ -62,7 +62,7 @@ async function fetchTeamInfo(teamAbbr) {
   const espnId = TEAM_IDS[teamAbbr.toUpperCase()];
   if (!espnId) return null;
   try {
-    const { data } = await axios.get(`${ESPN_BASE}/teams/${espnId}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}`, { headers: ESPN_HEADERS });
     const team = data.team;
     if (!team) return null;
     return {
@@ -84,7 +84,7 @@ async function fetchStandings(teamAbbr) {
   const empty = { wins: 0, losses: 0, season, conference: "" };
   try {
     const upper = teamAbbr.toUpperCase();
-    const { data } = await axios.get(`${ESPN_BASE_V2}/standings?season=${season}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE_V2}/standings?season=${season}`, { headers: ESPN_HEADERS });
     // Conferences, no divisions — entries sit directly under each conference.
     for (const conf of data.children || []) {
       for (const entry of conf.standings?.entries || []) {
@@ -115,8 +115,8 @@ async function fetchRecentGames(teamAbbr, count = 5) {
     // Regular season and playoffs are separate seasontype values. Showcase and
     // preseason games (seasontype 1) are deliberately not fetched.
     const [regData, postData] = await Promise.all([
-      axios.get(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
-      axios.get(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
+      httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
+      httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
     ]);
 
     const events = [

@@ -1,4 +1,4 @@
-const axios = require("axios");
+const { get: httpGet } = require("../http");
 
 const ESPN_HOST = "https://site.api.espn.com/apis";
 
@@ -50,7 +50,7 @@ class BaseEspnLeagueAdapter {
     try {
       const upper = abbr.toUpperCase();
       const configuredId = this.TEAM_IDS[upper];
-      const { data } = await axios.get(configuredId ? `${this.baseUrl}/teams/${configuredId}` : `${this.baseUrl}/teams?limit=1000`);
+      const { data } = await httpGet(configuredId ? `${this.baseUrl}/teams/${configuredId}` : `${this.baseUrl}/teams?limit=1000`);
       const candidates = configuredId ? [data.team] : [
         ...(data.teams || []),
         ...(data.sports || []).flatMap((sport) => sport.leagues || []).flatMap((league) => league.teams || []),
@@ -71,8 +71,8 @@ class BaseEspnLeagueAdapter {
       if (!team) return null;
       const season = this.getSeasonYear();
       const [standingsResponse, scheduleResponse] = await Promise.all([
-        axios.get(`${this.baseUrlV2}/standings?season=${season}`),
-        axios.get(`${this.baseUrl}/teams/${team.id}/schedule?season=${season}`),
+        httpGet(`${this.baseUrlV2}/standings?season=${season}`),
+        httpGet(`${this.baseUrl}/teams/${team.id}/schedule?season=${season}`),
       ]);
       const record = this.findRecord(standingsResponse.data, team.abbreviation, season);
       team.conference = record.conference;
