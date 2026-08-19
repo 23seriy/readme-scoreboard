@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node src/index.js",
     "doctor": "node scripts/doctor.js",
+    "health:apis": "node scripts/check-api-health.js",
     "docs:heading-logos": "node scripts/update-readme-heading-logos.js",
     "smoke:demo": "node scripts/demo-smoke.js",
     "test": "jest",
