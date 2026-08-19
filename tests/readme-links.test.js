@@ -5,6 +5,7 @@ const ci = fs.readFileSync(".github/workflows/ci.yml", "utf8");
 const action = fs.readFileSync("action.yml", "utf8");
 const contributing = fs.readFileSync("CONTRIBUTING.md", "utf8");
 const release = fs.readFileSync(".github/workflows/release.yml", "utf8");
+const { LEAGUES } = require("../src/config/leagues");
 
 describe("README navigation links", () => {
   const collegeLinks = [
@@ -28,6 +29,14 @@ describe("README navigation links", () => {
     ];
     endpoints.forEach((endpoint) => {
       expect(readme).toMatch(new RegExp(`https://site\\.api\\.espn\\.com/apis/site/v2/sports/${endpoint}/teams`));
+    });
+  });
+
+  it("uses the registry logo and accessible alt text for league headings", () => {
+    LEAGUES.filter(({ key }) => !key.startsWith("nca")).forEach((league) => {
+      expect(readme).toContain(`srcset="${league.logo.dark}"`);
+      expect(readme).toContain(`src="${league.logo.light}" alt="${league.name} logo"`);
+      expect(readme).toContain(`${league.name} Team Abbreviations`);
     });
   });
 });
