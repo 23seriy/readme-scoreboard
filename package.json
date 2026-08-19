@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
+    "doctor": "node scripts/doctor.js",
     "docs:heading-logos": "node scripts/update-readme-heading-logos.js",
     "smoke:demo": "node scripts/demo-smoke.js",
     "test": "jest",
