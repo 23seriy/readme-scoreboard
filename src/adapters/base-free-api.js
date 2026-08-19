@@ -1,4 +1,4 @@
-const axios = require("axios");
+const { get: httpGet } = require("../http");
 
 class BaseFreeApiAdapter {
   constructor() {
@@ -14,7 +14,7 @@ class BaseFreeApiAdapter {
 
       const fromDate = this.getSeasonStart();
       const url = this.getGamesUrl(team.id, fromDate, new Date());
-      const { data } = await axios.get(url);
+      const { data } = await httpGet(url);
       const allGames = this.parseGameResponse(data);
       const season = this.getSeasonYear();
 
@@ -107,7 +107,7 @@ class BaseFreeApiAdapter {
       pastDate.setDate(today.getDate() - 180);
 
       const url = this.getGamesUrl(teamId, pastDate, today);
-      const { data } = await axios.get(url);
+      const { data } = await httpGet(url);
 
       const games = this.parseGameResponse(data);
       if (!games) return [];
@@ -130,7 +130,7 @@ class BaseFreeApiAdapter {
       pastDate.setDate(today.getDate() - 180);
 
       const url = this.getGamesUrl(teamId, pastDate, today);
-      const { data } = await axios.get(url);
+      const { data } = await httpGet(url);
 
       const games = this.parseGameResponse(data);
       if (!games || games.length === 0) {

@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const axios = require("axios");
+const { get: httpGet } = require("../src/http");
 
 const sections = [
   ["ncaab", "NCAA Men's Basketball", "basketball/mens-college-basketball"],
@@ -48,7 +48,7 @@ async function main() {
   const readmePath = path.resolve(__dirname, "..", "README.md");
   let readme = fs.readFileSync(readmePath, "utf8");
   for (const [slug, title, endpoint] of sections) {
-    const { data } = await axios.get(`https://site.api.espn.com/apis/site/v2/sports/${endpoint}/teams?limit=1000`, { timeout: 15000 });
+    const { data } = await httpGet(`https://site.api.espn.com/apis/site/v2/sports/${endpoint}/teams?limit=1000`);
     const section = renderSection(slug, title, flattenTeams(data));
     const pattern = new RegExp(`<!-- college-abbreviations:${slug}:start -->[\\s\\S]*?<!-- college-abbreviations:${slug}:end -->`);
     if (!pattern.test(readme)) throw new Error(`Missing README markers for ${slug}`);

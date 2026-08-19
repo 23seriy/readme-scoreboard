@@ -1,4 +1,4 @@
-const axios = require("axios");
+const { get: httpGet } = require("../http");
 const BaseFreeApiAdapter = require("./base-free-api");
 
 const MLB_BASE = "https://statsapi.mlb.com/api/v1";
@@ -56,7 +56,7 @@ class MlbAdapter extends BaseFreeApiAdapter {
   async fetchSeasonRecord(teamId) {
     try {
       const season = this.getSeasonYear();
-      const { data } = await axios.get(`${MLB_BASE}/standings`, {
+      const { data } = await httpGet(`${MLB_BASE}/standings`, {
         params: { leagueId: "103,104", season, standingsTypes: "regularSeason" },
       });
       for (const record of data.records || []) {
@@ -85,7 +85,7 @@ class MlbAdapter extends BaseFreeApiAdapter {
       const fromDate = this.getSeasonStart();
       const url = this.getGamesUrl(team.id, fromDate, new Date());
       const [{ data }, record] = await Promise.all([
-        axios.get(url),
+      httpGet(url),
         this.fetchSeasonRecord(team.id),
       ]);
       const allGames = this.parseGameResponse(data);
@@ -105,7 +105,7 @@ class MlbAdapter extends BaseFreeApiAdapter {
 
   async fetchTeam(abbr) {
     try {
-      const { data } = await axios.get(`${MLB_BASE}/teams`, {
+      const { data } = await httpGet(`${MLB_BASE}/teams`, {
         params: { sportId: 1 },
       });
       const team = data.teams.find(

@@ -1,4 +1,4 @@
-const axios = require("axios");
+const { get: httpGet } = require("../http");
 const BaseFreeApiAdapter = require("./base-free-api");
 
 const ESPN_HOST = "https://site.api.espn.com/apis";
@@ -91,9 +91,9 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
       const configuredId = this.TEAM_IDS[upper];
       let data;
       if (configuredId) {
-        ({ data } = await axios.get(`${this.baseUrl}/teams/${configuredId}`));
+        ({ data } = await httpGet(`${this.baseUrl}/teams/${configuredId}`));
       } else {
-        ({ data } = await axios.get(`${this.baseUrl}/teams?limit=1000`));
+        ({ data } = await httpGet(`${this.baseUrl}/teams?limit=1000`));
       }
       const teams = [
         ...(data.teams || []),
@@ -125,7 +125,7 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
     const empty = { conference: "", wins: 0, losses: 0, draws: 0, season };
     try {
       const upper = teamAbbr.toUpperCase();
-      const { data } = await axios.get(`${this.baseUrlV2}/standings?season=${season}`);
+      const { data } = await httpGet(`${this.baseUrlV2}/standings?season=${season}`);
       for (const group of (data.children || [])) {
         const entries = group.standings?.entries || [];
         const entry = entries.find((e) => e.team?.abbreviation?.toUpperCase() === upper);
@@ -191,7 +191,7 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
       const season = this.getSeasonYear();
       const [standings, schedData] = await Promise.all([
         this.fetchConferenceRecord(teamAbbr),
-        axios.get(`${this.baseUrl}/teams/${team.id}/schedule?season=${season}`),
+        httpGet(`${this.baseUrl}/teams/${team.id}/schedule?season=${season}`),
       ]);
 
       team.conference = standings.conference;

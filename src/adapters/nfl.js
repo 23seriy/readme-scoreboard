@@ -1,4 +1,4 @@
-const axios = require("axios");
+const { get: httpGet } = require("../http");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/football/nfl";
 
@@ -45,7 +45,7 @@ const TEAM_CONF_DIV = {
 async function fetchTeamInfo(teamAbbr) {
   try {
     const upper = teamAbbr.toUpperCase();
-    const { data } = await axios.get(`${ESPN_BASE}/teams/${upper}`);
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${upper}`);
     const team = data.team;
     if (!team) {
       console.error(`NFL team ${upper} not found`);
@@ -89,7 +89,7 @@ async function fetchSeasonRecord(team) {
   }
 
   try {
-    const { data } = await axios.get(`${ESPN_BASE}/teams/${team.abbreviation}?season=${nflSeason}`);
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${team.abbreviation}?season=${nflSeason}`);
     return parseRecordFromTeam(data.team?.record, nflSeason);
   } catch (error) {
     console.error(`Failed to fetch NFL standings: ${error.message}`);
@@ -105,8 +105,8 @@ async function fetchRecentGames(teamAbbr, count = 5) {
     const season = now.getMonth() < 8 ? now.getFullYear() - 1 : now.getFullYear();
     // Fetch regular season and postseason separately; exclude preseason (type 1)
     const [regData, postData] = await Promise.all([
-      axios.get(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=2`),
-      axios.get(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=3`),
+      httpGet(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=2`),
+      httpGet(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=3`),
     ]);
 
     const events = [
