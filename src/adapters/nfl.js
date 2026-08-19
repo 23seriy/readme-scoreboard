@@ -197,5 +197,6 @@ module.exports = {
   getDemoData,
   getLogoUrl,
   TEAM_EMOJI,
+  DEMO_TEAMS,
   TEAM_IDS,
 };
