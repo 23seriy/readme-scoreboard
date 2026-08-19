@@ -147,6 +147,10 @@ Change `team` to your team's abbreviation (see table below), and keep `marker`
 matching the pair you added in step 1. Done! The action updates your profile
 README through the GitHub API, so no checkout or separate commit step is needed.
 
+To verify live API data without changing a README, set `dry_run: true`. Dry runs
+still render the normal preview and job summary, but they do not require a token
+or target repository.
+
 Pin the action to a release tag (for example, `@v1`) for reproducible workflows,
 or to a commit SHA after reviewing the release. Using `@main` follows the
 latest changes and is best suited to trying upcoming features.
@@ -1877,12 +1881,13 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
+| `dry_run` | No | `false` | Fetch and render live data without updating a README |
 
 Inputs are validated before any API request or README update. If a team abbreviation
 is not recognized, the action reports several valid abbreviations for that league;
 `target_repo` must use the `owner/repository` format.
 
-\* Not required in `--demo` mode.
+\* Required for live remote README updates. Not required in `--demo` or `dry_run` mode.
 
 ---
 
