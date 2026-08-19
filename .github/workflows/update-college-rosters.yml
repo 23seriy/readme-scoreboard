@@ -11,6 +11,7 @@ concurrency:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   update:
@@ -40,4 +41,20 @@ jobs:
           else
             git push origin automation/college-rosters
           fi
-          echo "Updated automation/college-rosters. Open or update a PR from that branch."
+      - name: Open or update college roster PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="automation/college-rosters"
+          existing_pr=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state open --json number --jq '.[0].number')
+          if [[ -n "$existing_pr" ]]; then
+            echo "College roster PR #$existing_pr already exists"
+            exit 0
+          fi
+          gh pr create \
+            --repo "$GITHUB_REPOSITORY" \
+            --base main \
+            --head "$branch" \
+            --title "docs: update college team abbreviations" \
+            --body "Automated NCAA abbreviation refresh from ESPN's public team directories." \
+            || { echo "::error::Unable to create the maintenance PR. Enable GitHub Actions to create pull requests in repository settings."; exit 1; }

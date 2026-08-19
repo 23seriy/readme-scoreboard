@@ -11,6 +11,7 @@ concurrency:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   update:
@@ -40,4 +41,20 @@ jobs:
           else
             git push origin automation/season-status
           fi
-          echo "Updated automation/season-status. Open or update a PR from that branch."
+      - name: Open or update season status PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="automation/season-status"
+          existing_pr=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state open --json number --jq '.[0].number')
+          if [[ -n "$existing_pr" ]]; then
+            echo "Season status PR #$existing_pr already exists"
+            exit 0
+          fi
+          gh pr create \
+            --repo "$GITHUB_REPOSITORY" \
+            --base main \
+            --head "$branch" \
+            --title "docs: update supported league seasons" \
+            --body "Automated season-window refresh from the supported league APIs." \
+            || { echo "::error::Unable to create the maintenance PR. Enable GitHub Actions to create pull requests in repository settings."; exit 1; }
