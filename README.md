@@ -114,7 +114,12 @@ Go to your profile repo **Settings → Secrets and variables → Actions** and a
 
 | Secret | Description |
 |--------|-------------|
-| `GH_TOKEN` | GitHub token with `repo` scope ([create one](https://github.com/settings/tokens/new)) |
+| `GH_TOKEN` | Fine-grained token with Contents: Read and write on the target repo ([create one](https://github.com/settings/personal-access-tokens/new)) |
+
+For least-privilege access, create a fine-grained token, select **Only select
+repositories**, choose the repository named by `target_repo`, and grant only
+**Contents: Read and write**. Classic tokens with `repo` scope are also
+supported, but they grant broader access than this action needs.
 
 **That's all!** No sports-specific API keys needed — all adapters use free, no-auth public APIs (ESPN, MLB Stats API, NHL.com, etc).
 
@@ -1876,7 +1881,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
-| `gh_token` | Yes* | — | GitHub token with `repo` scope |
+| `gh_token` | Yes* | — | Token with Contents: Read and write on `target_repo` |
 | `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl`, `saudipro`, `j1`, `scottish`, `belgian`, `ucl`, `uel`, `gleague`, `ncaab`, `ncaaw`, `ncaaf`, `ncaa_hockey` |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
