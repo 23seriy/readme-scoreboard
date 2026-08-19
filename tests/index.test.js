@@ -49,4 +49,16 @@ describe("main", () => {
     expect(updateReadme).toHaveBeenCalledWith(expect.anything(), "octocat/octocat", "scoreboard", undefined);
     expect(updateReadmeLocal).not.toHaveBeenCalled();
   });
+
+  it("renders live data without writing when dry run is enabled", async () => {
+    process.env.GH_TOKEN = "";
+    process.env.DRY_RUN = "true";
+
+    const { main } = require("../src/index");
+
+    await main();
+
+    expect(updateReadme).not.toHaveBeenCalled();
+    expect(updateReadmeLocal).not.toHaveBeenCalled();
+  });
 });

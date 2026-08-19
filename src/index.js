@@ -16,6 +16,7 @@ const {
 } = process.env;
 
 const isDemo = process.argv.includes("--demo");
+const isDryRun = /^(1|true|yes)$/i.test(process.env.DRY_RUN || "");
 
 async function main() {
   if (!teamAbbr && !isDemo) {
@@ -80,12 +81,13 @@ async function main() {
   console.log(content);
   console.log("--- End Preview ---\n");
 
-  // Update profile README (skip in demo mode)
+  // Update profile README (skip in demo and dry-run modes)
   let summaryResult;
   let summaryDestination = targetRepo;
-  if (isDemo) {
-    console.log("⚠️  Skipping README update (preview only)");
-    summaryResult = "⏭️ README update skipped (preview only)";
+  if (isDemo || isDryRun) {
+    const modeLabel = isDemo ? "preview" : "dry run";
+    console.log(`⚠️  Skipping README update (${modeLabel} only)`);
+    summaryResult = `⏭️ README update skipped (${modeLabel} only)`;
   } else if (githubToken) {
     // Use the GitHub API whenever a token is available. GitHub Actions always
     // sets GITHUB_WORKSPACE, even when no repository has been checked out.
@@ -113,7 +115,7 @@ async function main() {
   writeStepSummary({
     sport: sportName,
     team,
-    mode: isDemo ? "preview" : "live",
+    mode: isDemo ? "preview" : isDryRun ? "dry-run" : "live",
     result: summaryResult,
     targetRepo: summaryDestination,
   });

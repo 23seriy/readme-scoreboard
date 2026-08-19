@@ -81,6 +81,11 @@ describe("documentation and action metadata", () => {
     expect(readme).toContain("NCAA Men's Ice Hockey");
   });
 
+  it("documents the dry-run action input", () => {
+    expect(action).toContain("  dry_run:");
+    expect(readme).toContain("| `dry_run` | No | `false`");
+  });
+
   it("declares write permission in the canonical workflow example", () => {
     const workflowStart = readme.indexOf("name: Update Scoreboard");
     const workflowEnd = readme.indexOf("```", workflowStart);

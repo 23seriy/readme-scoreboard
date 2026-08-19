@@ -12,8 +12,8 @@ inputs:
     description: "Team abbreviation (e.g. LAL, TOR, NYR)"
     required: true
   gh_token:
-    description: "GitHub token with repo scope"
-    required: true
+    description: "GitHub token with repo scope (required for live README updates)"
+    required: false
   marker:
     description: "HTML comment marker name (default: readme-scoreboard). Use unique names for multiple scoreboards."
     required: false
@@ -21,6 +21,10 @@ inputs:
   target_repo:
     description: "Repo to update (default: your profile repo). Format: owner/repo"
     required: false
+  dry_run:
+    description: "Fetch and render live data without updating a README"
+    required: false
+    default: "false"
 runs:
   using: "composite"
   steps:
@@ -39,3 +43,4 @@ runs:
         TEAM: ${{ inputs.team }}
         MARKER: ${{ inputs.marker }}
         TARGET_REPO: ${{ inputs.target_repo }}
+        DRY_RUN: ${{ inputs.dry_run }}
