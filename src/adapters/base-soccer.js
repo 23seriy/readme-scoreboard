@@ -39,7 +39,9 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
   getLogoUrl(abbr) {
     const upper = abbr.toUpperCase();
     if (this.TEAM_LOGO_OVERRIDES?.[upper]) return this.TEAM_LOGO_OVERRIDES[upper];
-    const id = this.TEAM_IDS[upper];
+    // Dynamic leagues may not have a static roster yet; keep demo logos
+    // available until the first live team lookup populates TEAM_IDS.
+    const id = this.TEAM_IDS[upper] || this.DEMO_TEAMS?.[upper]?.id;
     return id ? `https://a.espncdn.com/i/teamlogos/soccer/500/${id}.png` : null;
   }
 
