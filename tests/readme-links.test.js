@@ -81,6 +81,13 @@ describe("documentation and action metadata", () => {
     expect(readme).toContain("NCAA Men's Ice Hockey");
   });
 
+  it("declares write permission in the canonical workflow example", () => {
+    const workflowStart = readme.indexOf("name: Update Scoreboard");
+    const workflowEnd = readme.indexOf("```", workflowStart);
+    const workflow = readme.slice(workflowStart, workflowEnd);
+    expect(workflow).toContain("permissions:\n  contents: write");
+  });
+
   it("pins every README action example to the stable major release", () => {
     const examples = readme.match(/uses: 23seriy\/readme-scoreboard@[^\s]+/g) || [];
     expect(examples.length).toBeGreaterThan(0);

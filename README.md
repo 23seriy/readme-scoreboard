@@ -128,6 +128,8 @@ on:
   schedule:
     - cron: "0 */6 * * *"  # Every 6 hours
   workflow_dispatch:        # Manual trigger
+permissions:
+  contents: write
 jobs:
   update:
     runs-on: ubuntu-latest
