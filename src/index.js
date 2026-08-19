@@ -3,6 +3,7 @@ const { Octokit } = require("@octokit/rest");
 const { render } = require("./renderers/markdown");
 const { updateReadme, updateReadmeLocal } = require("./updater");
 const { LEAGUE_BY_KEY } = require("./config/leagues");
+const { validateInputs } = require("./validation");
 
 const {
   GH_TOKEN: githubToken,
@@ -33,6 +34,22 @@ async function main() {
   } catch {
     console.error(`Unsupported sport: "${sportName}". Available adapters: ${Object.keys(LEAGUE_BY_KEY).join(", ")}`);
     process.exit(1);
+    return;
+  }
+
+  try {
+    validateInputs({
+      sport: sportName,
+      team,
+      isDemo,
+      targetRepo,
+      adapter,
+      supportedSports: Object.keys(LEAGUE_BY_KEY),
+    });
+  } catch (error) {
+    console.error(error.message);
+    process.exit(1);
+    return;
   }
 
   // Fetch data (live or demo)
