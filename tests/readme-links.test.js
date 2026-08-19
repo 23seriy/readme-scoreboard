@@ -107,6 +107,7 @@ describe("documentation and action metadata", () => {
     expect(workflow).toMatch(/workflow_dispatch:[^\n]*\n\s+inputs:/);
     expect(workflow).toContain("sport: ${{ inputs.sport || 'nba' }}");
     expect(workflow).toContain("team: ${{ inputs.team || 'LAL' }}");
+    expect(workflow).toContain("marker: ${{ inputs.marker || 'readme-scoreboard-nba' }}");
   });
 
   it("pins every README action example to the stable major release", () => {
