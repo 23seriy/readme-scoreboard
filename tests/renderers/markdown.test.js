@@ -385,6 +385,11 @@ describe("Team logo sizing", () => {
       expect(out).toContain('width="72" align="right"');
       expect(out).not.toContain('width="60"');
     });
+
+    it(`${sport} gives the team logo descriptive alt text`, () => {
+      const out = render(sport, data);
+      expect(out).toContain(`alt="${data.team.full_name} logo"`);
+    });
   });
 
   it("renders the league logo in the section heading, not beside the team", () => {

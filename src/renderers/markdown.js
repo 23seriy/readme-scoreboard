@@ -153,7 +153,7 @@ function renderNba(data, sport = "nba") {
   const lines = [];
 
   lines.push(...headingLines(sport));
-  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
+  lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
@@ -222,7 +222,7 @@ function renderMlb(data) {
   const lines = [];
 
   lines.push(...headingLines("mlb"));
-  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
+  lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
@@ -275,7 +275,7 @@ function renderNfl(data, sport = "nfl") {
   const lines = [];
 
   lines.push(...headingLines(sport));
-  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
+  lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
@@ -315,7 +315,7 @@ function renderNhl(data, sport = "nhl") {
   const lines = [];
 
   lines.push(...headingLines(sport));
-  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
+  lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
@@ -369,7 +369,7 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS") {
   const lines = [];
 
   lines.push(...headingLines(sport));
-  lines.push(`<img src="${logoUrl}" width="72" align="right" />`);
+  lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
