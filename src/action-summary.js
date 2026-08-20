@@ -1,12 +1,13 @@
 const fs = require("node:fs");
 
-function summaryMarkdown({ sport, team, mode, result, targetRepo }) {
+function summaryMarkdown({ sport, leagueName, team, mode, result, targetRepo }) {
   const destination = targetRepo || "local workspace / automatic profile repository";
   return [
     "## 🏆 readme-scoreboard",
     "",
     "| Field | Value |",
     "|---|---|",
+    `| League | ${leagueName || sport.toUpperCase()} |`,
     `| Sport | ${sport.toUpperCase()} |`,
     `| Team | ${team} |`,
     `| Mode | ${mode} |`,
