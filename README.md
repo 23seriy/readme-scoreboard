@@ -474,7 +474,7 @@ All sports use **free, no-auth APIs** — no secrets required.
 
 Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link below opens the live team list for that league. MLB and the NHL have their own official APIs.
 
-The **Season** column is refreshed daily by [`.github/workflows/update-season-status.yml`](.github/workflows/update-season-status.yml). It uses the league API's season window when available and falls back to the last known window during a temporary API outage.
+The **Season** column is refreshed daily by [`.github/workflows/update-season-status.yml`](.github/workflows/update-season-status.yml). It uses the league API's season window when available and falls back to the last known window during a temporary API outage. A separate [daily season-date verification workflow](.github/workflows/check-season-dates.yml) checks that normalized opening dates remain valid as leagues roll into new seasons; it reports drift without changing the README automatically.
 
 <!-- supported-sports:start -->
 | Sport | League | Season | Endpoint |
