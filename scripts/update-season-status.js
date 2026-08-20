@@ -208,8 +208,16 @@ async function fetchSeason(slug) {
   return season;
 }
 
+function seasonRelativeStart(override, seasonStart) {
+  const seasonYear = new Date(seasonStart).getUTCFullYear();
+  return override.replace(/^\d{4}/, String(seasonYear));
+}
+
 function normalizeSeasonWindow(name, season) {
-  const startDate = SEASON_START_OVERRIDES[name] || season.startDate;
+  const override = SEASON_START_OVERRIDES[name];
+  const startDate = override
+    ? seasonRelativeStart(override, season.startDate)
+    : season.startDate;
   return { ...season, startDate };
 }
 

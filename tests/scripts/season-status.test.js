@@ -94,7 +94,7 @@ describe("season status updater", () => {
     ["NFL", "2026-08-06T00:00:00Z", "2026-09-09T00:00:00Z"],
     ["NHL", "2026-09-15T00:00:00Z", "2026-09-29T00:00:00Z"],
     ["WNBA", "2026-04-03T00:00:00Z", "2026-05-08T00:00:00Z"],
-    ["NBA G League", "2025-09-01T00:00:00Z", "2026-12-19T00:00:00Z"],
+    ["NBA G League", "2026-09-01T00:00:00Z", "2026-12-19T00:00:00Z"],
   ])("normalizes %s to its regular-season start", (name, apiStart, regularStart) => {
     expect(normalizeSeasonWindow(name, {
       startDate: apiStart,
@@ -132,6 +132,13 @@ describe("season status updater", () => {
       startDate: apiStart,
       endDate: "2027-07-01T23:59:59Z",
     }).startDate).toBe(regularStart);
+  });
+
+  it("rolls published opening dates into the season's reported year", () => {
+    expect(normalizeSeasonWindow("La Liga", {
+      startDate: "2027-06-01T00:00:00Z",
+      endDate: "2028-06-01T23:59:59Z",
+    }).startDate).toBe("2027-08-15T00:00:00Z");
   });
 
   it("updates only the marked supported-sports table", () => {
