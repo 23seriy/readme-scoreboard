@@ -10,6 +10,27 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-08-20
+
+### Added
+
+- Live dry-run mode, step outputs, and workflow-dispatch inputs for easier
+  testing and automation.
+- Daily API and season-date verification, including regular-season opening-date
+  checks for supported leagues.
+
+### Changed
+
+- README examples now target the versioned `@v1` action release and document
+  fine-grained token permissions.
+- Maintenance updates use strict live-date checks, serialized branches, safe
+  fetches, and bounded workflow runtimes.
+
+### Fixed
+
+- League logos, heading alt text, and season-year rollover handling across the
+  generated README output.
+
 ## [1.5.0] - 2026-08-19
 
 ### Added
@@ -134,7 +155,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.2.0...v1.3.0

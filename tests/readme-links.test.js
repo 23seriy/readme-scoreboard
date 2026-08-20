@@ -67,7 +67,7 @@ describe("repository CI configuration", () => {
 
 describe("documentation and action metadata", () => {
   it("keeps the release metadata and v1 alias workflow aligned", () => {
-    expect(require("../package.json").version).toBe("1.5.0");
+    expect(require("../package.json").version).toBe("1.6.0");
     expect(fs.readFileSync("CHANGELOG.md", "utf8")).toContain("## [1.5.0]");
     expect(release).toContain("types: [published]");
     expect(release).toContain('git tag -fa "$major"');
