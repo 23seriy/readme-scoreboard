@@ -72,6 +72,7 @@ Western Conference · Pacific Division
 - [Adding a New Sport](#adding-a-new-sport)
 - [Action Inputs (`with:`)](#action-inputs-with)
 - [Action Outputs](#action-outputs)
+- [Troubleshooting](#troubleshooting)
 - [License](#license)
 - [Changelog](CHANGELOG.md)
 
@@ -2020,6 +2021,18 @@ For example, use `${{ steps.scoreboard.outputs.updated }}` after giving your
 action step the id `scoreboard`.
 
 ---
+
+## Troubleshooting
+
+| Message or symptom | What to check |
+|---|---|
+| `TEAM environment variable is required` | Set the `team` input, or run with `--demo` for a preview. |
+| `Marker not found` | Add matching `start` and `end` marker comments to the target README and use the same `marker` value in the workflow. |
+| `Could not update README` or a permission error | Confirm `GH_TOKEN` can read and write Contents in `target_repo`. |
+| `TARGET_REPO must use the owner/repository format` | Use a value such as `23seriy/23seriy`, with exactly one `/`. |
+| `Unsupported sport` or an unknown team | Check the supported-sports table and use the current abbreviation listed for that league. |
+
+For a safe local check that makes no API requests, run `npm run doctor -- --demo`.
 
 ## License
 
