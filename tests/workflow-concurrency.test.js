@@ -25,4 +25,24 @@ describe("README maintenance workflow coordination", () => {
       expect(workflow).toMatch(/runs-on: ubuntu-latest\n\s+timeout-minutes: 10/);
     }
   });
+
+  it("keeps workflow permissions explicit and least-privilege", () => {
+    for (const file of [
+      ".github/workflows/ci.yml",
+      ".github/workflows/demo-smoke.yml",
+      ".github/workflows/check-season-dates.yml",
+      ".github/workflows/api-health.yml",
+    ]) {
+      const workflow = fs.readFileSync(file, "utf8");
+      expect(workflow).toMatch(/permissions:\n\s+contents: read/);
+    }
+
+    for (const file of [
+      ".github/workflows/update-season-status.yml",
+      ".github/workflows/update-college-rosters.yml",
+    ]) {
+      const workflow = fs.readFileSync(file, "utf8");
+      expect(workflow).toMatch(/permissions:\n\s+contents: write\n\s+pull-requests: write/);
+    }
+  });
 });
