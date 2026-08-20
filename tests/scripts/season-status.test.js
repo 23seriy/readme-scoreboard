@@ -21,6 +21,8 @@ describe("season status updater", () => {
     expect(workflow).toContain("group: readme-maintenance");
     expect(workflow).toContain("cancel-in-progress: false");
     expect(workflow).toContain("git push --force-with-lease=");
+    expect(workflow).toContain("git fetch origin automation/season-status");
+    expect(workflow).not.toContain("git fetch origin automation/season-status || true");
     expect(workflow).not.toContain("git push --force origin automation/season-status");
   });
 
@@ -36,6 +38,11 @@ describe("season status updater", () => {
     expect(workflowText).toContain("gh pr list");
     expect(workflowText).toContain("gh pr create");
     expect(workflowText).toContain("--state open");
+  });
+
+  it("does not ignore automation-branch fetch failures", () => {
+    expect(collegeWorkflow).toContain("git fetch origin automation/college-rosters");
+    expect(collegeWorkflow).not.toContain("git fetch origin automation/college-rosters || true");
   });
 
   it("marks a season in progress and shows its end date", () => {
