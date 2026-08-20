@@ -137,8 +137,11 @@ describe("documentation and action metadata", () => {
   });
 
   it("keeps the release metadata and v1 alias workflow aligned", () => {
-    expect(require("../package.json").version).toBe("1.6.0");
-    expect(fs.readFileSync("CHANGELOG.md", "utf8")).toContain("## [1.5.0]");
+    const version = require("../package.json").version;
+    const changelog = fs.readFileSync("CHANGELOG.md", "utf8");
+
+    expect(changelog).toContain(`## [${version}]`);
+    expect(changelog.indexOf(`## [${version}]`)).toBeGreaterThan(changelog.indexOf("## [Unreleased]"));
     expect(release).toContain("types: [published]");
     expect(release).toContain('git tag -fa "$major"');
     expect(release).toContain("git push origin \"$major\" --force");
