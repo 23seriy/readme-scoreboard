@@ -197,8 +197,8 @@ function updateSupportedSportsTable(readme, rows) {
   return `${readme.slice(0, start + START_MARKER.length)}\n${table}\n${readme.slice(end)}`;
 }
 
-async function fetchSeason(slug) {
-  const { data } = await httpGet(`https://site.api.espn.com/apis/site/v2/sports/${slug}/scoreboard`, {
+async function fetchSeason(slug, request = httpGet) {
+  const { data } = await request(`https://site.api.espn.com/apis/site/v2/sports/${slug}/scoreboard`, {
     timeout: 15000,
   });
   const season = data.leagues?.[0]?.season;
@@ -208,15 +208,18 @@ async function fetchSeason(slug) {
   return season;
 }
 
-function seasonRelativeStart(override, seasonStart) {
-  const seasonYear = new Date(seasonStart).getUTCFullYear();
+function seasonRelativeStart(override, seasonStart, seasonEnd, now = new Date()) {
+  const seasonStartDate = new Date(seasonStart);
+  const seasonEndDate = new Date(seasonEnd);
+  let seasonYear = seasonStartDate.getUTCFullYear();
+  if (now > seasonEndDate) seasonYear += 1;
   return override.replace(/^\d{4}/, String(seasonYear));
 }
 
-function normalizeSeasonWindow(name, season) {
+function normalizeSeasonWindow(name, season, now = new Date()) {
   const override = SEASON_START_OVERRIDES[name];
   const startDate = override
-    ? seasonRelativeStart(override, season.startDate)
+    ? seasonRelativeStart(override, season.startDate, season.endDate, now)
     : season.startDate;
   return { ...season, startDate };
 }
@@ -225,7 +228,7 @@ async function buildRows(now = new Date()) {
   return Promise.all(LEAGUES.map(async ([sport, name, slug]) => {
     const endpoint = ENDPOINT_OVERRIDES[name] || `[\`${slug}\`](https://site.api.espn.com/apis/site/v2/sports/${slug}/teams)`;
     try {
-      const season = normalizeSeasonWindow(name, await fetchSeason(slug));
+      const season = normalizeSeasonWindow(name, await fetchSeason(slug), now);
       return { sport, name, league: leagueCell(name), season: formatSeasonCell(classifySeason(season, now)), endpoint };
     } catch (error) {
       console.warn(`Season dates unavailable for ${name}: ${error.message}`);
