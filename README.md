@@ -40,7 +40,7 @@ Western Conference · Pacific Division
   - [2. Create secret](#2-create-secret)
   - [3. Add the workflow](#3-add-the-workflow)
 - [Supported Sports](#supported-sports)
-- Team Abbreviations
+- [Team Abbreviations](#team-abbreviations)
   - [NBA](#-nba-team-abbreviations)
   - [MLB](#-mlb-team-abbreviations)
   - [NFL](#-nfl-team-abbreviations)
@@ -509,6 +509,8 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 <!-- supported-sports:end -->
 
 ---
+
+## Team Abbreviations
 
 Use the table of contents to jump to a league. The full team directories are collapsed below to keep the README readable; open a league to see its current abbreviations and logos.
 
