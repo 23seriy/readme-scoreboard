@@ -71,6 +71,18 @@ describe("README navigation links", () => {
       expect(table).toContain(endpoint);
     });
   });
+
+  it("keeps every supported league discoverable in the table of contents", () => {
+    const tocStart = readme.indexOf("## Table of Contents");
+    const tocEnd = readme.indexOf("\n---", tocStart);
+    const toc = readme.slice(tocStart, tocEnd);
+
+    expect(tocStart).toBeGreaterThanOrEqual(0);
+    expect(tocEnd).toBeGreaterThan(tocStart);
+    LEAGUES.forEach((league) => {
+      expect(toc).toContain(`[${league.name}]`);
+    });
+  });
 });
 
 describe("repository CI configuration", () => {
