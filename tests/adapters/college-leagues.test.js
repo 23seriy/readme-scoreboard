@@ -35,6 +35,17 @@ describe("college roster automation", () => {
     expect(() => renderSection("ncaab", "NCAA Men's Basketball", [])).toThrow(/No teams returned/);
   });
 
+  it("keeps generated headings outside collapsible HTML", () => {
+    const section = renderSection("ncaab", "NCAA Men's Basketball", [
+      { displayName: "Example Team", abbreviation: "EX" },
+    ]);
+
+    expect(section.indexOf("## NCAA Men's Basketball Team Abbreviations")).toBeLessThan(
+      section.indexOf("<details>"),
+    );
+    expect(section).not.toContain("<details><summary>NCAA Men's Basketball roster</summary>\n##");
+  });
+
   it("renders the college football demo without missing opponent data", () => {
     const adapter = require("../../src/adapters/ncaaf");
     const data = adapter.getDemoData("ALA");
