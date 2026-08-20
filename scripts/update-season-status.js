@@ -93,14 +93,27 @@ const FALLBACK_WINDOWS = {
   "NCAA Men's Ice Hockey": ["2026-10-02", "2027-05-01"],
 };
 
-// ESPN's college-basketball season window can begin with summer scheduling
-// activity. Use the NCAA's first regular-season contest date for the public
-// status table instead of marking the league active months early.
+// ESPN season windows can begin with preseason, scheduling, or other setup
+// activity. Use each competition's first official fixture for the public
+// status table instead of marking a league active before play begins.
 const SEASON_START_OVERRIDES = {
   MLS: "2026-02-21T00:00:00Z",
   "Premier League": "2026-08-21T00:00:00Z",
   "UEFA Champions League": "2026-07-07T00:00:00Z",
   "UEFA Europa League": "2026-07-09T00:00:00Z",
+  "La Liga": "2026-08-15T00:00:00Z",
+  Bundesliga: "2026-08-28T00:00:00Z",
+  "Serie A": "2026-08-22T00:00:00Z",
+  "Ligue 1": "2026-08-23T00:00:00Z",
+  "Primeira Liga": "2026-08-09T00:00:00Z",
+  Eredivisie: "2026-08-07T00:00:00Z",
+  "Liga MX": "2026-07-16T00:00:00Z",
+  Brasileirão: "2026-01-28T00:00:00Z",
+  NWSL: "2026-03-13T00:00:00Z",
+  "Saudi Pro League": "2026-08-13T00:00:00Z",
+  "J1 League": "2026-08-07T00:00:00Z",
+  "Scottish Premiership": "2026-07-31T00:00:00Z",
+  "Belgian Pro League": "2026-08-07T00:00:00Z",
   NBA: "2026-10-20T00:00:00Z",
   MLB: "2026-03-25T00:00:00Z",
   NFL: "2026-09-09T00:00:00Z",
