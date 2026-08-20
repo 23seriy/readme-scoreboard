@@ -83,7 +83,6 @@ describe("README navigation links", () => {
       expect(toc).toContain(`[${league.name}]`);
     });
   });
-
   it("exposes a stable team-abbreviations section anchor", () => {
     expect(readme).toContain("[Team Abbreviations](#team-abbreviations)");
     expect(readme).toContain("## Team Abbreviations");
