@@ -88,7 +88,7 @@ const FALLBACK_WINDOWS = {
   "UEFA Champions League": ["2026-07-01", "2027-07-01"],
   "UEFA Europa League": ["2026-08-27", "2027-07-01"],
   "NCAA Men's Basketball": ["2026-11-02", "2027-04-07"],
-  "NCAA Women's Basketball": ["2026-07-13", "2027-04-07"],
+  "NCAA Women's Basketball": ["2026-11-02", "2027-04-07"],
   "College Football": ["2026-02-01", "2027-01-28"],
   "NCAA Men's Ice Hockey": ["2026-09-01", "2027-05-01"],
 };
@@ -98,6 +98,7 @@ const FALLBACK_WINDOWS = {
 // status table instead of marking the league active months early.
 const SEASON_START_OVERRIDES = {
   "NCAA Men's Basketball": "2026-11-02T00:00:00Z",
+  "NCAA Women's Basketball": "2026-11-02T00:00:00Z",
 };
 
 const ENDPOINT_OVERRIDES = {
