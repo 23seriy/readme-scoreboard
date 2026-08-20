@@ -510,6 +510,9 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+Use the table of contents to jump to a league. The full team directories are collapsed below to keep the README readable; open a league to see its current abbreviations and logos.
+
+<details><summary>NBA team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA logo" height="28"></picture> NBA Team Abbreviations
 
 | 🏀 Eastern Conference | Abbr | | 🏀 Western Conference | Abbr |
@@ -532,6 +535,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>MLB team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/mlb.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/mlb.png" alt="MLB logo" height="28"></picture> MLB Team Abbreviations
 
 | ⚾ American League | Abbr | | ⚾ National League | Abbr |
@@ -554,6 +561,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>NFL team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nfl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png" alt="NFL logo" height="28"></picture> NFL Team Abbreviations
 
 <span style="font-size: 0.85em;">
@@ -581,6 +592,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>NHL team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nhl.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nhl.png" alt="NHL logo" height="28"></picture> NHL Team Abbreviations
 
 <span style="font-size: 0.85em;">
@@ -608,6 +623,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>MLS team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/19.png" alt="MLS logo" height="28"></picture> MLS Team Abbreviations
 
 | ⚽ Eastern Conference | Abbr | | ⚽ Western Conference | Abbr |
@@ -631,6 +650,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Premier League team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/23.png" alt="Premier League logo" height="28"></picture> Premier League Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -649,6 +672,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>La Liga team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" alt="La Liga logo" height="28"></picture> La Liga Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -667,6 +694,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Bundesliga team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/10.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/10.png" alt="Bundesliga logo" height="28"></picture> Bundesliga Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -684,6 +715,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Serie A team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/12.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/12.png" alt="Serie A logo" height="28"></picture> Serie A Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -702,6 +737,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Ligue 1 team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/9.png" alt="Ligue 1 logo" height="28"></picture> Ligue 1 Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -719,6 +758,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Primeira Liga team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/14.png" alt="Primeira Liga logo" height="28"></picture> Primeira Liga Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -736,6 +779,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Eredivisie team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/11.png" alt="Eredivisie logo" height="28"></picture> Eredivisie Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -753,6 +800,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>WNBA team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA logo" height="28"></picture> WNBA Team Abbreviations
 
 | 🏀 Eastern Conference | Abbr | | 🏀 Western Conference | Abbr |
@@ -769,6 +820,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Liga MX team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/22.png" alt="Liga MX logo" height="28"></picture> Liga MX Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -786,6 +841,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Brasileirão team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/85.png" alt="Brasileirão logo" height="28"></picture> Brasileirão Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -804,6 +863,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>NWSL team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="NWSL logo" height="28"></picture> NWSL Team Abbreviations
 
 | ⚽ Club | Abbr | | ⚽ Club | Abbr |
@@ -819,6 +882,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Saudi Pro League team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png" alt="Saudi Pro League logo" height="28"></picture> Saudi Pro League Team Abbreviations
 
 | ⚽ Club | Abbr | ⚽ Club | Abbr |
@@ -835,6 +902,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>J1 League team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2199.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2199.png" alt="J1 League logo" height="28"></picture> J1 League Team Abbreviations
 
 | ⚽ Club | Abbr | ⚽ Club | Abbr |
@@ -852,6 +923,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Scottish Premiership team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/45.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/45.png" alt="Scottish Premiership logo" height="28"></picture> Scottish Premiership Team Abbreviations
 
 | ⚽ Club | Abbr | ⚽ Club | Abbr |
@@ -865,6 +940,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>Belgian Pro League team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/6.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/6.png" alt="Belgian Pro League logo" height="28"></picture> Belgian Pro League Team Abbreviations
 
 | ⚽ Club | Abbr | ⚽ Club | Abbr |
@@ -881,6 +960,10 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
+
+</details>
+
+<details><summary>UEFA Champions League team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2.png" alt="UEFA Champions League logo" height="28"></picture> UEFA Champions League Team Abbreviations
 
 | ⚽ Club | Abbr | ⚽ Club | Abbr |
@@ -908,6 +991,10 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 
 ---
 
+
+</details>
+
+<details><summary>UEFA Europa League team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2310.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2310.png" alt="UEFA Europa League logo" height="28"></picture> UEFA Europa League Team Abbreviations
 
 | ⚽ Club | Abbr | ⚽ Club | Abbr |
@@ -935,6 +1022,10 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 
 ---
 
+
+</details>
+
+<details><summary>NBA G League team abbreviations</summary>
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png" alt="NBA G League logo" height="28"></picture> NBA G League Team Abbreviations
 
 | 🏀 Eastern Conference | Abbr | | 🏀 Western Conference | Abbr |
@@ -960,7 +1051,8 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 
 <!-- college-abbreviations:ncaab:start -->
 <details><summary>NCAA Men's Basketball roster</summary>
-## NCAA Men's Basketball Team Abbreviations
+
+</details>## NCAA Men's Basketball Team Abbreviations
 
 Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
 
