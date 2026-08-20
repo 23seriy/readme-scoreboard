@@ -3,7 +3,7 @@ jest.mock("axios");
 const axios = require("axios");
 const fs = require("node:fs");
 const path = require("node:path");
-const { DEFAULT_TIMEOUT_MS, get, isRetryableError } = require("../src/http");
+const { DEFAULT_TIMEOUT_MS, get, isRetryableError, retryAfterMilliseconds } = require("../src/http");
 
 describe("HTTP request helper", () => {
   beforeEach(() => jest.clearAllMocks());
@@ -35,6 +35,12 @@ describe("HTTP request helper", () => {
     await get("https://example.test/data");
 
     expect(axios.get).toHaveBeenCalledTimes(2);
+  });
+
+  it("honors a bounded Retry-After response for rate limits", () => {
+    expect(retryAfterMilliseconds({ response: { headers: { "retry-after": "2" } } }, 250)).toBe(2000);
+    expect(retryAfterMilliseconds({ response: { headers: { "retry-after": "60" } } }, 250)).toBe(5000);
+    expect(retryAfterMilliseconds({ response: { headers: { "retry-after": "invalid" } } }, 250)).toBe(250);
   });
 
   it("does not retry client errors", async () => {
