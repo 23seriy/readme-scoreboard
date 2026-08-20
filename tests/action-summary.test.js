@@ -14,6 +14,7 @@ describe("GitHub Actions step summary", () => {
     });
 
     expect(summary).toContain("## 🏆 readme-scoreboard");
+    expect(summary).toContain("| League | NBA |");
     expect(summary).toContain("| Sport | NBA |");
     expect(summary).toContain("| Team | LAL |");
     expect(summary).toContain("| Destination | owner/repo |");

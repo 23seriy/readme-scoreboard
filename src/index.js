@@ -124,6 +124,7 @@ async function main() {
 
   writeStepSummary({
     sport: sportName,
+    leagueName: LEAGUE_BY_KEY[sportName]?.name,
     team,
     mode,
     result: summaryResult,
