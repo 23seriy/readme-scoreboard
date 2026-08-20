@@ -78,6 +78,16 @@ describe("season status updater", () => {
     });
   });
 
+  it("uses the first scheduled college-football game date", () => {
+    expect(normalizeSeasonWindow("College Football", {
+      startDate: "2026-02-01T00:00:00Z",
+      endDate: "2027-01-28T23:59:59Z",
+    })).toEqual({
+      startDate: "2026-08-27T00:00:00Z",
+      endDate: "2027-01-28T23:59:59Z",
+    });
+  });
+
   it("updates only the marked supported-sports table", () => {
     const readme = [
       "before",
