@@ -152,6 +152,13 @@ describe("documentation and action metadata", () => {
     expect(readme).toContain("NCAA Men's Ice Hockey");
   });
 
+  it("documents how generated README sections are maintained", () => {
+    expect(contributing).toContain("## Generated README Sections");
+    expect(contributing).toContain("node scripts/update-college-abbreviations.js");
+    expect(contributing).toContain("node scripts/update-season-status.js");
+    expect(contributing).toContain("npm run docs:heading-logos");
+  });
+
   it("documents the dry-run action input", () => {
     expect(action).toContain("  dry_run:");
     expect(readme).toContain("Accepts `true`/`false`");
