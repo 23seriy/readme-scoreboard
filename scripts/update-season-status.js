@@ -90,7 +90,7 @@ const FALLBACK_WINDOWS = {
   "NCAA Men's Basketball": ["2026-11-02", "2027-04-07"],
   "NCAA Women's Basketball": ["2026-11-02", "2027-04-07"],
   "College Football": ["2026-08-27", "2027-01-28"],
-  "NCAA Men's Ice Hockey": ["2026-09-01", "2027-05-01"],
+  "NCAA Men's Ice Hockey": ["2026-10-02", "2027-05-01"],
 };
 
 // ESPN's college-basketball season window can begin with summer scheduling
@@ -106,6 +106,7 @@ const SEASON_START_OVERRIDES = {
   "NCAA Men's Basketball": "2026-11-02T00:00:00Z",
   "NCAA Women's Basketball": "2026-11-02T00:00:00Z",
   "College Football": "2026-08-27T00:00:00Z",
+  "NCAA Men's Ice Hockey": "2026-10-02T00:00:00Z",
 };
 
 const ENDPOINT_OVERRIDES = {

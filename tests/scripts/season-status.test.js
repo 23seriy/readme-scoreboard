@@ -102,6 +102,13 @@ describe("season status updater", () => {
     }).startDate).toBe(regularStart);
   });
 
+  it("uses the NCAA Division I men's hockey first contest date", () => {
+    expect(normalizeSeasonWindow("NCAA Men's Ice Hockey", {
+      startDate: "2026-09-01T00:00:00Z",
+      endDate: "2027-05-01T23:59:59Z",
+    }).startDate).toBe("2026-10-02T00:00:00Z");
+  });
+
   it("updates only the marked supported-sports table", () => {
     const readme = [
       "before",
