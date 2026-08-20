@@ -98,6 +98,14 @@ describe("repository CI configuration", () => {
 });
 
 describe("documentation and action metadata", () => {
+  it("documents every supported sport key in the action input", () => {
+    const sportDescription = action.match(/description: "Sport: ([^"]+)"/)[1];
+
+    LEAGUES.forEach(({ key }) => {
+      expect(sportDescription.split(", ")).toContain(key);
+    });
+  });
+
   it("keeps the release metadata and v1 alias workflow aligned", () => {
     expect(require("../package.json").version).toBe("1.6.0");
     expect(fs.readFileSync("CHANGELOG.md", "utf8")).toContain("## [1.5.0]");
