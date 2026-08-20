@@ -13,4 +13,16 @@ describe("README maintenance workflow coordination", () => {
     expect(season).toContain("cancel-in-progress: false");
     expect(college).toContain("cancel-in-progress: false");
   });
+
+  it("bounds scheduled maintenance and verification jobs", () => {
+    for (const file of [
+      ".github/workflows/update-season-status.yml",
+      ".github/workflows/update-college-rosters.yml",
+      ".github/workflows/check-season-dates.yml",
+      ".github/workflows/api-health.yml",
+    ]) {
+      const workflow = fs.readFileSync(file, "utf8");
+      expect(workflow).toMatch(/runs-on: ubuntu-latest\n\s+timeout-minutes: 10/);
+    }
+  });
 });
