@@ -39,12 +39,17 @@ Use these commands when changing generated content:
 npm run docs:heading-logos
 node scripts/update-college-abbreviations.js
 node scripts/update-season-status.js
+npm run leagues:manifest
 ```
 
 The season and college roster workflows publish their changes separately. A
 pull request that changes an adapter or league metadata should include the
 corresponding tests and a `--demo` verification rather than a copied API
 response.
+
+The generated [`supported-leagues.json`](supported-leagues.json) file is the
+machine-readable catalog for integrations that need league keys, endpoints,
+logos, and season windows.
 
 ## Development
 

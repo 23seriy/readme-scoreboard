@@ -4,6 +4,25 @@ const { LEAGUES } = require("../../src/config/leagues");
 const { LEAGUES: seasonLeagues } = require("../../scripts/update-season-status");
 
 describe("supported league registry", () => {
+  it("keeps the machine-readable manifest synchronized", () => {
+    const manifest = require("../../supported-leagues.json");
+    const expected = LEAGUES.map(({ key, name, category, endpoint, renderer, emoji, logo, seasonWindow, fallback, endpointOverride }) => ({
+      key,
+      name,
+      category,
+      endpoint,
+      renderer,
+      emoji,
+      logo,
+      seasonWindow,
+      fallback,
+      ...(endpointOverride ? { endpointOverride } : {}),
+    }));
+
+    expect(manifest.generatedFrom).toBe("src/config/leagues.js");
+    expect(manifest.leagues).toEqual(expected);
+  });
+
   it("describes every concrete adapter exactly once", () => {
     const adapterKeys = fs.readdirSync(path.resolve(__dirname, "../../src/adapters"))
       .filter((file) => file.endsWith(".js") && !file.startsWith("base-"))
