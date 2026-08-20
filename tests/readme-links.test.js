@@ -171,6 +171,7 @@ describe("documentation and action metadata", () => {
     expect(readme).toContain(".github/workflows/check-season-dates.yml");
     expect(readme).toContain("Pin the action to a release tag (for example, `@v1`)");
     expect(readme).toContain("NCAA Men's Ice Hockey");
+    expect(readme).toContain("[`supported-leagues.json`](supported-leagues.json)");
   });
 
   it("documents how generated README sections are maintained", () => {
