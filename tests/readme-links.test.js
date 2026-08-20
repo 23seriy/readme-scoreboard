@@ -40,6 +40,22 @@ describe("README navigation links", () => {
     });
   });
 
+  it("keeps every league reference section collapsible", () => {
+    expect((readme.match(/<details>/g) || []).length).toBe(LEAGUES.length);
+
+    LEAGUES.forEach((league) => {
+      const heading = `${league.name} Team Abbreviations`;
+      const headingIndex = readme.indexOf(heading);
+      const detailsStart = readme.lastIndexOf("<details>", headingIndex);
+      const detailsEnd = readme.indexOf("</details>", headingIndex);
+
+      expect(headingIndex).toBeGreaterThanOrEqual(0);
+      expect(detailsStart).toBeGreaterThanOrEqual(0);
+      expect(detailsEnd).toBeGreaterThan(headingIndex);
+      expect(readme.slice(detailsStart, detailsEnd)).toContain(league.name);
+    });
+  });
+
   it("keeps every supported-sports row aligned with the league registry", () => {
     const start = readme.indexOf("<!-- supported-sports:start -->");
     const end = readme.indexOf("<!-- supported-sports:end -->");
