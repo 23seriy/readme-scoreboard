@@ -45,6 +45,15 @@ describe("season status updater", () => {
     expect(collegeWorkflow).not.toContain("git fetch origin automation/college-rosters || true");
   });
 
+  it("verifies live season dates before allowing a README update", () => {
+    const preflight = "node scripts/check-season-dates.js";
+    const updater = "node scripts/update-season-status.js";
+
+    expect(workflow).toContain(preflight);
+    expect(workflow).toContain(updater);
+    expect(workflow.indexOf(preflight)).toBeLessThan(workflow.indexOf(updater));
+  });
+
   it("marks a season in progress and shows its end date", () => {
     const status = classifySeason(
       { startDate: "2026-08-01T00:00:00Z", endDate: "2027-05-31T23:59:59Z" },
