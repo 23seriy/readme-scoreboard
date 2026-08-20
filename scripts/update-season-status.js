@@ -224,13 +224,14 @@ function normalizeSeasonWindow(name, season, now = new Date()) {
   return { ...season, startDate };
 }
 
-async function buildRows(now = new Date()) {
+async function buildRows(now = new Date(), { strict = false } = {}) {
   return Promise.all(LEAGUES.map(async ([sport, name, slug]) => {
     const endpoint = ENDPOINT_OVERRIDES[name] || `[\`${slug}\`](https://site.api.espn.com/apis/site/v2/sports/${slug}/teams)`;
     try {
       const season = normalizeSeasonWindow(name, await fetchSeason(slug), now);
       return { sport, name, league: leagueCell(name), season: formatSeasonCell(classifySeason(season, now)), endpoint };
     } catch (error) {
+      if (strict) throw new Error(`${name}: ${error.message}`, { cause: error });
       console.warn(`Season dates unavailable for ${name}: ${error.message}`);
       const fallback = FALLBACK_WINDOWS[name];
       const season = fallback
@@ -244,7 +245,7 @@ async function buildRows(now = new Date()) {
 async function main() {
   const readmePath = path.resolve(__dirname, "..", "README.md");
   const readme = fs.readFileSync(readmePath, "utf8");
-  const rows = await buildRows();
+  const rows = await buildRows(new Date(), { strict: process.argv.includes("--strict") });
   const updated = updateSupportedSportsTable(readme, rows);
   if (updated !== readme) fs.writeFileSync(readmePath, updated);
 }
