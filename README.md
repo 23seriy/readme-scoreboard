@@ -1054,7 +1054,7 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 <!-- college-abbreviations:ncaab:start -->
 <details><summary>NCAA Men's Basketball roster</summary>
 
-</details>## NCAA Men's Basketball Team Abbreviations
+## NCAA Men's Basketball Team Abbreviations
 
 Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
 
