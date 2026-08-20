@@ -37,7 +37,7 @@ jobs:
           git switch -C automation/season-status
           git add README.md
           git commit -m "docs: update supported league seasons"
-          git fetch origin automation/season-status || true
+          git fetch origin automation/season-status
           if git show-ref --verify --quiet refs/remotes/origin/automation/season-status; then
             git push --force-with-lease=refs/heads/automation/season-status:$(git rev-parse refs/remotes/origin/automation/season-status) origin automation/season-status
           else
