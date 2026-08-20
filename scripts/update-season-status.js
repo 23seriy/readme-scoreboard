@@ -87,10 +87,17 @@ const FALLBACK_WINDOWS = {
   "Belgian Pro League": ["2026-07-01", "2027-07-01"],
   "UEFA Champions League": ["2026-07-01", "2027-07-01"],
   "UEFA Europa League": ["2026-08-27", "2027-07-01"],
-  "NCAA Men's Basketball": ["2026-07-13", "2027-04-07"],
+  "NCAA Men's Basketball": ["2026-11-02", "2027-04-07"],
   "NCAA Women's Basketball": ["2026-07-13", "2027-04-07"],
   "College Football": ["2026-02-01", "2027-01-28"],
   "NCAA Men's Ice Hockey": ["2026-09-01", "2027-05-01"],
+};
+
+// ESPN's college-basketball season window can begin with summer scheduling
+// activity. Use the NCAA's first regular-season contest date for the public
+// status table instead of marking the league active months early.
+const SEASON_START_OVERRIDES = {
+  "NCAA Men's Basketball": "2026-11-02T00:00:00Z",
 };
 
 const ENDPOINT_OVERRIDES = {
@@ -175,11 +182,16 @@ async function fetchSeason(slug) {
   return season;
 }
 
+function normalizeSeasonWindow(name, season) {
+  const startDate = SEASON_START_OVERRIDES[name] || season.startDate;
+  return { ...season, startDate };
+}
+
 async function buildRows(now = new Date()) {
   return Promise.all(LEAGUES.map(async ([sport, name, slug]) => {
     const endpoint = ENDPOINT_OVERRIDES[name] || `[\`${slug}\`](https://site.api.espn.com/apis/site/v2/sports/${slug}/teams)`;
     try {
-      const season = await fetchSeason(slug);
+      const season = normalizeSeasonWindow(name, await fetchSeason(slug));
       return { sport, name, league: leagueCell(name), season: formatSeasonCell(classifySeason(season, now)), endpoint };
     } catch (error) {
       console.warn(`Season dates unavailable for ${name}: ${error.message}`);
@@ -213,5 +225,6 @@ module.exports = {
   classifySeason,
   fetchSeason,
   formatSeasonCell,
+  normalizeSeasonWindow,
   updateSupportedSportsTable,
 };
