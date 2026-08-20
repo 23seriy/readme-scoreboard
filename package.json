@@ -10,6 +10,7 @@
     "health:apis": "node scripts/check-api-health.js",
     "docs:check": "jest --runInBand tests/readme-links.test.js",
     "docs:heading-logos": "node scripts/update-readme-heading-logos.js",
+    "leagues:manifest": "node scripts/generate-league-manifest.js",
     "smoke:demo": "node scripts/demo-smoke.js",
     "test": "jest",
     "lint": "eslint ."
