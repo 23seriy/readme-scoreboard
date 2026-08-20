@@ -73,16 +73,16 @@ const LEAGUE_LOGOS = {
 // temporarily unavailable. The next successful daily run replaces these with
 // the API's exact season dates.
 const FALLBACK_WINDOWS = {
-  NBA: ["2026-09-30", "2027-06-26"], MLB: ["2026-02-19", "2026-11-12"],
-  NFL: ["2026-08-06", "2027-02-16"], NHL: ["2026-09-15", "2027-07-01"],
+  NBA: ["2026-10-20", "2027-06-26"], MLB: ["2026-03-25", "2026-11-12"],
+  NFL: ["2026-09-09", "2027-02-16"], NHL: ["2026-09-29", "2027-07-01"],
   MLS: ["2026-01-01", "2026-12-31"], "Premier League": ["2026-06-01", "2027-06-01"],
   "La Liga": ["2026-06-01", "2027-06-01"], Bundesliga: ["2026-07-01", "2027-07-01"],
   "Serie A": ["2026-06-05", "2027-07-01"], "Ligue 1": ["2026-06-01", "2027-06-01"],
   "Primeira Liga": ["2026-07-01", "2027-07-01"], Eredivisie: ["2026-06-01", "2027-06-01"],
-  WNBA: ["2026-04-03", "2026-10-20"], "Liga MX": ["2026-06-01", "2027-06-01"],
+  WNBA: ["2026-05-08", "2026-10-20"], "Liga MX": ["2026-06-01", "2027-06-01"],
   Brasileirão: ["2026-01-01", "2026-12-31"], NWSL: ["2026-01-01", "2026-12-31"],
   "Saudi Pro League": ["2026-07-01", "2027-07-01"], "J1 League": ["2026-01-01", "2027-07-01"],
-  "NBA G League": ["2025-09-01", "2026-05-01"],
+  "NBA G League": ["2026-12-19", "2027-05-01"],
   "Scottish Premiership": ["2026-06-01", "2027-06-01"],
   "Belgian Pro League": ["2026-07-01", "2027-07-01"],
   "UEFA Champions League": ["2026-07-01", "2027-07-01"],
@@ -97,6 +97,12 @@ const FALLBACK_WINDOWS = {
 // activity. Use the NCAA's first regular-season contest date for the public
 // status table instead of marking the league active months early.
 const SEASON_START_OVERRIDES = {
+  NBA: "2026-10-20T00:00:00Z",
+  MLB: "2026-03-25T00:00:00Z",
+  NFL: "2026-09-09T00:00:00Z",
+  NHL: "2026-09-29T00:00:00Z",
+  WNBA: "2026-05-08T00:00:00Z",
+  "NBA G League": "2026-12-19T00:00:00Z",
   "NCAA Men's Basketball": "2026-11-02T00:00:00Z",
   "NCAA Women's Basketball": "2026-11-02T00:00:00Z",
   "College Football": "2026-08-27T00:00:00Z",

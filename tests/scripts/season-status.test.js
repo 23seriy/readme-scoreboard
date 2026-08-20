@@ -88,6 +88,20 @@ describe("season status updater", () => {
     });
   });
 
+  it.each([
+    ["NBA", "2026-09-30T00:00:00Z", "2026-10-20T00:00:00Z"],
+    ["MLB", "2026-02-19T00:00:00Z", "2026-03-25T00:00:00Z"],
+    ["NFL", "2026-08-06T00:00:00Z", "2026-09-09T00:00:00Z"],
+    ["NHL", "2026-09-15T00:00:00Z", "2026-09-29T00:00:00Z"],
+    ["WNBA", "2026-04-03T00:00:00Z", "2026-05-08T00:00:00Z"],
+    ["NBA G League", "2025-09-01T00:00:00Z", "2026-12-19T00:00:00Z"],
+  ])("normalizes %s to its regular-season start", (name, apiStart, regularStart) => {
+    expect(normalizeSeasonWindow(name, {
+      startDate: apiStart,
+      endDate: "2027-06-30T23:59:59Z",
+    }).startDate).toBe(regularStart);
+  });
+
   it("updates only the marked supported-sports table", () => {
     const readme = [
       "before",
