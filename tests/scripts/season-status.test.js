@@ -68,6 +68,16 @@ describe("season status updater", () => {
     });
   });
 
+  it("uses the first regular-season contest date for NCAA women's basketball", () => {
+    expect(normalizeSeasonWindow("NCAA Women's Basketball", {
+      startDate: "2026-07-13T00:00:00Z",
+      endDate: "2027-04-07T23:59:59Z",
+    })).toEqual({
+      startDate: "2026-11-02T00:00:00Z",
+      endDate: "2027-04-07T23:59:59Z",
+    });
+  });
+
   it("updates only the marked supported-sports table", () => {
     const readme = [
       "before",
