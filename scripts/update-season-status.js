@@ -75,7 +75,7 @@ const LEAGUE_LOGOS = {
 const FALLBACK_WINDOWS = {
   NBA: ["2026-10-20", "2027-06-26"], MLB: ["2026-03-25", "2026-11-12"],
   NFL: ["2026-09-09", "2027-02-16"], NHL: ["2026-09-29", "2027-07-01"],
-  MLS: ["2026-01-01", "2026-12-31"], "Premier League": ["2026-06-01", "2027-06-01"],
+  MLS: ["2026-02-21", "2026-12-31"], "Premier League": ["2026-08-21", "2027-06-01"],
   "La Liga": ["2026-06-01", "2027-06-01"], Bundesliga: ["2026-07-01", "2027-07-01"],
   "Serie A": ["2026-06-05", "2027-07-01"], "Ligue 1": ["2026-06-01", "2027-06-01"],
   "Primeira Liga": ["2026-07-01", "2027-07-01"], Eredivisie: ["2026-06-01", "2027-06-01"],
@@ -85,8 +85,8 @@ const FALLBACK_WINDOWS = {
   "NBA G League": ["2026-12-19", "2027-05-01"],
   "Scottish Premiership": ["2026-06-01", "2027-06-01"],
   "Belgian Pro League": ["2026-07-01", "2027-07-01"],
-  "UEFA Champions League": ["2026-07-01", "2027-07-01"],
-  "UEFA Europa League": ["2026-08-27", "2027-07-01"],
+  "UEFA Champions League": ["2026-07-07", "2027-07-01"],
+  "UEFA Europa League": ["2026-07-09", "2027-07-01"],
   "NCAA Men's Basketball": ["2026-11-02", "2027-04-07"],
   "NCAA Women's Basketball": ["2026-11-02", "2027-04-07"],
   "College Football": ["2026-08-27", "2027-01-28"],
@@ -97,6 +97,10 @@ const FALLBACK_WINDOWS = {
 // activity. Use the NCAA's first regular-season contest date for the public
 // status table instead of marking the league active months early.
 const SEASON_START_OVERRIDES = {
+  MLS: "2026-02-21T00:00:00Z",
+  "Premier League": "2026-08-21T00:00:00Z",
+  "UEFA Champions League": "2026-07-07T00:00:00Z",
+  "UEFA Europa League": "2026-07-09T00:00:00Z",
   NBA: "2026-10-20T00:00:00Z",
   MLB: "2026-03-25T00:00:00Z",
   NFL: "2026-09-09T00:00:00Z",

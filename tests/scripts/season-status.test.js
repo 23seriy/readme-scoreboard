@@ -109,6 +109,18 @@ describe("season status updater", () => {
     }).startDate).toBe("2026-10-02T00:00:00Z");
   });
 
+  it.each([
+    ["MLS", "2026-01-01T00:00:00Z", "2026-02-21T00:00:00Z"],
+    ["Premier League", "2026-06-01T00:00:00Z", "2026-08-21T00:00:00Z"],
+    ["UEFA Champions League", "2026-07-01T00:00:00Z", "2026-07-07T00:00:00Z"],
+    ["UEFA Europa League", "2026-08-27T00:00:00Z", "2026-07-09T00:00:00Z"],
+  ])("normalizes %s to its published opening date", (name, apiStart, regularStart) => {
+    expect(normalizeSeasonWindow(name, {
+      startDate: apiStart,
+      endDate: "2027-07-01T23:59:59Z",
+    }).startDate).toBe(regularStart);
+  });
+
   it("updates only the marked supported-sports table", () => {
     const readme = [
       "before",
