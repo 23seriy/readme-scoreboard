@@ -84,6 +84,16 @@ describe("README navigation links", () => {
     });
   });
 
+  it("keeps README markdown links non-empty and well-formed", () => {
+    const links = [...readme.matchAll(/(?<!!)\[[^\]]+\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)]
+      .map((match) => match[1]);
+
+    expect(links.length).toBeGreaterThan(30);
+    links.forEach((destination) => {
+      expect(destination).toMatch(/^(?:https?:\/\/|#|\.\.\/|[^/]+\/|[^\s]+$)/);
+    });
+  });
+
   it("keeps table-of-contents anchors tied to README headings", () => {
     const tocStart = readme.indexOf("## Table of Contents");
     const tocEnd = readme.indexOf("\n---", tocStart);
