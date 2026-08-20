@@ -83,6 +83,17 @@ describe("README navigation links", () => {
       expect(toc).toContain(`[${league.name}]`);
     });
   });
+
+  it("keeps README markdown links non-empty and well-formed", () => {
+    const links = [...readme.matchAll(/(?<!!)\[[^\]]+\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)]
+      .map((match) => match[1]);
+
+    expect(links.length).toBeGreaterThan(30);
+    links.forEach((destination) => {
+      expect(destination).toMatch(/^(?:https?:\/\/|#|\.\.\/|[^/]+\/|[^\s]+$)/);
+    });
+  });
+
   it("exposes a stable team-abbreviations section anchor", () => {
     expect(readme).toContain("[Team Abbreviations](#team-abbreviations)");
     expect(readme).toContain("## Team Abbreviations");
