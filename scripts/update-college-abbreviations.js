@@ -24,8 +24,8 @@ function renderSection(slug, title, teams) {
 
   const rows = [
     `<!-- college-abbreviations:${slug}:start -->`,
-    `<details><summary>${title} roster</summary>`,
     `## ${title} Team Abbreviations`,
+    `<details><summary>${title} roster</summary>`,
     "",
     "Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.",
     "",
