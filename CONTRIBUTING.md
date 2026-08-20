@@ -59,6 +59,7 @@ response.
 cp sample.env .env
 # Fill in your values
 npm ci --ignore-scripts
+npm run docs:check
 npm test -- --runInBand
 npm run lint
 npm start

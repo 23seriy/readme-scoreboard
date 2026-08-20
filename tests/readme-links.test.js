@@ -120,6 +120,12 @@ describe("README navigation links", () => {
 });
 
 describe("repository CI configuration", () => {
+  it("exposes a focused documentation check command", () => {
+    expect(require("../package.json").scripts["docs:check"]).toBe(
+      "jest --runInBand tests/readme-links.test.js",
+    );
+  });
+
   it("uses a locked install and runs tests and lint", () => {
     expect(ci).toContain("npm ci --ignore-scripts");
     expect(ci).toContain("npm test -- --runInBand");
