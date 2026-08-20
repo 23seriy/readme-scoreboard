@@ -46,14 +46,25 @@ describe("README navigation links", () => {
     LEAGUES.forEach((league) => {
       const heading = `${league.name} Team Abbreviations`;
       const headingIndex = readme.indexOf(heading);
-      const detailsStart = readme.lastIndexOf("<details>", headingIndex);
-      const detailsEnd = readme.indexOf("</details>", headingIndex);
+      const detailsStart = readme.indexOf("<details>", headingIndex);
+      const detailsEnd = readme.indexOf("</details>", detailsStart);
 
       expect(headingIndex).toBeGreaterThanOrEqual(0);
       expect(detailsStart).toBeGreaterThanOrEqual(0);
       expect(detailsEnd).toBeGreaterThan(headingIndex);
       expect(readme.slice(detailsStart, detailsEnd)).toContain(league.name);
     });
+  });
+
+  it("keeps league headings outside collapsible HTML blocks", () => {
+    LEAGUES.forEach((league) => {
+      const headingIndex = readme.indexOf(`${league.name} Team Abbreviations`);
+      const lastOpen = readme.lastIndexOf("<details>", headingIndex);
+      const lastClose = readme.lastIndexOf("</details>", headingIndex);
+
+      expect(lastOpen === -1 || lastClose > lastOpen).toBe(true);
+    });
+    expect(readme).not.toMatch(/<\/details>##/);
   });
 
   it("keeps every supported-sports row aligned with the league registry", () => {
