@@ -94,6 +94,25 @@ describe("README navigation links", () => {
     });
   });
 
+  it("keeps table-of-contents anchors tied to README headings", () => {
+    const tocStart = readme.indexOf("## Table of Contents");
+    const tocEnd = readme.indexOf("\n---", tocStart);
+    const toc = readme.slice(tocStart, tocEnd);
+    const anchors = [...toc.matchAll(/\[[^\]]+\]\((#[^)]+)\)/g)].map((match) => match[1]);
+    const headingSlugs = [...readme.matchAll(/^#{1,6} (.+)$/gm)].map((match) => {
+      const heading = match[1];
+      const text = (heading.includes("</picture>") ? heading.split("</picture>").pop() : heading)
+        .replace(/&nbsp;/g, " ")
+        .trim();
+      return text.toLowerCase().replace(/[^\p{L}\p{N} -]/gu, "").replace(/\s+/g, "-");
+    });
+
+    expect(anchors.length).toBeGreaterThan(0);
+    anchors.forEach((anchor) => {
+      expect(headingSlugs).toContain(anchor.slice(1).replace(/^-+/, ""));
+    });
+  });
+
   it("exposes a stable team-abbreviations section anchor", () => {
     expect(readme).toContain("[Team Abbreviations](#team-abbreviations)");
     expect(readme).toContain("## Team Abbreviations");
