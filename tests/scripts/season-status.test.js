@@ -47,7 +47,7 @@ describe("season status updater", () => {
 
   it("verifies live season dates before allowing a README update", () => {
     const preflight = "node scripts/check-season-dates.js";
-    const updater = "node scripts/update-season-status.js";
+    const updater = "node scripts/update-season-status.js --strict";
 
     expect(workflow).toContain(preflight);
     expect(workflow).toContain(updater);

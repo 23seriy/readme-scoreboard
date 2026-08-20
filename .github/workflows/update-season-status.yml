@@ -24,7 +24,7 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: node scripts/check-season-dates.js
-      - run: node scripts/update-season-status.js
+      - run: node scripts/update-season-status.js --strict
       - name: Publish season status branch
         id: publish
         run: |
