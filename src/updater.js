@@ -110,7 +110,7 @@ function injectContent(currentContent, content, markerName) {
 
   if (startIdx === -1 || endIdx === -1) {
     console.error(
-      `Markers not found in README.md. Add these lines where you want the stats:\n` +
+      `Marker not found in README.md. Add these lines where you want the stats:\n` +
       `  ${start}\n` +
       `  ${end}`
     );

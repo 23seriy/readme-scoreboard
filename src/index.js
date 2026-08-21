@@ -28,7 +28,7 @@ const isDryRun = parseDryRun(process.env.DRY_RUN);
 
 async function main() {
   if (!teamAbbr && !isDemo) {
-    console.error("TEAM environment variable is required (or use --demo)");
+    console.error("TEAM environment variable is required. Set the team abbreviation, or run with --demo for a preview.");
     process.exit(1);
   }
 
@@ -42,7 +42,7 @@ async function main() {
   try {
     adapter = require(`./adapters/${sportName}`);
   } catch {
-    console.error(`Unsupported sport: "${sportName}". Available adapters: ${Object.keys(LEAGUE_BY_KEY).join(", ")}`);
+    console.error(`Unsupported sport: "${sportName}". Check the Supported Sports table for available options.`);
     process.exit(1);
     return;
   }
@@ -70,7 +70,7 @@ async function main() {
   } else {
     data = await adapter.fetchData(team);
     if (!data) {
-      console.error("Could not fetch team data. Check your TEAM abbreviation.");
+      console.error(`Could not fetch team data for ${sportName.toUpperCase()} team "${team}". Check the abbreviation in the Supported Sports section, then try npm run doctor -- --demo.`);
       process.exit(1);
     }
   }
