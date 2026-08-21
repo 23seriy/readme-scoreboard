@@ -85,8 +85,8 @@ const FALLBACK_WINDOWS = {
   "NBA G League": ["2026-12-19", "2027-05-01"],
   "Scottish Premiership": ["2026-06-01", "2027-06-01"],
   "Belgian Pro League": ["2026-07-01", "2027-07-01"],
-  "UEFA Champions League": ["2026-07-07", "2027-07-01"],
-  "UEFA Europa League": ["2026-07-09", "2027-07-01"],
+  "UEFA Champions League": ["2026-07-07", "2027-06-05"],
+  "UEFA Europa League": ["2026-07-09", "2027-05-26"],
   "NCAA Men's Basketball": ["2026-11-02", "2027-04-07"],
   "NCAA Women's Basketball": ["2026-11-02", "2027-04-07"],
   "College Football": ["2026-08-27", "2027-01-28"],
@@ -217,6 +217,16 @@ function seasonRelativeStart(override, seasonStart, seasonEnd, now = new Date())
 }
 
 function normalizeSeasonWindow(name, season, now = new Date()) {
+  const fallback = FALLBACK_WINDOWS[name];
+  if (fallback) {
+    const fallbackStart = new Date(fallback[0]);
+    const fallbackEnd = new Date(fallback[1]);
+    const apiStart = new Date(season.startDate);
+    if (now >= fallbackStart && now <= fallbackEnd && apiStart > now) {
+      return { startDate: fallback[0], endDate: fallback[1] };
+    }
+  }
+
   const override = SEASON_START_OVERRIDES[name];
   const startDate = override
     ? seasonRelativeStart(override, season.startDate, season.endDate, now)

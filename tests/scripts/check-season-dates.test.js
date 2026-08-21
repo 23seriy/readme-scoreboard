@@ -23,7 +23,7 @@ describe("daily season-date verification", () => {
     expect(validateSeasonWindow("La Liga", {
       startDate: "2027-08-20T00:00:00Z",
       endDate: "2028-06-01T23:59:59Z",
-    })).toEqual(["La Liga: normalized start 2027-08-15 is before API season start 2027-08-20"]);
+    }, new Date("2027-08-25T00:00:00Z"))).toEqual(["La Liga: normalized start 2027-08-15 is before API season start 2027-08-20"]);
   });
 
   it("uses the next season year when ESPN returns an ended season", () => {
