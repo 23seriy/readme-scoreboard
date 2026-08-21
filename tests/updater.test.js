@@ -78,8 +78,11 @@ describe("updateReadmeLocal / injectContent", () => {
     const mockExit = jest.spyOn(process, "exit").mockImplementation(() => {
       throw new Error("process.exit called");
     });
+    const mockError = jest.spyOn(console, "error").mockImplementation();
 
     expect(() => updateReadmeLocal(tmpDir, "content", "readme-scoreboard-mlb")).toThrow();
+    expect(mockError).toHaveBeenCalledWith(expect.stringContaining("Marker not found in README.md"));
+    mockError.mockRestore();
     mockExit.mockRestore();
   });
 
