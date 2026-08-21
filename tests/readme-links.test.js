@@ -83,6 +83,16 @@ describe("README navigation links", () => {
     });
   });
 
+  it("keeps the machine-readable league manifest linked", () => {
+    expect(readme).toContain("[`supported-leagues.json`](supported-leagues.json)");
+    const manifest = require("../supported-leagues.json");
+    expect(manifest.leagues).toHaveLength(LEAGUES.length);
+    manifest.leagues.forEach((league) => {
+      expect(league.apiSource).toMatch(/^(ESPN public API|official league API)$/);
+      expect(league.teamEndpoint).toMatch(/^https:\/\//);
+    });
+  });
+
   it("keeps every supported league discoverable in the table of contents", () => {
     const tocStart = readme.indexOf("## Table of Contents");
     const tocEnd = readme.indexOf("\n---", tocStart);

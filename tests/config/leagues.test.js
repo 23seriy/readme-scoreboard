@@ -11,6 +11,9 @@ describe("supported league registry", () => {
       name,
       category,
       endpoint,
+      apiSource: endpointOverride ? "official league API" : "ESPN public API",
+      teamEndpoint: endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]
+        || `https://site.api.espn.com/apis/site/v2/sports/${endpoint}/teams`,
       renderer,
       emoji,
       logo,
