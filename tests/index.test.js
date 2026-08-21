@@ -53,7 +53,7 @@ describe("main", () => {
     try {
       await main();
 
-      expect(updateReadme).toHaveBeenCalledWith(expect.anything(), "octocat/octocat", "scoreboard", undefined);
+      expect(updateReadme).toHaveBeenCalledWith(expect.anything(), "octocat/octocat", expect.stringContaining("scoreboard\n\n_Last updated:"), undefined);
       expect(updateReadmeLocal).not.toHaveBeenCalled();
       expect(fs.readFileSync(outputPath, "utf8")).toBe("updated=true\nmode=live\ntarget_repo=octocat/octocat\n");
     } finally {

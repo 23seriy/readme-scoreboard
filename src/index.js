@@ -78,12 +78,15 @@ async function main() {
   // Add sport-specific metadata for the renderer
   const defaultEmoji = LEAGUE_BY_KEY[sportName]?.emoji || "🏀";
   const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
-  const logoUrl = adapter.getLogoUrl(data.team.abbreviation);
+  const teamLogoUrl = adapter.getLogoUrl(data.team.abbreviation);
+  const logoUrl = teamLogoUrl || LEAGUE_BY_KEY[sportName]?.logo?.light || "";
+  const generatedAt = new Date().toISOString();
+  const dataSource = adapter.DATA_SOURCE || (LEAGUE_BY_KEY[sportName]?.endpointOverride ? "official league API" : "ESPN public API");
 
   const renderData = { ...data, emoji, logoUrl };
 
   // Render markdown
-  const content = render(sportName, renderData);
+  const content = `${render(sportName, renderData).trimEnd()}\n\n_Last updated: ${generatedAt}_`;
 
   console.log("\n--- Preview ---");
   console.log(content);
@@ -129,6 +132,9 @@ async function main() {
     mode,
     result: summaryResult,
     targetRepo: summaryDestination,
+    dataSource,
+    generatedAt,
+    staleDataProtected: true,
   });
   writeActionOutputs({ updated, mode, targetRepo: summaryDestination });
 }

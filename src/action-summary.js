@@ -1,6 +1,6 @@
 const fs = require("node:fs");
 
-function summaryMarkdown({ sport, leagueName, team, mode, result, targetRepo }) {
+function summaryMarkdown({ sport, leagueName, team, mode, result, targetRepo, dataSource, generatedAt, staleDataProtected }) {
   const destination = targetRepo || "local workspace / automatic profile repository";
   return [
     "## 🏆 readme-scoreboard",
@@ -13,8 +13,11 @@ function summaryMarkdown({ sport, leagueName, team, mode, result, targetRepo }) 
     `| Mode | ${mode} |`,
     `| Result | ${result} |`,
     `| Destination | ${destination} |`,
+    dataSource ? `| Data source | ${dataSource} |` : null,
+    generatedAt ? `| Generated | ${generatedAt} |` : null,
+    staleDataProtected ? "| Safety | Existing README preserved if data fetch fails |" : null,
     "",
-  ].join("\n");
+  ].filter(Boolean).join("\n");
 }
 
 function writeStepSummary(details, summaryPath = process.env.GITHUB_STEP_SUMMARY) {
