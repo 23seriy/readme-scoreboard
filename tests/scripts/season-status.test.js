@@ -147,14 +147,34 @@ describe("season status updater", () => {
     expect(normalizeSeasonWindow(name, {
       startDate: apiStart,
       endDate: "2027-07-01T23:59:59Z",
-    }).startDate).toBe(regularStart);
+    }, new Date("2026-06-01T00:00:00Z")).startDate).toBe(regularStart);
   });
 
   it("rolls published opening dates into the season's reported year", () => {
     expect(normalizeSeasonWindow("La Liga", {
       startDate: "2027-06-01T00:00:00Z",
       endDate: "2028-06-01T23:59:59Z",
-    }).startDate).toBe("2027-08-15T00:00:00Z");
+    }, new Date("2027-08-25T00:00:00Z")).startDate).toBe("2027-08-15T00:00:00Z");
+  });
+
+  it("keeps the active Champions League season when ESPN jumps to next year", () => {
+    expect(normalizeSeasonWindow("UEFA Champions League", {
+      startDate: "2027-07-01T00:00:00Z",
+      endDate: "2028-06-30T23:59:59Z",
+    }, new Date("2026-08-21T12:00:00Z"))).toEqual({
+      startDate: "2026-07-07",
+      endDate: "2027-06-05",
+    });
+  });
+
+  it("keeps the active Europa League season when ESPN jumps to next year", () => {
+    expect(normalizeSeasonWindow("UEFA Europa League", {
+      startDate: "2027-07-01T00:00:00Z",
+      endDate: "2028-06-30T23:59:59Z",
+    }, new Date("2026-08-21T12:00:00Z"))).toEqual({
+      startDate: "2026-07-09",
+      endDate: "2027-05-26",
+    });
   });
 
   it("updates only the marked supported-sports table", () => {
