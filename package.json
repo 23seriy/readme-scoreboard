@@ -13,6 +13,7 @@
     "leagues:manifest": "node scripts/generate-league-manifest.js",
     "teams:directory": "node scripts/generate-team-directory.js",
     "teams:directory:markdown": "node scripts/generate-team-directory-markdown.js",
+    "teams:directory:validate": "node scripts/validate-team-directory.js",
     "smoke:demo": "node scripts/demo-smoke.js",
     "test": "jest",
     "lint": "eslint ."

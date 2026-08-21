@@ -52,6 +52,12 @@ describe("supported league registry", () => {
     LEAGUES.forEach((league) => expect(markdown).toContain(`## ${league.name}`));
   });
 
+  it("rejects malformed team directory entries", () => {
+    const { validate } = require("../../scripts/validate-team-directory");
+    expect(validate({ teams: [] })).toEqual(expect.arrayContaining([expect.stringMatching(/empty roster/)]));
+    expect(validate(require("../../team-directory.json"))).toEqual([]);
+  });
+
   it("drives the supported-season table in registry order", () => {
     expect(seasonLeagues).toEqual(LEAGUES.map(({ category, name, endpoint }) => [category, name, endpoint]));
   });
