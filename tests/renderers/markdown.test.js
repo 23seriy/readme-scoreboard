@@ -26,6 +26,12 @@ const BASE_MLB_DATA = {
 };
 
 describe("renderMlb / formatMlbGameResult", () => {
+  it("links the league heading to its live team endpoint", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
+    expect(output).toContain("[<picture>");
+    expect(output).toContain("https://statsapi.mlb.com/api/v1/teams?sportId=1");
+  });
+
   it("renders W when home team wins", () => {
     const data = {
       ...BASE_MLB_DATA,
