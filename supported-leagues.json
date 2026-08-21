@@ -6,6 +6,8 @@
       "name": "NBA",
       "category": "Basketball",
       "endpoint": "basketball/nba",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams",
       "renderer": "nba",
       "emoji": "🏀",
       "logo": {
@@ -33,6 +35,8 @@
       "name": "MLB",
       "category": "Baseball",
       "endpoint": "baseball/mlb",
+      "apiSource": "official league API",
+      "teamEndpoint": "https://statsapi.mlb.com/api/v1/teams?sportId=1",
       "renderer": "mlb",
       "emoji": "⚾",
       "logo": {
@@ -61,6 +65,8 @@
       "name": "NFL",
       "category": "Football",
       "endpoint": "football/nfl",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams",
       "renderer": "nfl",
       "emoji": "🏈",
       "logo": {
@@ -88,6 +94,8 @@
       "name": "NHL",
       "category": "Hockey",
       "endpoint": "hockey/nhl",
+      "apiSource": "official league API",
+      "teamEndpoint": "https://api-web.nhle.com/v1/standings/now",
       "renderer": "nhl",
       "emoji": "🏒",
       "logo": {
@@ -116,6 +124,8 @@
       "name": "MLS",
       "category": "Soccer",
       "endpoint": "soccer/usa.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -143,6 +153,8 @@
       "name": "Premier League",
       "category": "Soccer",
       "endpoint": "soccer/eng.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -170,6 +182,8 @@
       "name": "La Liga",
       "category": "Soccer",
       "endpoint": "soccer/esp.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -197,6 +211,8 @@
       "name": "Bundesliga",
       "category": "Soccer",
       "endpoint": "soccer/ger.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -224,6 +240,8 @@
       "name": "Serie A",
       "category": "Soccer",
       "endpoint": "soccer/ita.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -251,6 +269,8 @@
       "name": "Ligue 1",
       "category": "Soccer",
       "endpoint": "soccer/fra.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -278,6 +298,8 @@
       "name": "Primeira Liga",
       "category": "Soccer",
       "endpoint": "soccer/por.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -305,6 +327,8 @@
       "name": "Eredivisie",
       "category": "Soccer",
       "endpoint": "soccer/ned.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -332,6 +356,8 @@
       "name": "WNBA",
       "category": "Basketball",
       "endpoint": "basketball/wnba",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams",
       "renderer": "nba",
       "emoji": "🏀",
       "logo": {
@@ -359,6 +385,8 @@
       "name": "Liga MX",
       "category": "Soccer",
       "endpoint": "soccer/mex.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/mex.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -386,6 +414,8 @@
       "name": "Brasileirão",
       "category": "Soccer",
       "endpoint": "soccer/bra.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -413,6 +443,8 @@
       "name": "NWSL",
       "category": "Soccer",
       "endpoint": "soccer/usa.nwsl",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -440,6 +472,8 @@
       "name": "Saudi Pro League",
       "category": "Soccer",
       "endpoint": "soccer/ksa.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/ksa.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -467,6 +501,8 @@
       "name": "J1 League",
       "category": "Soccer",
       "endpoint": "soccer/jpn.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/jpn.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -494,6 +530,8 @@
       "name": "Scottish Premiership",
       "category": "Soccer",
       "endpoint": "soccer/sco.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -521,6 +559,8 @@
       "name": "Belgian Pro League",
       "category": "Soccer",
       "endpoint": "soccer/bel.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -548,6 +588,8 @@
       "name": "UEFA Champions League",
       "category": "Soccer",
       "endpoint": "soccer/uefa.champions",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -575,6 +617,8 @@
       "name": "UEFA Europa League",
       "category": "Soccer",
       "endpoint": "soccer/uefa.europa",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams",
       "renderer": "soccer",
       "emoji": "⚽",
       "logo": {
@@ -602,6 +646,8 @@
       "name": "NBA G League",
       "category": "Basketball",
       "endpoint": "basketball/nba-development",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development/teams",
       "renderer": "nba",
       "emoji": "🏀",
       "logo": {
@@ -629,6 +675,8 @@
       "name": "NCAA Men's Basketball",
       "category": "Basketball",
       "endpoint": "basketball/mens-college-basketball",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams",
       "renderer": "nba",
       "emoji": "🏀",
       "logo": {
@@ -656,6 +704,8 @@
       "name": "NCAA Women's Basketball",
       "category": "Basketball",
       "endpoint": "basketball/womens-college-basketball",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams",
       "renderer": "nba",
       "emoji": "🏀",
       "logo": {
@@ -683,6 +733,8 @@
       "name": "College Football",
       "category": "Football",
       "endpoint": "football/college-football",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams",
       "renderer": "nfl",
       "emoji": "🏈",
       "logo": {
@@ -710,6 +762,8 @@
       "name": "NCAA Men's Ice Hockey",
       "category": "Hockey",
       "endpoint": "hockey/mens-college-hockey",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/teams",
       "renderer": "nhl",
       "emoji": "🏒",
       "logo": {
