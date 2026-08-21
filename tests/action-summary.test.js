@@ -20,6 +20,22 @@ describe("GitHub Actions step summary", () => {
     expect(summary).toContain("| Destination | owner/repo |");
   });
 
+  it("includes freshness and safety details when provided", () => {
+    const summary = summaryMarkdown({
+      sport: "nba",
+      team: "LAL",
+      mode: "live",
+      result: "✅ README updated",
+      dataSource: "ESPN public API",
+      generatedAt: "2026-08-20T12:00:00.000Z",
+      staleDataProtected: true,
+    });
+
+    expect(summary).toContain("| Data source | ESPN public API |");
+    expect(summary).toContain("| Generated | 2026-08-20T12:00:00.000Z |");
+    expect(summary).toContain("| Safety | Existing README preserved if data fetch fails |");
+  });
+
   it("writes a summary only when Actions provides a summary path", () => {
     const summaryPath = path.join(os.tmpdir(), `readme-scoreboard-summary-${process.pid}`);
     try {

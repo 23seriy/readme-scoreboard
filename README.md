@@ -2048,6 +2048,11 @@ The action exposes outputs for downstream workflow steps:
 For example, use `${{ steps.scoreboard.outputs.updated }}` after giving your
 action step the id `scoreboard`.
 
+Every successful update ends with a small `Last updated` timestamp. The action
+only replaces the README after a successful data fetch, so a temporary API
+outage leaves the last known scoreboard in place. The GitHub Actions summary
+also reports the data source and generation time.
+
 ---
 
 ## Troubleshooting
