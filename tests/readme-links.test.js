@@ -103,6 +103,7 @@ describe("README navigation links", () => {
     const workflow = fs.readFileSync(".github/workflows/update-team-directory.yml", "utf8");
     expect(workflow).toContain("npm run teams:directory");
     expect(workflow).toContain("npm run teams:directory:markdown");
+    expect(workflow).toContain("npm run leagues:examples");
     expect(readme).toContain("A daily workflow keeps both files current.");
   });
 
