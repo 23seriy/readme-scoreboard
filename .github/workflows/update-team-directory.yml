@@ -21,19 +21,20 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run teams:directory
       - run: npm run teams:directory:markdown
+      - run: npm run leagues:examples
       - run: npm run teams:directory:validate
       - name: Open update pull request
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if git diff --quiet -- team-directory.json TEAM_DIRECTORY.md; then
+          if git diff --quiet -- team-directory.json TEAM_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md; then
             echo "Team directory is already current"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -C automation/team-directory
-          git add team-directory.json TEAM_DIRECTORY.md
+          git add team-directory.json TEAM_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md
           git commit -m "docs: refresh team directory"
           git push --force origin automation/team-directory
           gh pr create --base main --head automation/team-directory \
