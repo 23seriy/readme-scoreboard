@@ -6,6 +6,14 @@
 [![Latest release](https://img.shields.io/github/v/release/23seriy/readme-scoreboard)](https://github.com/23seriy/readme-scoreboard/releases)
 [![License](https://img.shields.io/github/license/23seriy/readme-scoreboard)](LICENSE)
 
+## Project health
+
+[![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
+[![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
+
+The project currently supports **28 leagues**. The [support manifest](supported-leagues.json)
+and [team directory](TEAM_DIRECTORY.md) are generated from the same registry used by the action.
+
 Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, and **NCAA Men's Ice Hockey** with more sports coming soon
 
 ---
@@ -50,6 +58,7 @@ Western Conference · Pacific Division
   - [2. Create secret](#2-create-secret)
   - [3. Add the workflow](#3-add-the-workflow)
 - [See it in action](#see-it-in-action)
+- [Project health](#project-health)
 - [Common setups](#common-setups)
 - [Supported Sports](#supported-sports)
 - [Team Abbreviations](#team-abbreviations)
