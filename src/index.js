@@ -24,7 +24,21 @@ function parseDryRun(value) {
   throw new Error(`DRY_RUN must be true or false; received "${value}"`);
 }
 
+function parseCompact(value) {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  if (["true", "1", "yes"].includes(normalized)) return true;
+  if (["", "false", "0", "no"].includes(normalized)) return false;
+  throw new Error(`COMPACT must be true or false; received "${value}"`);
+}
+
+function compactMarkdown(content) {
+  return content
+    .replace(/^<img[^>]+>\n?/gm, "")
+    .replace(/\n\*\*📅 Recent Games:\*\*\n```[\s\S]*?```\n?/g, "\n");
+}
+
 const isDryRun = parseDryRun(process.env.DRY_RUN);
+const isCompact = parseCompact(process.env.COMPACT);
 
 async function main() {
   if (!teamAbbr && !isDemo) {
@@ -86,7 +100,8 @@ async function main() {
   const renderData = { ...data, emoji, logoUrl };
 
   // Render markdown
-  const content = `${render(sportName, renderData).trimEnd()}\n\n_Last updated: ${generatedAt}_`;
+  const rendered = render(sportName, renderData);
+  const content = `${(isCompact ? compactMarkdown(rendered) : rendered).trimEnd()}\n\n_Last updated: ${generatedAt}_`;
 
   console.log("\n--- Preview ---");
   console.log(content);
@@ -143,4 +158,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { main, parseDryRun };
+module.exports = { main, parseDryRun, parseCompact, compactMarkdown };

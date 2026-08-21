@@ -25,6 +25,10 @@ inputs:
     description: "Fetch and render live data without updating a README (true/false)"
     required: false
     default: "false"
+  compact:
+    description: "Use a smaller README block without team logos or recent-game details (true/false)"
+    required: false
+    default: "false"
 outputs:
   updated:
     description: "Whether the target README was changed"
@@ -55,3 +59,4 @@ runs:
         MARKER: ${{ inputs.marker }}
         TARGET_REPO: ${{ inputs.target_repo }}
         DRY_RUN: ${{ inputs.dry_run }}
+        COMPACT: ${{ inputs.compact }}
