@@ -2087,6 +2087,10 @@ endpoint independently, reports the affected league when a request fails, and
 continues checking the remaining leagues so one outage does not hide others. A
 failure report also includes the slowest response time to help spot degradation.
 
+A weekly [dependency-health workflow](.github/workflows/dependency-health.yml)
+runs the full test suite, lint, and a high-severity security audit. It reports
+outdated packages without changing the repository automatically.
+
 ## License
 
 MIT

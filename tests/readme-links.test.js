@@ -100,6 +100,13 @@ describe("README navigation links", () => {
     expect(readme).toContain("A daily workflow keeps both files current.");
   });
 
+  it("keeps dependency maintenance covered by CI", () => {
+    const workflow = fs.readFileSync(".github/workflows/dependency-health.yml", "utf8");
+    expect(workflow).toContain("npm audit --audit-level=high");
+    expect(workflow).toContain("npm test -- --runInBand");
+    expect(readme).toContain("dependency-health workflow");
+  });
+
   it("keeps every supported league discoverable in the table of contents", () => {
     const tocStart = readme.indexOf("## Table of Contents");
     const tocEnd = readme.indexOf("\n---", tocStart);
