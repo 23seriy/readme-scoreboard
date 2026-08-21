@@ -45,6 +45,12 @@ describe("supported league registry", () => {
     expect(directory.teams.every(({ league, abbreviation }) => league && abbreviation)).toBe(true);
   });
 
+  it("keeps the human-readable team directory generated", () => {
+    const markdown = fs.readFileSync(path.resolve(__dirname, "../../TEAM_DIRECTORY.md"), "utf8");
+    expect(markdown).toContain("# Team Directory");
+    LEAGUES.forEach((league) => expect(markdown).toContain(`## ${league.name}`));
+  });
+
   it("drives the supported-season table in registry order", () => {
     expect(seasonLeagues).toEqual(LEAGUES.map(({ category, name, endpoint }) => [category, name, endpoint]));
   });

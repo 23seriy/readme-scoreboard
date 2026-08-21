@@ -515,7 +515,7 @@ Most leagues come from ESPN's public `site.api.espn.com` endpoints — each link
 
 For a machine-readable support map, see [`supported-leagues.json`](supported-leagues.json). It lists every league, sport category, API source, team endpoint, logos, and season window.
 
-For team setup, use the generated [`team-directory.json`](team-directory.json) to look up a league, abbreviation, full name, and ID.
+For team setup, use the generated [team directory](TEAM_DIRECTORY.md) or its machine-readable counterpart [`team-directory.json`](team-directory.json) to look up a league, abbreviation, full name, and ID.
 
 The **Season** column is refreshed daily by [`.github/workflows/update-season-status.yml`](.github/workflows/update-season-status.yml). It uses the league API's season window when available and falls back to the last known window during a temporary API outage. A separate [daily season-date verification workflow](.github/workflows/check-season-dates.yml) checks that normalized opening dates remain valid as leagues roll into new seasons; it reports drift without changing the README automatically.
 
