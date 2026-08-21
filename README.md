@@ -6,6 +6,12 @@ Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier Le
 
 ---
 
+## See it in action
+
+See a live example in the [23seriy profile README](https://github.com/23seriy/23seriy). The action keeps the scoreboard current automatically, including the league logo, team logo, record, recent games, and season status.
+
+Want the same result? Start with the [three-step setup](#quick-start-3-steps), then add the workflow to your profile repository. You can preview the output first with `dry_run: true`.
+
 ## Preview
 
 This is what the action writes between your markers — heading, logos and all.
@@ -39,6 +45,7 @@ Western Conference · Pacific Division
   - [1. Add markers to your profile README](#1-add-markers-to-your-profile-readme)
   - [2. Create secret](#2-create-secret)
   - [3. Add the workflow](#3-add-the-workflow)
+- [See it in action](#see-it-in-action)
 - [Supported Sports](#supported-sports)
 - [Team Abbreviations](#team-abbreviations)
   - [NBA](#-nba-team-abbreviations)
