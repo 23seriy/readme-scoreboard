@@ -37,6 +37,14 @@ describe("supported league registry", () => {
     expect(new Set(registryKeys).size).toBe(registryKeys.length);
   });
 
+  it("keeps the generated team directory populated for every league", () => {
+    const directory = require("../../team-directory.json");
+    expect(directory.teams.length).toBeGreaterThan(LEAGUES.length);
+    expect(new Set(directory.teams.map(({ league, abbreviation }) => `${league}:${abbreviation}`)).size)
+      .toBe(directory.teams.length);
+    expect(directory.teams.every(({ league, abbreviation }) => league && abbreviation)).toBe(true);
+  });
+
   it("drives the supported-season table in registry order", () => {
     expect(seasonLeagues).toEqual(LEAGUES.map(({ category, name, endpoint }) => [category, name, endpoint]));
   });
