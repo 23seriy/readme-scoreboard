@@ -105,6 +105,20 @@ describe("README navigation links", () => {
     });
   });
 
+  it("keeps every internal README link pointed at a real heading", () => {
+    const headingSlugs = new Set([...readme.matchAll(/^#{1,6} (.+)$/gm)].map((match) => {
+      const heading = match[1];
+      const text = (heading.includes("</picture>") ? heading.split("</picture>").pop() : heading)
+        .replace(/&nbsp;/g, " ")
+        .trim();
+      return text.toLowerCase().replace(/[^\p{L}\p{N} -]/gu, "").replace(/\s+/g, "-");
+    }));
+    const internalLinks = [...readme.matchAll(/(?<!!)\[[^\]]+\]\((#[^)]+)\)/g)].map((match) => match[1].slice(1));
+
+    expect(internalLinks.length).toBeGreaterThan(20);
+    internalLinks.forEach((anchor) => expect(headingSlugs).toContain(anchor.replace(/^-+/, "")));
+  });
+
   it("keeps table-of-contents anchors tied to README headings", () => {
     const tocStart = readme.indexOf("## Table of Contents");
     const tocEnd = readme.indexOf("\n---", tocStart);
