@@ -181,6 +181,16 @@ README marker without editing the file. Set the marker to the pair you added in
 step 1; each sport should have its own marker. Done! The action updates your profile
 README through the GitHub API, so no checkout or separate commit step is needed.
 
+#### Choose an update frequency
+
+Use one of these simple schedule choices by changing the cron line:
+
+| Frequency | Cron | Use when |
+|-----------|------|----------|
+| Every 6 hours | `0 */6 * * *` | You want scores refreshed throughout the day. |
+| Daily | `0 12 * * *` | You want a lighter, once-a-day update. |
+| Manual only | Remove `schedule` | You only want updates from **Run workflow**. |
+
 To verify live API data without changing a README, set `dry_run: true`. Dry runs
 still render the normal preview and job summary, but they do not require a token
 or target repository.
@@ -2024,7 +2034,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | Token with Contents: Read and write on `target_repo` |
 | `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl`, `saudipro`, `j1`, `scottish`, `belgian`, `ucl`, `uel`, `gleague`, `ncaab`, `ncaaw`, `ncaaf`, `ncaa_hockey` |
-| `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`) |
+| `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`). Invalid abbreviations show example names. |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
 | `dry_run` | No | `false` | Fetch and render live data without updating a README. Accepts `true`/`false` (also `1`/`0` or `yes`/`no`) |
