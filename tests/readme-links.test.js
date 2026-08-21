@@ -93,6 +93,12 @@ describe("README navigation links", () => {
     });
   });
 
+  it("keeps generated league workflow examples available", () => {
+    const examples = fs.readFileSync("LEAGUE_WORKFLOW_EXAMPLES.md", "utf8");
+    expect(readme).toContain("[league workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md)");
+    LEAGUES.forEach((league) => expect(examples).toContain(`## ${league.name}`));
+  });
+
   it("documents the automated team-directory refresh", () => {
     const workflow = fs.readFileSync(".github/workflows/update-team-directory.yml", "utf8");
     expect(workflow).toContain("npm run teams:directory");
