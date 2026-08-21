@@ -1,11 +1,14 @@
 name: Update team directory
+
 on:
   schedule:
     - cron: "41 5 * * *"
   workflow_dispatch:
+
 permissions:
   contents: write
   pull-requests: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -19,3 +22,21 @@ jobs:
       - run: npm run teams:directory
       - run: npm run teams:directory:markdown
       - run: npm run teams:directory:validate
+      - name: Open update pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- team-directory.json TEAM_DIRECTORY.md; then
+            echo "Team directory is already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C automation/team-directory
+          git add team-directory.json TEAM_DIRECTORY.md
+          git commit -m "docs: refresh team directory"
+          git push --force origin automation/team-directory
+          gh pr create --base main --head automation/team-directory \
+            --title "docs: refresh team directory" \
+            --body "Automated refresh of team names and IDs from supported league APIs." \
+            || echo "An update PR may already be open."
