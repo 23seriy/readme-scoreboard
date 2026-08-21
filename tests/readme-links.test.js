@@ -107,6 +107,14 @@ describe("README navigation links", () => {
     expect(readme).toContain("dependency-health workflow");
   });
 
+  it("documents the project health links", () => {
+    expect(readme).toContain("actions/workflows/api-health.yml/badge.svg");
+    expect(readme).toContain("actions/workflows/dependency-health.yml/badge.svg");
+    expect(readme).toContain("## Project health");
+    expect(readme).toContain("support manifest");
+    expect(readme).toContain("team directory");
+  });
+
   it("keeps every supported league discoverable in the table of contents", () => {
     const tocStart = readme.indexOf("## Table of Contents");
     const tocEnd = readme.indexOf("\n---", tocStart);
