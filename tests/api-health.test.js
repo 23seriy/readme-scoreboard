@@ -18,7 +18,7 @@ describe("API health checks", () => {
   it("reports all endpoints healthy when requests succeed", async () => {
     get.mockResolvedValue({ status: 200 });
 
-    await expect(checkApiHealth()).resolves.toEqual({ checked: LEAGUES.length, failures: [] });
+    await expect(checkApiHealth()).resolves.toEqual({ checked: LEAGUES.length, failures: [], results: "all healthy" });
     expect(get).toHaveBeenCalledTimes(LEAGUES.length);
   });
 
@@ -31,5 +31,6 @@ describe("API health checks", () => {
 
     expect(result.checked).toBe(LEAGUES.length);
     expect(result.failures).toEqual([expect.stringMatching(/^NBA:/)]);
+    expect(result.results).toBe("one or more endpoints unavailable");
   });
 });

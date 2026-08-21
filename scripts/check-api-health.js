@@ -31,6 +31,7 @@ async function checkApiHealth(request = httpGet) {
   return {
     checked: LEAGUES.length,
     failures: results.filter(Boolean),
+    results: results.filter(Boolean).length === 0 ? "all healthy" : "one or more endpoints unavailable",
   };
 }
 
