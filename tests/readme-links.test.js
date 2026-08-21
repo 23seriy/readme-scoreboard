@@ -279,14 +279,15 @@ describe("documentation and action metadata", () => {
     expect(workflow).toContain("permissions:\n  contents: write");
   });
 
-  it("makes the canonical workflow selectable from Run workflow", () => {
+  it("keeps the canonical workflow simple for scheduled and manual runs", () => {
     const workflowStart = readme.indexOf("name: Update Scoreboard");
     const workflowEnd = readme.indexOf("```", workflowStart);
     const workflow = readme.slice(workflowStart, workflowEnd);
-    expect(workflow).toMatch(/workflow_dispatch:[^\n]*\n\s+inputs:/);
-    expect(workflow).toContain("sport: ${{ inputs.sport || 'nba' }}");
-    expect(workflow).toContain("team: ${{ inputs.team || 'LAL' }}");
-    expect(workflow).toContain("marker: ${{ inputs.marker || 'readme-scoreboard-nba' }}");
+    expect(workflow).toContain("workflow_dispatch:");
+    expect(workflow).not.toMatch(/workflow_dispatch:[^\n]*\n\s+inputs:/);
+    expect(workflow).toContain("sport: nba");
+    expect(workflow).toContain("team: LAL");
+    expect(workflow).toContain("marker: readme-scoreboard-nba");
   });
 
   it("pins every README action example to the stable major release", () => {

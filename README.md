@@ -156,19 +156,6 @@ on:
   schedule:
     - cron: "0 */6 * * *"  # Every 6 hours
   workflow_dispatch:        # Manual trigger
-    inputs:
-      sport:
-        description: "League key (for example, nba or nhl)"
-        required: true
-        default: nba
-      team:
-        description: "Team abbreviation (for example, LAL or TOR)"
-        required: true
-        default: LAL
-      marker:
-        description: "README marker (for example, readme-scoreboard-nba)"
-        required: true
-        default: readme-scoreboard-nba
 permissions:
   contents: write
 jobs:
@@ -179,16 +166,15 @@ jobs:
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
           target_repo: 23seriy/23seriy
-          sport: ${{ inputs.sport || 'nba' }}
-          team: ${{ inputs.team || 'LAL' }}
-          marker: ${{ inputs.marker || 'readme-scoreboard-nba' }}
+          sport: nba
+          team: LAL
+          marker: readme-scoreboard-nba
 ```
 
-Scheduled runs use the NBA/LAL defaults above. When you choose **Run workflow**
-in GitHub, the inputs let you select a different supported league, team, and
-README marker without editing the file. Set the marker to the pair you added in
-step 1; each sport should have its own marker. Done! The action updates your profile
-README through the GitHub API, so no checkout or separate commit step is needed.
+Replace `nba`, `LAL`, and `readme-scoreboard-nba` with your league, team, and
+marker from step 1. A manual **Run workflow** uses the same configuration as
+the schedule. Done! The action updates your profile README through the GitHub
+API, so no checkout or separate commit step is needed.
 
 #### Choose an update frequency
 
