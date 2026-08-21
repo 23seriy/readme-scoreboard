@@ -1,0 +1,25 @@
+name: Dependency health
+
+on:
+  schedule:
+    - cron: "31 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test -- --runInBand
+      - run: npm run lint
+      - run: npm audit --audit-level=high
+      - name: Report outdated packages
+        run: npm outdated || true
