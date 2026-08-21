@@ -2028,6 +2028,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
 | `dry_run` | No | `false` | Fetch and render live data without updating a README. Accepts `true`/`false` (also `1`/`0` or `yes`/`no`) |
+| `compact` | No | `false` | Use a smaller block without team logos or recent-game details. Accepts `true`/`false` |
 
 Inputs are validated before any API request or README update. If a team abbreviation
 is not recognized, the action reports several valid abbreviations for that league;

@@ -74,7 +74,7 @@ describe("main", () => {
   });
 
   it("accepts explicit dry-run boolean values and rejects typos", () => {
-    const { parseDryRun } = require("../src/index");
+    const { parseDryRun, parseCompact } = require("../src/index");
 
     expect(parseDryRun("true")).toBe(true);
     expect(parseDryRun("1")).toBe(true);
@@ -83,5 +83,8 @@ describe("main", () => {
     expect(parseDryRun("0")).toBe(false);
     expect(parseDryRun("no")).toBe(false);
     expect(() => parseDryRun("tru")).toThrow(/DRY_RUN must be true or false/);
+    expect(parseCompact("yes")).toBe(true);
+    expect(parseCompact("0")).toBe(false);
+    expect(() => parseCompact("maybe")).toThrow(/COMPACT must be true or false/);
   });
 });
