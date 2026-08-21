@@ -18,6 +18,9 @@ describe("input validation", () => {
 
   it("rejects unknown team abbreviations with examples", () => {
     expect(() => validateInputs({ ...base, team: "ZZZ" })).toThrow(/Unknown nba team abbreviation "ZZZ".*LAL/);
+
+    const namedAdapter = { TEAM_IDS: { LAL: 13 }, ESPN_TEAM_IDS: { LAL: { full_name: "Los Angeles Lakers" } } };
+    expect(() => validateInputs({ ...base, adapter: namedAdapter, team: "ZZZ" })).toThrow(/LAL \(Los Angeles Lakers\)/);
   });
 
   it("validates demo teams separately from live team IDs", () => {

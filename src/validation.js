@@ -3,6 +3,12 @@ function supportedTeams(adapter, isDemo) {
   return source ? Object.keys(source).sort() : [];
 }
 
+function teamLabel(adapter, abbreviation, isDemo) {
+  const source = isDemo ? adapter.DEMO_TEAMS : (adapter.ESPN_TEAM_IDS || adapter.TEAM_IDS);
+  const entry = source?.[abbreviation] || adapter.TEAM_IDS?.[abbreviation];
+  return entry && typeof entry === "object" ? entry.full_name || entry.name : null;
+}
+
 function validateInputs({ sport, team, isDemo, targetRepo, adapter, supportedSports }) {
   if (!supportedSports.includes(sport)) {
     throw new Error(`Unsupported sport: "${sport}". Available adapters: ${supportedSports.join(", ")}`);
@@ -11,7 +17,11 @@ function validateInputs({ sport, team, isDemo, targetRepo, adapter, supportedSpo
   const teams = supportedTeams(adapter, isDemo);
   if (teams.length > 0 && !teams.includes(team)) {
     const mode = isDemo ? "demo team" : "team";
-    throw new Error(`Unknown ${sport} ${mode} abbreviation "${team}". Try one of: ${teams.slice(0, 8).join(", ")}${teams.length > 8 ? ", ..." : ""}`);
+    const examples = teams.slice(0, 8).map((abbr) => {
+      const label = teamLabel(adapter, abbr, isDemo);
+      return label ? `${abbr} (${label})` : abbr;
+    });
+    throw new Error(`Unknown ${sport} ${mode} abbreviation "${team}". Try one of: ${examples.join(", ")}${teams.length > 8 ? ", ..." : ""}`);
   }
 
   if (targetRepo && !/^[^/\s]+\/[^/\s]+$/.test(targetRepo)) {
@@ -19,4 +29,4 @@ function validateInputs({ sport, team, isDemo, targetRepo, adapter, supportedSpo
   }
 }
 
-module.exports = { supportedTeams, validateInputs };
+module.exports = { supportedTeams, teamLabel, validateInputs };
