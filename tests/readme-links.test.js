@@ -201,6 +201,17 @@ describe("documentation and action metadata", () => {
     expect(readme).toContain("Accepts `true`/`false`");
   });
 
+  it("documents every action input in the Action Inputs table", () => {
+    const inputsBlock = action.slice(action.indexOf("inputs:"), action.indexOf("outputs:"));
+    const actionInputs = [...inputsBlock.matchAll(/^\x20{2}([a-z_]+):$/gm)].map((match) => match[1]);
+    const tableStart = readme.indexOf("## Action Inputs (`with:`)");
+    const tableEnd = readme.indexOf("## Action Outputs", tableStart);
+    const table = readme.slice(tableStart, tableEnd);
+
+    expect(actionInputs.length).toBeGreaterThan(0);
+    actionInputs.forEach((input) => expect(table).toContain(`| \`${input}\` |`));
+  });
+
   it("documents the action outputs", () => {
     expect(readme).toContain("## Action Outputs");
     expect(readme).toContain("`${{ steps.scoreboard.outputs.updated }}`");
