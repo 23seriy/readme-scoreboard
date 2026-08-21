@@ -40,6 +40,7 @@ describe("supported league registry", () => {
   it("keeps the generated team directory populated for every league", () => {
     const directory = require("../../team-directory.json");
     expect(directory.teams.length).toBeGreaterThan(LEAGUES.length);
+    expect(directory.generatedAt).toEqual(expect.any(String));
     expect(new Set(directory.teams.map(({ league, abbreviation }) => `${league}:${abbreviation}`)).size)
       .toBe(directory.teams.length);
     expect(directory.teams.every(({ league, abbreviation }) => league && abbreviation)).toBe(true);
