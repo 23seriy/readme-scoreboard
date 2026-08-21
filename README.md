@@ -2,6 +2,10 @@
 
 > Live sports stats on your GitHub profile README — place them wherever you want
 
+[![CI](https://github.com/23seriy/readme-scoreboard/actions/workflows/ci.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/ci.yml)
+[![Latest release](https://img.shields.io/github/v/release/23seriy/readme-scoreboard)](https://github.com/23seriy/readme-scoreboard/releases)
+[![License](https://img.shields.io/github/license/23seriy/readme-scoreboard)](LICENSE)
+
 Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, and **NCAA Men's Ice Hockey** with more sports coming soon
 
 ---
@@ -46,6 +50,7 @@ Western Conference · Pacific Division
   - [2. Create secret](#2-create-secret)
   - [3. Add the workflow](#3-add-the-workflow)
 - [See it in action](#see-it-in-action)
+- [Common setups](#common-setups)
 - [Supported Sports](#supported-sports)
 - [Team Abbreviations](#team-abbreviations)
   - [NBA](#-nba-team-abbreviations)
@@ -183,6 +188,22 @@ or target repository.
 Pin the action to a release tag (for example, `@v1`) for reproducible workflows,
 or to a commit SHA after reviewing the release. Using `@main` follows the
 latest changes and is best suited to trying upcoming features.
+
+## Common setups
+
+| Goal | What to use |
+|------|-------------|
+| One scoreboard | Add one marker pair and one action step with `sport` and `team`. |
+| Several sports | Give every sport its own marker name, such as `readme-scoreboard-nba` and `readme-scoreboard-mlb`. |
+| Another repository | Set `target_repo: owner/repository` and grant the token access to that repository. |
+| Test before publishing | Set `dry_run: true`; the action renders the result without changing a README. |
+
+### Understanding the season status
+
+The Season column uses both a color and text so it remains understandable without
+emoji support: **In progress** shows the season end date, while **Off-season**
+shows the next season start date. Logos include descriptive alt text, and the
+status text is the source of truth for screen readers.
 
 #### Multiple sports in one README
 
