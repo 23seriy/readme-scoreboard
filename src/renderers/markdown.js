@@ -84,7 +84,13 @@ function headingLines(sport) {
   const logo = LEAGUE_LOGOS[sport];
   if (!logo) return [];
   const mark = `<picture><source media="(prefers-color-scheme: dark)" srcset="${logo.dark}"><img src="${logo.light}" alt="${logo.alt}" height="28" align="top"></picture> `;
-  return [`## ${mark}My Favourite ${logo.alt} Team`, ""];
+  const league = LEAGUE_REGISTRY.find((entry) => entry.key === sport);
+  const endpoint = league?.endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]
+    || (league?.endpoint ? `https://site.api.espn.com/apis/site/v2/sports/${league.endpoint}/teams` : null);
+  const heading = endpoint
+    ? `## [${mark}My Favourite ${logo.alt} Team](${endpoint})`
+    : `## ${mark}My Favourite ${logo.alt} Team`;
+  return [heading, ""];
 }
 
 function isSeasonActive(sport) {
