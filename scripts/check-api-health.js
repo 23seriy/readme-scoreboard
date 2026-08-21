@@ -18,20 +18,23 @@ function buildEndpointList() {
 }
 
 async function checkApiHealth(request = httpGet) {
-  const results = await Promise.all(buildEndpointList().map(async ({ name, url }) => {
+  const checks = await Promise.all(buildEndpointList().map(async ({ key, name, url }) => {
+    const startedAt = Date.now();
     try {
       const response = await request(url, { timeout: 10000 });
       if (response.status && response.status >= 400) throw new Error(`HTTP ${response.status}`);
-      return null;
+      return { key, name, durationMs: Date.now() - startedAt, failure: null };
     } catch (error) {
-      return `${name}: ${error.message}`;
+      return { key, name, durationMs: Date.now() - startedAt, failure: `${name}: ${error.message}` };
     }
   }));
+  const failures = checks.map(({ failure }) => failure).filter(Boolean);
 
   return {
     checked: LEAGUES.length,
-    failures: results.filter(Boolean),
-    results: results.filter(Boolean).length === 0 ? "all healthy" : "one or more endpoints unavailable",
+    failures,
+    results: failures.length === 0 ? "all healthy" : "one or more endpoints unavailable",
+    timings: Object.fromEntries(checks.map(({ key, durationMs }) => [key, durationMs])),
   };
 }
 
@@ -40,6 +43,7 @@ if (require.main === module) {
     if (result.failures.length > 0) {
       console.error(`API health check failed for ${result.failures.length} of ${result.checked} endpoints:`);
       result.failures.forEach((failure) => console.error(`- ${failure}`));
+      console.error(`Slowest response: ${Math.max(...Object.values(result.timings))} ms`);
       process.exitCode = 1;
       return;
     }

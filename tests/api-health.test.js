@@ -18,7 +18,12 @@ describe("API health checks", () => {
   it("reports all endpoints healthy when requests succeed", async () => {
     get.mockResolvedValue({ status: 200 });
 
-    await expect(checkApiHealth()).resolves.toEqual({ checked: LEAGUES.length, failures: [], results: "all healthy" });
+    const result = await checkApiHealth();
+    expect(result.checked).toBe(LEAGUES.length);
+    expect(result.failures).toEqual([]);
+    expect(result.results).toBe("all healthy");
+    expect(Object.keys(result.timings)).toHaveLength(LEAGUES.length);
+    expect(Object.values(result.timings).every((duration) => duration >= 0)).toBe(true);
     expect(get).toHaveBeenCalledTimes(LEAGUES.length);
   });
 

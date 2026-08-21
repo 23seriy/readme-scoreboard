@@ -2080,7 +2080,8 @@ For a safe local check that makes no API requests, run `npm run doctor -- --demo
 
 The repository also runs a daily API health check. It tests every supported league
 endpoint independently, reports the affected league when a request fails, and
-continues checking the remaining leagues so one outage does not hide others.
+continues checking the remaining leagues so one outage does not hide others. A
+failure report also includes the slowest response time to help spot degradation.
 
 ## License
 
