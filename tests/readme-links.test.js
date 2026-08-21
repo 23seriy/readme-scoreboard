@@ -93,6 +93,13 @@ describe("README navigation links", () => {
     });
   });
 
+  it("documents the automated team-directory refresh", () => {
+    const workflow = fs.readFileSync(".github/workflows/update-team-directory.yml", "utf8");
+    expect(workflow).toContain("npm run teams:directory");
+    expect(workflow).toContain("npm run teams:directory:markdown");
+    expect(readme).toContain("A daily workflow keeps both files current.");
+  });
+
   it("keeps every supported league discoverable in the table of contents", () => {
     const tocStart = readme.indexOf("## Table of Contents");
     const tocEnd = readme.indexOf("\n---", tocStart);
