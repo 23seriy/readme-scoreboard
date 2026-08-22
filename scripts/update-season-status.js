@@ -222,7 +222,8 @@ function normalizeSeasonWindow(name, season, now = new Date()) {
     const fallbackStart = new Date(fallback[0]);
     const fallbackEnd = new Date(fallback[1]);
     const apiStart = new Date(season.startDate);
-    if (now >= fallbackStart && now <= fallbackEnd && apiStart > now) {
+    const apiEnd = new Date(season.endDate);
+    if (now >= fallbackStart && now <= fallbackEnd && (apiStart > now || apiEnd < now)) {
       return { startDate: fallback[0], endDate: fallback[1] };
     }
   }

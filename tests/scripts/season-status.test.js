@@ -177,6 +177,16 @@ describe("season status updater", () => {
     });
   });
 
+  it("keeps the active Champions League season when ESPN returns the ended season", () => {
+    expect(normalizeSeasonWindow("UEFA Champions League", {
+      startDate: "2025-07-07T00:00:00Z",
+      endDate: "2026-06-05T23:59:59Z",
+    }, new Date("2026-08-21T12:00:00Z"))).toEqual({
+      startDate: "2026-07-07",
+      endDate: "2027-06-05",
+    });
+  });
+
   it("updates only the marked supported-sports table", () => {
     const readme = [
       "before",
