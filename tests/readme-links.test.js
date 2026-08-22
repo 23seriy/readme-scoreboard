@@ -251,6 +251,15 @@ describe("documentation and action metadata", () => {
     actionInputs.forEach((input) => expect(table).toContain(`| \`${input}\` |`));
   });
 
+  it("describes the sport input as a league key without duplicating the full registry", () => {
+    const tableStart = readme.indexOf("## Action Inputs (`with:`)"),
+      tableEnd = readme.indexOf("## Action Outputs", tableStart);
+    const table = readme.slice(tableStart, tableEnd);
+
+    expect(table).toContain("League key (for example, `nba`). See [Supported Sports](#supported-sports).");
+    expect(table).not.toContain("Sport adapter:");
+  });
+
   it("documents the action outputs", () => {
     expect(readme).toContain("## Action Outputs");
     expect(readme).toContain("`${{ steps.scoreboard.outputs.updated }}`");
