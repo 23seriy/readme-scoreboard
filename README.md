@@ -1772,7 +1772,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | Input | Required | Default | Description |
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | Token with Contents: Read and write on `target_repo` |
-| `sport` | No | `nba` | Sport adapter: `nba`, `mlb`, `nfl`, `nhl`, `mls`, `epl`, `laliga`, `bundesliga`, `seriea`, `ligue1`, `primeiraliga`, `eredivisie`, `wnba`, `ligamx`, `brasileirao`, `nwsl`, `saudipro`, `j1`, `scottish`, `belgian`, `ucl`, `uel`, `gleague`, `ncaab`, `ncaaw`, `ncaaf`, `ncaa_hockey` |
+| `sport` | No | `nba` | League key (for example, `nba`). See [Supported Sports](#supported-sports). |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`). Invalid abbreviations show example names. |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
