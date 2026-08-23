@@ -140,7 +140,7 @@ Go to your profile repo **Settings → Secrets and variables → Actions** and a
 | `GH_TOKEN` | Fine-grained token with Contents: Read and write on the target repo ([create one](https://github.com/settings/personal-access-tokens/new)) |
 
 For least-privilege access, create a fine-grained token, select **Only select
-repositories**, choose the repository named by `target_repo`, and grant only
+repositories**, choose your profile repository, and grant only
 **Contents: Read and write**. Classic tokens with `repo` scope are also
 supported, but they grant broader access than this action needs.
 

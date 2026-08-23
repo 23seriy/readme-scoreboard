@@ -277,6 +277,8 @@ describe("documentation and action metadata", () => {
   it("documents least-privilege token permissions", () => {
     expect(readme).toContain("Contents: Read and write on the target repo");
     expect(readme).toMatch(/Only select\s+repositories/);
+    expect(readme).toContain("choose your profile repository");
+    expect(readme).not.toContain("choose the repository named by `target_repo`");
     expect(readme).toContain("Classic tokens with `repo` scope are also");
     expect(action).toContain("Contents read/write access to target_repo");
   });
