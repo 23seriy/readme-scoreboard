@@ -111,24 +111,9 @@ In your `username/username` repo's `README.md`, add these markers wherever you w
 ```
 
 The name is yours to choose — it just has to match the `marker:` on the workflow
-step below. Naming it after the sport keeps things clear once you add a second one.
+step below.
 
-**Tracking more than one sport? Give each its own marker pair.** Every step
-rewrites whatever sits between its markers, so two sports sharing one pair means
-the second silently overwrites the first — with no error. Add a pair per sport and
-point each step at it with `marker:`:
-
-```md
-<!-- readme-scoreboard-nba start -->
-<!-- readme-scoreboard-nba end -->
-
-<!-- readme-scoreboard-mlb start -->
-<!-- readme-scoreboard-mlb end -->
-```
-
-A step whose marker is missing from the README fails the job.
-
-You only add the marker pairs — the action fills in everything between them,
+You only add the markers — the action fills in everything between them,
 including the section heading (`## My Favourite NBA Team`) and its league logo.
 
 ### 2. Create secret
@@ -211,7 +196,19 @@ status text is the source of truth for screen readers.
 
 #### Multiple sports in one README
 
-Add a step per sport, each with a `marker` matching a pair in your README:
+Give each sport its own marker pair. Every step rewrites whatever sits between
+its markers, so two sports sharing one pair means the second silently overwrites
+the first. Add matching pairs to your README:
+
+```md
+<!-- readme-scoreboard-nba start -->
+<!-- readme-scoreboard-nba end -->
+
+<!-- readme-scoreboard-mlb start -->
+<!-- readme-scoreboard-mlb end -->
+```
+
+Then add a step per sport with its matching `marker`:
 
 ```yaml
       - uses: 23seriy/readme-scoreboard@v1
@@ -231,7 +228,7 @@ Add a step per sport, each with a `marker` matching a pair in your README:
 
 Once you use named markers, set one on **every** step — including the first.
 A step left on the default `readme-scoreboard` will look for a pair by that
-name, and fail the job if you renamed it.
+name, and fail the job if you renamed it. A missing marker also fails the job.
 
 For a copy-ready step for any league, open the complete [league workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md).
 

@@ -310,6 +310,19 @@ describe("documentation and action metadata", () => {
     expect(setup).not.toContain("target_repo:");
   });
 
+  it("keeps multi-sport marker guidance out of the one-scoreboard quick start", () => {
+    const quickStart = readme.slice(
+      readme.indexOf("## Quick Start (3 steps)"),
+      readme.indexOf("## Common setups"),
+    );
+    const multiSportStart = readme.indexOf("#### Multiple sports in one README");
+    const multiSportEnd = readme.indexOf("---", multiSportStart);
+    const multiSport = readme.slice(multiSportStart, multiSportEnd);
+
+    expect(quickStart).not.toContain("Tracking more than one sport?");
+    expect(multiSport).toContain("<!-- readme-scoreboard-mlb start -->");
+  });
+
   it("pins every README action example to the stable major release", () => {
     const examples = readme.match(/uses: 23seriy\/readme-scoreboard@[^\s]+/g) || [];
     expect(examples.length).toBeGreaterThan(0);
