@@ -219,7 +219,7 @@ describe("documentation and action metadata", () => {
   });
 
   it("documents the current supported inputs and maintenance workflow", () => {
-    expect(readme).toContain("target_repo: 23seriy/23seriy");
+    expect(readme).toContain("Set `target_repo: owner/repository`");
     expect(readme).toContain("node scripts/update-college-abbreviations.js");
     expect(readme).toContain(".github/workflows/check-season-dates.yml");
     expect(readme).toContain("Pin the action to a release tag (for example, `@v1`)");
@@ -297,6 +297,15 @@ describe("documentation and action metadata", () => {
     expect(workflow).toContain("sport: nba");
     expect(workflow).toContain("team: LAL");
     expect(workflow).toContain("marker: readme-scoreboard-nba");
+    expect(workflow).not.toContain("target_repo:");
+  });
+
+  it("keeps the multi-sport example scoped to the profile repository", () => {
+    const setupStart = readme.indexOf("#### Multiple sports in one README");
+    const setupEnd = readme.indexOf("---", setupStart);
+    const setup = readme.slice(setupStart, setupEnd);
+
+    expect(setup).not.toContain("target_repo:");
   });
 
   it("pins every README action example to the stable major release", () => {

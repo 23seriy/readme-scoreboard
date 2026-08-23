@@ -165,7 +165,6 @@ jobs:
       - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
-          target_repo: 23seriy/23seriy
           sport: nba
           team: LAL
           marker: readme-scoreboard-nba
@@ -218,7 +217,6 @@ Add a step per sport, each with a `marker` matching a pair in your README:
       - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
-          target_repo: 23seriy/23seriy
           sport: nba
           team: LAL
           marker: readme-scoreboard-nba
@@ -226,7 +224,6 @@ Add a step per sport, each with a `marker` matching a pair in your README:
       - uses: 23seriy/readme-scoreboard@v1
         with:
           gh_token: ${{ secrets.GH_TOKEN }}
-          target_repo: 23seriy/23seriy
           sport: mlb
           team: NYY
           marker: readme-scoreboard-mlb
