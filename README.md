@@ -103,6 +103,9 @@ Western Conference · Pacific Division
 
 ### 1. Add markers to your profile README
 
+Your profile README lives in a public repository with the same name as your
+GitHub username. If you do not have one yet, create it first.
+
 In your `username/username` repo's `README.md`, add these markers wherever you want the stats to appear:
 
 ```md
@@ -159,6 +162,10 @@ Replace `nba`, `LAL`, and `readme-scoreboard-nba` with your league, team, and
 marker from step 1. A manual **Run workflow** uses the same configuration as
 the schedule. Done! The action updates your profile README through the GitHub
 API, so no checkout or separate commit step is needed.
+
+For the first update, commit the workflow, open the **Actions** tab, select
+**Update Scoreboard**, and choose **Run workflow**. When it finishes, refresh
+your profile README to see the scoreboard.
 
 #### Choose an update frequency
 
