@@ -38,8 +38,9 @@ jobs:
           git switch -C automation/college-rosters
           git add README.md
           git commit -m "docs: update college team abbreviations"
-          git fetch origin automation/college-rosters
-          if git show-ref --verify --quiet refs/remotes/origin/automation/college-rosters; then
+          branch="automation/college-rosters"
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            git fetch origin "$branch"
             git push --force-with-lease=refs/heads/automation/college-rosters:$(git rev-parse refs/remotes/origin/automation/college-rosters) origin automation/college-rosters
           else
             git push origin automation/college-rosters
