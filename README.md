@@ -836,7 +836,6 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 ## NCAA Men's Basketball Team Abbreviations
 <details><summary>NCAA Men's Basketball roster</summary>
 
-
 Current teams from ESPN's public directory. The directory can change as schools are added or reclassified.
 
 | Club | Abbr | Club | Abbr |
@@ -1013,7 +1012,7 @@ Current teams from ESPN's public directory. The directory can change as schools 
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/259.png" width="20"> Virginia Tech Hokies | `VT` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2678.png" width="20"> VMI Keydets | `VMI` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2681.png" width="20"> Wagner Seahawks | `WAG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/154.png" width="20"> Wake Forest Demon Deacons | `WAKE` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" width="20"> Washington Huskies | `WASH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/265.png" width="20"> Washington State Cougars | `WSU` |
-| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2692.png" width="20"> Weber State Wildcats | `WEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2697.png" width="20"> West Florida Argonauts | `WFL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2692.png" width="20"> Weber State Wildcats | `WEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2697.png" width="20"> West Florida Argonauts | `UWF` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2698.png" width="20"> West Georgia Wolves | `WGA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/277.png" width="20"> West Virginia Mountaineers | `WVU` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2717.png" width="20"> Western Carolina Catamounts | `WCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2710.png" width="20"> Western Illinois Leathernecks | `WIU` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/98.png" width="20"> Western Kentucky Hilltoppers | `WKU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png" width="20"> Western Michigan Broncos | `WMU` |
@@ -1205,7 +1204,7 @@ Current teams from ESPN's public directory. The directory can change as schools 
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/258.png" width="20"> Virginia Cavaliers | `UVA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/259.png" width="20"> Virginia Tech Hokies | `VT` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2681.png" width="20"> Wagner Seahawks | `WAG` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/154.png" width="20"> Wake Forest Demon Deacons | `WAKE` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/264.png" width="20"> Washington Huskies | `WASH` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/265.png" width="20"> Washington State Cougars | `WSU` |
-| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2692.png" width="20"> Weber State Wildcats | `WEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2697.png" width="20"> West Florida Argonauts | `WFL` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2692.png" width="20"> Weber State Wildcats | `WEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2697.png" width="20"> West Florida Argonauts | `UWF` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2698.png" width="20"> West Georgia Wolves | `WGA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/277.png" width="20"> West Virginia Mountaineers | `WVU` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2717.png" width="20"> Western Carolina Catamounts | `WCU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2710.png" width="20"> Western Illinois Leathernecks | `WIU` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/98.png" width="20"> Western Kentucky Lady Toppers | `WKU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png" width="20"> Western Michigan Broncos | `WMU` |
@@ -1576,7 +1575,7 @@ Current teams from ESPN's public directory. The directory can change as schools 
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2845.png" width="20"> Waynesburg Yellow Jackets | `WAYN` | Webber International Warriors | `WINT` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2692.png" width="20"> Weber State Wildcats | `WEB` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/336.png" width="20"> Wesleyan (CT) Cardinals | `WSCT` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2695.png" width="20"> West Alabama Tigers | `UWA` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/223.png" width="20"> West Chester Golden Rams | `WCHT` |
-| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/110242.png" width="20"> West Florida Argonauts | `WFL` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2698.png" width="20"> West Georgia Wolves | `WGA` |
+| <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/110242.png" width="20"> West Florida Argonauts | `UWF` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2698.png" width="20"> West Georgia Wolves | `WGA` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2699.png" width="20"> West Liberty Hilltoppers | `WLU` | West Memphis Crusaders | `FAI` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2704.png" width="20"> West Texas Buffaloes | `WTAM` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/277.png" width="20"> West Virginia Mountaineers | `WVU` |
 | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2707.png" width="20"> West Virginia State Yellow Jackets | `WVSU` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/455.png" width="20"> West Virginia Wesleyan Bobcats | `WVWC` |
