@@ -41,7 +41,8 @@ describe("season status updater", () => {
   });
 
   it("does not ignore automation-branch fetch failures", () => {
-    expect(collegeWorkflow).toContain("git fetch origin automation/college-rosters");
+    expect(collegeWorkflow).toContain("git ls-remote --exit-code --heads origin \"$branch\"");
+    expect(collegeWorkflow).toContain('git fetch origin "$branch"');
     expect(collegeWorkflow).not.toContain("git fetch origin automation/college-rosters || true");
   });
 
