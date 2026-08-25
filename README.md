@@ -163,6 +163,11 @@ marker from step 1. A manual **Run workflow** uses the same configuration as
 the schedule. Done! The action updates your profile README through the GitHub
 API, so no checkout or separate commit step is needed.
 
+Need a different team? Use [Supported Sports](#supported-sports) to find the
+league key, the generated [team directory](TEAM_DIRECTORY.md) to find the team
+abbreviation, or [league workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md) for a
+copy-ready step.
+
 For the first update, commit the workflow, open the **Actions** tab, select
 **Update Scoreboard**, and choose **Run workflow**. When it finishes, refresh
 your profile README to see the scoreboard.
