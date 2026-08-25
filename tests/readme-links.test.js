@@ -302,6 +302,17 @@ describe("documentation and action metadata", () => {
     expect(workflow).not.toContain("target_repo:");
   });
 
+  it("keeps team lookup guidance near the quick start workflow", () => {
+    const quickStart = readme.slice(
+      readme.indexOf("## Quick Start (3 steps)"),
+      readme.indexOf("#### Choose an update frequency"),
+    );
+
+    expect(quickStart).toContain("[Supported Sports](#supported-sports)");
+    expect(quickStart).toContain("[team directory](TEAM_DIRECTORY.md)");
+    expect(quickStart).toContain("[league workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md)");
+  });
+
   it("keeps the multi-sport example scoped to the profile repository", () => {
     const setupStart = readme.indexOf("#### Multiple sports in one README");
     const setupEnd = readme.indexOf("---", setupStart);
