@@ -8,32 +8,32 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 
 | Team | Abbreviation | ID |
 |------|--------------|----|
-| Atlanta Hawks | `ATL` | 1 |
-| Brooklyn Nets | `BKN` | 17 |
-| Boston Celtics | `BOS` | 2 |
+| — | `ATL` | 1 |
+| — | `BKN` | 17 |
+| — | `BOS` | 2 |
 | Charlotte Hornets | `CHA` | 30 |
 | Chicago Bulls | `CHI` | 4 |
-| Cleveland Cavaliers | `CLE` | 5 |
-| Dallas Mavericks | `DAL` | 6 |
-| Denver Nuggets | `DEN` | 7 |
-| Detroit Pistons | `DET` | 8 |
+| — | `CLE` | 5 |
+| — | `DAL` | 6 |
+| — | `DEN` | 7 |
+| — | `DET` | 8 |
 | — | `GSW` | 9 |
-| Houston Rockets | `HOU` | 10 |
-| Indiana Pacers | `IND` | 11 |
+| — | `HOU` | 10 |
+| — | `IND` | 11 |
 | LA Clippers | `LAC` | 12 |
-| Los Angeles Lakers | `LAL` | 13 |
+| — | `LAL` | 13 |
 | Memphis Grizzlies | `MEM` | 29 |
-| Miami Heat | `MIA` | 14 |
-| Milwaukee Bucks | `MIL` | 15 |
-| Minnesota Timberwolves | `MIN` | 16 |
+| — | `MIA` | 14 |
+| — | `MIL` | 15 |
+| — | `MIN` | 16 |
 | — | `NOP` | 3 |
 | — | `NYK` | 18 |
-| Oklahoma City Thunder | `OKC` | 25 |
-| Orlando Magic | `ORL` | 19 |
+| — | `OKC` | 25 |
+| — | `ORL` | 19 |
 | Philadelphia 76ers | `PHI` | 20 |
 | Phoenix Suns | `PHX` | 21 |
 | Portland Trail Blazers | `POR` | 22 |
-| Sacramento Kings | `SAC` | 23 |
+| — | `SAC` | 23 |
 | — | `SAS` | 24 |
 | Toronto Raptors | `TOR` | 28 |
 | — | `UTA` | 26 |

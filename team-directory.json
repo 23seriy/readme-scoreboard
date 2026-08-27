@@ -1,26 +1,26 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-08-26T06:04:03.942Z",
+  "generatedAt": "2026-08-27T16:47:03.217Z",
   "teams": [
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "ATL",
-      "name": "Atlanta Hawks",
+      "name": null,
       "id": 1
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "BOS",
-      "name": "Boston Celtics",
+      "name": null,
       "id": 2
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "BKN",
-      "name": "Brooklyn Nets",
+      "name": null,
       "id": 17
     },
     {
@@ -41,28 +41,28 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "CLE",
-      "name": "Cleveland Cavaliers",
+      "name": null,
       "id": 5
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "DAL",
-      "name": "Dallas Mavericks",
+      "name": null,
       "id": 6
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "DEN",
-      "name": "Denver Nuggets",
+      "name": null,
       "id": 7
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "DET",
-      "name": "Detroit Pistons",
+      "name": null,
       "id": 8
     },
     {
@@ -76,14 +76,14 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "HOU",
-      "name": "Houston Rockets",
+      "name": null,
       "id": 10
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "IND",
-      "name": "Indiana Pacers",
+      "name": null,
       "id": 11
     },
     {
@@ -97,7 +97,7 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "LAL",
-      "name": "Los Angeles Lakers",
+      "name": null,
       "id": 13
     },
     {
@@ -111,21 +111,21 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "MIA",
-      "name": "Miami Heat",
+      "name": null,
       "id": 14
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "MIL",
-      "name": "Milwaukee Bucks",
+      "name": null,
       "id": 15
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "MIN",
-      "name": "Minnesota Timberwolves",
+      "name": null,
       "id": 16
     },
     {
@@ -146,14 +146,14 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "OKC",
-      "name": "Oklahoma City Thunder",
+      "name": null,
       "id": 25
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "ORL",
-      "name": "Orlando Magic",
+      "name": null,
       "id": 19
     },
     {
@@ -181,7 +181,7 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "SAC",
-      "name": "Sacramento Kings",
+      "name": null,
       "id": 23
     },
     {
