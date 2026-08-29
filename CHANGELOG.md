@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-08-29
+
 ### Added
 
 - Generated examples gallery under `examples/` (with `npm run examples:generate`)
