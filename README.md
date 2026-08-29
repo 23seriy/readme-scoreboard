@@ -5,6 +5,11 @@
 [![CI](https://github.com/23seriy/readme-scoreboard/actions/workflows/ci.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/ci.yml)
 [![Latest release](https://img.shields.io/github/v/release/23seriy/readme-scoreboard)](https://github.com/23seriy/readme-scoreboard/releases)
 [![License](https://img.shields.io/github/license/23seriy/readme-scoreboard)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/23seriy/readme-scoreboard?style=flat-square)](https://github.com/23seriy/readme-scoreboard)
+[![Forks](https://img.shields.io/github/forks/23seriy/readme-scoreboard?style=flat-square)](https://github.com/23seriy/readme-scoreboard/network/members)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-readme--scoreboard-orange?logo=github&logoColor=white)](https://github.com/marketplace/actions/readme-scoreboard)
+
+**Install it from the [GitHub Marketplace](https://github.com/marketplace/actions/readme-scoreboard)**, or [ask a question](https://github.com/23seriy/readme-scoreboard/discussions), [report a bug](https://github.com/23seriy/readme-scoreboard/issues/new?template=bug_report.md), or [contribute](CONTRIBUTING.md). See [`SUPPORT.md`](SUPPORT.md) for where to get help.
 
 ## Project health
 
@@ -23,6 +28,13 @@ Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier Le
 See a live example in the [23seriy profile README](https://github.com/23seriy/23seriy). The action keeps the scoreboard current automatically, including the league logo, team logo, record, recent games, and season status.
 
 Want the same result? Start with the [three-step setup](#quick-start-3-steps), then add the workflow to your profile repository. You can preview the output first with `dry_run: true`.
+
+## Examples
+
+See rendered output for several sports without running anything. Open the
+[examples gallery](examples/) to preview real boards (NBA, Premier League, NFL,
+NHL, MLS, and a compact-mode example), or browse the league's
+[workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md) for a copy-ready step.
 
 ## Preview
 
@@ -51,13 +63,23 @@ Western Conference · Pacific Division
 
 ---
 
+## 30-second setup
+
+1. Add two marker comments to your profile `README.md` ([details](#1-add-markers-to-your-profile-readme)).
+2. Create a `GH_TOKEN` secret ([details](#2-create-secret)).
+3. Paste a one-step workflow ([details](#3-add-the-workflow)).
+
+That's it — the action keeps your scoreboard current. Want to see more before committing? Browse the [examples gallery](examples/) or set `dry_run: true`.
+
 ## Table of Contents
 
+- [30-second setup](#30-second-setup)
 - [Quick Start (3 steps)](#quick-start-3-steps)
   - [1. Add markers to your profile README](#1-add-markers-to-your-profile-readme)
   - [2. Create secret](#2-create-secret)
   - [3. Add the workflow](#3-add-the-workflow)
 - [See it in action](#see-it-in-action)
+- [Examples](#examples)
 - [Project health](#project-health)
 - [Common setups](#common-setups)
 - [Supported Sports](#supported-sports)
@@ -89,6 +111,7 @@ Western Conference · Pacific Division
   - [NCAA Women's Basketball](#ncaa-womens-basketball-team-abbreviations)
   - [College Football](#college-football-team-abbreviations)
   - [NCAA Men's Ice Hockey](#ncaa-mens-ice-hockey-team-abbreviations)
+- [Customizing the board](#customizing-the-board)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
 - [Action Inputs (`with:`)](#action-inputs-with)
@@ -246,6 +269,42 @@ For a copy-ready step for any league, open the complete [league workflow example
 
 ---
 
+## Customizing the board
+
+The board is generated between your markers, so you can shape it without editing
+generated output.
+
+### Pick your league and team
+
+Not sure of the league key or team abbreviation? Open the generated
+[team directory](TEAM_DIRECTORY.md) (or its machine-readable
+[`team-directory.json`](team-directory.json)) to look up a league, abbreviation,
+full name, and ID. The [Supported Sports](#supported-sports) table lists every
+league key and endpoint. Run `npm run doctor -- --demo` to validate your choices
+locally before publishing.
+
+### Compact output
+
+Set `compact: true` to render a smaller block without the team logo or the
+recent-games list — handy for a tighter profile:
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@v1
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nba
+          team: LAL
+          compact: true
+```
+
+### Preview without publishing
+
+Set `dry_run: true` to fetch and render live data without touching a README. The
+output is printed to the job log and step summary, so you can inspect it before
+you commit to a live update.
+
+---
+
 ## Supported Sports
 
 All sports use **free, no-auth APIs** — no secrets required.
@@ -297,6 +356,8 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 ## Team Abbreviations
 
 Use the table of contents to jump to a league. The full team directories are collapsed below to keep the README readable; open a league to see its current abbreviations and logos.
+
+> **Prefer a single searchable list?** The generated [team directory](TEAM_DIRECTORY.md) (and its machine-readable [`team-directory.json`](team-directory.json)) lists every league in one place — name, abbreviation, and ID — and is refreshed daily.
 
 ## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA logo" height="28"></picture> NBA Team Abbreviations
 <details><summary>NBA team abbreviations</summary>
