@@ -337,6 +337,13 @@ scoreboard block — useful when you want just a status chip:
           badge: true
 ```
 
+### Richer stats
+
+Where the league API provides them, the board also shows the team's
+**standing position**, its **next scheduled game**, and its **last-five form**
+(`✅`/`➖`/`❌`). These lines appear automatically for supported leagues and are
+omitted when a league doesn't supply the data, so existing boards stay clean.
+
 ### Preview without publishing
 
 Set `dry_run: true` to fetch and render live data without touching a README. The

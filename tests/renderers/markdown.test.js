@@ -90,6 +90,28 @@ describe("renderMlb / formatMlbGameResult", () => {
     expect(output).toContain("My Favourite MLB Team");
   });
 
+  it("renders standing, next game, and form when the adapter provides them", () => {
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 2, label: "American League" },
+      nextGame: { date: "2026-07-20T20:00:00Z", opponent: "NYY", isHome: false },
+      form: ["W", "L", "W", "W", "D"],
+    };
+    const output = render("mlb", data);
+    expect(output).toContain("🏅 Standing: American League · 2");
+    expect(output).toContain("📅 Next: @ NYY");
+    expect(output).toContain("🔥 Form:");
+    expect(output).toContain("✅ ❌ ✅ ✅ ➖");
+  });
+
+  it("omits rich-stat lines when the adapter does not provide them", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
+    expect(output).not.toContain("🏅 Standing:");
+    expect(output).not.toContain("📅 Next:");
+    expect(output).not.toContain("🔥 Form:");
+  });
+
   it("renders season record with win percentage", () => {
     const data = { ...BASE_MLB_DATA, recentGames: [] };
     const output = render("mlb", data);

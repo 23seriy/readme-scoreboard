@@ -63,6 +63,13 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
     return {
       team,
       record: { wins: 18, losses: 6, draws: 6, season: this.getSeasonYear() },
+      standing: { position: 2, label: this.LEAGUE_NAME },
+      form: ["W", "D", "W", "L", "W"],
+      nextGame: {
+        date: new Date(Date.now() + 3 * day).toISOString(),
+        opponent: "OPP",
+        isHome: true,
+      },
       recentGames: sample.map((g) => ({
         date: new Date(Date.now() - g.daysAgo * day).toISOString(),
         gameType: "R",
@@ -130,7 +137,8 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
       const { data } = await httpGet(`${this.baseUrlV2}/standings?season=${season}`);
       for (const group of (data.children || [])) {
         const entries = group.standings?.entries || [];
-        const entry = entries.find((e) => e.team?.abbreviation?.toUpperCase() === upper);
+        const index = entries.findIndex((e) => e.team?.abbreviation?.toUpperCase() === upper);
+        const entry = entries[index];
         if (entry) {
           const stats = (entry.stats || []).reduce((acc, s) => { acc[s.name] = s.value; return acc; }, {});
           return {
@@ -140,6 +148,7 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
             wins: stats.wins || 0,
             losses: stats.losses || 0,
             draws: stats.ties || 0,
+            position: index + 1,
             season,
           };
         }
@@ -207,11 +216,50 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
           season: standings.season,
         },
         recentGames: this.parseSchedule(schedData.data.events, team.id),
+        standing: standings.position
+          ? { position: standings.position, label: standings.conference }
+          : null,
+        form: this.parseForm(schedData.data.events, team.id),
+        nextGame: this.parseNextGame(schedData.data.events, team.id),
       };
     } catch (error) {
       console.error(`Failed to fetch ${this.LEAGUE_NAME} data: ${error.message}`);
       return null;
     }
+  }
+
+  // Last five completed results as W/D/L, most recent first.
+  parseForm(events, teamId) {
+    return (events || [])
+      .filter((e) => e.competitions?.[0]?.status?.type?.completed)
+      .map((e) => {
+        const comp = e.competitions[0];
+        const teamComp = comp.competitors.find((c) => String(c.team?.id) === String(teamId));
+        const oppComp = comp.competitors.find((c) => String(c.team?.id) !== String(teamId));
+        if (!teamComp || !oppComp) return null;
+        const teamScore = Number(teamComp.score?.value ?? 0);
+        const oppScore = Number(oppComp.score?.value ?? 0);
+        return teamScore === oppScore ? "D" : teamScore > oppScore ? "W" : "L";
+      })
+      .filter(Boolean)
+      .slice(0, 5);
+  }
+
+  // First upcoming (not yet completed) fixture for a team.
+  parseNextGame(events, teamId) {
+    const upcoming = (events || [])
+      .filter((e) => e.competitions?.[0]?.status?.type?.completed === false)
+      .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+    if (!upcoming) return null;
+    const comp = upcoming.competitions[0];
+    const teamComp = comp.competitors.find((c) => String(c.team?.id) === String(teamId));
+    const oppComp = comp.competitors.find((c) => String(c.team?.id) !== String(teamId));
+    if (!teamComp || !oppComp) return null;
+    return {
+      date: upcoming.date,
+      opponent: oppComp.team?.abbreviation || oppComp.team?.displayName,
+      isHome: teamComp.homeAway === "home",
+    };
   }
 
   // Unused by soccer adapters — schedule parsing is handled above.
