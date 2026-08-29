@@ -124,6 +124,33 @@ function seasonStatusLine(sport) {
   return `🔴 Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
 }
 
+// Optional richer stats rendered after the season line. Adapters may supply
+// `standing`, `nextGame`, and `form`; lines are omitted when absent so existing
+// boards are unchanged for leagues that don't provide them yet.
+function extraTeamLines(data) {
+  const lines = [];
+  const { standing, nextGame, form } = data || {};
+
+  if (standing && standing.position) {
+    lines.push(`🏅 Standing: ${standing.label ? `${standing.label} · ` : ""}${standing.position}`);
+  }
+
+  if (nextGame && nextGame.opponent) {
+    const when = nextGame.date
+      ? new Date(nextGame.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })
+      : "next";
+    const place = nextGame.isHome !== false ? "vs" : "@";
+    lines.push(`📅 Next: ${place} ${nextGame.opponent} (${when})`);
+  }
+
+  if (form && form.length > 0) {
+    const marks = form.map((r) => (r === "W" ? "✅" : r === "D" ? "➖" : "❌")).join(" ");
+    lines.push(`🔥 Form: ${marks}`);
+  }
+
+  return lines;
+}
+
 function generateBarChart(percent, size) {
   const syms = "░▏▎▍▌▋▊▉█";
   const frac = Math.floor((size * 8 * percent) / 100);
@@ -172,6 +199,7 @@ function renderNba(data, sport = "nba", title) {
       : `${team.conference} Conference`
   );
   lines.push(seasonStatusLine(sport));
+  lines.push(...extraTeamLines(data));
   lines.push("");
 
   const winPct =
@@ -235,6 +263,7 @@ function renderMlb(data, title) {
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.league} · ${team.division}`);
   lines.push(seasonStatusLine("mlb"));
+  lines.push(...extraTeamLines(data));
   lines.push("");
 
   const totalGames = record.wins + record.losses;
@@ -288,6 +317,7 @@ function renderNfl(data, sport = "nfl", title) {
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${team.conference} · ${team.division}`);
   lines.push(seasonStatusLine(sport));
+  lines.push(...extraTeamLines(data));
   lines.push("");
 
   const totalGames = record.wins + record.losses;
@@ -330,6 +360,7 @@ function renderNhl(data, sport = "nhl", title) {
     ? `${team.conference} Conference · ${team.division} Division`
     : `${team.conference} Conference`);
   lines.push(seasonStatusLine(sport));
+  lines.push(...extraTeamLines(data));
   lines.push("");
 
   const winPct =
@@ -391,6 +422,7 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title) {
   }
   lines.push(`${confLabel}`);
   lines.push(seasonStatusLine(sport));
+  lines.push(...extraTeamLines(data));
   lines.push("");
 
   const totalGames = record.wins + record.losses + record.draws;

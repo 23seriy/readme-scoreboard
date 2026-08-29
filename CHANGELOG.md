@@ -21,6 +21,8 @@ that would alter what appears in your README or require editing your workflow.
 - `teams:` input to render multiple scoreboards in a single action run.
 - `title:` input to customize the scoreboard heading.
 - `badge:` input to render shields-style badges instead of a full block.
+- Richer board output: league/standing position, the next scheduled game, and
+  last-five form (W/D/L), shown for supported leagues.
 
 ### Fixed
 

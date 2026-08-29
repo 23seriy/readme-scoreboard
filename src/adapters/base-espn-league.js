@@ -43,7 +43,18 @@ class BaseEspnLeagueAdapter {
         won: teamScore > oppScore,
       };
     });
-    return { team, record: { wins: 18, losses: 6, season: this.getSeasonYear() }, recentGames: games };
+    return {
+      team,
+      record: { wins: 18, losses: 6, season: this.getSeasonYear() },
+      standing: { position: 1, label: this.LEAGUE_NAME },
+      form: ["W", "W", "L", "W", "D"],
+      nextGame: {
+        date: new Date(Date.now() + 3 * day).toISOString(),
+        opponent: "OPP",
+        isHome: true,
+      },
+      recentGames: games,
+    };
   }
 
   async fetchTeam(abbr) {
@@ -76,11 +87,49 @@ class BaseEspnLeagueAdapter {
       ]);
       const record = this.findRecord(standingsResponse.data, team.abbreviation, season);
       team.conference = record.conference;
-      return { team, record, recentGames: this.parseGames(scheduleResponse.data.events, team.id) };
+      return {
+        team,
+        record,
+        recentGames: this.parseGames(scheduleResponse.data.events, team.id),
+        standing: record.position ? { position: record.position, label: record.conference } : null,
+        form: this.parseForm(scheduleResponse.data.events, team.id),
+        nextGame: this.parseNextGame(scheduleResponse.data.events, team.id),
+      };
     } catch (error) {
       console.error(`Failed to fetch ${this.LEAGUE_NAME} data: ${error.message}`);
       return null;
     }
+  }
+
+  // Last five completed results as W/L, most recent first.
+  parseForm(events, teamId) {
+    return (events || [])
+      .filter((event) => event.competitions?.[0]?.status?.type?.completed)
+      .map((event) => {
+        const competitors = event.competitions[0].competitors;
+        const mine = competitors.find((item) => String(item.team?.id) === String(teamId));
+        const opponent = competitors.find((item) => String(item.team?.id) !== String(teamId));
+        if (!mine || !opponent) return null;
+        const teamScore = Number(mine.score?.value ?? mine.score ?? 0);
+        const oppScore = Number(opponent.score?.value ?? opponent.score ?? 0);
+        return teamScore > oppScore ? "W" : teamScore < oppScore ? "L" : "D";
+      })
+      .filter(Boolean)
+      .slice(0, 5);
+  }
+
+  // First upcoming fixture for a team.
+  parseNextGame(events, teamId) {
+    const upNext = (events || [])
+      .filter((event) => event.competitions?.[0]?.status?.type?.completed === false)
+      .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+    if (!upNext) return null;
+    const competitors = upNext.competitions[0].competitors;
+    const mine = competitors.find((item) => String(item.team?.id) === String(teamId));
+    const opponent = competitors.find((item) => String(item.team?.id) !== String(teamId));
+    if (!mine || !opponent) return null;
+    const isHome = competitors.find((item) => String(item.team?.id) === String(teamId))?.homeAway === "home";
+    return { date: upNext.date, opponent: opponent.team?.abbreviation, isHome };
   }
 
   findRecord(data, abbr, season) {
@@ -89,13 +138,14 @@ class BaseEspnLeagueAdapter {
         ...(group.standings?.entries || []),
         ...(group.children || []).flatMap((child) => child.standings?.entries || []),
       ];
-      const entry = entries.find((item) => item.team?.abbreviation?.toUpperCase() === abbr.toUpperCase());
+      const index = entries.findIndex((item) => item.team?.abbreviation?.toUpperCase() === abbr.toUpperCase());
+      const entry = entries[index];
       if (entry) {
         const stats = Object.fromEntries((entry.stats || []).map((item) => [item.name, item.value]));
-        return { wins: stats.wins || 0, losses: stats.losses || 0, season, conference: group.name || "" };
+        return { wins: stats.wins || 0, losses: stats.losses || 0, season, conference: group.name || "", position: index + 1 };
       }
     }
-    return { wins: 0, losses: 0, season, conference: "" };
+    return { wins: 0, losses: 0, season, conference: "", position: null };
   }
 
   parseGames(events = [], teamId) {

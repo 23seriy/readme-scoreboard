@@ -86,6 +86,10 @@ async function fetchStandings(teamAbbr) {
       { headers: ESPN_HEADERS }
     );
     for (const conf of (data.children || [])) {
+      const allDivEntries = (conf.children || []).flatMap((div) => div.standings?.entries || []);
+      const index = allDivEntries.findIndex(
+        (e) => e.team?.abbreviation?.toUpperCase() === espnAbbr.toUpperCase()
+      );
       for (const div of (conf.children || [])) {
         const entry = (div.standings?.entries || []).find(
           (e) => e.team?.abbreviation?.toUpperCase() === espnAbbr.toUpperCase()
@@ -98,36 +102,41 @@ async function fetchStandings(teamAbbr) {
             season,
             conference: conf.name?.replace(" Conference", "") || "",
             division: div.name?.replace(" Division", "") || "",
+            position: index >= 0 ? index + 1 : null,
           };
         }
       }
     }
-    return { wins: 0, losses: 0, season, conference: "", division: "" };
+    return { wins: 0, losses: 0, season, conference: "", division: "", position: null };
   } catch (error) {
     console.error(`Failed to fetch NBA standings: ${error.message}`);
     return { wins: 0, losses: 0, season: new Date().getFullYear() - 1, conference: "", division: "" };
   }
 }
 
-async function fetchRecentGames(teamAbbr, count = 5) {
+async function fetchScheduleEvents(teamAbbr) {
+  const upper = teamAbbr.toUpperCase();
+  const espnId = ESPN_TEAM_IDS[upper];
+  const now = new Date();
+  const season = now.getMonth() >= 9 ? now.getFullYear() + 1 : now.getFullYear();
+  const [regData, postData] = await Promise.all([
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
+  ]);
+  return [
+    ...(regData.data.events || []).map((e) => ({ ...e, gameType: 2 })),
+    ...(postData.data.events || []).map((e) => ({ ...e, gameType: 3 })),
+  ];
+}
+
+async function fetchRecentGames(teamAbbr, count = 5, events) {
   try {
     const upper = teamAbbr.toUpperCase();
     const espnId = ESPN_TEAM_IDS[upper];
-    const espnAbbr = ESPN_ABBR[upper] || upper;
-    const now = new Date();
-    const season = now.getMonth() >= 9 ? now.getFullYear() + 1 : now.getFullYear();
+    const espnAbbr = (ESPN_ABBR[upper] || upper).toUpperCase();
+    const schedule = events || await fetchScheduleEvents(teamAbbr);
 
-    const [regData, postData] = await Promise.all([
-      httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
-      httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
-    ]);
-
-    const events = [
-      ...(regData.data.events || []).map((e) => ({ ...e, gameType: 2 })),
-      ...(postData.data.events || []).map((e) => ({ ...e, gameType: 3 })),
-    ];
-
-    return events
+    return schedule
       .filter((e) => e.competitions?.[0]?.status?.type?.completed)
       .map((e) => {
         const comp = e.competitions[0];
@@ -162,6 +171,34 @@ async function fetchRecentGames(teamAbbr, count = 5) {
   }
 }
 
+function parseNbaForm(events, espnAbbr) {
+  return (events || [])
+    .filter((e) => e.competitions?.[0]?.status?.type?.completed)
+    .map((e) => {
+      const comp = e.competitions[0];
+      const teamComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() === espnAbbr.toUpperCase());
+      const oppComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() !== espnAbbr.toUpperCase());
+      if (!teamComp || !oppComp) return null;
+      const teamScore = teamComp.score?.value ?? parseFloat(teamComp.score) ?? 0;
+      const oppScore = oppComp.score?.value ?? parseFloat(oppComp.score) ?? 0;
+      return teamScore > oppScore ? "W" : teamScore < oppScore ? "L" : "D";
+    })
+    .filter(Boolean)
+    .slice(0, 5);
+}
+
+function parseNbaNextGame(events, espnAbbr) {
+  const upNext = (events || [])
+    .filter((e) => e.competitions?.[0]?.status?.type?.completed === false)
+    .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+  if (!upNext) return null;
+  const comp = upNext.competitions[0];
+  const teamComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() === espnAbbr.toUpperCase());
+  const oppComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() !== espnAbbr.toUpperCase());
+  if (!teamComp || !oppComp) return null;
+  return { date: upNext.date, opponent: oppComp.team?.abbreviation, isHome: teamComp.homeAway === "home" };
+}
+
 function getDemoData(teamAbbr) {
   const abbr = teamAbbr.toUpperCase();
   const team = DEMO_TEAMS[abbr] || {
@@ -189,6 +226,9 @@ function getDemoData(teamAbbr) {
     team,
     recentGames: games,
     record: { wins: 50, losses: 32, season: new Date().getFullYear() - 1 },
+    standing: { position: 3, label: team.conference },
+    form: ["W", "W", "L", "W", "W"],
+    nextGame: { date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), opponent: "DEN", isHome: true },
   };
 }
 
@@ -202,10 +242,20 @@ async function fetchData(teamAbbr) {
   team.conference = standings.conference;
   team.division = standings.division;
 
-  const recentGames = await fetchRecentGames(teamAbbr, 5);
+  const upper = teamAbbr.toUpperCase();
+  const espnAbbr = (ESPN_ABBR[upper] || upper).toUpperCase();
+  const events = await fetchScheduleEvents(teamAbbr);
+  const recentGames = await fetchRecentGames(teamAbbr, 5, events);
   const record = { wins: standings.wins, losses: standings.losses, season: standings.season };
 
-  return { team, recentGames, record };
+  return {
+    team,
+    recentGames,
+    record,
+    standing: standings.position ? { position: standings.position, label: standings.conference } : null,
+    form: parseNbaForm(events, espnAbbr),
+    nextGame: parseNbaNextGame(events, espnAbbr),
+  };
 }
 
 function getLogoUrl(abbr) {
