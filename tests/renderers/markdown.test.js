@@ -112,6 +112,21 @@ describe("renderMlb / formatMlbGameResult", () => {
     expect(output).not.toContain("🔥 Form:");
   });
 
+  it("renders a Formula 1 constructor board with championship position and points", () => {
+    const data = {
+      team: { abbreviation: "LP", name: "Mercedes", full_name: "Mercedes", conference: "Formula 1", division: "" },
+      record: { wins: 0, losses: 0, points: 425, season: 2026 },
+      recentGames: [],
+      standing: { position: 1, label: "Constructor Championship" },
+      emoji: "⚫",
+      logoUrl: "https://a.espncdn.com/i/teamlogos/leagues/500/f1.png",
+    };
+    const output = render("f1", data);
+    expect(output).toContain("Mercedes");
+    expect(output).toContain("Championship position: 1");
+    expect(output).toContain("Points: 425");
+  });
+
   it("renders season record with win percentage", () => {
     const data = { ...BASE_MLB_DATA, recentGames: [] };
     const output = render("mlb", data);

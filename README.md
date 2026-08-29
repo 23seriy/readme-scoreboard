@@ -16,10 +16,10 @@
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **28 leagues**. The [support manifest](supported-leagues.json)
+The project currently supports **29 leagues**. The [support manifest](supported-leagues.json)
 and [team directory](TEAM_DIRECTORY.md) are generated from the same registry used by the action.
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, and **NCAA Men's Ice Hockey** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, and **Formula 1** with more sports coming soon
 
 ---
 
@@ -111,6 +111,7 @@ That's it — the action keeps your scoreboard current. Want to see more before 
   - [NCAA Women's Basketball](#ncaa-womens-basketball-team-abbreviations)
   - [College Football](#college-football-team-abbreviations)
   - [NCAA Men's Ice Hockey](#ncaa-mens-ice-hockey-team-abbreviations)
+  - [Formula 1](#formula-1-team-abbreviations)
 - [Customizing the board](#customizing-the-board)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
@@ -396,6 +397,8 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | 🏀&nbsp;Basketball | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png" alt="NCAA Women's Basketball logo" height="20"></picture> NCAA Women's Basketball | 🔴 Off-season · starts 2026-11-02 | [`basketball/womens-college-basketball`](https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams) |
 | 🏈&nbsp;Football | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png" alt="College Football logo" height="20"></picture> College Football | 🟢 In progress · ends 2027-01-28 | [`football/college-football`](https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams) |
 | 🏒&nbsp;Hockey | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png" alt="NCAA Men's Ice Hockey logo" height="20"></picture> NCAA Men's Ice Hockey | 🔴 Off-season · starts 2026-10-02 | [`hockey/mens-college-hockey`](https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/teams) |
+| 🏎️&nbsp;Racing | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/f1.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/f1.png" alt="Formula 1 logo" height="20"></picture> Formula 1 | 🟢 In progress · ends 2026-12-06 | [`racing/f1`](https://site.api.espn.com/apis/site/v2/sports/racing/f1/teams) |
+<!-- supported-sports:end -->
 <!-- supported-sports:end -->
 
 ---
@@ -1788,6 +1791,25 @@ Current teams from ESPN's public directory. The directory can change as schools 
 | Worcester State Lancers | `WORC` | <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/43.png" width="20"> Yale Bulldogs | `YALE` |
 </details>
 <!-- college-abbreviations:ncaa_hockey:end -->
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/f1.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/f1.png" alt="Formula 1 logo" height="28"></picture> Formula 1 Team Abbreviations
+<details><summary>Formula 1 constructors</summary>
+
+| 🏎️ Constructor | Abbr |
+|---|------|
+| Alpine | `SCS` |
+| Aston Martin | `ASTM` |
+| Audi | `AUDI` |
+| Cadillac | `CAD` |
+| Ferrari | `JK` |
+| Haas | `JH` |
+| McLaren | `DH` |
+| Mercedes | `LP` |
+| Racing Bulls | `RB` |
+| Red Bull | `GL` |
+| Williams | `RM` |
+
+</details>
 
 ## Run Locally
 

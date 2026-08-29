@@ -785,6 +785,35 @@
         "2026-10-02",
         "2027-05-01"
       ]
+    },
+    {
+      "key": "f1",
+      "name": "Formula 1",
+      "category": "Racing",
+      "endpoint": "racing/f1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/racing/f1/teams",
+      "renderer": "f1",
+      "emoji": "🏎️",
+      "logo": {
+        "light": "https://a.espncdn.com/i/teamlogos/leagues/500/f1.png",
+        "dark": "https://a.espncdn.com/i/teamlogos/leagues/500-dark/f1.png"
+      },
+      "seasonWindow": {
+        "start": [
+          3,
+          1
+        ],
+        "end": [
+          12,
+          31
+        ],
+        "nextLabel": "March"
+      },
+      "fallback": [
+        "2026-03-06",
+        "2026-12-06"
+      ]
     }
   ]
 }

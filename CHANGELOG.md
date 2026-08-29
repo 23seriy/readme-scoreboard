@@ -12,6 +12,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Added
 
+- **Formula 1** support: constructor championship position and points on the
+  board via a new `f1` adapter and renderer.
 - Extended the richer board output (standing position, next game, last-five
   form) to the remaining leagues: WNBA, NBA G League, MLB, and NHL.
 
