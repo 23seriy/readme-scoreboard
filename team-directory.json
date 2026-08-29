@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-08-26T06:04:03.942Z",
+  "generatedAt": "2026-08-29T11:47:05.251Z",
   "teams": [
     {
       "league": "nba",
@@ -2764,35 +2764,35 @@
       "league": "ucl",
       "leagueName": "UEFA Champions League",
       "abbreviation": "RMA",
-      "name": "Real Madrid",
+      "name": null,
       "id": 86
     },
     {
       "league": "ucl",
       "leagueName": "UEFA Champions League",
       "abbreviation": "BAR",
-      "name": "Barcelona",
+      "name": null,
       "id": 83
     },
     {
       "league": "ucl",
       "leagueName": "UEFA Champions League",
       "abbreviation": "LIV",
-      "name": "Liverpool",
+      "name": null,
       "id": 364
     },
     {
       "league": "ucl",
       "leagueName": "UEFA Champions League",
       "abbreviation": "ARS",
-      "name": "Arsenal",
+      "name": null,
       "id": 359
     },
     {
       "league": "ucl",
       "leagueName": "UEFA Champions League",
       "abbreviation": "PSG",
-      "name": "Paris Saint-Germain",
+      "name": null,
       "id": 160
     },
     {

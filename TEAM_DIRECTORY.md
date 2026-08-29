@@ -542,11 +542,11 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 
 | Team | Abbreviation | ID |
 |------|--------------|----|
-| Arsenal | `ARS` | 359 |
-| Barcelona | `BAR` | 83 |
-| Liverpool | `LIV` | 364 |
-| Paris Saint-Germain | `PSG` | 160 |
-| Real Madrid | `RMA` | 86 |
+| — | `ARS` | 359 |
+| — | `BAR` | 83 |
+| — | `LIV` | 364 |
+| — | `PSG` | 160 |
+| — | `RMA` | 86 |
 
 ## UEFA Europa League
 
