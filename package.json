@@ -15,6 +15,7 @@
     "teams:directory:markdown": "node scripts/generate-team-directory-markdown.js",
     "teams:directory:validate": "node scripts/validate-team-directory.js",
     "leagues:examples": "node scripts/generate-league-examples.js",
+    "examples:generate": "node scripts/generate-examples.js",
     "smoke:demo": "node scripts/demo-smoke.js",
     "test": "jest",
     "lint": "eslint ."
