@@ -10,6 +10,21 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- Generated examples gallery under `examples/` (with `npm run examples:generate`)
+  and a `SUPPORT.md` getting-help guide.
+- GitHub Marketplace, stars, and forks badges plus a Marketplace/Discussions
+  callout at the top of the README.
+- A "30-second setup" quick-start box and a "Customizing the board" section
+  documenting `compact` and `dry_run`.
+
+### Changed
+
+- `action.yml` input descriptions clarified (team, token, marker, target repo).
+- README team-abbreviation section links to the generated `TEAM_DIRECTORY.md`
+  as the single searchable source of truth.
+
 ## [1.6.0] - 2026-08-20
 
 ### Added
