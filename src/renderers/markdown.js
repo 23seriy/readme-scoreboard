@@ -80,16 +80,17 @@ LEAGUE_REGISTRY.forEach((entry) => {
  * means it survives every run — a heading written above them would be outside
  * the tool's reach, and one written inside by hand would be overwritten.
  */
-function headingLines(sport) {
+function headingLines(sport, title) {
   const logo = LEAGUE_LOGOS[sport];
   if (!logo) return [];
   const mark = `<picture><source media="(prefers-color-scheme: dark)" srcset="${logo.dark}"><img src="${logo.light}" alt="${logo.alt}" height="28" align="top"></picture> `;
   const league = LEAGUE_REGISTRY.find((entry) => entry.key === sport);
   const endpoint = league?.endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]
     || (league?.endpoint ? `https://site.api.espn.com/apis/site/v2/sports/${league.endpoint}/teams` : null);
+  const label = title || `My Favourite ${logo.alt} Team`;
   const heading = endpoint
-    ? `## [${mark}My Favourite ${logo.alt} Team](${endpoint})`
-    : `## ${mark}My Favourite ${logo.alt} Team`;
+    ? `## [${mark}${label}](${endpoint})`
+    : `## ${mark}${label}`;
   return [heading, ""];
 }
 
@@ -154,11 +155,11 @@ function formatGameResult(game, teamId) {
   return `${result === "W" ? "✅" : "❌"} ${result} ${String(teamScore).padStart(3)}-${String(oppScore).padEnd(3)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})${tag}`;
 }
 
-function renderNba(data, sport = "nba") {
+function renderNba(data, sport = "nba", title) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport));
+  lines.push(...headingLines(sport, title));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -223,11 +224,11 @@ function formatMlbGameResult(game, teamId) {
   return `${won ? "✅" : "❌"} ${result} ${String(teamScore).padStart(2)}-${String(oppScore).padEnd(2)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})${tag}`;
 }
 
-function renderMlb(data) {
+function renderMlb(data, title) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(...headingLines("mlb"));
+  lines.push(...headingLines("mlb", title));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -276,11 +277,11 @@ function formatNflGameResult(game) {
   return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})${tag}`;
 }
 
-function renderNfl(data, sport = "nfl") {
+function renderNfl(data, sport = "nfl", title) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport));
+  lines.push(...headingLines(sport, title));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -316,11 +317,11 @@ function renderNfl(data, sport = "nfl") {
   return lines.join("\n");
 }
 
-function renderNhl(data, sport = "nhl") {
+function renderNhl(data, sport = "nhl", title) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport));
+  lines.push(...headingLines(sport, title));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -370,11 +371,11 @@ function formatMlsGameResult(game) {
   return `${icon} ${result} ${String(game.teamScore)}-${String(game.oppScore)} ${prefix} ${(game.oppAbbr || "???").padEnd(5)} (${dateStr})`;
 }
 
-function renderSoccer(data, sport = "mls", fallbackLabel = "MLS") {
+function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title) {
   const { team, recentGames, record, emoji, logoUrl } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport));
+  lines.push(...headingLines(sport, title));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -415,62 +416,63 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS") {
   return lines.join("\n");
 }
 
-function render(sport, data) {
+function render(sport, data, options = {}) {
+  const title = options.title;
   switch (sport) {
     case "nba":
-      return renderNba(data);
+      return renderNba(data, "nba", title);
     case "wnba":
-      return renderNba(data, "wnba");
+      return renderNba(data, "wnba", title);
     case "gleague":
-      return renderNba(data, "gleague");
+      return renderNba(data, "gleague", title);
     case "ncaab":
-      return renderNba(data, "ncaab");
+      return renderNba(data, "ncaab", title);
     case "ncaaw":
-      return renderNba(data, "ncaaw");
+      return renderNba(data, "ncaaw", title);
     case "mlb":
-      return renderMlb(data);
+      return renderMlb(data, title);
     case "nfl":
-      return renderNfl(data);
+      return renderNfl(data, "nfl", title);
     case "ncaaf":
-      return renderNfl(data, "ncaaf");
+      return renderNfl(data, "ncaaf", title);
     case "nhl":
-      return renderNhl(data);
+      return renderNhl(data, "nhl", title);
     case "ncaa_hockey":
-      return renderNhl(data, "ncaa_hockey");
+      return renderNhl(data, "ncaa_hockey", title);
     case "mls":
-      return renderSoccer(data, "mls", "MLS");
+      return renderSoccer(data, "mls", "MLS", title);
     case "epl":
-      return renderSoccer(data, "epl", "Premier League");
+      return renderSoccer(data, "epl", "Premier League", title);
     case "laliga":
-      return renderSoccer(data, "laliga", "La Liga");
+      return renderSoccer(data, "laliga", "La Liga", title);
     case "bundesliga":
-      return renderSoccer(data, "bundesliga", "Bundesliga");
+      return renderSoccer(data, "bundesliga", "Bundesliga", title);
     case "seriea":
-      return renderSoccer(data, "seriea", "Serie A");
+      return renderSoccer(data, "seriea", "Serie A", title);
     case "ligue1":
-      return renderSoccer(data, "ligue1", "Ligue 1");
+      return renderSoccer(data, "ligue1", "Ligue 1", title);
     case "primeiraliga":
-      return renderSoccer(data, "primeiraliga", "Primeira Liga");
+      return renderSoccer(data, "primeiraliga", "Primeira Liga", title);
     case "eredivisie":
-      return renderSoccer(data, "eredivisie", "Eredivisie");
+      return renderSoccer(data, "eredivisie", "Eredivisie", title);
     case "ligamx":
-      return renderSoccer(data, "ligamx", "Liga MX");
+      return renderSoccer(data, "ligamx", "Liga MX", title);
     case "brasileirao":
-      return renderSoccer(data, "brasileirao", "Série A");
+      return renderSoccer(data, "brasileirao", "Série A", title);
     case "nwsl":
-      return renderSoccer(data, "nwsl", "NWSL");
+      return renderSoccer(data, "nwsl", "NWSL", title);
     case "saudipro":
-      return renderSoccer(data, "saudipro", "Saudi Pro League");
+      return renderSoccer(data, "saudipro", "Saudi Pro League", title);
     case "j1":
-      return renderSoccer(data, "j1", "J1 League");
+      return renderSoccer(data, "j1", "J1 League", title);
     case "scottish":
-      return renderSoccer(data, "scottish", "Scottish Premiership");
+      return renderSoccer(data, "scottish", "Scottish Premiership", title);
     case "belgian":
-      return renderSoccer(data, "belgian", "Belgian Pro League");
+      return renderSoccer(data, "belgian", "Belgian Pro League", title);
     case "ucl":
-      return renderSoccer(data, "ucl", "UEFA Champions League");
+      return renderSoccer(data, "ucl", "UEFA Champions League", title);
     case "uel":
-      return renderSoccer(data, "uel", "UEFA Europa League");
+      return renderSoccer(data, "uel", "UEFA Europa League", title);
     default:
       throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague`);
   }

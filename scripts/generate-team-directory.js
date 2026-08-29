@@ -22,6 +22,19 @@ async function liveNames(league) {
   }
 }
 
+// Resolve a team's display name, falling back through known sources so the
+// generated directory never contains a null name. When a live API request
+// fails or omits a name (e.g. a transient UEFA endpoint hiccup), we prefer the
+// adapter's demo data, then the abbreviation itself, so the human-readable
+// table never degrades to an empty cell.
+function resolveName(adapter, abbreviation, value, live) {
+  return live
+    || (typeof value === "object" ? (value.full_name || value.name) : null)
+    || adapter.DEMO_TEAMS?.[abbreviation]?.full_name
+    || adapter.DEMO_TEAMS?.[abbreviation]?.name
+    || abbreviation;
+}
+
 async function generate() {
 const teams = (await Promise.all(LEAGUES.map(async (league) => {
   const adapter = require(`../src/adapters/${league.key}`);
@@ -31,7 +44,7 @@ const teams = (await Promise.all(LEAGUES.map(async (league) => {
     league: league.key,
     leagueName: league.name,
     abbreviation,
-    name: names.get(abbreviation) || (typeof value === "object" ? (value.full_name || value.name || null) : null),
+    name: resolveName(adapter, abbreviation, value, names.get(abbreviation)),
     id: typeof value === "object" ? value.id : value,
   }));
 }))).flat();
@@ -44,4 +57,4 @@ fs.writeFileSync(
 
 if (require.main === module) generate().catch((error) => { console.error(error.message); process.exitCode = 1; });
 
-module.exports = { apiTeams, endpointFor, generate };
+module.exports = { apiTeams, endpointFor, generate, resolveName };

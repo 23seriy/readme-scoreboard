@@ -18,6 +18,15 @@ that would alter what appears in your README or require editing your workflow.
   callout at the top of the README.
 - A "30-second setup" quick-start box and a "Customizing the board" section
   documenting `compact` and `dry_run`.
+- `teams:` input to render multiple scoreboards in a single action run.
+- `title:` input to customize the scoreboard heading.
+- `badge:` input to render shields-style badges instead of a full block.
+
+### Fixed
+
+- Team-directory generation no longer writes `null` team names when a live
+  name lookup fails or omits a name; it falls back to demo data and finally the
+  abbreviation so the generated directory never shows an empty cell.
 
 ### Changed
 

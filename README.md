@@ -297,6 +297,46 @@ recent-games list — handy for a tighter profile:
           compact: true
 ```
 
+### Multiple teams in one run
+
+Set `teams:` to a comma-separated list to render several boards from a single
+step (one board per team, joined with a divider):
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@v1
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nba
+          teams: LAL, BOS, NYK
+```
+
+### Custom heading
+
+Set `title:` to override the default "My Favourite `<League>` Team" heading:
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@v1
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nba
+          team: LAL
+          title: My Lakers Scoreboard
+```
+
+### Badge mode
+
+Set `badge: true` to emit a compact shields-style badge row instead of the full
+scoreboard block — useful when you want just a status chip:
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@v1
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nba
+          teams: LAL, BOS
+          badge: true
+```
+
 ### Preview without publishing
 
 Set `dry_run: true` to fetch and render live data without touching a README. The
@@ -1840,6 +1880,9 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | `gh_token` | Yes* | — | Token with Contents: Read and write on `target_repo` |
 | `sport` | No | `nba` | League key (for example, `nba`). See [Supported Sports](#supported-sports). |
 | `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`). Invalid abbreviations show example names. |
+| `teams` | No | — | Comma-separated team abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
+| `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard. |
+| `badge` | No | `false` | Render shields-style badges instead of a full scoreboard block. |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
 | `dry_run` | No | `false` | Fetch and render live data without updating a README. Accepts `true`/`false` (also `1`/`0` or `yes`/`no`) |
