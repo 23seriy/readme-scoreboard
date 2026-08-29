@@ -11,6 +11,16 @@ inputs:
   team:
     description: "Team abbreviation (e.g. LAL, TOR, NYR). Look up abbreviations in TEAM_DIRECTORY.md."
     required: true
+  teams:
+    description: "Optional comma-separated list of team abbreviations to render multiple boards in one run (e.g. LAL, NYY, ARS)."
+    required: false
+  title:
+    description: "Custom heading text for the scoreboard (default: 'My Favourite <League> Team')."
+    required: false
+  badge:
+    description: "Render shields-style badges instead of a full scoreboard block (true/false)."
+    required: false
+    default: "false"
   gh_token:
     description: "Token with Contents read/write access to target_repo. Required for live README updates; omit for dry-run."
     required: false
@@ -56,7 +66,6 @@ runs:
         GH_TOKEN: ${{ inputs.gh_token }}
         SPORT: ${{ inputs.sport }}
         TEAM: ${{ inputs.team }}
-        MARKER: ${{ inputs.marker }}
-        TARGET_REPO: ${{ inputs.target_repo }}
-        DRY_RUN: ${{ inputs.dry_run }}
-        COMPACT: ${{ inputs.compact }}
+            TEAMS: ${{ inputs.teams }}
+            TITLE: ${{ inputs.title }}
+            BADGE: ${{ inputs.badge }}

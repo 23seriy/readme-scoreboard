@@ -88,3 +88,31 @@ describe("main", () => {
     expect(() => parseCompact("maybe")).toThrow(/COMPACT must be true or false/);
   });
 });
+
+describe("multi-team, badge, and title helpers", () => {
+  it("parses a comma-separated teams list and normalizes case", () => {
+    const { parseTeams } = require("../src/index");
+    expect(parseTeams("lal, bos,NYR", "LAL")).toEqual(["LAL", "BOS", "NYR"]);
+    expect(parseTeams("", "LAL")).toEqual(["LAL"]);
+    expect(parseTeams("  ", "LAL")).toEqual(["LAL"]);
+    expect(parseTeams("LAL", "BOS")).toEqual(["LAL"]);
+  });
+
+  it("parses boolean badge input and rejects typos", () => {
+    const { parseBoolean } = require("../src/index");
+    expect(parseBoolean("true", "BADGE")).toBe(true);
+    expect(parseBoolean("1", "BADGE")).toBe(true);
+    expect(parseBoolean("false", "BADGE")).toBe(false);
+    expect(parseBoolean(undefined, "BADGE")).toBe(false);
+    expect(() => parseBoolean("maybe", "BADGE")).toThrow(/BADGE must be true or false/);
+  });
+
+  it("builds shields-style badges for each team", () => {
+    const { buildBadge } = require("../src/index");
+    const blocks = ["### 👑 Los Angeles Lakers (LAL)", "### ☘️ Boston Celtics (BOS)"];
+    const output = buildBadge("nba", ["LAL", "BOS"], blocks);
+    expect(output).toContain('https://img.shields.io/badge/NBA-LAL-orange?style=flat');
+    expect(output).toContain('https://img.shields.io/badge/NBA-BOS-orange?style=flat');
+    expect(output).toContain('<p align="center">');
+  });
+});

@@ -79,6 +79,17 @@ describe("renderMlb / formatMlbGameResult", () => {
     expect(output).toContain("No recent games found");
   });
 
+  it("uses a custom title when provided", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] }, { title: "Toronto Baseball" });
+    expect(output).toContain("Toronto Baseball");
+    expect(output).not.toContain("My Favourite MLB Team");
+  });
+
+  it("defaults to the league title when no custom title is provided", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
+    expect(output).toContain("My Favourite MLB Team");
+  });
+
   it("renders season record with win percentage", () => {
     const data = { ...BASE_MLB_DATA, recentGames: [] };
     const output = render("mlb", data);

@@ -10,9 +10,12 @@ const {
   GH_TOKEN: githubToken,
   SPORT: sport = "nba",
   TEAM: teamAbbr,
+  TEAMS: teamsList,
   TARGET_REPO: targetRepo,
   GITHUB_WORKSPACE: githubWorkspace,
   MARKER: markerName,
+  TITLE: title,
+  BADGE: badgeMode,
 } = process.env;
 
 const isDemo = process.argv.includes("--demo");
@@ -31,25 +34,43 @@ function parseCompact(value) {
   throw new Error(`COMPACT must be true or false; received "${value}"`);
 }
 
+function parseBoolean(value, label = "BADGE") {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  if (["true", "1", "yes"].includes(normalized)) return true;
+  if (["", "false", "0", "no"].includes(normalized)) return false;
+  throw new Error(`${label} must be true or false; received "${value}"`);
+}
+
+function parseTeams(list, fallback) {
+  const values = (list || "").split(",").map((item) => item.trim()).filter(Boolean);
+  return values.length > 0 ? values.map((item) => item.toUpperCase()) : [fallback.toUpperCase()];
+}
+
 function compactMarkdown(content) {
   return content
     .replace(/^<img[^>]+>\n?/gm, "")
     .replace(/\n\*\*📅 Recent Games:\*\*\n```[\s\S]*?```\n?/g, "\n");
 }
 
+function buildBadge(sportName, teams, blocks) {
+  const lines = [`<p align="center">`];
+  teams.forEach((team, index) => {
+    const match = blocks[index]?.match(/\(([A-Z]{2,3})\)/);
+    const abbr = match ? match[1] : team;
+    lines.push(
+      `<img src="https://img.shields.io/badge/${encodeURIComponent(sportName.toUpperCase())}-${encodeURIComponent(abbr)}-orange?style=flat" />`
+    );
+  });
+  lines.push("</p>");
+  return lines.join("\n");
+}
+
 const isDryRun = parseDryRun(process.env.DRY_RUN);
 const isCompact = parseCompact(process.env.COMPACT);
+const isBadge = parseBoolean(badgeMode, "BADGE");
 
 async function main() {
-  if (!teamAbbr && !isDemo) {
-    console.error("TEAM environment variable is required. Set the team abbreviation, or run with --demo for a preview.");
-    process.exit(1);
-  }
-
   const sportName = (sport || "nba").toLowerCase();
-  const team = (teamAbbr || "LAL").toUpperCase();
-
-  console.log(`🏆 ${isDemo ? "[DEMO] " : ""}readme-scoreboard — ${sportName.toUpperCase()} · ${team}`);
 
   // Load the sport adapter
   let adapter;
@@ -61,10 +82,18 @@ async function main() {
     return;
   }
 
+  const teams = parseTeams(teamsList, teamAbbr || (isDemo ? "LAL" : ""));
+  if (teams.length === 0 || !teams[0]) {
+    console.error("TEAM environment variable is required. Set the team abbreviation, or run with --demo for a preview.");
+    process.exit(1);
+  }
+
+  console.log(`🏆 ${isDemo ? "[DEMO] " : ""}readme-scoreboard — ${sportName.toUpperCase()} · ${teams.join(", ")}`);
+
   try {
     validateInputs({
       sport: sportName,
-      team,
+      team: teams[0],
       isDemo,
       targetRepo,
       adapter,
@@ -76,32 +105,40 @@ async function main() {
     return;
   }
 
-  // Fetch data (live or demo)
-  let data;
-  if (isDemo) {
-    data = adapter.getDemoData(team);
-    console.log(`[DEMO] Using sample data for ${data.team.full_name}`);
-  } else {
-    data = await adapter.fetchData(team);
-    if (!data) {
-      console.error(`Could not fetch team data for ${sportName.toUpperCase()} team "${team}". Check the abbreviation in the Supported Sports section, then try npm run doctor -- --demo.`);
-      process.exit(1);
+  const generatedAt = new Date().toISOString();
+  const defaultEmoji = LEAGUE_BY_KEY[sportName]?.emoji || "🏀";
+  const blocks = [];
+
+  for (const team of teams) {
+    let data;
+    if (isDemo) {
+      data = adapter.getDemoData(team);
+      if (!data || !data.team) {
+        console.error(`[DEMO] No demo data for ${sportName.toUpperCase()} team "${team}".`);
+        process.exit(1);
+      }
+      console.log(`[DEMO] Using sample data for ${data.team.full_name}`);
+    } else {
+      data = await adapter.fetchData(team);
+      if (!data) {
+        console.error(`Could not fetch team data for ${sportName.toUpperCase()} team "${team}". Check the abbreviation in the Supported Sports section, then try npm run doctor -- --demo.`);
+        process.exit(1);
+      }
     }
+
+    const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
+    const teamLogoUrl = adapter.getLogoUrl(data.team.abbreviation);
+    const logoUrl = teamLogoUrl || LEAGUE_BY_KEY[sportName]?.logo?.light || "";
+    const renderData = { ...data, emoji, logoUrl };
+
+    const rendered = render(sportName, renderData, { title });
+    blocks.push((isCompact ? compactMarkdown(rendered) : rendered).trimEnd());
   }
 
-  // Add sport-specific metadata for the renderer
-  const defaultEmoji = LEAGUE_BY_KEY[sportName]?.emoji || "🏀";
-  const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
-  const teamLogoUrl = adapter.getLogoUrl(data.team.abbreviation);
-  const logoUrl = teamLogoUrl || LEAGUE_BY_KEY[sportName]?.logo?.light || "";
-  const generatedAt = new Date().toISOString();
-  const dataSource = adapter.DATA_SOURCE || (LEAGUE_BY_KEY[sportName]?.endpointOverride ? "official league API" : "ESPN public API");
-
-  const renderData = { ...data, emoji, logoUrl };
-
-  // Render markdown
-  const rendered = render(sportName, renderData);
-  const content = `${(isCompact ? compactMarkdown(rendered) : rendered).trimEnd()}\n\n_Last updated: ${generatedAt}_`;
+  const joined = blocks.join("\n\n---\n\n");
+  const content = isBadge
+    ? buildBadge(sportName, teams, blocks)
+    : `${joined}\n\n_Last updated: ${generatedAt}_`;
 
   console.log("\n--- Preview ---");
   console.log(content);
@@ -140,10 +177,12 @@ async function main() {
     summaryResult = "⏭️ README update skipped (no destination configured)";
   }
 
+  const dataSource = adapter.DATA_SOURCE || (LEAGUE_BY_KEY[sportName]?.endpointOverride ? "official league API" : "ESPN public API");
+
   writeStepSummary({
     sport: sportName,
     leagueName: LEAGUE_BY_KEY[sportName]?.name,
-    team,
+    team: teams.join(", "),
     mode,
     result: summaryResult,
     targetRepo: summaryDestination,
@@ -158,4 +197,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { main, parseDryRun, parseCompact, compactMarkdown };
+module.exports = { main, parseDryRun, parseCompact, parseBoolean, parseTeams, compactMarkdown, buildBadge };
