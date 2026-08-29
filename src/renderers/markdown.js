@@ -448,6 +448,36 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title) {
   return lines.join("\n");
 }
 
+// Formula 1 has no team-level game results on the public API, so the board
+// shows the constructor, its championship position, and points instead.
+function renderF1(data, title) {
+  const { team, record, emoji, logoUrl, standing } = data;
+  const lines = [];
+
+  lines.push(...headingLines("f1", title));
+  if (logoUrl) {
+    lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
+    lines.push("");
+  }
+  lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
+  lines.push("Formula 1 · Constructor Championship");
+  lines.push(seasonStatusLine("f1"));
+  lines.push("");
+
+  if (standing && standing.position) {
+    lines.push(`🏆 Championship position: ${standing.position}`);
+  }
+  if (record.points !== undefined) {
+    lines.push(`📍 Points: ${record.points}`);
+  }
+  if ((record.wins || 0) + (record.losses || 0) > 0) {
+    lines.push(`📊 Races: ${record.wins + record.losses}`);
+  }
+  lines.push("");
+
+  return lines.join("\n");
+}
+
 function render(sport, data, options = {}) {
   const title = options.title;
   switch (sport) {
@@ -505,8 +535,10 @@ function render(sport, data, options = {}) {
       return renderSoccer(data, "ucl", "UEFA Champions League", title);
     case "uel":
       return renderSoccer(data, "uel", "UEFA Europa League", title);
+    case "f1":
+      return renderF1(data, title);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, f1`);
   }
 }
 

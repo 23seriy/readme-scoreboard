@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-08-26T06:04:03.942Z",
+  "generatedAt": "2026-08-29T16:34:21.233Z",
   "teams": [
     {
       "league": "nba",
@@ -69,7 +69,7 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "GSW",
-      "name": null,
+      "name": "Golden State Warriors",
       "id": 9
     },
     {
@@ -132,14 +132,14 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "NOP",
-      "name": null,
+      "name": "NOP",
       "id": 3
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "NYK",
-      "name": null,
+      "name": "New York Knicks",
       "id": 18
     },
     {
@@ -188,7 +188,7 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "SAS",
-      "name": null,
+      "name": "SAS",
       "id": 24
     },
     {
@@ -202,14 +202,14 @@
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "UTA",
-      "name": null,
+      "name": "UTA",
       "id": 26
     },
     {
       "league": "nba",
       "leagueName": "NBA",
       "abbreviation": "WAS",
-      "name": null,
+      "name": "WAS",
       "id": 27
     },
     {
@@ -636,231 +636,231 @@
       "league": "nfl",
       "leagueName": "NFL",
       "abbreviation": "WAS",
-      "name": null,
+      "name": "WAS",
       "id": 32
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "ANA",
-      "name": null,
+      "name": "ANA",
       "id": 24
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "ARI",
-      "name": null,
+      "name": "ARI",
       "id": 53
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "BOS",
-      "name": null,
+      "name": "Boston Bruins",
       "id": 6
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "BUF",
-      "name": null,
+      "name": "BUF",
       "id": 7
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "CAR",
-      "name": null,
+      "name": "CAR",
       "id": 12
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "CBJ",
-      "name": null,
+      "name": "CBJ",
       "id": 29
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "CGY",
-      "name": null,
+      "name": "CGY",
       "id": 20
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "CHI",
-      "name": null,
+      "name": "CHI",
       "id": 16
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "COL",
-      "name": null,
+      "name": "COL",
       "id": 21
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "DAL",
-      "name": null,
+      "name": "DAL",
       "id": 25
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "DET",
-      "name": null,
+      "name": "Detroit Red Wings",
       "id": 17
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "EDM",
-      "name": null,
+      "name": "Edmonton Oilers",
       "id": 22
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "FLA",
-      "name": null,
+      "name": "FLA",
       "id": 13
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "LAK",
-      "name": null,
+      "name": "Los Angeles Kings",
       "id": 26
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "MIN",
-      "name": null,
+      "name": "MIN",
       "id": 30
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "MTL",
-      "name": null,
+      "name": "MTL",
       "id": 8
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "NJ",
-      "name": null,
+      "name": "NJ",
       "id": 1
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "NSH",
-      "name": null,
+      "name": "NSH",
       "id": 18
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "NYI",
-      "name": null,
+      "name": "NYI",
       "id": 2
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "NYR",
-      "name": null,
+      "name": "New York Rangers",
       "id": 3
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "OTT",
-      "name": null,
+      "name": "OTT",
       "id": 9
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "PHI",
-      "name": null,
+      "name": "PHI",
       "id": 4
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "PIT",
-      "name": null,
+      "name": "PIT",
       "id": 5
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "SJ",
-      "name": null,
+      "name": "SJ",
       "id": 28
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "SEA",
-      "name": null,
+      "name": "SEA",
       "id": 55
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "STL",
-      "name": null,
+      "name": "STL",
       "id": 19
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "TB",
-      "name": null,
+      "name": "TB",
       "id": 14
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "TOR",
-      "name": null,
+      "name": "Toronto Maple Leafs",
       "id": 10
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "VAN",
-      "name": null,
+      "name": "VAN",
       "id": 23
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "VGK",
-      "name": null,
+      "name": "VGK",
       "id": 54
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "WPG",
-      "name": null,
+      "name": "WPG",
       "id": 52
     },
     {
       "league": "nhl",
       "leagueName": "NHL",
       "abbreviation": "WSH",
-      "name": null,
+      "name": "WSH",
       "id": 15
     },
     {
@@ -1112,7 +1112,7 @@
       "league": "epl",
       "leagueName": "Premier League",
       "abbreviation": "BUR",
-      "name": null,
+      "name": "BUR",
       "id": 379
     },
     {
@@ -1203,14 +1203,14 @@
       "league": "epl",
       "leagueName": "Premier League",
       "abbreviation": "WHU",
-      "name": null,
+      "name": "WHU",
       "id": 371
     },
     {
       "league": "epl",
       "leagueName": "Premier League",
       "abbreviation": "WOL",
-      "name": null,
+      "name": "WOL",
       "id": 380
     },
     {
@@ -1280,7 +1280,7 @@
       "league": "laliga",
       "leagueName": "La Liga",
       "abbreviation": "GIR",
-      "name": null,
+      "name": "GIR",
       "id": 9812
     },
     {
@@ -1294,7 +1294,7 @@
       "league": "laliga",
       "leagueName": "La Liga",
       "abbreviation": "MLL",
-      "name": null,
+      "name": "MLL",
       "id": 84
     },
     {
@@ -1308,7 +1308,7 @@
       "league": "laliga",
       "leagueName": "La Liga",
       "abbreviation": "OVI",
-      "name": null,
+      "name": "OVI",
       "id": 92
     },
     {
@@ -1392,7 +1392,7 @@
       "league": "bundesliga",
       "leagueName": "Bundesliga",
       "abbreviation": "HDH",
-      "name": null,
+      "name": "HDH",
       "id": 6418
     },
     {
@@ -1448,7 +1448,7 @@
       "league": "bundesliga",
       "leagueName": "Bundesliga",
       "abbreviation": "STP",
-      "name": null,
+      "name": "STP",
       "id": 270
     },
     {
@@ -1476,7 +1476,7 @@
       "league": "bundesliga",
       "leagueName": "Bundesliga",
       "abbreviation": "WOB",
-      "name": null,
+      "name": "WOB",
       "id": 138
     },
     {
@@ -1511,7 +1511,7 @@
       "league": "seriea",
       "leagueName": "Serie A",
       "abbreviation": "CRE",
-      "name": null,
+      "name": "CRE",
       "id": 4050
     },
     {
@@ -1581,7 +1581,7 @@
       "league": "seriea",
       "leagueName": "Serie A",
       "abbreviation": "PIS",
-      "name": null,
+      "name": "PIS",
       "id": 3956
     },
     {
@@ -1616,7 +1616,7 @@
       "league": "seriea",
       "leagueName": "Serie A",
       "abbreviation": "VER",
-      "name": null,
+      "name": "VER",
       "id": 119
     },
     {
@@ -1672,7 +1672,7 @@
       "league": "ligue1",
       "leagueName": "Ligue 1",
       "abbreviation": "METZ",
-      "name": null,
+      "name": "METZ",
       "id": 177
     },
     {
@@ -1686,7 +1686,7 @@
       "league": "ligue1",
       "leagueName": "Ligue 1",
       "abbreviation": "NAN",
-      "name": null,
+      "name": "NAN",
       "id": 165
     },
     {
@@ -1756,7 +1756,7 @@
       "league": "primeiraliga",
       "leagueName": "Primeira Liga",
       "abbreviation": "AVS",
-      "name": null,
+      "name": "AVS",
       "id": 22064
     },
     {
@@ -1777,7 +1777,7 @@
       "league": "primeiraliga",
       "leagueName": "Primeira Liga",
       "abbreviation": "CDT",
-      "name": null,
+      "name": "CDT",
       "id": 12706
     },
     {
@@ -1931,14 +1931,14 @@
       "league": "eredivisie",
       "leagueName": "Eredivisie",
       "abbreviation": "HER",
-      "name": null,
+      "name": "HER",
       "id": 3708
     },
     {
       "league": "eredivisie",
       "leagueName": "Eredivisie",
       "abbreviation": "NAC",
-      "name": null,
+      "name": "NAC",
       "id": 141
     },
     {
@@ -1994,7 +1994,7 @@
       "league": "eredivisie",
       "leagueName": "Eredivisie",
       "abbreviation": "VOL",
-      "name": null,
+      "name": "VOL",
       "id": 2727
     },
     {
@@ -2155,7 +2155,7 @@
       "league": "ligamx",
       "leagueName": "Liga MX",
       "abbreviation": "MAZ",
-      "name": null,
+      "name": "MAZ",
       "id": 20702
     },
     {
@@ -2799,21 +2799,21 @@
       "league": "uel",
       "leagueName": "UEFA Europa League",
       "abbreviation": "MUN",
-      "name": null,
+      "name": "Manchester United",
       "id": 360
     },
     {
       "league": "uel",
       "leagueName": "UEFA Europa League",
       "abbreviation": "TOT",
-      "name": null,
+      "name": "Tottenham Hotspur",
       "id": 367
     },
     {
       "league": "uel",
       "leagueName": "UEFA Europa League",
       "abbreviation": "LIV",
-      "name": null,
+      "name": "Liverpool",
       "id": 364
     },
     {
@@ -3065,14 +3065,14 @@
       "league": "ncaaw",
       "leagueName": "NCAA Women's Basketball",
       "abbreviation": "UCONN",
-      "name": null,
+      "name": "UConn Huskies",
       "id": 41
     },
     {
       "league": "ncaaw",
       "leagueName": "NCAA Women's Basketball",
       "abbreviation": "SC",
-      "name": null,
+      "name": "South Carolina Gamecocks",
       "id": 2579
     },
     {
@@ -3086,14 +3086,14 @@
       "league": "ncaaw",
       "leagueName": "NCAA Women's Basketball",
       "abbreviation": "TENN",
-      "name": null,
+      "name": "TENN",
       "id": 2633
     },
     {
       "league": "ncaaf",
       "leagueName": "College Football",
       "abbreviation": "ALA",
-      "name": null,
+      "name": "Alabama Crimson Tide",
       "id": 333
     },
     {
@@ -3107,14 +3107,14 @@
       "league": "ncaaf",
       "leagueName": "College Football",
       "abbreviation": "OSU",
-      "name": null,
+      "name": "OSU",
       "id": 194
     },
     {
       "league": "ncaaf",
       "leagueName": "College Football",
       "abbreviation": "MICH",
-      "name": null,
+      "name": "MICH",
       "id": 130
     },
     {
@@ -3144,6 +3144,83 @@
       "abbreviation": "BU",
       "name": "Boston University Terriers",
       "id": 104
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "SCS",
+      "name": "Alpine",
+      "id": "106922"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "ASTM",
+      "name": "Aston Martin",
+      "id": "123986"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "AUDI",
+      "name": "AUDI",
+      "id": "132212"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "CAD",
+      "name": "CAD",
+      "id": "132211"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "JK",
+      "name": "Ferrari",
+      "id": "106842"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "JH",
+      "name": "Haas",
+      "id": "111427"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "DH",
+      "name": "McLaren",
+      "id": "106892"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "LP",
+      "name": "Mercedes",
+      "id": "106893"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "RB",
+      "name": "Racing Bulls",
+      "id": "123988"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "GL",
+      "name": "Red Bull",
+      "id": "106921"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "RM",
+      "name": "Williams",
+      "id": "106967"
     }
   ]
 }
