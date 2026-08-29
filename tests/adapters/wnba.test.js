@@ -199,4 +199,48 @@ describe("WnbaAdapter — demo data", () => {
   it("returns null for an unknown club", () => {
     expect(wnba.getDemoData("ZZZ")).toBeNull();
   });
+
+  it("includes richer stats in demo data", () => {
+    const demo = wnba.getDemoData("MIN");
+    expect(demo.standing.position).toBeTruthy();
+    expect(Array.isArray(demo.form)).toBe(true);
+    expect(demo.nextGame.opponent).toBeTruthy();
+  });
+});
+
+describe("WnbaAdapter — rich stats helpers", () => {
+  function event({ completed = true, homeId = 8, awayId = 3, homeScore = 2, awayScore = 1, date = "2026-08-01T00:00:00Z" }) {
+    const home = { homeAway: "home", team: { id: homeId, abbreviation: "MIN" }, score: { value: homeScore } };
+    const away = { homeAway: "away", team: { id: awayId, abbreviation: "POR" }, score: { value: awayScore } };
+    return { date, competitions: [{ status: { type: { completed } }, competitors: [home, away] }] };
+  }
+
+  it("parseForm returns last five results as W/D/L", () => {
+    const events = [
+      event({ homeScore: 2, awayScore: 1, date: "2026-08-01T00:00:00Z" }), // W
+      event({ homeScore: 1, awayScore: 1, date: "2026-08-02T00:00:00Z" }), // D
+      event({ homeScore: 0, awayScore: 2, date: "2026-08-03T00:00:00Z" }), // L
+    ];
+    expect(wnba.parseForm(events, "MIN")).toEqual(["W", "D", "L"]);
+  });
+
+  it("parseNextGame returns the first upcoming fixture", () => {
+    const upcoming = {
+      date: "2026-08-10T00:00:00Z",
+      competitions: [{
+        status: { type: { completed: false } },
+        competitors: [
+          { homeAway: "home", team: { id: 8, abbreviation: "MIN" }, score: { value: 0 } },
+          { homeAway: "away", team: { id: 3, abbreviation: "POR" }, score: { value: 0 } },
+        ],
+      }],
+    };
+    const next = wnba.parseNextGame([upcoming], "MIN");
+    expect(next.date).toContain("2026-08-10");
+    expect(next.isHome).toBe(true);
+  });
+
+  it("parseNextGame returns null when there is no upcoming fixture", () => {
+    expect(wnba.parseNextGame([], "MIN")).toBeNull();
+  });
 });

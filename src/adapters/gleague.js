@@ -81,22 +81,24 @@ async function fetchTeamInfo(teamAbbr) {
 
 async function fetchStandings(teamAbbr) {
   const season = getSeasonYear();
-  const empty = { wins: 0, losses: 0, season, conference: "" };
+  const empty = { wins: 0, losses: 0, season, conference: "", position: null };
   try {
     const upper = teamAbbr.toUpperCase();
     const { data } = await httpGet(`${ESPN_BASE_V2}/standings?season=${season}`, { headers: ESPN_HEADERS });
     // Conferences, no divisions — entries sit directly under each conference.
     for (const conf of data.children || []) {
-      for (const entry of conf.standings?.entries || []) {
-        if (entry.team?.abbreviation?.toUpperCase() === upper) {
-          const stats = (entry.stats || []).reduce((acc, s) => { acc[s.name] = s.value; return acc; }, {});
-          return {
-            wins: stats.wins || 0,
-            losses: stats.losses || 0,
-            season,
-            conference: (conf.name || "").replace(" Conference", ""),
-          };
-        }
+      const entries = conf.standings?.entries || [];
+      const index = entries.findIndex((e) => e.team?.abbreviation?.toUpperCase() === upper);
+      const entry = entries[index];
+      if (entry) {
+        const stats = (entry.stats || []).reduce((acc, s) => { acc[s.name] = s.value; return acc; }, {});
+        return {
+          wins: stats.wins || 0,
+          losses: stats.losses || 0,
+          season,
+          conference: (conf.name || "").replace(" Conference", ""),
+          position: index + 1,
+        };
       }
     }
     return empty;
@@ -106,25 +108,32 @@ async function fetchStandings(teamAbbr) {
   }
 }
 
-async function fetchRecentGames(teamAbbr, count = 5) {
+async function fetchScheduleEvents(teamAbbr) {
+  const upper = teamAbbr.toUpperCase();
+  const espnId = TEAM_IDS[upper];
+  if (!espnId) return [];
+  const season = getSeasonYear();
+  // Regular season and playoffs are separate seasontype values. Showcase and
+  // preseason games (seasontype 1) are deliberately not fetched.
+  const [regData, postData] = await Promise.all([
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
+  ]);
+
+  return [
+    ...(regData.data.events || []).map((e) => ({ ...e, gameType: 2 })),
+    ...(postData.data.events || []).map((e) => ({ ...e, gameType: 3 })),
+  ];
+}
+
+async function fetchRecentGames(teamAbbr, count = 5, events) {
   const upper = teamAbbr.toUpperCase();
   const espnId = TEAM_IDS[upper];
   if (!espnId) return [];
   try {
-    const season = getSeasonYear();
-    // Regular season and playoffs are separate seasontype values. Showcase and
-    // preseason games (seasontype 1) are deliberately not fetched.
-    const [regData, postData] = await Promise.all([
-      httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
-      httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
-    ]);
+    const schedule = events || await fetchScheduleEvents(teamAbbr);
 
-    const events = [
-      ...(regData.data.events || []).map((e) => ({ ...e, gameType: 2 })),
-      ...(postData.data.events || []).map((e) => ({ ...e, gameType: 3 })),
-    ];
-
-    return events
+    return schedule
       .filter((e) => e.competitions?.[0]?.status?.type?.completed)
       .map((e) => {
         const comp = e.competitions[0];
@@ -159,18 +168,56 @@ async function fetchRecentGames(teamAbbr, count = 5) {
   }
 }
 
+function parseForm(events, upper) {
+  return (events || [])
+    .filter((e) => e.competitions?.[0]?.status?.type?.completed)
+    .map((e) => {
+      const comp = e.competitions[0];
+      const teamComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() === upper);
+      const oppComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() !== upper);
+      if (!teamComp || !oppComp) return null;
+      const teamScore = teamComp.score?.value ?? 0;
+      const oppScore = oppComp.score?.value ?? 0;
+      return teamScore > oppScore ? "W" : teamScore < oppScore ? "L" : "D";
+    })
+    .filter(Boolean)
+    .slice(0, 5);
+}
+
+function parseNextGame(events, upper) {
+  const upNext = (events || [])
+    .filter((e) => e.competitions?.[0]?.status?.type?.completed === false)
+    .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+  if (!upNext) return null;
+  const comp = upNext.competitions[0];
+  const teamComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() === upper);
+  const oppComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() !== upper);
+  if (!teamComp || !oppComp) return null;
+  return { date: upNext.date, opponent: oppComp.team?.abbreviation, isHome: teamComp.homeAway === "home" };
+}
+
 async function fetchData(teamAbbr) {
   try {
     const team = await fetchTeamInfo(teamAbbr);
     if (!team) return null;
 
-    const [record, recentGames] = await Promise.all([
+    const [record, events] = await Promise.all([
       fetchStandings(teamAbbr),
-      fetchRecentGames(teamAbbr),
+      fetchScheduleEvents(teamAbbr),
     ]);
 
+    const upper = teamAbbr.toUpperCase();
+    const recentGames = await fetchRecentGames(teamAbbr, 5, events);
+
     team.conference = record.conference;
-    return { team, record, recentGames };
+    return {
+      team,
+      record,
+      recentGames,
+      standing: record.position ? { position: record.position, label: record.conference } : null,
+      form: parseForm(events, upper),
+      nextGame: parseNextGame(events, upper),
+    };
   } catch (error) {
     console.error(`Failed to fetch G League data: ${error.message}`);
     return null;
@@ -192,6 +239,9 @@ function getDemoData(teamAbbr) {
   return {
     team,
     record: { wins: 26, losses: 10, season: getSeasonYear() },
+    standing: { position: 2, label: team.conference },
+    form: ["W", "L", "W"],
+    nextGame: { date: new Date(Date.now() + 2 * day).toISOString(), opponent: "WIS", isHome: true },
     recentGames: sample.map((g) => ({
       date: new Date(Date.now() - g.daysAgo * day).toISOString(),
       postseason: false,
@@ -209,6 +259,8 @@ module.exports = {
   getDemoData,
   getLogoUrl,
   getSeasonYear,
+  parseForm,
+  parseNextGame,
   TEAM_EMOJI,
   DEMO_TEAMS,
   TEAM_IDS,

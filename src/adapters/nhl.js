@@ -106,9 +106,10 @@ class NHLAdapter extends BaseFreeApiAdapter {
       return {
         conference: entry?.conferenceName || "",
         division: entry?.divisionName || "",
+        position: entry?.divisionSequence || entry?.conferenceSequence || null,
       };
     } catch {
-      return { conference: "", division: "" };
+      return { conference: "", division: "", position: null };
     }
   }
 
@@ -182,7 +183,35 @@ class NHLAdapter extends BaseFreeApiAdapter {
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 
-      return { team, record, recentGames };
+      const form = allGames
+        .filter((g) => g.status === "Final" && g.gameType !== 1)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 5)
+        .map((g) => {
+          const isHome = g.home_team.id === team.id;
+          const teamScore = isHome ? g.home_team_score : g.visitor_team_score;
+          const oppScore = isHome ? g.visitor_team_score : g.home_team_score;
+          return teamScore > oppScore ? "W" : teamScore < oppScore ? "L" : "D";
+        });
+
+      const nextGame = allGames
+        .filter((g) => g.status !== "Final")
+        .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+
+      return {
+        team,
+        record,
+        recentGames,
+        standing: confDiv.position
+          ? { position: confDiv.position, label: team.division || team.conference }
+          : null,
+        form,
+        nextGame: nextGame ? {
+          date: nextGame.date,
+          opponent: nextGame.home_team.id === team.id ? nextGame.visitor_team.abbreviation : nextGame.home_team.abbreviation,
+          isHome: nextGame.home_team.id === team.id,
+        } : null,
+      };
     } catch (error) {
       console.error(`Failed to fetch NHL data: ${error.message}`);
       return null;
