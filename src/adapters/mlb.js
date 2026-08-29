@@ -66,14 +66,15 @@ class MlbAdapter extends BaseFreeApiAdapter {
               wins: teamRecord.wins,
               losses: teamRecord.losses,
               season,
+              position: teamRecord.divisionRank || teamRecord.sportRank || null,
             };
           }
         }
       }
-      return { wins: 0, losses: 0, season };
+      return { wins: 0, losses: 0, season, position: null };
     } catch (error) {
       console.error(`Failed to fetch MLB standings: ${error.message}`);
-      return { wins: 0, losses: 0, season: this.getSeasonYear() };
+      return { wins: 0, losses: 0, season: this.getSeasonYear(), position: null };
     }
   }
 
@@ -96,7 +97,33 @@ class MlbAdapter extends BaseFreeApiAdapter {
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 
-      return { team, record, recentGames };
+      const form = allGames
+        .filter((g) => g.status === "Final" && g.gameType !== "S")
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 5)
+        .map((g) => {
+          const isHome = g.home_team.id === team.id;
+          const teamScore = isHome ? g.home_team_score : g.visitor_team_score;
+          const oppScore = isHome ? g.visitor_team_score : g.home_team_score;
+          return teamScore > oppScore ? "W" : teamScore < oppScore ? "L" : "D";
+        });
+
+      const nextGame = allGames
+        .filter((g) => g.status !== "Final")
+        .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+
+      return {
+        team,
+        record,
+        recentGames,
+        standing: record.position ? { position: record.position, label: team.division || team.league } : null,
+        form,
+        nextGame: nextGame ? {
+          date: nextGame.date,
+          opponent: nextGame.home_team.id === team.id ? nextGame.visitor_team.abbreviation : nextGame.home_team.abbreviation,
+          isHome: nextGame.home_team.id === team.id,
+        } : null,
+      };
     } catch (error) {
       console.error(`Failed to fetch MLB data: ${error.message}`);
       return null;

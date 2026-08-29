@@ -195,4 +195,48 @@ describe("GLeagueAdapter — demo data", () => {
   it("returns null for an unknown team", () => {
     expect(gleague.getDemoData("ZZZ")).toBeNull();
   });
+
+  it("includes richer stats in demo data", () => {
+    const demo = gleague.getDemoData("OSC");
+    expect(demo.standing.position).toBeTruthy();
+    expect(Array.isArray(demo.form)).toBe(true);
+    expect(demo.nextGame.opponent).toBeTruthy();
+  });
+});
+
+describe("GLeagueAdapter — rich stats helpers", () => {
+  function event({ completed = true, homeId = 11, awayId = 27, homeScore = 2, awayScore = 1, date = "2026-12-01T00:00:00Z" }) {
+    const home = { homeAway: "home", team: { id: homeId, abbreviation: "OSC" }, score: { value: homeScore } };
+    const away = { homeAway: "away", team: { id: awayId, abbreviation: "WIS" }, score: { value: awayScore } };
+    return { date, competitions: [{ status: { type: { completed } }, competitors: [home, away] }] };
+  }
+
+  it("parseForm returns last five results as W/D/L", () => {
+    const events = [
+      event({ homeScore: 2, awayScore: 1, date: "2026-12-01T00:00:00Z" }),
+      event({ homeScore: 1, awayScore: 1, date: "2026-12-02T00:00:00Z" }),
+      event({ homeScore: 0, awayScore: 2, date: "2026-12-03T00:00:00Z" }),
+    ];
+    expect(gleague.parseForm(events, "OSC")).toEqual(["W", "D", "L"]);
+  });
+
+  it("parseNextGame returns the first upcoming fixture", () => {
+    const upcoming = {
+      date: "2026-12-10T00:00:00Z",
+      competitions: [{
+        status: { type: { completed: false } },
+        competitors: [
+          { homeAway: "home", team: { id: 11, abbreviation: "OSC" }, score: { value: 0 } },
+          { homeAway: "away", team: { id: 27, abbreviation: "WIS" }, score: { value: 0 } },
+        ],
+      }],
+    };
+    const next = gleague.parseNextGame([upcoming], "OSC");
+    expect(next.date).toContain("2026-12-10");
+    expect(next.isHome).toBe(true);
+  });
+
+  it("parseNextGame returns null when there is no upcoming fixture", () => {
+    expect(gleague.parseNextGame([], "OSC")).toBeNull();
+  });
 });

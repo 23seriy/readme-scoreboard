@@ -10,6 +10,11 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- Extended the richer board output (standing position, next game, last-five
+  form) to the remaining leagues: WNBA, NBA G League, MLB, and NHL.
+
 ## [1.7.0] - 2026-08-29
 
 ### Added

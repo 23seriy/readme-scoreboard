@@ -52,6 +52,13 @@ class BaseFreeApiAdapter {
     return {
       team,
       record: { wins: 42, losses: 28, season: this.getSeasonYear() },
+      standing: { position: 4, label: team.division || team.conference || "" },
+      form: ["W", "L", "W", "W", "L"],
+      nextGame: {
+        date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
+        opponent: "OPP",
+        isHome: true,
+      },
       recentGames: [
         {
           date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
