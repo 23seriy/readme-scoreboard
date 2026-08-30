@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-08-29
+
 ### Added
 
 - **Formula 1** support: constructor championship position and points on the
