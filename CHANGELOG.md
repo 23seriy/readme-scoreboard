@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.8.2] - 2026-08-30
+
 ### Added
 
 - **Argentine Primera** support: a new `argentina` soccer adapter reusing the
@@ -32,6 +34,8 @@ that would alter what appears in your README or require editing your workflow.
 - The README GitHub Marketplace badge and install line now point at the
   repository; a tip explains how to publish the action so the Marketplace
   listing appears.
+- Added the required `author` field to `action.yml` so the action can be
+  published to the GitHub Marketplace.
 
 ## [1.8.1] - 2026-08-30
 
