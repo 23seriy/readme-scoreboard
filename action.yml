@@ -1,5 +1,5 @@
 name: "readme-scoreboard"
-description: "🏆 Live sports scores, records, and recent games on your GitHub profile README. 28 leagues, free no-auth APIs, drop-in."
+description: "🏆 Live sports scores, records, and recent games on your GitHub profile README. 29 leagues, free no-auth APIs, drop-in."
 branding:
   icon: "activity"
   color: "orange"
@@ -66,6 +66,10 @@ runs:
         GH_TOKEN: ${{ inputs.gh_token }}
         SPORT: ${{ inputs.sport }}
         TEAM: ${{ inputs.team }}
-            TEAMS: ${{ inputs.teams }}
-            TITLE: ${{ inputs.title }}
-            BADGE: ${{ inputs.badge }}
+        TEAMS: ${{ inputs.teams }}
+        TITLE: ${{ inputs.title }}
+        BADGE: ${{ inputs.badge }}
+        MARKER: ${{ inputs.marker }}
+        TARGET_REPO: ${{ inputs.target_repo }}
+        DRY_RUN: ${{ inputs.dry_run }}
+        COMPACT: ${{ inputs.compact }}
