@@ -16,10 +16,10 @@
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **29 leagues**. The [support manifest](supported-leagues.json)
+The project currently supports **30 leagues**. The [support manifest](supported-leagues.json)
 and [team directory](TEAM_DIRECTORY.md) are generated from the same registry used by the action.
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, and **Formula 1** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, and **Argentine Primera** with more sports coming soon
 
 ---
 
@@ -112,6 +112,7 @@ That's it — the action keeps your scoreboard current. Want to see more before 
   - [College Football](#college-football-team-abbreviations)
   - [NCAA Men's Ice Hockey](#ncaa-mens-ice-hockey-team-abbreviations)
   - [Formula 1](#formula-1-team-abbreviations)
+  - [Argentine Primera](#argentine-primera-team-abbreviations)
 - [Customizing the board](#customizing-the-board)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
@@ -398,6 +399,7 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | 🏈&nbsp;Football | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png" alt="College Football logo" height="20"></picture> College Football | 🟢 In progress · ends 2027-01-28 | [`football/college-football`](https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams) |
 | 🏒&nbsp;Hockey | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png" alt="NCAA Men's Ice Hockey logo" height="20"></picture> NCAA Men's Ice Hockey | 🔴 Off-season · starts 2026-10-02 | [`hockey/mens-college-hockey`](https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/teams) |
 | 🏆&nbsp;Racing | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/f1.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/f1.png" alt="Formula 1 logo" height="20"></picture> Formula 1 | 🟢 In progress · ends 2026-12-31 | [`racing/f1`](https://site.api.espn.com/apis/site/v2/sports/racing/f1/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1.png" alt="Argentine Primera logo" height="20"></picture> Argentine Primera | 🟢 In progress · ends 2026-12-31 | [`soccer/arg.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/arg.1/teams) |
 <!-- supported-sports:end -->
 <!-- supported-sports:end -->
 
@@ -1808,6 +1810,29 @@ Current teams from ESPN's public directory. The directory can change as schools 
 | Racing Bulls | `RB` |
 | Red Bull | `GL` |
 | Williams | `RM` |
+
+</details>
+
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1.png" alt="Argentine Primera logo" height="28"></picture> Argentine Primera Team Abbreviations
+<details><summary>Argentine Primera teams</summary>
+
+| ⚽ Club | Abbr | | ⚽ Club | Abbr |
+|---|------|---|---|------|
+| Aldosivi | `ALDO` | | Argentinos Juniors | `ARGJ` |
+| Atlético Tucumán | `CAT` | | Banfield | `BAN` |
+| Barracas Central | `BAR` | | Belgrano (Córdoba) | `BEL` |
+| Boca Juniors | `CABJ` | | Central Córdoba (SdE) | `CTR` |
+| Defensa y Justicia | `DYJ` | | Deportivo Riestra | `RIE` |
+| Estudiantes de La Plata | `EST` | | Estudiantes de Río Cuarto | `AAE` |
+| Gimnasia (Mendoza) | `GMZ` | | Gimnasia La Plata | `GLP` |
+| Huracán | `HUR` | | Independiente | `IND` |
+| Independiente Rivadavia | `RIV` | | Instituto (Córdoba) | `IACC` |
+| Lanús | `LAN` | | Newell's Old Boys | `NOB` |
+| Platense | `PLA` | | Racing Club | `RAC` |
+| River Plate | `RIV` | | Rosario Central | `ROS` |
+| San Lorenzo | `SLO` | | Sarmiento (Junín) | `SARM` |
+| Talleres (Córdoba) | `TALL` | | Tigre | `TIG` |
+| Unión (Santa Fe) | `USF` | | Vélez Sarsfield | `VEL` |
 
 </details>
 

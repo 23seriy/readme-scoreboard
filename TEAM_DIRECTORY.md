@@ -658,3 +658,39 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Williams | `RM` | 106967 |
 | Alpine | `SCS` | 106922 |
 
+## Argentine Primera
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| Estudiantes de Río Cuarto | `AAE` | 19685 |
+| Aldosivi | `ALDO` | 9739 |
+| Argentinos Juniors | `ARGJ` | 3 |
+| Banfield | `BAN` | 235 |
+| Barracas Central | `BAR` | 10060 |
+| Belgrano (Córdoba) | `BEL` | 4 |
+| Boca Juniors | `CABJ` | 5 |
+| Atlético Tucumán | `CAT` | 9785 |
+| Central Córdoba (Santiago del Estero) | `CTR` | 11989 |
+| Defensa y Justicia | `DYJ` | 8950 |
+| Estudiantes de La Plata | `EST` | 8 |
+| Gimnasia La Plata | `GLP` | 9 |
+| Gimnasia (Mendoza) | `GMZ` | 11972 |
+| Huracán | `HUR` | 10 |
+| Instituto (Córdoba) | `IACC` | 2975 |
+| Independiente | `IND` | 11 |
+| Lanús | `LAN` | 12 |
+| Newell's Old Boys | `NOB` | 14 |
+| Platense | `PLA` | 7764 |
+| Racing Club | `RAC` | 15 |
+| Deportivo Riestra | `RIE` | 17702 |
+| River Plate | `RIV` | 16 |
+| Rosario Central | `ROS` | 17 |
+| Sarmiento (Junín) | `SARM` | 10158 |
+| San Lorenzo | `SLO` | 18 |
+| Talleres (Córdoba) | `TALL` | 19 |
+| Tigre | `TIG` | 7767 |
+| Unión (Santa Fe) | `USF` | 20 |
+| Vélez Sarsfield | `VEL` | 21 |
+
