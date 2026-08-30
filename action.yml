@@ -1,5 +1,6 @@
 name: "readme-scoreboard"
 description: "🏆 Live sports scores, records, and recent games on your GitHub profile README. 29 leagues, free no-auth APIs, drop-in."
+author: "solshanetski"
 branding:
   icon: "activity"
   color: "orange"
