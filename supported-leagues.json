@@ -814,6 +814,35 @@
         "2026-03-06",
         "2026-12-06"
       ]
+    },
+    {
+      "key": "argentina",
+      "name": "Argentine Primera",
+      "category": "Soccer",
+      "endpoint": "soccer/arg.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/arg.1/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/1.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1.png"
+      },
+      "seasonWindow": {
+        "start": [
+          2,
+          1
+        ],
+        "end": [
+          12,
+          31
+        ],
+        "nextLabel": "February"
+      },
+      "fallback": [
+        "2026-02-01",
+        "2026-12-31"
+      ]
     }
   ]
 }

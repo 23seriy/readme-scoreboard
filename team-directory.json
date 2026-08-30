@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-08-29T16:34:21.233Z",
+  "generatedAt": "2026-08-30T13:17:03.250Z",
   "teams": [
     {
       "league": "nba",
@@ -3221,6 +3221,209 @@
       "abbreviation": "RM",
       "name": "Williams",
       "id": "106967"
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "ALDO",
+      "name": "Aldosivi",
+      "id": 9739
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "ARGJ",
+      "name": "Argentinos Juniors",
+      "id": 3
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "CAT",
+      "name": "Atlético Tucumán",
+      "id": 9785
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "BAN",
+      "name": "Banfield",
+      "id": 235
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "BAR",
+      "name": "Barracas Central",
+      "id": 10060
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "BEL",
+      "name": "Belgrano (Córdoba)",
+      "id": 4
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "CABJ",
+      "name": "Boca Juniors",
+      "id": 5
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "CTR",
+      "name": "Central Córdoba (Santiago del Estero)",
+      "id": 11989
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "DYJ",
+      "name": "Defensa y Justicia",
+      "id": 8950
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "RIE",
+      "name": "Deportivo Riestra",
+      "id": 17702
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "EST",
+      "name": "Estudiantes de La Plata",
+      "id": 8
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "AAE",
+      "name": "Estudiantes de Río Cuarto",
+      "id": 19685
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "GMZ",
+      "name": "Gimnasia (Mendoza)",
+      "id": 11972
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "GLP",
+      "name": "Gimnasia La Plata",
+      "id": 9
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "HUR",
+      "name": "Huracán",
+      "id": 10
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "IND",
+      "name": "Independiente",
+      "id": 11
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "RIV",
+      "name": "River Plate",
+      "id": 16
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "IACC",
+      "name": "Instituto (Córdoba)",
+      "id": 2975
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "LAN",
+      "name": "Lanús",
+      "id": 12
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "NOB",
+      "name": "Newell's Old Boys",
+      "id": 14
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "PLA",
+      "name": "Platense",
+      "id": 7764
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "RAC",
+      "name": "Racing Club",
+      "id": 15
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "ROS",
+      "name": "Rosario Central",
+      "id": 17
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "SLO",
+      "name": "San Lorenzo",
+      "id": 18
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "SARM",
+      "name": "Sarmiento (Junín)",
+      "id": 10158
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "TALL",
+      "name": "Talleres (Córdoba)",
+      "id": 19
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "TIG",
+      "name": "Tigre",
+      "id": 7767
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "USF",
+      "name": "Unión (Santa Fe)",
+      "id": 20
+    },
+    {
+      "league": "argentina",
+      "leagueName": "Argentine Primera",
+      "abbreviation": "VEL",
+      "name": "Vélez Sarsfield",
+      "id": 21
     }
   ]
 }

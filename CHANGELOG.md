@@ -10,6 +10,11 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **Argentine Primera** support: a new `argentina` soccer adapter reusing the
+  shared soccer base (single-table standings, record, and richer stats).
+
 ## [1.8.1] - 2026-08-30
 
 ### Fixed

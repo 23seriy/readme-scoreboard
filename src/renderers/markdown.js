@@ -535,10 +535,12 @@ function render(sport, data, options = {}) {
       return renderSoccer(data, "ucl", "UEFA Champions League", title);
     case "uel":
       return renderSoccer(data, "uel", "UEFA Europa League", title);
+    case "argentina":
+      return renderSoccer(data, "argentina", "Argentine Primera", title);
     case "f1":
       return renderF1(data, title);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, f1`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, f1`);
   }
 }
 
