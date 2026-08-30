@@ -10,6 +10,16 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.8.1] - 2026-08-30
+
+### Fixed
+
+- Repaired the invalid `action.yml` YAML that broke opening the action. The
+  composite `env:` block had over-indented `TEAMS`/`TITLE`/`BADGE` mappings and
+  was missing `MARKER`/`TARGET_REPO`/`DRY_RUN`/`COMPACT`, so the GitHub Actions
+  manifest loader rejected the action. All 10 env mappings now sit at a
+  consistent level.
+
 ## [1.8.0] - 2026-08-29
 
 ### Added
