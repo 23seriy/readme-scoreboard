@@ -11,8 +11,8 @@ const workflow = fs.readFileSync(
   path.join(__dirname, "../../.github/workflows/update-season-status.yml"),
   "utf-8"
 );
-const collegeWorkflow = fs.readFileSync(
-  path.join(__dirname, "../../.github/workflows/update-college-rosters.yml"),
+const teamDirWorkflow = fs.readFileSync(
+  path.join(__dirname, "../../.github/workflows/update-team-directory.yml"),
   "utf-8"
 );
 
@@ -26,24 +26,22 @@ describe("season status updater", () => {
     expect(workflow).not.toContain("git push --force origin automation/season-status");
   });
 
-  it.each([
-    [workflow, "season status"],
-    [collegeWorkflow, "college roster"],
-  ])("opens one %s maintenance PR with the workflow token", (workflowText) => {
-    expect(workflowText).toContain("id: publish");
-    expect(workflowText).toContain('echo "changed=false" >> "$GITHUB_OUTPUT"');
-    expect(workflowText).toContain("if: steps.publish.outputs.changed == 'true'");
-    expect(workflowText).toContain("pull-requests: write");
-    expect(workflowText).toContain("GH_TOKEN: ${{ github.token }}");
-    expect(workflowText).toContain("gh pr list");
-    expect(workflowText).toContain("gh pr create");
-    expect(workflowText).toContain("--state open");
+  it("opens one season maintenance PR with the workflow token", () => {
+    expect(workflow).toContain("id: publish");
+    expect(workflow).toContain('echo "changed=false" >> "$GITHUB_OUTPUT"');
+    expect(workflow).toContain("if: steps.publish.outputs.changed == 'true'");
+    expect(workflow).toContain("pull-requests: write");
+    expect(workflow).toContain("GH_TOKEN: ${{ github.token }}");
+    expect(workflow).toContain("gh pr list");
+    expect(workflow).toContain("gh pr create");
+    expect(workflow).toContain("--state open");
   });
 
-  it("does not ignore automation-branch fetch failures", () => {
-    expect(collegeWorkflow).toContain("git ls-remote --exit-code --heads origin \"$branch\"");
-    expect(collegeWorkflow).toContain('git fetch origin "$branch"');
-    expect(collegeWorkflow).not.toContain("git fetch origin automation/college-rosters || true");
+  it("opens a team-directory maintenance PR with the workflow token", () => {
+    expect(teamDirWorkflow).toContain("pull-requests: write");
+    expect(teamDirWorkflow).toContain("GH_TOKEN: ${{ github.token }}");
+    expect(teamDirWorkflow).toContain("gh pr create");
+    expect(teamDirWorkflow).toContain("automation/team-directory");
   });
 
   it("verifies live season dates before allowing a README update", () => {

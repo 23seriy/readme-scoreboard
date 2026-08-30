@@ -10,6 +10,15 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Changed
+
+- Removed the huge per-league team abbreviation tables from the README. The
+  generated [team directory](TEAM_DIRECTORY.md) is now the single source of
+  truth for team names, abbreviations, and IDs, so the README no longer
+  duplicates each league's roster inline (README shrank from ~2000 to ~550
+  lines). The college roster automation workflow and scripts were retired in
+  favor of the daily team-directory refresh.
+
 ## [1.8.2] - 2026-08-30
 
 ### Added
