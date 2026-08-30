@@ -21,28 +21,29 @@ This is the most impactful contribution you can make! Each sport is a single ada
 1. Create `src/adapters/your-sport.js`
 2. Export a `fetchData(teamAbbr)` function that returns `{ team, recentGames, record }`
 3. Export `TEAM_EMOJI`, `TEAM_IDS`, and `getDemoData(teamAbbr)` for metadata and demo mode
-4. Update `README.md` with the new sport's team abbreviations
+4. Register the league in `src/config/leagues.js` (so it appears in the generated
+   [team directory](TEAM_DIRECTORY.md) and supported-sports table)
 5. Open a PR
 
 See `src/adapters/nba.js` as the reference implementation.
 
 ## Generated README Sections
 
-The supported-sports table, league headings, logos, season status, and team
-abbreviation directories are generated from the league registry and public API
-data. Keep generated sections intact when editing documentation; update the
-source configuration or generator instead of hand-editing a generated table.
+The supported-sports table, season status, league manifest, and team directory
+are generated from the league registry and public API data. Keep generated
+sections intact when editing documentation; update the source configuration or
+generator instead of hand-editing a generated table.
 
 Use these commands when changing generated content:
 
 ```bash
-npm run docs:heading-logos
-node scripts/update-college-abbreviations.js
 node scripts/update-season-status.js
 npm run leagues:manifest
+npm run teams:directory
+npm run teams:directory:markdown
 ```
 
-The season and college roster workflows publish their changes separately. A
+The season and team-directory workflows publish their changes separately. A
 pull request that changes an adapter or league metadata should include the
 corresponding tests and a `--demo` verification rather than a copied API
 response.

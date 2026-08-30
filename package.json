@@ -9,7 +9,6 @@
     "doctor": "node scripts/doctor.js",
     "health:apis": "node scripts/check-api-health.js",
     "docs:check": "jest --runInBand tests/readme-links.test.js",
-    "docs:heading-logos": "node scripts/update-readme-heading-logos.js",
     "leagues:manifest": "node scripts/generate-league-manifest.js",
     "teams:directory": "node scripts/generate-team-directory.js",
     "teams:directory:markdown": "node scripts/generate-team-directory-markdown.js",

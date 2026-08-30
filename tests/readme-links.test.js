@@ -8,18 +8,6 @@ const release = fs.readFileSync(".github/workflows/release.yml", "utf8");
 const { LEAGUES } = require("../src/config/leagues");
 
 describe("README navigation links", () => {
-  const collegeLinks = [
-    ["#ncaa-mens-basketball-team-abbreviations", "## NCAA Men's Basketball Team Abbreviations"],
-    ["#ncaa-womens-basketball-team-abbreviations", "## NCAA Women's Basketball Team Abbreviations"],
-    ["#college-football-team-abbreviations", "## College Football Team Abbreviations"],
-    ["#ncaa-mens-ice-hockey-team-abbreviations", "## NCAA Men's Ice Hockey Team Abbreviations"],
-  ];
-
-  it.each(collegeLinks)("resolves %s to a README heading", (anchor, heading) => {
-    expect(readme).toContain(`](${anchor})`);
-    expect(readme).toContain(heading);
-  });
-
   it("keeps college ESPN endpoint links well-formed", () => {
     const endpoints = [
       "basketball/mens-college-basketball",
@@ -32,39 +20,18 @@ describe("README navigation links", () => {
     });
   });
 
-  it("uses the registry logo and accessible alt text for league headings", () => {
-    LEAGUES.filter(({ key }) => !key.startsWith("nca")).forEach((league) => {
+  it("uses the registry logo and accessible alt text for league rows", () => {
+    // Logos and accessible alt text are rendered in the Supported Sports table.
+    LEAGUES.forEach((league) => {
       expect(readme).toContain(`srcset="${league.logo.dark}"`);
       expect(readme).toContain(`src="${league.logo.light}" alt="${league.name} logo"`);
-      expect(readme).toContain(`${league.name} Team Abbreviations`);
     });
   });
 
-  it("keeps every league reference section collapsible", () => {
-    expect((readme.match(/<details>/g) || []).length).toBe(LEAGUES.length);
-
-    LEAGUES.forEach((league) => {
-      const heading = `${league.name} Team Abbreviations`;
-      const headingIndex = readme.indexOf(heading);
-      const detailsStart = readme.indexOf("<details>", headingIndex);
-      const detailsEnd = readme.indexOf("</details>", detailsStart);
-
-      expect(headingIndex).toBeGreaterThanOrEqual(0);
-      expect(detailsStart).toBeGreaterThanOrEqual(0);
-      expect(detailsEnd).toBeGreaterThan(headingIndex);
-      expect(readme.slice(detailsStart, detailsEnd)).toContain(league.name);
-    });
-  });
-
-  it("keeps league headings outside collapsible HTML blocks", () => {
-    LEAGUES.forEach((league) => {
-      const headingIndex = readme.indexOf(`${league.name} Team Abbreviations`);
-      const lastOpen = readme.lastIndexOf("<details>", headingIndex);
-      const lastClose = readme.lastIndexOf("</details>", headingIndex);
-
-      expect(lastOpen === -1 || lastClose > lastOpen).toBe(true);
-    });
-    expect(readme).not.toMatch(/<\/details>##/);
+  it("points team lookups at the generated team directory", () => {
+    expect(readme).toContain("## Team Abbreviations");
+    expect(readme).toContain("[team directory](TEAM_DIRECTORY.md)");
+    expect(readme).not.toMatch(/## .+ Team Abbreviations/);
   });
 
   it("keeps every supported-sports row aligned with the league registry", () => {
@@ -122,16 +89,18 @@ describe("README navigation links", () => {
     expect(readme).toContain("team directory");
   });
 
-  it("keeps every supported league discoverable in the table of contents", () => {
+  it("keeps the table of contents scannable without per-league stubs", () => {
     const tocStart = readme.indexOf("## Table of Contents");
     const tocEnd = readme.indexOf("\n---", tocStart);
     const toc = readme.slice(tocStart, tocEnd);
 
     expect(tocStart).toBeGreaterThanOrEqual(0);
     expect(tocEnd).toBeGreaterThan(tocStart);
-    LEAGUES.forEach((league) => {
-      expect(toc).toContain(`[${league.name}]`);
-    });
+    expect(toc).toContain("[Supported Sports](#supported-sports)");
+    expect(toc).toContain("[Team Abbreviations](#team-abbreviations)");
+    // With the per-league rosters now living in TEAM_DIRECTORY.md, the TOC no
+    // longer lists every league — leagues remain discoverable via Supported Sports.
+    expect(toc).not.toMatch(/Team Abbreviations\]\(#team-abbreviations\)\n\s+- \[/);
   });
 
   it("keeps README markdown links non-empty and well-formed", () => {
@@ -220,7 +189,6 @@ describe("documentation and action metadata", () => {
 
   it("documents the current supported inputs and maintenance workflow", () => {
     expect(readme).toContain("Set `target_repo: owner/repository`");
-    expect(readme).toContain("node scripts/update-college-abbreviations.js");
     expect(readme).toContain(".github/workflows/check-season-dates.yml");
     expect(readme).toContain("Pin the action to a release tag (for example, `@v1`)");
     expect(readme).toContain("NCAA Men's Ice Hockey");
@@ -230,9 +198,8 @@ describe("documentation and action metadata", () => {
 
   it("documents how generated README sections are maintained", () => {
     expect(contributing).toContain("## Generated README Sections");
-    expect(contributing).toContain("node scripts/update-college-abbreviations.js");
     expect(contributing).toContain("node scripts/update-season-status.js");
-    expect(contributing).toContain("npm run docs:heading-logos");
+    expect(contributing).toContain("npm run leagues:manifest");
   });
 
   it("documents the dry-run action input", () => {
