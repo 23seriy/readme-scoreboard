@@ -7,16 +7,19 @@
 [![License](https://img.shields.io/github/license/23seriy/readme-scoreboard)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/23seriy/readme-scoreboard?style=flat-square)](https://github.com/23seriy/readme-scoreboard)
 [![Forks](https://img.shields.io/github/forks/23seriy/readme-scoreboard?style=flat-square)](https://github.com/23seriy/readme-scoreboard/network/members)
-[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-readme--scoreboard-orange?logo=github&logoColor=white)](https://github.com/marketplace/actions/readme-scoreboard)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-readme--scoreboard-orange?logo=github&logoColor=white)](https://github.com/23seriy/readme-scoreboard)
 
-**Install it from the [GitHub Marketplace](https://github.com/marketplace/actions/readme-scoreboard)**, or [ask a question](https://github.com/23seriy/readme-scoreboard/discussions), [report a bug](https://github.com/23seriy/readme-scoreboard/issues/new?template=bug_report.md), or [contribute](CONTRIBUTING.md). See [`SUPPORT.md`](SUPPORT.md) for where to get help.
+**Install it** by adding the action to a workflow (see [Quick start](#quick-start-3-steps)), or [ask a question](https://github.com/23seriy/readme-scoreboard/discussions), [report a bug](https://github.com/23seriy/readme-scoreboard/issues/new?template=bug_report.md), or [contribute](CONTRIBUTING.md). See [`SUPPORT.md`](SUPPORT.md) for where to get help.
+
+> [!TIP]
+> The [GitHub Marketplace](https://github.com/marketplace/actions/readme-scoreboard) listing appears automatically once you publish this action from your repository's **Settings → Marketplace** page. Until then, install it directly with the action reference `23seriy/readme-scoreboard@v1`.
 
 ## Project health
 
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **30 leagues**. The [support manifest](supported-leagues.json)
+The project currently supports **29 leagues**. The [support manifest](supported-leagues.json)
 and [team directory](TEAM_DIRECTORY.md) are generated from the same registry used by the action.
 
 Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, and **Argentine Primera** with more sports coming soon
@@ -31,9 +34,11 @@ Want the same result? Start with the [three-step setup](#quick-start-3-steps), t
 
 ## Examples
 
-See rendered output for several sports without running anything. Open the
-[examples gallery](examples/) to preview real boards (NBA, Premier League, NFL,
-NHL, MLS, and a compact-mode example), or browse the league's
+See rendered output from several sports and every input option without running
+anything. Open the [examples gallery](examples/) to preview real boards (NBA,
+MLB, NFL, NHL, Premier League, MLS, UEFA Champions League, College Football,
+and Formula 1) plus demos of the `title:`, `teams:` (multi-team), `compact:`,
+and `badge:` options. Or browse the league's
 [workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md) for a copy-ready step.
 
 ## Preview
@@ -886,8 +891,6 @@ Use the table of contents to jump to a league. The full team directories are col
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2250.png" width="20"> Sporting CP | SCP | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/367.png" width="20"> Tottenham Hotspur | TOT |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5807.png" width="20"> Union St.-Gilloise | USG | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/102.png" width="20"> Villarreal | VIL |
 
-This table reflects ESPN's current 2025–26 participant directory and will change when the competition draw changes.
-
 ---
 
 
@@ -916,8 +919,6 @@ This table reflects ESPN's current 2025–26 participant directory and will chan
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/126.png" width="20"> SC Freiburg | SCF | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/620.png" width="20"> SK Brann | SKBR |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3746.png" width="20"> SK Sturm Graz | STG | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/134.png" width="20"> VfB Stuttgart | VFB |
 | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/11706.png" width="20"> Viktoria Plzen | PLZ | <img src="https://a.espncdn.com/i/teamlogos/soccer/500/2722.png" width="20"> Young Boys | YB |
-
-This table reflects ESPN's current 2025–26 participant directory and will change when the competition draw changes.
 
 ---
 

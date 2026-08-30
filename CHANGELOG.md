@@ -14,6 +14,24 @@ that would alter what appears in your README or require editing your workflow.
 
 - **Argentine Primera** support: a new `argentina` soccer adapter reusing the
   shared soccer base (single-table standings, record, and richer stats).
+- Expanded the [examples gallery](examples/): boards for MLB, UEFA Champions
+  League, College Football, and Formula 1, plus demos of the `title:`, `teams:`
+  (multi-team), `compact:`, and `badge:` options.
+
+### Changed
+
+- The generated [team directory](TEAM_DIRECTORY.md) now pulls the **complete**
+  live roster for collegiate and UEFA tournament leagues, so it no longer shows
+  just the handful of hardcoded teams.
+- Removed the redundant last-five `🔥 Form:` line from the board: the Recent
+  Games list already shows the W/L/D sequence.
+- Fixed the MLB "next game" showing a stale postponed game (e.g. "Apr 3") by
+  fetching the upcoming schedule and only treating genuinely future games as
+  the next opponent.
+- Corrected the supported-league count to 29.
+- The README GitHub Marketplace badge and install line now point at the
+  repository; a tip explains how to publish the action so the Marketplace
+  listing appears.
 
 ## [1.8.1] - 2026-08-30
 

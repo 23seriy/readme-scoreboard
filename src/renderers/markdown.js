@@ -125,11 +125,13 @@ function seasonStatusLine(sport) {
 }
 
 // Optional richer stats rendered after the season line. Adapters may supply
-// `standing`, `nextGame`, and `form`; lines are omitted when absent so existing
-// boards are unchanged for leagues that don't provide them yet.
+// `standing` and `nextGame`; lines are omitted when absent so existing boards
+// are unchanged for leagues that don't provide them yet. The last-five `form`
+// line is intentionally not rendered here: the Recent Games list already shows
+// the W/L/D sequence, so a separate 🔥 Form line is redundant.
 function extraTeamLines(data) {
   const lines = [];
-  const { standing, nextGame, form } = data || {};
+  const { standing, nextGame } = data || {};
 
   if (standing && standing.position) {
     lines.push(`🏅 Standing: ${standing.label ? `${standing.label} · ` : ""}${standing.position}`);
@@ -141,11 +143,6 @@ function extraTeamLines(data) {
       : "next";
     const place = nextGame.isHome !== false ? "vs" : "@";
     lines.push(`📅 Next: ${place} ${nextGame.opponent} (${when})`);
-  }
-
-  if (form && form.length > 0) {
-    const marks = form.map((r) => (r === "W" ? "✅" : r === "D" ? "➖" : "❌")).join(" ");
-    lines.push(`🔥 Form: ${marks}`);
   }
 
   return lines;

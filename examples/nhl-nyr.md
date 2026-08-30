@@ -5,12 +5,14 @@
 ### 🦢 New York Rangers (NYR)
 Eastern Conference · Metropolitan Division
 🔴 Off-season · Next season starts October 2026
+🏅 Standing: Metropolitan · 4
+📅 Next: vs OPP (Sep 1)
 
 📊 2025-2026 Record: 42W - 28L (60.0%)
    ███████████████░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L   2-3   @ OPP (Aug 28, 2026)
-✅ W   4-1   vs OPP (Aug 26, 2026)
+❌ L   2-3   @ OPP (Aug 29, 2026)
+✅ W   4-1   vs OPP (Aug 27, 2026)
 ```
