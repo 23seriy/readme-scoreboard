@@ -12,7 +12,7 @@
 **Install it** by adding the action to a workflow (see [Quick start](#quick-start-3-steps)), or [ask a question](https://github.com/23seriy/readme-scoreboard/discussions), [report a bug](https://github.com/23seriy/readme-scoreboard/issues/new?template=bug_report.md), or [contribute](CONTRIBUTING.md). See [`SUPPORT.md`](SUPPORT.md) for where to get help.
 
 > [!TIP]
-> The [GitHub Marketplace](https://github.com/marketplace/actions/readme-scoreboard) listing appears automatically once you publish this action from your repository's **Settings → Marketplace** page. Until then, install it directly with the action reference `23seriy/readme-scoreboard@v1`.
+> The [GitHub Marketplace](https://github.com/marketplace/actions/readme-scoreboard) listing only exists once the action is published. To publish it, open **<https://github.com/marketplace/new>** (or click **Marketplace** in the top-right nav, then **Publish your action**), select this repository, and confirm. Until then, install it directly with the action reference `23seriy/readme-scoreboard@v1`.
 
 ## Project health
 
