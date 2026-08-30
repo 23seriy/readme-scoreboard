@@ -90,7 +90,7 @@ describe("renderMlb / formatMlbGameResult", () => {
     expect(output).toContain("My Favourite MLB Team");
   });
 
-  it("renders standing, next game, and form when the adapter provides them", () => {
+  it("renders standing and next game when the adapter provides them", () => {
     const data = {
       ...BASE_MLB_DATA,
       recentGames: [],
@@ -101,8 +101,9 @@ describe("renderMlb / formatMlbGameResult", () => {
     const output = render("mlb", data);
     expect(output).toContain("🏅 Standing: American League · 2");
     expect(output).toContain("📅 Next: @ NYY");
-    expect(output).toContain("🔥 Form:");
-    expect(output).toContain("✅ ❌ ✅ ✅ ➖");
+    // The last-five form is intentionally not rendered: the Recent Games list
+    // already shows the W/L/D sequence, so a separate 🔥 Form line is redundant.
+    expect(output).not.toContain("🔥 Form:");
   });
 
   it("omits rich-stat lines when the adapter does not provide them", () => {

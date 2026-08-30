@@ -84,7 +84,11 @@ class MlbAdapter extends BaseFreeApiAdapter {
       if (!team) return null;
 
       const fromDate = this.getSeasonStart();
-      const url = this.getGamesUrl(team.id, fromDate, new Date());
+      // Fetch a little past today so the next scheduled (upcoming) game is
+      // included, not just games already played or postponed earlier in the
+      // season. Otherwise a postponed April game can be mistaken for "next".
+      const toDate = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000);
+      const url = this.getGamesUrl(team.id, fromDate, toDate);
       const [{ data }, record] = await Promise.all([
       httpGet(url),
         this.fetchSeasonRecord(team.id),
@@ -108,8 +112,9 @@ class MlbAdapter extends BaseFreeApiAdapter {
           return teamScore > oppScore ? "W" : teamScore < oppScore ? "L" : "D";
         });
 
+      const now = Date.now();
       const nextGame = allGames
-        .filter((g) => g.status !== "Final")
+        .filter((g) => g.status !== "Final" && new Date(g.date).getTime() >= now)
         .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
 
       return {
