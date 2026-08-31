@@ -13,8 +13,10 @@ that would alter what appears in your README or require editing your workflow.
 ### Added
 
 - **ATP Tennis** support: an individual-sport board showing a ranked player's
-  world ranking, ranking points, and movement. A new `atp` adapter reads the
-  free ESPN ATP rankings endpoint and a new `renderAtp` renders the board.
+  world ranking, ranking points, movement, and most recent match result. A new
+  `atp` adapter reads the free ESPN ATP rankings endpoint and the player's
+  latest competition (opponent, result, set scores), and a new `renderAtp`
+  renders the board.
 
 ### Changed
 

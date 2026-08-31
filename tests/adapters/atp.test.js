@@ -36,9 +36,30 @@ describe("ATPAdapter — fetchData", () => {
       ],
     },
   };
+  const compsResponse = {
+    data: {
+      items: [{ $ref: "https://sports.core.api.espn.com/v2/sports/tennis/leagues/atp/events/1/competitions/2" }],
+    },
+  };
+  const competitionResponse = {
+    data: {
+      date: "2026-07-12T15:05:00Z",
+      competitors: [
+        { id: "3623", name: "Jannik Sinner", winner: true, linescores: { $ref: "https://x/linescores/1" } },
+        { id: "2375", name: "Alexander Zverev", winner: false, linescores: { $ref: "https://x/linescores/2" } },
+      ],
+    },
+  };
+  const linescoresResponse = (values) => ({ data: { items: values.map((v) => ({ value: v })) } });
 
   it("returns the player, world ranking, and points", async () => {
-    axios.get.mockResolvedValueOnce(rankingsResponse);
+    axios.get
+      .mockResolvedValueOnce(rankingsResponse)
+      .mockResolvedValueOnce(compsResponse)
+      .mockResolvedValueOnce(competitionResponse)
+      .mockResolvedValueOnce(linescoresResponse([6, 7, 6, 6]))
+      .mockResolvedValueOnce(linescoresResponse([7, 6, 3, 4]));
+
     const result = await atp.fetchData("SIN");
     expect(result.team.abbreviation).toBe("SIN");
     expect(result.team.full_name).toBe("Jannik Sinner");
@@ -46,10 +67,21 @@ describe("ATPAdapter — fetchData", () => {
     expect(result.rankPoints).toBe(12800);
   });
 
-  it("exposes no recent games, since tennis has no per-player match endpoint", async () => {
-    axios.get.mockResolvedValueOnce(rankingsResponse);
+  it("includes the player's latest match result", async () => {
+    axios.get
+      .mockResolvedValueOnce(rankingsResponse)
+      .mockResolvedValueOnce(compsResponse)
+      .mockResolvedValueOnce(competitionResponse)
+      .mockResolvedValueOnce(linescoresResponse([6, 7, 6, 6]))
+      .mockResolvedValueOnce(linescoresResponse([7, 6, 3, 4]));
+
     const result = await atp.fetchData("SIN");
-    expect(result.recentGames).toEqual([]);
+    expect(result.lastMatch).toEqual({
+      opponent: "Alexander Zverev",
+      won: true,
+      date: "2026-07-12T15:05:00Z",
+      sets: [[6, 7, 6, 6], [7, 6, 3, 4]],
+    });
   });
 
   it("returns null for an unknown player", async () => {
@@ -65,6 +97,8 @@ describe("ATPAdapter — demo data", () => {
     expect(demo.team.full_name).toBe("Jannik Sinner");
     expect(demo.standing.position).toBeGreaterThan(0);
     expect(demo.rankPoints).toBeGreaterThan(0);
+    expect(demo.lastMatch.opponent).toBeTruthy();
+    expect(demo.lastMatch.won).toBe(true);
     expect(Array.isArray(demo.recentGames)).toBe(true);
   });
 

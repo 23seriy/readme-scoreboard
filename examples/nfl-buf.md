@@ -11,8 +11,8 @@ AFC · AFC East
 
 **📅 Recent Games:**
 ```
-✅ W 28-17 vs KC  (Aug 30, 2026)
-❌ L 14-23 @ SF  (Aug 23, 2026)
-❌ L 12-30 vs DAL (Aug 16, 2026)
-✅ W 29-16 @ PHI (Aug 9, 2026)
+✅ W 26-11 vs KC  (Aug 30, 2026)
+✅ W 26-16 @ SF  (Aug 23, 2026)
+❌ L 12-31 vs DAL (Aug 16, 2026)
+✅ W 37-13 @ PHI (Aug 9, 2026)
 ```

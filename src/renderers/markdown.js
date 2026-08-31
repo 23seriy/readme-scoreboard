@@ -476,9 +476,9 @@ function renderF1(data, title) {
 }
 
 // Tennis is an individual sport: a board shows a single ranked player's world
-// ranking, ranking points, and movement, rather than match scores.
+// ranking, ranking points, movement, and most recent match result.
 function renderAtp(data, title) {
-  const { team, emoji, logoUrl, standing, rankPoints, previousRank, trend } = data;
+  const { team, emoji, logoUrl, standing, rankPoints, previousRank, trend, lastMatch } = data;
   const lines = [];
 
   lines.push(...headingLines("atp", title));
@@ -499,6 +499,21 @@ function renderAtp(data, title) {
   if (previousRank !== undefined && trend) {
     const arrow = trend === "-" ? "—" : trend === "up" || trend === "+" ? "▲" : "▼";
     lines.push(`📈 Movement: ${arrow} (was No. ${previousRank})`);
+  }
+  if (lastMatch && lastMatch.opponent) {
+    const icon = lastMatch.won ? "✅" : "❌";
+    const result = lastMatch.won ? "W" : "L";
+    const when = lastMatch.date
+      ? new Date(lastMatch.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+      : "";
+    // sets is [playerSetWins, opponentSetWins]; display them interleaved as
+    // player-vs-opponent per set, e.g. 6-7, 7-6, 6-3, 6-4.
+    let setsText = "";
+    const [playerSets, oppSets] = lastMatch.sets || [];
+    if (playerSets?.length && oppSets?.length) {
+      setsText = ` ${playerSets.map((s, i) => `${s}-${oppSets[i] ?? "-"}`).join(", ")}`;
+    }
+    lines.push(`${icon} ${result} vs ${lastMatch.opponent} (${when})${setsText}`);
   }
   lines.push("");
 

@@ -1,6 +1,7 @@
 const { get: httpGet } = require("../http");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/tennis/atp";
+const ESPN_CORE_BASE = "https://sports.core.api.espn.com/v2/sports/tennis/leagues/atp";
 const ESPN_HEADERS = {
   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
   "Accept": "application/json",
@@ -66,16 +67,62 @@ function rankToEntry(rankEntry, abbr, fullName) {
   };
 }
 
+// Latest completed (or in-progress) match for a player. The core API exposes a
+// player's most recent competition, from which we read the opponent, whether the
+// player won, the match date, and set scores.
+async function fetchLastMatch(playerId) {
+  try {
+    const { data: comps } = await httpGet(
+      `${ESPN_CORE_BASE}/athletes/${playerId}/competitions`,
+      { headers: ESPN_HEADERS },
+    );
+    const item = comps.items?.[0];
+    if (!item) return null;
+
+    const { data: competition } = await httpGet(item.$ref.split("?")[0], { headers: ESPN_HEADERS });
+    const competitors = competition.competitors || [];
+    const me = competitors.find((c) => String(c.id) === String(playerId));
+    const opponent = competitors.find((c) => String(c.id) !== String(playerId));
+    if (!me || !opponent) return null;
+
+    // Set scores come from each competitor's linescores (a $ref to paginated items).
+    const sets = [];
+    for (const competitor of competitors) {
+      const ref = competitor.linescores?.$ref;
+      if (!ref) continue;
+      try {
+        const { data: scores } = await httpGet(ref.split("?")[0], { headers: ESPN_HEADERS });
+        sets.push((scores.items || []).map((s) => s.value));
+      } catch {
+        /* ignore linescore fetch failures */
+      }
+    }
+
+    return {
+      opponent: opponent.name,
+      won: me.winner === true,
+      date: competition.date,
+      sets,
+    };
+  } catch (error) {
+    console.error(`Failed to fetch ${playerId} last match: ${error.message}`);
+    return null;
+  }
+}
+
 // The player object shared with the renderer. Individual-sport boards treat a
 // ranked player like an F1 constructor: a single "team" with a standing and
-// points rather than scores.
+// points, plus the player's latest match result.
 async function fetchData(abbr) {
   const upper = (abbr || "").toUpperCase();
   const player = PLAYER_IDS[upper];
   if (!player) return null;
 
   try {
-    const ranks = await fetchRankings();
+    const [ranks, lastMatch] = await Promise.all([
+      fetchRankings(),
+      fetchLastMatch(player.id),
+    ]);
     const entry = ranks.find((r) => String(r.athlete?.id) === String(player.id));
     if (!entry) return null;
 
@@ -97,6 +144,7 @@ async function fetchData(abbr) {
       rankPoints: rank.points,
       previousRank: rank.previous,
       trend: rank.trend,
+      lastMatch,
     };
   } catch (error) {
     console.error(`Failed to fetch ATP ranking: ${error.message}`);
@@ -117,6 +165,12 @@ function getDemoData(abbr) {
     rankPoints: points,
     previousRank: rank,
     trend: "-",
+    lastMatch: {
+      opponent: "Alexander Zverev",
+      won: true,
+      date: "2026-07-12T15:05:00Z",
+      sets: [[6, 7, 6, 6], [7, 6, 3, 4]],
+    },
   };
 }
 
