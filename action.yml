@@ -1,12 +1,12 @@
 name: "readme-scoreboard"
-description: "🏆 Live sports scores, records, and recent games on your GitHub profile README. 29 leagues, free no-auth APIs, drop-in."
+description: "🏆 Live sports scores, records, and recent games on your GitHub profile README. 30 leagues, free no-auth APIs, drop-in."
 author: "23seriy"
 branding:
   icon: "activity"
   color: "orange"
 inputs:
   sport:
-    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, ncaab, ncaaw, ncaaf, ncaa_hockey, f1, argentina"
+    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, ncaab, ncaaw, ncaaf, ncaa_hockey, f1, atp, argentina"
     required: false
     default: "nba"
   team:

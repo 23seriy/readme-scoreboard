@@ -60,6 +60,12 @@ A Formula 1 constructor board.
 
 [View rendered output →](f1-lp.md)
 
+### ATP — SIN
+
+A tennis board showing a player's world ranking and points.
+
+[View rendered output →](atp-sin.md)
+
 ## Custom title
 
 The `title:` input replaces the default `My Favourite <League> Team` heading.

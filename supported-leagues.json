@@ -816,6 +816,35 @@
       ]
     },
     {
+      "key": "atp",
+      "name": "ATP Tennis",
+      "category": "Tennis",
+      "endpoint": "tennis/atp",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/teams",
+      "renderer": "atp",
+      "emoji": "🎾",
+      "logo": {
+        "light": "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png",
+        "dark": "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"
+      },
+      "seasonWindow": {
+        "start": [
+          1,
+          1
+        ],
+        "end": [
+          12,
+          31
+        ],
+        "nextLabel": "January"
+      },
+      "fallback": [
+        "2026-01-01",
+        "2026-12-31"
+      ]
+    },
+    {
       "key": "argentina",
       "name": "Argentine Primera",
       "category": "Soccer",

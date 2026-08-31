@@ -5,7 +5,7 @@
 West Conference · Pacific Division
 🔴 Off-season · Next season starts October 2026
 🏅 Standing: West · 3
-📅 Next: vs DEN (Sep 1)
+📅 Next: vs DEN (Sep 2)
 
 📊 2024-2025 Record: 50W - 32L (61.0%)
    ███████████████▎░░░░░░░░░
@@ -26,15 +26,15 @@ West Conference · Pacific Division
 American League · AL East
 🟢 Season in progress
 🏅 Standing: AL East · 4
-📅 Next: vs OPP (Sep 1)
+📅 Next: vs OPP (Sep 2)
 
 📊 2026 Record: 42W - 28L (60.0%)
    ███████████████░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L  2-3  @ OPP (Aug 29, 2026)
-✅ W  4-1  vs OPP (Aug 27, 2026)
+❌ L  2-3  @ OPP (Aug 30, 2026)
+✅ W  4-1  vs OPP (Aug 28, 2026)
 ```
 
 
@@ -44,14 +44,14 @@ American League · AL East
 Premier League
 🟢 Season in progress
 🏅 Standing: Premier League · 2
-📅 Next: vs OPP (Sep 2)
+📅 Next: vs OPP (Sep 3)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)
    █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 3-1 vs OPP   (Aug 27, 2026)
-🟡 D 2-2 @ RIV   (Aug 23, 2026)
-❌ L 0-1 @ UTD   (Aug 19, 2026)
+✅ W 3-1 vs OPP   (Aug 28, 2026)
+🟡 D 2-2 @ RIV   (Aug 24, 2026)
+❌ L 0-1 @ UTD   (Aug 20, 2026)
 ```

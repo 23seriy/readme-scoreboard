@@ -6,14 +6,14 @@
 Eastern Conference
 🟢 Season in progress
 🏅 Standing: MLS · 2
-📅 Next: vs OPP (Sep 2)
+📅 Next: vs OPP (Sep 3)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)
    █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 3-1 vs OPP   (Aug 27, 2026)
-🟡 D 2-2 @ RIV   (Aug 23, 2026)
-❌ L 0-1 @ UTD   (Aug 19, 2026)
+✅ W 3-1 vs OPP   (Aug 28, 2026)
+🟡 D 2-2 @ RIV   (Aug 24, 2026)
+❌ L 0-1 @ UTD   (Aug 20, 2026)
 ```

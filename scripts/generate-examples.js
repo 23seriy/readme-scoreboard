@@ -18,6 +18,7 @@ const EXAMPLES = [
   { key: "ucl", team: "RMA", note: "A UEFA Champions League board." },
   { key: "ncaaf", team: "ALA", note: "A college football board." },
   { key: "f1", team: "LP", note: "A Formula 1 constructor board." },
+  { key: "atp", team: "SIN", note: "A tennis board showing a player's world ranking and points." },
 ];
 
 function compactMarkdown(content) {

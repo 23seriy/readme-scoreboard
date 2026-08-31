@@ -475,6 +475,36 @@ function renderF1(data, title) {
   return lines.join("\n");
 }
 
+// Tennis is an individual sport: a board shows a single ranked player's world
+// ranking, ranking points, and movement, rather than match scores.
+function renderAtp(data, title) {
+  const { team, emoji, logoUrl, standing, rankPoints, previousRank, trend } = data;
+  const lines = [];
+
+  lines.push(...headingLines("atp", title));
+  if (logoUrl) {
+    lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
+    lines.push("");
+  }
+  lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
+  lines.push("ATP · World Ranking");
+  lines.push("");
+
+  if (standing && standing.position) {
+    lines.push(`🏆 World No. ${standing.position}`);
+  }
+  if (rankPoints !== undefined) {
+    lines.push(`📍 ${rankPoints.toLocaleString()} ranking points`);
+  }
+  if (previousRank !== undefined && trend) {
+    const arrow = trend === "-" ? "—" : trend === "up" || trend === "+" ? "▲" : "▼";
+    lines.push(`📈 Movement: ${arrow} (was No. ${previousRank})`);
+  }
+  lines.push("");
+
+  return lines.join("\n");
+}
+
 function render(sport, data, options = {}) {
   const title = options.title;
   switch (sport) {
@@ -536,8 +566,10 @@ function render(sport, data, options = {}) {
       return renderSoccer(data, "argentina", "Argentine Primera", title);
     case "f1":
       return renderF1(data, title);
+    case "atp":
+      return renderAtp(data, title);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, f1`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, f1, atp`);
   }
 }
 

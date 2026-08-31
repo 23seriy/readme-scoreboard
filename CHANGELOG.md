@@ -10,6 +10,12 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **ATP Tennis** support: an individual-sport board showing a ranked player's
+  world ranking, ranking points, and movement. A new `atp` adapter reads the
+  free ESPN ATP rankings endpoint and a new `renderAtp` renders the board.
+
 ### Changed
 
 - Removed the huge per-league team abbreviation tables from the README. The

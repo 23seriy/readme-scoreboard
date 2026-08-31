@@ -6,7 +6,7 @@
 SEC · 
 🟢 Season in progress
 🏅 Standing: NCAA - Football · 1
-📅 Next: vs OPP (Sep 2)
+📅 Next: vs OPP (Sep 3)
 
 📊 2026 Season: 18W - 6L (75.0%)
    ██████████████████▊░░░░░░
