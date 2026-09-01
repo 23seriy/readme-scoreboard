@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-01T03:11:31.265Z",
+  "generatedAt": "2026-09-01T10:25:01.828Z",
   "teams": [
     {
       "league": "nba",
@@ -14209,7 +14209,7 @@
       "league": "ncaa_hockey",
       "leagueName": "NCAA Men's Ice Hockey",
       "abbreviation": "AUSD",
-      "name": "Augustana University (SD) Vikings",
+      "name": "Augustana (SD) Vikings",
       "id": "2043"
     },
     {
@@ -14783,7 +14783,7 @@
       "league": "ncaa_hockey",
       "leagueName": "NCAA Men's Ice Hockey",
       "abbreviation": "STMN",
-      "name": "St. Thomas-Minnesota Tommies",
+      "name": "St. Thomas Tommies",
       "id": "2900"
     },
     {
