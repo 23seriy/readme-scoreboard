@@ -28,10 +28,11 @@ describe("README navigation links", () => {
     });
   });
 
-  it("points team lookups at the generated team directory", () => {
-    expect(readme).toContain("## Team Abbreviations");
+  it("points team lookups at the generated team and player directories", () => {
+    expect(readme).toContain("## Team & Player Abbreviations");
     expect(readme).toContain("[team directory](TEAM_DIRECTORY.md)");
-    expect(readme).not.toMatch(/## .+ Team Abbreviations/);
+    expect(readme).toContain("[player directory](PLAYER_DIRECTORY.md)");
+    expect(readme).toContain("[`player-directory.json`](player-directory.json)");
   });
 
   it("keeps every supported-sports row aligned with the league registry", () => {
@@ -66,12 +67,14 @@ describe("README navigation links", () => {
     LEAGUES.forEach((league) => expect(examples).toContain(`## ${league.name}`));
   });
 
-  it("documents the automated team-directory refresh", () => {
+  it("documents the automated directory refresh", () => {
     const workflow = fs.readFileSync(".github/workflows/update-team-directory.yml", "utf8");
     expect(workflow).toContain("npm run teams:directory");
     expect(workflow).toContain("npm run teams:directory:markdown");
     expect(workflow).toContain("npm run leagues:examples");
-    expect(readme).toContain("A daily workflow keeps both files current.");
+    expect(workflow).toContain("npm run players:directory");
+    expect(workflow).toContain("npm run players:directory:markdown");
+    expect(readme).toContain("A daily workflow keeps these files current.");
   });
 
   it("keeps dependency maintenance covered by CI", () => {
@@ -97,10 +100,10 @@ describe("README navigation links", () => {
     expect(tocStart).toBeGreaterThanOrEqual(0);
     expect(tocEnd).toBeGreaterThan(tocStart);
     expect(toc).toContain("[Supported Sports](#supported-sports)");
-    expect(toc).toContain("[Team Abbreviations](#team-abbreviations)");
+    expect(toc).toContain("[Team & Player Abbreviations](#team-player-abbreviations)");
     // With the per-league rosters now living in TEAM_DIRECTORY.md, the TOC no
     // longer lists every league — leagues remain discoverable via Supported Sports.
-    expect(toc).not.toMatch(/Team Abbreviations\]\(#team-abbreviations\)\n\s+- \[/);
+    expect(toc).not.toMatch(/Team & Player Abbreviations\]\(#team-player-abbreviations\)\n\s+- \[/);
   });
 
   it("keeps README markdown links non-empty and well-formed", () => {
@@ -146,9 +149,9 @@ describe("README navigation links", () => {
     });
   });
 
-  it("exposes a stable team-abbreviations section anchor", () => {
-    expect(readme).toContain("[Team Abbreviations](#team-abbreviations)");
-    expect(readme).toContain("## Team Abbreviations");
+  it("exposes a stable team-and-player-abbreviations section anchor", () => {
+    expect(readme).toContain("[Team & Player Abbreviations](#team-player-abbreviations)");
+    expect(readme).toContain("## Team & Player Abbreviations");
   });
 });
 

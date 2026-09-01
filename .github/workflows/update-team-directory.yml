@@ -26,23 +26,26 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run teams:directory
       - run: npm run teams:directory:markdown
+      - run: npm run players:directory
+      - run: npm run players:directory:markdown
       - run: npm run leagues:examples
       - run: npm run teams:directory:validate
+      - run: npm run players:directory:validate
       - name: Open update pull request
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if git diff --quiet -- team-directory.json TEAM_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md; then
-            echo "Team directory is already current"
+          if git diff --quiet -- team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md; then
+            echo "Team and player directories are already current"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -C automation/team-directory
-          git add team-directory.json TEAM_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md
-          git commit -m "docs: refresh team directory"
+          git add team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md
+          git commit -m "docs: refresh team and player directories"
           git push --force origin automation/team-directory
           gh pr create --base main --head automation/team-directory \
-            --title "docs: refresh team directory" \
-            --body "Automated refresh of team names and IDs from supported league APIs." \
+            --title "docs: refresh team and player directories" \
+            --body "Automated refresh of team and player names and IDs from supported league APIs." \
             || echo "An update PR may already be open."
