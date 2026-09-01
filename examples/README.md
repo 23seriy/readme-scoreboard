@@ -6,63 +6,63 @@ Run `npm run examples:generate` to refresh these from the current demo data.
 
 ## Boards by sport
 
-### NBA — LAL
+### NBA — LAL (team)
 
 A live mid-season basketball board with record and recent results.
 
 [View rendered output →](nba-lal.md)
 
-### MLB — NYY
+### MLB — NYY (team)
 
 A baseball board.
 
 [View rendered output →](mlb-nyy.md)
 
-### NFL — BUF
+### NFL — BUF (team)
 
 An American football board.
 
 [View rendered output →](nfl-buf.md)
 
-### NHL — NYR
+### NHL — NYR (team)
 
 An NHL board.
 
 [View rendered output →](nhl-nyr.md)
 
-### EPL — ARS
+### EPL — ARS (team)
 
 A top-flight soccer board.
 
 [View rendered output →](epl-ars.md)
 
-### MLS — ATL
+### MLS — ATL (team)
 
 A Major League Soccer board.
 
 [View rendered output →](mls-atl.md)
 
-### UCL — RMA
+### UCL — RMA (team)
 
 A UEFA Champions League board.
 
 [View rendered output →](ucl-rma.md)
 
-### NCAAF — ALA
+### NCAAF — ALA (team)
 
 A college football board.
 
 [View rendered output →](ncaaf-ala.md)
 
-### F1 — LP
+### F1 — LP (player)
 
-A Formula 1 constructor board.
+A Formula 1 constructor board (entity: player).
 
 [View rendered output →](f1-lp.md)
 
-### ATP — SIN
+### ATP — SIN (player)
 
-A tennis board showing a player's world ranking and points.
+A tennis board tracking an individual player (entity: player) — world ranking and last match.
 
 [View rendered output →](atp-sin.md)
 

@@ -87,7 +87,10 @@ function headingLines(sport, title) {
   const league = LEAGUE_REGISTRY.find((entry) => entry.key === sport);
   const endpoint = league?.endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]
     || (league?.endpoint ? `https://site.api.espn.com/apis/site/v2/sports/${league.endpoint}/teams` : null);
-  const label = title || `My Favourite ${logo.alt} Team`;
+  // Individual sports (tennis, F1) track players rather than teams, so the
+  // default heading reads "Player" instead of "Team".
+  const entityLabel = league?.entity === "player" ? "Player" : "Team";
+  const label = title || `My Favourite ${logo.alt} ${entityLabel}`;
   const heading = endpoint
     ? `## [${mark}${label}](${endpoint})`
     : `## ${mark}${label}`;

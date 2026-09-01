@@ -254,7 +254,7 @@ generated output.
 
 ### Pick your league and team
 
-Not sure of the league key or team abbreviation? Open the generated
+Not sure of the league key or team/player abbreviation? Open the generated
 [team directory](TEAM_DIRECTORY.md) (or its machine-readable
 [`team-directory.json`](team-directory.json)) to look up a league, abbreviation,
 full name, and ID. The [Supported Sports](#supported-sports) table lists every
@@ -489,9 +489,10 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | Token with Contents: Read and write on `target_repo` |
 | `sport` | No | `nba` | League key (for example, `nba`). See [Supported Sports](#supported-sports). |
-| `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`). Invalid abbreviations show example names. |
-| `teams` | No | — | Comma-separated team abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
-| `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard. |
+| `team` | Yes | — | Team or player abbreviation (e.g. `LAL`, `NYR`, `MIA`, or `SIN` for Jannik Sinner). Invalid abbreviations show example names. |
+| `entity` | No | `team` | Entity type: `team` (default) or `player`. Inferred from the sport — individual sports like ATP Tennis and Formula 1 default to `player`. |
+| `teams` | No | — | Comma-separated team/player abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
+| `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard (individual sports default to `<League> Player`). |
 | `badge` | No | `false` | Render shields-style badges instead of a full scoreboard block. |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
