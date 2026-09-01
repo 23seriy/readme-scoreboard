@@ -1,19 +1,23 @@
 name: "readme-scoreboard"
-description: "🏆 Live sports scores, records, and recent games on your GitHub profile README. 29 leagues, free no-auth APIs, drop-in."
+description: "🏆 Live sports scores, records, and recent games on your GitHub profile README. 30 leagues, free no-auth APIs, drop-in."
 author: "23seriy"
 branding:
   icon: "activity"
   color: "orange"
 inputs:
   sport:
-    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, ncaab, ncaaw, ncaaf, ncaa_hockey, f1, argentina"
+    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, ncaab, ncaaw, ncaaf, ncaa_hockey, f1, atp, argentina"
     required: false
     default: "nba"
   team:
-    description: "Team abbreviation (e.g. LAL, TOR, NYR). Look up abbreviations in TEAM_DIRECTORY.md."
+    description: "Team or player abbreviation (e.g. LAL, TOR, NYR, or SIN for Jannik Sinner). Look up abbreviations in TEAM_DIRECTORY.md."
     required: true
+  entity:
+    description: "Entity type: 'team' (default) or 'player'. Inferred from the sport; set this to track an individual player (e.g. ATP)."
+    required: false
+    default: "team"
   teams:
-    description: "Optional comma-separated list of team abbreviations to render multiple boards in one run (e.g. LAL, NYY, ARS)."
+    description: "Optional comma-separated list of team/player abbreviations to render multiple boards in one run (e.g. LAL, NYY, ARS)."
     required: false
   title:
     description: "Custom heading text for the scoreboard (default: 'My Favourite <League> Team')."
@@ -68,6 +72,7 @@ runs:
         SPORT: ${{ inputs.sport }}
         TEAM: ${{ inputs.team }}
         TEAMS: ${{ inputs.teams }}
+        ENTITY: ${{ inputs.entity }}
         TITLE: ${{ inputs.title }}
         BADGE: ${{ inputs.badge }}
         MARKER: ${{ inputs.marker }}

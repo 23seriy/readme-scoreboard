@@ -17,7 +17,8 @@ const EXAMPLES = [
   { key: "mls", team: "ATL", note: "A Major League Soccer board." },
   { key: "ucl", team: "RMA", note: "A UEFA Champions League board." },
   { key: "ncaaf", team: "ALA", note: "A college football board." },
-  { key: "f1", team: "LP", note: "A Formula 1 constructor board." },
+  { key: "f1", team: "LP", entity: "player", note: "A Formula 1 constructor board (entity: player)." },
+  { key: "atp", team: "SIN", entity: "player", note: "A tennis board tracking an individual player (entity: player) — world ranking and last match." },
 ];
 
 function compactMarkdown(content) {
@@ -75,7 +76,8 @@ function main() {
     const slug = `${example.key}-${example.team.toLowerCase()}`;
     const file = `${slug}.md`;
     fs.writeFileSync(path.join(examplesDir, file), `${body}\n`);
-    index.push(`### ${example.key.toUpperCase()} — ${example.team}`, "", example.note, "", `[View rendered output →](${file})`, "");
+    const entityLabel = example.entity === "player" ? "player" : "team";
+    index.push(`### ${example.key.toUpperCase()} — ${example.team} (${entityLabel})`, "", example.note, "", `[View rendered output →](${file})`, "");
   }
 
   // Option demonstrations: title, multi-team, compact, and badge.

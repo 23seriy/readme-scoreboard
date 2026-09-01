@@ -6,10 +6,11 @@ const { LEAGUES: seasonLeagues } = require("../../scripts/update-season-status")
 describe("supported league registry", () => {
   it("keeps the machine-readable manifest synchronized", () => {
     const manifest = require("../../supported-leagues.json");
-    const expected = LEAGUES.map(({ key, name, category, endpoint, renderer, emoji, logo, seasonWindow, fallback, endpointOverride }) => ({
+    const expected = LEAGUES.map(({ key, name, category, entity, endpoint, renderer, emoji, logo, seasonWindow, fallback, endpointOverride }) => ({
       key,
       name,
       category,
+      entity,
       endpoint,
       apiSource: endpointOverride ? "official league API" : "ESPN public API",
       teamEndpoint: endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]

@@ -19,10 +19,10 @@
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **29 leagues**. The [support manifest](supported-leagues.json)
+The project currently supports **30 leagues**. The [support manifest](supported-leagues.json)
 and [team directory](TEAM_DIRECTORY.md) are generated from the same registry used by the action.
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, and **Argentine Primera** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, and **Argentine Primera** with more sports coming soon
 
 ---
 
@@ -37,8 +37,8 @@ Want the same result? Start with the [three-step setup](#quick-start-3-steps), t
 See rendered output from several sports and every input option without running
 anything. Open the [examples gallery](examples/) to preview real boards (NBA,
 MLB, NFL, NHL, Premier League, MLS, UEFA Champions League, College Football,
-and Formula 1) plus demos of the `title:`, `teams:` (multi-team), `compact:`,
-and `badge:` options. Or browse the league's
+Formula 1, and ATP Tennis) plus demos of the `title:`, `teams:` (multi-team),
+`compact:`, and `badge:` options. Or browse the league's
 [workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md) for a copy-ready step.
 
 ## Preview
@@ -254,7 +254,7 @@ generated output.
 
 ### Pick your league and team
 
-Not sure of the league key or team abbreviation? Open the generated
+Not sure of the league key or team/player abbreviation? Open the generated
 [team directory](TEAM_DIRECTORY.md) (or its machine-readable
 [`team-directory.json`](team-directory.json)) to look up a league, abbreviation,
 full name, and ID. The [Supported Sports](#supported-sports) table lists every
@@ -376,6 +376,7 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | 🏒&nbsp;Hockey | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png" alt="NCAA Men's Ice Hockey logo" height="20"></picture> NCAA Men's Ice Hockey | 🔴 Off-season · starts 2026-10-02 | [`hockey/mens-college-hockey`](https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/teams) |
 | 🏆&nbsp;Racing | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/f1.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/f1.png" alt="Formula 1 logo" height="20"></picture> Formula 1 | 🟢 In progress · ends 2026-12-31 | [`racing/f1`](https://site.api.espn.com/apis/site/v2/sports/racing/f1/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1.png" alt="Argentine Primera logo" height="20"></picture> Argentine Primera | 🟢 In progress · ends 2026-12-31 | [`soccer/arg.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/arg.1/teams) |
+| 🎾&nbsp;Tennis | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"><img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png" alt="ATP Tennis logo" height="20"></picture> ATP Tennis | 🟢 In progress · ends 2027-01-01 | [`tennis/atp`](https://site.api.espn.com/apis/site/v2/sports/tennis/atp/teams) |
 <!-- supported-sports:end -->
 
 ---
@@ -488,9 +489,10 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 |-------|----------|---------|-------------|
 | `gh_token` | Yes* | — | Token with Contents: Read and write on `target_repo` |
 | `sport` | No | `nba` | League key (for example, `nba`). See [Supported Sports](#supported-sports). |
-| `team` | Yes | — | Team abbreviation (e.g. `LAL`, `NYR`, `KC`, `MIA`). Invalid abbreviations show example names. |
-| `teams` | No | — | Comma-separated team abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
-| `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard. |
+| `team` | Yes | — | Team or player abbreviation (e.g. `LAL`, `NYR`, `MIA`, or `SIN` for Jannik Sinner). Invalid abbreviations show example names. |
+| `entity` | No | `team` | Entity type: `team` (default) or `player`. Inferred from the sport — individual sports like ATP Tennis and Formula 1 default to `player`. |
+| `teams` | No | — | Comma-separated team/player abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
+| `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard (individual sports default to `<League> Player`). |
 | `badge` | No | `false` | Render shields-style badges instead of a full scoreboard block. |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |

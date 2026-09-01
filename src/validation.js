@@ -9,19 +9,21 @@ function teamLabel(adapter, abbreviation, isDemo) {
   return entry && typeof entry === "object" ? entry.full_name || entry.name : null;
 }
 
-function validateInputs({ sport, team, isDemo, targetRepo, adapter, supportedSports }) {
+function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adapter, supportedSports }) {
   if (!supportedSports.includes(sport)) {
     throw new Error(`Unsupported sport: "${sport}". Available adapters: ${supportedSports.join(", ")}`);
   }
 
   const teams = supportedTeams(adapter, isDemo);
   if (teams.length > 0 && !teams.includes(team)) {
-    const mode = isDemo ? "demo team" : "team";
+    const label = entity === "player"
+      ? "player abbreviation"
+      : isDemo ? "demo team abbreviation" : "team abbreviation";
     const examples = teams.slice(0, 8).map((abbr) => {
-      const label = teamLabel(adapter, abbr, isDemo);
-      return label ? `${abbr} (${label})` : abbr;
+      const val = teamLabel(adapter, abbr, isDemo);
+      return val ? `${abbr} (${val})` : abbr;
     });
-    throw new Error(`Unknown ${sport} ${mode} abbreviation "${team}". Try one of: ${examples.join(", ")}${teams.length > 8 ? ", ..." : ""}`);
+    throw new Error(`Unknown ${sport} ${label} "${team}". Try one of: ${examples.join(", ")}${teams.length > 8 ? ", ..." : ""}`);
   }
 
   if (targetRepo && !/^[^/\s]+\/[^/\s]+$/.test(targetRepo)) {

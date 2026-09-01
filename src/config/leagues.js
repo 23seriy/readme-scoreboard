@@ -1,6 +1,6 @@
 const ESPN_CDN = "https://a.espncdn.com";
 
-function league({ key, name, category, endpoint, renderer, emoji, light, dark, start, end, nextLabel, fallback, endpointOverride }) {
+function league({ key, name, category, endpoint, renderer, emoji, light, dark, start, end, nextLabel, fallback, endpointOverride, entity = "team" }) {
   return {
     key,
     name,
@@ -9,6 +9,7 @@ function league({ key, name, category, endpoint, renderer, emoji, light, dark, s
     endpointOverride,
     renderer,
     emoji,
+    entity,
     logo: { light, dark },
     seasonWindow: { start, end, nextLabel },
     fallback,
@@ -43,7 +44,8 @@ const LEAGUES = [
   league({ key: "ncaaw", name: "NCAA Women's Basketball", category: "Basketball", endpoint: "basketball/womens-college-basketball", renderer: "nba", emoji: "🏀", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-basketball.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-basketball.png`, start: [11, 1], end: [4, 15], nextLabel: "November", fallback: ["2026-11-02", "2027-04-07"] }),
   league({ key: "ncaaf", name: "College Football", category: "Football", endpoint: "football/college-football", renderer: "nfl", emoji: "🏈", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-football-college.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-football-college.png`, start: [8, 24], end: [1, 20], nextLabel: "August", fallback: ["2026-08-27", "2027-01-28"] }),
   league({ key: "ncaa_hockey", name: "NCAA Men's Ice Hockey", category: "Hockey", endpoint: "hockey/mens-college-hockey", renderer: "nhl", emoji: "🏒", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-hockey.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-hockey.png`, start: [10, 1], end: [4, 15], nextLabel: "October", fallback: ["2026-10-02", "2027-05-01"] }),
-  league({ key: "f1", name: "Formula 1", category: "Racing", endpoint: "racing/f1", renderer: "f1", emoji: "🏎️", light: `${ESPN_CDN}/i/teamlogos/leagues/500/f1.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500-dark/f1.png`, start: [3, 1], end: [12, 31], nextLabel: "March", fallback: ["2026-03-06", "2026-12-06"] }),
+  league({ key: "f1", name: "Formula 1", category: "Racing", endpoint: "racing/f1", renderer: "f1", emoji: "🏎️", entity: "player", light: `${ESPN_CDN}/i/teamlogos/leagues/500/f1.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500-dark/f1.png`, start: [3, 1], end: [12, 31], nextLabel: "March", fallback: ["2026-03-06", "2026-12-06"] }),
+  league({ key: "atp", name: "ATP Tennis", category: "Tennis", endpoint: "tennis/atp", renderer: "atp", emoji: "🎾", entity: "player", light: `${ESPN_CDN}/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png`, dark: `${ESPN_CDN}/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png`, start: [1, 1], end: [12, 31], nextLabel: "January", fallback: ["2026-01-01", "2026-12-31"] }),
   league({ key: "argentina", name: "Argentine Primera", category: "Soccer", endpoint: "soccer/arg.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/1.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/1.png`, start: [2, 1], end: [12, 31], nextLabel: "February", fallback: ["2026-02-01", "2026-12-31"] }),
 ];
 

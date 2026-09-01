@@ -10,6 +10,18 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **Entity typing**: sports now declare whether they track a `team` or a
+  `player`. Individual sports like **ATP Tennis** and **Formula 1** default to
+  `player`, so boards read "My Favourite ATP Tennis Player" and validations say
+  "player abbreviation". The `entity` input lets you override the inferred type.
+- **ATP Tennis** support: an individual-sport board showing a ranked player's
+  world ranking, ranking points, movement, and most recent match result. A new
+  `atp` adapter reads the free ESPN ATP rankings endpoint and the player's
+  latest competition (opponent, result, set scores), and a new `renderAtp`
+  renders the board.
+
 ### Changed
 
 - Removed the huge per-league team abbreviation tables from the README. The

@@ -4,10 +4,11 @@ const { LEAGUES } = require("../src/config/leagues");
 
 const manifest = {
   generatedFrom: "src/config/leagues.js",
-  leagues: LEAGUES.map(({ key, name, category, endpoint, renderer, emoji, logo, seasonWindow, fallback, endpointOverride }) => ({
+  leagues: LEAGUES.map(({ key, name, category, endpoint, renderer, emoji, entity, logo, seasonWindow, fallback, endpointOverride }) => ({
     key,
     name,
     category,
+    entity,
     endpoint,
     apiSource: endpointOverride ? "official league API" : "ESPN public API",
     teamEndpoint: endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]

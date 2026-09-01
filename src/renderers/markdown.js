@@ -87,7 +87,10 @@ function headingLines(sport, title) {
   const league = LEAGUE_REGISTRY.find((entry) => entry.key === sport);
   const endpoint = league?.endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]
     || (league?.endpoint ? `https://site.api.espn.com/apis/site/v2/sports/${league.endpoint}/teams` : null);
-  const label = title || `My Favourite ${logo.alt} Team`;
+  // Individual sports (tennis, F1) track players rather than teams, so the
+  // default heading reads "Player" instead of "Team".
+  const entityLabel = league?.entity === "player" ? "Player" : "Team";
+  const label = title || `My Favourite ${logo.alt} ${entityLabel}`;
   const heading = endpoint
     ? `## [${mark}${label}](${endpoint})`
     : `## ${mark}${label}`;
@@ -475,6 +478,51 @@ function renderF1(data, title) {
   return lines.join("\n");
 }
 
+// Tennis is an individual sport: a board shows a single ranked player's world
+// ranking, ranking points, movement, and most recent match result.
+function renderAtp(data, title) {
+  const { team, emoji, logoUrl, standing, rankPoints, previousRank, trend, lastMatch } = data;
+  const lines = [];
+
+  lines.push(...headingLines("atp", title));
+  if (logoUrl) {
+    lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
+    lines.push("");
+  }
+  lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
+  lines.push("ATP · World Ranking");
+  lines.push("");
+
+  if (standing && standing.position) {
+    lines.push(`🏆 World No. ${standing.position}`);
+  }
+  if (rankPoints !== undefined) {
+    lines.push(`📍 ${rankPoints.toLocaleString()} ranking points`);
+  }
+  if (previousRank !== undefined && trend) {
+    const arrow = trend === "-" ? "—" : trend === "up" || trend === "+" ? "▲" : "▼";
+    lines.push(`📈 Movement: ${arrow} (was No. ${previousRank})`);
+  }
+  if (lastMatch && lastMatch.opponent) {
+    const icon = lastMatch.won ? "✅" : "❌";
+    const result = lastMatch.won ? "W" : "L";
+    const when = lastMatch.date
+      ? new Date(lastMatch.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+      : "";
+    // sets is [playerSetWins, opponentSetWins]; display them interleaved as
+    // player-vs-opponent per set, e.g. 6-7, 7-6, 6-3, 6-4.
+    let setsText = "";
+    const [playerSets, oppSets] = lastMatch.sets || [];
+    if (playerSets?.length && oppSets?.length) {
+      setsText = ` ${playerSets.map((s, i) => `${s}-${oppSets[i] ?? "-"}`).join(", ")}`;
+    }
+    lines.push(`${icon} ${result} vs ${lastMatch.opponent} (${when})${setsText}`);
+  }
+  lines.push("");
+
+  return lines.join("\n");
+}
+
 function render(sport, data, options = {}) {
   const title = options.title;
   switch (sport) {
@@ -536,8 +584,10 @@ function render(sport, data, options = {}) {
       return renderSoccer(data, "argentina", "Argentine Primera", title);
     case "f1":
       return renderF1(data, title);
+    case "atp":
+      return renderAtp(data, title);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, f1`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, f1, atp`);
   }
 }
 

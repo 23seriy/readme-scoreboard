@@ -37,6 +37,7 @@ const LEAGUES = [
   ["Basketball", "NCAA Women's Basketball", "basketball/womens-college-basketball"],
   ["Football", "College Football", "football/college-football"],
   ["Hockey", "NCAA Men's Ice Hockey", "hockey/mens-college-hockey"],
+  ["Tennis", "ATP Tennis", "tennis/atp"],
 ];
 
 const LEAGUE_LOGOS = {
@@ -67,6 +68,7 @@ const LEAGUE_LOGOS = {
   "NCAA Women's Basketball": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"],
   "College Football": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png"],
   "NCAA Men's Ice Hockey": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png"],
+  "ATP Tennis": ["https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png", "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"],
 };
 
 // Conservative fallback windows keep the table useful if an upstream API is
@@ -188,7 +190,7 @@ function updateSupportedSportsTable(readme, rows) {
     throw new Error("Supported sports table markers are missing or out of order");
   }
 
-  const sportIcons = { Basketball: "🏀", Baseball: "⚾", Football: "🏈", Hockey: "🏒", Soccer: "⚽" };
+  const sportIcons = { Basketball: "🏀", Baseball: "⚾", Football: "🏈", Hockey: "🏒", Soccer: "⚽", Tennis: "🎾" };
   const table = [
     "| Sport | League | Season | Endpoint |",
     "|-------|--------|--------|----------|",

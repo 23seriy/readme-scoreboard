@@ -11,6 +11,7 @@ const {
   SPORT: sport = "nba",
   TEAM: teamAbbr,
   TEAMS: teamsList,
+  ENTITY: entityInput,
   TARGET_REPO: targetRepo,
   GITHUB_WORKSPACE: githubWorkspace,
   MARKER: markerName,
@@ -44,6 +45,12 @@ function parseBoolean(value, label = "BADGE") {
 function parseTeams(list, fallback) {
   const values = (list || "").split(",").map((item) => item.trim()).filter(Boolean);
   return values.length > 0 ? values.map((item) => item.toUpperCase()) : [fallback.toUpperCase()];
+}
+
+function parseEntity(value) {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  if (!normalized || ["team", "player"].includes(normalized)) return normalized || null;
+  throw new Error(`ENTITY must be "team" or "player"; received "${value}"`);
 }
 
 function compactMarkdown(content) {
@@ -82,18 +89,24 @@ async function main() {
     return;
   }
 
+  // Entity type: explicit `entity` input, else inferred from the league's registry
+  // entry. Team sports default to "team"; individual sports (tennis, F1) to "player".
+  const league = LEAGUE_BY_KEY[sportName];
+  const entity = parseEntity(entityInput) || league?.entity || "team";
+
   const teams = parseTeams(teamsList, teamAbbr || (isDemo ? "LAL" : ""));
   if (teams.length === 0 || !teams[0]) {
-    console.error("TEAM environment variable is required. Set the team abbreviation, or run with --demo for a preview.");
+    console.error("TEAM environment variable is required. Set the team/player abbreviation, or run with --demo for a preview.");
     process.exit(1);
   }
 
-  console.log(`🏆 ${isDemo ? "[DEMO] " : ""}readme-scoreboard — ${sportName.toUpperCase()} · ${teams.join(", ")}`);
+  console.log(`🏆 ${isDemo ? "[DEMO] " : ""}readme-scoreboard — ${sportName.toUpperCase()} · ${teams.join(", ")} (${entity})`);
 
   try {
     validateInputs({
       sport: sportName,
       team: teams[0],
+      entity,
       isDemo,
       targetRepo,
       adapter,
@@ -114,14 +127,14 @@ async function main() {
     if (isDemo) {
       data = adapter.getDemoData(team);
       if (!data || !data.team) {
-        console.error(`[DEMO] No demo data for ${sportName.toUpperCase()} team "${team}".`);
+        console.error(`[DEMO] No demo data for ${sportName.toUpperCase()} ${entity} "${team}".`);
         process.exit(1);
       }
       console.log(`[DEMO] Using sample data for ${data.team.full_name}`);
     } else {
       data = await adapter.fetchData(team);
       if (!data) {
-        console.error(`Could not fetch team data for ${sportName.toUpperCase()} team "${team}". Check the abbreviation in the Supported Sports section, then try npm run doctor -- --demo.`);
+        console.error(`Could not fetch ${entity} data for ${sportName.toUpperCase()} ${entity} "${team}". Check the abbreviation in the Supported Sports section, then try npm run doctor -- --demo.`);
         process.exit(1);
       }
     }
