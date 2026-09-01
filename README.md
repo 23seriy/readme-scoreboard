@@ -19,8 +19,9 @@
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **30 leagues**. The [support manifest](supported-leagues.json)
-and [team directory](TEAM_DIRECTORY.md) are generated from the same registry used by the action.
+The project currently supports **30 leagues**. The [support manifest](supported-leagues.json),
+[team directory](TEAM_DIRECTORY.md), and [player directory](PLAYER_DIRECTORY.md) are generated
+from the same registry used by the action.
 
 Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, and **Argentine Primera** with more sports coming soon
 
@@ -88,7 +89,7 @@ That's it — the action keeps your scoreboard current. Want to see more before 
 - [Project health](#project-health)
 - [Common setups](#common-setups)
 - [Supported Sports](#supported-sports)
-- [Team Abbreviations](#team-abbreviations)
+- [Team & Player Abbreviations](#team-player-abbreviations)
 - [Customizing the board](#customizing-the-board)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)
@@ -166,7 +167,8 @@ API, so no checkout or separate commit step is needed.
 
 Need a different team? Use [Supported Sports](#supported-sports) to find the
 league key, the generated [team directory](TEAM_DIRECTORY.md) to find the team
-abbreviation, or [league workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md) for a
+abbreviation (or the [player directory](PLAYER_DIRECTORY.md) for an individual
+athlete), or [league workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md) for a
 copy-ready step.
 
 For the first update, commit the workflow, open the **Actions** tab, select
@@ -257,9 +259,11 @@ generated output.
 Not sure of the league key or team/player abbreviation? Open the generated
 [team directory](TEAM_DIRECTORY.md) (or its machine-readable
 [`team-directory.json`](team-directory.json)) to look up a league, abbreviation,
-full name, and ID. The [Supported Sports](#supported-sports) table lists every
-league key and endpoint. Run `npm run doctor -- --demo` to validate your choices
-locally before publishing.
+full name, and ID. For individual sports (ATP, F1), use the generated
+[player directory](PLAYER_DIRECTORY.md) (or its machine-readable
+[`player-directory.json`](player-directory.json)). The [Supported Sports](#supported-sports)
+table lists every league key and endpoint. Run `npm run doctor -- --demo` to validate
+your choices locally before publishing.
 
 ### Compact output
 
@@ -340,7 +344,7 @@ For a machine-readable support map, see [`supported-leagues.json`](supported-lea
 
 For copy-ready workflow steps, see [league workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md).
 
-For team setup, use the generated [team directory](TEAM_DIRECTORY.md) or its machine-readable counterpart [`team-directory.json`](team-directory.json) to look up a league, abbreviation, full name, and ID. A daily workflow keeps both files current.
+For team setup, use the generated [team directory](TEAM_DIRECTORY.md) or its machine-readable counterpart [`team-directory.json`](team-directory.json) to look up a league, abbreviation, full name, and ID. For individual athletes, use the [player directory](PLAYER_DIRECTORY.md) or [`player-directory.json`](player-directory.json). A daily workflow keeps these files current.
 
 The **Season** column is refreshed daily by [`.github/workflows/update-season-status.yml`](.github/workflows/update-season-status.yml). It uses the league API's season window when available and falls back to the last known window during a temporary API outage. A separate [daily season-date verification workflow](.github/workflows/check-season-dates.yml) checks that normalized opening dates remain valid as leagues roll into new seasons; it reports drift without changing the README automatically.
 
@@ -381,13 +385,15 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 
 ---
 
-## Team Abbreviations
+## Team & Player Abbreviations
 
 Looking up a team abbreviation? The generated [team directory](TEAM_DIRECTORY.md)
 (and its machine-readable [`team-directory.json`](team-directory.json)) lists
-every league in one place — name, abbreviation, and ID — and is refreshed daily
-by a scheduled workflow. It is the single source of truth, so this README no
-longer duplicates each league's roster inline.
+every league in one place — name, abbreviation, and ID. For individual sports,
+the [player directory](PLAYER_DIRECTORY.md) (and its machine-readable
+[`player-directory.json`](player-directory.json)) does the same for players.
+Both are refreshed daily by a scheduled workflow and are the single source of
+truth, so this README no longer duplicates each league's roster inline.
 
 ## Run Locally
 

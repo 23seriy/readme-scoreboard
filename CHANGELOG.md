@@ -24,6 +24,12 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Changed
 
+- Added a generated **player directory** ([PLAYER_DIRECTORY.md](PLAYER_DIRECTORY.md)
+  and its machine-readable [`player-directory.json`](player-directory.json)),
+  mirroring the team directory for individual sports. It lists player
+  abbreviations, names, and IDs so individual-sport boards (ATP) can be looked
+  up the same way team boards use the team directory. The daily directory
+  refresh workflow regenerates it alongside the team directory.
 - Removed the huge per-league team abbreviation tables from the README. The
   generated [team directory](TEAM_DIRECTORY.md) is now the single source of
   truth for team names, abbreviations, and IDs, so the README no longer

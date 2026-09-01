@@ -183,4 +183,8 @@ module.exports = {
   TEAM_EMOJI: PLAYER_EMOJI,
   DEMO_TEAMS: DEMO_PLAYERS,
   TEAM_IDS: PLAYER_IDS,
+  // Individual-sport adapters expose their athlete roster separately so the
+  // player-directory generator can distinguish real players from constructors
+  // (e.g. F1's TEAM_IDS maps to teams, not drivers).
+  PLAYER_IDS,
 };

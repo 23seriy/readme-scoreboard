@@ -15,9 +15,10 @@ problem persists, open a [bug report](https://github.com/23seriy/readme-scoreboa
 
 ### Before you open a bug
 
-1. Confirm you're on a supported league/team. See the
+1. Confirm you're on a supported league/team/player. See the
    [Supported Sports](https://github.com/23seriy/readme-scoreboard#supported-sports)
-   section and the [team directory](TEAM_DIRECTORY.md).
+   section and the [team directory](TEAM_DIRECTORY.md) (or the
+   [player directory](PLAYER_DIRECTORY.md) for individual sports).
 2. Run the local diagnostics to rule out a config problem:
    ```bash
    npm ci --ignore-scripts

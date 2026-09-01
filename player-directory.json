@@ -1,0 +1,90 @@
+{
+  "generatedFrom": "src/config/leagues.js",
+  "generatedAt": "2026-09-01T13:52:26.327Z",
+  "players": [
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "ALC",
+      "name": "Carlos Alcaraz",
+      "id": "3782"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "COB",
+      "name": "Flavio Cobolli",
+      "id": "7602"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "DEM",
+      "name": "Alex de Minaur",
+      "id": "2651"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "DJO",
+      "name": "Novak Djokovic",
+      "id": "296"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "FAA",
+      "name": "Felix Auger-Aliassime",
+      "id": "3209"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "FIL",
+      "name": "Arthur Fils",
+      "id": "10052"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "FRI",
+      "name": "Taylor Fritz",
+      "id": "2946"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "MED",
+      "name": "Daniil Medvedev",
+      "id": "2383"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "SHE",
+      "name": "Ben Shelton",
+      "id": "9250"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "SIN",
+      "name": "Jannik Sinner",
+      "id": "3623"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "TIA",
+      "name": "Frances Tiafoe",
+      "id": "2708"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "ZVE",
+      "name": "Alexander Zverev",
+      "id": "2375"
+    }
+  ]
+}
