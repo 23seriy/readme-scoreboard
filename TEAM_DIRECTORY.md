@@ -2218,7 +2218,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Assumption Greyhounds | `ASP` | 2038 |
 | Arizona State Sun Devils | `ASU` | 9 |
 | Augsburg Auggies | `AUGS` | 124 |
-| Augustana University (SD) Vikings | `AUSD` | 2043 |
+| Augustana (SD) Vikings | `AUSD` | 2043 |
 | Boston College Eagles | `BC` | 103 |
 | Bentley Falcons | `BENT` | 2060 |
 | Bethel College Minnesota Falcons | `BET` | 2802 |
@@ -2298,7 +2298,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | SUNY Geneseo SUNY-GENESEO | `SNYG` | 2783 |
 | St. Michael'S College Purple Knights | `ST.` | 127963 |
 | Saint Michael's Purple Knights | `STM` | 260 |
-| St. Thomas-Minnesota Tommies | `STMN` | 2900 |
+| St. Thomas Tommies | `STMN` | 2900 |
 | Stonehill Skyhawks | `STO` | 284 |
 | Toronto Metropolitan | `TMU` | 111400 |
 | Trine Thunder | `TRNE` | 2651 |
