@@ -1071,3 +1071,39 @@ describe("renderAtp", () => {
     expect(output).not.toContain("Movement");
   });
 });
+
+describe("renderNfl", () => {
+  const BASE_NFL_DATA = {
+    team: { abbreviation: "KC", full_name: "Kansas City Chiefs", conference: "AFC", division: "AFC West" },
+    record: { wins: 9, losses: 3, season: 2026 },
+    recentGames: [],
+    emoji: "👑",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+    standing: { position: 2, label: "AFC" },
+    nextGame: { date: "2026-09-15T00:00:00Z", opponent: "DEN", isHome: false },
+  };
+
+  it("renders the standing and next game on their own row", () => {
+    const output = render("nfl", BASE_NFL_DATA);
+    expect(output).toContain("🏅 Standing: AFC · 2");
+    expect(output).toContain("📅 Next: @ DEN");
+    // Separated from the conference/season paragraph by a blank line.
+    expect(output).toMatch(/🟢 Season in progress\n\n🏅 Standing: AFC · 2/);
+  });
+
+  it("renders a home next game with 'vs'", () => {
+    const output = render("nfl", { ...BASE_NFL_DATA, nextGame: { date: "2026-09-15T00:00:00Z", opponent: "LAC", isHome: true } });
+    expect(output).toContain("📅 Next: vs LAC");
+  });
+
+  it("omits the standing row when no standing is present", () => {
+    const output = render("nfl", { ...BASE_NFL_DATA, standing: null, nextGame: null });
+    expect(output).not.toContain("🏅 Standing:");
+    expect(output).not.toContain("📅 Next:");
+  });
+
+  it("renders the record with win percentage", () => {
+    const output = render("nfl", BASE_NFL_DATA);
+    expect(output).toContain("📊 2026 Season: 9W - 3L (75.0%)");
+  });
+});
