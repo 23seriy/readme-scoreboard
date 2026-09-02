@@ -10,6 +10,17 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.9.2] - 2026-09-01
+
+### Changed
+
+- The ATP board's **Last Match** result now renders in its own fenced block,
+  mirroring the recent-games blocks on other boards, so it no longer merges
+  into the ranking meta line.
+- The generated **team directory** now resolves real team names (e.g. "Atlanta
+  Hawks") instead of abbreviation-only names for leagues whose static registry
+  lacked embedded names, so team lookups show full names.
+
 ## [1.9.1] - 2026-09-01
 
 ### Changed
