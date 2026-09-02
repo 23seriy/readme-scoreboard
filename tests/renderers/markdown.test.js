@@ -104,6 +104,10 @@ describe("renderMlb / formatMlbGameResult", () => {
     // The last-five form is intentionally not rendered: the Recent Games list
     // already shows the W/L/D sequence, so a separate 🔥 Form line is redundant.
     expect(output).not.toContain("🔥 Form:");
+    // Standing and next game sit on their own separated row (a blank line
+    // precedes them) so they read clearly instead of wrapping into the
+    // conference/season paragraph.
+    expect(output).toMatch(/🟢 Season in progress\n\n🏅 Standing: American League · 2/);
   });
 
   it("omits rich-stat lines when the adapter does not provide them", () => {
