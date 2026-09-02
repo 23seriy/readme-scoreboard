@@ -127,11 +127,14 @@ function seasonStatusLine(sport) {
   return `🔴 Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
 }
 
-// Optional richer stats rendered after the season line. Adapters may supply
-// `standing` and `nextGame`; lines are omitted when absent so existing boards
-// are unchanged for leagues that don't provide them yet. The last-five `form`
-// line is intentionally not rendered here: the Recent Games list already shows
-// the W/L/D sequence, so a separate 🔥 Form line is redundant.
+// Optional richer stats rendered as their own row after the season line.
+// Adapters may supply `standing` and `nextGame`; lines are omitted when absent
+// so existing boards are unchanged for leagues that don't provide them yet. A
+// leading blank line separates them from the conference/season paragraph so
+// they render as a distinct, clearly visible row instead of wrapping awkwardly
+// into the season status. The last-five `form` line is intentionally not
+// rendered here: the Recent Games list already shows the W/L/D sequence, so a
+// separate 🔥 Form line is redundant.
 function extraTeamLines(data) {
   const lines = [];
   const { standing, nextGame } = data || {};
@@ -148,7 +151,7 @@ function extraTeamLines(data) {
     lines.push(`📅 Next: ${place} ${nextGame.opponent} (${when})`);
   }
 
-  return lines;
+  return lines.length ? ["", ...lines] : lines;
 }
 
 function generateBarChart(percent, size) {
