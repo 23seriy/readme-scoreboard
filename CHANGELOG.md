@@ -10,6 +10,15 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.9.1] - 2026-09-01
+
+### Changed
+
+- Improved the ATP tennis board's readability: the world ranking, ranking
+  points, and movement are now grouped on a single line, and the latest match
+  result gets its own labeled **Last Match** line instead of being buried in
+  the ranking info.
+
 ## [1.9.0] - 2026-09-01
 
 ### Added
