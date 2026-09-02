@@ -10,13 +10,21 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **NFL standings**: the NFL board now shows the team's conference **standing**
+  and **next game**, matching the other team leagues. The adapter fetches the
+  ESPN NFL standings endpoint for the conference rank and reads the next
+  non-final game from the schedule.
+
 ## [1.9.3] - 2026-09-02
 
 ### Changed
 
-- The **standing** and **next-game** lines on team boards (NBA, MLB, NFL, NHL)
-  now render on their own row, separated from the conference/season paragraph,
-  so they read clearly instead of wrapping awkwardly into the season status.
+- The **standing** and **next-game** lines on team boards (basketball,
+  baseball, football, hockey, soccer) now render on their own row, separated
+  from the conference/season paragraph, so they read clearly instead of
+  wrapping awkwardly into the season status.
 
 ## [1.9.2] - 2026-09-01
 

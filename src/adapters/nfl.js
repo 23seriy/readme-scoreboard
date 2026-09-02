@@ -68,6 +68,77 @@ async function fetchTeamInfo(teamAbbr) {
   }
 }
 
+// Conference and division standing for a team. NFL standings entries live
+// directly under each conference node (`children[].standings.entries`); the
+// entry's position within its conference determines the conference rank.
+async function fetchStandings(teamAbbr) {
+  try {
+    const upper = teamAbbr.toUpperCase();
+    const now = new Date();
+    // NFL season runs Sep–Feb; before September use the previous year's season.
+    const season = now.getMonth() < 8 ? now.getFullYear() - 1 : now.getFullYear();
+    const { data } = await httpGet(
+      `https://site.api.espn.com/apis/v2/sports/football/nfl/standings?season=${season}&seasontype=2`
+    );
+    for (const conf of (data.children || [])) {
+      const entries = conf.standings?.entries || [];
+      const index = entries.findIndex(
+        (e) => e.team?.abbreviation?.toUpperCase() === upper
+      );
+      if (index >= 0) {
+        const entry = entries[index];
+        const stats = Object.fromEntries((entry.stats || []).map((s) => [s.name, s.value]));
+        return {
+          wins: Number(stats.wins) || 0,
+          losses: Number(stats.losses) || 0,
+          ties: Number(stats.ties) || 0,
+          season,
+          conference: conf.name?.replace(" Conference", "") || "",
+          position: index + 1,
+        };
+      }
+    }
+    return { wins: 0, losses: 0, ties: 0, season, conference: "", position: null };
+  } catch (error) {
+    console.error(`Failed to fetch NFL standings: ${error.message}`);
+    return null;
+  }
+}
+
+// Shared schedule fetch used by both recent-games and next-game detection.
+async function fetchScheduleEvents(teamAbbr) {
+  const upper = teamAbbr.toUpperCase();
+  const now = new Date();
+  // NFL season runs Sep–Feb; before September use the previous year's season.
+  const season = now.getMonth() < 8 ? now.getFullYear() - 1 : now.getFullYear();
+  const [regData, postData] = await Promise.all([
+    httpGet(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=2`),
+    httpGet(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=3`),
+  ]);
+  return [
+    ...(regData.data.events || []).map((e) => ({ ...e, seasonType: 2 })),
+    ...(postData.data.events || []).map((e) => ({ ...e, seasonType: 3 })),
+  ];
+}
+
+// The team's next non-final game, if any.
+function parseNextGame(events, teamAbbr) {
+  const upper = teamAbbr.toUpperCase();
+  const upNext = (events || [])
+    .filter((e) => e.competitions?.[0]?.status?.type?.completed === false)
+    .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+  if (!upNext) return null;
+  const comp = upNext.competitions[0];
+  const teamComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() === upper);
+  const oppComp = comp.competitors.find((c) => c.team?.abbreviation?.toUpperCase() !== upper);
+  if (!teamComp || !oppComp) return null;
+  return {
+    date: upNext.date,
+    opponent: oppComp.team?.abbreviation,
+    isHome: teamComp.homeAway === "home",
+  };
+}
+
 function parseRecordFromTeam(teamRecord, season) {
   const total = (teamRecord?.items || []).find((i) => i.type === "total");
   const stats = (total?.stats || []).reduce((acc, s) => { acc[s.name] = s.value; return acc; }, {});
@@ -97,25 +168,13 @@ async function fetchSeasonRecord(team) {
   }
 }
 
-async function fetchRecentGames(teamAbbr, count = 5) {
+async function fetchRecentGames(teamAbbr, count = 5, events) {
   try {
     const upper = teamAbbr.toUpperCase();
-    const now = new Date();
-    // NFL season runs Sep–Feb; if before Sep use previous year's season
-    const season = now.getMonth() < 8 ? now.getFullYear() - 1 : now.getFullYear();
-    // Fetch regular season and postseason separately; exclude preseason (type 1)
-    const [regData, postData] = await Promise.all([
-      httpGet(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=2`),
-      httpGet(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=3`),
-    ]);
-
-    const events = [
-      ...(regData.data.events || []).map((e) => ({ ...e, seasonType: 2 })),
-      ...(postData.data.events || []).map((e) => ({ ...e, seasonType: 3 })),
-    ];
+    const schedule = events || await fetchScheduleEvents(teamAbbr);
 
     const games = [];
-    for (const event of events) {
+    for (const event of schedule) {
       const comp = event.competitions?.[0];
       if (!comp) continue;
       if (comp.status?.type?.name !== "STATUS_FINAL") continue;
@@ -171,21 +230,42 @@ function getDemoData(teamAbbr) {
     team,
     recentGames: games,
     record: { wins: 9, losses: 3, season: new Date().getFullYear(), winPct: ".750" },
+    standing: { position: 2, label: team.conference },
+    nextGame: {
+      date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
+      opponent: opponents[0],
+      isHome: true,
+    },
   };
 }
 
 async function fetchData(teamAbbr) {
-  const team = await fetchTeamInfo(teamAbbr);
+  const [team, standings] = await Promise.all([
+    fetchTeamInfo(teamAbbr),
+    fetchStandings(teamAbbr),
+  ]);
   if (!team) {
     return null;
   }
 
-  const [record, recentGames] = await Promise.all([
-    fetchSeasonRecord(team),
-    fetchRecentGames(teamAbbr, 5),
-  ]);
+  if (standings) {
+    team.conference = standings.conference || team.conference;
+  }
+  const upper = teamAbbr.toUpperCase();
+  const events = await fetchScheduleEvents(teamAbbr);
+  const recentGames = await fetchRecentGames(teamAbbr, 5, events);
 
-  return { team, recentGames, record };
+  const record = standings && (standings.wins || standings.losses)
+    ? { wins: standings.wins, losses: standings.losses, season: standings.season, winPct: standings.wins + standings.losses > 0 ? (standings.wins / (standings.wins + standings.losses)).toFixed(3) : ".000" }
+    : await fetchSeasonRecord(team);
+
+  return {
+    team,
+    recentGames,
+    record,
+    standing: standings?.position ? { position: standings.position, label: standings.conference } : null,
+    nextGame: parseNextGame(events, upper),
+  };
 }
 
 function getLogoUrl(abbr) {
@@ -194,8 +274,10 @@ function getLogoUrl(abbr) {
 
 module.exports = {
   fetchData,
+  fetchStandings,
   getDemoData,
   getLogoUrl,
+  parseNextGame,
   TEAM_EMOJI,
   DEMO_TEAMS,
   TEAM_IDS,
