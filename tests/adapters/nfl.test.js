@@ -5,6 +5,46 @@ jest.mock("axios");
 
 beforeEach(() => jest.clearAllMocks());
 
+function makeTeamResponse(abbr = "KC", name = "Chiefs", displayName = "Kansas City Chiefs") {
+  return { data: { team: { id: 16, abbreviation: abbr, name, displayName, record: null } } };
+}
+
+function makeStandingsResponse(abbr, wins, losses, conference = "American Football Conference") {
+  return {
+    data: {
+      children: [{
+        name: conference,
+        standings: {
+          entries: [{
+            team: { abbreviation: abbr },
+            stats: [
+              { name: "wins", value: wins },
+              { name: "losses", value: losses },
+            ],
+          }],
+        },
+      }],
+    },
+  };
+}
+
+function makeScheduleResponse(events) {
+  return { data: { events } };
+}
+
+function makeEvent({ teamAbbr, oppAbbr, teamScore, oppScore, isHome = true, completed = true, date = "2026-09-15T00:00:00Z", seasonType = 2 }) {
+  const teamComp = { homeAway: isHome ? "home" : "away", team: { abbreviation: teamAbbr }, score: { value: teamScore } };
+  const oppComp = { homeAway: isHome ? "away" : "home", team: { abbreviation: oppAbbr }, score: { value: oppScore } };
+  return {
+    date,
+    seasonType,
+    competitions: [{
+      status: { type: { completed, name: completed ? "STATUS_FINAL" : "STATUS_SCHEDULED" } },
+      competitors: [teamComp, oppComp],
+    }],
+  };
+}
+
 describe("NFLAdapter — league config", () => {
   it("covers all 32 teams in TEAM_IDS and TEAM_EMOJI", () => {
     expect(Object.keys(nfl.TEAM_IDS).length).toBe(32);
@@ -111,5 +151,81 @@ describe("NFLAdapter — demo data", () => {
     expect(demo).not.toBeNull();
     expect(demo.team.abbreviation).toBe("ZZZ");
     expect(demo.standing.position).toBeGreaterThan(0);
+  });
+});
+
+describe("NFLAdapter — fetchData", () => {
+  it("returns team, conference standing, and next game", async () => {
+    axios.get
+      .mockResolvedValueOnce(makeTeamResponse())
+      .mockResolvedValueOnce(makeStandingsResponse("KC", 4, 2))
+      .mockResolvedValueOnce(makeScheduleResponse([
+        makeEvent({ teamAbbr: "KC", oppAbbr: "LAC", teamScore: 28, oppScore: 24, isHome: false, completed: true }),
+      ]))
+      .mockResolvedValueOnce(makeScheduleResponse([
+        makeEvent({ teamAbbr: "KC", oppAbbr: "DEN", teamScore: 0, oppScore: 0, isHome: true, completed: false, date: "2026-09-15T00:00:00Z" }),
+      ]));
+
+    const result = await nfl.fetchData("KC");
+    expect(result.team.full_name).toBe("Kansas City Chiefs");
+    expect(result.standing).toEqual({ position: 1, label: "American Football" });
+    expect(result.nextGame).toEqual({ date: "2026-09-15T00:00:00Z", opponent: "DEN", isHome: true });
+    expect(result.recentGames).toHaveLength(1);
+  });
+
+  it("derives the record from standings when available", async () => {
+    axios.get
+      .mockResolvedValueOnce(makeTeamResponse())
+      .mockResolvedValueOnce(makeStandingsResponse("KC", 7, 3))
+      .mockResolvedValueOnce(makeScheduleResponse([]))
+      .mockResolvedValueOnce(makeScheduleResponse([]));
+
+    const result = await nfl.fetchData("KC");
+    expect(result.record.wins).toBe(7);
+    expect(result.record.losses).toBe(3);
+    // No upcoming game → nextGame is null.
+    expect(result.nextGame).toBeNull();
+  });
+
+  it("falls back to the season record when standings are unavailable", async () => {
+    // Team info, then standings returns null (fetch error), then record fetch.
+    axios.get
+      .mockResolvedValueOnce(makeTeamResponse())
+      // standings: use a Null-safe fallback path — reject to simulate failure
+      .mockRejectedValueOnce(new Error("standings down"))
+      // fetchScheduleEvents (reg + post)
+      .mockResolvedValueOnce(makeScheduleResponse([]))
+      .mockResolvedValueOnce(makeScheduleResponse([]))
+      // fetchSeasonRecord fallback
+      .mockResolvedValueOnce({ data: { team: { record: { items: [{ type: "total", stats: [
+        { name: "wins", value: 9 },
+        { name: "losses", value: 3 },
+      ] }] } } } });
+
+    const result = await nfl.fetchData("KC");
+    expect(result.record.wins).toBe(9);
+    expect(result.record.losses).toBe(3);
+    // No standing since the standings fetch failed.
+    expect(result.standing).toBeNull();
+  });
+
+  it("returns the earliest non-final game from the combined schedule", async () => {
+    axios.get
+      .mockResolvedValueOnce(makeTeamResponse())
+      .mockResolvedValueOnce(makeStandingsResponse("KC", 4, 2))
+      .mockResolvedValueOnce(makeScheduleResponse([
+        makeEvent({ teamAbbr: "KC", oppAbbr: "DEN", teamScore: 0, oppScore: 0, isHome: true, completed: false, date: "2026-09-20T00:00:00Z" }),
+        makeEvent({ teamAbbr: "KC", oppAbbr: "LAC", teamScore: 0, oppScore: 0, isHome: false, completed: false, date: "2026-09-15T00:00:00Z" }),
+      ]))
+      .mockResolvedValueOnce(makeScheduleResponse([]));
+
+    const result = await nfl.fetchData("KC");
+    expect(result.nextGame.opponent).toBe("LAC");
+  });
+
+  it("returns null when the team is unknown", async () => {
+    axios.get.mockResolvedValueOnce({ data: { team: null } });
+    const result = await nfl.fetchData("ZZZ");
+    expect(result).toBeNull();
   });
 });
