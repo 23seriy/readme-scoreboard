@@ -1041,11 +1041,13 @@ describe("renderAtp", () => {
     expect(output).toMatch(/🏆 World No\. 5 · 📍 3,770 ranking points · 📈 Movement/);
   });
 
-  it("renders the last match on its own labeled line", () => {
+  it("renders the last match on its own labeled fenced block", () => {
     const output = render("atp", BASE_ATP_DATA);
     expect(output).toContain("**📅 Last Match:**");
     expect(output).toContain("❌ L vs Mariano Navone");
     expect(output).toContain("7-6, 5-7, 4-6, 6-2, 6-1");
+    // The match sits in its own fenced code block, like team boards' Recent Games.
+    expect(output).toMatch(/\*\*📅 Last Match:\*\*\n```\n❌ L vs Mariano Navone .*```/s);
   });
 
   it("renders a win with the W icon", () => {

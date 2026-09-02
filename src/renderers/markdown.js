@@ -504,9 +504,11 @@ function renderAtp(data, title) {
   }
   if (meta.length) lines.push(meta.join(" · "));
 
-  // The latest match gets its own labeled line so the result isn't buried inside
-  // the ranking meta. Set scores are interleaved as player-vs-opponent per set,
-  // e.g. 6-7, 7-6, 6-3, 6-4.
+  // The latest match is rendered in its own labeled fenced block, mirroring the
+  // way team boards present their Recent Games list. Using a code block gives it
+  // a visually distinct section (and a blank line before the label) so the
+  // result isn't merged into the ranking meta line by the markdown renderer.
+  // Set scores are interleaved as player-vs-opponent per set, e.g. 6-7, 7-6, 6-3, 6-4.
   if (lastMatch && lastMatch.opponent) {
     const icon = lastMatch.won ? "✅" : "❌";
     const result = lastMatch.won ? "W" : "L";
@@ -518,8 +520,11 @@ function renderAtp(data, title) {
     if (playerSets?.length && oppSets?.length) {
       setsText = ` ${playerSets.map((s, i) => `${s}-${oppSets[i] ?? "-"}`).join(", ")}`;
     }
+    lines.push("");
     lines.push("**📅 Last Match:**");
+    lines.push("```");
     lines.push(`${icon} ${result} vs ${lastMatch.opponent} (${when})${setsText}`);
+    lines.push("```");
   }
   lines.push("");
 
