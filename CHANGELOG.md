@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.9.0] - 2026-09-01
+
 ### Added
 
 - **Entity typing**: sports now declare whether they track a `team` or a
