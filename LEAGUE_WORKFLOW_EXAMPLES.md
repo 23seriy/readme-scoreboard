@@ -34,7 +34,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: nfl
-    team: ARI
+    team: ATL
     marker: readme-scoreboard-nfl
 ```
 
@@ -226,7 +226,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: scottish
-    team: ABE
+    team: CEL
     marker: readme-scoreboard-scottish
 ```
 
@@ -250,7 +250,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: ucl
-    team: AEK
+    team: RMA
     marker: readme-scoreboard-ucl
 ```
 
@@ -262,7 +262,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: uel
-    team: MIL
+    team: MUN
     marker: readme-scoreboard-uel
 ```
 
@@ -286,7 +286,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: ncaab
-    team: ACU
+    team: ARIZ
     marker: readme-scoreboard-ncaab
 ```
 
@@ -298,7 +298,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: ncaaw
-    team: ACU
+    team: CONN
     marker: readme-scoreboard-ncaaw
 ```
 
@@ -310,7 +310,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: ncaaf
-    team: ACU
+    team: ALA
     marker: readme-scoreboard-ncaaf
 ```
 
@@ -322,7 +322,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: ncaa_hockey
-    team: ADR
+    team: BC
     marker: readme-scoreboard-ncaa_hockey
 ```
 
