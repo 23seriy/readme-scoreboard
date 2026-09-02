@@ -57,34 +57,49 @@ function resolveName(adapter, abbreviation, value, live) {
     || abbreviation;
 }
 
+// Merge the adapter's static registry with the live roster. We prefer the live
+// name whenever the API returns a proper (non-abbreviation) name — e.g. NBA
+// returns "Atlanta Hawks", not just "ATL" — so the directory shows real team
+// names instead of abbreviations. The registry's abbreviation is kept whenever
+// the live entry omits one (e.g. F1's Audi/Cadillac), and any live teams not in
+// the registry are appended so we never miss a team.
+function mergeRosters(registryTeams, live) {
+  const liveById = new Map(live.map((t) => [String(t.id), t]));
+
+  const source = registryTeams.map((entry) => {
+    const liveEntry = liveById.get(String(entry.id));
+    if (liveEntry && liveEntry.name && liveEntry.name !== liveEntry.abbreviation) {
+      return {
+        abbreviation: liveEntry.abbreviation || entry.abbreviation,
+        name: liveEntry.name,
+        id: liveEntry.id,
+      };
+    }
+    return entry;
+  });
+
+  const registryIds = new Set(source.map((t) => String(t.id)));
+  const extraLive = live
+    .filter((t) => !registryIds.has(String(t.id)))
+    .map((t) => ({ ...t, abbreviation: t.abbreviation || t.name }));
+  source.push(...extraLive);
+
+  return source;
+}
+
 async function generate() {
 const teams = (await Promise.all(LEAGUES.map(async (league) => {
   const adapter = require(`../src/adapters/${league.key}`);
   const registry = adapter.ESPN_TEAM_IDS || adapter.TEAM_IDS || {};
   const live = await liveTeams(league);
 
-  // When the live roster is larger than the hardcoded registry (college and
-  // UEFA tournament leagues), prefer the complete live list so the directory
-  // isn't missing teams. Otherwise keep the adapter's own roster as the
-  // authoritative source. Any hardcoded teams the live endpoint omits are
-  // appended so we never drop a supported team.
-  let source;
-  if (live.length > Object.keys(registry).length) {
-    const liveIds = new Set(live.map((t) => String(t.id)));
-    const registryTeams = Object.entries(registry).map(([abbreviation, value]) => ({
-      abbreviation,
-      name: resolveName(adapter, abbreviation, value, null),
-      id: typeof value === "object" ? value.id : value,
-    }));
-    const extra = registryTeams.filter((t) => !liveIds.has(String(t.id)));
-    source = [...live, ...extra];
-  } else {
-    source = Object.entries(registry).map(([abbreviation, value]) => ({
-      abbreviation,
-      name: resolveName(adapter, abbreviation, value, null),
-      id: typeof value === "object" ? value.id : value,
-    }));
-  }
+  const registryTeams = Object.entries(registry).map(([abbreviation, value]) => ({
+    abbreviation,
+    name: resolveName(adapter, abbreviation, value, null),
+    id: typeof value === "object" ? value.id : value,
+  }));
+
+  const source = mergeRosters(registryTeams, live);
 
   return source.map((t) => ({
     league: league.key,
@@ -103,4 +118,4 @@ fs.writeFileSync(
 
 if (require.main === module) generate().catch((error) => { console.error(error.message); process.exitCode = 1; });
 
-module.exports = { apiTeams, endpointFor, generate, resolveName, teamListUrl };
+module.exports = { apiTeams, endpointFor, generate, mergeRosters, resolveName, teamListUrl };
