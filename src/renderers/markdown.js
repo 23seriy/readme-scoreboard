@@ -493,29 +493,32 @@ function renderAtp(data, title) {
   lines.push("ATP · World Ranking");
   lines.push("");
 
-  if (standing && standing.position) {
-    lines.push(`🏆 World No. ${standing.position}`);
-  }
-  if (rankPoints !== undefined) {
-    lines.push(`📍 ${rankPoints.toLocaleString()} ranking points`);
-  }
+  // World ranking, points, and movement form a compact meta line, mirroring the
+  // single status line used by team boards (e.g. MLB's season/standing/next).
+  const meta = [];
+  if (standing && standing.position) meta.push(`🏆 World No. ${standing.position}`);
+  if (rankPoints !== undefined) meta.push(`📍 ${rankPoints.toLocaleString()} ranking points`);
   if (previousRank !== undefined && trend) {
     const arrow = trend === "-" ? "—" : trend === "up" || trend === "+" ? "▲" : "▼";
-    lines.push(`📈 Movement: ${arrow} (was No. ${previousRank})`);
+    meta.push(`📈 Movement: ${arrow} (was No. ${previousRank})`);
   }
+  if (meta.length) lines.push(meta.join(" · "));
+
+  // The latest match gets its own labeled line so the result isn't buried inside
+  // the ranking meta. Set scores are interleaved as player-vs-opponent per set,
+  // e.g. 6-7, 7-6, 6-3, 6-4.
   if (lastMatch && lastMatch.opponent) {
     const icon = lastMatch.won ? "✅" : "❌";
     const result = lastMatch.won ? "W" : "L";
     const when = lastMatch.date
       ? new Date(lastMatch.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
       : "";
-    // sets is [playerSetWins, opponentSetWins]; display them interleaved as
-    // player-vs-opponent per set, e.g. 6-7, 7-6, 6-3, 6-4.
     let setsText = "";
     const [playerSets, oppSets] = lastMatch.sets || [];
     if (playerSets?.length && oppSets?.length) {
       setsText = ` ${playerSets.map((s, i) => `${s}-${oppSets[i] ?? "-"}`).join(", ")}`;
     }
+    lines.push("**📅 Last Match:**");
     lines.push(`${icon} ${result} vs ${lastMatch.opponent} (${when})${setsText}`);
   }
   lines.push("");

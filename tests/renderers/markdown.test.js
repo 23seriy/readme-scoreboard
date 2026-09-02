@@ -1008,3 +1008,60 @@ describe("renderNba — G League variant", () => {
     expect(out).toContain("[Playoffs]");
   });
 });
+
+describe("renderAtp", () => {
+  const BASE_ATP_DATA = {
+    team: { id: "296", abbreviation: "DJO", full_name: "Novak Djokovic", conference: "ATP", division: "" },
+    emoji: "🇷🇸",
+    logoUrl: "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png",
+    standing: { position: 5, label: "ATP" },
+    rankPoints: 3770,
+    previousRank: 5,
+    trend: "-",
+    lastMatch: {
+      opponent: "Mariano Navone",
+      won: false,
+      date: "2026-08-30T15:05:00Z",
+      sets: [[7, 5, 4, 6, 6], [6, 7, 6, 2, 1]],
+    },
+  };
+
+  it("renders the player heading with the Player entity label", () => {
+    const output = render("atp", BASE_ATP_DATA);
+    expect(output).toContain("My Favourite ATP Tennis Player");
+    expect(output).toContain("Novak Djokovic (DJO)");
+  });
+
+  it("groups ranking, points, and movement onto one meta line", () => {
+    const output = render("atp", BASE_ATP_DATA);
+    expect(output).toContain("🏆 World No. 5");
+    expect(output).toContain("📍 3,770 ranking points");
+    expect(output).toContain("📈 Movement");
+    // All three share a single line (joined by ·), not three separate lines.
+    expect(output).toMatch(/🏆 World No\. 5 · 📍 3,770 ranking points · 📈 Movement/);
+  });
+
+  it("renders the last match on its own labeled line", () => {
+    const output = render("atp", BASE_ATP_DATA);
+    expect(output).toContain("**📅 Last Match:**");
+    expect(output).toContain("❌ L vs Mariano Navone");
+    expect(output).toContain("7-6, 5-7, 4-6, 6-2, 6-1");
+  });
+
+  it("renders a win with the W icon", () => {
+    const output = render("atp", { ...BASE_ATP_DATA, lastMatch: { ...BASE_ATP_DATA.lastMatch, won: true } });
+    expect(output).toContain("✅ W vs");
+  });
+
+  it("omits the last-match block when there is no match", () => {
+    const output = render("atp", { ...BASE_ATP_DATA, lastMatch: null });
+    expect(output).not.toContain("Last Match");
+  });
+
+  it("omits ranking meta when no standing is present", () => {
+    const output = render("atp", { ...BASE_ATP_DATA, standing: null, rankPoints: undefined, previousRank: undefined });
+    expect(output).not.toContain("🏆");
+    expect(output).not.toContain("ranking points");
+    expect(output).not.toContain("Movement");
+  });
+});
