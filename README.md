@@ -39,7 +39,10 @@ See rendered output from several sports and every input option without running
 anything. Open the [examples gallery](examples/) to preview real boards (NBA,
 MLB, NFL, NHL, Premier League, MLS, UEFA Champions League, College Football,
 Formula 1, and ATP Tennis) plus demos of the `title:`, `teams:` (multi-team),
-`compact:`, and `badge:` options. Or browse the league's
+`compact:`, and `badge:` options. For every one of the 30 supported leagues,
+see the [league showcase](examples/leagues/) — one file per league, built
+from live data and refreshed daily, showing the default board plus the
+`title:`, `compact:`, and `badge:` options. Or browse the league's
 [workflow examples](LEAGUE_WORKFLOW_EXAMPLES.md) for a copy-ready step.
 
 ## Preview
