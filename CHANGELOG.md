@@ -16,6 +16,12 @@ that would alter what appears in your README or require editing your workflow.
   and **next game**, matching the other team leagues. The adapter fetches the
   ESPN NFL standings endpoint for the conference rank and reads the next
   non-final game from the schedule.
+- **League showcase**: `examples/leagues/` now has one file per supported
+  league, built from live data, demonstrating the default board plus the
+  `title:`, `compact:`, and `badge:` options in one place. Run
+  `npm run leagues:showcase` to regenerate it; a new daily workflow
+  (`update-league-showcase.yml`) does this automatically and opens a PR when
+  live data changes the output.
 
 ## [1.9.3] - 2026-09-02
 
