@@ -3,9 +3,10 @@ const path = require("node:path");
 const { LEAGUES } = require("../src/config/leagues");
 const directory = require("../team-directory.json");
 
-const categories = Object.fromEntries(LEAGUES.map(({ key, category }) => [key, category]));
+const teamLeagues = LEAGUES.filter((league) => league.entity !== "player");
+const categories = Object.fromEntries(teamLeagues.map(({ key, category }) => [key, category]));
 const groups = new Map();
-LEAGUES.forEach((league) => groups.set(`${league.category}|${league.name}`, []));
+teamLeagues.forEach((league) => groups.set(`${league.category}|${league.name}`, []));
 directory.teams.forEach((team) => {
   const group = `${categories[team.league] || "Other"}|${team.leagueName}`;
   if (!groups.has(group)) groups.set(group, []);
