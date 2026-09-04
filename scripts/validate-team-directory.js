@@ -8,7 +8,7 @@ function validate(directory) {
   // Every supported league must have a roster in the directory. Some leagues
   // (e.g. Belgian Pro League) have no static TEAM_IDS and rely on live roster
   // lookup, but the generated directory still includes them.
-  const expected = new Set(LEAGUES.map(({ key }) => key));
+  const expected = new Set(LEAGUES.filter((league) => league.entity !== "player").map(({ key }) => key));
   const seen = new Set();
   const counts = new Map();
   directory.teams.forEach((team) => {

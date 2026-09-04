@@ -52,7 +52,10 @@ describe("supported league registry", () => {
   it("keeps the human-readable team directory generated", () => {
     const markdown = fs.readFileSync(path.resolve(__dirname, "../../TEAM_DIRECTORY.md"), "utf8");
     expect(markdown).toContain("# Team Directory");
-    LEAGUES.forEach((league) => expect(markdown).toContain(`## ${league.name}`));
+    LEAGUES.filter((league) => league.entity !== "player")
+      .forEach((league) => expect(markdown).toContain(`## ${league.name}`));
+    LEAGUES.filter((league) => league.entity === "player")
+      .forEach((league) => expect(markdown).not.toContain(`## ${league.name}`));
   });
 
   it("rejects malformed team directory entries", () => {

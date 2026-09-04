@@ -88,7 +88,7 @@ function mergeRosters(registryTeams, live) {
 }
 
 async function generate() {
-const teams = (await Promise.all(LEAGUES.map(async (league) => {
+const teams = (await Promise.all(LEAGUES.filter((league) => league.entity !== "player").map(async (league) => {
   const adapter = require(`../src/adapters/${league.key}`);
   const registry = adapter.ESPN_TEAM_IDS || adapter.TEAM_IDS || {};
   const live = await liveTeams(league);
