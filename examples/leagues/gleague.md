@@ -19,10 +19,10 @@ Western Conference
 
 **📅 Recent Games:**
 ```
-❌ L 106-117 @ RGV (Mar 31, 2026) [Playoffs]
-✅ W 118-86  vs MXC (Mar 28, 2026)
-❌ L 101-106 vs RCITY (Mar 27, 2026)
-✅ W  99-93  vs RCITY (Mar 25, 2026)
+❌ L 106-117 @ RGV (Apr 1, 2026) [Playoffs]
+✅ W 118-86  vs MXC (Mar 29, 2026)
+❌ L 101-106 vs RCITY (Mar 28, 2026)
+✅ W  99-93  vs RCITY (Mar 26, 2026)
 ✅ W 117-97  @ NOB (Mar 22, 2026)
 ```
 
@@ -45,10 +45,10 @@ Western Conference
 
 **📅 Recent Games:**
 ```
-❌ L 106-117 @ RGV (Mar 31, 2026) [Playoffs]
-✅ W 118-86  vs MXC (Mar 28, 2026)
-❌ L 101-106 vs RCITY (Mar 27, 2026)
-✅ W  99-93  vs RCITY (Mar 25, 2026)
+❌ L 106-117 @ RGV (Apr 1, 2026) [Playoffs]
+✅ W 118-86  vs MXC (Mar 29, 2026)
+❌ L 101-106 vs RCITY (Mar 28, 2026)
+✅ W  99-93  vs RCITY (Mar 26, 2026)
 ✅ W 117-97  @ NOB (Mar 22, 2026)
 ```
 

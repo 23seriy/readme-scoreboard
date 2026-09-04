@@ -22,9 +22,9 @@ Eastern Conference
 ```
 ✅ W  89-81  vs MIN (Aug 30, 2026)
 ❌ L  83-101 vs POR (Aug 28, 2026)
-✅ W  78-71  @ LA  (Aug 24, 2026)
-✅ W  99-89  @ PHX (Aug 22, 2026)
-✅ W 124-88  @ LA  (Aug 20, 2026)
+✅ W  78-71  @ LA  (Aug 25, 2026)
+✅ W  99-89  @ PHX (Aug 23, 2026)
+✅ W 124-88  @ LA  (Aug 21, 2026)
 ```
 
 ## Custom title
@@ -49,9 +49,9 @@ Eastern Conference
 ```
 ✅ W  89-81  vs MIN (Aug 30, 2026)
 ❌ L  83-101 vs POR (Aug 28, 2026)
-✅ W  78-71  @ LA  (Aug 24, 2026)
-✅ W  99-89  @ PHX (Aug 22, 2026)
-✅ W 124-88  @ LA  (Aug 20, 2026)
+✅ W  78-71  @ LA  (Aug 25, 2026)
+✅ W  99-89  @ PHX (Aug 23, 2026)
+✅ W 124-88  @ LA  (Aug 21, 2026)
 ```
 
 ## Compact mode
