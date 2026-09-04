@@ -17,6 +17,7 @@
     "players:directory:markdown": "node scripts/generate-player-directory-markdown.js",
     "players:directory:validate": "node scripts/validate-player-directory.js",
     "leagues:examples": "node scripts/generate-league-examples.js",
+    "leagues:showcase": "node scripts/generate-league-showcase.js",
     "examples:generate": "node scripts/generate-examples.js",
     "smoke:demo": "node scripts/demo-smoke.js",
     "test": "jest",
