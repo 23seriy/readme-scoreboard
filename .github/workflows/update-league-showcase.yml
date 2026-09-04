@@ -1,0 +1,45 @@
+name: Update league showcase
+
+on:
+  schedule:
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: readme-maintenance
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run leagues:showcase
+      - name: Open update pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- examples/leagues; then
+            echo "League showcase is already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C automation/league-showcase
+          git add examples/leagues
+          git commit -m "docs: refresh league showcase from live data"
+          git push --force origin automation/league-showcase
+          gh pr create --base main --head automation/league-showcase \
+            --title "docs: refresh league showcase from live data" \
+            --body "Automated refresh of the per-league example gallery (examples/leagues) from live league APIs." \
+            || echo "An update PR may already be open."
