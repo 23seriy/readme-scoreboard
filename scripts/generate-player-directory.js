@@ -23,20 +23,40 @@ function resolveName(adapter, abbreviation, value) {
     || abbreviation;
 }
 
+// Ranking position and points come from each tour's live rankings endpoint
+// (the same one the board itself uses), fetched once per league rather than
+// once per player. A failed fetch (e.g. a temporary API outage) leaves rank
+// and points blank instead of failing the whole directory generation.
+async function fetchRatings(adapter) {
+  if (typeof adapter.fetchRankings !== "function") return new Map();
+  try {
+    const ranks = await adapter.fetchRankings();
+    return new Map(ranks.map((entry) => [String(entry.athlete?.id), entry]));
+  } catch (error) {
+    console.error(`Failed to fetch rankings: ${error.message}`);
+    return new Map();
+  }
+}
+
 async function generate() {
   const players = (await Promise.all(playerLeagues().map(async (league) => {
     const adapter = require(`../src/adapters/${league.key}`);
     const roster = adapter.PLAYER_IDS || {};
+    const ratingsById = await fetchRatings(adapter);
     return Object.entries(roster).map(([abbreviation, value]) => {
       const flag = adapter.TEAM_EMOJI?.[abbreviation] || "";
+      const id = typeof value === "object" ? value.id : value;
+      const rating = ratingsById.get(String(id));
       return {
         league: league.key,
         leagueName: league.name,
         abbreviation,
         name: resolveName(adapter, abbreviation, value),
-        id: typeof value === "object" ? value.id : value,
+        id,
         flag,
         country: countryForFlag(flag),
+        rank: rating?.current ?? null,
+        points: rating?.points ?? null,
       };
     });
   }))).flat().sort((a, b) =>

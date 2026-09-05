@@ -14,10 +14,14 @@ directory.players.forEach((player) => {
 const lines = ["# Player Directory", "", "Generated from the adapter registries. Use the abbreviation in the `team` input (with `entity: player`).", ""];
 for (const [group, players] of groups) {
   const [category, leagueName] = group.split("|");
-  lines.push(`## ${leagueName}`, "", `**${category}**`, "", "| Flag | Country | Player | Abbreviation | ID |", "|------|---------|--------|--------------|----|");
-  players.sort((a, b) => a.abbreviation.localeCompare(b.abbreviation)).forEach((player) => {
-    lines.push(`| ${player.flag || "—"} | ${player.country || "—"} | ${player.name || "—"} | \`${player.abbreviation}\` | ${player.id} |`);
-  });
+  lines.push(`## ${leagueName}`, "", `**${category}**`, "", "| Rank | Flag | Country | Player | Abbreviation | ID | Points |", "|------|------|---------|--------|--------------|----|--------|");
+  players
+    .sort((a, b) => (a.rank ?? Infinity) - (b.rank ?? Infinity) || a.abbreviation.localeCompare(b.abbreviation))
+    .forEach((player) => {
+      const rank = player.rank != null ? `#${player.rank}` : "—";
+      const points = player.points != null ? player.points.toLocaleString() : "—";
+      lines.push(`| ${rank} | ${player.flag || "—"} | ${player.country || "—"} | ${player.name || "—"} | \`${player.abbreviation}\` | ${player.id} | ${points} |`);
+    });
   lines.push("");
 }
 
