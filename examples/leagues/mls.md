@@ -21,7 +21,7 @@ Eastern Conference
 ```
 ❌ L 0-2 vs CLT   (Aug 29, 2026)
 ✅ W 2-1 vs SKC   (Aug 23, 2026)
-✅ W 2-1 @ MIN   (Aug 20, 2026)
+✅ W 2-1 @ MIN   (Aug 19, 2026)
 ✅ W 2-1 vs RBNY  (Aug 15, 2026)
 ❌ L 2-3 @ PHI   (Aug 1, 2026)
 ```
@@ -47,7 +47,7 @@ Eastern Conference
 ```
 ❌ L 0-2 vs CLT   (Aug 29, 2026)
 ✅ W 2-1 vs SKC   (Aug 23, 2026)
-✅ W 2-1 @ MIN   (Aug 20, 2026)
+✅ W 2-1 @ MIN   (Aug 19, 2026)
 ✅ W 2-1 vs RBNY  (Aug 15, 2026)
 ❌ L 2-3 @ PHI   (Aug 1, 2026)
 ```

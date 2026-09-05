@@ -20,11 +20,11 @@ American League · AL West
 
 **📅 Recent Games:**
 ```
-✅ W  7-4  @ SEA (Sep 3, 2026)
-✅ W  9-2  @ TEX (Sep 2, 2026)
-❌ L  5-8  @ TEX (Sep 1, 2026)
-❌ L  1-8  @ TEX (Aug 31, 2026)
-❌ L  5-8  vs BAL (Aug 30, 2026)
+✅ W  7-4  @ SEA (Sep 2, 2026)
+✅ W  9-2  @ TEX (Sep 1, 2026)
+❌ L  5-8  @ TEX (Aug 31, 2026)
+❌ L  1-8  @ TEX (Aug 30, 2026)
+❌ L  5-8  vs BAL (Aug 29, 2026)
 ```
 
 ## Custom title
@@ -47,11 +47,11 @@ American League · AL West
 
 **📅 Recent Games:**
 ```
-✅ W  7-4  @ SEA (Sep 3, 2026)
-✅ W  9-2  @ TEX (Sep 2, 2026)
-❌ L  5-8  @ TEX (Sep 1, 2026)
-❌ L  1-8  @ TEX (Aug 31, 2026)
-❌ L  5-8  vs BAL (Aug 30, 2026)
+✅ W  7-4  @ SEA (Sep 2, 2026)
+✅ W  9-2  @ TEX (Sep 1, 2026)
+❌ L  5-8  @ TEX (Aug 31, 2026)
+❌ L  1-8  @ TEX (Aug 30, 2026)
+❌ L  5-8  vs BAL (Aug 29, 2026)
 ```
 
 ## Compact mode

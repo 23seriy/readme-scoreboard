@@ -19,11 +19,11 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 
 **📅 Recent Games:**
 ```
-✅ W 2-0 vs PUE   (Aug 30, 2026)
-✅ W 2-1 @ JUA   (Aug 22, 2026)
+✅ W 2-0 vs PUE   (Aug 29, 2026)
+✅ W 2-1 @ JUA   (Aug 21, 2026)
 ✅ W 3-0 vs ASL   (Aug 16, 2026)
 ✅ W 3-0 vs SAN   (Aug 2, 2026)
-🟡 D 1-1 @ ATL   (Jul 25, 2026)
+🟡 D 1-1 @ ATL   (Jul 24, 2026)
 ```
 
 ## Custom title
@@ -45,11 +45,11 @@ The `title:` input replaces the default heading.
 
 **📅 Recent Games:**
 ```
-✅ W 2-0 vs PUE   (Aug 30, 2026)
-✅ W 2-1 @ JUA   (Aug 22, 2026)
+✅ W 2-0 vs PUE   (Aug 29, 2026)
+✅ W 2-1 @ JUA   (Aug 21, 2026)
 ✅ W 3-0 vs ASL   (Aug 16, 2026)
 ✅ W 3-0 vs SAN   (Aug 2, 2026)
-🟡 D 1-1 @ ATL   (Jul 25, 2026)
+🟡 D 1-1 @ ATL   (Jul 24, 2026)
 ```
 
 ## Compact mode

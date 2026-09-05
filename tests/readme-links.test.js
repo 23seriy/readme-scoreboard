@@ -100,10 +100,10 @@ describe("README navigation links", () => {
     expect(tocStart).toBeGreaterThanOrEqual(0);
     expect(tocEnd).toBeGreaterThan(tocStart);
     expect(toc).toContain("[Supported Sports](#supported-sports)");
-    expect(toc).toContain("[Team & Player Abbreviations](#team-player-abbreviations)");
+    expect(toc).toContain("[Team & Player Abbreviations](#team--player-abbreviations)");
     // With the per-league rosters now living in TEAM_DIRECTORY.md, the TOC no
     // longer lists every league — leagues remain discoverable via Supported Sports.
-    expect(toc).not.toMatch(/Team & Player Abbreviations\]\(#team-player-abbreviations\)\n\s+- \[/);
+    expect(toc).not.toMatch(/Team & Player Abbreviations\]\(#team--player-abbreviations\)\n\s+- \[/);
   });
 
   it("keeps README markdown links non-empty and well-formed", () => {
@@ -122,7 +122,7 @@ describe("README navigation links", () => {
       const text = (heading.includes("</picture>") ? heading.split("</picture>").pop() : heading)
         .replace(/&nbsp;/g, " ")
         .trim();
-      return text.toLowerCase().replace(/[^\p{L}\p{N} -]/gu, "").replace(/\s+/g, "-");
+      return text.toLowerCase().replace(/[^\p{L}\p{N} -]/gu, "").replace(/\s/g, "-");
     }));
     const internalLinks = [...readme.matchAll(/(?<!!)\[[^\]]+\]\((#[^)]+)\)/g)].map((match) => match[1].slice(1));
 
@@ -140,7 +140,7 @@ describe("README navigation links", () => {
       const text = (heading.includes("</picture>") ? heading.split("</picture>").pop() : heading)
         .replace(/&nbsp;/g, " ")
         .trim();
-      return text.toLowerCase().replace(/[^\p{L}\p{N} -]/gu, "").replace(/\s+/g, "-");
+      return text.toLowerCase().replace(/[^\p{L}\p{N} -]/gu, "").replace(/\s/g, "-");
     });
 
     expect(anchors.length).toBeGreaterThan(0);
@@ -150,7 +150,7 @@ describe("README navigation links", () => {
   });
 
   it("exposes a stable team-and-player-abbreviations section anchor", () => {
-    expect(readme).toContain("[Team & Player Abbreviations](#team-player-abbreviations)");
+    expect(readme).toContain("[Team & Player Abbreviations](#team--player-abbreviations)");
     expect(readme).toContain("## Team & Player Abbreviations");
   });
 });

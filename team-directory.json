@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-04T18:41:32.236Z",
+  "generatedAt": "2026-09-05T04:10:45.921Z",
   "teams": [
     {
       "league": "nba",
@@ -15079,6 +15079,83 @@
       "abbreviation": "YALE",
       "name": "Yale Bulldogs",
       "id": "43"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "SCS",
+      "name": "Alpine",
+      "id": "106922"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "ASTM",
+      "name": "Aston Martin",
+      "id": "123986"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "AUDI",
+      "name": "Audi",
+      "id": "132212"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "CAD",
+      "name": "Cadillac",
+      "id": "132211"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "JK",
+      "name": "Ferrari",
+      "id": "106842"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "JH",
+      "name": "Haas",
+      "id": "111427"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "DH",
+      "name": "McLaren",
+      "id": "106892"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "LP",
+      "name": "Mercedes",
+      "id": "106893"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "RB",
+      "name": "Racing Bulls",
+      "id": "123988"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "GL",
+      "name": "Red Bull",
+      "id": "106921"
+    },
+    {
+      "league": "f1",
+      "leagueName": "Formula 1",
+      "abbreviation": "RM",
+      "name": "Williams",
+      "id": "106967"
     },
     {
       "league": "argentina",

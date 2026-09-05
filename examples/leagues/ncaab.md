@@ -22,8 +22,8 @@ Big 12 Conference Conference
 ✅ W  79-74  vs HOU (Mar 14, 2026)
 ✅ W  82-80  vs ISU (Mar 13, 2026)
 ✅ W  81-59  vs UCF (Mar 12, 2026)
-✅ W  89-79  @ COLO (Mar 8, 2026)
-✅ W  73-57  vs ISU (Mar 3, 2026)
+✅ W  89-79  @ COLO (Mar 7, 2026)
+✅ W  73-57  vs ISU (Mar 2, 2026)
 ```
 
 ## Custom title
@@ -48,8 +48,8 @@ Big 12 Conference Conference
 ✅ W  79-74  vs HOU (Mar 14, 2026)
 ✅ W  82-80  vs ISU (Mar 13, 2026)
 ✅ W  81-59  vs UCF (Mar 12, 2026)
-✅ W  89-79  @ COLO (Mar 8, 2026)
-✅ W  73-57  vs ISU (Mar 3, 2026)
+✅ W  89-79  @ COLO (Mar 7, 2026)
+✅ W  73-57  vs ISU (Mar 2, 2026)
 ```
 
 ## Compact mode

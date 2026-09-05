@@ -2345,6 +2345,24 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Waterloo King Warrior | `WTLO` | 14194 |
 | Yale Bulldogs | `YALE` | 43 |
 
+## Formula 1
+
+**Racing**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| Aston Martin | `ASTM` | 123986 |
+| Audi | `AUDI` | 132212 |
+| Cadillac | `CAD` | 132211 |
+| McLaren | `DH` | 106892 |
+| Red Bull | `GL` | 106921 |
+| Haas | `JH` | 111427 |
+| Ferrari | `JK` | 106842 |
+| Mercedes | `LP` | 106893 |
+| Racing Bulls | `RB` | 123988 |
+| Williams | `RM` | 106967 |
+| Alpine | `SCS` | 106922 |
+
 ## Argentine Primera
 
 **Soccer**
