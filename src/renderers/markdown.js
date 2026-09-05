@@ -185,8 +185,8 @@ function formatGameResult(game, teamId) {
   return `${result === "W" ? "✅" : "❌"} ${result} ${String(teamScore).padStart(3)}-${String(oppScore).padEnd(3)} ${prefix} ${opponent.abbreviation.padEnd(3)} (${dateStr})${tag}`;
 }
 
-function renderNba(data, sport = "nba", title) {
-  const { team, recentGames, record, emoji, logoUrl } = data;
+function renderNba(data, sport = "nba", title, compact = false) {
+  const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
   lines.push(...headingLines(sport, title));
@@ -232,6 +232,26 @@ function renderNba(data, sport = "nba", title) {
     lines.push("```");
   } else {
     lines.push("📅 No recent games found");
+  }
+
+  if (spotlight) {
+    lines.push("");
+    if (compact) {
+      const { points, rebounds, assists } = spotlight.season;
+      lines.push(`${emoji} ${spotlight.name} · ${points.toFixed(1)} PPG · ${rebounds.toFixed(1)} RPG · ${assists.toFixed(1)} APG`);
+    } else {
+      lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+      const { points, rebounds, assists } = spotlight.season;
+      lines.push(`${points.toFixed(1)} PPG · ${rebounds.toFixed(1)} RPG · ${assists.toFixed(1)} APG`);
+      if (spotlight.lastGame) {
+        const { points: gp, rebounds: gr, assists: ga, minutes: gm } = spotlight.lastGame;
+        lines.push("");
+        lines.push("**📅 Last Game:**");
+        lines.push("```");
+        lines.push(`${gp} PTS · ${gr} REB · ${ga} AST · ${gm} MIN`);
+        lines.push("```");
+      }
+    }
   }
 
   return lines.join("\n");
@@ -545,17 +565,18 @@ function renderWta(data, title) {
 
 function render(sport, data, options = {}) {
   const title = options.title;
+  const compact = options.compact || false;
   switch (sport) {
     case "nba":
-      return renderNba(data, "nba", title);
+      return renderNba(data, "nba", title, compact);
     case "wnba":
-      return renderNba(data, "wnba", title);
+      return renderNba(data, "wnba", title, compact);
     case "gleague":
-      return renderNba(data, "gleague", title);
+      return renderNba(data, "gleague", title, compact);
     case "ncaab":
-      return renderNba(data, "ncaab", title);
+      return renderNba(data, "ncaab", title, compact);
     case "ncaaw":
-      return renderNba(data, "ncaaw", title);
+      return renderNba(data, "ncaaw", title, compact);
     case "mlb":
       return renderMlb(data, title);
     case "nfl":

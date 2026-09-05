@@ -17,6 +17,7 @@ const {
   MARKER: markerName,
   TITLE: title,
   BADGE: badgeMode,
+  PLAYER: playerName,
 } = process.env;
 
 const isDemo = process.argv.includes("--demo");
@@ -111,6 +112,8 @@ async function main() {
       targetRepo,
       adapter,
       supportedSports: Object.keys(LEAGUE_BY_KEY),
+      player: playerName,
+      teamsCount: teams.length,
     });
   } catch (error) {
     console.error(error.message);
@@ -125,7 +128,7 @@ async function main() {
   for (const team of teams) {
     let data;
     if (isDemo) {
-      data = adapter.getDemoData(team);
+      data = adapter.getDemoData(team, playerName);
       if (!data || !data.team) {
         console.error(`[DEMO] No demo data for ${sportName.toUpperCase()} ${entity} "${team}".`);
         process.exit(1);
@@ -137,6 +140,14 @@ async function main() {
         console.error(`Could not fetch ${entity} data for ${sportName.toUpperCase()} ${entity} "${team}". Check the abbreviation in the Supported Sports section, then try npm run doctor -- --demo.`);
         process.exit(1);
       }
+      if (playerName) {
+        try {
+          data.spotlight = await adapter.fetchPlayerSpotlight(team, playerName);
+        } catch (error) {
+          console.error(error.message);
+          process.exit(1);
+        }
+      }
     }
 
     const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
@@ -144,7 +155,7 @@ async function main() {
     const logoUrl = teamLogoUrl || LEAGUE_BY_KEY[sportName]?.logo?.light || "";
     const renderData = { ...data, emoji, logoUrl };
 
-    const rendered = render(sportName, renderData, { title });
+    const rendered = render(sportName, renderData, { title, compact: isCompact });
     blocks.push((isCompact ? compactMarkdown(rendered) : rendered).trimEnd());
   }
 

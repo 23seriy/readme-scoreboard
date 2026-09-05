@@ -2,6 +2,7 @@ const { get: httpGet } = require("../http");
 
 const ESPN_BASE = "https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba";
 const ESPN_BASE_V2 = "https://site.web.api.espn.com/apis/v2/sports/basketball/nba";
+const ESPN_ATHLETE_BASE = "https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes";
 const ESPN_HEADERS = {
   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
   "Accept": "application/json",
@@ -71,6 +72,79 @@ async function fetchTeamInfo(teamAbbr) {
     console.error(`Failed to fetch NBA team: ${error.message}`);
     return null;
   }
+}
+
+async function fetchTeamRoster(teamAbbr) {
+  const upper = teamAbbr.toUpperCase();
+  const espnId = ESPN_TEAM_IDS[upper];
+  if (!espnId) return [];
+  try {
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}/roster`, { headers: ESPN_HEADERS });
+    return (data.athletes || []).map((athlete) => ({ id: String(athlete.id), fullName: athlete.fullName }));
+  } catch (error) {
+    console.error(`Failed to fetch NBA roster: ${error.message}`);
+    return [];
+  }
+}
+
+function findPlayerOnRoster(roster, playerName) {
+  const target = playerName.trim().toLowerCase();
+  return roster.find((player) => player.fullName.toLowerCase() === target) || null;
+}
+
+function statByName(names, stats, name) {
+  const index = names.indexOf(name);
+  return index === -1 ? null : parseFloat(stats[index]);
+}
+
+async function fetchPlayerSeasonAverages(athleteId) {
+  try {
+    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/splits`, { headers: ESPN_HEADERS });
+    const names = data.names || [];
+    const stats = data.splitCategories?.[0]?.splits?.[0]?.stats || [];
+    const points = statByName(names, stats, "avgPoints");
+    const rebounds = statByName(names, stats, "avgRebounds");
+    const assists = statByName(names, stats, "avgAssists");
+    if (points == null || rebounds == null || assists == null) return null;
+    return { points, rebounds, assists };
+  } catch (error) {
+    console.error(`Failed to fetch NBA player season averages: ${error.message}`);
+    return null;
+  }
+}
+
+async function fetchPlayerLastGame(athleteId) {
+  try {
+    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/gamelog`, { headers: ESPN_HEADERS });
+    const names = data.names || [];
+    const events = data.seasonTypes?.[0]?.categories?.[0]?.events || [];
+    const latest = events[0];
+    if (!latest) return null;
+    const points = statByName(names, latest.stats, "points");
+    const rebounds = statByName(names, latest.stats, "totalRebounds");
+    const assists = statByName(names, latest.stats, "assists");
+    const minutes = statByName(names, latest.stats, "minutes");
+    if (points == null || rebounds == null || assists == null || minutes == null) return null;
+    return { points, rebounds, assists, minutes };
+  } catch (error) {
+    console.error(`Failed to fetch NBA player last game: ${error.message}`);
+    return null;
+  }
+}
+
+async function fetchPlayerSpotlight(teamAbbr, playerName) {
+  const roster = await fetchTeamRoster(teamAbbr);
+  const player = findPlayerOnRoster(roster, playerName);
+  if (!player) {
+    const names = roster.slice(0, 8).map((entry) => entry.fullName);
+    const suffix = roster.length > 8 ? ", ..." : "";
+    throw new Error(`Unknown player "${playerName}" on ${teamAbbr}. Try one of: ${names.join(", ")}${suffix}`);
+  }
+  const [season, lastGame] = await Promise.all([
+    fetchPlayerSeasonAverages(player.id),
+    fetchPlayerLastGame(player.id),
+  ]);
+  return { name: player.fullName, season: season || { points: 0, rebounds: 0, assists: 0 }, lastGame };
 }
 
 async function fetchStandings(teamAbbr) {
@@ -199,7 +273,7 @@ function parseNbaNextGame(events, espnAbbr) {
   return { date: upNext.date, opponent: oppComp.team?.abbreviation, isHome: teamComp.homeAway === "home" };
 }
 
-function getDemoData(teamAbbr) {
+function getDemoData(teamAbbr, playerName) {
   const abbr = teamAbbr.toUpperCase();
   const team = DEMO_TEAMS[abbr] || {
     id: 13, abbreviation: abbr, name: abbr,
@@ -222,6 +296,17 @@ function getDemoData(teamAbbr) {
       visitor_team_score: i % 2 === 0 ? oppScore : teamScore,
     };
   });
+  let spotlight;
+  if (abbr === "LAL" && playerName && playerName.trim().toLowerCase() === "luka dončić") {
+    spotlight = {
+      name: "Luka Dončić",
+      season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
+      lastGame: { points: 26, rebounds: 4, assists: 7, minutes: 34 },
+    };
+  } else if (playerName) {
+    console.log(`[DEMO] No demo spotlight for player "${playerName}" (demo data only covers Luka Dončić on LAL)`);
+  }
+
   return {
     team,
     recentGames: games,
@@ -229,6 +314,7 @@ function getDemoData(teamAbbr) {
     standing: { position: 3, label: team.conference },
     form: ["W", "W", "L", "W", "W"],
     nextGame: { date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), opponent: "DEN", isHome: true },
+    ...(spotlight ? { spotlight } : {}),
   };
 }
 
@@ -268,6 +354,11 @@ module.exports = {
   fetchData,
   getDemoData,
   getLogoUrl,
+  fetchTeamRoster,
+  findPlayerOnRoster,
+  fetchPlayerSeasonAverages,
+  fetchPlayerLastGame,
+  fetchPlayerSpotlight,
   TEAM_EMOJI,
   DEMO_TEAMS,
   TEAM_IDS,

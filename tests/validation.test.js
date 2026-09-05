@@ -31,4 +31,22 @@ describe("input validation", () => {
   it("rejects malformed target repositories", () => {
     expect(() => validateInputs({ ...base, targetRepo: "not-a-repository" })).toThrow(/owner\/repository format/);
   });
+
+  it("allows player: with sport: nba and a single team", () => {
+    expect(() => validateInputs({ ...base, player: "Luka Dončić", teamsCount: 1 })).not.toThrow();
+  });
+
+  it("rejects player: together with multiple teams", () => {
+    expect(() => validateInputs({ ...base, player: "Luka Dončić", teamsCount: 2 }))
+      .toThrow(/player: is not supported together with teams:/);
+  });
+
+  it("rejects player: for a sport other than nba", () => {
+    expect(() => validateInputs({ ...base, sport: "mlb", player: "Someone", teamsCount: 1 }))
+      .toThrow(/player: is not yet supported for sport "mlb"/);
+  });
+
+  it("allows omitting player: entirely", () => {
+    expect(() => validateInputs({ ...base, teamsCount: 1 })).not.toThrow();
+  });
 });

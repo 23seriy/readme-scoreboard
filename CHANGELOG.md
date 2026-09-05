@@ -10,6 +10,10 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **Player spotlight (NBA)**: a new `player:` input shows a specific player's season averages (points/rebounds/assists per game) and most recent game's box score alongside an NBA team board. NBA-only for now; other team sports are planned as follow-ups.
+
 ## [1.10.0] - 2026-09-05
 
 ### Added

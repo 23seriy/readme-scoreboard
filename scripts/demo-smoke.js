@@ -36,6 +36,25 @@ function runSmokeChecks() {
     }
   }
 
+  try {
+    const nbaAdapter = require("../src/adapters/nba");
+    const demo = nbaAdapter.getDemoData("LAL", "Luka Dončić");
+    const spotlight = demo?.spotlight;
+    const seasonOk = spotlight?.season
+      && typeof spotlight.season.points === "number"
+      && typeof spotlight.season.rebounds === "number"
+      && typeof spotlight.season.assists === "number";
+    const lastGameOk = spotlight?.lastGame === null || typeof spotlight?.lastGame === "object";
+
+    if (!spotlight || !spotlight.name || !seasonOk || !lastGameOk) {
+      throw new Error("nba getDemoData(\"LAL\", \"Luka Dončić\") did not return a well-formed spotlight");
+    }
+
+    console.log("✓ nba player spotlight (Luka Dončić)");
+  } catch (error) {
+    failures.push(`nba player spotlight: ${error.message}`);
+  }
+
   if (failures.length > 0) {
     throw new Error(`Demo smoke checks failed:\n- ${failures.join("\n- ")}`);
   }
