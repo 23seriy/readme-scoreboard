@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-05T09:19:12.140Z",
+  "generatedAt": "2026-09-05T12:53:42.429Z",
   "teams": [
     {
       "league": "nba",
@@ -15366,6 +15366,300 @@
       "abbreviation": "RIV",
       "name": "Independiente Rivadavia",
       "id": "9744"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "ADE",
+      "name": "Adelaide United",
+      "id": "5321"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "AFC",
+      "name": "Auckland FC",
+      "id": "22344"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "BRR",
+      "name": "Brisbane Roar",
+      "id": "5326"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "CCM",
+      "name": "Central Coast Mariners",
+      "id": "5325"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "MAC",
+      "name": "Macarthur FC",
+      "id": "19340"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "MCY",
+      "name": "Melbourne City FC",
+      "id": "11143"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "MVC",
+      "name": "Melbourne Victory",
+      "id": "5328"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "NEW",
+      "name": "Newcastle Jets",
+      "id": "5323"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "PER",
+      "name": "Perth Glory",
+      "id": "5322"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "SYD",
+      "name": "Sydney FC",
+      "id": "5327"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "WEL",
+      "name": "Wellington Phoenix FC",
+      "id": "8352"
+    },
+    {
+      "league": "aleague",
+      "leagueName": "A-League Men",
+      "abbreviation": "WSW",
+      "name": "Western Sydney Wanderers",
+      "id": "13696"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "BFC",
+      "name": "Bengaluru FC",
+      "id": "18851"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "CFC",
+      "name": "Chennaiyin FC",
+      "id": "18000"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "GOA",
+      "name": "FC Goa",
+      "id": "18003"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "ITKA",
+      "name": "Inter Kashi",
+      "id": "22069"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "JFC",
+      "name": "Jamshedpur FC",
+      "id": "18850"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "KER",
+      "name": "Kerala Blasters FC",
+      "id": "17997"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "MOH",
+      "name": "Mohammedan SC",
+      "id": "20842"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "MBSG",
+      "name": "Mohun Bagan Super Giant",
+      "id": "20774"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "MCFC",
+      "name": "Mumbai City FC",
+      "id": "18002"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "NEU",
+      "name": "NorthEast United FC",
+      "id": "18004"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "OFC",
+      "name": "Odisha FC",
+      "id": "17998"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "PFC",
+      "name": "Punjab FC",
+      "id": "18894"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "EBEN",
+      "name": "SC East Bengal",
+      "id": "8897"
+    },
+    {
+      "league": "isl",
+      "leagueName": "Indian Super League",
+      "abbreviation": "SCD",
+      "name": "Sporting Club Delhi",
+      "id": "131703"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "BG",
+      "name": "Beijing Guoan",
+      "id": "2052"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "CHE",
+      "name": "Chengdu Rongcheng",
+      "id": "21355"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "CHO",
+      "name": "Chongqing Tonglianglong",
+      "id": "131704"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "DYI",
+      "name": "Dalian Yingbo",
+      "id": "22537"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "HEN",
+      "name": "Henan",
+      "id": "8240"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "LIA",
+      "name": "Liaoning Tieren",
+      "id": "131705"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "QIN",
+      "name": "Qingdao Hainiu",
+      "id": "21910"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "QWC",
+      "name": "Qingdao West Coast",
+      "id": "22198"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "SHT",
+      "name": "Shandong Taishan",
+      "id": "7521"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "SIPG",
+      "name": "Shanghai Port",
+      "id": "15515"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "SHE",
+      "name": "Shanghai Shenhua",
+      "id": "977"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "SHX",
+      "name": "Shenzhen Xinpengcheng",
+      "id": "22199"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "TIG",
+      "name": "Tianjin Jinmen Tiger",
+      "id": "8239"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "WTT",
+      "name": "Wuhan Three Towns",
+      "id": "21506"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "YUN",
+      "name": "Yunnan Yukun",
+      "id": "22536"
+    },
+    {
+      "league": "csl",
+      "leagueName": "Chinese Super League",
+      "abbreviation": "ZHE",
+      "name": "Zhejiang Professional FC",
+      "id": "18203"
     }
   ]
 }

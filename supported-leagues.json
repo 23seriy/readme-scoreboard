@@ -932,6 +932,96 @@
         "2026-02-01",
         "2026-12-31"
       ]
+    },
+    {
+      "key": "aleague",
+      "name": "A-League Men",
+      "category": "Soccer",
+      "entity": "team",
+      "endpoint": "soccer/aus.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"
+      },
+      "seasonWindow": {
+        "start": [
+          7,
+          1
+        ],
+        "end": [
+          6,
+          30
+        ],
+        "nextLabel": "July"
+      },
+      "fallback": [
+        "2026-07-01",
+        "2027-07-01"
+      ]
+    },
+    {
+      "key": "isl",
+      "name": "Indian Super League",
+      "category": "Soccer",
+      "entity": "team",
+      "endpoint": "soccer/ind.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/ind.1/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/2334.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2334.png"
+      },
+      "seasonWindow": {
+        "start": [
+          9,
+          15
+        ],
+        "end": [
+          7,
+          1
+        ],
+        "nextLabel": "September"
+      },
+      "fallback": [
+        "2026-09-15",
+        "2027-07-01"
+      ]
+    },
+    {
+      "key": "csl",
+      "name": "Chinese Super League",
+      "category": "Soccer",
+      "entity": "team",
+      "endpoint": "soccer/chn.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"
+      },
+      "seasonWindow": {
+        "start": [
+          1,
+          1
+        ],
+        "end": [
+          12,
+          31
+        ],
+        "nextLabel": "January"
+      },
+      "fallback": [
+        "2026-01-01",
+        "2026-12-31"
+      ]
     }
   ]
 }

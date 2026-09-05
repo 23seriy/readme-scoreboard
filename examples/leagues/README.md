@@ -43,3 +43,6 @@ gallery** so the new league gets its own showcase file.
 - [ATP Tennis](atp.md) — Tennis
 - [WTA Tennis](wta.md) — Tennis
 - [Argentine Primera](argentina.md) — Soccer
+- [A-League Men](aleague.md) — Soccer
+- [Indian Super League](isl.md) — Soccer
+- [Chinese Super League](csl.md) — Soccer

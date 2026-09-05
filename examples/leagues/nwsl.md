@@ -19,10 +19,10 @@ NWSL Regular Season
 
 **📅 Recent Games:**
 ```
-❌ L 1-2 vs KC    (Sep 5, 2026)
+❌ L 1-2 vs KC    (Sep 4, 2026)
 ❌ L 0-1 @ WAS   (Aug 30, 2026)
 ✅ W 1-0 vs HOU   (Aug 23, 2026)
-❌ L 2-3 @ UTA   (Aug 15, 2026)
+❌ L 2-3 @ UTA   (Aug 14, 2026)
 🟡 D 0-0 @ CHI   (Aug 9, 2026)
 ```
 
@@ -45,10 +45,10 @@ NWSL Regular Season
 
 **📅 Recent Games:**
 ```
-❌ L 1-2 vs KC    (Sep 5, 2026)
+❌ L 1-2 vs KC    (Sep 4, 2026)
 ❌ L 0-1 @ WAS   (Aug 30, 2026)
 ✅ W 1-0 vs HOU   (Aug 23, 2026)
-❌ L 2-3 @ UTA   (Aug 15, 2026)
+❌ L 2-3 @ UTA   (Aug 14, 2026)
 🟡 D 0-0 @ CHI   (Aug 9, 2026)
 ```
 

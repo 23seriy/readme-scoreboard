@@ -12,6 +12,9 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Added
 
+- **Three new soccer leagues**: A-League Men (Australia), Indian Super League,
+  and Chinese Super League, all with live standings, schedules, and full
+  team rosters verified against ESPN's public API.
 - **NFL standings**: the NFL board now shows the team's conference **standing**
   and **next game**, matching the other team leagues. The adapter fetches the
   ESPN NFL standings endpoint for the conference rank and reads the next

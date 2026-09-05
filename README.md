@@ -19,11 +19,11 @@
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **31 leagues**. The [support manifest](supported-leagues.json),
+The project currently supports **34 leagues**. The [support manifest](supported-leagues.json),
 [team directory](TEAM_DIRECTORY.md), and [player directory](PLAYER_DIRECTORY.md) are generated
 from the same registry used by the action.
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, and **Argentine Primera** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, the **Argentine Primera**, the **A-League Men**, the **Indian Super League**, and the **Chinese Super League** with more sports coming soon
 
 ---
 
@@ -39,7 +39,7 @@ See rendered output from several sports and every input option without running
 anything. Open the [examples gallery](examples/) to preview real boards (NBA,
 MLB, NFL, NHL, Premier League, MLS, UEFA Champions League, College Football,
 Formula 1, ATP Tennis, and WTA Tennis) plus demos of the `title:`, `teams:` (multi-team),
-`compact:`, and `badge:` options. For every one of the 31 supported leagues,
+`compact:`, and `badge:` options. For every one of the 34 supported leagues,
 see the [league showcase](examples/leagues/) — one file per league, built
 from live data and refreshed daily, showing the default board plus the
 `title:`, `compact:`, and `badge:` options. Or browse the league's
@@ -385,6 +385,9 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | 🎾&nbsp;Tennis | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"><img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png" alt="ATP Tennis logo" height="20"></picture> ATP Tennis | 🟢 In progress · ends 2027-01-01 | [`tennis/atp`](https://site.api.espn.com/apis/site/v2/sports/tennis/atp/teams) |
 | 🎾&nbsp;Tennis | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"><img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png" alt="WTA Tennis logo" height="20"></picture> WTA Tennis | 🟢 In progress · ends 2027-01-01 | [`tennis/wta`](https://site.api.espn.com/apis/site/v2/sports/tennis/wta/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1.png" alt="Argentine Primera logo" height="20"></picture> Argentine Primera | 🟢 In progress · ends 2026-12-31 | [`soccer/arg.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/arg.1/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men logo" height="20"></picture> A-League Men | 🟢 In progress · ends 2027-07-01 | [`soccer/aus.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2334.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2334.png" alt="Indian Super League logo" height="20"></picture> Indian Super League | 🔴 Off-season · starts 2026-09-15 | [`soccer/ind.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/ind.1/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League logo" height="20"></picture> Chinese Super League | 🟢 In progress · ends 2026-12-31 | [`soccer/chn.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams) |
 <!-- supported-sports:end -->
 
 ---
