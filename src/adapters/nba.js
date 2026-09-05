@@ -125,7 +125,7 @@ async function fetchPlayerLastGame(athleteId) {
     const rebounds = statByName(names, latest.stats, "totalRebounds");
     const assists = statByName(names, latest.stats, "assists");
     const minutes = statByName(names, latest.stats, "minutes");
-    if (points == null) return null;
+    if (points == null || rebounds == null || assists == null || minutes == null) return null;
     return { points, rebounds, assists, minutes };
   } catch (error) {
     console.error(`Failed to fetch NBA player last game: ${error.message}`);
