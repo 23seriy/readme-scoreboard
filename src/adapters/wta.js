@@ -11,6 +11,7 @@ const ESPN_HEADERS = {
 
 // Player abbreviations → ESPN athlete ids (from the WTA rankings response).
 // Tennis is an individual sport, so a "team" is a single ranked player.
+// Roster is the top 30 WTA singles ranking as of the adapter's last refresh.
 const PLAYER_IDS = {
   SAB: { id: "3038", name: "Aryna Sabalenka", full_name: "Aryna Sabalenka" },
   RYB: { id: "3126", name: "Elena Rybakina", full_name: "Elena Rybakina" },
@@ -24,12 +25,33 @@ const PLAYER_IDS = {
   ANI: { id: "3221", name: "Amanda Anisimova", full_name: "Amanda Anisimova" },
   KOS: { id: "3382", name: "Marta Kostyuk", full_name: "Marta Kostyuk" },
   BEN: { id: "2183", name: "Belinda Bencic", full_name: "Belinda Bencic" },
+  OSA: { id: "2789", name: "Naomi Osaka", full_name: "Naomi Osaka" },
+  JOV: { id: "14311", name: "Iva Jovic", full_name: "Iva Jovic" },
+  MBO: { id: "11219", name: "Victoria Mboko", full_name: "Victoria Mboko" },
+  SHN: { id: "8017", name: "Diana Shnaider", full_name: "Diana Shnaider" },
+  CIR: { id: "1774", name: "Sorana Cirstea", full_name: "Sorana Cirstea" },
+  EAL: { id: "7759", name: "Alexandra Eala", full_name: "Alexandra Eala" },
+  ALE: { id: "3182", name: "Ekaterina Alexandrova", full_name: "Ekaterina Alexandrova" },
+  MER: { id: "2221", name: "Elise Mertens", full_name: "Elise Mertens" },
+  PAO: { id: "2615", name: "Jasmine Paolini", full_name: "Jasmine Paolini" },
+  CHW: { id: "3417", name: "Maja Chwalinska", full_name: "Maja Chwalinska" },
+  KAL: { id: "2977", name: "Anna Kalinskaya", full_name: "Anna Kalinskaya" },
+  KEY: { id: "1556", name: "Madison Keys", full_name: "Madison Keys" },
+  POT: { id: "2971", name: "Anastasia Potapova", full_name: "Anastasia Potapova" },
+  BOU: { id: "2392", name: "Marie Bouzkova", full_name: "Marie Bouzkova" },
+  NAV: { id: "3785", name: "Emma Navarro", full_name: "Emma Navarro" },
+  ALI: { id: "3380", name: "Ann Li", full_name: "Ann Li" },
+  KRE: { id: "2042", name: "Barbora Krejcikova", full_name: "Barbora Krejcikova" },
+  BEJ: { id: "7819", name: "Sara Bejlek", full_name: "Sara Bejlek" },
 };
 
 const PLAYER_EMOJI = {
   SAB: "🇧🇾", RYB: "🇰🇿", PEG: "🇺🇸", GAU: "🇺🇸", AND: "🇷🇺",
   NOS: "🇨🇿", MUC: "🇨🇿", SWI: "🇵🇱", SVI: "🇺🇦", ANI: "🇺🇸",
-  KOS: "🇺🇦", BEN: "🇨🇭",
+  KOS: "🇺🇦", BEN: "🇨🇭", OSA: "🇯🇵", JOV: "🇺🇸", MBO: "🇨🇦",
+  SHN: "🇷🇺", CIR: "🇷🇴", EAL: "🇵🇭", ALE: "🇷🇺", MER: "🇧🇪",
+  PAO: "🇮🇹", CHW: "🇵🇱", KAL: "🇷🇺", KEY: "🇺🇸", POT: "🇷🇺",
+  BOU: "🇨🇿", NAV: "🇺🇸", ALI: "🇺🇸", KRE: "🇨🇿", BEJ: "🇨🇿",
 };
 
 const DEMO_PLAYERS = {

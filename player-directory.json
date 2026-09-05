@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-05T04:36:58.204Z",
+  "generatedAt": "2026-09-05T04:52:11.021Z",
   "players": [
     {
       "league": "atp",
@@ -12,9 +12,44 @@
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
+      "abbreviation": "BUB",
+      "name": "Alexander Bublik",
+      "id": "2865"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "BUS",
+      "name": "Ignacio Buse",
+      "id": "11226"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "CER",
+      "name": "Francisco Cerundolo",
+      "id": "3700"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
       "abbreviation": "COB",
       "name": "Flavio Cobolli",
       "id": "7602"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "DAR",
+      "name": "Luciano Darderi",
+      "id": "7833"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "DAV",
+      "name": "Alejandro Davidovich Fokina",
+      "id": "3212"
     },
     {
       "league": "atp",
@@ -47,6 +82,13 @@
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
+      "abbreviation": "FON",
+      "name": "Joao Fonseca",
+      "id": "11745"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
       "abbreviation": "FRI",
       "name": "Taylor Fritz",
       "id": "2946"
@@ -54,9 +96,79 @@
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
+      "abbreviation": "JOD",
+      "name": "Rafael Jodar",
+      "id": "12657"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "LEH",
+      "name": "Jiri Lehecka",
+      "id": "3754"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "LTI",
+      "name": "Learner Tien",
+      "id": "10386"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
       "abbreviation": "MED",
       "name": "Daniil Medvedev",
       "id": "2383"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "MEN",
+      "name": "Jakub Mensik",
+      "id": "10319"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "MUS",
+      "name": "Lorenzo Musetti",
+      "id": "3764"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "NAK",
+      "name": "Brandon Nakashima",
+      "id": "3774"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "PAU",
+      "name": "Tommy Paul",
+      "id": "2964"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "RIN",
+      "name": "Arthur Rinderknech",
+      "id": "3511"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "RUB",
+      "name": "Andrey Rublev",
+      "id": "2642"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
+      "abbreviation": "RUU",
+      "name": "Casper Ruud",
+      "id": "2989"
     },
     {
       "league": "atp",
@@ -75,6 +187,13 @@
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
+      "abbreviation": "TAB",
+      "name": "Alejandro Tabilo",
+      "id": "2970"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
       "abbreviation": "TIA",
       "name": "Frances Tiafoe",
       "id": "2708"
@@ -82,9 +201,30 @@
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
+      "abbreviation": "VAC",
+      "name": "Valentin Vacherot",
+      "id": "9376"
+    },
+    {
+      "league": "atp",
+      "leagueName": "ATP Tennis",
       "abbreviation": "ZVE",
       "name": "Alexander Zverev",
       "id": "2375"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "ALE",
+      "name": "Ekaterina Alexandrova",
+      "id": "3182"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "ALI",
+      "name": "Ann Li",
+      "id": "3380"
     },
     {
       "league": "wta",
@@ -103,9 +243,44 @@
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
+      "abbreviation": "BEJ",
+      "name": "Sara Bejlek",
+      "id": "7819"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
       "abbreviation": "BEN",
       "name": "Belinda Bencic",
       "id": "2183"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "BOU",
+      "name": "Marie Bouzkova",
+      "id": "2392"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "CHW",
+      "name": "Maja Chwalinska",
+      "id": "3417"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "CIR",
+      "name": "Sorana Cirstea",
+      "id": "1774"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "EAL",
+      "name": "Alexandra Eala",
+      "id": "7759"
     },
     {
       "league": "wta",
@@ -117,9 +292,51 @@
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
+      "abbreviation": "JOV",
+      "name": "Iva Jovic",
+      "id": "14311"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "KAL",
+      "name": "Anna Kalinskaya",
+      "id": "2977"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "KEY",
+      "name": "Madison Keys",
+      "id": "1556"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
       "abbreviation": "KOS",
       "name": "Marta Kostyuk",
       "id": "3382"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "KRE",
+      "name": "Barbora Krejcikova",
+      "id": "2042"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "MBO",
+      "name": "Victoria Mboko",
+      "id": "11219"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "MER",
+      "name": "Elise Mertens",
+      "id": "2221"
     },
     {
       "league": "wta",
@@ -131,6 +348,13 @@
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
+      "abbreviation": "NAV",
+      "name": "Emma Navarro",
+      "id": "3785"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
       "abbreviation": "NOS",
       "name": "Linda Noskova",
       "id": "6970"
@@ -138,9 +362,30 @@
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
+      "abbreviation": "OSA",
+      "name": "Naomi Osaka",
+      "id": "2789"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "PAO",
+      "name": "Jasmine Paolini",
+      "id": "2615"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
       "abbreviation": "PEG",
       "name": "Jessica Pegula",
       "id": "2113"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "POT",
+      "name": "Anastasia Potapova",
+      "id": "2971"
     },
     {
       "league": "wta",
@@ -155,6 +400,13 @@
       "abbreviation": "SAB",
       "name": "Aryna Sabalenka",
       "id": "3038"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "SHN",
+      "name": "Diana Shnaider",
+      "id": "8017"
     },
     {
       "league": "wta",

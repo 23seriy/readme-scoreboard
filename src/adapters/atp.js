@@ -11,6 +11,7 @@ const ESPN_HEADERS = {
 
 // Player abbreviations → ESPN athlete ids (from the ATP rankings response).
 // Tennis is an individual sport, so a "team" is a single ranked player.
+// Roster is the top 30 ATP singles ranking as of the adapter's last refresh.
 const PLAYER_IDS = {
   SIN: { id: "3623", name: "Jannik Sinner", full_name: "Jannik Sinner" },
   ZVE: { id: "2375", name: "Alexander Zverev", full_name: "Alexander Zverev" },
@@ -24,12 +25,33 @@ const PLAYER_IDS = {
   FRI: { id: "2946", name: "Taylor Fritz", full_name: "Taylor Fritz" },
   FIL: { id: "10052", name: "Arthur Fils", full_name: "Arthur Fils" },
   TIA: { id: "2708", name: "Frances Tiafoe", full_name: "Frances Tiafoe" },
+  JOD: { id: "12657", name: "Rafael Jodar", full_name: "Rafael Jodar" },
+  MUS: { id: "3764", name: "Lorenzo Musetti", full_name: "Lorenzo Musetti" },
+  LTI: { id: "10386", name: "Learner Tien", full_name: "Learner Tien" },
+  BUB: { id: "2865", name: "Alexander Bublik", full_name: "Alexander Bublik" },
+  NAK: { id: "3774", name: "Brandon Nakashima", full_name: "Brandon Nakashima" },
+  MEN: { id: "10319", name: "Jakub Mensik", full_name: "Jakub Mensik" },
+  LEH: { id: "3754", name: "Jiri Lehecka", full_name: "Jiri Lehecka" },
+  RUU: { id: "2989", name: "Casper Ruud", full_name: "Casper Ruud" },
+  PAU: { id: "2964", name: "Tommy Paul", full_name: "Tommy Paul" },
+  DAR: { id: "7833", name: "Luciano Darderi", full_name: "Luciano Darderi" },
+  VAC: { id: "9376", name: "Valentin Vacherot", full_name: "Valentin Vacherot" },
+  RUB: { id: "2642", name: "Andrey Rublev", full_name: "Andrey Rublev" },
+  CER: { id: "3700", name: "Francisco Cerundolo", full_name: "Francisco Cerundolo" },
+  FON: { id: "11745", name: "Joao Fonseca", full_name: "Joao Fonseca" },
+  DAV: { id: "3212", name: "Alejandro Davidovich Fokina", full_name: "Alejandro Davidovich Fokina" },
+  TAB: { id: "2970", name: "Alejandro Tabilo", full_name: "Alejandro Tabilo" },
+  RIN: { id: "3511", name: "Arthur Rinderknech", full_name: "Arthur Rinderknech" },
+  BUS: { id: "11226", name: "Ignacio Buse", full_name: "Ignacio Buse" },
 };
 
 const PLAYER_EMOJI = {
   SIN: "🇮🇹", ZVE: "🇩🇪", ALC: "🇪🇸", FAA: "🇨🇦", DJO: "🇷🇸",
   COB: "🇮🇹", DEM: "🇦🇺", MED: "🇷🇺", SHE: "🇺🇸", FRI: "🇺🇸",
-  FIL: "🇫🇷", TIA: "🇺🇸",
+  FIL: "🇫🇷", TIA: "🇺🇸", JOD: "🇪🇸", MUS: "🇮🇹", LTI: "🇺🇸",
+  BUB: "🇰🇿", NAK: "🇺🇸", MEN: "🇨🇿", LEH: "🇨🇿", RUU: "🇳🇴",
+  PAU: "🇺🇸", DAR: "🇮🇹", VAC: "🇲🇨", RUB: "🇷🇺", CER: "🇦🇷",
+  FON: "🇧🇷", DAV: "🇪🇸", TAB: "🇨🇱", RIN: "🇫🇷", BUS: "🇵🇪",
 };
 
 const DEMO_PLAYERS = {

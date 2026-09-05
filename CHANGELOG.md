@@ -24,7 +24,8 @@ that would alter what appears in your README or require editing your workflow.
   live data changes the output.
 - **WTA Tennis**: added as a new individual-athlete league (`sport: wta`),
   mirroring the existing ATP Tennis board — world ranking, ranking points,
-  movement, and the player's most recent match result.
+  movement, and the player's most recent match result. Both the ATP and WTA
+  rosters cover the top 30 singles ranking, each with a country flag emoji.
 
 ### Fixed
 
