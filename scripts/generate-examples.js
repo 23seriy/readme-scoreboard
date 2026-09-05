@@ -19,6 +19,7 @@ const EXAMPLES = [
   { key: "ncaaf", team: "ALA", note: "A college football board." },
   { key: "f1", team: "LP", entity: "player", note: "A Formula 1 constructor board (entity: player)." },
   { key: "atp", team: "SIN", entity: "player", note: "A tennis board tracking an individual player (entity: player) — world ranking and last match." },
+  { key: "wta", team: "SAB", entity: "player", note: "A women's tennis board tracking an individual player (entity: player) — world ranking and last match." },
 ];
 
 function compactMarkdown(content) {

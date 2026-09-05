@@ -1,7 +1,7 @@
 const { get: httpGet } = require("../http");
 
-const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/tennis/atp";
-const ESPN_CORE_BASE = "https://sports.core.api.espn.com/v2/sports/tennis/leagues/atp";
+const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/tennis/wta";
+const ESPN_CORE_BASE = "https://sports.core.api.espn.com/v2/sports/tennis/leagues/wta";
 const ESPN_HEADERS = {
   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
   "Accept": "application/json",
@@ -9,55 +9,55 @@ const ESPN_HEADERS = {
   "Referer": "https://www.espn.com/",
 };
 
-// Player abbreviations → ESPN athlete ids (from the ATP rankings response).
+// Player abbreviations → ESPN athlete ids (from the WTA rankings response).
 // Tennis is an individual sport, so a "team" is a single ranked player.
-// Roster is the top 30 ATP singles ranking as of the adapter's last refresh.
+// Roster is the top 30 WTA singles ranking as of the adapter's last refresh.
 const PLAYER_IDS = {
-  SIN: { id: "3623", name: "Jannik Sinner", full_name: "Jannik Sinner" },
-  ZVE: { id: "2375", name: "Alexander Zverev", full_name: "Alexander Zverev" },
-  ALC: { id: "3782", name: "Carlos Alcaraz", full_name: "Carlos Alcaraz" },
-  FAA: { id: "3209", name: "Felix Auger-Aliassime", full_name: "Felix Auger-Aliassime" },
-  DJO: { id: "296", name: "Novak Djokovic", full_name: "Novak Djokovic" },
-  COB: { id: "7602", name: "Flavio Cobolli", full_name: "Flavio Cobolli" },
-  DEM: { id: "2651", name: "Alex de Minaur", full_name: "Alex de Minaur" },
-  MED: { id: "2383", name: "Daniil Medvedev", full_name: "Daniil Medvedev" },
-  SHE: { id: "9250", name: "Ben Shelton", full_name: "Ben Shelton" },
-  FRI: { id: "2946", name: "Taylor Fritz", full_name: "Taylor Fritz" },
-  FIL: { id: "10052", name: "Arthur Fils", full_name: "Arthur Fils" },
-  TIA: { id: "2708", name: "Frances Tiafoe", full_name: "Frances Tiafoe" },
-  JOD: { id: "12657", name: "Rafael Jodar", full_name: "Rafael Jodar" },
-  MUS: { id: "3764", name: "Lorenzo Musetti", full_name: "Lorenzo Musetti" },
-  LTI: { id: "10386", name: "Learner Tien", full_name: "Learner Tien" },
-  BUB: { id: "2865", name: "Alexander Bublik", full_name: "Alexander Bublik" },
-  NAK: { id: "3774", name: "Brandon Nakashima", full_name: "Brandon Nakashima" },
-  MEN: { id: "10319", name: "Jakub Mensik", full_name: "Jakub Mensik" },
-  LEH: { id: "3754", name: "Jiri Lehecka", full_name: "Jiri Lehecka" },
-  RUU: { id: "2989", name: "Casper Ruud", full_name: "Casper Ruud" },
-  PAU: { id: "2964", name: "Tommy Paul", full_name: "Tommy Paul" },
-  DAR: { id: "7833", name: "Luciano Darderi", full_name: "Luciano Darderi" },
-  VAC: { id: "9376", name: "Valentin Vacherot", full_name: "Valentin Vacherot" },
-  RUB: { id: "2642", name: "Andrey Rublev", full_name: "Andrey Rublev" },
-  CER: { id: "3700", name: "Francisco Cerundolo", full_name: "Francisco Cerundolo" },
-  FON: { id: "11745", name: "Joao Fonseca", full_name: "Joao Fonseca" },
-  DAV: { id: "3212", name: "Alejandro Davidovich Fokina", full_name: "Alejandro Davidovich Fokina" },
-  TAB: { id: "2970", name: "Alejandro Tabilo", full_name: "Alejandro Tabilo" },
-  RIN: { id: "3511", name: "Arthur Rinderknech", full_name: "Arthur Rinderknech" },
-  BUS: { id: "11226", name: "Ignacio Buse", full_name: "Ignacio Buse" },
+  SAB: { id: "3038", name: "Aryna Sabalenka", full_name: "Aryna Sabalenka" },
+  RYB: { id: "3126", name: "Elena Rybakina", full_name: "Elena Rybakina" },
+  PEG: { id: "2113", name: "Jessica Pegula", full_name: "Jessica Pegula" },
+  GAU: { id: "3626", name: "Coco Gauff", full_name: "Coco Gauff" },
+  AND: { id: "9820", name: "Mirra Andreeva", full_name: "Mirra Andreeva" },
+  NOS: { id: "6970", name: "Linda Noskova", full_name: "Linda Noskova" },
+  MUC: { id: "3039", name: "Karolina Muchova", full_name: "Karolina Muchova" },
+  SWI: { id: "3730", name: "Iga Swiatek", full_name: "Iga Swiatek" },
+  SVI: { id: "1797", name: "Elina Svitolina", full_name: "Elina Svitolina" },
+  ANI: { id: "3221", name: "Amanda Anisimova", full_name: "Amanda Anisimova" },
+  KOS: { id: "3382", name: "Marta Kostyuk", full_name: "Marta Kostyuk" },
+  BEN: { id: "2183", name: "Belinda Bencic", full_name: "Belinda Bencic" },
+  OSA: { id: "2789", name: "Naomi Osaka", full_name: "Naomi Osaka" },
+  JOV: { id: "14311", name: "Iva Jovic", full_name: "Iva Jovic" },
+  MBO: { id: "11219", name: "Victoria Mboko", full_name: "Victoria Mboko" },
+  SHN: { id: "8017", name: "Diana Shnaider", full_name: "Diana Shnaider" },
+  CIR: { id: "1774", name: "Sorana Cirstea", full_name: "Sorana Cirstea" },
+  EAL: { id: "7759", name: "Alexandra Eala", full_name: "Alexandra Eala" },
+  ALE: { id: "3182", name: "Ekaterina Alexandrova", full_name: "Ekaterina Alexandrova" },
+  MER: { id: "2221", name: "Elise Mertens", full_name: "Elise Mertens" },
+  PAO: { id: "2615", name: "Jasmine Paolini", full_name: "Jasmine Paolini" },
+  CHW: { id: "3417", name: "Maja Chwalinska", full_name: "Maja Chwalinska" },
+  KAL: { id: "2977", name: "Anna Kalinskaya", full_name: "Anna Kalinskaya" },
+  KEY: { id: "1556", name: "Madison Keys", full_name: "Madison Keys" },
+  POT: { id: "2971", name: "Anastasia Potapova", full_name: "Anastasia Potapova" },
+  BOU: { id: "2392", name: "Marie Bouzkova", full_name: "Marie Bouzkova" },
+  NAV: { id: "3785", name: "Emma Navarro", full_name: "Emma Navarro" },
+  ALI: { id: "3380", name: "Ann Li", full_name: "Ann Li" },
+  KRE: { id: "2042", name: "Barbora Krejcikova", full_name: "Barbora Krejcikova" },
+  BEJ: { id: "7819", name: "Sara Bejlek", full_name: "Sara Bejlek" },
 };
 
 const PLAYER_EMOJI = {
-  SIN: "🇮🇹", ZVE: "🇩🇪", ALC: "🇪🇸", FAA: "🇨🇦", DJO: "🇷🇸",
-  COB: "🇮🇹", DEM: "🇦🇺", MED: "🇷🇺", SHE: "🇺🇸", FRI: "🇺🇸",
-  FIL: "🇫🇷", TIA: "🇺🇸", JOD: "🇪🇸", MUS: "🇮🇹", LTI: "🇺🇸",
-  BUB: "🇰🇿", NAK: "🇺🇸", MEN: "🇨🇿", LEH: "🇨🇿", RUU: "🇳🇴",
-  PAU: "🇺🇸", DAR: "🇮🇹", VAC: "🇲🇨", RUB: "🇷🇺", CER: "🇦🇷",
-  FON: "🇧🇷", DAV: "🇪🇸", TAB: "🇨🇱", RIN: "🇫🇷", BUS: "🇵🇪",
+  SAB: "🇧🇾", RYB: "🇰🇿", PEG: "🇺🇸", GAU: "🇺🇸", AND: "🇷🇺",
+  NOS: "🇨🇿", MUC: "🇨🇿", SWI: "🇵🇱", SVI: "🇺🇦", ANI: "🇺🇸",
+  KOS: "🇺🇦", BEN: "🇨🇭", OSA: "🇯🇵", JOV: "🇺🇸", MBO: "🇨🇦",
+  SHN: "🇷🇺", CIR: "🇷🇴", EAL: "🇵🇭", ALE: "🇷🇺", MER: "🇧🇪",
+  PAO: "🇮🇹", CHW: "🇵🇱", KAL: "🇷🇺", KEY: "🇺🇸", POT: "🇷🇺",
+  BOU: "🇨🇿", NAV: "🇺🇸", ALI: "🇺🇸", KRE: "🇨🇿", BEJ: "🇨🇿",
 };
 
 const DEMO_PLAYERS = {
-  SIN: { id: "3623", abbreviation: "SIN", name: "Jannik Sinner", full_name: "Jannik Sinner", conference: "ATP", division: "", rank: 1, points: 12800 },
-  ALC: { id: "3782", abbreviation: "ALC", name: "Carlos Alcaraz", full_name: "Carlos Alcaraz", conference: "ATP", division: "", rank: 3, points: 7160 },
-  ZVE: { id: "2375", abbreviation: "ZVE", name: "Alexander Zverev", full_name: "Alexander Zverev", conference: "ATP", division: "", rank: 2, points: 7790 },
+  SAB: { id: "3038", abbreviation: "SAB", name: "Aryna Sabalenka", full_name: "Aryna Sabalenka", conference: "WTA", division: "", rank: 1, points: 8575 },
+  RYB: { id: "3126", abbreviation: "RYB", name: "Elena Rybakina", full_name: "Elena Rybakina", conference: "WTA", division: "", rank: 2, points: 8141 },
+  GAU: { id: "3626", abbreviation: "GAU", name: "Coco Gauff", full_name: "Coco Gauff", conference: "WTA", division: "", rank: 4, points: 6704 },
 };
 
 const DATA_SOURCE = "ESPN public API";
@@ -66,7 +66,7 @@ function getSeasonYear() {
   return new Date().getFullYear();
 }
 
-// ATP has no per-team logo on ESPN's CDN, so fall back to the tennis icon used
+// WTA has no per-team logo on ESPN's CDN, so fall back to the tennis icon used
 // by the ATP league itself.
 function getLogoUrl() {
   return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png";
@@ -155,13 +155,13 @@ async function fetchData(abbr) {
         abbreviation: upper,
         name: rank.name,
         full_name: rank.name,
-        conference: "ATP",
+        conference: "WTA",
         division: "",
       },
       record: { wins: 0, losses: 0, points: rank.points, season: getSeasonYear() },
       recentGames: [],
       standing: rank.position
-        ? { position: rank.position, label: "ATP" }
+        ? { position: rank.position, label: "WTA" }
         : null,
       rankPoints: rank.points,
       previousRank: rank.previous,
@@ -169,7 +169,7 @@ async function fetchData(abbr) {
       lastMatch,
     };
   } catch (error) {
-    console.error(`Failed to fetch ATP ranking: ${error.message}`);
+    console.error(`Failed to fetch WTA ranking: ${error.message}`);
     return null;
   }
 }
@@ -178,20 +178,20 @@ function getDemoData(abbr) {
   const upper = (abbr || "").toUpperCase();
   const player = DEMO_PLAYERS[upper];
   if (!player) return null;
-  const { rank = 1, points = 12800 } = player;
+  const { rank = 1, points = 8575 } = player;
   return {
     team: player,
     record: { wins: 0, losses: 0, points, season: getSeasonYear() },
     recentGames: [],
-    standing: { position: rank, label: "ATP" },
+    standing: { position: rank, label: "WTA" },
     rankPoints: points,
     previousRank: rank,
     trend: "-",
     lastMatch: {
-      opponent: "Alexander Zverev",
+      opponent: "Elena Rybakina",
       won: true,
-      date: "2026-07-12T15:05:00Z",
-      sets: [[6, 7, 6, 6], [7, 6, 3, 4]],
+      date: "2026-08-30T15:05:00Z",
+      sets: [[6, 4, 6], [3, 6, 2]],
     },
   };
 }

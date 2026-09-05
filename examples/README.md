@@ -66,6 +66,12 @@ A tennis board tracking an individual player (entity: player) — world ranking 
 
 [View rendered output →](atp-sin.md)
 
+### WTA — SAB (player)
+
+A women's tennis board tracking an individual player (entity: player) — world ranking and last match.
+
+[View rendered output →](wta-sab.md)
+
 ## Custom title
 
 The `title:` input replaces the default `My Favourite <League> Team` heading.

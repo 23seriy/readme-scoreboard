@@ -22,6 +22,22 @@ that would alter what appears in your README or require editing your workflow.
   `npm run leagues:showcase` to regenerate it; a new daily workflow
   (`update-league-showcase.yml`) does this automatically and opens a PR when
   live data changes the output.
+- **WTA Tennis**: added as a new individual-athlete league (`sport: wta`),
+  mirroring the existing ATP Tennis board — world ranking, ranking points,
+  movement, and the player's most recent match result. Both the ATP and WTA
+  rosters cover the top 30 singles ranking, each with a country flag emoji.
+
+### Fixed
+
+- **F1 entity classification**: Formula 1 tracks constructors (Ferrari,
+  Mercedes, Red Bull, ...), not individual drivers, so it was incorrectly
+  tagged as an individual-athlete league. It's now classified as a team
+  sport and listed in the team directory instead of the player directory.
+- **Team directory leak**: individual-athlete leagues (ATP, WTA) no longer
+  appear in `team-directory.json` / `TEAM_DIRECTORY.md` — their rosters live
+  solely in `player-directory.json` / `PLAYER_DIRECTORY.md`.
+- **Broken README anchors**: the "Team & Player Abbreviations" table-of-contents
+  link and the profile-example link now point at the correct sections.
 
 ## [1.9.3] - 2026-09-02
 

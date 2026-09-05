@@ -1072,6 +1072,58 @@ describe("renderAtp", () => {
   });
 });
 
+describe("renderWta", () => {
+  const BASE_WTA_DATA = {
+    team: { id: "3038", abbreviation: "SAB", full_name: "Aryna Sabalenka", conference: "WTA", division: "" },
+    emoji: "🇧🇾",
+    logoUrl: "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png",
+    standing: { position: 1, label: "WTA" },
+    rankPoints: 8575,
+    previousRank: 1,
+    trend: "-",
+    lastMatch: {
+      opponent: "Elena Rybakina",
+      won: true,
+      date: "2026-08-30T15:05:00Z",
+      sets: [[6, 4, 6], [3, 6, 2]],
+    },
+  };
+
+  it("renders the player heading with the Player entity label", () => {
+    const output = render("wta", BASE_WTA_DATA);
+    expect(output).toContain("My Favourite WTA Tennis Player");
+    expect(output).toContain("Aryna Sabalenka (SAB)");
+  });
+
+  it("groups ranking, points, and movement onto one meta line", () => {
+    const output = render("wta", BASE_WTA_DATA);
+    expect(output).toContain("🏆 World No. 1");
+    expect(output).toContain("📍 8,575 ranking points");
+    expect(output).toContain("📈 Movement");
+    expect(output).toMatch(/🏆 World No\. 1 · 📍 8,575 ranking points · 📈 Movement/);
+  });
+
+  it("renders the last match on its own labeled fenced block", () => {
+    const output = render("wta", BASE_WTA_DATA);
+    expect(output).toContain("**📅 Last Match:**");
+    expect(output).toContain("✅ W vs Elena Rybakina");
+    expect(output).toContain("6-3, 4-6, 6-2");
+    expect(output).toMatch(/\*\*📅 Last Match:\*\*\n```\n✅ W vs Elena Rybakina .*```/s);
+  });
+
+  it("omits the last-match block when there is no match", () => {
+    const output = render("wta", { ...BASE_WTA_DATA, lastMatch: null });
+    expect(output).not.toContain("Last Match");
+  });
+
+  it("omits ranking meta when no standing is present", () => {
+    const output = render("wta", { ...BASE_WTA_DATA, standing: null, rankPoints: undefined, previousRank: undefined });
+    expect(output).not.toContain("🏆");
+    expect(output).not.toContain("ranking points");
+    expect(output).not.toContain("Movement");
+  });
+});
+
 describe("renderNfl", () => {
   const BASE_NFL_DATA = {
     team: { abbreviation: "KC", full_name: "Kansas City Chiefs", conference: "AFC", division: "AFC West" },
