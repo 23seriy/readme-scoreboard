@@ -133,6 +133,21 @@ async function fetchPlayerLastGame(athleteId) {
   }
 }
 
+async function fetchPlayerSpotlight(teamAbbr, playerName) {
+  const roster = await fetchTeamRoster(teamAbbr);
+  const player = findPlayerOnRoster(roster, playerName);
+  if (!player) {
+    const names = roster.slice(0, 8).map((entry) => entry.fullName);
+    const suffix = roster.length > 8 ? ", ..." : "";
+    throw new Error(`Unknown player "${playerName}" on ${teamAbbr}. Try one of: ${names.join(", ")}${suffix}`);
+  }
+  const [season, lastGame] = await Promise.all([
+    fetchPlayerSeasonAverages(player.id),
+    fetchPlayerLastGame(player.id),
+  ]);
+  return { name: player.fullName, season: season || { points: 0, rebounds: 0, assists: 0 }, lastGame };
+}
+
 async function fetchStandings(teamAbbr) {
   try {
     const upper = teamAbbr.toUpperCase();
@@ -259,7 +274,7 @@ function parseNbaNextGame(events, espnAbbr) {
   return { date: upNext.date, opponent: oppComp.team?.abbreviation, isHome: teamComp.homeAway === "home" };
 }
 
-function getDemoData(teamAbbr) {
+function getDemoData(teamAbbr, playerName) {
   const abbr = teamAbbr.toUpperCase();
   const team = DEMO_TEAMS[abbr] || {
     id: 13, abbreviation: abbr, name: abbr,
@@ -282,6 +297,14 @@ function getDemoData(teamAbbr) {
       visitor_team_score: i % 2 === 0 ? oppScore : teamScore,
     };
   });
+  const spotlight = (abbr === "LAL" && playerName && playerName.trim().toLowerCase() === "luka dončić")
+    ? {
+        name: "Luka Dončić",
+        season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
+        lastGame: { points: 26, rebounds: 4, assists: 7, minutes: 34 },
+      }
+    : undefined;
+
   return {
     team,
     recentGames: games,
@@ -289,6 +312,7 @@ function getDemoData(teamAbbr) {
     standing: { position: 3, label: team.conference },
     form: ["W", "W", "L", "W", "W"],
     nextGame: { date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), opponent: "DEN", isHome: true },
+    ...(spotlight ? { spotlight } : {}),
   };
 }
 
@@ -332,6 +356,7 @@ module.exports = {
   findPlayerOnRoster,
   fetchPlayerSeasonAverages,
   fetchPlayerLastGame,
+  fetchPlayerSpotlight,
   TEAM_EMOJI,
   DEMO_TEAMS,
   TEAM_IDS,

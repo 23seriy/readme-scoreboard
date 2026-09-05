@@ -127,3 +127,53 @@ describe("NbaAdapter — fetchPlayerLastGame", () => {
     expect(result).toBeNull();
   });
 });
+
+describe("NbaAdapter — fetchPlayerSpotlight", () => {
+  it("returns the player's name, season averages, and last game", async () => {
+    axios.get
+      .mockResolvedValueOnce(makeRosterResponse([{ id: "3945274", fullName: "Luka Dončić" }]))
+      .mockResolvedValueOnce(makeSplitsResponse(
+        ["avgPoints", "avgRebounds", "avgAssists"],
+        ["33.5", "7.7", "8.3"],
+      ))
+      .mockResolvedValueOnce(makeGamelogResponse(
+        ["points", "totalRebounds", "assists", "minutes"],
+        ["12", "4", "7", "26"],
+      ));
+
+    const result = await adapter.fetchPlayerSpotlight("LAL", "Luka Dončić");
+    expect(result.name).toBe("Luka Dončić");
+    expect(result.season).toEqual({ points: 33.5, rebounds: 7.7, assists: 8.3 });
+    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26 });
+  });
+
+  it("throws a descriptive error when the player isn't on the roster", async () => {
+    axios.get.mockResolvedValueOnce(makeRosterResponse([
+      { id: "1", fullName: "Austin Reaves" },
+      { id: "2", fullName: "Rui Hachimura" },
+    ]));
+
+    await expect(adapter.fetchPlayerSpotlight("LAL", "Nonexistent Player"))
+      .rejects.toThrow(/Unknown player "Nonexistent Player" on LAL/);
+  });
+});
+
+describe("NbaAdapter — getDemoData with a player", () => {
+  it("includes a spotlight for the demo player on LAL", () => {
+    const demo = adapter.getDemoData("LAL", "Luka Dončić");
+    expect(demo.spotlight).toBeTruthy();
+    expect(demo.spotlight.name).toBe("Luka Dončić");
+    expect(demo.spotlight.season.points).toBeGreaterThan(0);
+    expect(demo.spotlight.lastGame.points).toBeGreaterThan(0);
+  });
+
+  it("omits spotlight when no player is given", () => {
+    const demo = adapter.getDemoData("LAL");
+    expect(demo.spotlight).toBeUndefined();
+  });
+
+  it("omits spotlight for a player name that isn't the demo player", () => {
+    const demo = adapter.getDemoData("LAL", "Someone Else");
+    expect(demo.spotlight).toBeUndefined();
+  });
+});
