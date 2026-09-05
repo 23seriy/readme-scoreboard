@@ -5,8 +5,9 @@
 ### 🐘 Alabama Crimson Tide (ALA)
 SEC · 
 🟢 Season in progress
+
 🏅 Standing: NCAA - Football · 1
-📅 Next: vs OPP (Sep 3)
+📅 Next: vs OPP (Sep 8)
 
 📊 2026 Season: 18W - 6L (75.0%)
    ██████████████████▊░░░░░░

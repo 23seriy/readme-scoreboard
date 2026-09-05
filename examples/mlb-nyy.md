@@ -5,14 +5,15 @@
 ### ⚾ New York Yankees (NYY)
 American League · AL East
 🟢 Season in progress
+
 🏅 Standing: AL East · 4
-📅 Next: vs OPP (Sep 2)
+📅 Next: vs OPP (Sep 7)
 
 📊 2026 Record: 42W - 28L (60.0%)
    ███████████████░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L  2-3  @ OPP (Aug 30, 2026)
-✅ W  4-1  vs OPP (Aug 28, 2026)
+❌ L  2-3  @ OPP (Sep 4, 2026)
+✅ W  4-1  vs OPP (Sep 2, 2026)
 ```

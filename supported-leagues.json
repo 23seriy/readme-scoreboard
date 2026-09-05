@@ -817,7 +817,7 @@
       "key": "f1",
       "name": "Formula 1",
       "category": "Racing",
-      "entity": "player",
+      "entity": "team",
       "endpoint": "racing/f1",
       "apiSource": "ESPN public API",
       "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/racing/f1/teams",

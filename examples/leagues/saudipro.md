@@ -12,13 +12,14 @@ Team: **ABH** · Category: Soccer · Data source: ESPN public API
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing: Saudi Pro League · 17
+🏅 Standing: Saudi Pro League · 18
 
-📊 2026 Record: 0W - 3L - 1D  (1 pts)
-   ███▏░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 4L - 1D  (1 pts)
+   ██▌░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-1 vs ETT   (Sep 4, 2026)
 ❌ L 2-3 @ FAY   (Aug 28, 2026)
 🟡 D 1-1 vs KHA   (Aug 25, 2026)
 ❌ L 0-4 @ AHL   (Aug 22, 2026)
@@ -37,13 +38,14 @@ The `title:` input replaces the default heading.
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing: Saudi Pro League · 17
+🏅 Standing: Saudi Pro League · 18
 
-📊 2026 Record: 0W - 3L - 1D  (1 pts)
-   ███▏░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 4L - 1D  (1 pts)
+   ██▌░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-1 vs ETT   (Sep 4, 2026)
 ❌ L 2-3 @ FAY   (Aug 28, 2026)
 🟡 D 1-1 vs KHA   (Aug 25, 2026)
 ❌ L 0-4 @ AHL   (Aug 22, 2026)
@@ -61,10 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing: Saudi Pro League · 17
+🏅 Standing: Saudi Pro League · 18
 
-📊 2026 Record: 0W - 3L - 1D  (1 pts)
-   ███▏░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 4L - 1D  (1 pts)
+   ██▌░░░░░░░░░░░░░░░░░░░░░░
 
 
 

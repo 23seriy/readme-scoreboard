@@ -29,7 +29,7 @@ Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier Le
 
 ## See it in action
 
-See a live example in the [23seriy profile README](https://github.com/23seriy/23seriy). The action keeps the scoreboard current automatically, including the league logo, team logo, record, recent games, and season status.
+See a live example in the [23seriy profile README](https://github.com/23seriy/23seriy#-my-favourite-nba-team). The action keeps the scoreboard current automatically, including the league logo, team logo, record, recent games, and season status.
 
 Want the same result? Start with the [three-step setup](#quick-start-3-steps), then add the workflow to your profile repository. You can preview the output first with `dry_run: true`.
 
@@ -92,7 +92,7 @@ That's it — the action keeps your scoreboard current. Want to see more before 
 - [Project health](#project-health)
 - [Common setups](#common-setups)
 - [Supported Sports](#supported-sports)
-- [Team & Player Abbreviations](#team-player-abbreviations)
+- [Team & Player Abbreviations](#team--player-abbreviations)
 - [Customizing the board](#customizing-the-board)
 - [Run Locally](#run-locally)
 - [Adding a New Sport](#adding-a-new-sport)

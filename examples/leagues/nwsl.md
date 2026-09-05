@@ -12,7 +12,7 @@ Team: **BAY** · Category: Soccer · Data source: ESPN public API
 NWSL Regular Season
 🟢 Season in progress
 
-🏅 Standing: NWSL Regular Season · 14
+🏅 Standing: NWSL Regular Season · 15
 
 📊 2026 Record: 6W - 11L - 4D  (22 pts)
    █████████▌░░░░░░░░░░░░░░░
@@ -21,9 +21,9 @@ NWSL Regular Season
 ```
 ❌ L 0-1 @ WAS   (Aug 30, 2026)
 ✅ W 1-0 vs HOU   (Aug 23, 2026)
-❌ L 2-3 @ UTA   (Aug 15, 2026)
+❌ L 2-3 @ UTA   (Aug 14, 2026)
 🟡 D 0-0 @ CHI   (Aug 9, 2026)
-❌ L 2-3 vs SEA   (Aug 2, 2026)
+❌ L 2-3 vs SEA   (Aug 1, 2026)
 ```
 
 ## Custom title
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 NWSL Regular Season
 🟢 Season in progress
 
-🏅 Standing: NWSL Regular Season · 14
+🏅 Standing: NWSL Regular Season · 15
 
 📊 2026 Record: 6W - 11L - 4D  (22 pts)
    █████████▌░░░░░░░░░░░░░░░
@@ -47,9 +47,9 @@ NWSL Regular Season
 ```
 ❌ L 0-1 @ WAS   (Aug 30, 2026)
 ✅ W 1-0 vs HOU   (Aug 23, 2026)
-❌ L 2-3 @ UTA   (Aug 15, 2026)
+❌ L 2-3 @ UTA   (Aug 14, 2026)
 🟡 D 0-0 @ CHI   (Aug 9, 2026)
-❌ L 2-3 vs SEA   (Aug 2, 2026)
+❌ L 2-3 vs SEA   (Aug 1, 2026)
 ```
 
 ## Compact mode
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 NWSL Regular Season
 🟢 Season in progress
 
-🏅 Standing: NWSL Regular Season · 14
+🏅 Standing: NWSL Regular Season · 15
 
 📊 2026 Record: 6W - 11L - 4D  (22 pts)
    █████████▌░░░░░░░░░░░░░░░

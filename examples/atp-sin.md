@@ -5,8 +5,10 @@
 ### 🇮🇹 Jannik Sinner (SIN)
 ATP · World Ranking
 
-🏆 World No. 1
-📍 12,800 ranking points
-📈 Movement: — (was No. 1)
+🏆 World No. 1 · 📍 12,800 ranking points · 📈 Movement: — (was No. 1)
+
+**📅 Last Match:**
+```
 ✅ W vs Alexander Zverev (Jul 12, 2026) 6-7, 7-6, 6-3, 6-4
+```
 
