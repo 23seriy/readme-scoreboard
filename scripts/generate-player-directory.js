@@ -32,6 +32,7 @@ async function generate() {
       abbreviation,
       name: resolveName(adapter, abbreviation, value),
       id: typeof value === "object" ? value.id : value,
+      flag: adapter.TEAM_EMOJI?.[abbreviation] || "",
     }));
   }))).flat().sort((a, b) =>
     a.league.localeCompare(b.league) || a.abbreviation.localeCompare(b.abbreviation));
