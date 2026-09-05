@@ -2400,3 +2400,66 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Unión (Santa Fe) | `USF` | 20 |
 | Vélez Sarsfield | `VEL` | 21 |
 
+## A-League Men
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| Adelaide United | `ADE` | 5321 |
+| Auckland FC | `AFC` | 22344 |
+| Brisbane Roar | `BRR` | 5326 |
+| Central Coast Mariners | `CCM` | 5325 |
+| Macarthur FC | `MAC` | 19340 |
+| Melbourne City FC | `MCY` | 11143 |
+| Melbourne Victory | `MVC` | 5328 |
+| Newcastle Jets | `NEW` | 5323 |
+| Perth Glory | `PER` | 5322 |
+| Sydney FC | `SYD` | 5327 |
+| Wellington Phoenix FC | `WEL` | 8352 |
+| Western Sydney Wanderers | `WSW` | 13696 |
+
+## Indian Super League
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| Bengaluru FC | `BFC` | 18851 |
+| Chennaiyin FC | `CFC` | 18000 |
+| SC East Bengal | `EBEN` | 8897 |
+| FC Goa | `GOA` | 18003 |
+| Inter Kashi | `ITKA` | 22069 |
+| Jamshedpur FC | `JFC` | 18850 |
+| Kerala Blasters FC | `KER` | 17997 |
+| Mohun Bagan Super Giant | `MBSG` | 20774 |
+| Mumbai City FC | `MCFC` | 18002 |
+| Mohammedan SC | `MOH` | 20842 |
+| NorthEast United FC | `NEU` | 18004 |
+| Odisha FC | `OFC` | 17998 |
+| Punjab FC | `PFC` | 18894 |
+| Sporting Club Delhi | `SCD` | 131703 |
+
+## Chinese Super League
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| Beijing Guoan | `BG` | 2052 |
+| Chengdu Rongcheng | `CHE` | 21355 |
+| Chongqing Tonglianglong | `CHO` | 131704 |
+| Dalian Yingbo | `DYI` | 22537 |
+| Henan | `HEN` | 8240 |
+| Liaoning Tieren | `LIA` | 131705 |
+| Qingdao Hainiu | `QIN` | 21910 |
+| Qingdao West Coast | `QWC` | 22198 |
+| Shanghai Shenhua | `SHE` | 977 |
+| Shandong Taishan | `SHT` | 7521 |
+| Shenzhen Xinpengcheng | `SHX` | 22199 |
+| Shanghai Port | `SIPG` | 15515 |
+| Tianjin Jinmen Tiger | `TIG` | 8239 |
+| Wuhan Three Towns | `WTT` | 21506 |
+| Yunnan Yukun | `YUN` | 22536 |
+| Zhejiang Professional FC | `ZHE` | 18203 |
+

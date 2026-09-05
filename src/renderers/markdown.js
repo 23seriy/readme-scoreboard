@@ -602,6 +602,12 @@ function render(sport, data, options = {}) {
       return renderSoccer(data, "uel", "UEFA Europa League", title);
     case "argentina":
       return renderSoccer(data, "argentina", "Argentine Primera", title);
+    case "aleague":
+      return renderSoccer(data, "aleague", "A-League Men", title);
+    case "isl":
+      return renderSoccer(data, "isl", "Indian Super League", title);
+    case "csl":
+      return renderSoccer(data, "csl", "Chinese Super League", title);
     case "f1":
       return renderF1(data, title);
     case "atp":
@@ -609,7 +615,7 @@ function render(sport, data, options = {}) {
     case "wta":
       return renderWta(data, title);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, f1, atp, wta`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, aleague, isl, csl, f1, atp, wta`);
   }
 }
 

@@ -374,3 +374,39 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     marker: readme-scoreboard-argentina
 ```
 
+## A-League Men
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: aleague
+    team: ADE
+    marker: readme-scoreboard-aleague
+```
+
+## Indian Super League
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: isl
+    team: BFC
+    marker: readme-scoreboard-isl
+```
+
+## Chinese Super League
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: csl
+    team: BG
+    marker: readme-scoreboard-csl
+```
+
