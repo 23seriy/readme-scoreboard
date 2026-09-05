@@ -73,6 +73,24 @@ async function fetchTeamInfo(teamAbbr) {
   }
 }
 
+async function fetchTeamRoster(teamAbbr) {
+  const upper = teamAbbr.toUpperCase();
+  const espnId = ESPN_TEAM_IDS[upper];
+  if (!espnId) return [];
+  try {
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}/roster`, { headers: ESPN_HEADERS });
+    return (data.athletes || []).map((athlete) => ({ id: String(athlete.id), fullName: athlete.fullName }));
+  } catch (error) {
+    console.error(`Failed to fetch NBA roster: ${error.message}`);
+    return [];
+  }
+}
+
+function findPlayerOnRoster(roster, playerName) {
+  const target = playerName.trim().toLowerCase();
+  return roster.find((player) => player.fullName.toLowerCase() === target) || null;
+}
+
 async function fetchStandings(teamAbbr) {
   try {
     const upper = teamAbbr.toUpperCase();
@@ -268,6 +286,8 @@ module.exports = {
   fetchData,
   getDemoData,
   getLogoUrl,
+  fetchTeamRoster,
+  findPlayerOnRoster,
   TEAM_EMOJI,
   DEMO_TEAMS,
   TEAM_IDS,
