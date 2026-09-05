@@ -482,18 +482,19 @@ function renderF1(data, title) {
 }
 
 // Tennis is an individual sport: a board shows a single ranked player's world
-// ranking, ranking points, movement, and most recent match result.
-function renderAtp(data, title) {
+// ranking, ranking points, movement, and most recent match result. ATP and WTA
+// share this same shape, differing only in league key and tour label.
+function renderTennisPlayer(sport, tourLabel, data, title) {
   const { team, emoji, logoUrl, standing, rankPoints, previousRank, trend, lastMatch } = data;
   const lines = [];
 
-  lines.push(...headingLines("atp", title));
+  lines.push(...headingLines(sport, title));
   if (logoUrl) {
     lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
     lines.push("");
   }
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  lines.push("ATP · World Ranking");
+  lines.push(`${tourLabel} · World Ranking`);
   lines.push("");
 
   // World ranking, points, and movement form a compact meta line, mirroring the
@@ -532,6 +533,14 @@ function renderAtp(data, title) {
   lines.push("");
 
   return lines.join("\n");
+}
+
+function renderAtp(data, title) {
+  return renderTennisPlayer("atp", "ATP", data, title);
+}
+
+function renderWta(data, title) {
+  return renderTennisPlayer("wta", "WTA", data, title);
 }
 
 function render(sport, data, options = {}) {
@@ -597,8 +606,10 @@ function render(sport, data, options = {}) {
       return renderF1(data, title);
     case "atp":
       return renderAtp(data, title);
+    case "wta":
+      return renderWta(data, title);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, f1, atp`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, f1, atp, wta`);
   }
 }
 

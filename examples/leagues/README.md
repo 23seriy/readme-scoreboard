@@ -41,4 +41,5 @@ gallery** so the new league gets its own showcase file.
 - [NCAA Men's Ice Hockey](ncaa_hockey.md) — Hockey
 - [Formula 1](f1.md) — Racing
 - [ATP Tennis](atp.md) — Tennis
+- [WTA Tennis](wta.md) — Tennis
 - [Argentine Primera](argentina.md) — Soccer

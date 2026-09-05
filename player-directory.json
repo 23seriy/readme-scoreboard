@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-05T04:10:47.162Z",
+  "generatedAt": "2026-09-05T04:36:58.204Z",
   "players": [
     {
       "league": "atp",
@@ -85,6 +85,90 @@
       "abbreviation": "ZVE",
       "name": "Alexander Zverev",
       "id": "2375"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "AND",
+      "name": "Mirra Andreeva",
+      "id": "9820"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "ANI",
+      "name": "Amanda Anisimova",
+      "id": "3221"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "BEN",
+      "name": "Belinda Bencic",
+      "id": "2183"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "GAU",
+      "name": "Coco Gauff",
+      "id": "3626"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "KOS",
+      "name": "Marta Kostyuk",
+      "id": "3382"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "MUC",
+      "name": "Karolina Muchova",
+      "id": "3039"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "NOS",
+      "name": "Linda Noskova",
+      "id": "6970"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "PEG",
+      "name": "Jessica Pegula",
+      "id": "2113"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "RYB",
+      "name": "Elena Rybakina",
+      "id": "3126"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "SAB",
+      "name": "Aryna Sabalenka",
+      "id": "3038"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "SVI",
+      "name": "Elina Svitolina",
+      "id": "1797"
+    },
+    {
+      "league": "wta",
+      "leagueName": "WTA Tennis",
+      "abbreviation": "SWI",
+      "name": "Iga Swiatek",
+      "id": "3730"
     }
   ]
 }
