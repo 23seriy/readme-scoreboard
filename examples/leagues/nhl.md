@@ -19,11 +19,11 @@ Western Conference · Pacific Division
 
 **📅 Recent Games:**
 ```
-❌ L   1-5   vs VGK (May 14, 2026) [Playoffs]
-❌ L   2-3   @ VGK (May 12, 2026) [Playoffs]
-✅ W   4-3   vs VGK (May 10, 2026) [Playoffs]
-❌ L   2-6   vs VGK (May 8, 2026) [Playoffs]
-✅ W   3-1   @ VGK (May 6, 2026) [Playoffs]
+❌ L   1-5   vs VGK (May 15, 2026) [Playoffs]
+❌ L   2-3   @ VGK (May 13, 2026) [Playoffs]
+✅ W   4-3   vs VGK (May 11, 2026) [Playoffs]
+❌ L   2-6   vs VGK (May 9, 2026) [Playoffs]
+✅ W   3-1   @ VGK (May 7, 2026) [Playoffs]
 ```
 
 ## Custom title
@@ -45,11 +45,11 @@ Western Conference · Pacific Division
 
 **📅 Recent Games:**
 ```
-❌ L   1-5   vs VGK (May 14, 2026) [Playoffs]
-❌ L   2-3   @ VGK (May 12, 2026) [Playoffs]
-✅ W   4-3   vs VGK (May 10, 2026) [Playoffs]
-❌ L   2-6   vs VGK (May 8, 2026) [Playoffs]
-✅ W   3-1   @ VGK (May 6, 2026) [Playoffs]
+❌ L   1-5   vs VGK (May 15, 2026) [Playoffs]
+❌ L   2-3   @ VGK (May 13, 2026) [Playoffs]
+✅ W   4-3   vs VGK (May 11, 2026) [Playoffs]
+❌ L   2-6   vs VGK (May 9, 2026) [Playoffs]
+✅ W   3-1   @ VGK (May 7, 2026) [Playoffs]
 ```
 
 ## Compact mode

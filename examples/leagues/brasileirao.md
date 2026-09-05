@@ -23,7 +23,7 @@ Série A
 ✅ W 2-0 @ VIT   (Aug 23, 2026)
 🟡 D 3-3 @ CHA   (Aug 16, 2026)
 🟡 D 0-0 vs VAS   (Aug 9, 2026)
-🟡 D 0-0 @ FLU   (Jul 29, 2026)
+🟡 D 0-0 @ FLU   (Jul 30, 2026)
 ```
 
 ## Custom title
@@ -49,7 +49,7 @@ Série A
 ✅ W 2-0 @ VIT   (Aug 23, 2026)
 🟡 D 3-3 @ CHA   (Aug 16, 2026)
 🟡 D 0-0 vs VAS   (Aug 9, 2026)
-🟡 D 0-0 @ FLU   (Jul 29, 2026)
+🟡 D 0-0 @ FLU   (Jul 30, 2026)
 ```
 
 ## Compact mode
