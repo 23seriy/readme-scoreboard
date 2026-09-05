@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.10.0] - 2026-09-05
+
 ### Added
 
 - **Three new soccer leagues**: A-League Men (Australia), Indian Super League,
@@ -29,6 +31,10 @@ that would alter what appears in your README or require editing your workflow.
   mirroring the existing ATP Tennis board — world ranking, ranking points,
   movement, and the player's most recent match result. Both the ATP and WTA
   rosters cover the top 30 singles ranking, each with a country flag emoji.
+- **Player directory columns**: `PLAYER_DIRECTORY.md` / `player-directory.json`
+  now include each player's country **flag**, **country name**, and live
+  **rank**/**points** from their tour's current rankings, refreshed daily by
+  the existing directory workflow.
 
 ### Fixed
 
