@@ -147,6 +147,20 @@ describe("NbaAdapter — fetchPlayerSpotlight", () => {
     expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26 });
   });
 
+  it("falls back to zeroed season averages when the season-averages fetch fails, without affecting lastGame", async () => {
+    axios.get
+      .mockResolvedValueOnce(makeRosterResponse([{ id: "3945274", fullName: "Luka Dončić" }]))
+      .mockRejectedValueOnce(new Error("network error"))
+      .mockResolvedValueOnce(makeGamelogResponse(
+        ["points", "totalRebounds", "assists", "minutes"],
+        ["12", "4", "7", "26"],
+      ));
+
+    const result = await adapter.fetchPlayerSpotlight("LAL", "Luka Dončić");
+    expect(result.season).toEqual({ points: 0, rebounds: 0, assists: 0 });
+    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26 });
+  });
+
   it("throws a descriptive error when the player isn't on the roster", async () => {
     axios.get.mockResolvedValueOnce(makeRosterResponse([
       { id: "1", fullName: "Austin Reaves" },

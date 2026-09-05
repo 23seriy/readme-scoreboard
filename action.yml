@@ -13,7 +13,7 @@ inputs:
     description: "Team or player abbreviation (e.g. LAL, TOR, NYR, or SIN for Jannik Sinner). Look up abbreviations in TEAM_DIRECTORY.md."
     required: true
   player:
-    description: "Player full name to feature alongside the team board (e.g. 'Luka Doncic'). Currently supported for sport: nba only. Not supported together with teams: (multiple boards)."
+    description: "Player full name to feature alongside the team board (e.g. 'Luka Dončić'); must match the roster's exact spelling, including accents. Currently supported for sport: nba only. Not supported together with teams: (multiple boards)."
     required: false
   entity:
     description: "Entity type: 'team' (default) or 'player'. Inferred from the sport; set this to track an individual player (e.g. ATP)."

@@ -2,6 +2,7 @@ const { get: httpGet } = require("../http");
 
 const ESPN_BASE = "https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba";
 const ESPN_BASE_V2 = "https://site.web.api.espn.com/apis/v2/sports/basketball/nba";
+const ESPN_ATHLETE_BASE = "https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes";
 const ESPN_HEADERS = {
   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
   "Accept": "application/json",
@@ -90,8 +91,6 @@ function findPlayerOnRoster(roster, playerName) {
   const target = playerName.trim().toLowerCase();
   return roster.find((player) => player.fullName.toLowerCase() === target) || null;
 }
-
-const ESPN_ATHLETE_BASE = "https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes";
 
 function statByName(names, stats, name) {
   const index = names.indexOf(name);
@@ -297,13 +296,16 @@ function getDemoData(teamAbbr, playerName) {
       visitor_team_score: i % 2 === 0 ? oppScore : teamScore,
     };
   });
-  const spotlight = (abbr === "LAL" && playerName && playerName.trim().toLowerCase() === "luka dončić")
-    ? {
-        name: "Luka Dončić",
-        season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
-        lastGame: { points: 26, rebounds: 4, assists: 7, minutes: 34 },
-      }
-    : undefined;
+  let spotlight;
+  if (abbr === "LAL" && playerName && playerName.trim().toLowerCase() === "luka dončić") {
+    spotlight = {
+      name: "Luka Dončić",
+      season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
+      lastGame: { points: 26, rebounds: 4, assists: 7, minutes: 34 },
+    };
+  } else if (playerName) {
+    console.log(`[DEMO] No demo spotlight for player "${playerName}" (demo data only covers Luka Dončić on LAL)`);
+  }
 
   return {
     team,
