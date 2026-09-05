@@ -1,426 +1,546 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-05T04:52:11.021Z",
+  "generatedAt": "2026-09-05T05:07:06.871Z",
   "players": [
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "ALC",
       "name": "Carlos Alcaraz",
-      "id": "3782"
+      "id": "3782",
+      "flag": "🇪🇸",
+      "country": "Spain"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "BUB",
       "name": "Alexander Bublik",
-      "id": "2865"
+      "id": "2865",
+      "flag": "🇰🇿",
+      "country": "Kazakhstan"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "BUS",
       "name": "Ignacio Buse",
-      "id": "11226"
+      "id": "11226",
+      "flag": "🇵🇪",
+      "country": "Peru"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "CER",
       "name": "Francisco Cerundolo",
-      "id": "3700"
+      "id": "3700",
+      "flag": "🇦🇷",
+      "country": "Argentina"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "COB",
       "name": "Flavio Cobolli",
-      "id": "7602"
+      "id": "7602",
+      "flag": "🇮🇹",
+      "country": "Italy"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "DAR",
       "name": "Luciano Darderi",
-      "id": "7833"
+      "id": "7833",
+      "flag": "🇮🇹",
+      "country": "Italy"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "DAV",
       "name": "Alejandro Davidovich Fokina",
-      "id": "3212"
+      "id": "3212",
+      "flag": "🇪🇸",
+      "country": "Spain"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "DEM",
       "name": "Alex de Minaur",
-      "id": "2651"
+      "id": "2651",
+      "flag": "🇦🇺",
+      "country": "Australia"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "DJO",
       "name": "Novak Djokovic",
-      "id": "296"
+      "id": "296",
+      "flag": "🇷🇸",
+      "country": "Serbia"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "FAA",
       "name": "Felix Auger-Aliassime",
-      "id": "3209"
+      "id": "3209",
+      "flag": "🇨🇦",
+      "country": "Canada"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "FIL",
       "name": "Arthur Fils",
-      "id": "10052"
+      "id": "10052",
+      "flag": "🇫🇷",
+      "country": "France"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "FON",
       "name": "Joao Fonseca",
-      "id": "11745"
+      "id": "11745",
+      "flag": "🇧🇷",
+      "country": "Brazil"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "FRI",
       "name": "Taylor Fritz",
-      "id": "2946"
+      "id": "2946",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "JOD",
       "name": "Rafael Jodar",
-      "id": "12657"
+      "id": "12657",
+      "flag": "🇪🇸",
+      "country": "Spain"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "LEH",
       "name": "Jiri Lehecka",
-      "id": "3754"
+      "id": "3754",
+      "flag": "🇨🇿",
+      "country": "Czechia"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "LTI",
       "name": "Learner Tien",
-      "id": "10386"
+      "id": "10386",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "MED",
       "name": "Daniil Medvedev",
-      "id": "2383"
+      "id": "2383",
+      "flag": "🇷🇺",
+      "country": "Russia"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "MEN",
       "name": "Jakub Mensik",
-      "id": "10319"
+      "id": "10319",
+      "flag": "🇨🇿",
+      "country": "Czechia"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "MUS",
       "name": "Lorenzo Musetti",
-      "id": "3764"
+      "id": "3764",
+      "flag": "🇮🇹",
+      "country": "Italy"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "NAK",
       "name": "Brandon Nakashima",
-      "id": "3774"
+      "id": "3774",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "PAU",
       "name": "Tommy Paul",
-      "id": "2964"
+      "id": "2964",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "RIN",
       "name": "Arthur Rinderknech",
-      "id": "3511"
+      "id": "3511",
+      "flag": "🇫🇷",
+      "country": "France"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "RUB",
       "name": "Andrey Rublev",
-      "id": "2642"
+      "id": "2642",
+      "flag": "🇷🇺",
+      "country": "Russia"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "RUU",
       "name": "Casper Ruud",
-      "id": "2989"
+      "id": "2989",
+      "flag": "🇳🇴",
+      "country": "Norway"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "SHE",
       "name": "Ben Shelton",
-      "id": "9250"
+      "id": "9250",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "SIN",
       "name": "Jannik Sinner",
-      "id": "3623"
+      "id": "3623",
+      "flag": "🇮🇹",
+      "country": "Italy"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "TAB",
       "name": "Alejandro Tabilo",
-      "id": "2970"
+      "id": "2970",
+      "flag": "🇨🇱",
+      "country": "Chile"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "TIA",
       "name": "Frances Tiafoe",
-      "id": "2708"
+      "id": "2708",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "VAC",
       "name": "Valentin Vacherot",
-      "id": "9376"
+      "id": "9376",
+      "flag": "🇲🇨",
+      "country": "Monaco"
     },
     {
       "league": "atp",
       "leagueName": "ATP Tennis",
       "abbreviation": "ZVE",
       "name": "Alexander Zverev",
-      "id": "2375"
+      "id": "2375",
+      "flag": "🇩🇪",
+      "country": "Germany"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "ALE",
       "name": "Ekaterina Alexandrova",
-      "id": "3182"
+      "id": "3182",
+      "flag": "🇷🇺",
+      "country": "Russia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "ALI",
       "name": "Ann Li",
-      "id": "3380"
+      "id": "3380",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "AND",
       "name": "Mirra Andreeva",
-      "id": "9820"
+      "id": "9820",
+      "flag": "🇷🇺",
+      "country": "Russia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "ANI",
       "name": "Amanda Anisimova",
-      "id": "3221"
+      "id": "3221",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "BEJ",
       "name": "Sara Bejlek",
-      "id": "7819"
+      "id": "7819",
+      "flag": "🇨🇿",
+      "country": "Czechia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "BEN",
       "name": "Belinda Bencic",
-      "id": "2183"
+      "id": "2183",
+      "flag": "🇨🇭",
+      "country": "Switzerland"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "BOU",
       "name": "Marie Bouzkova",
-      "id": "2392"
+      "id": "2392",
+      "flag": "🇨🇿",
+      "country": "Czechia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "CHW",
       "name": "Maja Chwalinska",
-      "id": "3417"
+      "id": "3417",
+      "flag": "🇵🇱",
+      "country": "Poland"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "CIR",
       "name": "Sorana Cirstea",
-      "id": "1774"
+      "id": "1774",
+      "flag": "🇷🇴",
+      "country": "Romania"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "EAL",
       "name": "Alexandra Eala",
-      "id": "7759"
+      "id": "7759",
+      "flag": "🇵🇭",
+      "country": "Philippines"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "GAU",
       "name": "Coco Gauff",
-      "id": "3626"
+      "id": "3626",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "JOV",
       "name": "Iva Jovic",
-      "id": "14311"
+      "id": "14311",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "KAL",
       "name": "Anna Kalinskaya",
-      "id": "2977"
+      "id": "2977",
+      "flag": "🇷🇺",
+      "country": "Russia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "KEY",
       "name": "Madison Keys",
-      "id": "1556"
+      "id": "1556",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "KOS",
       "name": "Marta Kostyuk",
-      "id": "3382"
+      "id": "3382",
+      "flag": "🇺🇦",
+      "country": "Ukraine"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "KRE",
       "name": "Barbora Krejcikova",
-      "id": "2042"
+      "id": "2042",
+      "flag": "🇨🇿",
+      "country": "Czechia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "MBO",
       "name": "Victoria Mboko",
-      "id": "11219"
+      "id": "11219",
+      "flag": "🇨🇦",
+      "country": "Canada"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "MER",
       "name": "Elise Mertens",
-      "id": "2221"
+      "id": "2221",
+      "flag": "🇧🇪",
+      "country": "Belgium"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "MUC",
       "name": "Karolina Muchova",
-      "id": "3039"
+      "id": "3039",
+      "flag": "🇨🇿",
+      "country": "Czechia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "NAV",
       "name": "Emma Navarro",
-      "id": "3785"
+      "id": "3785",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "NOS",
       "name": "Linda Noskova",
-      "id": "6970"
+      "id": "6970",
+      "flag": "🇨🇿",
+      "country": "Czechia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "OSA",
       "name": "Naomi Osaka",
-      "id": "2789"
+      "id": "2789",
+      "flag": "🇯🇵",
+      "country": "Japan"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "PAO",
       "name": "Jasmine Paolini",
-      "id": "2615"
+      "id": "2615",
+      "flag": "🇮🇹",
+      "country": "Italy"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "PEG",
       "name": "Jessica Pegula",
-      "id": "2113"
+      "id": "2113",
+      "flag": "🇺🇸",
+      "country": "United States"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "POT",
       "name": "Anastasia Potapova",
-      "id": "2971"
+      "id": "2971",
+      "flag": "🇷🇺",
+      "country": "Russia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "RYB",
       "name": "Elena Rybakina",
-      "id": "3126"
+      "id": "3126",
+      "flag": "🇰🇿",
+      "country": "Kazakhstan"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "SAB",
       "name": "Aryna Sabalenka",
-      "id": "3038"
+      "id": "3038",
+      "flag": "🇧🇾",
+      "country": "Belarus"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "SHN",
       "name": "Diana Shnaider",
-      "id": "8017"
+      "id": "8017",
+      "flag": "🇷🇺",
+      "country": "Russia"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "SVI",
       "name": "Elina Svitolina",
-      "id": "1797"
+      "id": "1797",
+      "flag": "🇺🇦",
+      "country": "Ukraine"
     },
     {
       "league": "wta",
       "leagueName": "WTA Tennis",
       "abbreviation": "SWI",
       "name": "Iga Swiatek",
-      "id": "3730"
+      "id": "3730",
+      "flag": "🇵🇱",
+      "country": "Poland"
     }
   ]
 }

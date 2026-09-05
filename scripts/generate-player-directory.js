@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { LEAGUES } = require("../src/config/leagues");
+const { countryForFlag } = require("../src/countries");
 
 // The player directory lists individual athletes, not teams. A league is
 // included when its registry marks it as a player entity AND its adapter
@@ -26,13 +27,18 @@ async function generate() {
   const players = (await Promise.all(playerLeagues().map(async (league) => {
     const adapter = require(`../src/adapters/${league.key}`);
     const roster = adapter.PLAYER_IDS || {};
-    return Object.entries(roster).map(([abbreviation, value]) => ({
-      league: league.key,
-      leagueName: league.name,
-      abbreviation,
-      name: resolveName(adapter, abbreviation, value),
-      id: typeof value === "object" ? value.id : value,
-    }));
+    return Object.entries(roster).map(([abbreviation, value]) => {
+      const flag = adapter.TEAM_EMOJI?.[abbreviation] || "";
+      return {
+        league: league.key,
+        leagueName: league.name,
+        abbreviation,
+        name: resolveName(adapter, abbreviation, value),
+        id: typeof value === "object" ? value.id : value,
+        flag,
+        country: countryForFlag(flag),
+      };
+    });
   }))).flat().sort((a, b) =>
     a.league.localeCompare(b.league) || a.abbreviation.localeCompare(b.abbreviation));
 

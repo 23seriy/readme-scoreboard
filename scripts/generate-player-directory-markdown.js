@@ -14,9 +14,9 @@ directory.players.forEach((player) => {
 const lines = ["# Player Directory", "", "Generated from the adapter registries. Use the abbreviation in the `team` input (with `entity: player`).", ""];
 for (const [group, players] of groups) {
   const [category, leagueName] = group.split("|");
-  lines.push(`## ${leagueName}`, "", `**${category}**`, "", "| Player | Abbreviation | ID |", "|--------|--------------|----|");
+  lines.push(`## ${leagueName}`, "", `**${category}**`, "", "| Flag | Country | Player | Abbreviation | ID |", "|------|---------|--------|--------------|----|");
   players.sort((a, b) => a.abbreviation.localeCompare(b.abbreviation)).forEach((player) => {
-    lines.push(`| ${player.name || "—"} | \`${player.abbreviation}\` | ${player.id} |`);
+    lines.push(`| ${player.flag || "—"} | ${player.country || "—"} | ${player.name || "—"} | \`${player.abbreviation}\` | ${player.id} |`);
   });
   lines.push("");
 }
