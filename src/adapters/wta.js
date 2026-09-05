@@ -201,6 +201,7 @@ module.exports = {
   getDemoData,
   getLogoUrl,
   getSeasonYear,
+  fetchRankings,
   DATA_SOURCE,
   TEAM_EMOJI: PLAYER_EMOJI,
   DEMO_TEAMS: DEMO_PLAYERS,

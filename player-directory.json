@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-05T05:07:06.871Z",
+  "generatedAt": "2026-09-05T05:31:29.033Z",
   "players": [
     {
       "league": "atp",
@@ -9,7 +9,9 @@
       "name": "Carlos Alcaraz",
       "id": "3782",
       "flag": "🇪🇸",
-      "country": "Spain"
+      "country": "Spain",
+      "rank": 3,
+      "points": 7160
     },
     {
       "league": "atp",
@@ -18,7 +20,9 @@
       "name": "Alexander Bublik",
       "id": "2865",
       "flag": "🇰🇿",
-      "country": "Kazakhstan"
+      "country": "Kazakhstan",
+      "rank": 16,
+      "points": 2525
     },
     {
       "league": "atp",
@@ -27,7 +31,9 @@
       "name": "Ignacio Buse",
       "id": "11226",
       "flag": "🇵🇪",
-      "country": "Peru"
+      "country": "Peru",
+      "rank": 30,
+      "points": 1550
     },
     {
       "league": "atp",
@@ -36,7 +42,9 @@
       "name": "Francisco Cerundolo",
       "id": "3700",
       "flag": "🇦🇷",
-      "country": "Argentina"
+      "country": "Argentina",
+      "rank": 25,
+      "points": 1980
     },
     {
       "league": "atp",
@@ -45,7 +53,9 @@
       "name": "Flavio Cobolli",
       "id": "7602",
       "flag": "🇮🇹",
-      "country": "Italy"
+      "country": "Italy",
+      "rank": 6,
+      "points": 3720
     },
     {
       "league": "atp",
@@ -54,7 +64,9 @@
       "name": "Luciano Darderi",
       "id": "7833",
       "flag": "🇮🇹",
-      "country": "Italy"
+      "country": "Italy",
+      "rank": 22,
+      "points": 2175
     },
     {
       "league": "atp",
@@ -63,7 +75,9 @@
       "name": "Alejandro Davidovich Fokina",
       "id": "3212",
       "flag": "🇪🇸",
-      "country": "Spain"
+      "country": "Spain",
+      "rank": 27,
+      "points": 1730
     },
     {
       "league": "atp",
@@ -72,7 +86,9 @@
       "name": "Alex de Minaur",
       "id": "2651",
       "flag": "🇦🇺",
-      "country": "Australia"
+      "country": "Australia",
+      "rank": 7,
+      "points": 3650
     },
     {
       "league": "atp",
@@ -81,7 +97,9 @@
       "name": "Novak Djokovic",
       "id": "296",
       "flag": "🇷🇸",
-      "country": "Serbia"
+      "country": "Serbia",
+      "rank": 5,
+      "points": 3770
     },
     {
       "league": "atp",
@@ -90,7 +108,9 @@
       "name": "Felix Auger-Aliassime",
       "id": "3209",
       "flag": "🇨🇦",
-      "country": "Canada"
+      "country": "Canada",
+      "rank": 4,
+      "points": 4640
     },
     {
       "league": "atp",
@@ -99,7 +119,9 @@
       "name": "Arthur Fils",
       "id": "10052",
       "flag": "🇫🇷",
-      "country": "France"
+      "country": "France",
+      "rank": 11,
+      "points": 3140
     },
     {
       "league": "atp",
@@ -108,7 +130,9 @@
       "name": "Joao Fonseca",
       "id": "11745",
       "flag": "🇧🇷",
-      "country": "Brazil"
+      "country": "Brazil",
+      "rank": 26,
+      "points": 1800
     },
     {
       "league": "atp",
@@ -117,7 +141,9 @@
       "name": "Taylor Fritz",
       "id": "2946",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 10,
+      "points": 3475
     },
     {
       "league": "atp",
@@ -126,7 +152,9 @@
       "name": "Rafael Jodar",
       "id": "12657",
       "flag": "🇪🇸",
-      "country": "Spain"
+      "country": "Spain",
+      "rank": 13,
+      "points": 2671
     },
     {
       "league": "atp",
@@ -135,7 +163,9 @@
       "name": "Jiri Lehecka",
       "id": "3754",
       "flag": "🇨🇿",
-      "country": "Czechia"
+      "country": "Czechia",
+      "rank": 19,
+      "points": 2420
     },
     {
       "league": "atp",
@@ -144,7 +174,9 @@
       "name": "Learner Tien",
       "id": "10386",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 15,
+      "points": 2565
     },
     {
       "league": "atp",
@@ -153,7 +185,9 @@
       "name": "Daniil Medvedev",
       "id": "2383",
       "flag": "🇷🇺",
-      "country": "Russia"
+      "country": "Russia",
+      "rank": 8,
+      "points": 3580
     },
     {
       "league": "atp",
@@ -162,7 +196,9 @@
       "name": "Jakub Mensik",
       "id": "10319",
       "flag": "🇨🇿",
-      "country": "Czechia"
+      "country": "Czechia",
+      "rank": 18,
+      "points": 2445
     },
     {
       "league": "atp",
@@ -171,7 +207,9 @@
       "name": "Lorenzo Musetti",
       "id": "3764",
       "flag": "🇮🇹",
-      "country": "Italy"
+      "country": "Italy",
+      "rank": 14,
+      "points": 2605
     },
     {
       "league": "atp",
@@ -180,7 +218,9 @@
       "name": "Brandon Nakashima",
       "id": "3774",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 17,
+      "points": 2485
     },
     {
       "league": "atp",
@@ -189,7 +229,9 @@
       "name": "Tommy Paul",
       "id": "2964",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 21,
+      "points": 2225
     },
     {
       "league": "atp",
@@ -198,7 +240,9 @@
       "name": "Arthur Rinderknech",
       "id": "3511",
       "flag": "🇫🇷",
-      "country": "France"
+      "country": "France",
+      "rank": 29,
+      "points": 1683
     },
     {
       "league": "atp",
@@ -207,7 +251,9 @@
       "name": "Andrey Rublev",
       "id": "2642",
       "flag": "🇷🇺",
-      "country": "Russia"
+      "country": "Russia",
+      "rank": 24,
+      "points": 2080
     },
     {
       "league": "atp",
@@ -216,7 +262,9 @@
       "name": "Casper Ruud",
       "id": "2989",
       "flag": "🇳🇴",
-      "country": "Norway"
+      "country": "Norway",
+      "rank": 20,
+      "points": 2385
     },
     {
       "league": "atp",
@@ -225,7 +273,9 @@
       "name": "Ben Shelton",
       "id": "9250",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 9,
+      "points": 3480
     },
     {
       "league": "atp",
@@ -234,7 +284,9 @@
       "name": "Jannik Sinner",
       "id": "3623",
       "flag": "🇮🇹",
-      "country": "Italy"
+      "country": "Italy",
+      "rank": 1,
+      "points": 12800
     },
     {
       "league": "atp",
@@ -243,7 +295,9 @@
       "name": "Alejandro Tabilo",
       "id": "2970",
       "flag": "🇨🇱",
-      "country": "Chile"
+      "country": "Chile",
+      "rank": 28,
+      "points": 1688
     },
     {
       "league": "atp",
@@ -252,7 +306,9 @@
       "name": "Frances Tiafoe",
       "id": "2708",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 12,
+      "points": 2680
     },
     {
       "league": "atp",
@@ -261,7 +317,9 @@
       "name": "Valentin Vacherot",
       "id": "9376",
       "flag": "🇲🇨",
-      "country": "Monaco"
+      "country": "Monaco",
+      "rank": 23,
+      "points": 2168
     },
     {
       "league": "atp",
@@ -270,7 +328,9 @@
       "name": "Alexander Zverev",
       "id": "2375",
       "flag": "🇩🇪",
-      "country": "Germany"
+      "country": "Germany",
+      "rank": 2,
+      "points": 7790
     },
     {
       "league": "wta",
@@ -279,7 +339,9 @@
       "name": "Ekaterina Alexandrova",
       "id": "3182",
       "flag": "🇷🇺",
-      "country": "Russia"
+      "country": "Russia",
+      "rank": 19,
+      "points": 2186
     },
     {
       "league": "wta",
@@ -288,7 +350,9 @@
       "name": "Ann Li",
       "id": "3380",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 28,
+      "points": 1683
     },
     {
       "league": "wta",
@@ -297,7 +361,9 @@
       "name": "Mirra Andreeva",
       "id": "9820",
       "flag": "🇷🇺",
-      "country": "Russia"
+      "country": "Russia",
+      "rank": 5,
+      "points": 5443
     },
     {
       "league": "wta",
@@ -306,7 +372,9 @@
       "name": "Amanda Anisimova",
       "id": "3221",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 10,
+      "points": 4533
     },
     {
       "league": "wta",
@@ -315,7 +383,9 @@
       "name": "Sara Bejlek",
       "id": "7819",
       "flag": "🇨🇿",
-      "country": "Czechia"
+      "country": "Czechia",
+      "rank": 30,
+      "points": 1652
     },
     {
       "league": "wta",
@@ -324,7 +394,9 @@
       "name": "Belinda Bencic",
       "id": "2183",
       "flag": "🇨🇭",
-      "country": "Switzerland"
+      "country": "Switzerland",
+      "rank": 12,
+      "points": 2995
     },
     {
       "league": "wta",
@@ -333,7 +405,9 @@
       "name": "Marie Bouzkova",
       "id": "2392",
       "flag": "🇨🇿",
-      "country": "Czechia"
+      "country": "Czechia",
+      "rank": 26,
+      "points": 1753
     },
     {
       "league": "wta",
@@ -342,7 +416,9 @@
       "name": "Maja Chwalinska",
       "id": "3417",
       "flag": "🇵🇱",
-      "country": "Poland"
+      "country": "Poland",
+      "rank": 22,
+      "points": 2037
     },
     {
       "league": "wta",
@@ -351,7 +427,9 @@
       "name": "Sorana Cirstea",
       "id": "1774",
       "flag": "🇷🇴",
-      "country": "Romania"
+      "country": "Romania",
+      "rank": 17,
+      "points": 2294
     },
     {
       "league": "wta",
@@ -360,7 +438,9 @@
       "name": "Alexandra Eala",
       "id": "7759",
       "flag": "🇵🇭",
-      "country": "Philippines"
+      "country": "Philippines",
+      "rank": 18,
+      "points": 2281
     },
     {
       "league": "wta",
@@ -369,7 +449,9 @@
       "name": "Coco Gauff",
       "id": "3626",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 4,
+      "points": 6704
     },
     {
       "league": "wta",
@@ -378,7 +460,9 @@
       "name": "Iva Jovic",
       "id": "14311",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 14,
+      "points": 2671
     },
     {
       "league": "wta",
@@ -387,7 +471,9 @@
       "name": "Anna Kalinskaya",
       "id": "2977",
       "flag": "🇷🇺",
-      "country": "Russia"
+      "country": "Russia",
+      "rank": 23,
+      "points": 1933
     },
     {
       "league": "wta",
@@ -396,7 +482,9 @@
       "name": "Madison Keys",
       "id": "1556",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 24,
+      "points": 1909
     },
     {
       "league": "wta",
@@ -405,7 +493,9 @@
       "name": "Marta Kostyuk",
       "id": "3382",
       "flag": "🇺🇦",
-      "country": "Ukraine"
+      "country": "Ukraine",
+      "rank": 11,
+      "points": 3980
     },
     {
       "league": "wta",
@@ -414,7 +504,9 @@
       "name": "Barbora Krejcikova",
       "id": "2042",
       "flag": "🇨🇿",
-      "country": "Czechia"
+      "country": "Czechia",
+      "rank": 29,
+      "points": 1666
     },
     {
       "league": "wta",
@@ -423,7 +515,9 @@
       "name": "Victoria Mboko",
       "id": "11219",
       "flag": "🇨🇦",
-      "country": "Canada"
+      "country": "Canada",
+      "rank": 15,
+      "points": 2531
     },
     {
       "league": "wta",
@@ -432,7 +526,9 @@
       "name": "Elise Mertens",
       "id": "2221",
       "flag": "🇧🇪",
-      "country": "Belgium"
+      "country": "Belgium",
+      "rank": 20,
+      "points": 2165
     },
     {
       "league": "wta",
@@ -441,7 +537,9 @@
       "name": "Karolina Muchova",
       "id": "3039",
       "flag": "🇨🇿",
-      "country": "Czechia"
+      "country": "Czechia",
+      "rank": 7,
+      "points": 4983
     },
     {
       "league": "wta",
@@ -450,7 +548,9 @@
       "name": "Emma Navarro",
       "id": "3785",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 27,
+      "points": 1724
     },
     {
       "league": "wta",
@@ -459,7 +559,9 @@
       "name": "Linda Noskova",
       "id": "6970",
       "flag": "🇨🇿",
-      "country": "Czechia"
+      "country": "Czechia",
+      "rank": 6,
+      "points": 5028
     },
     {
       "league": "wta",
@@ -468,7 +570,9 @@
       "name": "Naomi Osaka",
       "id": "2789",
       "flag": "🇯🇵",
-      "country": "Japan"
+      "country": "Japan",
+      "rank": 13,
+      "points": 2846
     },
     {
       "league": "wta",
@@ -477,7 +581,9 @@
       "name": "Jasmine Paolini",
       "id": "2615",
       "flag": "🇮🇹",
-      "country": "Italy"
+      "country": "Italy",
+      "rank": 21,
+      "points": 2123
     },
     {
       "league": "wta",
@@ -486,7 +592,9 @@
       "name": "Jessica Pegula",
       "id": "2113",
       "flag": "🇺🇸",
-      "country": "United States"
+      "country": "United States",
+      "rank": 3,
+      "points": 7265
     },
     {
       "league": "wta",
@@ -495,7 +603,9 @@
       "name": "Anastasia Potapova",
       "id": "2971",
       "flag": "🇷🇺",
-      "country": "Russia"
+      "country": "Russia",
+      "rank": 25,
+      "points": 1756
     },
     {
       "league": "wta",
@@ -504,7 +614,9 @@
       "name": "Elena Rybakina",
       "id": "3126",
       "flag": "🇰🇿",
-      "country": "Kazakhstan"
+      "country": "Kazakhstan",
+      "rank": 2,
+      "points": 8141
     },
     {
       "league": "wta",
@@ -513,7 +625,9 @@
       "name": "Aryna Sabalenka",
       "id": "3038",
       "flag": "🇧🇾",
-      "country": "Belarus"
+      "country": "Belarus",
+      "rank": 1,
+      "points": 8575
     },
     {
       "league": "wta",
@@ -522,7 +636,9 @@
       "name": "Diana Shnaider",
       "id": "8017",
       "flag": "🇷🇺",
-      "country": "Russia"
+      "country": "Russia",
+      "rank": 16,
+      "points": 2468
     },
     {
       "league": "wta",
@@ -531,7 +647,9 @@
       "name": "Elina Svitolina",
       "id": "1797",
       "flag": "🇺🇦",
-      "country": "Ukraine"
+      "country": "Ukraine",
+      "rank": 9,
+      "points": 4689
     },
     {
       "league": "wta",
@@ -540,7 +658,9 @@
       "name": "Iga Swiatek",
       "id": "3730",
       "flag": "🇵🇱",
-      "country": "Poland"
+      "country": "Poland",
+      "rank": 8,
+      "points": 4809
     }
   ]
 }
