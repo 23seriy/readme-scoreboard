@@ -91,6 +91,48 @@ function findPlayerOnRoster(roster, playerName) {
   return roster.find((player) => player.fullName.toLowerCase() === target) || null;
 }
 
+const ESPN_ATHLETE_BASE = "https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes";
+
+function statByName(names, stats, name) {
+  const index = names.indexOf(name);
+  return index === -1 ? null : parseFloat(stats[index]);
+}
+
+async function fetchPlayerSeasonAverages(athleteId) {
+  try {
+    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/splits`, { headers: ESPN_HEADERS });
+    const names = data.names || [];
+    const stats = data.splitCategories?.[0]?.splits?.[0]?.stats || [];
+    const points = statByName(names, stats, "avgPoints");
+    const rebounds = statByName(names, stats, "avgRebounds");
+    const assists = statByName(names, stats, "avgAssists");
+    if (points == null || rebounds == null || assists == null) return null;
+    return { points, rebounds, assists };
+  } catch (error) {
+    console.error(`Failed to fetch NBA player season averages: ${error.message}`);
+    return null;
+  }
+}
+
+async function fetchPlayerLastGame(athleteId) {
+  try {
+    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/gamelog`, { headers: ESPN_HEADERS });
+    const names = data.names || [];
+    const events = data.seasonTypes?.[0]?.categories?.[0]?.events || [];
+    const latest = events[0];
+    if (!latest) return null;
+    const points = statByName(names, latest.stats, "points");
+    const rebounds = statByName(names, latest.stats, "totalRebounds");
+    const assists = statByName(names, latest.stats, "assists");
+    const minutes = statByName(names, latest.stats, "minutes");
+    if (points == null) return null;
+    return { points, rebounds, assists, minutes };
+  } catch (error) {
+    console.error(`Failed to fetch NBA player last game: ${error.message}`);
+    return null;
+  }
+}
+
 async function fetchStandings(teamAbbr) {
   try {
     const upper = teamAbbr.toUpperCase();
@@ -288,6 +330,8 @@ module.exports = {
   getLogoUrl,
   fetchTeamRoster,
   findPlayerOnRoster,
+  fetchPlayerSeasonAverages,
+  fetchPlayerLastGame,
   TEAM_EMOJI,
   DEMO_TEAMS,
   TEAM_IDS,
