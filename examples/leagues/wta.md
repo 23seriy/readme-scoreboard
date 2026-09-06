@@ -15,7 +15,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Kamilla Rakhimova (Sep 4, 2026) 6-3, 6-4
+❌ L vs Taylor Townsend (Sep 6, 2026)
 ```
 
 
@@ -34,7 +34,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Kamilla Rakhimova (Sep 4, 2026) 6-3, 6-4
+❌ L vs Taylor Townsend (Sep 6, 2026)
 ```
 
 
@@ -52,7 +52,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Kamilla Rakhimova (Sep 4, 2026) 6-3, 6-4
+❌ L vs Taylor Townsend (Sep 6, 2026)
 ```
 
 

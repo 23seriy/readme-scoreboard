@@ -15,9 +15,6 @@ National Football · NFC South
 🏅 Standing: National Football · 1
 📅 Next: @ PIT (Sep 13)
 
-📊 2026 Season: 2W - 1L (66.7%)
-   ████████████████▋░░░░░░░░
-
 📅 No recent games found
 
 ## Custom title
@@ -35,9 +32,6 @@ National Football · NFC South
 🏅 Standing: National Football · 1
 📅 Next: @ PIT (Sep 13)
 
-📊 2026 Season: 2W - 1L (66.7%)
-   ████████████████▋░░░░░░░░
-
 📅 No recent games found
 
 ## Compact mode
@@ -53,9 +47,6 @@ National Football · NFC South
 
 🏅 Standing: National Football · 1
 📅 Next: @ PIT (Sep 13)
-
-📊 2026 Season: 2W - 1L (66.7%)
-   ████████████████▋░░░░░░░░
 
 📅 No recent games found
 

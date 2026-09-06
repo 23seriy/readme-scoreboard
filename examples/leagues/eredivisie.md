@@ -12,13 +12,14 @@ Team: **AJA** · Category: Soccer · Data source: ESPN public API
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 4
+🏅 Standing: 2026-2027 Dutch Eredivisie · 5
 
-📊 2026 Record: 2W - 0L - 1D  (7 pts)
-   ████████████████████▊░░░░
+📊 2026 Record: 2W - 1L - 1D  (7 pts)
+   ███████████████▋░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-3 vs PSV   (Sep 5, 2026)
 ✅ W 4-0 @ TEL   (Aug 30, 2026)
 🟡 D 2-2 vs HEE   (Aug 16, 2026)
 ✅ W 2-0 @ PEC   (Aug 9, 2026)
@@ -36,13 +37,14 @@ The `title:` input replaces the default heading.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 4
+🏅 Standing: 2026-2027 Dutch Eredivisie · 5
 
-📊 2026 Record: 2W - 0L - 1D  (7 pts)
-   ████████████████████▊░░░░
+📊 2026 Record: 2W - 1L - 1D  (7 pts)
+   ███████████████▋░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-3 vs PSV   (Sep 5, 2026)
 ✅ W 4-0 @ TEL   (Aug 30, 2026)
 🟡 D 2-2 vs HEE   (Aug 16, 2026)
 ✅ W 2-0 @ PEC   (Aug 9, 2026)
@@ -59,10 +61,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 4
+🏅 Standing: 2026-2027 Dutch Eredivisie · 5
 
-📊 2026 Record: 2W - 0L - 1D  (7 pts)
-   ████████████████████▊░░░░
+📊 2026 Record: 2W - 1L - 1D  (7 pts)
+   ███████████████▋░░░░░░░░░
 
 
 

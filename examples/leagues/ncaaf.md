@@ -12,10 +12,13 @@ Team: **ALA** · Category: Football · Data source: ESPN public API
 Southeastern Conference · 
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 13
-📅 Next: vs ECU (Sep 5)
+🏅 Standing: Southeastern Conference · 1
+📅 Next: @ UK (Sep 12)
 
-📅 No recent games found
+**📅 Recent Games:**
+```
+✅ W 48-10 @ ECU (Invalid Date)
+```
 
 ## Custom title
 
@@ -29,10 +32,13 @@ The `title:` input replaces the default heading.
 Southeastern Conference · 
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 13
-📅 Next: vs ECU (Sep 5)
+🏅 Standing: Southeastern Conference · 1
+📅 Next: @ UK (Sep 12)
 
-📅 No recent games found
+**📅 Recent Games:**
+```
+✅ W 48-10 @ ECU (Invalid Date)
+```
 
 ## Compact mode
 
@@ -45,10 +51,10 @@ The `compact: true` input drops the logo and recent-game details.
 Southeastern Conference · 
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 13
-📅 Next: vs ECU (Sep 5)
+🏅 Standing: Southeastern Conference · 1
+📅 Next: @ UK (Sep 12)
 
-📅 No recent games found
+
 
 ## Badge mode
 

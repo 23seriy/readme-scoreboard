@@ -12,7 +12,7 @@ Team: **AND** · Category: Soccer · Data source: ESPN public API
 Pro League
 🟢 Season in progress
 
-🏅 Standing: Pro League · 10
+🏅 Standing: Pro League · 11
 
 📊 2026 Record: 2W - 2L - 0D  (6 pts)
    ████████████▌░░░░░░░░░░░░
@@ -37,7 +37,7 @@ The `title:` input replaces the default heading.
 Pro League
 🟢 Season in progress
 
-🏅 Standing: Pro League · 10
+🏅 Standing: Pro League · 11
 
 📊 2026 Record: 2W - 2L - 0D  (6 pts)
    ████████████▌░░░░░░░░░░░░
@@ -61,7 +61,7 @@ The `compact: true` input drops the logo and recent-game details.
 Pro League
 🟢 Season in progress
 
-🏅 Standing: Pro League · 10
+🏅 Standing: Pro League · 11
 
 📊 2026 Record: 2W - 2L - 0D  (6 pts)
    ████████████▌░░░░░░░░░░░░

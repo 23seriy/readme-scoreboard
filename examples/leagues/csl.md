@@ -12,18 +12,18 @@ Team: **BG** · Category: Soccer · Data source: ESPN public API
 2026 Chinese Super League
 🟢 Season in progress
 
-🏅 Standing: 2026 Chinese Super League · 2
+🏅 Standing: 2026 Chinese Super League · 3
 
-📊 2026 Record: 11W - 5L - 9D  (42 pts)
-   ███████████████▌░░░░░░░░░
+📊 2026 Record: 11W - 5L - 10D  (43 pts)
+   ███████████████▍░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 @ SIPG  (Sep 5, 2026)
 🟡 D 1-1 @ DYI   (Aug 28, 2026)
 🟡 D 3-3 vs YUN   (Aug 22, 2026)
 ✅ W 3-0 @ SHE   (Aug 18, 2026)
 ✅ W 4-2 @ TIG   (Aug 15, 2026)
-✅ W 4-0 vs SHX   (Aug 7, 2026)
 ```
 
 ## Custom title
@@ -38,18 +38,18 @@ The `title:` input replaces the default heading.
 2026 Chinese Super League
 🟢 Season in progress
 
-🏅 Standing: 2026 Chinese Super League · 2
+🏅 Standing: 2026 Chinese Super League · 3
 
-📊 2026 Record: 11W - 5L - 9D  (42 pts)
-   ███████████████▌░░░░░░░░░
+📊 2026 Record: 11W - 5L - 10D  (43 pts)
+   ███████████████▍░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 @ SIPG  (Sep 5, 2026)
 🟡 D 1-1 @ DYI   (Aug 28, 2026)
 🟡 D 3-3 vs YUN   (Aug 22, 2026)
 ✅ W 3-0 @ SHE   (Aug 18, 2026)
 ✅ W 4-2 @ TIG   (Aug 15, 2026)
-✅ W 4-0 vs SHX   (Aug 7, 2026)
 ```
 
 ## Compact mode
@@ -63,10 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Chinese Super League
 🟢 Season in progress
 
-🏅 Standing: 2026 Chinese Super League · 2
+🏅 Standing: 2026 Chinese Super League · 3
 
-📊 2026 Record: 11W - 5L - 9D  (42 pts)
-   ███████████████▌░░░░░░░░░
+📊 2026 Record: 11W - 5L - 10D  (43 pts)
+   ███████████████▍░░░░░░░░░
 
 
 

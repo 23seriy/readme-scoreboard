@@ -14,16 +14,16 @@ Série A
 
 🏅 Standing: 5
 
-📊 2026 Record: 10W - 5L - 10D  (40 pts)
-   ███████████████░░░░░░░░░░
+📊 2026 Record: 11W - 5L - 10D  (43 pts)
+   ███████████████▍░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-2 @ BRA   (Sep 5, 2026)
 ✅ W 3-2 vs INT   (Aug 30, 2026)
 ✅ W 2-0 @ VIT   (Aug 23, 2026)
 🟡 D 3-3 @ CHA   (Aug 16, 2026)
 🟡 D 0-0 vs VAS   (Aug 9, 2026)
-🟡 D 0-0 @ FLU   (Jul 29, 2026)
 ```
 
 ## Custom title
@@ -40,16 +40,16 @@ Série A
 
 🏅 Standing: 5
 
-📊 2026 Record: 10W - 5L - 10D  (40 pts)
-   ███████████████░░░░░░░░░░
+📊 2026 Record: 11W - 5L - 10D  (43 pts)
+   ███████████████▍░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-2 @ BRA   (Sep 5, 2026)
 ✅ W 3-2 vs INT   (Aug 30, 2026)
 ✅ W 2-0 @ VIT   (Aug 23, 2026)
 🟡 D 3-3 @ CHA   (Aug 16, 2026)
 🟡 D 0-0 vs VAS   (Aug 9, 2026)
-🟡 D 0-0 @ FLU   (Jul 29, 2026)
 ```
 
 ## Compact mode
@@ -65,8 +65,8 @@ Série A
 
 🏅 Standing: 5
 
-📊 2026 Record: 10W - 5L - 10D  (40 pts)
-   ███████████████░░░░░░░░░░
+📊 2026 Record: 11W - 5L - 10D  (43 pts)
+   ███████████████▍░░░░░░░░░
 
 
 
