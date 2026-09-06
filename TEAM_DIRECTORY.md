@@ -499,7 +499,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 |------|--------------|----|
 | Abha | `ABH` | 21833 |
 | Al Ahli | `AHL` | 8346 |
-| Al-Faisaly | `ALF` | 21446 |
+| Al Faisaly | `ALF` | 21446 |
 | Al Diriyah | `DIR` | 131746 |
 | Al Ettifaq | `ETT` | 8363 |
 | Al Fateh | `FAT` | 13033 |
@@ -1507,7 +1507,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Ave Maria University Gyrenes | `AVE M` | 3178 |
 | Averett Cougars | `AVER` | 2047 |
 | Avila University Eagles | `AVILA` | 2048 |
-| Phoenix Firestorm | `AZCHR` | 108358 |
+| Arizona Christian Firestorm | `AZCH` | 108358 |
 | Baker University Baker | `BAK` | 488 |
 | Ball State Cardinals | `BALL` | 2050 |
 | Barton Bulldogs | `BART` | 122666 |
@@ -1671,10 +1671,10 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Fort Hays Tigers | `FHSU` | 2231 |
 | Florida International Panthers | `FIU` | 2229 |
 | Florida Gators | `FLA` | 57 |
-| Florida Memorial University Lions | `FLAMEMRL` | 125762 |
 | Fort Lewis Skyhawks | `FLWC` | 2237 |
 | Franklin & Marshall Diplomats | `FMC` | 2234 |
 | Fairmont State Falcons | `FMSU` | 2986 |
+| Florida Memorial Lions | `FMU` | 125762 |
 | Fordham Rams | `FOR` | 2230 |
 | Franklin Pierce Ravens | `FP` | 112334 |
 | Fresno State Bulldogs | `FRES` | 278 |

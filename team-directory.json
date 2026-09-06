@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-05T12:53:42.429Z",
+  "generatedAt": "2026-09-06T09:38:54.713Z",
   "teams": [
     {
       "league": "nba",
@@ -2659,7 +2659,7 @@
       "league": "saudipro",
       "leagueName": "Saudi Pro League",
       "abbreviation": "ALF",
-      "name": "Al-Faisaly",
+      "name": "Al Faisaly",
       "id": "21446"
     },
     {
@@ -9154,6 +9154,13 @@
     {
       "league": "ncaaf",
       "leagueName": "College Football",
+      "abbreviation": "AZCH",
+      "name": "Arizona Christian Firestorm",
+      "id": "108358"
+    },
+    {
+      "league": "ncaaf",
+      "leagueName": "College Football",
       "abbreviation": "ASU",
       "name": "Arizona State Sun Devils",
       "id": "9"
@@ -10484,8 +10491,8 @@
     {
       "league": "ncaaf",
       "leagueName": "College Football",
-      "abbreviation": "FLAMEMRL",
-      "name": "Florida Memorial University Lions",
+      "abbreviation": "FMU",
+      "name": "Florida Memorial Lions",
       "id": "125762"
     },
     {
@@ -12426,13 +12433,6 @@
       "abbreviation": "PENN",
       "name": "Pennsylvania Quakers",
       "id": "219"
-    },
-    {
-      "league": "ncaaf",
-      "leagueName": "College Football",
-      "abbreviation": "AZCHR",
-      "name": "Phoenix Firestorm",
-      "id": "108358"
     },
     {
       "league": "ncaaf",
