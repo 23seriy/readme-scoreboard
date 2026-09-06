@@ -14,11 +14,12 @@ Team: **ALV** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing: 2026-2027 Portuguese Liga · 16
 
-📊 2026 Record: 0W - 2L - 2D  (2 pts)
-   ██████▎░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 3L - 2D  (2 pts)
+   █████░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 vs SCB   (Sep 5, 2026)
 🟡 D 1-1 vs CDSC  (Aug 29, 2026)
 ❌ L 1-3 @ SCP   (Aug 22, 2026)
 🟡 D 2-2 vs EST   (Aug 15, 2026)
@@ -39,11 +40,12 @@ The `title:` input replaces the default heading.
 
 🏅 Standing: 2026-2027 Portuguese Liga · 16
 
-📊 2026 Record: 0W - 2L - 2D  (2 pts)
-   ██████▎░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 3L - 2D  (2 pts)
+   █████░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 vs SCB   (Sep 5, 2026)
 🟡 D 1-1 vs CDSC  (Aug 29, 2026)
 ❌ L 1-3 @ SCP   (Aug 22, 2026)
 🟡 D 2-2 vs EST   (Aug 15, 2026)
@@ -63,8 +65,8 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing: 2026-2027 Portuguese Liga · 16
 
-📊 2026 Record: 0W - 2L - 2D  (2 pts)
-   ██████▎░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 3L - 2D  (2 pts)
+   █████░░░░░░░░░░░░░░░░░░░░
 
 
 

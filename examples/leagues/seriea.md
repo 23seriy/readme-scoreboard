@@ -12,13 +12,14 @@ Team: **ATA** · Category: Soccer · Data source: ESPN public API
 2026-2027 Italian Serie A
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Italian Serie A · 6
+🏅 Standing: 2026-2027 Italian Serie A · 7
 
-📊 2026 Record: 2W - 0L - 0D  (6 pts)
-   █████████████████████████
+📊 2026 Record: 2W - 1L - 0D  (6 pts)
+   ████████████████▋░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ ROMA  (Sep 5, 2026)
 ✅ W 1-0 vs BOL   (Aug 31, 2026)
 ✅ W 2-1 vs SAS   (Aug 23, 2026)
 ```
@@ -35,13 +36,14 @@ The `title:` input replaces the default heading.
 2026-2027 Italian Serie A
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Italian Serie A · 6
+🏅 Standing: 2026-2027 Italian Serie A · 7
 
-📊 2026 Record: 2W - 0L - 0D  (6 pts)
-   █████████████████████████
+📊 2026 Record: 2W - 1L - 0D  (6 pts)
+   ████████████████▋░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ ROMA  (Sep 5, 2026)
 ✅ W 1-0 vs BOL   (Aug 31, 2026)
 ✅ W 2-1 vs SAS   (Aug 23, 2026)
 ```
@@ -57,10 +59,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026-2027 Italian Serie A
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Italian Serie A · 6
+🏅 Standing: 2026-2027 Italian Serie A · 7
 
-📊 2026 Record: 2W - 0L - 0D  (6 pts)
-   █████████████████████████
+📊 2026 Record: 2W - 1L - 0D  (6 pts)
+   ████████████████▋░░░░░░░░
 
 
 

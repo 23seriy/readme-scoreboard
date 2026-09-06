@@ -12,13 +12,14 @@ Team: **B04** · Category: Soccer · Data source: ESPN public API
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing: 2026-27 German Bundesliga · 13
+🏅 Standing: 2026-27 German Bundesliga · 5
 
-📊 2026 Record: 0W - 1L - 0D  (0 pts)
-   ░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 1W - 1L - 0D  (3 pts)
+   ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-0 vs FCU   (Sep 5, 2026)
 ❌ L 2-3 @ ELV   (Aug 29, 2026)
 ```
 
@@ -34,13 +35,14 @@ The `title:` input replaces the default heading.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing: 2026-27 German Bundesliga · 13
+🏅 Standing: 2026-27 German Bundesliga · 5
 
-📊 2026 Record: 0W - 1L - 0D  (0 pts)
-   ░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 1W - 1L - 0D  (3 pts)
+   ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-0 vs FCU   (Sep 5, 2026)
 ❌ L 2-3 @ ELV   (Aug 29, 2026)
 ```
 
@@ -55,10 +57,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing: 2026-27 German Bundesliga · 13
+🏅 Standing: 2026-27 German Bundesliga · 5
 
-📊 2026 Record: 0W - 1L - 0D  (0 pts)
-   ░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 1W - 1L - 0D  (3 pts)
+   ████████████▌░░░░░░░░░░░░
 
 
 
