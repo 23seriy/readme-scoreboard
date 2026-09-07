@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-06T09:38:54.713Z",
+  "generatedAt": "2026-09-07T10:42:10.420Z",
   "teams": [
     {
       "league": "nba",
@@ -14106,6 +14106,13 @@
       "abbreviation": "WPEN",
       "name": "William Penn Statesmen",
       "id": "2912"
+    },
+    {
+      "league": "ncaaf",
+      "leagueName": "College Football",
+      "abbreviation": "WLWD",
+      "name": "William Woods Owls",
+      "id": "129741"
     },
     {
       "league": "ncaaf",
