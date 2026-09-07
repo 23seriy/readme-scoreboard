@@ -14,11 +14,12 @@ Pro League
 
 🏅 Standing: Pro League · 11
 
-📊 2026 Record: 2W - 2L - 0D  (6 pts)
+📊 2026 Record: 2W - 2L - 1D  (7 pts)
    ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 vs GENK  (Sep 6, 2026)
 ✅ W 1-0 vs KVK   (Sep 3, 2026)
 ❌ L 0-3 @ USG   (Aug 30, 2026)
 ❌ L 0-1 @ WAA   (Aug 16, 2026)
@@ -39,11 +40,12 @@ Pro League
 
 🏅 Standing: Pro League · 11
 
-📊 2026 Record: 2W - 2L - 0D  (6 pts)
+📊 2026 Record: 2W - 2L - 1D  (7 pts)
    ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 vs GENK  (Sep 6, 2026)
 ✅ W 1-0 vs KVK   (Sep 3, 2026)
 ❌ L 0-3 @ USG   (Aug 30, 2026)
 ❌ L 0-1 @ WAA   (Aug 16, 2026)
@@ -63,7 +65,7 @@ Pro League
 
 🏅 Standing: Pro League · 11
 
-📊 2026 Record: 2W - 2L - 0D  (6 pts)
+📊 2026 Record: 2W - 2L - 1D  (7 pts)
    ████████████▌░░░░░░░░░░░░
 
 

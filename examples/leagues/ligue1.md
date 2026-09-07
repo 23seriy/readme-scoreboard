@@ -12,13 +12,14 @@ Team: **ANG** · Category: Soccer · Data source: ESPN public API
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing: French Ligue 1 2026-27 · 11
+🏅 Standing: French Ligue 1 2026-27 · 12
 
-📊 2026 Record: 1W - 1L - 0D  (3 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 1W - 2L - 0D  (3 pts)
+   ████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 vs REN   (Sep 6, 2026)
 ✅ W 3-1 @ AUX   (Aug 29, 2026)
 ❌ L 0-2 vs LILL  (Aug 23, 2026)
 ```
@@ -35,13 +36,14 @@ The `title:` input replaces the default heading.
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing: French Ligue 1 2026-27 · 11
+🏅 Standing: French Ligue 1 2026-27 · 12
 
-📊 2026 Record: 1W - 1L - 0D  (3 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 1W - 2L - 0D  (3 pts)
+   ████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 vs REN   (Sep 6, 2026)
 ✅ W 3-1 @ AUX   (Aug 29, 2026)
 ❌ L 0-2 vs LILL  (Aug 23, 2026)
 ```
@@ -57,10 +59,10 @@ The `compact: true` input drops the logo and recent-game details.
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing: French Ligue 1 2026-27 · 11
+🏅 Standing: French Ligue 1 2026-27 · 12
 
-📊 2026 Record: 1W - 1L - 0D  (3 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 1W - 2L - 0D  (3 pts)
+   ████████▎░░░░░░░░░░░░░░░░
 
 
 
