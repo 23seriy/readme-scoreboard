@@ -15,7 +15,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-❌ L vs Taylor Townsend (Sep 6, 2026)
+✅ W vs Taylor Townsend (Sep 6, 2026) 6-4, 6-3
 ```
 
 
@@ -34,7 +34,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-❌ L vs Taylor Townsend (Sep 6, 2026)
+✅ W vs Taylor Townsend (Sep 6, 2026) 6-4, 6-3
 ```
 
 
@@ -52,7 +52,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-❌ L vs Taylor Townsend (Sep 6, 2026)
+✅ W vs Taylor Townsend (Sep 6, 2026) 6-4, 6-3
 ```
 
 
