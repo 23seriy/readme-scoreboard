@@ -2191,6 +2191,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Willamette Bearcats | `WLMT` | 2930 |
 | Walsh Cavaliers | `WLSH` | 2682 |
 | West Liberty Hilltoppers | `WLU` | 2699 |
+| William Woods Owls | `WLWD` | 129741 |
 | Williamson Mechanics | `WMSN` | 3130 |
 | Western Michigan Broncos | `WMU` | 2711 |
 | Western New England Golden Bears | `WNE` | 2702 |
