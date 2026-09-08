@@ -12,6 +12,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.10.2] - 2026-09-07
+
 ### Fixed
 
 - The **NBA player spotlight** `player:` input was not being passed to the
