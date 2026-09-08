@@ -246,6 +246,25 @@ describe("renderNba — player spotlight", () => {
     expect(output).toContain("26 PTS · 4 REB · 7 AST · 34 MIN vs Minnesota Timberwolves (Sep 4, 2026)");
   });
 
+  it("renders a late-night game's date on the actual game day, not the UTC day", () => {
+    // ESPN reports the game as a UTC instant. A game tipped at 9:30pm ET on
+    // Apr 2 is timestamped 2026-04-03T01:30Z — rendering it in UTC would show
+    // Apr 3 (a day late). The renderer must use the league timezone so it shows
+    // the actual calendar day the game was played.
+    const lateNightGame = {
+      ...SPOTLIGHT,
+      lastGame: {
+        points: 12, rebounds: 4, assists: 7, minutes: 26,
+        opponent: "Oklahoma City Thunder",
+        date: "2026-04-03T01:30:00Z",
+      },
+    };
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: lateNightGame });
+    expect(output).toContain("vs Oklahoma City Thunder (Apr 2, 2026)");
+    // Guard against a regression back to UTC rendering (which would show Apr 3).
+    expect(output).not.toContain("(Apr 3, 2026)");
+  });
+
   it("omits the Last Game block when lastGame is null", () => {
     const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: { ...SPOTLIGHT, lastGame: null } });
     expect(output).toContain("33.5 PPG · 7.7 RPG · 8.3 APG");
