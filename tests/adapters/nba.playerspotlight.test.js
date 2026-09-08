@@ -146,6 +146,25 @@ describe("NbaAdapter — fetchPlayerLastGame", () => {
   });
 });
 
+describe("NbaAdapter — fetchPlayerLastGameMeta", () => {
+  it("returns the opponent and the raw UTC date for the player's team", async () => {
+    axios.get.mockResolvedValueOnce(makeSummaryResponse());
+    const meta = await adapter.fetchPlayerLastGameMeta("1", "LAL");
+    expect(meta.opponent).toBe("Minnesota Timberwolves");
+    // The date is returned as the ESPN UTC instant; the renderer converts it to
+    // the league timezone. Keeping the raw value lets the renderer own the TZ
+    // logic (so a late-night game doesn't shift a day).
+    expect(meta.date).toBe("2026-09-04T19:00:00Z");
+  });
+
+  it("returns the opponent when the player's team plays away", async () => {
+    // Player's team is LAL (away), opponent is MIN (home).
+    axios.get.mockResolvedValueOnce(makeSummaryResponse());
+    const meta = await adapter.fetchPlayerLastGameMeta("1", "LAL");
+    expect(meta.opponent).toBe("Minnesota Timberwolves");
+  });
+});
+
 describe("NbaAdapter — fetchPlayerSpotlight", () => {
   it("returns the player's name, season averages, and last game", async () => {
     axios.get
