@@ -32,6 +32,10 @@ that would alter what appears in your README or require editing your workflow.
   actually been played (a determined winner or a `completed` status), so a
   scheduled opponent isn't rendered with a fake score.
 
+## [1.11.1] - 2026-09-08
+
+### Fixed
+
 - The MLB player spotlight **Last Game** now reports the player's most recent
   game. The MLB Stats API returns the game log in chronological order (oldest
   first), so the last game is the final entry, not the first one — previously
