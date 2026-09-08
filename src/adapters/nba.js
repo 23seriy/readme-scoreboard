@@ -113,7 +113,32 @@ async function fetchPlayerSeasonAverages(athleteId) {
   }
 }
 
-async function fetchPlayerLastGame(athleteId) {
+// The date and opponent for a player's last game come from the event summary.
+// We match the opponent as the competitor whose team is not the player's team,
+// so the caller must pass the team abbreviation the spotlight is on.
+async function fetchPlayerLastGameMeta(eventId, teamAbbr) {
+  try {
+    const espnAbbr = (ESPN_ABBR[teamAbbr] || teamAbbr).toUpperCase();
+    const { data } = await httpGet(
+      `https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=${eventId}`,
+      { headers: ESPN_HEADERS }
+    );
+    const comp = data.header?.competitions?.[0];
+    if (!comp) return null;
+    const competitors = comp.competitors || [];
+    const opponent = competitors.find((c) => (c.team?.abbreviation || "").toUpperCase() !== espnAbbr);
+    if (!opponent) return null;
+    return {
+      date: comp.date || null,
+      opponent: opponent.team?.displayName || opponent.team?.name || opponent.team?.abbreviation || null,
+    };
+  } catch (error) {
+    console.error(`Failed to fetch NBA player last game meta: ${error.message}`);
+    return null;
+  }
+}
+
+async function fetchPlayerLastGame(athleteId, teamAbbr) {
   try {
     const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/gamelog`, { headers: ESPN_HEADERS });
     const names = data.names || [];
@@ -125,7 +150,10 @@ async function fetchPlayerLastGame(athleteId) {
     const assists = statByName(names, latest.stats, "assists");
     const minutes = statByName(names, latest.stats, "minutes");
     if (points == null || rebounds == null || assists == null || minutes == null) return null;
-    return { points, rebounds, assists, minutes };
+    const result = { points, rebounds, assists, minutes };
+    const meta = await fetchPlayerLastGameMeta(latest.eventId, teamAbbr);
+    if (meta) Object.assign(result, meta);
+    return result;
   } catch (error) {
     console.error(`Failed to fetch NBA player last game: ${error.message}`);
     return null;
@@ -142,7 +170,7 @@ async function fetchPlayerSpotlight(teamAbbr, playerName) {
   }
   const [season, lastGame] = await Promise.all([
     fetchPlayerSeasonAverages(player.id),
-    fetchPlayerLastGame(player.id),
+    fetchPlayerLastGame(player.id, teamAbbr),
   ]);
   return { name: player.fullName, season: season || { points: 0, rebounds: 0, assists: 0 }, lastGame };
 }
@@ -297,14 +325,18 @@ function getDemoData(teamAbbr, playerName) {
     };
   });
   let spotlight;
-  if (abbr === "LAL" && playerName && playerName.trim().toLowerCase() === "luka dončić") {
+  if (abbr === "LAL" && playerName && playerName.trim().toLowerCase() === "luka doncic") {
     spotlight = {
-      name: "Luka Dončić",
+      name: "Luka Doncic",
       season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
-      lastGame: { points: 26, rebounds: 4, assists: 7, minutes: 34 },
+      lastGame: {
+        points: 12, rebounds: 4, assists: 7, minutes: 26,
+        date: "2026-09-04T00:00:00Z",
+        opponent: "Minnesota Timberwolves",
+      },
     };
   } else if (playerName) {
-    console.log(`[DEMO] No demo spotlight for player "${playerName}" (demo data only covers Luka Dončić on LAL)`);
+    console.log(`[DEMO] No demo spotlight for player "${playerName}" (demo data only covers Luka Doncic on LAL)`);
   }
 
   return {
@@ -358,6 +390,7 @@ module.exports = {
   findPlayerOnRoster,
   fetchPlayerSeasonAverages,
   fetchPlayerLastGame,
+  fetchPlayerLastGameMeta,
   fetchPlayerSpotlight,
   TEAM_EMOJI,
   DEMO_TEAMS,

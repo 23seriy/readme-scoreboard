@@ -308,7 +308,7 @@ Feature a specific player's season averages and last game alongside an NBA team 
     gh_token: ${{ secrets.GH_TOKEN }}
 ```
 
-Match the player's full name exactly as it appears on the team's live roster. The match is case-insensitive but otherwise exact — every letter and any diacritic must match ESPN's spelling, so you need to check the roster's actual rendering. For example, the Lakers roster spells Luka as `Luka Doncic` (no `č`), so `player: "Luka Doncic"` is the value that matches (using `Luka Dončić` would not). `player:` currently works with `sport: nba` only, and isn't supported together with `teams:` (multiple boards in one run) — use a single `team:` instead. In `compact: true` mode, the spotlight collapses to a single stat line and drops the last-game details, matching how compact mode trims the rest of the board.
+Match the player's full name exactly as it appears on the team's live roster. The match is case-insensitive but otherwise exact — every letter and any diacritic must match ESPN's spelling, so you need to check the roster's actual rendering. For example, the Lakers roster spells Luka as `Luka Doncic` (no `č`), so `player: "Luka Doncic"` is the value that matches (using `Luka Dončić` would not). The spotlight shows the player's season averages (points/rebounds/assists per game) and their most recent game — including the opponent and game date (rendered in UTC). `player:` currently works with `sport: nba` only, and isn't supported together with `teams:` (multiple boards in one run) — use a single `team:` instead. In `compact: true` mode, the spotlight collapses to a single stat line and drops the last-game details, matching how compact mode trims the rest of the board.
 
 ### Custom heading
 

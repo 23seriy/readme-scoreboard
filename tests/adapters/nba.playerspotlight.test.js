@@ -79,6 +79,22 @@ function makeGamelogResponse(names, eventStats) {
   };
 }
 
+function makeSummaryResponse() {
+  return {
+    data: {
+      header: {
+        competitions: [{
+          date: "2026-09-04T00:00:00Z",
+          competitors: [
+            { team: { abbreviation: "MIN", displayName: "Minnesota Timberwolves" }, homeAway: "home" },
+            { team: { abbreviation: "LAL", displayName: "Los Angeles Lakers" }, homeAway: "away" },
+          ],
+        }],
+      },
+    },
+  };
+}
+
 describe("NbaAdapter — fetchPlayerSeasonAverages", () => {
   it("parses points, rebounds, and assists averages by name lookup", async () => {
     const names = ["gamesPlayed", "avgMinutes", "avgFieldGoalsMade-avgFieldGoalsAttempted",
@@ -109,21 +125,23 @@ describe("NbaAdapter — fetchPlayerLastGame", () => {
 
   it("parses the most recent game's points, rebounds, assists, minutes", async () => {
     const stats = ["26", "3-10", "30.0", "1-7", "14.3", "5-6", "83.3", "4", "7", "0", "1", "0", "6", "12"];
-    axios.get.mockResolvedValueOnce(makeGamelogResponse(names, stats));
+    axios.get
+      .mockResolvedValueOnce(makeGamelogResponse(names, stats))
+      .mockResolvedValueOnce(makeSummaryResponse());
 
-    const result = await adapter.fetchPlayerLastGame("3945274");
-    expect(result).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26 });
+    const result = await adapter.fetchPlayerLastGame("3945274", "LAL");
+    expect(result).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T00:00:00Z", opponent: "Minnesota Timberwolves" });
   });
 
   it("returns null when there are no logged games", async () => {
     axios.get.mockResolvedValueOnce(makeGamelogResponse(names, null));
-    const result = await adapter.fetchPlayerLastGame("3945274");
+    const result = await adapter.fetchPlayerLastGame("3945274", "LAL");
     expect(result).toBeNull();
   });
 
   it("returns null when the request fails", async () => {
     axios.get.mockRejectedValueOnce(new Error("network error"));
-    const result = await adapter.fetchPlayerLastGame("3945274");
+    const result = await adapter.fetchPlayerLastGame("3945274", "LAL");
     expect(result).toBeNull();
   });
 });
@@ -131,7 +149,7 @@ describe("NbaAdapter — fetchPlayerLastGame", () => {
 describe("NbaAdapter — fetchPlayerSpotlight", () => {
   it("returns the player's name, season averages, and last game", async () => {
     axios.get
-      .mockResolvedValueOnce(makeRosterResponse([{ id: "3945274", fullName: "Luka Dončić" }]))
+      .mockResolvedValueOnce(makeRosterResponse([{ id: "3945274", fullName: "Luka Doncic" }]))
       .mockResolvedValueOnce(makeSplitsResponse(
         ["avgPoints", "avgRebounds", "avgAssists"],
         ["33.5", "7.7", "8.3"],
@@ -139,26 +157,28 @@ describe("NbaAdapter — fetchPlayerSpotlight", () => {
       .mockResolvedValueOnce(makeGamelogResponse(
         ["points", "totalRebounds", "assists", "minutes"],
         ["12", "4", "7", "26"],
-      ));
+      ))
+      .mockResolvedValueOnce(makeSummaryResponse());
 
-    const result = await adapter.fetchPlayerSpotlight("LAL", "Luka Dončić");
-    expect(result.name).toBe("Luka Dončić");
+    const result = await adapter.fetchPlayerSpotlight("LAL", "Luka Doncic");
+    expect(result.name).toBe("Luka Doncic");
     expect(result.season).toEqual({ points: 33.5, rebounds: 7.7, assists: 8.3 });
-    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26 });
+    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T00:00:00Z", opponent: "Minnesota Timberwolves" });
   });
 
   it("falls back to zeroed season averages when the season-averages fetch fails, without affecting lastGame", async () => {
     axios.get
-      .mockResolvedValueOnce(makeRosterResponse([{ id: "3945274", fullName: "Luka Dončić" }]))
+      .mockResolvedValueOnce(makeRosterResponse([{ id: "3945274", fullName: "Luka Doncic" }]))
       .mockRejectedValueOnce(new Error("network error"))
       .mockResolvedValueOnce(makeGamelogResponse(
         ["points", "totalRebounds", "assists", "minutes"],
         ["12", "4", "7", "26"],
-      ));
+      ))
+      .mockResolvedValueOnce(makeSummaryResponse());
 
-    const result = await adapter.fetchPlayerSpotlight("LAL", "Luka Dončić");
+    const result = await adapter.fetchPlayerSpotlight("LAL", "Luka Doncic");
     expect(result.season).toEqual({ points: 0, rebounds: 0, assists: 0 });
-    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26 });
+    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T00:00:00Z", opponent: "Minnesota Timberwolves" });
   });
 
   it("throws a descriptive error when the player isn't on the roster", async () => {
@@ -174,11 +194,17 @@ describe("NbaAdapter — fetchPlayerSpotlight", () => {
 
 describe("NbaAdapter — getDemoData with a player", () => {
   it("includes a spotlight for the demo player on LAL", () => {
-    const demo = adapter.getDemoData("LAL", "Luka Dončić");
+    const demo = adapter.getDemoData("LAL", "Luka Doncic");
     expect(demo.spotlight).toBeTruthy();
-    expect(demo.spotlight.name).toBe("Luka Dončić");
+    expect(demo.spotlight.name).toBe("Luka Doncic");
     expect(demo.spotlight.season.points).toBeGreaterThan(0);
     expect(demo.spotlight.lastGame.points).toBeGreaterThan(0);
+  });
+
+  it("includes the last game's opponent and date in the spotlight", () => {
+    const demo = adapter.getDemoData("LAL", "Luka Doncic");
+    expect(demo.spotlight.lastGame.opponent).toBeTruthy();
+    expect(demo.spotlight.lastGame.date).toBeTruthy();
   });
 
   it("omits spotlight when no player is given", () => {

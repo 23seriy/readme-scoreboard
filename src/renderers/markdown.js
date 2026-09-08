@@ -244,11 +244,19 @@ function renderNba(data, sport = "nba", title, compact = false) {
       const { points, rebounds, assists } = spotlight.season;
       lines.push(`${points.toFixed(1)} PPG · ${rebounds.toFixed(1)} RPG · ${assists.toFixed(1)} APG`);
       if (spotlight.lastGame) {
-        const { points: gp, rebounds: gr, assists: ga, minutes: gm } = spotlight.lastGame;
+        const { points: gp, rebounds: gr, assists: ga, minutes: gm, date: gdate, opponent: gopp } = spotlight.lastGame;
+        let detail = `${gp} PTS · ${gr} REB · ${ga} AST · ${gm} MIN`;
+        if (gopp) {
+          // Render the date in UTC so a game near midnight doesn't shift a day.
+          const when = gdate
+            ? new Date(gdate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
+            : "";
+          detail += ` vs ${gopp}${when ? ` (${when})` : ""}`;
+        }
         lines.push("");
         lines.push("**📅 Last Game:**");
         lines.push("```");
-        lines.push(`${gp} PTS · ${gr} REB · ${ga} AST · ${gm} MIN`);
+        lines.push(detail);
         lines.push("```");
       }
     }

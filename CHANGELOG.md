@@ -12,6 +12,13 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- The NBA player spotlight's **Last Game** line now also shows the opponent and
+  the game date (e.g. `26 PTS · 4 REB · 7 AST · 34 MIN vs Minnesota
+  Timberwolves (Sep 4, 2026)`), fetched from the event summary and rendered in
+  UTC so the date doesn't shift across timezones.
+
 ### Changed
 
 - Corrected the NBA player spotlight docs example to use the player's exact
