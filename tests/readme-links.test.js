@@ -221,6 +221,15 @@ describe("documentation and action metadata", () => {
     actionInputs.forEach((input) => expect(table).toContain(`| \`${input}\` |`));
   });
 
+  it("wires every action input to its environment variable", () => {
+    const inputsBlock = action.slice(action.indexOf("inputs:"), action.indexOf("outputs:"));
+    const actionInputs = [...inputsBlock.matchAll(/^\x20{2}([a-z_]+):$/gm)].map((match) => match[1]);
+    const envBlock = action.slice(action.indexOf("env:"), action.indexOf("runs:", action.indexOf("env:")) || action.length);
+    actionInputs.forEach((input) => {
+      expect(envBlock).toContain("${{ inputs." + input + " }}");
+    });
+  });
+
   it("describes the sport input as a league key without duplicating the full registry", () => {
     const tableStart = readme.indexOf("## Action Inputs (`with:`)"),
       tableEnd = readme.indexOf("## Action Outputs", tableStart);

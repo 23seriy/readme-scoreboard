@@ -10,6 +10,15 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [Unreleased]
+
+### Fixed
+
+- The **NBA player spotlight** `player:` input was not being passed to the
+  action runtime: `action.yml` defined the input but never exported it to the
+  `PLAYER` environment variable, so the spotlight silently never rendered. The
+  env block now maps `PLAYER` to `inputs.player`.
+
 ## [1.10.1] - 2026-09-06
 
 ### Added
