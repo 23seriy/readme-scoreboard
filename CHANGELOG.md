@@ -12,6 +12,12 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Changed
+
+- Corrected the NBA player spotlight docs example to use the player's exact
+  live-roster spelling (`Luka Doncic`, no diacritic), and clarified that the
+  match must mirror ESPN's exact spelling.
+
 ## [1.10.2] - 2026-09-07
 
 ### Fixed
