@@ -89,19 +89,46 @@ function rankToEntry(rankEntry, abbr, fullName) {
   };
 }
 
-// Latest completed (or in-progress) match for a player. The core API exposes a
-// player's most recent competition, from which we read the opponent, whether the
-// player won, the match date, and set scores.
+// Latest completed match for a player. The core API exposes a player's most
+// recent competition, which may be an upcoming (scheduled) match. We walk the
+// competition list and pick the most recent one that has actually been played
+// (a determined winner), so a future opponent isn't shown as a result.
 async function fetchLastMatch(playerId) {
   try {
     const { data: comps } = await httpGet(
       `${ESPN_CORE_BASE}/athletes/${playerId}/competitions`,
       { headers: ESPN_HEADERS },
     );
-    const item = comps.items?.[0];
-    if (!item) return null;
+    const items = comps.items || [];
+    if (items.length === 0) return null;
 
-    const { data: competition } = await httpGet(item.$ref.split("?")[0], { headers: ESPN_HEADERS });
+    let competition = null;
+    for (const item of items) {
+      const { data: comp } = await httpGet(item.$ref.split("?")[0], { headers: ESPN_HEADERS });
+      if (!comp) continue;
+
+      const statusRef = comp.status?.$ref;
+      let completed = false;
+      if (statusRef) {
+        try {
+          const { data: status } = await httpGet(statusRef, { headers: ESPN_HEADERS });
+          completed = status?.type?.completed === true || status?.type?.state === "post";
+        } catch {
+          /* ignore status fetch failures */
+        }
+      }
+
+      const competitors = comp.competitors || [];
+      // A match is "played" if it's marked completed (or we can see a winner).
+      const hasWinner = competitors.some((c) => c.winner === true);
+      if (completed || hasWinner) {
+        competition = comp;
+        break;
+      }
+    }
+
+    if (!competition) return null;
+
     const competitors = competition.competitors || [];
     const me = competitors.find((c) => String(c.id) === String(playerId));
     const opponent = competitors.find((c) => String(c.id) !== String(playerId));

@@ -23,6 +23,15 @@ that would alter what appears in your README or require editing your workflow.
   player's last game (hits, home runs, RBIs, batting average, opponent, and
   date). The Blue Jays demo board now includes Vladimir Guerrero Jr.
 
+### Fixed
+
+- The ATP and WTA **Last Match** fields no longer show an upcoming (scheduled)
+  match as a played result. ESPN's athlete competitions endpoint returns the
+  player's most recent competition, which can be a future opponent with no
+  result yet. The adapters now only report the most recent match that has
+  actually been played (a determined winner or a `completed` status), so a
+  scheduled opponent isn't rendered with a fake score.
+
 ## [1.10.4] - 2026-09-07
 
 ### Fixed

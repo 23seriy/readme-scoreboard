@@ -84,6 +84,31 @@ describe("ATPAdapter — fetchData", () => {
     });
   });
 
+  it("does not treat a scheduled (upcoming) match as a played result", async () => {
+    const scheduledCompetitionResponse = {
+      data: {
+        date: "2026-09-09T15:30Z",
+        status: { $ref: "https://sports.core.api.espn.com/v2/sports/tennis/leagues/atp/events/99-2026/competitions/1000/status" },
+        competitors: [
+          { id: "3623", name: "Jannik Sinner", winner: undefined, linescores: { $ref: "https://x/linescores/1" } },
+          { id: "9999", name: "Some Opponent", winner: undefined, linescores: { $ref: "https://x/linescores/2" } },
+        ],
+      },
+    };
+    const scheduledStatusResponse = {
+      data: { type: { id: "1", name: "STATUS_SCHEDULED", state: "pre", completed: false, description: "Scheduled" } },
+    };
+
+    axios.get
+      .mockResolvedValueOnce(rankingsResponse)
+      .mockResolvedValueOnce(compsResponse)
+      .mockResolvedValueOnce(scheduledCompetitionResponse)
+      .mockResolvedValueOnce(scheduledStatusResponse);
+
+    const result = await atp.fetchData("SIN");
+    expect(result.lastMatch).toBeNull();
+  });
+
   it("returns null for an unknown player", async () => {
     const result = await atp.fetchData("ZZZ");
     expect(result).toBeNull();
