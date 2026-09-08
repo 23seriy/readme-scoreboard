@@ -12,6 +12,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.10.4] - 2026-09-07
+
 ### Fixed
 
 - The NBA player spotlight **Last Game** date was rendered in UTC, which shifted
