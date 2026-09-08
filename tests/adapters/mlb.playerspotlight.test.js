@@ -103,14 +103,23 @@ describe("MlbAdapter — fetchPlayerSeasonStats", () => {
 
 describe("MlbAdapter — fetchPlayerLastGame", () => {
   it("parses the most recent game's date, opponent, and line", async () => {
-    axios.get.mockResolvedValueOnce(makeGameLogResponse([{
-      date: "2026-03-27",
-      opponent: { id: 133, name: "Athletics", link: "/api/v1/teams/133" },
-      stat: { hits: 1, homeRuns: 0, rbi: 0, avg: ".333" },
-    }]));
+    // The game log is chronological (oldest first), so the most recent game is
+    // the last entry, not the first.
+    axios.get.mockResolvedValueOnce(makeGameLogResponse([
+      {
+        date: "2026-03-27",
+        opponent: { id: 133, name: "Athletics", link: "/api/v1/teams/133" },
+        stat: { hits: 1, homeRuns: 0, rbi: 0, avg: ".333" },
+      },
+      {
+        date: "2026-09-07",
+        opponent: { id: 133, name: "Athletics", link: "/api/v1/teams/133" },
+        stat: { hits: 1, homeRuns: 0, rbi: 0, avg: ".259" },
+      },
+    ]));
 
     const result = await adapter.fetchPlayerLastGame("665489", 2026);
-    expect(result).toEqual({ date: "2026-03-27", opponent: "Athletics", hits: 1, homeRuns: 0, rbi: 0, avg: 0.333 });
+    expect(result).toEqual({ date: "2026-09-07", opponent: "Athletics", hits: 1, homeRuns: 0, rbi: 0, avg: 0.259 });
   });
 
   it("returns null when there are no logged games", async () => {
@@ -133,31 +142,45 @@ describe("MlbAdapter — fetchPlayerSpotlight", () => {
       .mockResolvedValueOnce(makeSeasonResponse({
         avg: ".259", homeRuns: 8, rbi: 54, hits: 126, atBats: 487, gamesPlayed: 130, ops: ".682",
       }))
-      .mockResolvedValueOnce(makeGameLogResponse([{
-        date: "2026-03-27",
-        opponent: { id: 133, name: "Athletics" },
-        stat: { hits: 1, homeRuns: 0, rbi: 0, avg: ".333" },
-      }]));
+      .mockResolvedValueOnce(makeGameLogResponse([
+        {
+          date: "2026-03-27",
+          opponent: { id: 133, name: "Athletics" },
+          stat: { hits: 1, homeRuns: 0, rbi: 0, avg: ".333" },
+        },
+        {
+          date: "2026-09-07",
+          opponent: { id: 133, name: "Athletics" },
+          stat: { hits: 1, homeRuns: 0, rbi: 0, avg: ".259" },
+        },
+      ]));
 
     const result = await adapter.fetchPlayerSpotlight("TOR", "Vladimir Guerrero Jr.");
     expect(result.name).toBe("Vladimir Guerrero Jr.");
     expect(result.season).toEqual({ avg: 0.259, homeRuns: 8, rbi: 54, hits: 126, atBats: 487, games: 130, ops: 0.682 });
-    expect(result.lastGame).toEqual({ date: "2026-03-27", opponent: "Athletics", hits: 1, homeRuns: 0, rbi: 0, avg: 0.333 });
+    expect(result.lastGame).toEqual({ date: "2026-09-07", opponent: "Athletics", hits: 1, homeRuns: 0, rbi: 0, avg: 0.259 });
   });
 
   it("falls back to zeroed season stats when the season fetch fails, without affecting lastGame", async () => {
     axios.get
       .mockResolvedValueOnce(makeRosterResponse([{ id: "665489", fullName: "Vladimir Guerrero Jr." }]))
       .mockRejectedValueOnce(new Error("network error"))
-      .mockResolvedValueOnce(makeGameLogResponse([{
-        date: "2026-03-27",
-        opponent: { id: 133, name: "Athletics" },
-        stat: { hits: 1, homeRuns: 0, rbi: 0, avg: ".333" },
-      }]));
+      .mockResolvedValueOnce(makeGameLogResponse([
+        {
+          date: "2026-03-27",
+          opponent: { id: 133, name: "Athletics" },
+          stat: { hits: 1, homeRuns: 0, rbi: 0, avg: ".333" },
+        },
+        {
+          date: "2026-09-07",
+          opponent: { id: 133, name: "Athletics" },
+          stat: { hits: 1, homeRuns: 0, rbi: 0, avg: ".259" },
+        },
+      ]));
 
     const result = await adapter.fetchPlayerSpotlight("TOR", "Vladimir Guerrero Jr.");
     expect(result.season).toEqual({ avg: 0, homeRuns: 0, rbi: 0, hits: 0, atBats: 0, games: 0, ops: 0 });
-    expect(result.lastGame).toEqual({ date: "2026-03-27", opponent: "Athletics", hits: 1, homeRuns: 0, rbi: 0, avg: 0.333 });
+    expect(result.lastGame).toEqual({ date: "2026-09-07", opponent: "Athletics", hits: 1, homeRuns: 0, rbi: 0, avg: 0.259 });
   });
 
   it("throws a descriptive error when the player isn't on the roster", async () => {
