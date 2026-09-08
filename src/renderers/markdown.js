@@ -286,7 +286,7 @@ function formatMlbGameResult(game, teamId) {
 }
 
 function renderMlb(data, title) {
-  const { team, recentGames, record, emoji, logoUrl } = data;
+  const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
   lines.push(...headingLines("mlb", title));
@@ -321,6 +321,32 @@ function renderMlb(data, title) {
     lines.push("```");
   } else {
     lines.push("📅 No recent games found");
+  }
+
+  if (spotlight) {
+    lines.push("");
+    const { avg, homeRuns, rbi } = spotlight.season;
+    lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+    const battingAvg = avg ? avg.toFixed(3).replace(/^0/, "") : ".000";
+    lines.push(`${battingAvg} AVG · ${homeRuns} HR · ${rbi} RBI`);
+    if (spotlight.lastGame) {
+      const { hits, homeRuns: hr, rbi: lastRbi, avg: lastAvg, date: gdate, opponent: gopp } = spotlight.lastGame;
+      const lastAvgStr = lastAvg ? lastAvg.toFixed(3).replace(/^0/, "") : ".000";
+      let detail = `${hits} H · ${hr} HR · ${lastRbi} RBI · ${lastAvgStr} AVG`;
+      if (gopp) {
+        // Render the date in Eastern time so a late-night game doesn't shift a
+        // day. MLB game dates are calendar dates in the MLB Stats API.
+        const when = gdate
+          ? new Date(gdate + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
+          : "";
+        detail += ` vs ${gopp}${when ? ` (${when})` : ""}`;
+      }
+      lines.push("");
+      lines.push("**📅 Last Game:**");
+      lines.push("```");
+      lines.push(detail);
+      lines.push("```");
+    }
   }
 
   return lines.join("\n");

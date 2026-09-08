@@ -42,6 +42,7 @@ const DEMO_TEAMS = {
   BOS: { id: 111, abbreviation: "BOS", name: "Red Sox", full_name: "Boston Red Sox", league: "American League", division: "AL East" },
   CHC: { id: 112, abbreviation: "CHC", name: "Cubs", full_name: "Chicago Cubs", league: "National League", division: "NL Central" },
   HOU: { id: 117, abbreviation: "HOU", name: "Astros", full_name: "Houston Astros", league: "American League", division: "AL West" },
+  TOR: { id: 141, abbreviation: "TOR", name: "Blue Jays", full_name: "Toronto Blue Jays", league: "American League", division: "AL East" },
 };
 
 class MlbAdapter extends BaseFreeApiAdapter {
@@ -76,6 +77,120 @@ class MlbAdapter extends BaseFreeApiAdapter {
       console.error(`Failed to fetch MLB standings: ${error.message}`);
       return { wins: 0, losses: 0, season: this.getSeasonYear(), position: null };
     }
+  }
+
+  async fetchTeamRoster(teamAbbr) {
+    const teamId = TEAM_IDS[teamAbbr.toUpperCase()];
+    if (!teamId) return [];
+    try {
+      const { data } = await httpGet(`${MLB_BASE}/teams/${teamId}/roster`, {
+        params: { rosterType: "active" },
+      });
+      return (data.roster || []).map((entry) => ({
+        id: String(entry.person.id),
+        fullName: entry.person.fullName,
+      }));
+    } catch (error) {
+      console.error(`Failed to fetch MLB roster: ${error.message}`);
+      return [];
+    }
+  }
+
+  findPlayerOnRoster(roster, playerName) {
+    const target = playerName.trim().toLowerCase();
+    return roster.find((player) => player.fullName.toLowerCase() === target) || null;
+  }
+
+  async fetchPlayerSeasonStats(athleteId, season) {
+    try {
+      const { data } = await httpGet(`${MLB_BASE}/people/${athleteId}/stats`, {
+        params: { stats: "season", season, group: "hitting" },
+      });
+      const stat = data.stats?.[0]?.splits?.[0]?.stat;
+      if (!stat) return null;
+      return {
+        avg: parseFloat(stat.avg) || 0,
+        homeRuns: stat.homeRuns || 0,
+        rbi: stat.rbi || 0,
+        hits: stat.hits || 0,
+        atBats: stat.atBats || 0,
+        games: stat.gamesPlayed || 0,
+        ops: stat.ops ? parseFloat(stat.ops) : 0,
+      };
+    } catch (error) {
+      console.error(`Failed to fetch MLB player season stats: ${error.message}`);
+      return null;
+    }
+  }
+
+  async fetchPlayerLastGame(athleteId, season) {
+    try {
+      const { data } = await httpGet(`${MLB_BASE}/people/${athleteId}/stats`, {
+        params: { stats: "gameLog", season, group: "hitting" },
+      });
+      const games = data.stats?.[0]?.splits || [];
+      // The game log is returned with the most recent game first.
+      const g = games[0];
+      if (!g) return null;
+      return {
+        date: g.date || null,
+        opponent: g.opponent?.name || g.opponent?.abbreviation || null,
+        hits: g.stat?.hits || 0,
+        homeRuns: g.stat?.homeRuns || 0,
+        rbi: g.stat?.rbi || 0,
+        avg: parseFloat(g.stat?.avg) || 0,
+      };
+    } catch (error) {
+      console.error(`Failed to fetch MLB player last game: ${error.message}`);
+      return null;
+    }
+  }
+
+  async fetchPlayerSpotlight(teamAbbr, playerName) {
+    const roster = await this.fetchTeamRoster(teamAbbr);
+    const player = this.findPlayerOnRoster(roster, playerName);
+    if (!player) {
+      const names = roster.slice(0, 8).map((entry) => entry.fullName);
+      const suffix = roster.length > 8 ? ", ..." : "";
+      throw new Error(`Unknown player "${playerName}" on ${teamAbbr.toUpperCase()}. Try one of: ${names.join(", ")}${suffix}`);
+    }
+    const season = this.getSeasonYear();
+    const [stats, lastGame] = await Promise.all([
+      this.fetchPlayerSeasonStats(player.id, season),
+      this.fetchPlayerLastGame(player.id, season),
+    ]);
+    return {
+      name: player.fullName,
+      season: stats || { avg: 0, homeRuns: 0, rbi: 0, hits: 0, atBats: 0, games: 0, ops: 0 },
+      lastGame,
+    };
+  }
+
+  getDemoData(teamAbbr, playerName) {
+    const team = this.DEMO_TEAMS[teamAbbr.toUpperCase()];
+    if (!team) return null;
+
+    const demo = super.getDemoData(teamAbbr);
+    if (!demo) return null;
+
+    if (teamAbbr.toUpperCase() === "TOR" && playerName && playerName.trim().toLowerCase() === "vladimir guerrero jr.") {
+      demo.spotlight = {
+        name: "Vladimir Guerrero Jr.",
+        season: { avg: 0.259, homeRuns: 8, rbi: 54, hits: 126, atBats: 487, games: 130, ops: 0.682 },
+        lastGame: {
+          date: "2026-03-27",
+          opponent: "Athletics",
+          hits: 1,
+          homeRuns: 0,
+          rbi: 0,
+          avg: 0.333,
+        },
+      };
+    } else if (playerName) {
+      console.log(`[DEMO] No demo spotlight for player "${playerName}" (demo data only covers Vladimir Guerrero Jr. on TOR)`);
+    }
+
+    return demo;
   }
 
   async fetchData(teamAbbr) {

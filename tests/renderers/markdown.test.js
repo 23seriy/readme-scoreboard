@@ -154,6 +154,33 @@ describe("renderMlb / formatMlbGameResult", () => {
   });
 });
 
+describe("renderMlb — player spotlight", () => {
+  const SPOTLIGHT = {
+    name: "Vladimir Guerrero Jr.",
+    season: { avg: 0.259, homeRuns: 8, rbi: 54, hits: 126, atBats: 487, games: 130, ops: 0.682 },
+    lastGame: { hits: 1, homeRuns: 0, rbi: 0, avg: 0.333, opponent: "Athletics", date: "2026-03-27" },
+  };
+
+  it("renders the season stats and last game when spotlight is present", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).toContain("Player Spotlight: Vladimir Guerrero Jr.");
+    expect(output).toContain(".259 AVG · 8 HR · 54 RBI");
+    expect(output).toContain("**📅 Last Game:**");
+    expect(output).toContain("1 H · 0 HR · 0 RBI · .333 AVG vs Athletics (Mar 27, 2026)");
+  });
+
+  it("omits the Last Game block when lastGame is null", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [], spotlight: { ...SPOTLIGHT, lastGame: null } });
+    expect(output).toContain(".259 AVG · 8 HR · 54 RBI");
+    expect(output).not.toContain("Last Game");
+  });
+
+  it("omits the spotlight section entirely when data.spotlight is absent", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
+    expect(output).not.toContain("Player Spotlight");
+  });
+});
+
 describe("Soccer renderer — Saudi Pro League and J1 League", () => {
   const data = (team, overrides = {}) => ({
     team: { abbreviation: team.abbreviation, full_name: team.full_name, conference: team.league },

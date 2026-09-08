@@ -36,14 +36,18 @@ describe("input validation", () => {
     expect(() => validateInputs({ ...base, player: "Luka Dončić", teamsCount: 1 })).not.toThrow();
   });
 
+  it("allows player: with sport: mlb and a single team", () => {
+    expect(() => validateInputs({ ...base, sport: "mlb", player: "Vladimir Guerrero Jr.", teamsCount: 1 })).not.toThrow();
+  });
+
   it("rejects player: together with multiple teams", () => {
     expect(() => validateInputs({ ...base, player: "Luka Dončić", teamsCount: 2 }))
       .toThrow(/player: is not supported together with teams:/);
   });
 
-  it("rejects player: for a sport other than nba", () => {
-    expect(() => validateInputs({ ...base, sport: "mlb", player: "Someone", teamsCount: 1 }))
-      .toThrow(/player: is not yet supported for sport "mlb"/);
+  it("rejects player: for a sport other than nba or mlb", () => {
+    expect(() => validateInputs({ ...base, sport: "nfl", player: "Someone", teamsCount: 1, supportedSports: ["nba", "mlb", "nfl"] }))
+      .toThrow(/player: is not yet supported for sport "nfl"/);
   });
 
   it("allows omitting player: entirely", () => {

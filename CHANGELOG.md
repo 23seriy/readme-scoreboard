@@ -12,6 +12,17 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.11.0] - 2026-09-08
+
+### Added
+
+- MLB player spotlight support for the `player:` input. You can now feature a
+  batter's season line and last game alongside an MLB team board, e.g.
+  `player: "Vladimir Guerrero Jr."` with `sport: mlb` and `team: TOR`. The
+  spotlight shows the season batting average, home runs, and RBIs, plus the
+  player's last game (hits, home runs, RBIs, batting average, opponent, and
+  date). The Blue Jays demo board now includes Vladimir Guerrero Jr.
+
 ## [1.10.4] - 2026-09-07
 
 ### Fixed
