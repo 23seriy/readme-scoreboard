@@ -233,17 +233,17 @@ describe("renderNba / formatGameResult", () => {
 
 describe("renderNba — player spotlight", () => {
   const SPOTLIGHT = {
-    name: "Luka Dončić",
+    name: "Luka Doncic",
     season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
-    lastGame: { points: 26, rebounds: 4, assists: 7, minutes: 34 },
+    lastGame: { points: 26, rebounds: 4, assists: 7, minutes: 34, opponent: "Minnesota Timberwolves", date: "2026-09-04T00:00:00Z" },
   };
 
   it("renders the season averages and last game when spotlight is present", () => {
     const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: SPOTLIGHT });
-    expect(output).toContain("Player Spotlight: Luka Dončić");
+    expect(output).toContain("Player Spotlight: Luka Doncic");
     expect(output).toContain("33.5 PPG · 7.7 RPG · 8.3 APG");
     expect(output).toContain("**📅 Last Game:**");
-    expect(output).toContain("26 PTS · 4 REB · 7 AST · 34 MIN");
+    expect(output).toContain("26 PTS · 4 REB · 7 AST · 34 MIN vs Minnesota Timberwolves (Sep 4, 2026)");
   });
 
   it("omits the Last Game block when lastGame is null", () => {
@@ -259,7 +259,7 @@ describe("renderNba — player spotlight", () => {
 
   it("renders a condensed one-line form in compact mode, dropping the Last Game block", () => {
     const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: SPOTLIGHT }, { compact: true });
-    expect(output).toContain("👑 Luka Dončić · 33.5 PPG · 7.7 RPG · 8.3 APG");
+    expect(output).toContain("👑 Luka Doncic · 33.5 PPG · 7.7 RPG · 8.3 APG");
     expect(output).not.toContain("Last Game");
     expect(output).not.toContain("Player Spotlight:");
   });

@@ -38,7 +38,7 @@ function runSmokeChecks() {
 
   try {
     const nbaAdapter = require("../src/adapters/nba");
-    const demo = nbaAdapter.getDemoData("LAL", "Luka Dončić");
+    const demo = nbaAdapter.getDemoData("LAL", "Luka Doncic");
     const spotlight = demo?.spotlight;
     const seasonOk = spotlight?.season
       && typeof spotlight.season.points === "number"
@@ -47,10 +47,10 @@ function runSmokeChecks() {
     const lastGameOk = spotlight?.lastGame === null || typeof spotlight?.lastGame === "object";
 
     if (!spotlight || !spotlight.name || !seasonOk || !lastGameOk) {
-      throw new Error("nba getDemoData(\"LAL\", \"Luka Dončić\") did not return a well-formed spotlight");
+      throw new Error("nba getDemoData(\"LAL\", \"Luka Doncic\") did not return a well-formed spotlight");
     }
 
-    console.log("✓ nba player spotlight (Luka Dončić)");
+    console.log("✓ nba player spotlight (Luka Doncic)");
   } catch (error) {
     failures.push(`nba player spotlight: ${error.message}`);
   }
