@@ -12,6 +12,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.10.3] - 2026-09-07
+
 ### Added
 
 - The NBA player spotlight's **Last Game** line now also shows the opponent and
