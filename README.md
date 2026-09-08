@@ -295,9 +295,9 @@ step (one board per team, joined with a divider):
           teams: LAL, BOS, NYK
 ```
 
-### Player spotlight (NBA)
+### Player spotlight
 
-Feature a specific player's season averages and last game alongside an NBA team board with the `player:` input:
+Feature a specific player's season line and last game alongside a team board with the `player:` input. Currently supported for `sport: nba` and `sport: mlb`.
 
 ```yaml
 - uses: 23seriy/readme-scoreboard@v1
@@ -308,7 +308,18 @@ Feature a specific player's season averages and last game alongside an NBA team 
     gh_token: ${{ secrets.GH_TOKEN }}
 ```
 
-Match the player's full name exactly as it appears on the team's live roster. The match is case-insensitive but otherwise exact — every letter and any diacritic must match ESPN's spelling, so you need to check the roster's actual rendering. For example, the Lakers roster spells Luka as `Luka Doncic` (no `č`), so `player: "Luka Doncic"` is the value that matches (using `Luka Dončić` would not). The spotlight shows the player's season averages (points/rebounds/assists per game) and their most recent game — including the opponent and game date (rendered in UTC). `player:` currently works with `sport: nba` only, and isn't supported together with `teams:` (multiple boards in one run) — use a single `team:` instead. In `compact: true` mode, the spotlight collapses to a single stat line and drops the last-game details, matching how compact mode trims the rest of the board.
+For MLB, add a batter's spotlight to a team board (e.g. Vladimir Guerrero Jr. on the Blue Jays):
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    sport: mlb
+    team: TOR
+    player: "Vladimir Guerrero Jr."
+    gh_token: ${{ secrets.GH_TOKEN }}
+```
+
+Match the player's full name exactly as it appears on the team's live roster. The match is case-insensitive but otherwise exact — every letter and any diacritic must match the league's roster spelling, so you need to check the roster's actual rendering. For example, the Lakers roster spells Luka as `Luka Doncic` (no `č`), so `player: "Luka Doncic"` is the value that matches (using `Luka Dončić` would not). The NBA spotlight shows the player's season averages (points/rebounds/assists per game) and their most recent game — including the opponent and game date (rendered in the league timezone). The MLB spotlight shows a batter's season batting average, home runs, and RBIs, plus their most recent game (hits, home runs, RBIs, batting average, opponent, and date). `player:` currently works with `sport: nba` and `sport: mlb`, and isn't supported together with `teams:` (multiple boards in one run) — use a single `team:` instead. In `compact: true` mode, the NBA spotlight collapses to a single stat line and drops the last-game details, matching how compact mode trims the rest of the board.
 
 ### Custom heading
 
@@ -518,7 +529,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | `gh_token` | Yes* | — | Token with Contents: Read and write on `target_repo` |
 | `sport` | No | `nba` | League key (for example, `nba`). See [Supported Sports](#supported-sports). |
 | `team` | Yes | — | Team or player abbreviation (e.g. `LAL`, `NYR`, `MIA`, or `SIN` for Jannik Sinner). Invalid abbreviations show example names. |
-| `player` | No | — | Player full name to feature alongside the team board (e.g. `Luka Doncic`); must match the roster's exact spelling, including any diacritics ESPN uses. Currently supported for `sport: nba` only; not supported together with `teams:` (use `team:` instead). |
+| `player` | No | — | Player full name to feature alongside the team board (e.g. `Luka Doncic` or `Vladimir Guerrero Jr.`); must match the roster's exact spelling, including any diacritics. Currently supported for `sport: nba` and `sport: mlb`; not supported together with `teams:` (use `team:` instead). |
 | `entity` | No | `team` | Entity type: `team` (default) or `player`. Inferred from the sport — individual sports like ATP Tennis and Formula 1 default to `player`. |
 | `teams` | No | — | Comma-separated team/player abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
 | `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard (individual sports default to `<League> Player`). |

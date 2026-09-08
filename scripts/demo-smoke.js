@@ -55,6 +55,25 @@ function runSmokeChecks() {
     failures.push(`nba player spotlight: ${error.message}`);
   }
 
+  try {
+    const mlbAdapter = require("../src/adapters/mlb");
+    const demo = mlbAdapter.getDemoData("TOR", "Vladimir Guerrero Jr.");
+    const spotlight = demo?.spotlight;
+    const seasonOk = spotlight?.season
+      && typeof spotlight.season.avg === "number"
+      && typeof spotlight.season.homeRuns === "number"
+      && typeof spotlight.season.rbi === "number";
+    const lastGameOk = spotlight?.lastGame === null || typeof spotlight?.lastGame === "object";
+
+    if (!spotlight || !spotlight.name || !seasonOk || !lastGameOk) {
+      throw new Error("mlb getDemoData(\"TOR\", \"Vladimir Guerrero Jr.\") did not return a well-formed spotlight");
+    }
+
+    console.log("✓ mlb player spotlight (Vladimir Guerrero Jr.)");
+  } catch (error) {
+    failures.push(`mlb player spotlight: ${error.message}`);
+  }
+
   if (failures.length > 0) {
     throw new Error(`Demo smoke checks failed:\n- ${failures.join("\n- ")}`);
   }
