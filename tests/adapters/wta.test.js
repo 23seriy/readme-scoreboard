@@ -84,6 +84,95 @@ describe("WTAAdapter — fetchData", () => {
     });
   });
 
+  it("does not treat a scheduled (upcoming) match as a played result", async () => {
+    // ESPN exposes the player's most recent competition, which can be an
+    // upcoming match with no winner yet. It must not be shown as a result.
+    const scheduledCompetitionResponse = {
+      data: {
+        date: "2026-09-08T15:30Z",
+        status: {
+          $ref: "https://sports.core.api.espn.com/v2/sports/tennis/leagues/wta/events/189-2026/competitions/182533/status?lang=en&region=us",
+        },
+        competitors: [
+          { id: "3038", name: "Aryna Sabalenka", winner: undefined, linescores: { $ref: "https://x/linescores/1" } },
+          { id: "6970", name: "Linda Noskova", winner: undefined, linescores: { $ref: "https://x/linescores/2" } },
+        ],
+      },
+    };
+    const scheduledStatusResponse = {
+      data: {
+        type: { id: "1", name: "STATUS_SCHEDULED", state: "pre", completed: false, description: "Scheduled" },
+      },
+    };
+
+    axios.get
+      .mockResolvedValueOnce(rankingsResponse)
+      .mockResolvedValueOnce(compsResponse)
+      .mockResolvedValueOnce(scheduledCompetitionResponse)
+      .mockResolvedValueOnce(scheduledStatusResponse);
+
+    const result = await wta.fetchData("SAB");
+    expect(result.lastMatch).toBeNull();
+  });
+
+  it("picks a completed match even when a scheduled match appears first in the list", async () => {
+    const compsResponseMultiple = {
+      data: {
+        items: [
+          { $ref: "https://sports.core.api.espn.com/v2/sports/tennis/leagues/wta/events/189-2026/competitions/182533" },
+          { $ref: "https://sports.core.api.espn.com/v2/sports/tennis/leagues/wta/events/1/competitions/2" },
+        ],
+      },
+    };
+    const scheduledCompetitionResponse = {
+      data: {
+        date: "2026-09-08T15:30Z",
+        status: { $ref: "https://sports.core.api.espn.com/v2/sports/tennis/leagues/wta/events/189-2026/competitions/182533/status" },
+        competitors: [
+          { id: "3038", name: "Aryna Sabalenka", winner: undefined, linescores: { $ref: "https://x/linescores/1" } },
+          { id: "6970", name: "Linda Noskova", winner: undefined, linescores: { $ref: "https://x/linescores/2" } },
+        ],
+      },
+    };
+    const scheduledStatusResponse = {
+      data: { type: { id: "1", name: "STATUS_SCHEDULED", state: "pre", completed: false, description: "Scheduled" } },
+    };
+    const completedCompetitionResponse = {
+      data: {
+        date: "2026-09-06T18:00Z",
+        status: { $ref: "https://sports.core.api.espn.com/v2/sports/tennis/leagues/wta/events/1/competitions/2/status" },
+        competitors: [
+          { id: "3038", name: "Aryna Sabalenka", winner: true, linescores: { $ref: "https://x/linescores/1" } },
+          { id: "999", name: "Taylor Townsend", winner: false, linescores: { $ref: "https://x/linescores/2" } },
+        ],
+      },
+    };
+    const completedStatusResponse = {
+      data: { type: { id: "3", name: "STATUS_FINAL", state: "post", completed: true, description: "Final" } },
+    };
+
+    axios.get
+      .mockResolvedValueOnce(rankingsResponse)
+      .mockResolvedValueOnce(compsResponseMultiple)
+      // scheduled match (skipped)
+      .mockResolvedValueOnce(scheduledCompetitionResponse)
+      .mockResolvedValueOnce(scheduledStatusResponse)
+      // completed match (picked)
+      .mockResolvedValueOnce(completedCompetitionResponse)
+      .mockResolvedValueOnce(completedStatusResponse)
+      // linescores for the completed match
+      .mockResolvedValueOnce(linescoresResponse([6, 4]))
+      .mockResolvedValueOnce(linescoresResponse([3, 6]));
+
+    const result = await wta.fetchData("SAB");
+    expect(result.lastMatch).toEqual({
+      opponent: "Taylor Townsend",
+      won: true,
+      date: "2026-09-06T18:00Z",
+      sets: [[6, 4], [3, 6]],
+    });
+  });
+
   it("returns null for an unknown player", async () => {
     const result = await wta.fetchData("ZZZ");
     expect(result).toBeNull();
