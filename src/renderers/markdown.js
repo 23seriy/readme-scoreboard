@@ -247,9 +247,11 @@ function renderNba(data, sport = "nba", title, compact = false) {
         const { points: gp, rebounds: gr, assists: ga, minutes: gm, date: gdate, opponent: gopp } = spotlight.lastGame;
         let detail = `${gp} PTS · ${gr} REB · ${ga} AST · ${gm} MIN`;
         if (gopp) {
-          // Render the date in UTC so a game near midnight doesn't shift a day.
+          // Render the date in the game's timezone so a late-night game doesn't
+          // shift a day. NBA games are given as UTC instants; interpreting them
+          // in US Eastern time shows the actual calendar day the game was played.
           const when = gdate
-            ? new Date(gdate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
+            ? new Date(gdate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
             : "";
           detail += ` vs ${gopp}${when ? ` (${when})` : ""}`;
         }

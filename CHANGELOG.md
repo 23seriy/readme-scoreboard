@@ -12,6 +12,13 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- The NBA player spotlight **Last Game** date was rendered in UTC, which shifted
+  late-night games to the wrong day (e.g. a game on Apr 2 showed as Apr 3). It's
+  now rendered in the league's timezone (`America/New_York`) so the date shows
+  the actual calendar day the game was played.
+
 ## [1.10.3] - 2026-09-07
 
 ### Added
