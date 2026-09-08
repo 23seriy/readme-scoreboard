@@ -129,8 +129,9 @@ class MlbAdapter extends BaseFreeApiAdapter {
         params: { stats: "gameLog", season, group: "hitting" },
       });
       const games = data.stats?.[0]?.splits || [];
-      // The game log is returned with the most recent game first.
-      const g = games[0];
+      // The game log is returned in chronological order (oldest first), so the
+      // most recent game is the last entry.
+      const g = games[games.length - 1];
       if (!g) return null;
       return {
         date: g.date || null,
@@ -178,12 +179,12 @@ class MlbAdapter extends BaseFreeApiAdapter {
         name: "Vladimir Guerrero Jr.",
         season: { avg: 0.259, homeRuns: 8, rbi: 54, hits: 126, atBats: 487, games: 130, ops: 0.682 },
         lastGame: {
-          date: "2026-03-27",
+          date: "2026-09-07",
           opponent: "Athletics",
           hits: 1,
           homeRuns: 0,
           rbi: 0,
-          avg: 0.333,
+          avg: 0.259,
         },
       };
     } else if (playerName) {
