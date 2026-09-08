@@ -80,5 +80,6 @@ runs:
         BADGE: ${{ inputs.badge }}
         MARKER: ${{ inputs.marker }}
         TARGET_REPO: ${{ inputs.target_repo }}
+        PLAYER: ${{ inputs.player }}
         DRY_RUN: ${{ inputs.dry_run }}
         COMPACT: ${{ inputs.compact }}
