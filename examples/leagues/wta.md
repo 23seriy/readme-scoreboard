@@ -15,7 +15,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Taylor Townsend (Sep 6, 2026) 6-4, 6-3
+❌ L vs Linda Noskova (Sep 8, 2026)
 ```
 
 
@@ -34,7 +34,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Taylor Townsend (Sep 6, 2026) 6-4, 6-3
+❌ L vs Linda Noskova (Sep 8, 2026)
 ```
 
 
@@ -52,7 +52,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Taylor Townsend (Sep 6, 2026) 6-4, 6-3
+❌ L vs Linda Noskova (Sep 8, 2026)
 ```
 
 
