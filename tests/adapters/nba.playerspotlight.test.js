@@ -84,7 +84,7 @@ function makeSummaryResponse() {
     data: {
       header: {
         competitions: [{
-          date: "2026-09-04T00:00:00Z",
+          date: "2026-09-04T19:00:00Z",
           competitors: [
             { team: { abbreviation: "MIN", displayName: "Minnesota Timberwolves" }, homeAway: "home" },
             { team: { abbreviation: "LAL", displayName: "Los Angeles Lakers" }, homeAway: "away" },
@@ -130,7 +130,7 @@ describe("NbaAdapter — fetchPlayerLastGame", () => {
       .mockResolvedValueOnce(makeSummaryResponse());
 
     const result = await adapter.fetchPlayerLastGame("3945274", "LAL");
-    expect(result).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T00:00:00Z", opponent: "Minnesota Timberwolves" });
+    expect(result).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T19:00:00Z", opponent: "Minnesota Timberwolves" });
   });
 
   it("returns null when there are no logged games", async () => {
@@ -163,7 +163,7 @@ describe("NbaAdapter — fetchPlayerSpotlight", () => {
     const result = await adapter.fetchPlayerSpotlight("LAL", "Luka Doncic");
     expect(result.name).toBe("Luka Doncic");
     expect(result.season).toEqual({ points: 33.5, rebounds: 7.7, assists: 8.3 });
-    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T00:00:00Z", opponent: "Minnesota Timberwolves" });
+    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T19:00:00Z", opponent: "Minnesota Timberwolves" });
   });
 
   it("falls back to zeroed season averages when the season-averages fetch fails, without affecting lastGame", async () => {
@@ -178,7 +178,7 @@ describe("NbaAdapter — fetchPlayerSpotlight", () => {
 
     const result = await adapter.fetchPlayerSpotlight("LAL", "Luka Doncic");
     expect(result.season).toEqual({ points: 0, rebounds: 0, assists: 0 });
-    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T00:00:00Z", opponent: "Minnesota Timberwolves" });
+    expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T19:00:00Z", opponent: "Minnesota Timberwolves" });
   });
 
   it("throws a descriptive error when the player isn't on the roster", async () => {

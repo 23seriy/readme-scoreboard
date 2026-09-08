@@ -331,7 +331,7 @@ function getDemoData(teamAbbr, playerName) {
       season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
       lastGame: {
         points: 12, rebounds: 4, assists: 7, minutes: 26,
-        date: "2026-09-04T00:00:00Z",
+        date: "2026-09-04T19:00:00Z",
         opponent: "Minnesota Timberwolves",
       },
     };
