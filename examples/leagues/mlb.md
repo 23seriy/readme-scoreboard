@@ -13,18 +13,18 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs TOR (Sep 9)
+📅 Next: vs SEA (Sep 11)
 
-📊 2026 Record: 58W - 87L (40.0%)
-   ██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 58W - 88L (39.7%)
+   █████████▉░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  2-4  vs TOR (Sep 8, 2026)
 ✅ W  6-5  vs TOR (Sep 7, 2026)
 ❌ L  0-2  @ SEA (Sep 6, 2026)
 ✅ W  6-2  @ SEA (Sep 5, 2026)
 ✅ W  7-6  @ SEA (Sep 4, 2026)
-✅ W  7-4  @ SEA (Sep 3, 2026)
 ```
 
 ## Custom title
@@ -40,18 +40,18 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs TOR (Sep 9)
+📅 Next: vs SEA (Sep 11)
 
-📊 2026 Record: 58W - 87L (40.0%)
-   ██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 58W - 88L (39.7%)
+   █████████▉░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  2-4  vs TOR (Sep 8, 2026)
 ✅ W  6-5  vs TOR (Sep 7, 2026)
 ❌ L  0-2  @ SEA (Sep 6, 2026)
 ✅ W  6-2  @ SEA (Sep 5, 2026)
 ✅ W  7-6  @ SEA (Sep 4, 2026)
-✅ W  7-4  @ SEA (Sep 3, 2026)
 ```
 
 ## Compact mode
@@ -66,10 +66,10 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs TOR (Sep 9)
+📅 Next: vs SEA (Sep 11)
 
-📊 2026 Record: 58W - 87L (40.0%)
-   ██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 58W - 88L (39.7%)
+   █████████▉░░░░░░░░░░░░░░░
 
 
 

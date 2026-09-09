@@ -15,7 +15,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-❌ L vs Linda Noskova (Sep 8, 2026)
+✅ W vs Linda Noskova (Sep 8, 2026) 7-6, 3-6, 7-6
 ```
 
 
@@ -34,7 +34,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-❌ L vs Linda Noskova (Sep 8, 2026)
+✅ W vs Linda Noskova (Sep 8, 2026) 7-6, 3-6, 7-6
 ```
 
 
@@ -52,7 +52,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-❌ L vs Linda Noskova (Sep 8, 2026)
+✅ W vs Linda Noskova (Sep 8, 2026) 7-6, 3-6, 7-6
 ```
 
 
