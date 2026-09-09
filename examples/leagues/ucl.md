@@ -12,9 +12,15 @@ Team: **RMA** · Category: Soccer · Data source: ESPN public API
 League Phase
 🟢 Season in progress
 
-🏅 Standing: League Phase · 27
+🏅 Standing: League Phase · 5
 
-📅 No recent games found
+📊 2026 Record: 1W - 0L - 0D  (3 pts)
+   █████████████████████████
+
+**📅 Recent Games:**
+```
+✅ W 2-1 vs INT   (Sep 8, 2026)
+```
 
 ## Custom title
 
@@ -28,9 +34,15 @@ The `title:` input replaces the default heading.
 League Phase
 🟢 Season in progress
 
-🏅 Standing: League Phase · 27
+🏅 Standing: League Phase · 5
 
-📅 No recent games found
+📊 2026 Record: 1W - 0L - 0D  (3 pts)
+   █████████████████████████
+
+**📅 Recent Games:**
+```
+✅ W 2-1 vs INT   (Sep 8, 2026)
+```
 
 ## Compact mode
 
@@ -43,9 +55,12 @@ The `compact: true` input drops the logo and recent-game details.
 League Phase
 🟢 Season in progress
 
-🏅 Standing: League Phase · 27
+🏅 Standing: League Phase · 5
 
-📅 No recent games found
+📊 2026 Record: 1W - 0L - 0D  (3 pts)
+   █████████████████████████
+
+
 
 ## Badge mode
 
