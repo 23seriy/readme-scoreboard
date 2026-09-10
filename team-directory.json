@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-09T10:05:03.641Z",
+  "generatedAt": "2026-09-10T10:01:24.604Z",
   "teams": [
     {
       "league": "nba",
@@ -9857,6 +9857,13 @@
       "abbreviation": "CHI",
       "name": "Chicago Maroons",
       "id": "80"
+    },
+    {
+      "league": "ncaaf",
+      "leagueName": "College Football",
+      "abbreviation": "CHST",
+      "name": "Chicago State Cougars",
+      "id": "2130"
     },
     {
       "league": "ncaaf",
