@@ -21,6 +21,7 @@
     "examples:generate": "node scripts/generate-examples.js",
     "smoke:demo": "node scripts/demo-smoke.js",
     "test": "jest",
+    "test:coverage": "jest --coverage --runInBand",
     "lint": "eslint ."
   },
   "dependencies": {

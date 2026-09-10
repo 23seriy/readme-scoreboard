@@ -165,8 +165,19 @@ describe("repository CI configuration", () => {
   it("uses a locked install and runs tests and lint", () => {
     expect(ci).toContain("npm ci --ignore-scripts");
     expect(ci).toContain("npm run docs:check");
-    expect(ci).toContain("npm test -- --runInBand");
+    expect(ci).toContain("npm run test:coverage");
     expect(ci).toContain("npm run lint");
+  });
+
+  it("enforces coverage thresholds in CI", () => {
+    expect(require("../package.json").scripts["test:coverage"]).toBe(
+      "jest --coverage --runInBand",
+    );
+    const { coverageThreshold } = require("../jest.config.js");
+    expect(coverageThreshold.global.statements).toBeGreaterThan(0);
+    expect(coverageThreshold.global.branches).toBeGreaterThan(0);
+    expect(coverageThreshold.global.functions).toBeGreaterThan(0);
+    expect(coverageThreshold.global.lines).toBeGreaterThan(0);
   });
 });
 
