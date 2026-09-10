@@ -14,16 +14,16 @@ Eastern Conference
 
 🏅 Standing: Eastern Conference · 12
 
-📊 2026 Record: 6W - 13L - 4D  (22 pts)
-   ████████▋░░░░░░░░░░░░░░░░
+📊 2026 Record: 6W - 14L - 4D  (22 pts)
+   ████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-3 vs ORL   (Sep 9, 2026)
 🟡 D 2-2 @ MIA   (Sep 6, 2026)
 ❌ L 0-2 vs CLT   (Aug 29, 2026)
 ✅ W 2-1 vs SKC   (Aug 23, 2026)
 ✅ W 2-1 @ MIN   (Aug 20, 2026)
-✅ W 2-1 vs RBNY  (Aug 15, 2026)
 ```
 
 ## Custom title
@@ -40,16 +40,16 @@ Eastern Conference
 
 🏅 Standing: Eastern Conference · 12
 
-📊 2026 Record: 6W - 13L - 4D  (22 pts)
-   ████████▋░░░░░░░░░░░░░░░░
+📊 2026 Record: 6W - 14L - 4D  (22 pts)
+   ████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-3 vs ORL   (Sep 9, 2026)
 🟡 D 2-2 @ MIA   (Sep 6, 2026)
 ❌ L 0-2 vs CLT   (Aug 29, 2026)
 ✅ W 2-1 vs SKC   (Aug 23, 2026)
 ✅ W 2-1 @ MIN   (Aug 20, 2026)
-✅ W 2-1 vs RBNY  (Aug 15, 2026)
 ```
 
 ## Compact mode
@@ -65,8 +65,8 @@ Eastern Conference
 
 🏅 Standing: Eastern Conference · 12
 
-📊 2026 Record: 6W - 13L - 4D  (22 pts)
-   ████████▋░░░░░░░░░░░░░░░░
+📊 2026 Record: 6W - 14L - 4D  (22 pts)
+   ████████▎░░░░░░░░░░░░░░░░
 
 
 
