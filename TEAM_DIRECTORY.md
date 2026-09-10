@@ -1571,6 +1571,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Chapman Panthers | `CHAP` | 411 |
 | Chicago Maroons | `CHI` | 80 |
 | Charleston Southern Buccaneers | `CHSO` | 2127 |
+| Chicago State Cougars | `CHST` | 2130 |
 | Cincinnati Bearcats | `CIN` | 2132 |
 | The Citadel Bulldogs | `CIT` | 2643 |
 | Clark Atlanta Panthers | `CKGA` | 2805 |
