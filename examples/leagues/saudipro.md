@@ -14,16 +14,16 @@ Saudi Pro League
 
 🏅 Standing: Saudi Pro League · 18
 
-📊 2026 Record: 0W - 4L - 1D  (1 pts)
-   ██▌░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 5L - 1D  (1 pts)
+   ██░░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ NSR   (Sep 9, 2026)
 ❌ L 0-1 vs ETT   (Sep 4, 2026)
 ❌ L 2-3 @ FAY   (Aug 28, 2026)
 🟡 D 1-1 vs KHA   (Aug 25, 2026)
 ❌ L 0-4 @ AHL   (Aug 22, 2026)
-❌ L 1-2 vs HAZ   (Aug 13, 2026)
 ```
 
 ## Custom title
@@ -40,16 +40,16 @@ Saudi Pro League
 
 🏅 Standing: Saudi Pro League · 18
 
-📊 2026 Record: 0W - 4L - 1D  (1 pts)
-   ██▌░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 5L - 1D  (1 pts)
+   ██░░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ NSR   (Sep 9, 2026)
 ❌ L 0-1 vs ETT   (Sep 4, 2026)
 ❌ L 2-3 @ FAY   (Aug 28, 2026)
 🟡 D 1-1 vs KHA   (Aug 25, 2026)
 ❌ L 0-4 @ AHL   (Aug 22, 2026)
-❌ L 1-2 vs HAZ   (Aug 13, 2026)
 ```
 
 ## Compact mode
@@ -65,8 +65,8 @@ Saudi Pro League
 
 🏅 Standing: Saudi Pro League · 18
 
-📊 2026 Record: 0W - 4L - 1D  (1 pts)
-   ██▌░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 5L - 1D  (1 pts)
+   ██░░░░░░░░░░░░░░░░░░░░░░░
 
 
 
