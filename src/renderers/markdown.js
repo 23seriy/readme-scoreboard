@@ -554,8 +554,8 @@ function formatMlsGameResult(game) {
   return `${icon} ${result} ${String(game.teamScore)}-${String(game.oppScore)} ${prefix} ${(game.oppAbbr || "???").padEnd(5)} (${dateStr})`;
 }
 
-function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title) {
-  const { team, recentGames, record, emoji, logoUrl } = data;
+function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title, compact = false) {
+  const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
   lines.push(...headingLines(sport, title));
@@ -597,7 +597,45 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title) {
     lines.push("📅 No recent games found");
   }
 
+  if (spotlight) {
+    lines.push("");
+    renderSoccerSpotlight(lines, spotlight, emoji, compact);
+  }
+
   return lines.join("\n");
+}
+
+// Soccer spotlight: season totals derived from the game log, since ESPN has no
+// season-stats endpoint for soccer athletes.
+function renderSoccerSpotlight(lines, spotlight, emoji, compact) {
+  const { season = {}, lastGame } = spotlight;
+  const stat = (value) => (value == null ? 0 : value);
+  const appearances = stat(season.appearances);
+  const goals = stat(season.goals);
+  const assists = stat(season.assists);
+  if (compact) {
+    lines.push(`${emoji} ${spotlight.name} · ${appearances} APP · ${goals} G · ${assists} A`);
+    return;
+  }
+  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+  lines.push(`${appearances} APP · ${goals} G · ${assists} A`);
+  if (lastGame) {
+    const parts = [];
+    if (lastGame.goals != null) parts.push(`${lastGame.goals} G`);
+    if (lastGame.assists != null) parts.push(`${lastGame.assists} A`);
+    let detail = parts.length > 0 ? parts.join(" · ") : "No stats recorded";
+    if (lastGame.opponent) {
+      const when = lastGame.date
+        ? new Date(lastGame.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
+        : "";
+      detail += ` vs ${lastGame.opponent}${when ? ` (${when})` : ""}`;
+    }
+    lines.push("");
+    lines.push("**📅 Last Game:**");
+    lines.push("```");
+    lines.push(detail);
+    lines.push("```");
+  }
 }
 
 // Formula 1 has no team-level game results on the public API, so the board
@@ -717,47 +755,47 @@ function render(sport, data, options = {}) {
     case "ncaa_hockey":
       return renderNhl(data, "ncaa_hockey", title, compact);
     case "mls":
-      return renderSoccer(data, "mls", "MLS", title);
+      return renderSoccer(data, "mls", "MLS", title, compact);
     case "epl":
-      return renderSoccer(data, "epl", "Premier League", title);
+      return renderSoccer(data, "epl", "Premier League", title, compact);
     case "laliga":
-      return renderSoccer(data, "laliga", "La Liga", title);
+      return renderSoccer(data, "laliga", "La Liga", title, compact);
     case "bundesliga":
-      return renderSoccer(data, "bundesliga", "Bundesliga", title);
+      return renderSoccer(data, "bundesliga", "Bundesliga", title, compact);
     case "seriea":
-      return renderSoccer(data, "seriea", "Serie A", title);
+      return renderSoccer(data, "seriea", "Serie A", title, compact);
     case "ligue1":
-      return renderSoccer(data, "ligue1", "Ligue 1", title);
+      return renderSoccer(data, "ligue1", "Ligue 1", title, compact);
     case "primeiraliga":
-      return renderSoccer(data, "primeiraliga", "Primeira Liga", title);
+      return renderSoccer(data, "primeiraliga", "Primeira Liga", title, compact);
     case "eredivisie":
-      return renderSoccer(data, "eredivisie", "Eredivisie", title);
+      return renderSoccer(data, "eredivisie", "Eredivisie", title, compact);
     case "ligamx":
-      return renderSoccer(data, "ligamx", "Liga MX", title);
+      return renderSoccer(data, "ligamx", "Liga MX", title, compact);
     case "brasileirao":
-      return renderSoccer(data, "brasileirao", "Série A", title);
+      return renderSoccer(data, "brasileirao", "Série A", title, compact);
     case "nwsl":
-      return renderSoccer(data, "nwsl", "NWSL", title);
+      return renderSoccer(data, "nwsl", "NWSL", title, compact);
     case "saudipro":
-      return renderSoccer(data, "saudipro", "Saudi Pro League", title);
+      return renderSoccer(data, "saudipro", "Saudi Pro League", title, compact);
     case "j1":
-      return renderSoccer(data, "j1", "J1 League", title);
+      return renderSoccer(data, "j1", "J1 League", title, compact);
     case "scottish":
-      return renderSoccer(data, "scottish", "Scottish Premiership", title);
+      return renderSoccer(data, "scottish", "Scottish Premiership", title, compact);
     case "belgian":
-      return renderSoccer(data, "belgian", "Belgian Pro League", title);
+      return renderSoccer(data, "belgian", "Belgian Pro League", title, compact);
     case "ucl":
-      return renderSoccer(data, "ucl", "UEFA Champions League", title);
+      return renderSoccer(data, "ucl", "UEFA Champions League", title, compact);
     case "uel":
-      return renderSoccer(data, "uel", "UEFA Europa League", title);
+      return renderSoccer(data, "uel", "UEFA Europa League", title, compact);
     case "argentina":
-      return renderSoccer(data, "argentina", "Argentine Primera", title);
+      return renderSoccer(data, "argentina", "Argentine Primera", title, compact);
     case "aleague":
-      return renderSoccer(data, "aleague", "A-League Men", title);
+      return renderSoccer(data, "aleague", "A-League Men", title, compact);
     case "isl":
-      return renderSoccer(data, "isl", "Indian Super League", title);
+      return renderSoccer(data, "isl", "Indian Super League", title, compact);
     case "csl":
-      return renderSoccer(data, "csl", "Chinese Super League", title);
+      return renderSoccer(data, "csl", "Chinese Super League", title, compact);
     case "f1":
       return renderF1(data, title);
     case "atp":

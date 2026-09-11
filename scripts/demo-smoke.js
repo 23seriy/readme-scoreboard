@@ -111,6 +111,25 @@ function runSmokeChecks() {
     failures.push(`nhl player spotlight: ${error.message}`);
   }
 
+  try {
+    const eplAdapter = require("../src/adapters/epl");
+    const demo = eplAdapter.getDemoData("ARS", "Bukayo Saka");
+    const spotlight = demo?.spotlight;
+    const seasonOk = spotlight?.season
+      && typeof spotlight.season.appearances === "number"
+      && typeof spotlight.season.goals === "number"
+      && typeof spotlight.season.assists === "number";
+    const lastGameOk = spotlight?.lastGame === null || typeof spotlight?.lastGame === "object";
+
+    if (!spotlight || !spotlight.name || !seasonOk || !lastGameOk) {
+      throw new Error("epl getDemoData(\"ARS\", \"Bukayo Saka\") did not return a well-formed spotlight");
+    }
+
+    console.log("✓ epl player spotlight (Bukayo Saka)");
+  } catch (error) {
+    failures.push(`epl player spotlight: ${error.message}`);
+  }
+
   if (failures.length > 0) {
     throw new Error(`Demo smoke checks failed:\n- ${failures.join("\n- ")}`);
   }

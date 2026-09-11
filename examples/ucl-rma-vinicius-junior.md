@@ -1,0 +1,28 @@
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2.png" alt="UEFA Champions League" height="28" align="top"></picture> My Favourite UEFA Champions League Team](https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams)
+
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/86.png" alt="Real Madrid logo" width="72" align="right" />
+
+### 👑 Real Madrid (RMA)
+UEFA Champions League
+🟢 Season in progress
+
+🏅 Standing: UEFA Champions League · 2
+📅 Next: vs OPP (Sep 14)
+
+📊 2026 Record: 18W - 6L - 6D  (60 pts)
+   █████████████████▌░░░░░░░
+
+**📅 Recent Games:**
+```
+✅ W 3-1 vs OPP   (Sep 8, 2026)
+🟡 D 2-2 @ RIV   (Sep 4, 2026)
+❌ L 0-1 @ UTD   (Aug 31, 2026)
+```
+
+**👑 Player Spotlight: Vinicius Junior**
+25 APP · 11 G · 5 A
+
+**📅 Last Game:**
+```
+1 G · 1 A vs RIV (Sep 8, 2026)
+```

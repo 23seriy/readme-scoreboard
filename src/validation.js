@@ -19,8 +19,28 @@ function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adap
       throw new Error("player: is not supported together with teams: (multiple boards). Use a single team: instead.");
     }
     // Leagues whose adapter implements fetchPlayerSpotlight. Each needs a
-    // roster endpoint to resolve the name and per-athlete stats/game-log APIs.
-    const PLAYER_SPOTLIGHT_SPORTS = ["nba", "mlb", "nfl", "nhl"];
+    // roster endpoint to resolve the name plus per-athlete stats or game-log
+    // data. Excluded on purpose, with the reason:
+    //   - f1, atp, wta   already render as a single player board
+    //                    (entity: player), so a spotlight inside one is
+    //                    redundant.
+    //   - wnba, ncaab, ncaaw
+    //                    ESPN answers the athlete stats endpoint with 200 but
+    //                    an empty values array, and the game log is empty too
+    //                    (verified for A'ja Wilson, a multi-time MVP). Every
+    //                    spotlight would render zeroes.
+    //   - ncaaf, gleague, ncaa_hockey
+    //                    ESPN publishes no athlete stats for these at all.
+    const PLAYER_SPOTLIGHT_SPORTS = [
+      // Dedicated per-athlete stat APIs.
+      "nba", "mlb", "nfl", "nhl",
+      // Soccer — season totals are summed from the game log, which every
+      // league publishes.
+      "mls", "epl", "laliga", "bundesliga", "seriea", "ligue1",
+      "primeiraliga", "eredivisie", "ligamx", "brasileirao", "nwsl",
+      "saudipro", "j1", "scottish", "belgian", "ucl", "uel",
+      "argentina", "aleague", "isl", "csl",
+    ];
     if (!PLAYER_SPOTLIGHT_SPORTS.includes(sport)) {
       throw new Error(`player: is not yet supported for sport "${sport}". Currently supported: ${PLAYER_SPOTLIGHT_SPORTS.join(", ")}.`);
     }
