@@ -1239,3 +1239,144 @@ describe("renderNfl", () => {
     expect(output).toContain("📊 2026 Season: 9W - 3L (75.0%)");
   });
 });
+
+describe("renderNfl — player spotlight", () => {
+  const BASE = {
+    team: { abbreviation: "KC", full_name: "Kansas City Chiefs", conference: "AFC", division: "AFC West" },
+    record: { wins: 9, losses: 3, season: 2026 },
+    recentGames: [],
+    emoji: "👑",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+  };
+
+  const QB = {
+    name: "Patrick Mahomes",
+    position: "QB",
+    season: { passingYards: 4183, passingTouchdowns: 31, rushingYards: 320, rushingTouchdowns: 2, receptions: 0, receivingYards: 0, receivingTouchdowns: 0 },
+    lastGame: { date: "2026-01-04T18:00:00Z", opponent: "DEN", passingYards: 280, passingTouchdowns: 2 },
+  };
+
+  const RB = {
+    name: "Isiah Pacheco",
+    position: "RB",
+    season: { rushingYards: 1030, rushingTouchdowns: 8, receptions: 40, receivingYards: 300 },
+    lastGame: { date: "2026-01-04T18:00:00Z", opponent: "DEN", rushingYards: 88 },
+  };
+
+  const WR = {
+    name: "Travis Kelce",
+    position: "TE",
+    season: { receptions: 93, receivingYards: 1120, receivingTouchdowns: 9 },
+    lastGame: { date: "2026-01-04T18:00:00Z", opponent: "DEN", receptions: 7, receivingYards: 95 },
+  };
+
+  it("renders passing stats for a quarterback", () => {
+    const output = render("nfl", { ...BASE, spotlight: QB });
+    expect(output).toContain("Player Spotlight: Patrick Mahomes");
+    expect(output).toContain("4183 PASS YDS · 31 PASS TD · 320 RUSH YDS");
+    expect(output).toContain("280 PASS YDS · 2 PASS TD vs DEN");
+  });
+
+  it("renders rushing stats for a running back", () => {
+    const output = render("nfl", { ...BASE, spotlight: RB });
+    expect(output).toContain("1030 RUSH YDS · 8 RUSH TD · 40 REC");
+    expect(output).toContain("88 RUSH YDS vs DEN");
+  });
+
+  it("renders receiving stats for a receiver", () => {
+    const output = render("nfl", { ...BASE, spotlight: WR });
+    expect(output).toContain("93 REC · 1120 REC YDS · 9 REC TD");
+    expect(output).toContain("7 REC · 95 REC YDS vs DEN");
+  });
+
+  it("handles a spotlight with no last game", () => {
+    const output = render("nfl", { ...BASE, spotlight: { ...QB, lastGame: null } });
+    expect(output).toContain("Player Spotlight: Patrick Mahomes");
+    expect(output).not.toContain("**📅 Last Game:**");
+  });
+
+  it("defaults missing season stats to zero", () => {
+    const output = render("nfl", { ...BASE, spotlight: { name: "Rookie", position: "QB", season: {}, lastGame: null } });
+    expect(output).toContain("0 PASS YDS · 0 PASS TD · 0 RUSH YDS");
+  });
+
+  it("renders the compact form per position group", () => {
+    expect(render("nfl", { ...BASE, spotlight: QB }, { compact: true }))
+      .toContain("👑 Patrick Mahomes · 4183 PASS YDS · 31 PASS TD");
+    expect(render("nfl", { ...BASE, spotlight: RB }, { compact: true }))
+      .toContain("👑 Isiah Pacheco · 1030 RUSH YDS · 8 RUSH TD");
+    expect(render("nfl", { ...BASE, spotlight: WR }, { compact: true }))
+      .toContain("👑 Travis Kelce · 93 REC · 1120 REC YDS");
+  });
+
+  it("omits the spotlight section when data.spotlight is absent", () => {
+    expect(render("nfl", BASE)).not.toContain("Player Spotlight");
+  });
+});
+
+describe("renderNhl — player spotlight", () => {
+  const BASE = {
+    team: { abbreviation: "NYR", full_name: "New York Rangers", conference: "Eastern", division: "Metropolitan" },
+    record: { wins: 52, losses: 24, season: 2025 },
+    recentGames: [],
+    emoji: "🦢",
+    logoUrl: "https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg",
+  };
+
+  const SKATER = {
+    name: "Artemi Panarin",
+    position: "LW",
+    season: { gamesPlayed: 82, goals: 49, assists: 71, points: 120, isGoalie: false },
+    lastGame: { date: "2026-04-10T23:00:00Z", opponent: "BOS", goals: 2, assists: 1, points: 3 },
+  };
+
+  const GOALIE = {
+    name: "Igor Shesterkin",
+    position: "G",
+    season: { gamesPlayed: 55, wins: 36, goalsAgainstAverage: 2.35, savePercentage: 0.919, isGoalie: true },
+    lastGame: { date: "2026-04-10T23:00:00Z", opponent: "BOS", saves: 32, shotsAgainst: 34 },
+  };
+
+  it("renders goals, assists, and points for a skater", () => {
+    const output = render("nhl", { ...BASE, spotlight: SKATER });
+    expect(output).toContain("Player Spotlight: Artemi Panarin");
+    expect(output).toContain("49 G · 71 A · 120 PTS");
+    expect(output).toContain("2 G · 1 A · 3 P vs BOS");
+  });
+
+  it("renders wins, GAA, and save percentage for a goalie", () => {
+    const output = render("nhl", { ...BASE, spotlight: GOALIE });
+    expect(output).toContain("36 W · 2.35 GAA · .919 SV%");
+    expect(output).toContain("32 SV · 34 SA vs BOS");
+  });
+
+  it("strips the leading zero from the save percentage", () => {
+    const output = render("nhl", { ...BASE, spotlight: GOALIE });
+    expect(output).toContain(".919 SV%");
+    expect(output).not.toContain("0.919 SV%");
+  });
+
+  it("handles a spotlight with no last game", () => {
+    const output = render("nhl", { ...BASE, spotlight: { ...SKATER, lastGame: null } });
+    expect(output).toContain("Player Spotlight: Artemi Panarin");
+    expect(output).not.toContain("**📅 Last Game:**");
+  });
+
+  it("defaults missing season stats to zero", () => {
+    expect(render("nhl", { ...BASE, spotlight: { name: "Rookie", position: "C", season: {}, lastGame: null } }))
+      .toContain("0 G · 0 A · 0 PTS");
+    expect(render("nhl", { ...BASE, spotlight: { name: "Rookie G", position: "G", season: { isGoalie: true }, lastGame: null } }))
+      .toContain("0 W · 0.00 GAA · .000 SV%");
+  });
+
+  it("renders the compact form for skaters and goalies", () => {
+    expect(render("nhl", { ...BASE, spotlight: SKATER }, { compact: true }))
+      .toContain("🦢 Artemi Panarin · 49 G · 71 A · 120 PTS");
+    expect(render("nhl", { ...BASE, spotlight: GOALIE }, { compact: true }))
+      .toContain("🦢 Igor Shesterkin · 36 W · 2.35 GAA · .919 SV%");
+  });
+
+  it("omits the spotlight section when data.spotlight is absent", () => {
+    expect(render("nhl", BASE)).not.toContain("Player Spotlight");
+  });
+});

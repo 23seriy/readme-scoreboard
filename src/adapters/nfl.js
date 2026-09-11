@@ -204,7 +204,187 @@ async function fetchRecentGames(teamAbbr, count = 5, events) {
   }
 }
 
-function getDemoData(teamAbbr) {
+// Player abbreviations → ESPN athlete ids are resolved from the live roster,
+// because NFL rosters turn over heavily and a hard-coded map would go stale.
+// The demo roster lets `--demo` and the examples render without network access.
+const DEMO_PLAYERS = {
+  KC: [
+    { id: "3139477", fullName: "Patrick Mahomes", position: "QB" },
+    { id: "3059760", fullName: "Travis Kelce", position: "TE" },
+    { id: "4241457", fullName: "Isiah Pacheco", position: "RB" },
+  ],
+  SF: [
+    { id: "3915416", fullName: "Brock Purdy", position: "QB" },
+    { id: "3121023", fullName: "Christian McCaffrey", position: "RB" },
+    { id: "4241370", fullName: "George Kittle", position: "TE" },
+  ],
+  DAL: [
+    { id: "3917792", fullName: "Dak Prescott", position: "QB" },
+    { id: "3059760", fullName: "CeeDee Lamb", position: "WR" },
+    { id: "4047646", fullName: "Micah Parsons", position: "LB" },
+  ],
+  BUF: [
+    { id: "3918298", fullName: "Josh Allen", position: "QB" },
+    { id: "4239996", fullName: "James Cook", position: "RB" },
+    { id: "4241457", fullName: "Dalton Kincaid", position: "TE" },
+  ],
+  PHI: [
+    { id: "4040715", fullName: "Jalen Hurts", position: "QB" },
+    { id: "4047646", fullName: "A.J. Brown", position: "WR" },
+    { id: "4241370", fullName: "Dallas Goedert", position: "TE" },
+  ],
+};
+
+function findPlayerOnRoster(roster, playerName) {
+  const target = playerName.trim().toLowerCase();
+  return roster.find((player) => (player.fullName || "").toLowerCase() === target) || null;
+}
+
+async function fetchTeamRoster(teamAbbr) {
+  try {
+    const upper = teamAbbr.toUpperCase();
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${upper}/roster`);
+    const athletes = (data.athletes || []).flatMap((group) => group.items || group);
+    return athletes
+      .filter((athlete) => athlete && athlete.id && athlete.fullName)
+      .map((athlete) => ({
+        id: athlete.id,
+        fullName: athlete.fullName,
+        position: athlete.position?.abbreviation || "",
+      }));
+  } catch (error) {
+    console.error(`Failed to fetch NFL roster: ${error.message}`);
+    return [];
+  }
+}
+
+// Season passing/rushing/receiving totals. The ESPN athlete overview splits
+// each category separately, so take the first split of each category and pick
+// the headline stat for the player's position group.
+async function fetchPlayerSeasonStats(athleteId) {
+  try {
+    const { data } = await httpGet(
+      `https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/${athleteId}/stats`,
+      { headers: { Accept: "application/json" } }
+    );
+    const categories = data.splits?.categories || [];
+    const pick = (name) => {
+      for (const category of categories) {
+        const names = category.names || [];
+        const index = names.indexOf(name);
+        if (index !== -1) {
+          const value = category.values?.[0]?.[index];
+          if (value != null) return parseFloat(value);
+        }
+      }
+      return null;
+    };
+    return {
+      passingYards: pick("passingYards"),
+      passingTouchdowns: pick("passingTouchdowns"),
+      rushingYards: pick("rushingYards"),
+      rushingTouchdowns: pick("rushingTouchdowns"),
+      receptions: pick("receptions"),
+      receivingYards: pick("receivingYards"),
+      receivingTouchdowns: pick("receivingTouchdowns"),
+    };
+  } catch (error) {
+    console.error(`Failed to fetch NFL player season stats: ${error.message}`);
+    return null;
+  }
+}
+
+// The athlete's most recent completed game, used for the "Last Game" line.
+async function fetchPlayerLastGame(athleteId) {
+  try {
+    const { data } = await httpGet(
+      `https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/${athleteId}/gamelog`,
+      { headers: { Accept: "application/json" } }
+    );
+    const events = data.events || {};
+    const seasonTypes = data.seasonTypes || [];
+    const categories = seasonTypes[0]?.categories || [];
+    const latest = categories.flatMap((c) => c.events || [])[0];
+    if (!latest) return null;
+    const event = events[latest.eventId] || {};
+    const stats = latest.stats || [];
+    const names = categories[0]?.names || [];
+    const value = (name) => {
+      const index = names.indexOf(name);
+      return index === -1 ? null : parseFloat(stats[index]);
+    };
+    return {
+      date: event.gameDate || null,
+      opponent: event.opponent?.abbreviation || event.opponent?.displayName || null,
+      passingYards: value("passingYards"),
+      passingTouchdowns: value("passingTouchdowns"),
+      rushingYards: value("rushingYards"),
+      receptions: value("receptions"),
+      receivingYards: value("receivingYards"),
+    };
+  } catch (error) {
+    console.error(`Failed to fetch NFL player last game: ${error.message}`);
+    return null;
+  }
+}
+
+async function fetchPlayerSpotlight(teamAbbr, playerName) {
+  const roster = await fetchTeamRoster(teamAbbr);
+  const player = findPlayerOnRoster(roster, playerName);
+  if (!player) {
+    const names = roster.slice(0, 8).map((entry) => entry.fullName);
+    const suffix = roster.length > 8 ? ", ..." : "";
+    throw new Error(`Unknown player "${playerName}" on ${teamAbbr}. Try one of: ${names.join(", ")}${suffix}`);
+  }
+  const [season, lastGame] = await Promise.all([
+    fetchPlayerSeasonStats(player.id),
+    fetchPlayerLastGame(player.id),
+  ]);
+  return { name: player.fullName, position: player.position, season: season || {}, lastGame };
+}
+
+// Deterministic demo spotlight so `--demo` and the generated examples show the
+// Player Spotlight block without a network call. Values are derived from the
+// player's name so repeated runs produce identical output.
+function getDemoSpotlight(teamAbbr, playerName) {
+  const abbr = teamAbbr.toUpperCase();
+  const roster = DEMO_PLAYERS[abbr] || DEMO_PLAYERS.KC;
+  const player = playerName ? findPlayerOnRoster(roster, playerName) : roster[0];
+  if (!player) return null;
+  const seed = player.fullName.split("").reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+  const season = { passingYards: 0, passingTouchdowns: 0, rushingYards: 0, rushingTouchdowns: 0, receptions: 0, receivingYards: 0, receivingTouchdowns: 0 };
+  if (player.position === "QB") {
+    season.passingYards = 3200 + (seed % 1200);
+    season.passingTouchdowns = 20 + (seed % 15);
+    season.rushingYards = 150 + (seed % 400);
+    season.rushingTouchdowns = 1 + (seed % 6);
+  } else if (player.position === "RB") {
+    season.rushingYards = 700 + (seed % 700);
+    season.rushingTouchdowns = 4 + (seed % 10);
+    season.receptions = 20 + (seed % 40);
+    season.receivingYards = 150 + (seed % 300);
+  } else {
+    season.receptions = 50 + (seed % 50);
+    season.receivingYards = 700 + (seed % 600);
+    season.receivingTouchdowns = 4 + (seed % 9);
+  }
+  return {
+    name: player.fullName,
+    position: player.position,
+    season,
+    lastGame: {
+      date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString(),
+      opponent: DEMO_TEAMS[abbr] ? "SF" : "KC",
+      passingYards: player.position === "QB" ? 240 + (seed % 120) : null,
+      passingTouchdowns: player.position === "QB" ? 1 + (seed % 4) : null,
+      rushingYards: player.position === "RB" ? 60 + (seed % 80) : null,
+      receptions: player.position !== "QB" ? 4 + (seed % 8) : null,
+      receivingYards: player.position !== "QB" ? 50 + (seed % 90) : null,
+    },
+  };
+}
+
+function getDemoData(teamAbbr, playerName) {
   const abbr = teamAbbr.toUpperCase();
   const team = DEMO_TEAMS[abbr] || {
     id: 16, abbreviation: abbr, name: abbr,
@@ -236,6 +416,7 @@ function getDemoData(teamAbbr) {
       opponent: opponents[0],
       isHome: true,
     },
+    spotlight: playerName ? getDemoSpotlight(abbr, playerName) : null,
   };
 }
 
@@ -275,10 +456,15 @@ function getLogoUrl(abbr) {
 module.exports = {
   fetchData,
   fetchStandings,
+  fetchPlayerSpotlight,
+  fetchTeamRoster,
+  findPlayerOnRoster,
   getDemoData,
+  getDemoSpotlight,
   getLogoUrl,
   parseNextGame,
   TEAM_EMOJI,
   DEMO_TEAMS,
+  DEMO_PLAYERS,
   TEAM_IDS,
 };

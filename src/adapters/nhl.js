@@ -90,6 +90,196 @@ class NHLAdapter extends BaseFreeApiAdapter {
     return { id, abbreviation: upper, name: upper, full_name: upper, conference: "", division: "" };
   }
 
+  // Demo rosters so `--demo` and the generated examples can render the Player
+  // Spotlight block without a network call. NHL rosters turn over constantly,
+  // so the live path resolves players from the current roster endpoint instead
+  // of a maintained id map.
+  DEMO_PLAYERS = {
+    NYR: [
+      { id: "8478402", fullName: "Artemi Panarin", position: "LW" },
+      { id: "8478550", fullName: "Igor Shesterkin", position: "G" },
+      { id: "8480078", fullName: "Adam Fox", position: "D" },
+    ],
+    LAK: [
+      { id: "8471685", fullName: "Anze Kopitar", position: "C" },
+      { id: "8479977", fullName: "Adrian Kempe", position: "RW" },
+      { id: "8481552", fullName: "Quinton Byfield", position: "C" },
+    ],
+    TOR: [
+      { id: "8479318", fullName: "Auston Matthews", position: "C" },
+      { id: "8478483", fullName: "Mitch Marner", position: "RW" },
+      { id: "8477939", fullName: "William Nylander", position: "RW" },
+    ],
+    DET: [
+      { id: "8482124", fullName: "Lucas Raymond", position: "RW" },
+      { id: "8477949", fullName: "Dylan Larkin", position: "C" },
+      { id: "8481554", fullName: "Moritz Seider", position: "D" },
+    ],
+    BOS: [
+      { id: "8477956", fullName: "David Pastrnak", position: "RW" },
+      { id: "8478397", fullName: "Brad Marchand", position: "LW" },
+      { id: "8479619", fullName: "Jeremy Swayman", position: "G" },
+    ],
+    EDM: [
+      { id: "8478402", fullName: "Leon Draisaitl", position: "C" },
+      { id: "8477934", fullName: "Connor McDavid", position: "C" },
+      { id: "8476456", fullName: "Zach Hyman", position: "LW" },
+    ],
+  };
+
+  findPlayerOnRoster(roster, playerName) {
+    const target = playerName.trim().toLowerCase();
+    return roster.find((player) => (player.fullName || "").toLowerCase() === target) || null;
+  }
+
+  // The club roster for the current season, flattened across position groups.
+  async fetchTeamRoster(teamAbbr) {
+    try {
+      const upper = teamAbbr.toUpperCase();
+      const abbr = this.LOGO_ABBR[upper] || upper;
+      const currentYear = new Date().getFullYear();
+      // The current season's roster, falling back to the previous season during
+      // the off-season when the new roster is not yet published.
+      for (const season of [this.getSeasonCode(currentYear - 1), this.getSeasonCode(currentYear - 2)]) {
+        try {
+          const { data } = await httpGet(`${NHL_BASE}/roster/${abbr.toLowerCase()}/${season}`);
+          const groups = [...(data.forwards || []), ...(data.defensemen || []), ...(data.goalies || [])];
+          if (groups.length > 0) {
+            return groups
+              .filter((entry) => entry && (entry.id || entry.playerId))
+              .map((entry) => ({
+                id: String(entry.id || entry.playerId),
+                fullName: `${entry.firstName?.default || ""} ${entry.lastName?.default || ""}`.trim(),
+                position: entry.positionCode || entry.position || "",
+              }))
+              .filter((entry) => entry.fullName);
+          }
+        } catch {
+          // Try the next season window.
+        }
+      }
+      return [];
+    } catch (error) {
+      console.error(`Failed to fetch NHL roster: ${error.message}`);
+      return [];
+    }
+  }
+
+  // Season scoring totals for a skater. Goalies return saves/goals-against.
+  async fetchPlayerSeasonStats(athleteId) {
+    try {
+      const { data } = await httpGet(`${NHL_BASE}/player/${athleteId}/landing`);
+      const featured = data.featuredStats?.regularSeason?.subSeason || {};
+      const career = data.careerTotals?.regularSeason || {};
+      if (data.position === "G" || data.positionCode === "G") {
+        return {
+          gamesPlayed: featured.gamesPlayed ?? career.gamesPlayed ?? 0,
+          wins: featured.wins ?? career.wins ?? 0,
+          goalsAgainstAverage: featured.goalsAgainstAverage ?? career.goalsAgainstAverage ?? 0,
+          savePercentage: featured.savePercentage ?? career.savePercentage ?? 0,
+          isGoalie: true,
+        };
+      }
+      return {
+        gamesPlayed: featured.gamesPlayed ?? career.gamesPlayed ?? 0,
+        goals: featured.goals ?? career.goals ?? 0,
+        assists: featured.assists ?? career.assists ?? 0,
+        points: featured.points ?? career.points ?? 0,
+        isGoalie: false,
+      };
+    } catch (error) {
+      console.error(`Failed to fetch NHL player season stats: ${error.message}`);
+      return null;
+    }
+  }
+
+  // The most recent game log entry for the player.
+  async fetchPlayerLastGame(athleteId) {
+    try {
+      const { data } = await httpGet(`${NHL_BASE}/player/${athleteId}/game-log/now`);
+      const game = (data.gameLog || [])[0];
+      if (!game) return null;
+      return {
+        date: game.gameDate || null,
+        opponent: game.opponentAbbrev || null,
+        goals: game.goals ?? null,
+        assists: game.assists ?? null,
+        points: game.points ?? null,
+        saves: game.saves ?? null,
+        shotsAgainst: game.shotsAgainst ?? null,
+      };
+    } catch (error) {
+      console.error(`Failed to fetch NHL player last game: ${error.message}`);
+      return null;
+    }
+  }
+
+  async fetchPlayerSpotlight(teamAbbr, playerName) {
+    const roster = await this.fetchTeamRoster(teamAbbr);
+    const player = this.findPlayerOnRoster(roster, playerName);
+    if (!player) {
+      const names = roster.slice(0, 8).map((entry) => entry.fullName);
+      const suffix = roster.length > 8 ? ", ..." : "";
+      throw new Error(`Unknown player "${playerName}" on ${teamAbbr}. Try one of: ${names.join(", ")}${suffix}`);
+    }
+    const [season, lastGame] = await Promise.all([
+      this.fetchPlayerSeasonStats(player.id),
+      this.fetchPlayerLastGame(player.id),
+    ]);
+    return { name: player.fullName, position: player.position, season: season || {}, lastGame };
+  }
+
+  // Deterministic demo spotlight so examples stay reproducible.
+  getDemoSpotlight(teamAbbr, playerName) {
+    const abbr = teamAbbr.toUpperCase();
+    const roster = this.DEMO_PLAYERS[abbr] || this.DEMO_PLAYERS.NYR;
+    const player = playerName ? this.findPlayerOnRoster(roster, playerName) : roster[0];
+    if (!player) return null;
+    const seed = player.fullName.split("").reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+    const isGoalie = player.position === "G";
+    const season = isGoalie
+      ? {
+          gamesPlayed: 40 + (seed % 20),
+          wins: 25 + (seed % 15),
+          goalsAgainstAverage: Number((2.1 + (seed % 90) / 100).toFixed(2)),
+          savePercentage: Number((0.9 + (seed % 60) / 1000).toFixed(3)),
+          isGoalie: true,
+        }
+      : {
+          gamesPlayed: 60 + (seed % 20),
+          goals: 20 + (seed % 35),
+          assists: 25 + (seed % 45),
+          points: 45 + (seed % 80),
+          isGoalie: false,
+        };
+    return {
+      name: player.fullName,
+      position: player.position,
+      season,
+      lastGame: isGoalie
+        ? {
+            date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+            opponent: "BOS",
+            saves: 24 + (seed % 14),
+            shotsAgainst: 27 + (seed % 15),
+          }
+        : {
+            date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+            opponent: "BOS",
+            goals: seed % 2,
+            assists: seed % 3,
+            points: (seed % 2) + (seed % 3),
+          },
+    };
+  }
+
+  // Overrides the base implementation so the demo payload can carry a spotlight.
+  getDemoData(teamAbbr, playerName) {
+    const base = super.getDemoData(teamAbbr);
+    if (!base) return null;
+    return { ...base, spotlight: playerName ? this.getDemoSpotlight(teamAbbr, playerName) : null };
+  }
+
   async fetchConferenceDivision(abbr) {
     try {
       // standings/now is unavailable off-season; find the most recently completed season
