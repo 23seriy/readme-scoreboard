@@ -18,7 +18,9 @@ function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adap
     if (teamsCount > 1) {
       throw new Error("player: is not supported together with teams: (multiple boards). Use a single team: instead.");
     }
-    const PLAYER_SPOTLIGHT_SPORTS = ["nba", "mlb"];
+    // Leagues whose adapter implements fetchPlayerSpotlight. Each needs a
+    // roster endpoint to resolve the name and per-athlete stats/game-log APIs.
+    const PLAYER_SPOTLIGHT_SPORTS = ["nba", "mlb", "nfl", "nhl"];
     if (!PLAYER_SPOTLIGHT_SPORTS.includes(sport)) {
       throw new Error(`player: is not yet supported for sport "${sport}". Currently supported: ${PLAYER_SPOTLIGHT_SPORTS.join(", ")}.`);
     }

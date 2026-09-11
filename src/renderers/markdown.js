@@ -267,6 +267,89 @@ function renderNba(data, sport = "nba", title, compact = false) {
   return lines.join("\n");
 }
 
+// Football spotlight: the headline stats depend on the player's position group
+// (passing for a QB, rushing for a back, receiving for a receiver).
+function renderNflSpotlight(lines, spotlight, emoji, compact) {
+  const { season = {}, lastGame, position } = spotlight;
+  const stat = (value) => (value == null ? 0 : value);
+  if (compact) {
+    if (position === "QB") {
+      lines.push(`${emoji} ${spotlight.name} · ${stat(season.passingYards)} PASS YDS · ${stat(season.passingTouchdowns)} PASS TD`);
+    } else if (position === "RB") {
+      lines.push(`${emoji} ${spotlight.name} · ${stat(season.rushingYards)} RUSH YDS · ${stat(season.rushingTouchdowns)} RUSH TD`);
+    } else {
+      lines.push(`${emoji} ${spotlight.name} · ${stat(season.receptions)} REC · ${stat(season.receivingYards)} REC YDS`);
+    }
+    return;
+  }
+  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+  if (position === "QB") {
+    lines.push(`${stat(season.passingYards)} PASS YDS · ${stat(season.passingTouchdowns)} PASS TD · ${stat(season.rushingYards)} RUSH YDS`);
+  } else if (position === "RB") {
+    lines.push(`${stat(season.rushingYards)} RUSH YDS · ${stat(season.rushingTouchdowns)} RUSH TD · ${stat(season.receptions)} REC`);
+  } else {
+    lines.push(`${stat(season.receptions)} REC · ${stat(season.receivingYards)} REC YDS · ${stat(season.receivingTouchdowns)} REC TD`);
+  }
+  if (lastGame) {
+    const parts = [];
+    if (lastGame.passingYards != null) parts.push(`${lastGame.passingYards} PASS YDS`);
+    if (lastGame.passingTouchdowns != null) parts.push(`${lastGame.passingTouchdowns} PASS TD`);
+    if (lastGame.rushingYards != null) parts.push(`${lastGame.rushingYards} RUSH YDS`);
+    if (lastGame.receptions != null) parts.push(`${lastGame.receptions} REC`);
+    if (lastGame.receivingYards != null) parts.push(`${lastGame.receivingYards} REC YDS`);
+    let detail = parts.length > 0 ? parts.join(" · ") : "No stats recorded";
+    if (lastGame.opponent) {
+      const when = lastGame.date
+        ? new Date(lastGame.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
+        : "";
+      detail += ` vs ${lastGame.opponent}${when ? ` (${when})` : ""}`;
+    }
+    lines.push("");
+    lines.push("**📅 Last Game:**");
+    lines.push("```");
+    lines.push(detail);
+    lines.push("```");
+  }
+}
+
+// Hockey spotlight: goalies get saves/save percentage, skaters get G/A/P.
+function renderNhlSpotlight(lines, spotlight, emoji, compact) {
+  const { season = {}, lastGame } = spotlight;
+  const stat = (value) => (value == null ? 0 : value);
+  const isGoalie = season.isGoalie;
+  if (isGoalie) {
+    const svPct = season.savePercentage ? season.savePercentage.toFixed(3).replace(/^0/, "") : ".000";
+    const gaa = season.goalsAgainstAverage ? season.goalsAgainstAverage.toFixed(2) : "0.00";
+    if (compact) {
+      lines.push(`${emoji} ${spotlight.name} · ${stat(season.wins)} W · ${gaa} GAA · ${svPct} SV%`);
+    } else {
+      lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+      lines.push(`${stat(season.wins)} W · ${gaa} GAA · ${svPct} SV%`);
+    }
+  } else if (compact) {
+    lines.push(`${emoji} ${spotlight.name} · ${stat(season.goals)} G · ${stat(season.assists)} A · ${stat(season.points)} PTS`);
+  } else {
+    lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+    lines.push(`${stat(season.goals)} G · ${stat(season.assists)} A · ${stat(season.points)} PTS`);
+  }
+  if (lastGame && !compact) {
+    let detail = isGoalie
+      ? `${stat(lastGame.saves)} SV · ${stat(lastGame.shotsAgainst)} SA`
+      : `${stat(lastGame.goals)} G · ${stat(lastGame.assists)} A · ${stat(lastGame.points)} P`;
+    if (lastGame.opponent) {
+      const when = lastGame.date
+        ? new Date(lastGame.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
+        : "";
+      detail += ` vs ${lastGame.opponent}${when ? ` (${when})` : ""}`;
+    }
+    lines.push("");
+    lines.push("**📅 Last Game:**");
+    lines.push("```");
+    lines.push(detail);
+    lines.push("```");
+  }
+}
+
 function formatMlbGameResult(game, teamId) {
   const isHome = game.home_team.id === teamId;
   const teamScore = isHome ? game.home_team_score : game.visitor_team_score;
@@ -365,8 +448,8 @@ function formatNflGameResult(game) {
   return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})${tag}`;
 }
 
-function renderNfl(data, sport = "nfl", title) {
-  const { team, recentGames, record, emoji, logoUrl } = data;
+function renderNfl(data, sport = "nfl", title, compact = false) {
+  const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
   lines.push(...headingLines(sport, title));
@@ -403,11 +486,16 @@ function renderNfl(data, sport = "nfl", title) {
     lines.push("📅 No recent games found");
   }
 
+  if (spotlight) {
+    lines.push("");
+    renderNflSpotlight(lines, spotlight, emoji, compact);
+  }
+
   return lines.join("\n");
 }
 
-function renderNhl(data, sport = "nhl", title) {
-  const { team, recentGames, record, emoji, logoUrl } = data;
+function renderNhl(data, sport = "nhl", title, compact = false) {
+  const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
   lines.push(...headingLines(sport, title));
@@ -444,6 +532,11 @@ function renderNhl(data, sport = "nhl", title) {
     lines.push("```");
   } else {
     lines.push("📅 No recent games found");
+  }
+
+  if (spotlight) {
+    lines.push("");
+    renderNhlSpotlight(lines, spotlight, emoji, compact);
   }
 
   return lines.join("\n");
@@ -616,13 +709,13 @@ function render(sport, data, options = {}) {
     case "mlb":
       return renderMlb(data, title);
     case "nfl":
-      return renderNfl(data, "nfl", title);
+      return renderNfl(data, "nfl", title, compact);
     case "ncaaf":
-      return renderNfl(data, "ncaaf", title);
+      return renderNfl(data, "ncaaf", title, compact);
     case "nhl":
-      return renderNhl(data, "nhl", title);
+      return renderNhl(data, "nhl", title, compact);
     case "ncaa_hockey":
-      return renderNhl(data, "ncaa_hockey", title);
+      return renderNhl(data, "ncaa_hockey", title, compact);
     case "mls":
       return renderSoccer(data, "mls", "MLS", title);
     case "epl":

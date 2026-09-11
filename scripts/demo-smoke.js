@@ -74,6 +74,43 @@ function runSmokeChecks() {
     failures.push(`mlb player spotlight: ${error.message}`);
   }
 
+  try {
+    const nflAdapter = require("../src/adapters/nfl");
+    const demo = nflAdapter.getDemoData("KC", "Patrick Mahomes");
+    const spotlight = demo?.spotlight;
+    const seasonOk = spotlight?.season
+      && typeof spotlight.season.passingYards === "number"
+      && typeof spotlight.season.passingTouchdowns === "number";
+    const lastGameOk = spotlight?.lastGame === null || typeof spotlight?.lastGame === "object";
+
+    if (!spotlight || !spotlight.name || !seasonOk || !lastGameOk) {
+      throw new Error("nfl getDemoData(\"KC\", \"Patrick Mahomes\") did not return a well-formed spotlight");
+    }
+
+    console.log("✓ nfl player spotlight (Patrick Mahomes)");
+  } catch (error) {
+    failures.push(`nfl player spotlight: ${error.message}`);
+  }
+
+  try {
+    const nhlAdapter = require("../src/adapters/nhl");
+    const demo = nhlAdapter.getDemoData("NYR", "Artemi Panarin");
+    const spotlight = demo?.spotlight;
+    const seasonOk = spotlight?.season
+      && typeof spotlight.season.goals === "number"
+      && typeof spotlight.season.assists === "number"
+      && typeof spotlight.season.points === "number";
+    const lastGameOk = spotlight?.lastGame === null || typeof spotlight?.lastGame === "object";
+
+    if (!spotlight || !spotlight.name || !seasonOk || !lastGameOk) {
+      throw new Error("nhl getDemoData(\"NYR\", \"Artemi Panarin\") did not return a well-formed spotlight");
+    }
+
+    console.log("✓ nhl player spotlight (Artemi Panarin)");
+  } catch (error) {
+    failures.push(`nhl player spotlight: ${error.message}`);
+  }
+
   if (failures.length > 0) {
     throw new Error(`Demo smoke checks failed:\n- ${failures.join("\n- ")}`);
   }

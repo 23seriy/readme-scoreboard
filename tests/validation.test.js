@@ -40,14 +40,22 @@ describe("input validation", () => {
     expect(() => validateInputs({ ...base, sport: "mlb", player: "Vladimir Guerrero Jr.", teamsCount: 1 })).not.toThrow();
   });
 
+  it("allows player: with sport: nfl and a single team", () => {
+    expect(() => validateInputs({ ...base, sport: "nfl", player: "Patrick Mahomes", teamsCount: 1, supportedSports: ["nba", "mlb", "nfl", "nhl"] })).not.toThrow();
+  });
+
+  it("allows player: with sport: nhl and a single team", () => {
+    expect(() => validateInputs({ ...base, sport: "nhl", player: "Artemi Panarin", teamsCount: 1, supportedSports: ["nba", "mlb", "nfl", "nhl"] })).not.toThrow();
+  });
+
   it("rejects player: together with multiple teams", () => {
     expect(() => validateInputs({ ...base, player: "Luka Dončić", teamsCount: 2 }))
       .toThrow(/player: is not supported together with teams:/);
   });
 
-  it("rejects player: for a sport other than nba or mlb", () => {
-    expect(() => validateInputs({ ...base, sport: "nfl", player: "Someone", teamsCount: 1, supportedSports: ["nba", "mlb", "nfl"] }))
-      .toThrow(/player: is not yet supported for sport "nfl"/);
+  it("rejects player: for a sport without a spotlight implementation", () => {
+    expect(() => validateInputs({ ...base, sport: "epl", player: "Bukayo Saka", teamsCount: 1, supportedSports: ["nba", "mlb", "nfl", "nhl", "epl"] }))
+      .toThrow(/player: is not yet supported for sport "epl"/);
   });
 
   it("allows omitting player: entirely", () => {

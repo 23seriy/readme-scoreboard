@@ -297,7 +297,7 @@ step (one board per team, joined with a divider):
 
 ### Player spotlight
 
-Feature a specific player's season line and last game alongside a team board with the `player:` input. Currently supported for `sport: nba` and `sport: mlb`.
+Feature a specific player's season line and last game alongside a team board with the `player:` input. Currently supported for `sport: nba`, `sport: mlb`, `sport: nfl`, and `sport: nhl`.
 
 ```yaml
 - uses: 23seriy/readme-scoreboard@v1
@@ -319,7 +319,40 @@ For MLB, add a batter's spotlight to a team board (e.g. Vladimir Guerrero Jr. on
     gh_token: ${{ secrets.GH_TOKEN }}
 ```
 
-Match the player's full name exactly as it appears on the team's live roster. The match is case-insensitive but otherwise exact — every letter and any diacritic must match the league's roster spelling, so you need to check the roster's actual rendering. For example, the Lakers roster spells Luka as `Luka Doncic` (no `č`), so `player: "Luka Doncic"` is the value that matches (using `Luka Dončić` would not). The NBA spotlight shows the player's season averages (points/rebounds/assists per game) and their most recent game — including the opponent and game date (rendered in the league timezone). The MLB spotlight shows a batter's season batting average, home runs, and RBIs, plus their most recent game (hits, home runs, RBIs, batting average, opponent, and date). `player:` currently works with `sport: nba` and `sport: mlb`, and isn't supported together with `teams:` (multiple boards in one run) — use a single `team:` instead. In `compact: true` mode, the NBA spotlight collapses to a single stat line and drops the last-game details, matching how compact mode trims the rest of the board.
+Football and hockey work the same way:
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    sport: nfl
+    team: KC
+    player: "Patrick Mahomes"
+    gh_token: ${{ secrets.GH_TOKEN }}
+```
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    sport: nhl
+    team: NYR
+    player: "Artemi Panarin"
+    gh_token: ${{ secrets.GH_TOKEN }}
+```
+
+Match the player's full name exactly as it appears on the team's live roster. The match is case-insensitive but otherwise exact — every letter and any diacritic must match the league's roster spelling, so you need to check the roster's actual rendering. For example, the Lakers roster spells Luka as `Luka Doncic` (no `č`), so `player: "Luka Doncic"` is the value that matches (using `Luka Dončić` would not). If the name doesn't match, the run fails with an error listing the first few roster names, so you can copy the correct spelling.
+
+Each sport's spotlight shows stats that fit the position:
+
+| Sport | Season line | Last game |
+|-------|-------------|-----------|
+| `nba` | Points, rebounds, assists per game | Points, rebounds, assists, minutes |
+| `mlb` | Batting average, home runs, RBIs | Hits, home runs, RBIs, batting average |
+| `nfl` | Position-dependent — passing yards/TDs for a QB, rushing for a back, receiving for a receiver | The same position group's stats |
+| `nhl` | Goals, assists, points for a skater; wins, GAA, save percentage for a goalie | Goals/assists/points, or saves/shots against for a goalie |
+
+Every spotlight includes the opponent and game date, rendered in the league's timezone.
+
+`player:` isn't supported together with `teams:` (multiple boards in one run) — use a single `team:` instead. In `compact: true` mode, the spotlight collapses to a single stat line and drops the last-game details, matching how compact mode trims the rest of the board.
 
 ### Custom heading
 

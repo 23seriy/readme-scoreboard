@@ -22,10 +22,31 @@ const EXAMPLES = [
   { key: "wta", team: "SAB", entity: "player", note: "A women's tennis board tracking an individual player (entity: player) — world ranking and last match." },
 ];
 
+// Player-spotlight examples: the same board as above plus a Player Spotlight
+// block for one athlete on the roster. One entry per league that supports the
+// `player:` input, so the gallery proves the feature for each adapter.
+const PLAYER_SPOTLIGHT_EXAMPLES = [
+  { key: "nba", team: "LAL", player: "Luka Doncic" },
+  { key: "mlb", team: "TOR", player: "Vladimir Guerrero Jr." },
+  { key: "nfl", team: "KC", player: "Patrick Mahomes" },
+  { key: "nhl", team: "NYR", player: "Artemi Panarin" },
+];
+
 function compactMarkdown(content) {
   return content
     .replace(/^<img[^>]+>\n?/gm, "")
     .replace(/\n\*\*📅 Recent Games:\*\*\n```[\s\S]*?```\n?/g, "\n");
+}
+
+// Turn a player name into a filename-safe slug, dropping accents and punctuation
+// so "Vladimir Guerrero Jr." becomes "vladimir-guerrero-jr".
+function slugify(value) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 // Build the shields-style badge block the `badge: true` input produces.
@@ -40,10 +61,10 @@ function renderBadge(sportName, teams) {
   return lines.join("\n");
 }
 
-function renderExample({ key, team, compact = false, title, badge = false }) {
+function renderExample({ key, team, compact = false, title, badge = false, player }) {
   const league = LEAGUES.find((entry) => entry.key === key);
   const adapter = require(`../src/adapters/${key}`);
-  const data = adapter.getDemoData(team);
+  const data = adapter.getDemoData(team, player);
   if (!data || !data.team) {
     throw new Error(`No demo data for ${key}/${team}`);
   }
@@ -53,7 +74,7 @@ function renderExample({ key, team, compact = false, title, badge = false }) {
   if (badge) {
     return renderBadge(league.name, [abbr]);
   }
-  const rendered = render(key, { ...data, emoji, logoUrl }, { title });
+  const rendered = render(key, { ...data, emoji, logoUrl }, { title, compact });
   return compact ? compactMarkdown(rendered) : rendered;
 }
 
@@ -128,10 +149,33 @@ function main() {
     "",
   );
 
+  // Player spotlight: one example per league that supports the `player:` input.
+  index.push(
+    "## Player spotlight",
+    "",
+    "The `player:` input adds a Player Spotlight block for one athlete on the board's roster,",
+    "with their season headline stats and most recent game.",
+    "The name must match the roster's exact spelling, including accents.",
+    "",
+  );
+  for (const example of PLAYER_SPOTLIGHT_EXAMPLES) {
+    const body = renderExample({ key: example.key, team: example.team, player: example.player });
+    const file = `${example.key}-${example.team.toLowerCase()}-${slugify(example.player)}.md`;
+    fs.writeFileSync(path.join(examplesDir, file), `${body}\n`);
+    index.push(
+      `### ${example.key.toUpperCase()} — ${example.player}`,
+      "",
+      `\`player: ${example.player}\` on \`team: ${example.team}\`.`,
+      "",
+      `[View rendered output →](${file})`,
+      "",
+    );
+  }
+
   fs.writeFileSync(path.join(examplesDir, "README.md"), `${index.join("\n")}\n`);
-  console.log(`Generated ${EXAMPLES.length + 4} examples into ${examplesDir}`);
+  console.log(`Generated ${EXAMPLES.length + 4 + PLAYER_SPOTLIGHT_EXAMPLES.length} examples into ${examplesDir}`);
 }
 
 if (require.main === module) main();
 
-module.exports = { EXAMPLES, renderBadge, renderExample };
+module.exports = { EXAMPLES, PLAYER_SPOTLIGHT_EXAMPLES, renderBadge, renderExample };
