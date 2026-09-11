@@ -100,6 +100,7 @@ The `badge: true` input renders compact shields-style badges instead of a full b
 
 The `player:` input adds a Player Spotlight block for one athlete on the board's roster,
 with their season headline stats and most recent game.
+Supported for NBA, MLB, NFL, NHL, and every soccer league.
 The name must match the roster's exact spelling, including accents.
 
 ### NBA — Luka Doncic
@@ -125,4 +126,28 @@ The name must match the roster's exact spelling, including accents.
 `player: Artemi Panarin` on `team: NYR`.
 
 [View rendered output →](nhl-nyr-artemi-panarin.md)
+
+### EPL — Bukayo Saka
+
+`player: Bukayo Saka` on `team: ARS`.
+
+[View rendered output →](epl-ars-bukayo-saka.md)
+
+### LALIGA — Kylian Mbappe
+
+`player: Kylian Mbappe` on `team: RMA`.
+
+[View rendered output →](laliga-rma-kylian-mbappe.md)
+
+### MLS — Miguel Almiron
+
+`player: Miguel Almiron` on `team: ATL`.
+
+[View rendered output →](mls-atl-miguel-almiron.md)
+
+### UCL — Vinicius Junior
+
+`player: Vinicius Junior` on `team: RMA`.
+
+[View rendered output →](ucl-rma-vinicius-junior.md)
 

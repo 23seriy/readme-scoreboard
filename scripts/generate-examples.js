@@ -25,11 +25,17 @@ const EXAMPLES = [
 // Player-spotlight examples: the same board as above plus a Player Spotlight
 // block for one athlete on the roster. One entry per league that supports the
 // `player:` input, so the gallery proves the feature for each adapter.
+// Soccer is represented by several leagues because their stat totals all come
+// from the shared base-class game-log aggregation.
 const PLAYER_SPOTLIGHT_EXAMPLES = [
   { key: "nba", team: "LAL", player: "Luka Doncic" },
   { key: "mlb", team: "TOR", player: "Vladimir Guerrero Jr." },
   { key: "nfl", team: "KC", player: "Patrick Mahomes" },
   { key: "nhl", team: "NYR", player: "Artemi Panarin" },
+  { key: "epl", team: "ARS", player: "Bukayo Saka" },
+  { key: "laliga", team: "RMA", player: "Kylian Mbappe" },
+  { key: "mls", team: "ATL", player: "Miguel Almiron" },
+  { key: "ucl", team: "RMA", player: "Vinicius Junior" },
 ];
 
 function compactMarkdown(content) {
@@ -155,6 +161,7 @@ function main() {
     "",
     "The `player:` input adds a Player Spotlight block for one athlete on the board's roster,",
     "with their season headline stats and most recent game.",
+    "Supported for NBA, MLB, NFL, NHL, and every soccer league.",
     "The name must match the roster's exact spelling, including accents.",
     "",
   );

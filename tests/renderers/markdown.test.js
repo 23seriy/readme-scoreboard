@@ -408,6 +408,54 @@ describe("renderMls", () => {
   });
 });
 
+describe("soccer renderer — player spotlight", () => {
+  const SPOTLIGHT = {
+    name: "Bukayo Saka",
+    position: "RW",
+    season: { appearances: 34, goals: 14, assists: 11, saves: 0, cleanSheets: 0 },
+    lastGame: { date: "2026-09-06T15:30:00.000Z", opponent: "CHE", goals: 1, assists: 1 },
+  };
+
+  it("renders appearances, goals, and assists from the game log", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).toContain("Player Spotlight: Bukayo Saka");
+    expect(output).toContain("34 APP · 14 G · 11 A");
+  });
+
+  it("renders the last game with opponent and date", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).toContain("1 G · 1 A vs CHE");
+    expect(output).toContain("Sep 6, 2026");
+  });
+
+  it("renders the same block for other soccer leagues", () => {
+    const output = render("epl", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).toContain("Player Spotlight: Bukayo Saka");
+  });
+
+  it("handles a spotlight with no last game", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: { ...SPOTLIGHT, lastGame: null } });
+    expect(output).toContain("Player Spotlight: Bukayo Saka");
+    expect(output).not.toContain("**📅 Last Game:**");
+  });
+
+  it("defaults missing season stats to zero", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: { name: "Unknown", season: {}, lastGame: null } });
+    expect(output).toContain("0 APP · 0 G · 0 A");
+  });
+
+  it("collapses to one line in compact mode and drops last-game detail", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT }, { compact: true });
+    expect(output).toContain("Bukayo Saka · 34 APP · 14 G · 11 A");
+    expect(output).not.toContain("**📅 Last Game:**");
+  });
+
+  it("omits the spotlight section when data.spotlight is absent", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).not.toContain("Player Spotlight");
+  });
+});
+
 describe("render dispatch", () => {
   it("throws for unsupported sport", () => {
     expect(() => render("cricket", {})).toThrow("Unsupported sport");

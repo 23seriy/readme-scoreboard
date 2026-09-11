@@ -297,7 +297,7 @@ step (one board per team, joined with a divider):
 
 ### Player spotlight
 
-Feature a specific player's season line and last game alongside a team board with the `player:` input. Currently supported for `sport: nba`, `sport: mlb`, `sport: nfl`, and `sport: nhl`.
+Feature a specific player's season line and last game alongside a team board with the `player:` input. Supported for `nba`, `mlb`, `nfl`, `nhl`, and **every soccer league**.
 
 ```yaml
 - uses: 23seriy/readme-scoreboard@v1
@@ -339,6 +339,17 @@ Football and hockey work the same way:
     gh_token: ${{ secrets.GH_TOKEN }}
 ```
 
+Every soccer league supports it too:
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    sport: epl
+    team: ARS
+    player: "Bukayo Saka"
+    gh_token: ${{ secrets.GH_TOKEN }}
+```
+
 Match the player's full name exactly as it appears on the team's live roster. The match is case-insensitive but otherwise exact — every letter and any diacritic must match the league's roster spelling, so you need to check the roster's actual rendering. For example, the Lakers roster spells Luka as `Luka Doncic` (no `č`), so `player: "Luka Doncic"` is the value that matches (using `Luka Dončić` would not). If the name doesn't match, the run fails with an error listing the first few roster names, so you can copy the correct spelling.
 
 Each sport's spotlight shows stats that fit the position:
@@ -349,8 +360,21 @@ Each sport's spotlight shows stats that fit the position:
 | `mlb` | Batting average, home runs, RBIs | Hits, home runs, RBIs, batting average |
 | `nfl` | Position-dependent — passing yards/TDs for a QB, rushing for a back, receiving for a receiver | The same position group's stats |
 | `nhl` | Goals, assists, points for a skater; wins, GAA, save percentage for a goalie | Goals/assists/points, or saves/shots against for a goalie |
+| soccer | Appearances, goals, assists | Goals, assists |
 
 Every spotlight includes the opponent and game date, rendered in the league's timezone.
+
+Soccer season totals are summed from the player's game log, because ESPN publishes no season-stats endpoint for soccer athletes. If ESPN has no game log for the chosen player yet — common in the off-season or in the first weeks of a season — the run fails with a clear "No season stats available" error rather than rendering a line of zeroes.
+
+#### Leagues without player spotlight
+
+Five leagues intentionally don't support `player:`, because the upstream data isn't there:
+
+| Leagues | Reason |
+|---------|--------|
+| `wnba`, `ncaab`, `ncaaw` | ESPN returns an empty stat payload and an empty game log for every athlete, so a spotlight would render zeroes. |
+| `ncaaf`, `gleague`, `ncaa_hockey` | ESPN publishes no per-athlete stats at all. |
+| `f1`, `atp`, `wta` | These already render as a single player board (`entity: player`), so a spotlight inside one is redundant. |
 
 `player:` isn't supported together with `teams:` (multiple boards in one run) — use a single `team:` instead. In `compact: true` mode, the spotlight collapses to a single stat line and drops the last-game details, matching how compact mode trims the rest of the board.
 
