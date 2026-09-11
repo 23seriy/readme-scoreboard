@@ -12,7 +12,7 @@ Team: **B04** · Category: Soccer · Data source: ESPN public API
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing: 2026-27 German Bundesliga · 7
+🏅 Standing: 2026-27 German Bundesliga · 8
 
 📊 2026 Record: 1W - 1L - 0D  (3 pts)
    ████████████▌░░░░░░░░░░░░
@@ -35,7 +35,7 @@ The `title:` input replaces the default heading.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing: 2026-27 German Bundesliga · 7
+🏅 Standing: 2026-27 German Bundesliga · 8
 
 📊 2026 Record: 1W - 1L - 0D  (3 pts)
    ████████████▌░░░░░░░░░░░░
@@ -57,7 +57,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing: 2026-27 German Bundesliga · 7
+🏅 Standing: 2026-27 German Bundesliga · 8
 
 📊 2026 Record: 1W - 1L - 0D  (3 pts)
    ████████████▌░░░░░░░░░░░░
