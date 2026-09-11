@@ -12,7 +12,7 @@ Team: **ATL** · Category: Football · Data source: ESPN public API
 National Football · NFC South
 🟢 Season in progress
 
-🏅 Standing: National Football · 2
+🏅 Standing: National Football · 3
 📅 Next: @ PIT (Sep 13)
 
 📅 No recent games found
@@ -29,7 +29,7 @@ The `title:` input replaces the default heading.
 National Football · NFC South
 🟢 Season in progress
 
-🏅 Standing: National Football · 2
+🏅 Standing: National Football · 3
 📅 Next: @ PIT (Sep 13)
 
 📅 No recent games found
@@ -45,7 +45,7 @@ The `compact: true` input drops the logo and recent-game details.
 National Football · NFC South
 🟢 Season in progress
 
-🏅 Standing: National Football · 2
+🏅 Standing: National Football · 3
 📅 Next: @ PIT (Sep 13)
 
 📅 No recent games found

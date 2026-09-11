@@ -12,7 +12,7 @@ Team: **RMA** · Category: Soccer · Data source: ESPN public API
 League Phase
 🟢 Season in progress
 
-🏅 Standing: League Phase · 10
+🏅 Standing: League Phase · 14
 
 📊 2026 Record: 1W - 0L - 0D  (3 pts)
    █████████████████████████
@@ -34,7 +34,7 @@ The `title:` input replaces the default heading.
 League Phase
 🟢 Season in progress
 
-🏅 Standing: League Phase · 10
+🏅 Standing: League Phase · 14
 
 📊 2026 Record: 1W - 0L - 0D  (3 pts)
    █████████████████████████
@@ -55,7 +55,7 @@ The `compact: true` input drops the logo and recent-game details.
 League Phase
 🟢 Season in progress
 
-🏅 Standing: League Phase · 10
+🏅 Standing: League Phase · 14
 
 📊 2026 Record: 1W - 0L - 0D  (3 pts)
    █████████████████████████
