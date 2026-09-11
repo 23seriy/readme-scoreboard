@@ -13,7 +13,7 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs SEA (Sep 11)
+📅 Next: vs SEA (Sep 12)
 
 📊 2026 Record: 59W - 88L (40.1%)
    ██████████░░░░░░░░░░░░░░░
@@ -40,7 +40,7 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs SEA (Sep 11)
+📅 Next: vs SEA (Sep 12)
 
 📊 2026 Record: 59W - 88L (40.1%)
    ██████████░░░░░░░░░░░░░░░
@@ -66,7 +66,7 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs SEA (Sep 11)
+📅 Next: vs SEA (Sep 12)
 
 📊 2026 Record: 59W - 88L (40.1%)
    ██████████░░░░░░░░░░░░░░░
