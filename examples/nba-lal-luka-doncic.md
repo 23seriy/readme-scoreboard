@@ -7,18 +7,18 @@ West Conference · Pacific Division
 🔴 Off-season · Next season starts October 2026
 
 🏅 Standing: West · 3
-📅 Next: vs DEN (Sep 12)
+📅 Next: vs BOS (Jan 5)
 
-📊 2024-2025 Record: 50W - 32L (61.0%)
+📊 2025-2026 Record: 50W - 32L (61.0%)
    ███████████████▎░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 110-98  vs GSW (Mar 31, 2026)
-✅ W 113-99  @ DEN (Mar 28, 2026)
-❌ L 100-116 vs PHX (Mar 25, 2026)
-✅ W 119-101 @ SAC (Mar 22, 2026)
-✅ W 122-102 vs DAL (Mar 19, 2026)
+✅ W 119-113 @ PHX (Jan 3, 2026)
+❌ L 112-113 vs MIL (Dec 27, 2025)
+✅ W  99-93  @ CHI (Dec 20, 2025)
+❌ L 130-143 @ DEN (Dec 13, 2025)
+✅ W 113-112 vs OKC (Dec 6, 2025)
 ```
 
 **👑 Player Spotlight: Luka Doncic**
@@ -26,5 +26,5 @@ West Conference · Pacific Division
 
 **📅 Last Game:**
 ```
-12 PTS · 4 REB · 7 AST · 26 MIN vs Minnesota Timberwolves (Sep 4, 2026)
+12 PTS · 4 REB · 7 AST · 26 MIN vs PHX (Jan 3, 2026)
 ```

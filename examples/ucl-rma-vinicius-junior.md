@@ -7,16 +7,18 @@ UEFA Champions League
 🟢 Season in progress
 
 🏅 Standing: UEFA Champions League · 2
-📅 Next: vs OPP (Sep 14)
+📅 Next: vs BAY (Jan 10)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)
    █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 3-1 vs OPP   (Sep 8, 2026)
-🟡 D 2-2 @ RIV   (Sep 4, 2026)
-❌ L 0-1 @ UTD   (Aug 31, 2026)
+✅ W 4-3 vs BEN   (Jan 3, 2026)
+❌ L 3-11 @ PSG   (Dec 27, 2025)
+✅ W 1-0 vs MCI   (Dec 20, 2025)
+❌ L 2-10 @ NAP   (Dec 13, 2025)
+✅ W 0-0 @ LIV   (Dec 6, 2025)
 ```
 
 **👑 Player Spotlight: Vinicius Junior**
@@ -24,5 +26,5 @@ UEFA Champions League
 
 **📅 Last Game:**
 ```
-1 G · 1 A vs RIV (Sep 8, 2026)
+1 G · 1 A vs BEN (Jan 4, 2026)
 ```

@@ -418,10 +418,9 @@ function renderMlb(data, title) {
       let detail = `${hits} H · ${hr} HR · ${lastRbi} RBI · ${lastAvgStr} AVG`;
       if (gopp) {
         // Render the date in Eastern time so a late-night game doesn't shift a
-        // day. MLB game dates are calendar dates in the MLB Stats API.
-        const when = gdate
-          ? new Date(gdate + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
-          : "";
+        // day. MLB game dates are calendar dates in the MLB Stats API, while
+        // demo data uses full ISO timestamps, so both shapes are handled.
+        const when = gdate ? formatCalendarDate(gdate) : "";
         detail += ` vs ${gopp}${when ? ` (${when})` : ""}`;
       }
       lines.push("");
@@ -435,14 +434,24 @@ function renderMlb(data, title) {
   return lines.join("\n");
 }
 
-function formatNflGameResult(game) {
-  const prefix = game.isHome ? "vs" : "@";
-  const result = game.won ? "W" : "L";
-  const dateStr = new Date(game.date + "T12:00:00").toLocaleDateString("en-US", {
+// Render a game date as "Jan 3, 2026". The live feeds return calendar dates
+// ("2026-09-15") while demo data carries full ISO timestamps, so a bare date is
+// anchored to midday to stop a UTC parse shifting it to the previous day.
+function formatCalendarDate(value) {
+  if (!value) return "";
+  const raw = String(value);
+  const anchor = /^\d{4}-\d{2}-\d{2}$/.test(raw) ? `${raw}T12:00:00` : raw;
+  return new Date(anchor).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
   });
+}
+
+function formatNflGameResult(game) {
+  const prefix = game.isHome ? "vs" : "@";
+  const result = game.won ? "W" : "L";
+  const dateStr = formatCalendarDate(game.date);
 
   const tag = game.gameType === 3 ? " [Playoffs]" : "";
   return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})${tag}`;
@@ -457,7 +466,9 @@ function renderNfl(data, sport = "nfl", title, compact = false) {
   lines.push("");
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
-  lines.push(`${team.conference} · ${team.division}`);
+  // College conferences have no divisions, so the separator is omitted rather
+  // than left dangling.
+  lines.push(team.division ? `${team.conference} · ${team.division}` : team.conference);
   lines.push(seasonStatusLine(sport));
   lines.push(...extraTeamLines(data));
   lines.push("");

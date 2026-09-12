@@ -7,16 +7,18 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: MLS · 2
-📅 Next: vs OPP (Sep 14)
+📅 Next: vs SEA (Jan 10)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)
    █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 3-1 vs OPP   (Sep 8, 2026)
-🟡 D 2-2 @ RIV   (Sep 4, 2026)
-❌ L 0-1 @ UTD   (Aug 31, 2026)
+✅ W 4-0 vs MIA   (Jan 3, 2026)
+❌ L 2-6 @ ATX   (Dec 27, 2025)
+✅ W 4-0 @ CIN   (Dec 20, 2025)
+❌ L 2-3 @ CLB   (Dec 13, 2025)
+✅ W 4-0 vs LAFC  (Dec 6, 2025)
 ```
 
 **🦅 Player Spotlight: Miguel Almiron**
@@ -24,5 +26,5 @@ Eastern Conference
 
 **📅 Last Game:**
 ```
-1 G · 1 A vs RIV (Sep 8, 2026)
+1 G · 1 A vs MIA (Jan 4, 2026)
 ```

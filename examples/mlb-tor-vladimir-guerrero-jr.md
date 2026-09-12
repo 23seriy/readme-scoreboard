@@ -7,15 +7,18 @@ American League · AL East
 🟢 Season in progress
 
 🏅 Standing: AL East · 4
-📅 Next: vs OPP (Sep 12)
+📅 Next: vs ATL (Jan 5)
 
 📊 2026 Record: 42W - 28L (60.0%)
    ███████████████░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L  2-3  @ OPP (Sep 9, 2026)
-✅ W  4-1  vs OPP (Sep 7, 2026)
+✅ W  2-0  @ BAL (Jan 3, 2026)
+❌ L  8-11 vs TB  (Dec 27, 2025)
+✅ W  8-2  @ MIL (Dec 20, 2025)
+❌ L  7-19 vs SEA (Dec 13, 2025)
+✅ W  4-1  vs TEX (Dec 6, 2025)
 ```
 
 **🐦 Player Spotlight: Vladimir Guerrero Jr.**
@@ -23,5 +26,5 @@ American League · AL East
 
 **📅 Last Game:**
 ```
-1 H · 0 HR · 0 RBI · .259 AVG vs Athletics (Sep 7, 2026)
+1 H · 0 HR · 0 RBI · .259 AVG vs BAL (Jan 3, 2026)
 ```
