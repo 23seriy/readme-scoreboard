@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { buildGameLog, dateOffset, opponentPool, recordFromGames } = require("../demo");
 
 const ESPN_HOST = "https://site.api.espn.com/apis";
 
@@ -21,39 +22,59 @@ class BaseEspnLeagueAdapter {
     return id ? `https://a.espncdn.com/i/teamlogos/${sportPath}/500/${id}.png` : null;
   }
 
-  getDemoData(abbr) {
-    const team = this.DEMO_TEAMS[abbr.toUpperCase()];
+  // Deterministic sample board. The record is counted from the same game log
+  // that is displayed, so the headline record always reconciles with the games.
+  getDemoData(abbr, _playerName) {
+    const upper = (abbr || "").toUpperCase();
+    const team = this.DEMO_TEAMS[upper];
     if (!team) return null;
-    const day = 24 * 60 * 60 * 1000;
-    const games = [
-      [3, 1, "OPP"], [2, 4, "RIV"], [5, 2, "UTD"],
-    ].map(([teamScore, oppScore, oppAbbr], index) => {
-      const isHome = index % 2 === 0;
-      return {
-        date: new Date(Date.now() - (index + 1) * 3 * day).toISOString(),
-        status: "Final",
-        home_team: { id: isHome ? team.id : 0, abbreviation: isHome ? team.abbreviation : oppAbbr },
-        visitor_team: { id: isHome ? 0 : team.id, abbreviation: isHome ? oppAbbr : team.abbreviation },
-        home_team_score: isHome ? teamScore : oppScore,
-        visitor_team_score: isHome ? oppScore : teamScore,
-        teamScore,
-        oppScore,
-        oppAbbr,
-        isHome,
-        won: teamScore > oppScore,
-      };
+
+    const ownTeams = Object.keys(this.DEMO_TEAMS).filter((key) => key !== upper);
+    // College/small leagues have tiny demo tables, so pad with a per-sport pool
+    // to stop the "next" fixture duplicating a game already shown.
+    const extras = opponentPool([this.LEAGUE_SLUG, this.SPORT], []);
+    const opponents = [...new Set([...extras, ...ownTeams])].filter((key) => key !== upper);
+    const log = buildGameLog({
+      seed: `${this.constructor.name || this.LEAGUE_SLUG}-${upper}`,
+      opponents: opponents.length ? opponents : ["OPP", "RIV", "UTD"],
+      wins: 18,
+      losses: 6,
+      // CFB/NFL-style scores; harmless for other sports as a sample.
+      scoreRange: { team: [14, 45], opponent: [7, 45] },
     });
+    log.reverse();
+    const recentGames = log.slice(0, 5);
+    const record = recordFromGames(log, this.getSeasonYear());
+
+    // Keep the upcoming fixture distinct from anything just played.
+    const playedRecently = new Set(recentGames.map((g) => g.oppAbbr));
+    const nextOpponent = opponents.find((opp) => !playedRecently.has(opp)) || opponents[0] || "OPP";
+
     return {
       team,
-      record: { wins: 18, losses: 6, season: this.getSeasonYear() },
-      standing: { position: 1, label: this.LEAGUE_NAME },
-      form: ["W", "W", "L", "W", "D"],
+      record,
+      recentGames: recentGames.map((g) => ({
+        date: g.date,
+        status: "Final",
+        gameType: "R",
+        home_team: { id: g.isHome ? team.id : 0, abbreviation: g.isHome ? team.abbreviation : g.oppAbbr },
+        visitor_team: { id: g.isHome ? 0 : team.id, abbreviation: g.isHome ? g.oppAbbr : team.abbreviation },
+        home_team_score: g.isHome ? g.teamScore : g.oppScore,
+        visitor_team_score: g.isHome ? g.oppScore : g.teamScore,
+        teamScore: g.teamScore,
+        oppScore: g.oppScore,
+        oppAbbr: g.oppAbbr,
+        isHome: g.isHome,
+        won: g.won,
+        drew: g.drew,
+      })),
+      standing: { position: 2, label: team.conference },
+      form: recentGames.map((g) => (g.won ? "W" : g.drew ? "D" : "L")),
       nextGame: {
-        date: new Date(Date.now() + 3 * day).toISOString(),
-        opponent: "OPP",
+        date: dateOffset(7),
+        opponent: nextOpponent,
         isHome: true,
       },
-      recentGames: games,
     };
   }
 

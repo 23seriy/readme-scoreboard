@@ -7,15 +7,18 @@ Eastern Conference · Metropolitan Division
 🔴 Off-season · Next season starts October 2026
 
 🏅 Standing: Metropolitan · 4
-📅 Next: vs OPP (Sep 12)
+📅 Next: vs COL (Jan 5)
 
 📊 2025-2026 Record: 42W - 28L (60.0%)
    ███████████████░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L   2-3   @ OPP (Sep 9, 2026)
-✅ W   4-1   vs OPP (Sep 7, 2026)
+✅ W   8-0   vs BOS (Jan 3, 2026)
+❌ L   5-8   @ SEA (Dec 27, 2025)
+✅ W   3-0   @ LAK (Dec 20, 2025)
+❌ L   6-7   vs PIT (Dec 13, 2025)
+✅ W   7-1   @ CAR (Dec 6, 2025)
 ```
 
 **🦢 Player Spotlight: Artemi Panarin**
@@ -23,5 +26,5 @@ Eastern Conference · Metropolitan Division
 
 **📅 Last Game:**
 ```
-1 G · 2 A · 3 P vs BOS (Sep 7, 2026)
+1 G · 2 A · 3 P vs BOS (Jan 3, 2026)
 ```

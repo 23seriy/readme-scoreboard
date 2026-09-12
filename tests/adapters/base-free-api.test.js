@@ -1,4 +1,5 @@
 const BaseFreeApiAdapter = require("../../src/adapters/base-free-api");
+const { checkDemoConsistency } = require("../../src/demo");
 
 describe("BaseFreeApiAdapter", () => {
   it("should throw when instantiated directly", () => {
@@ -32,7 +33,8 @@ describe("BaseFreeApiAdapter", () => {
     expect(demoData).toHaveProperty("team");
     expect(demoData).toHaveProperty("record");
     expect(demoData).toHaveProperty("recentGames");
-    expect(demoData.recentGames.length).toBe(2);
+    expect(demoData.recentGames.length).toBeGreaterThan(0);
+    expect(checkDemoConsistency(demoData)).toEqual([]);
   });
 
   it("should return null for unknown demo team", () => {

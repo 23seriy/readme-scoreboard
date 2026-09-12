@@ -7,16 +7,18 @@ La Liga
 🟢 Season in progress
 
 🏅 Standing: La Liga · 2
-📅 Next: vs OPP (Sep 14)
+📅 Next: vs BET (Jan 10)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)
    █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 3-1 vs OPP   (Sep 8, 2026)
-🟡 D 2-2 @ RIV   (Sep 4, 2026)
-❌ L 0-1 @ UTD   (Aug 31, 2026)
+✅ W 0-0 @ ATM   (Jan 3, 2026)
+🟡 D 2-2 @ GIR   (Dec 27, 2025)
+✅ W 2-0 @ CEL   (Dec 20, 2025)
+❌ L 3-6 @ VIL   (Dec 13, 2025)
+✅ W 1-0 vs SEV   (Dec 6, 2025)
 ```
 
 **👑 Player Spotlight: Kylian Mbappe**
@@ -24,5 +26,5 @@ La Liga
 
 **📅 Last Game:**
 ```
-1 G · 1 A vs RIV (Sep 8, 2026)
+1 G · 1 A vs ATM (Jan 4, 2026)
 ```

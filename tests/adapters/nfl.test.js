@@ -80,7 +80,8 @@ describe("NFLAdapter — fetchStandings", () => {
     axios.get.mockResolvedValueOnce(standingsResponse);
     const result = await nfl.fetchStandings("KC");
     expect(result.position).toBe(2);
-    expect(result.conference).toBe("American Football");
+    // ESPN names the group "American Football Conference"; boards show "AFC".
+    expect(result.conference).toBe("AFC");
     expect(result.wins).toBe(4);
     expect(result.losses).toBe(2);
   });
@@ -168,7 +169,7 @@ describe("NFLAdapter — fetchData", () => {
 
     const result = await nfl.fetchData("KC");
     expect(result.team.full_name).toBe("Kansas City Chiefs");
-    expect(result.standing).toEqual({ position: 1, label: "American Football" });
+    expect(result.standing).toEqual({ position: 1, label: "AFC" });
     expect(result.nextGame).toEqual({ date: "2026-09-15T00:00:00Z", opponent: "DEN", isHome: true });
     expect(result.recentGames).toHaveLength(1);
   });

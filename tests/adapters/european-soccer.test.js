@@ -1,3 +1,5 @@
+const { checkDemoConsistency } = require("../../src/demo");
+
 const leagues = [
   ["scottish", "sco.1", "Scottish Premiership"],
   ["belgian", "bel.1", "Belgian Pro League"],
@@ -19,6 +21,8 @@ describe.each(leagues)("%s adapter", (sport, slug, name) => {
     const team = Object.keys(adapter.DEMO_TEAMS)[0];
     const demo = adapter.getDemoData(team);
     expect(demo.team.abbreviation).toBe(team);
-    expect(demo.recentGames).toHaveLength(3);
+    expect(demo.recentGames.length).toBeGreaterThan(0);
+    // The record must reconcile with the games the board displays.
+    expect(checkDemoConsistency(demo)).toEqual([]);
   });
 });
