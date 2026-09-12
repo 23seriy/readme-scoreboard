@@ -19,11 +19,11 @@ Pro League
 
 **📅 Recent Games:**
 ```
+✅ W 1-0 @ KVM   (Sep 11, 2026)
 🟡 D 0-0 vs GENK  (Sep 6, 2026)
 ✅ W 1-0 vs KVK   (Sep 3, 2026)
 ❌ L 0-3 @ USG   (Aug 30, 2026)
 ❌ L 0-1 @ WAA   (Aug 16, 2026)
-✅ W 2-1 vs RLL   (Aug 9, 2026)
 ```
 
 ## Custom title
@@ -45,11 +45,11 @@ Pro League
 
 **📅 Recent Games:**
 ```
+✅ W 1-0 @ KVM   (Sep 11, 2026)
 🟡 D 0-0 vs GENK  (Sep 6, 2026)
 ✅ W 1-0 vs KVK   (Sep 3, 2026)
 ❌ L 0-3 @ USG   (Aug 30, 2026)
 ❌ L 0-1 @ WAA   (Aug 16, 2026)
-✅ W 2-1 vs RLL   (Aug 9, 2026)
 ```
 
 ## Compact mode
