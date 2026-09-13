@@ -12,11 +12,12 @@ Team: **ALA** · Category: Football · Data source: ESPN public API
 Southeastern Conference · 
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 2
-📅 Next: @ UK (Sep 12)
+🏅 Standing: Southeastern Conference · 1
+📅 Next: vs FSU (Sep 19)
 
 **📅 Recent Games:**
 ```
+✅ W 45-17 @ UK  (Invalid Date)
 ✅ W 48-10 @ ECU (Invalid Date)
 ```
 
@@ -32,11 +33,12 @@ The `title:` input replaces the default heading.
 Southeastern Conference · 
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 2
-📅 Next: @ UK (Sep 12)
+🏅 Standing: Southeastern Conference · 1
+📅 Next: vs FSU (Sep 19)
 
 **📅 Recent Games:**
 ```
+✅ W 45-17 @ UK  (Invalid Date)
 ✅ W 48-10 @ ECU (Invalid Date)
 ```
 
@@ -51,8 +53,8 @@ The `compact: true` input drops the logo and recent-game details.
 Southeastern Conference · 
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 2
-📅 Next: @ UK (Sep 12)
+🏅 Standing: Southeastern Conference · 1
+📅 Next: vs FSU (Sep 19)
 
 
 

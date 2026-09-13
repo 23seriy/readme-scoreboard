@@ -13,6 +13,11 @@ WTA · World Ranking
 
 🏆 World No. 1 · 📍 8,575 ranking points · 📈 Movement: — (was No. 1)
 
+**📅 Last Match:**
+```
+❌ L vs Elena Rybakina (Sep 12, 2026) 4-6, 7-5, 2-6
+```
+
 
 ## Custom title
 
@@ -27,6 +32,11 @@ WTA · World Ranking
 
 🏆 World No. 1 · 📍 8,575 ranking points · 📈 Movement: — (was No. 1)
 
+**📅 Last Match:**
+```
+❌ L vs Elena Rybakina (Sep 12, 2026) 4-6, 7-5, 2-6
+```
+
 
 ## Compact mode
 
@@ -39,6 +49,11 @@ The `compact: true` input drops the logo and recent-game details.
 WTA · World Ranking
 
 🏆 World No. 1 · 📍 8,575 ranking points · 📈 Movement: — (was No. 1)
+
+**📅 Last Match:**
+```
+❌ L vs Elena Rybakina (Sep 12, 2026) 4-6, 7-5, 2-6
+```
 
 
 ## Badge mode
