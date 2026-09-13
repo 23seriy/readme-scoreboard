@@ -12,18 +12,18 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing: 2026 Torneo Apertura · 1
+🏅 Standing: 2026 Torneo Apertura · 2
 
-📊 2026 Record: 5W - 0L - 1D  (16 pts)
-   ██████████████████████▉░░
+📊 2026 Record: 5W - 1L - 1D  (16 pts)
+   ███████████████████▋░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 3-4 @ CAZ   (Sep 13, 2026)
 ✅ W 2-0 vs PUE   (Aug 30, 2026)
 ✅ W 2-1 @ JUA   (Aug 22, 2026)
 ✅ W 3-0 vs ASL   (Aug 16, 2026)
 ✅ W 3-0 vs SAN   (Aug 2, 2026)
-🟡 D 1-1 @ ATL   (Jul 25, 2026)
 ```
 
 ## Custom title
@@ -38,18 +38,18 @@ The `title:` input replaces the default heading.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing: 2026 Torneo Apertura · 1
+🏅 Standing: 2026 Torneo Apertura · 2
 
-📊 2026 Record: 5W - 0L - 1D  (16 pts)
-   ██████████████████████▉░░
+📊 2026 Record: 5W - 1L - 1D  (16 pts)
+   ███████████████████▋░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 3-4 @ CAZ   (Sep 13, 2026)
 ✅ W 2-0 vs PUE   (Aug 30, 2026)
 ✅ W 2-1 @ JUA   (Aug 22, 2026)
 ✅ W 3-0 vs ASL   (Aug 16, 2026)
 ✅ W 3-0 vs SAN   (Aug 2, 2026)
-🟡 D 1-1 @ ATL   (Jul 25, 2026)
 ```
 
 ## Compact mode
@@ -63,10 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing: 2026 Torneo Apertura · 1
+🏅 Standing: 2026 Torneo Apertura · 2
 
-📊 2026 Record: 5W - 0L - 1D  (16 pts)
-   ██████████████████████▉░░
+📊 2026 Record: 5W - 1L - 1D  (16 pts)
+   ███████████████████▋░░░░░
 
 
 

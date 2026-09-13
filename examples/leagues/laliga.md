@@ -12,13 +12,14 @@ Team: **ALA** · Category: Soccer · Data source: ESPN public API
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing: 2026-27 LALIGA · 2
+🏅 Standing: 2026-27 LALIGA · 3
 
-📊 2026 Record: 3W - 0L - 1D  (10 pts)
-   █████████████████████▉░░░
+📊 2026 Record: 3W - 1L - 1D  (10 pts)
+   █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ RAC   (Sep 12, 2026)
 ✅ W 5-2 vs OSA   (Sep 6, 2026)
 ✅ W 1-0 vs VIL   (Aug 28, 2026)
 🟡 D 1-1 @ RAY   (Aug 20, 2026)
@@ -37,13 +38,14 @@ The `title:` input replaces the default heading.
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing: 2026-27 LALIGA · 2
+🏅 Standing: 2026-27 LALIGA · 3
 
-📊 2026 Record: 3W - 0L - 1D  (10 pts)
-   █████████████████████▉░░░
+📊 2026 Record: 3W - 1L - 1D  (10 pts)
+   █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ RAC   (Sep 12, 2026)
 ✅ W 5-2 vs OSA   (Sep 6, 2026)
 ✅ W 1-0 vs VIL   (Aug 28, 2026)
 🟡 D 1-1 @ RAY   (Aug 20, 2026)
@@ -61,10 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing: 2026-27 LALIGA · 2
+🏅 Standing: 2026-27 LALIGA · 3
 
-📊 2026 Record: 3W - 0L - 1D  (10 pts)
-   █████████████████████▉░░░
+📊 2026 Record: 3W - 1L - 1D  (10 pts)
+   █████████████████▌░░░░░░░
 
 
 
