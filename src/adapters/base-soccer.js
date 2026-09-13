@@ -1,5 +1,6 @@
 const { get: httpGet } = require("../http");
 const BaseFreeApiAdapter = require("./base-free-api");
+const { buildGameLog, dateOffset, opponentPool, recordFromGames } = require("../demo");
 
 const ESPN_HOST = "https://site.api.espn.com/apis";
 
@@ -47,31 +48,48 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
 
   /**
    * The base demo data has no soccer-specific fields (draws, per-team
-   * scores), so build a soccer-shaped sample instead.
+   * scores), so build a soccer-shaped sample instead. Deterministic: the
+   * record is counted from the same game log that is displayed.
    */
   getDemoData(teamAbbr, playerName) {
-    const team = this.DEMO_TEAMS[teamAbbr.toUpperCase()];
+    const abbr = teamAbbr.toUpperCase();
+    const team = this.DEMO_TEAMS[abbr];
     if (!team) return null;
 
-    const day = 24 * 60 * 60 * 1000;
-    const sample = [
-      { daysAgo: 3, teamScore: 3, oppScore: 1, oppAbbr: "OPP", isHome: true },
-      { daysAgo: 7, teamScore: 2, oppScore: 2, oppAbbr: "RIV", isHome: false },
-      { daysAgo: 11, teamScore: 0, oppScore: 1, oppAbbr: "UTD", isHome: false },
-    ];
+    const ownTeams = Object.keys(this.DEMO_TEAMS).filter((key) => key !== abbr);
+    // League tables are tiny (one entry per gallery example), so pad with a
+    // per-competition pool. Without this, a 30-game log repeats opponents and
+    // the "next" fixture would duplicate a game already shown.
+    const extras = opponentPool([this.LEAGUE_SLUG, "soccer"], []);
+    const pool = [...new Set([...extras, ...ownTeams])].filter((key) => key !== abbr);
+    const log = buildGameLog({
+      seed: `${this.LEAGUE_SLUG}-${abbr}`,
+      opponents: pool,
+      wins: 18,
+      losses: 6,
+      draws: 6,
+      scoreRange: { team: [0, 4], opponent: [0, 3] },
+    });
+    log.reverse();
+    const record = recordFromGames(log, this.getSeasonYear());
+    const recentGames = log.slice(0, 5);
+
+    // Keep the upcoming fixture distinct from anything just played.
+    const playedRecently = new Set(recentGames.map((g) => g.oppAbbr));
+    const nextOpponent = pool.find((opp) => !playedRecently.has(opp)) || pool[0];
 
     return {
       team,
-      record: { wins: 18, losses: 6, draws: 6, season: this.getSeasonYear() },
+      record,
       standing: { position: 2, label: this.LEAGUE_NAME },
-      form: ["W", "D", "W", "L", "W"],
+      form: recentGames.map((g) => (g.drew ? "D" : g.won ? "W" : "L")),
       nextGame: {
-        date: new Date(Date.now() + 3 * day).toISOString(),
-        opponent: "OPP",
+        date: dateOffset(7),
+        opponent: nextOpponent,
         isHome: true,
       },
-      recentGames: sample.map((g) => ({
-        date: new Date(Date.now() - g.daysAgo * day).toISOString(),
+      recentGames: recentGames.map((g) => ({
+        date: g.date,
         gameType: "R",
         home_team: {
           id: g.isHome ? team.id : 0,
@@ -88,10 +106,10 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
         teamScore: g.teamScore,
         oppScore: g.oppScore,
         oppAbbr: g.oppAbbr,
-        won: g.teamScore > g.oppScore,
-        drew: g.teamScore === g.oppScore,
+        won: g.won,
+        drew: g.drew,
       })),
-      spotlight: playerName ? this.getDemoSpotlight(teamAbbr, playerName) : null,
+      spotlight: playerName ? this.getDemoSpotlight(abbr, playerName, recentGames) : null,
     };
   }
 
@@ -403,11 +421,13 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
   }
 
   // Deterministic demo spotlight: derived from the player's name so repeated
-  // runs and the generated examples stay byte-identical.
-  getDemoSpotlight(teamAbbr, playerName) {
+  // runs and the generated examples stay byte-identical. `recentGames` is the
+  // team board's own list, so the spotlight's last game can't contradict it.
+  getDemoSpotlight(teamAbbr, playerName, recentGames = []) {
     const team = this.DEMO_TEAMS[teamAbbr.toUpperCase()];
     if (!team || !playerName) return null;
     const seed = playerName.split("").reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+    const last = recentGames[0];
     return {
       name: playerName,
       position: "MF",
@@ -421,8 +441,8 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
         redCards: 0,
       },
       lastGame: {
-        date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
-        opponent: "RIV",
+        date: last ? last.date : dateOffset(0),
+        opponent: last ? last.oppAbbr : "RIV",
         goals: seed % 2,
         assists: seed % 2,
         saves: 0,

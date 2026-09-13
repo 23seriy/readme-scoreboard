@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { buildGameLog, dateOffset, opponentPool, recordFromGames } = require("../demo");
 
 class BaseFreeApiAdapter {
   constructor() {
@@ -45,38 +46,64 @@ class BaseFreeApiAdapter {
     }
   }
 
+  // Deterministic sample board. The record is counted from the same game log
+  // that is displayed, so the two can never disagree.
   getDemoData(teamAbbr) {
-    const team = this.DEMO_TEAMS[teamAbbr.toUpperCase()];
+    const abbr = teamAbbr.toUpperCase();
+    const team = this.DEMO_TEAMS[abbr];
     if (!team) return null;
+
+    const ownTeams = Object.keys(this.DEMO_TEAMS).filter((key) => key !== abbr);
+    // League tables are tiny (one entry per gallery example), so pad with a
+    // per-sport pool. Without this, a 70-game log repeats opponents and the
+    // "next" fixture would duplicate a game already shown.
+    const extras = opponentPool([this.DEMO_POOL_KEY], []);
+    const opponents = [...new Set([...extras, ...ownTeams])].filter((key) => key !== abbr);
+    const log = buildGameLog({
+      seed: `${this.constructor.name}-${abbr}`,
+      opponents,
+      wins: 42,
+      losses: 28,
+      scoreRange: { team: [1, 9], opponent: [0, 9] },
+    });
+    log.reverse();
+    const recentGames = log.slice(0, 5);
+    const record = recordFromGames(log, this.getSeasonYear());
+
+    // Keep the upcoming fixture distinct from anything just played.
+    const playedRecently = new Set(recentGames.map((g) => g.oppAbbr));
+    const nextOpponent = opponents.find((opp) => !playedRecently.has(opp)) || opponents[0];
 
     return {
       team,
-      record: { wins: 42, losses: 28, season: this.getSeasonYear() },
+      record,
       standing: { position: 4, label: team.division || team.conference || "" },
-      form: ["W", "L", "W", "W", "L"],
+      form: recentGames.map((g) => (g.won ? "W" : "L")),
       nextGame: {
-        date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
-        opponent: "OPP",
+        date: dateOffset(2),
+        opponent: nextOpponent,
         isHome: true,
       },
-      recentGames: [
-        {
-          date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
-          home_team: { id: 1, abbreviation: "OPP" },
-          visitor_team: { id: team.id, abbreviation: team.abbreviation },
-          home_team_score: 3,
-          visitor_team_score: 2,
-          status: "Final",
+      recentGames: recentGames.map((g) => ({
+        date: g.date,
+        home_team: {
+          id: g.isHome ? team.id : 0,
+          abbreviation: g.isHome ? team.abbreviation : g.oppAbbr,
         },
-        {
-          date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
-          home_team: { id: team.id, abbreviation: team.abbreviation },
-          visitor_team: { id: 2, abbreviation: "OPP" },
-          home_team_score: 4,
-          visitor_team_score: 1,
-          status: "Final",
+        visitor_team: {
+          id: g.isHome ? 0 : team.id,
+          abbreviation: g.isHome ? g.oppAbbr : team.abbreviation,
         },
-      ],
+        home_team_score: g.isHome ? g.teamScore : g.oppScore,
+        visitor_team_score: g.isHome ? g.oppScore : g.teamScore,
+        status: "Final",
+        isHome: g.isHome,
+        teamScore: g.teamScore,
+        oppScore: g.oppScore,
+        oppAbbr: g.oppAbbr,
+        won: g.won,
+        drew: g.drew,
+      })),
     };
   }
 

@@ -3,18 +3,20 @@
 <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" alt="Alabama Crimson Tide logo" width="72" align="right" />
 
 ### 🐘 Alabama Crimson Tide (ALA)
-SEC · 
+SEC
 🟢 Season in progress
 
-🏅 Standing: NCAA - Football · 1
-📅 Next: vs OPP (Sep 8)
+🏅 Standing: SEC · 2
+📅 Next: vs UGA (Jan 10)
 
 📊 2026 Season: 18W - 6L (75.0%)
    ██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W  3-1  vs OPP (Invalid Date)
-❌ L  2-4  @ RIV (Invalid Date)
-✅ W  5-2  vs UTD (Invalid Date)
+✅ W 14-2  vs OSU (Jan 3, 2026)
+❌ L 18-29 vs MICH (Dec 27, 2025)
+✅ W 39-35 @ FSU (Dec 20, 2025)
+✅ W 24-21 vs CLEM (Dec 13, 2025)
+✅ W 43-33 vs ORE (Dec 6, 2025)
 ```

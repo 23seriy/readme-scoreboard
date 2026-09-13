@@ -1,4 +1,5 @@
 const adapter = require("../../src/adapters/nhl");
+const { checkDemoConsistency } = require("../../src/demo");
 
 describe("NHLAdapter", () => {
 
@@ -85,7 +86,8 @@ describe("NHLAdapter", () => {
       expect(demoData).toHaveProperty("team");
       expect(demoData).toHaveProperty("record");
       expect(demoData).toHaveProperty("recentGames");
-      expect(demoData.recentGames.length).toBe(2);
+      expect(demoData.recentGames.length).toBeGreaterThan(0);
+      expect(checkDemoConsistency(demoData)).toEqual([]);
     });
 
     it("should return null for unknown team", () => {

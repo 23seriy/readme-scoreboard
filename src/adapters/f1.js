@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { dateOffset } = require("../demo");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/racing/f1";
 const ESPN_BASE_V2 = "https://site.api.espn.com/apis/v2/sports/racing/f1";
@@ -124,18 +125,22 @@ async function fetchData(abbr) {
   };
 }
 
+// F1 exposes no constructor game log, so the sample board is standings-only:
+// position, points, and the races still to come. There is deliberately no
+// win/loss record or form string, because a constructor has neither.
+const DEMO_POINTS = { LP: 425, GL: 389, DH: 342 };
+
 function getDemoData(abbr) {
   const upper = (abbr || "").toUpperCase();
   const team = DEMO_TEAMS[upper] || DEMO_TEAMS.LP;
-  const day = 24 * 60 * 60 * 1000;
+  const points = DEMO_POINTS[team.abbreviation] ?? DEMO_POINTS.LP;
   return {
     team,
-    record: { wins: 0, losses: 0, points: 425, season: getSeasonYear() },
+    record: { wins: 0, losses: 0, points, season: getSeasonYear() },
     recentGames: [],
     standing: { position: 1, label: "Constructor Championship" },
-    f1Points: 425,
-    nextGame: { date: new Date(Date.now() + 7 * day).toISOString(), opponent: "Next GP", isHome: true },
-    form: ["W", "W", "L", "W", "W"],
+    f1Points: points,
+    nextGame: { date: dateOffset(7), opponent: "Next GP", isHome: true },
   };
 }
 

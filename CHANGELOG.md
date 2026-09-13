@@ -10,7 +10,39 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
-## [Unreleased]
+### Fixed
+
+- Demo/gallery boards no longer show a record that contradicts the results
+  printed beneath it. Previously the NFL sample board advertised a hardcoded
+  `9W - 3L` season while its recent games were regenerated with `Math.random()`
+  on every run, so the two could never agree and each run produced different
+  output. Sample data is now derived from a seeded generator: it is identical on
+  every run (so `npm run examples:generate` is reproducible), and the headline
+  record is counted from the same full game log that the recent results are
+  sliced from.
+- The **Next** fixture on every sample board is no longer the same team that
+  just appeared in **Recent Games**. The NFL demo listed "vs SF" as both the
+  latest result and the upcoming game; leagues with only two or three demo teams
+  (EPL, MLS, UCL, La Liga, NCAAF) had no unused opponent at all, so they now
+  draw from a padded per-sport opponent pool.
+- Player Spotlight **Last Game** dates now match the team board's most recent
+  game on every sample board. The NFL, NBA, MLB, NHL and soccer spotlights
+  previously used their own offset date, so the same fixture appeared with two
+  different dates (or the wrong opponent) in one board.
+- The NFL demo no longer returns raw game-log objects to the renderer, which
+  produced `Invalid Date` and blank scores. All adapters now emit the same
+  renderer-ready game shape.
+- Dates are formatted consistently whether a feed supplies a calendar date
+  (`2026-09-15`) or a full ISO timestamp. The NFL and MLB renderers appended
+  `T12:00:00` unconditionally, which turned a valid timestamp into
+  `Invalid Date`.
+- The NBA sample board now includes per-game scores and outcomes. Its mapping
+  dropped `teamScore`/`oppScore`/`won`, so recent games rendered without scores.
+- The NFL **Standing** label now reads `AFC`/`NFC` instead of the raw ESPN group
+  name (`American Football`), matching the abbreviation used elsewhere on the
+  board.
+- Washington is accepted as both `WSH` (ESPN's abbreviation) and `WAS` (the
+  previous alias), so `team: WSH` no longer fails validation.
 
 ## [1.11.0] - 2026-09-08
 

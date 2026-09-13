@@ -7,13 +7,16 @@ American League · AL East
 🟢 Season in progress
 
 🏅 Standing: AL East · 4
-📅 Next: vs OPP (Sep 7)
+📅 Next: vs SEA (Jan 5)
 
 📊 2026 Record: 42W - 28L (60.0%)
    ███████████████░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L  2-3  @ OPP (Sep 4, 2026)
-✅ W  4-1  vs OPP (Sep 2, 2026)
+✅ W  1-0  vs TEX (Jan 3, 2026)
+❌ L  0-1  @ SD  (Dec 27, 2025)
+✅ W  7-4  vs BOS (Dec 20, 2025)
+❌ L  5-11 vs MIL (Dec 13, 2025)
+✅ W  6-0  vs CLE (Dec 6, 2025)
 ```

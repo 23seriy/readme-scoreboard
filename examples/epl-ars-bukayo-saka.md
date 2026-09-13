@@ -7,16 +7,18 @@ Premier League
 🟢 Season in progress
 
 🏅 Standing: Premier League · 2
-📅 Next: vs OPP (Sep 14)
+📅 Next: vs TOT (Jan 10)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)
    █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 3-1 vs OPP   (Sep 8, 2026)
-🟡 D 2-2 @ RIV   (Sep 4, 2026)
-❌ L 0-1 @ UTD   (Aug 31, 2026)
+✅ W 0-0 vs LIV   (Jan 3, 2026)
+❌ L 0-1 vs BHA   (Dec 27, 2025)
+✅ W 4-0 @ NEW   (Dec 20, 2025)
+🟡 D 1-1 @ MNC   (Dec 13, 2025)
+✅ W 1-0 vs EVE   (Dec 6, 2025)
 ```
 
 **🔴 Player Spotlight: Bukayo Saka**
@@ -24,5 +26,5 @@ Premier League
 
 **📅 Last Game:**
 ```
-1 G · 1 A vs RIV (Sep 8, 2026)
+1 G · 1 A vs LIV (Jan 4, 2026)
 ```

@@ -1,9 +1,12 @@
 const { get: httpGet } = require("../http");
+const { dateOffset } = require("../demo");
 const BaseFreeApiAdapter = require("./base-free-api");
 
 const NHL_BASE = "https://api-web.nhle.com/v1";
 
 class NHLAdapter extends BaseFreeApiAdapter {
+  // Selects the opponent pool used to pad sample boards in the base class.
+  DEMO_POOL_KEY = "hockey";
   TEAM_EMOJI = {
     ANA: "🦆", ARI: "🐺", BOS: "🐻", BUF: "🦬", CAR: "🐱",
     CBJ: "💣", CGY: "🔥", CHI: "🐂", COL: "🏔️", DAL: "⭐",
@@ -229,14 +232,18 @@ class NHLAdapter extends BaseFreeApiAdapter {
     return { name: player.fullName, position: player.position, season: season || {}, lastGame };
   }
 
-  // Deterministic demo spotlight so examples stay reproducible.
-  getDemoSpotlight(teamAbbr, playerName) {
+  // Deterministic demo spotlight so examples stay reproducible. `recentGames`
+  // is the team board's own list, so the spotlight's last game matches it.
+  getDemoSpotlight(teamAbbr, playerName, recentGames = []) {
     const abbr = teamAbbr.toUpperCase();
     const roster = this.DEMO_PLAYERS[abbr] || this.DEMO_PLAYERS.NYR;
     const player = playerName ? this.findPlayerOnRoster(roster, playerName) : roster[0];
     if (!player) return null;
     const seed = player.fullName.split("").reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
     const isGoalie = player.position === "G";
+    const last = recentGames[0];
+    const lastDate = last ? last.date : dateOffset(0);
+    const lastOpponent = last ? last.oppAbbr : "BOS";
     const season = isGoalie
       ? {
           gamesPlayed: 40 + (seed % 20),
@@ -258,14 +265,14 @@ class NHLAdapter extends BaseFreeApiAdapter {
       season,
       lastGame: isGoalie
         ? {
-            date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
-            opponent: "BOS",
+            date: lastDate,
+            opponent: lastOpponent,
             saves: 24 + (seed % 14),
             shotsAgainst: 27 + (seed % 15),
           }
         : {
-            date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
-            opponent: "BOS",
+            date: lastDate,
+            opponent: lastOpponent,
             goals: seed % 2,
             assists: seed % 3,
             points: (seed % 2) + (seed % 3),
@@ -277,7 +284,12 @@ class NHLAdapter extends BaseFreeApiAdapter {
   getDemoData(teamAbbr, playerName) {
     const base = super.getDemoData(teamAbbr);
     if (!base) return null;
-    return { ...base, spotlight: playerName ? this.getDemoSpotlight(teamAbbr, playerName) : null };
+    return {
+      ...base,
+      spotlight: playerName
+        ? this.getDemoSpotlight(teamAbbr, playerName, base.recentGames || [])
+        : null,
+    };
   }
 
   async fetchConferenceDivision(abbr) {

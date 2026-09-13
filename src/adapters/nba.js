@@ -1,4 +1,14 @@
 const { get: httpGet } = require("../http");
+const {
+  DEMO_NOW,
+  buildGameLog,
+  dateOffset,
+  opponentPool,
+  recordFromGames,
+} = require("../demo");
+
+// Fixed season for sample boards so generated examples don't drift.
+const DEMO_SEASON = 2026;
 
 const ESPN_BASE = "https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba";
 const ESPN_BASE_V2 = "https://site.web.api.espn.com/apis/v2/sports/basketball/nba";
@@ -307,32 +317,49 @@ function getDemoData(teamAbbr, playerName) {
     id: 13, abbreviation: abbr, name: abbr,
     full_name: `${abbr} Team`, conference: "West", division: "Pacific",
   };
-  const opponents = ["GSW", "DEN", "PHX", "SAC", "DAL"].filter((t) => t !== abbr);
-  const games = opponents.slice(0, 5).map((opp, i) => {
-    const won = i % 3 !== 2;
-    const teamScore = won ? 110 + i * 3 : 98 + i;
-    const oppScore = won ? 98 + i : 110 + i * 3;
-    const d = new Date("2026-04-01");
-    d.setDate(d.getDate() - i * 3);
-    return {
-      date: d.toISOString(),
-      postseason: false,
-      status: "Final",
-      home_team: i % 2 === 0 ? team : { id: 0, abbreviation: opp },
-      visitor_team: i % 2 === 0 ? { id: 0, abbreviation: opp } : team,
-      home_team_score: i % 2 === 0 ? teamScore : oppScore,
-      visitor_team_score: i % 2 === 0 ? oppScore : teamScore,
-    };
+  const ownTeams = Object.keys(DEMO_TEAMS).filter((t) => t !== abbr);
+  // Pad with a per-sport pool so an 82-game log doesn't repeat the few demo
+  // teams and make the "next" fixture duplicate a game already shown.
+  const opponents = [...new Set([...opponentPool(["basketball"], []), ...ownTeams])].filter((t) => t !== abbr);
+  const log = buildGameLog({
+    seed: `nba-${abbr}`,
+    opponents,
+    wins: 50,
+    losses: 32,
+    scoreRange: { team: [95, 130], opponent: [90, 130] },
   });
+  log.reverse();
+  const recentGames = log.slice(0, 5);
+  const record = recordFromGames(log, DEMO_SEASON);
+
+  // Keep the upcoming fixture distinct from anything just played.
+  const playedRecently = new Set(recentGames.map((g) => g.oppAbbr));
+  const nextOpponent = opponents.find((opp) => !playedRecently.has(opp)) || opponents[0];
+
+  const games = recentGames.map((g) => ({
+    date: g.date,
+    postseason: false,
+    status: "Final",
+    home_team: { id: g.isHome ? team.id : 0, abbreviation: g.isHome ? team.abbreviation : g.oppAbbr },
+    visitor_team: { id: g.isHome ? 0 : team.id, abbreviation: g.isHome ? g.oppAbbr : team.abbreviation },
+    home_team_score: g.isHome ? g.teamScore : g.oppScore,
+    visitor_team_score: g.isHome ? g.oppScore : g.teamScore,
+    teamScore: g.teamScore,
+    oppScore: g.oppScore,
+    oppAbbr: g.oppAbbr,
+    isHome: g.isHome,
+    won: g.won,
+  }));
   let spotlight;
   if (abbr === "LAL" && playerName && playerName.trim().toLowerCase() === "luka doncic") {
+    const last = recentGames[0];
     spotlight = {
       name: "Luka Doncic",
       season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
       lastGame: {
         points: 12, rebounds: 4, assists: 7, minutes: 26,
-        date: "2026-09-04T19:00:00Z",
-        opponent: "Minnesota Timberwolves",
+        date: last ? last.date : DEMO_NOW.toISOString(),
+        opponent: last ? last.oppAbbr : "MIN",
       },
     };
   } else if (playerName) {
@@ -342,10 +369,10 @@ function getDemoData(teamAbbr, playerName) {
   return {
     team,
     recentGames: games,
-    record: { wins: 50, losses: 32, season: new Date().getFullYear() - 1 },
+    record,
     standing: { position: 3, label: team.conference },
-    form: ["W", "W", "L", "W", "W"],
-    nextGame: { date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), opponent: "DEN", isHome: true },
+    form: recentGames.map((g) => (g.won ? "W" : "L")),
+    nextGame: { date: dateOffset(2), opponent: nextOpponent, isHome: true },
     ...(spotlight ? { spotlight } : {}),
   };
 }

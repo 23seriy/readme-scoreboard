@@ -1,4 +1,10 @@
 const { get: httpGet } = require("../http");
+const {
+  DEMO_NOW,
+  buildGameLog,
+  recordFromGames,
+  toRendererGame,
+} = require("../demo");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/football/nfl";
 
@@ -9,8 +15,27 @@ const TEAM_EMOJI = {
   KC: "👑", LAC: "⚡", LAR: "🐏", LV: "☠️", MIA: "🐬",
   MIN: "🟣", NE: "😈", NO: "🎺", NYG: "👹", NYJ: "✈️",
   PHI: "🦅", PIT: "🖤", SF: "🟨", SEA: "🟦", TB: "🏴",
-  TEN: "🎸", WAS: "🔴",
+  TEN: "🎸", WSH: "🔴",
 };
+
+// ESPN identifies Washington as WSH; WAS is accepted as an alias so existing
+// workflows that used the older abbreviation keep working.
+const TEAM_ALIASES = { WAS: "WSH" };
+
+function normalizeAbbr(value) {
+  const upper = (value || "").toUpperCase();
+  return TEAM_ALIASES[upper] || upper;
+}
+
+// ESPN names the conference nodes "American Football Conference" /
+// "National Football Conference"; boards display the short "AFC"/"NFC".
+function nflConferenceAbbr(conferenceName, teamAbbr) {
+  const name = conferenceName || "";
+  if (/American/i.test(name)) return "AFC";
+  if (/National/i.test(name)) return "NFC";
+  // Fall back to the static map when ESPN gives an unexpected label.
+  return (TEAM_CONF_DIV[normalizeAbbr(teamAbbr)] || [""])[0];
+}
 
 const TEAM_IDS = {
   ARI: 1, ATL: 2, BAL: 3, BUF: 4, CAR: 5,
@@ -93,7 +118,9 @@ async function fetchStandings(teamAbbr) {
           losses: Number(stats.losses) || 0,
           ties: Number(stats.ties) || 0,
           season,
-          conference: conf.name?.replace(" Conference", "") || "",
+          // ESPN names the conference nodes "American Football Conference" and
+          // "National Football Conference"; boards show the short "AFC"/"NFC".
+          conference: nflConferenceAbbr(conf.name, upper),
           position: index + 1,
         };
       }
@@ -346,7 +373,7 @@ async function fetchPlayerSpotlight(teamAbbr, playerName) {
 // Deterministic demo spotlight so `--demo` and the generated examples show the
 // Player Spotlight block without a network call. Values are derived from the
 // player's name so repeated runs produce identical output.
-function getDemoSpotlight(teamAbbr, playerName) {
+function getDemoSpotlight(teamAbbr, playerName, recentGames = []) {
   const abbr = teamAbbr.toUpperCase();
   const roster = DEMO_PLAYERS[abbr] || DEMO_PLAYERS.KC;
   const player = playerName ? findPlayerOnRoster(roster, playerName) : roster[0];
@@ -368,13 +395,16 @@ function getDemoSpotlight(teamAbbr, playerName) {
     season.receivingYards = 700 + (seed % 600);
     season.receivingTouchdowns = 4 + (seed % 9);
   }
+  // Tie the spotlight's "last game" to the most recent game on the team board
+  // so the two never disagree about the opponent or the date.
+  const last = recentGames[0];
   return {
     name: player.fullName,
     position: player.position,
     season,
     lastGame: {
-      date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString(),
-      opponent: DEMO_TEAMS[abbr] ? "SF" : "KC",
+      date: last ? last.date : DEMO_NOW.toISOString(),
+      opponent: last ? last.oppAbbr : (DEMO_TEAMS[abbr] ? "SF" : "KC"),
       passingYards: player.position === "QB" ? 240 + (seed % 120) : null,
       passingTouchdowns: player.position === "QB" ? 1 + (seed % 4) : null,
       rushingYards: player.position === "RB" ? 60 + (seed % 80) : null,
@@ -384,39 +414,51 @@ function getDemoSpotlight(teamAbbr, playerName) {
   };
 }
 
+// Fixed "today" for demo data so generated examples don't drift with the real
+// clock. Chosen mid-season so a full-season board looks realistic.
+const DEMO_SEASON = 2026;
+
 function getDemoData(teamAbbr, playerName) {
-  const abbr = teamAbbr.toUpperCase();
+  const abbr = normalizeAbbr(teamAbbr);
   const team = DEMO_TEAMS[abbr] || {
     id: 16, abbreviation: abbr, name: abbr,
     full_name: `${abbr} Team`, conference: "AFC", division: "AFC West",
   };
-  const opponents = ["KC", "SF", "DAL", "BUF", "PHI"].filter((t) => t !== abbr);
-  const games = opponents.slice(0, 5).map((opp, i) => {
-    const won = Math.random() > 0.4;
-    const teamScore = won ? 21 + Math.floor(Math.random() * 20) : 10 + Math.floor(Math.random() * 10);
-    const oppScore = won ? 10 + Math.floor(Math.random() * 10) : 21 + Math.floor(Math.random() * 20);
-    const d = new Date();
-    d.setDate(d.getDate() - (i * 7 + 1));
-    return {
-      date: d.toISOString().split("T")[0],
-      teamScore,
-      oppScore,
-      oppAbbr: opp,
-      isHome: i % 2 === 0,
-      won,
-    };
+  const pool = ["KC", "SF", "DAL", "BUF", "PHI", "DEN", "CIN", "LAR"].filter((t) => t !== abbr);
+
+  // The demo board represents a full 17-game season. We display the most recent
+  // slice of the log and derive the record from the *whole* log, so the headline
+  // record always agrees with the games shown beneath it.
+  const fullLog = buildGameLog({
+    seed: `nfl-${abbr}`,
+    opponents: pool,
+    wins: 11,
+    losses: 6,
+    scoreRange: { team: [20, 37], opponent: [10, 37] },
   });
+
+  const recentGames = fullLog.slice(-5).reverse().map((g) => toRendererGame(g, team));
+  const record = recordFromGames(fullLog, DEMO_SEASON);
+
+  // The next opponent must not be a team from the recent-game list, otherwise
+  // the board claims the same matchup is both already played and upcoming.
+  const playedRecently = new Set(recentGames.map((g) => g.oppAbbr));
+  const nextOpponent = pool.find((opp) => !playedRecently.has(opp)) || pool[0];
+
+  const lastGame = new Date(DEMO_NOW);
+  lastGame.setUTCDate(lastGame.getUTCDate() + 7);
+
   return {
     team,
-    recentGames: games,
-    record: { wins: 9, losses: 3, season: new Date().getFullYear(), winPct: ".750" },
+    recentGames,
+    record,
     standing: { position: 2, label: team.conference },
     nextGame: {
-      date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
-      opponent: opponents[0],
+      date: lastGame.toISOString(),
+      opponent: nextOpponent,
       isHome: true,
     },
-    spotlight: playerName ? getDemoSpotlight(abbr, playerName) : null,
+    spotlight: playerName ? getDemoSpotlight(abbr, playerName, recentGames) : null,
   };
 }
 

@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { dateOffset } = require("../demo");
 const BaseFreeApiAdapter = require("./base-free-api");
 
 const MLB_BASE = "https://statsapi.mlb.com/api/v1";
@@ -49,6 +50,8 @@ class MlbAdapter extends BaseFreeApiAdapter {
   TEAM_EMOJI = TEAM_EMOJI;
   TEAM_IDS = TEAM_IDS;
   DEMO_TEAMS = DEMO_TEAMS;
+  // Selects the opponent pool used to pad sample boards in the base class.
+  DEMO_POOL_KEY = "baseball";
 
   getSeasonYear() {
     return new Date().getFullYear();
@@ -175,12 +178,15 @@ class MlbAdapter extends BaseFreeApiAdapter {
     if (!demo) return null;
 
     if (teamAbbr.toUpperCase() === "TOR" && playerName && playerName.trim().toLowerCase() === "vladimir guerrero jr.") {
+      // Match the team board's most recent game so the spotlight and the recent
+      // results never show two different dates for the same matchup.
+      const last = demo.recentGames?.[0];
       demo.spotlight = {
         name: "Vladimir Guerrero Jr.",
         season: { avg: 0.259, homeRuns: 8, rbi: 54, hits: 126, atBats: 487, games: 130, ops: 0.682 },
         lastGame: {
-          date: "2026-09-07",
-          opponent: "Athletics",
+          date: last ? last.date : dateOffset(0),
+          opponent: last ? last.oppAbbr : "ATH",
           hits: 1,
           homeRuns: 0,
           rbi: 0,
