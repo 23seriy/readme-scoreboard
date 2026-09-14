@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.12.0] - 2026-09-13
+
 ### Added
 
 - **Player headshots**: a player spotlight now shows the athlete's headshot,
@@ -446,8 +448,9 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.6.0...HEAD
-[1.6.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.5.0...v1.6.0
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.0...HEAD
+[1.12.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.11.1...v1.12.0
+[1.11.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.10.4...v1.11.0
 [1.5.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.2.0...v1.3.0
