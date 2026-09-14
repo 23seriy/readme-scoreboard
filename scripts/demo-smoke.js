@@ -56,6 +56,27 @@ function runSmokeChecks() {
   }
 
   try {
+    // The WNBA shares the NBA's athlete endpoints, so it must produce the same
+    // spotlight shape (points/rebounds/assists plus a last game).
+    const wnbaAdapter = require("../src/adapters/wnba");
+    const demo = wnbaAdapter.getDemoData("MIN", "Napheesa Collier");
+    const spotlight = demo?.spotlight;
+    const seasonOk = spotlight?.season
+      && typeof spotlight.season.points === "number"
+      && typeof spotlight.season.rebounds === "number"
+      && typeof spotlight.season.assists === "number";
+    const lastGameOk = spotlight?.lastGame === null || typeof spotlight?.lastGame === "object";
+
+    if (!spotlight || !spotlight.name || !seasonOk || !lastGameOk) {
+      throw new Error("wnba getDemoData(\"MIN\", \"Napheesa Collier\") did not return a well-formed spotlight");
+    }
+
+    console.log("✓ wnba player spotlight (Napheesa Collier)");
+  } catch (error) {
+    failures.push(`wnba player spotlight: ${error.message}`);
+  }
+
+  try {
     const mlbAdapter = require("../src/adapters/mlb");
     const demo = mlbAdapter.getDemoData("TOR", "Vladimir Guerrero Jr.");
     const spotlight = demo?.spotlight;

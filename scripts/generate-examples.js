@@ -29,6 +29,7 @@ const EXAMPLES = [
 // from the shared base-class game-log aggregation.
 const PLAYER_SPOTLIGHT_EXAMPLES = [
   { key: "nba", team: "LAL", player: "Luka Doncic" },
+  { key: "wnba", team: "MIN", player: "Napheesa Collier" },
   { key: "mlb", team: "TOR", player: "Vladimir Guerrero Jr." },
   { key: "nfl", team: "KC", player: "Patrick Mahomes" },
   { key: "nhl", team: "NYR", player: "Artemi Panarin" },
