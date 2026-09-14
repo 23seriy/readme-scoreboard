@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.12.1] - 2026-09-13
+
 ### Added
 
 - **WNBA player spotlight**: the `player:` input now works for `sport: wnba`,
@@ -469,7 +471,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.0...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.1...HEAD
+[1.12.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.11.1...v1.12.0
 [1.11.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.10.4...v1.11.0
 [1.5.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.4.0...v1.5.0
