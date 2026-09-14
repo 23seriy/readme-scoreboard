@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.13.0] - 2026-09-14
+
 ### Added
 
 - **Five new soccer leagues**, all with live standings, schedules, and full team
@@ -27,6 +29,16 @@ that would alter what appears in your README or require editing your workflow.
   abbreviations are unusable as inputs: Austria Vienna and Rapid Vienna both
   report as `VIE`, so they are `AUS` and `RAP` here, and Örgryte's key is the
   ASCII `ORG` so it can be typed in a workflow.
+
+### Fixed
+
+- Player **headshots rendered at visibly different sizes between sports**. Each
+  league serves its headshots at a different aspect ratio — ESPN's are 600×436
+  landscape, MLB's are 213×320 portrait and the NHL's are 336×336 square — and
+  the image was sized by width alone, so the rendered heights came out at 72×52,
+  72×108 and 72×72. A spotlight from one sport was more than twice as tall as
+  another's. The image is now sized by **height**, giving every sport the same
+  vertical footprint; this also matches how the team logo was already sized.
 
 ## [1.12.1] - 2026-09-13
 
@@ -489,7 +501,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.1...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.0...HEAD
+[1.13.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.1...v1.13.0
 [1.12.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.11.1...v1.12.0
 [1.11.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.10.4...v1.11.0
