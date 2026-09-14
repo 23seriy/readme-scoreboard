@@ -32,8 +32,9 @@ function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adap
     //   - ncaaf, gleague, ncaa_hockey
     //                    ESPN publishes no athlete stats for these at all.
     const PLAYER_SPOTLIGHT_SPORTS = [
-      // Dedicated per-athlete stat APIs.
-      "nba", "mlb", "nfl", "nhl",
+      // Dedicated per-athlete stat APIs. The WNBA shares the NBA's athlete
+      // endpoint shape (avgPoints/avgRebounds/avgAssists plus a game log).
+      "nba", "wnba", "mlb", "nfl", "nhl",
       // Soccer — season totals are summed from the game log, which every
       // league publishes.
       "mls", "epl", "laliga", "bundesliga", "seriea", "ligue1",

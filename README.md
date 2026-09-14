@@ -297,7 +297,7 @@ step (one board per team, joined with a divider):
 
 ### Player spotlight
 
-Feature a specific player's season line and last game alongside a team board with the `player:` input. Supported for `nba`, `mlb`, `nfl`, `nhl`, and **every soccer league**.
+Feature a specific player's season line and last game alongside a team board with the `player:` input. Supported for `nba`, `wnba`, `mlb`, `nfl`, `nhl`, and **every soccer league**.
 
 ```yaml
 - uses: 23seriy/readme-scoreboard@v1
@@ -339,6 +339,17 @@ Football and hockey work the same way:
     gh_token: ${{ secrets.GH_TOKEN }}
 ```
 
+The WNBA shares the NBA's athlete endpoints, so it works the same way:
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    sport: wnba
+    team: MIN
+    player: "Napheesa Collier"
+    gh_token: ${{ secrets.GH_TOKEN }}
+```
+
 Every soccer league supports it too:
 
 ```yaml
@@ -356,7 +367,7 @@ Each sport's spotlight shows stats that fit the position:
 
 | Sport | Season line | Last game |
 |-------|-------------|-----------|
-| `nba` | Points, rebounds, assists per game | Points, rebounds, assists, minutes |
+| `nba`, `wnba` | Points, rebounds, assists per game | Points, rebounds, assists, minutes |
 | `mlb` | Batting average, home runs, RBIs | Hits, home runs, RBIs, batting average |
 | `nfl` | Position-dependent — passing yards/TDs for a QB, rushing for a back, receiving for a receiver | The same position group's stats |
 | `nhl` | Goals, assists, points for a skater; wins, GAA, save percentage for a goalie | Goals/assists/points, or saves/shots against for a goalie |
@@ -378,13 +389,15 @@ Soccer season totals are summed from the player's game log, because ESPN publish
 
 #### Leagues without player spotlight
 
-Five leagues intentionally don't support `player:`, because the upstream data isn't there:
+Six leagues intentionally don't support `player:`, because the upstream data isn't there:
 
 | Leagues | Reason |
 |---------|--------|
-| `wnba`, `ncaab`, `ncaaw` | ESPN returns an empty stat payload and an empty game log for every athlete, so a spotlight would render zeroes. |
-| `ncaaf`, `gleague`, `ncaa_hockey` | ESPN publishes no per-athlete stats at all. |
+| `ncaab`, `ncaaw` | ESPN returns an empty stat payload and an empty game log for every athlete, so a spotlight would render zeroes. |
+| `ncaaf`, `gleague`, `ncaa_hockey` | ESPN publishes no per-athlete season stats — the stats endpoint 404s and the game log is empty. |
 | `f1`, `atp`, `wta` | These already render as a single player board (`entity: player`), so a spotlight inside one is redundant. |
+
+The **WNBA** used to be on this list. It isn't any more: ESPN now serves athletes the same `avgPoints`/`avgRebounds`/`avgAssists` splits payload and game log that the NBA uses, so `player:` works there too. If a league's upstream data changes, re-check the endpoints — the exclusions above are verified against the live APIs, not assumed.
 
 `player:` isn't supported together with `teams:` (multiple boards in one run) — use a single `team:` instead. In `compact: true` mode, the spotlight collapses to a single stat line and drops the last-game details, matching how compact mode trims the rest of the board.
 
@@ -596,7 +609,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | `gh_token` | Yes* | — | Token with Contents: Read and write on `target_repo` |
 | `sport` | No | `nba` | League key (for example, `nba`). See [Supported Sports](#supported-sports). |
 | `team` | Yes | — | Team or player abbreviation (e.g. `LAL`, `NYR`, `MIA`, or `SIN` for Jannik Sinner). Invalid abbreviations show example names. |
-| `player` | No | — | Player full name to feature alongside the team board (e.g. `Luka Doncic` or `Vladimir Guerrero Jr.`); must match the roster's exact spelling, including any diacritics. Currently supported for `sport: nba` and `sport: mlb`; not supported together with `teams:` (use `team:` instead). |
+| `player` | No | — | Player full name to feature alongside the team board (e.g. `Luka Doncic` or `Napheesa Collier`); must match the roster's exact spelling, including any diacritics. Supported for `nba`, `wnba`, `mlb`, `nfl`, `nhl` and every soccer league; not supported together with `teams:` (use `team:` instead). |
 | `entity` | No | `team` | Entity type: `team` (default) or `player`. Inferred from the sport — individual sports like ATP Tennis and Formula 1 default to `player`. |
 | `teams` | No | — | Comma-separated team/player abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
 | `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard (individual sports default to `<League> Player`). |

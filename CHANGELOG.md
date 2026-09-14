@@ -10,6 +10,27 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **WNBA player spotlight**: the `player:` input now works for `sport: wnba`,
+  showing the player's season averages (points/rebounds/assists per game), most
+  recent game, and headshot. ESPN now serves WNBA athletes the same
+  `avgPoints`/`avgRebounds`/`avgAssists` splits payload and game log that the
+  NBA already uses, so the WNBA is no longer one of the leagues that can't
+  support a spotlight. A new sample board (`examples/wnba-min-napheesa-collier.md`)
+  demonstrates it.
+
+### Changed
+
+- Corrected the README's **"Leagues without player spotlight"** table: the WNBA
+  was listed there with the reason "ESPN returns an empty stat payload and an
+  empty game log for every athlete", which is no longer true. The remaining
+  exclusions (`ncaab`, `ncaaw`, `ncaaf`, `gleague`, `ncaa_hockey`) are
+  re-verified against the live APIs — their stats endpoints still 404 and their
+  game logs are still empty.
+- The `player` input description no longer claims support is limited to `nba`
+  and `mlb`; it now lists every league that supports it.
+
 ## [1.12.0] - 2026-09-13
 
 ### Added

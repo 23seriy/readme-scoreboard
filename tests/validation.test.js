@@ -65,14 +65,24 @@ describe("input validation", () => {
     }
   });
 
+  it("allows player: with sport: wnba, which shares the NBA's athlete endpoints", () => {
+    expect(() => validateInputs({
+      ...base,
+      sport: "wnba",
+      player: "Napheesa Collier",
+      teamsCount: 1,
+      supportedSports: ["nba", "wnba", "mlb", "nfl", "nhl"],
+    })).not.toThrow();
+  });
+
   it("rejects player: for basketball leagues ESPN publishes no stats for", () => {
-    for (const sport of ["wnba", "ncaab", "ncaaw"]) {
+    for (const sport of ["ncaab", "ncaaw"]) {
       expect(() => validateInputs({
         ...base,
         sport,
-        player: "A'ja Wilson",
+        player: "Some Player",
         teamsCount: 1,
-        supportedSports: ["nba", "mlb", "nfl", "nhl", "wnba", "ncaab", "ncaaw"],
+        supportedSports: ["nba", "wnba", "ncaab", "ncaaw"],
       })).toThrow(new RegExp(`player: is not yet supported for sport "${sport}"`));
     }
   });

@@ -109,6 +109,12 @@ The name must match the roster's exact spelling, including accents.
 
 [View rendered output →](nba-lal-luka-doncic.md)
 
+### WNBA — Napheesa Collier
+
+`player: Napheesa Collier` on `team: MIN`.
+
+[View rendered output →](wnba-min-napheesa-collier.md)
+
 ### MLB — Vladimir Guerrero Jr.
 
 `player: Vladimir Guerrero Jr.` on `team: TOR`.
