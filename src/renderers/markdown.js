@@ -170,10 +170,19 @@ function pushSpotlightHeading(lines, emoji, spotlight) {
 // The image is emitted on its own line directly after the heading. It is
 // deliberately not emitted in compact mode (compactMarkdown strips every
 // `<img>` line anyway), so compact boards stay text-only.
+//
+// Sized by HEIGHT, not width. Each league serves its headshots at a different
+// aspect ratio — ESPN's are 600x436 landscape, MLB's are 213x320 portrait and
+// the NHL's are 336x336 square — so constraining the width alone makes the
+// rendered heights differ wildly (72x52, 72x108, 72x72). Constraining the
+// height instead gives every sport the same vertical footprint, which is what
+// makes the boards look consistent beside each other. The width is then free
+// to follow the natural aspect ratio, and `align="right"` floats the image so
+// the differing widths don't disturb the text.
 function pushSpotlightHeadshot(lines, spotlight) {
   if (!spotlight.headshotUrl) return;
   lines.push(
-    `<img src="${spotlight.headshotUrl}" alt="${spotlight.name} headshot" width="72" align="right" />`
+    `<img src="${spotlight.headshotUrl}" alt="${spotlight.name} headshot" height="72" align="right" />`
   );
 }
 
