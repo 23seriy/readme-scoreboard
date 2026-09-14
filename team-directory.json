@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-13T10:36:12.831Z",
+  "generatedAt": "2026-09-14T01:30:26.025Z",
   "teams": [
     {
       "league": "nba",
@@ -15674,6 +15674,496 @@
       "abbreviation": "ZHE",
       "name": "Zhejiang Professional FC",
       "id": "18203"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "AEK",
+      "name": "AEK Athens",
+      "id": "887"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "ARI",
+      "name": "Aris",
+      "id": "11553"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "AST",
+      "name": "Asteras Tripoli",
+      "id": "8354"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "ATRO",
+      "name": "Atromitos",
+      "id": "6790"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "IRAK",
+      "name": "Iraklis",
+      "id": "2575"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "KAL",
+      "name": "Kalamata",
+      "id": "132429"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "KIF",
+      "name": "Kifisia",
+      "id": "21969"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "LEV",
+      "name": "Levadiakos",
+      "id": "5276"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "OFI",
+      "name": "OFI Crete",
+      "id": "1010"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "OLY",
+      "name": "Olympiacos",
+      "id": "435"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "PAN",
+      "name": "Panetolikos",
+      "id": "11431"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "PAO",
+      "name": "Panathinaikos",
+      "id": "443"
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "PAOK",
+      "name": "PAOK",
+      "id": 605
+    },
+    {
+      "league": "greek",
+      "leagueName": "Greek Super League",
+      "abbreviation": "VOL",
+      "name": "Volos NFC",
+      "id": "20043"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "ALU",
+      "name": "Austria Lustenau",
+      "id": "21540"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "VIE",
+      "name": "Austria Vienna",
+      "id": "1382"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "GRA",
+      "name": "Grazer AK",
+      "id": "21846"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "HAR",
+      "name": "TSV Hartberg",
+      "id": "6907"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "LAS",
+      "name": "LASK Linz",
+      "id": "4411"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "VIE",
+      "name": "Rapid Vienna",
+      "id": "519"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "SCR",
+      "name": "SC Rheindorf Altach",
+      "id": "4405"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "SJR",
+      "name": "SV Josko Ried",
+      "id": "3759"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "SLZ",
+      "name": "RB Salzburg",
+      "id": "2790"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "STG",
+      "name": "SK Sturm Graz",
+      "id": "3746"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "WOL",
+      "name": "Wolfsberger",
+      "id": "13294"
+    },
+    {
+      "league": "austria",
+      "leagueName": "Austrian Bundesliga",
+      "abbreviation": "WST",
+      "name": "WSG Swarovski Tirol",
+      "id": "18794"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "ACH",
+      "name": "AC Horsens",
+      "id": "3585"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "AGF",
+      "name": "AGF",
+      "id": 7853
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "BRO",
+      "name": "Brøndby IF",
+      "id": "575"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "FCN",
+      "name": "FC Nordsjælland",
+      "id": "3101"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "KBH",
+      "name": "F.C. København",
+      "id": "909"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "LBK",
+      "name": "Lyngby Boldklub",
+      "id": "7860"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "MID",
+      "name": "FC Midtjylland",
+      "id": "572"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "OBK",
+      "name": "Odense Boldklub",
+      "id": "11550"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "RAN",
+      "name": "Randers FC",
+      "id": "3132"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "SIF",
+      "name": "Silkeborg IF",
+      "id": "607"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "SON",
+      "name": "Sønderjyske Fodbold",
+      "id": "8118"
+    },
+    {
+      "league": "denmark",
+      "leagueName": "Danish Superliga",
+      "abbreviation": "VIB",
+      "name": "Viborg FF",
+      "id": "3153"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "AAL",
+      "name": "Aalesund",
+      "id": "3278"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "BODO",
+      "name": "Bodo/Glimt",
+      "id": "2980"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "FRE",
+      "name": "Fredrikstad",
+      "id": "3039"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "HAM",
+      "name": "Hamarkameratene",
+      "id": "21380"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "IKS",
+      "name": "IK Start",
+      "id": "6750"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "KFUM",
+      "name": "KFUM Oslo",
+      "id": "22165"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "KRI",
+      "name": "Kristiansund BK",
+      "id": "6672"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "LIL",
+      "name": "Lillestrom",
+      "id": "987"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "MOL",
+      "name": "Molde",
+      "id": "2715"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "ROS",
+      "name": "Rosenborg",
+      "id": "438"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "SAN",
+      "name": "Sandefjord",
+      "id": "3279"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "SAR",
+      "name": "Sarpsborg FK",
+      "id": "5002"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "SKBR",
+      "name": "SK Brann",
+      "id": "620"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "TRO",
+      "name": "Tromso",
+      "id": "5270"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "VAL",
+      "name": "Vålerenga",
+      "id": "2791"
+    },
+    {
+      "league": "norway",
+      "leagueName": "Norwegian Eliteserien",
+      "abbreviation": "VIK",
+      "name": "Viking FK",
+      "id": "510"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "AIK",
+      "name": "AIK",
+      "id": 994
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "BKH",
+      "name": "BK Häcken",
+      "id": "7834"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "BRO",
+      "name": "IF Brommapojkarna",
+      "id": "8221"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "DEG",
+      "name": "Degerfors IF",
+      "id": "20856"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "DJU",
+      "name": "Djurgården",
+      "id": "2339"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "ELF",
+      "name": "IF Elfsborg",
+      "id": "529"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "GAIS",
+      "name": "GAIS",
+      "id": 8222
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "GOT",
+      "name": "IFK Göteborg",
+      "id": "2556"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "HAM",
+      "name": "Hammarby IF",
+      "id": "2495"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "HBK",
+      "name": "Halmstads BK",
+      "id": "3017"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "KFF",
+      "name": "Kalmar FF",
+      "id": "3052"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "MAL",
+      "name": "Malmö FF",
+      "id": "2720"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "MJA",
+      "name": "Mjällby AIF",
+      "id": "20301"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "ÖRG",
+      "name": "Örgryte IS",
+      "id": "131552"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "SIR",
+      "name": "IK Sirius",
+      "id": "8547"
+    },
+    {
+      "league": "sweden",
+      "leagueName": "Swedish Allsvenskan",
+      "abbreviation": "VAS",
+      "name": "Västerås SK",
+      "id": "22163"
     }
   ]
 }

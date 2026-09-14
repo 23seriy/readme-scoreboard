@@ -1022,6 +1022,156 @@
         "2026-01-01",
         "2026-12-31"
       ]
+    },
+    {
+      "key": "greek",
+      "name": "Greek Super League",
+      "category": "Soccer",
+      "entity": "team",
+      "endpoint": "soccer/gre.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/gre.1/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/175.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/175.png"
+      },
+      "seasonWindow": {
+        "start": [
+          8,
+          22
+        ],
+        "end": [
+          5,
+          24
+        ],
+        "nextLabel": "August"
+      },
+      "fallback": [
+        "2026-08-22",
+        "2027-05-24"
+      ]
+    },
+    {
+      "key": "austria",
+      "name": "Austrian Bundesliga",
+      "category": "Soccer",
+      "entity": "team",
+      "endpoint": "soccer/aut.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/207.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/207.png"
+      },
+      "seasonWindow": {
+        "start": [
+          8,
+          1
+        ],
+        "end": [
+          5,
+          24
+        ],
+        "nextLabel": "August"
+      },
+      "fallback": [
+        "2026-08-01",
+        "2027-05-24"
+      ]
+    },
+    {
+      "key": "denmark",
+      "name": "Danish Superliga",
+      "category": "Soccer",
+      "entity": "team",
+      "endpoint": "soccer/den.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/181.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/181.png"
+      },
+      "seasonWindow": {
+        "start": [
+          7,
+          18
+        ],
+        "end": [
+          5,
+          24
+        ],
+        "nextLabel": "July"
+      },
+      "fallback": [
+        "2026-07-18",
+        "2027-05-24"
+      ]
+    },
+    {
+      "key": "norway",
+      "name": "Norwegian Eliteserien",
+      "category": "Soccer",
+      "entity": "team",
+      "endpoint": "soccer/nor.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/20.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/20.png"
+      },
+      "seasonWindow": {
+        "start": [
+          3,
+          28
+        ],
+        "end": [
+          12,
+          1
+        ],
+        "nextLabel": "late March"
+      },
+      "fallback": [
+        "2026-03-28",
+        "2026-12-01"
+      ]
+    },
+    {
+      "key": "sweden",
+      "name": "Swedish Allsvenskan",
+      "category": "Soccer",
+      "entity": "team",
+      "endpoint": "soccer/swe.1",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/26.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/26.png"
+      },
+      "seasonWindow": {
+        "start": [
+          3,
+          28
+        ],
+        "end": [
+          11,
+          9
+        ],
+        "nextLabel": "late March"
+      },
+      "fallback": [
+        "2026-03-28",
+        "2026-11-09"
+      ]
     }
   ]
 }

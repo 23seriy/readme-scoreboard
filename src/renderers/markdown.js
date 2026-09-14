@@ -830,6 +830,16 @@ function render(sport, data, options = {}) {
       return renderSoccer(data, "isl", "Indian Super League", title, compact);
     case "csl":
       return renderSoccer(data, "csl", "Chinese Super League", title, compact);
+    case "greek":
+      return renderSoccer(data, "greek", "Super League", title, compact);
+    case "austria":
+      return renderSoccer(data, "austria", "Bundesliga", title, compact);
+    case "denmark":
+      return renderSoccer(data, "denmark", "Superliga", title, compact);
+    case "norway":
+      return renderSoccer(data, "norway", "Eliteserien", title, compact);
+    case "sweden":
+      return renderSoccer(data, "sweden", "Allsvenskan", title, compact);
     case "f1":
       return renderF1(data, title);
     case "atp":
@@ -837,7 +847,7 @@ function render(sport, data, options = {}) {
     case "wta":
       return renderWta(data, title);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, aleague, isl, csl, f1, atp, wta`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, aleague, isl, csl, greek, austria, denmark, norway, sweden, f1, atp, wta`);
   }
 }
 

@@ -46,3 +46,8 @@ gallery** so the new league gets its own showcase file.
 - [A-League Men](aleague.md) — Soccer
 - [Indian Super League](isl.md) — Soccer
 - [Chinese Super League](csl.md) — Soccer
+- [Greek Super League](greek.md) — Soccer
+- [Austrian Bundesliga](austria.md) — Soccer
+- [Danish Superliga](denmark.md) — Soccer
+- [Norwegian Eliteserien](norway.md) — Soccer
+- [Swedish Allsvenskan](sweden.md) — Soccer

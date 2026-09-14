@@ -2465,3 +2465,108 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Yunnan Yukun | `YUN` | 22536 |
 | Zhejiang Professional FC | `ZHE` | 18203 |
 
+## Greek Super League
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| AEK Athens | `AEK` | 887 |
+| Aris | `ARI` | 11553 |
+| Asteras Tripoli | `AST` | 8354 |
+| Atromitos | `ATRO` | 6790 |
+| Iraklis | `IRAK` | 2575 |
+| Kalamata | `KAL` | 132429 |
+| Kifisia | `KIF` | 21969 |
+| Levadiakos | `LEV` | 5276 |
+| OFI Crete | `OFI` | 1010 |
+| Olympiacos | `OLY` | 435 |
+| Panetolikos | `PAN` | 11431 |
+| Panathinaikos | `PAO` | 443 |
+| PAOK | `PAOK` | 605 |
+| Volos NFC | `VOL` | 20043 |
+
+## Austrian Bundesliga
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| Austria Lustenau | `ALU` | 21540 |
+| Grazer AK | `GRA` | 21846 |
+| TSV Hartberg | `HAR` | 6907 |
+| LASK Linz | `LAS` | 4411 |
+| SC Rheindorf Altach | `SCR` | 4405 |
+| SV Josko Ried | `SJR` | 3759 |
+| RB Salzburg | `SLZ` | 2790 |
+| SK Sturm Graz | `STG` | 3746 |
+| Austria Vienna | `VIE` | 1382 |
+| Rapid Vienna | `VIE` | 519 |
+| Wolfsberger | `WOL` | 13294 |
+| WSG Swarovski Tirol | `WST` | 18794 |
+
+## Danish Superliga
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| AC Horsens | `ACH` | 3585 |
+| AGF | `AGF` | 7853 |
+| Brøndby IF | `BRO` | 575 |
+| FC Nordsjælland | `FCN` | 3101 |
+| F.C. København | `KBH` | 909 |
+| Lyngby Boldklub | `LBK` | 7860 |
+| FC Midtjylland | `MID` | 572 |
+| Odense Boldklub | `OBK` | 11550 |
+| Randers FC | `RAN` | 3132 |
+| Silkeborg IF | `SIF` | 607 |
+| Sønderjyske Fodbold | `SON` | 8118 |
+| Viborg FF | `VIB` | 3153 |
+
+## Norwegian Eliteserien
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| Aalesund | `AAL` | 3278 |
+| Bodo/Glimt | `BODO` | 2980 |
+| Fredrikstad | `FRE` | 3039 |
+| Hamarkameratene | `HAM` | 21380 |
+| IK Start | `IKS` | 6750 |
+| KFUM Oslo | `KFUM` | 22165 |
+| Kristiansund BK | `KRI` | 6672 |
+| Lillestrom | `LIL` | 987 |
+| Molde | `MOL` | 2715 |
+| Rosenborg | `ROS` | 438 |
+| Sandefjord | `SAN` | 3279 |
+| Sarpsborg FK | `SAR` | 5002 |
+| SK Brann | `SKBR` | 620 |
+| Tromso | `TRO` | 5270 |
+| Vålerenga | `VAL` | 2791 |
+| Viking FK | `VIK` | 510 |
+
+## Swedish Allsvenskan
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| AIK | `AIK` | 994 |
+| BK Häcken | `BKH` | 7834 |
+| IF Brommapojkarna | `BRO` | 8221 |
+| Degerfors IF | `DEG` | 20856 |
+| Djurgården | `DJU` | 2339 |
+| IF Elfsborg | `ELF` | 529 |
+| GAIS | `GAIS` | 8222 |
+| IFK Göteborg | `GOT` | 2556 |
+| Hammarby IF | `HAM` | 2495 |
+| Halmstads BK | `HBK` | 3017 |
+| Kalmar FF | `KFF` | 3052 |
+| Malmö FF | `MAL` | 2720 |
+| Mjällby AIF | `MJA` | 20301 |
+| Örgryte IS | `ÖRG` | 131552 |
+| IK Sirius | `SIR` | 8547 |
+| Västerås SK | `VAS` | 22163 |
+

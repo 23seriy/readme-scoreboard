@@ -10,6 +10,24 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **Five new soccer leagues**, all with live standings, schedules, and full team
+  rosters verified against ESPN's public API:
+  - **Greek Super League** (`greek`) — 14 clubs
+  - **Austrian Bundesliga** (`austria`) — 12 clubs
+  - **Danish Superliga** (`denmark`) — 12 clubs
+  - **Norwegian Eliteserien** (`norway`) — 16 clubs
+  - **Swedish Allsvenskan** (`sweden`) — 16 clubs
+
+  The supported-league count is now 39. All five reuse the shared soccer base
+  class, so they get records, points, conference standings, the next fixture,
+  recent results, and the `player:` spotlight along with the other soccer
+  leagues. Two clubs needed non-obvious team keys, because ESPN's own
+  abbreviations are unusable as inputs: Austria Vienna and Rapid Vienna both
+  report as `VIE`, so they are `AUS` and `RAP` here, and Örgryte's key is the
+  ASCII `ORG` so it can be typed in a workflow.
+
 ## [1.12.1] - 2026-09-13
 
 ### Added

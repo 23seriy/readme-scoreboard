@@ -40,7 +40,8 @@ function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adap
       "mls", "epl", "laliga", "bundesliga", "seriea", "ligue1",
       "primeiraliga", "eredivisie", "ligamx", "brasileirao", "nwsl",
       "saudipro", "j1", "scottish", "belgian", "ucl", "uel",
-      "argentina", "aleague", "isl", "csl",
+      "argentina", "aleague", "isl", "csl", "greek", "austria",
+      "denmark", "norway", "sweden",
     ];
     if (!PLAYER_SPOTLIGHT_SPORTS.includes(sport)) {
       throw new Error(`player: is not yet supported for sport "${sport}". Currently supported: ${PLAYER_SPOTLIGHT_SPORTS.join(", ")}.`);

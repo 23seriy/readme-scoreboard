@@ -410,3 +410,63 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     marker: readme-scoreboard-csl
 ```
 
+## Greek Super League
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: greek
+    team: AEK
+    marker: readme-scoreboard-greek
+```
+
+## Austrian Bundesliga
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: austria
+    team: ALU
+    marker: readme-scoreboard-austria
+```
+
+## Danish Superliga
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: denmark
+    team: ACH
+    marker: readme-scoreboard-denmark
+```
+
+## Norwegian Eliteserien
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: norway
+    team: AAL
+    marker: readme-scoreboard-norway
+```
+
+## Swedish Allsvenskan
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: sweden
+    team: AIK
+    marker: readme-scoreboard-sweden
+```
+
