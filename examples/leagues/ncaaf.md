@@ -9,7 +9,7 @@ Team: **ALA** · Category: Football · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" alt="Alabama Crimson Tide logo" width="72" align="right" />
 
 ### 🐘 Alabama Crimson Tide (ALA)
-Southeastern Conference · 
+Southeastern Conference
 🟢 Season in progress
 
 🏅 Standing: Southeastern Conference · 1
@@ -17,8 +17,8 @@ Southeastern Conference ·
 
 **📅 Recent Games:**
 ```
-✅ W 45-17 @ UK  (Invalid Date)
-✅ W 48-10 @ ECU (Invalid Date)
+✅ W 45-17 @ UK  (Sep 12, 2026)
+✅ W 48-10 @ ECU (Sep 5, 2026)
 ```
 
 ## Custom title
@@ -30,7 +30,7 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" alt="Alabama Crimson Tide logo" width="72" align="right" />
 
 ### 🐘 Alabama Crimson Tide (ALA)
-Southeastern Conference · 
+Southeastern Conference
 🟢 Season in progress
 
 🏅 Standing: Southeastern Conference · 1
@@ -38,8 +38,8 @@ Southeastern Conference ·
 
 **📅 Recent Games:**
 ```
-✅ W 45-17 @ UK  (Invalid Date)
-✅ W 48-10 @ ECU (Invalid Date)
+✅ W 45-17 @ UK  (Sep 12, 2026)
+✅ W 48-10 @ ECU (Sep 5, 2026)
 ```
 
 ## Compact mode
@@ -50,7 +50,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🐘 Alabama Crimson Tide (ALA)
-Southeastern Conference · 
+Southeastern Conference
 🟢 Season in progress
 
 🏅 Standing: Southeastern Conference · 1

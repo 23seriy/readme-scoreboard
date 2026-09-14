@@ -11,7 +11,7 @@ Player: **SIN** · Category: Tennis · Data source: ESPN public API
 ### 🇮🇹 Jannik Sinner (SIN)
 ATP · World Ranking
 
-🏆 World No. 1 · 📍 12,800 ranking points · 📈 Movement: — (was No. 1)
+🏆 World No. 1 · 📍 11,500 ranking points · 📈 Movement: — (was No. 1)
 
 **📅 Last Match:**
 ```
@@ -30,7 +30,7 @@ The `title:` input replaces the default heading.
 ### 🇮🇹 Jannik Sinner (SIN)
 ATP · World Ranking
 
-🏆 World No. 1 · 📍 12,800 ranking points · 📈 Movement: — (was No. 1)
+🏆 World No. 1 · 📍 11,500 ranking points · 📈 Movement: — (was No. 1)
 
 **📅 Last Match:**
 ```
@@ -48,7 +48,7 @@ The `compact: true` input drops the logo and recent-game details.
 ### 🇮🇹 Jannik Sinner (SIN)
 ATP · World Ranking
 
-🏆 World No. 1 · 📍 12,800 ranking points · 📈 Movement: — (was No. 1)
+🏆 World No. 1 · 📍 11,500 ranking points · 📈 Movement: — (was No. 1)
 
 **📅 Last Match:**
 ```
