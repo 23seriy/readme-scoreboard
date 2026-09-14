@@ -22,7 +22,7 @@ Eastern Conference · Metropolitan Division
 ```
 
 **🦢 Player Spotlight: Artemi Panarin**
-<img src="https://assets.nhle.com/mugs/nhl/20252026/8478550.png" alt="Artemi Panarin headshot" width="72" align="right" />
+<img src="https://assets.nhle.com/mugs/nhl/20252026/8478550.png" alt="Artemi Panarin headshot" height="72" align="right" />
 45 G · 30 A · 120 PTS
 
 **📅 Last Game:**

@@ -22,7 +22,7 @@ American League · AL East
 ```
 
 **🐦 Player Spotlight: Vladimir Guerrero Jr.**
-<img src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/665489/headshot/67/current" alt="Vladimir Guerrero Jr. headshot" width="72" align="right" />
+<img src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/665489/headshot/67/current" alt="Vladimir Guerrero Jr. headshot" height="72" align="right" />
 .259 AVG · 8 HR · 54 RBI
 
 **📅 Last Game:**

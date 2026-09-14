@@ -186,7 +186,7 @@ describe("renderMlb — player spotlight", () => {
       recentGames: [],
       spotlight: { ...SPOTLIGHT, headshotUrl: "https://img.mlbstatic.com/people/665489/headshot" },
     });
-    expect(output).toContain('<img src="https://img.mlbstatic.com/people/665489/headshot" alt="Vladimir Guerrero Jr. headshot" width="72" align="right" />');
+    expect(output).toContain('<img src="https://img.mlbstatic.com/people/665489/headshot" alt="Vladimir Guerrero Jr. headshot" height="72" align="right" />');
   });
 
   it("omits the headshot image when headshotUrl is absent", () => {
@@ -330,12 +330,27 @@ describe("renderNba — player spotlight", () => {
       recentGames: [],
       spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" },
     });
-    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" alt="Luka Doncic headshot" width="72" align="right" />');
+    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" alt="Luka Doncic headshot" height="72" align="right" />');
   });
 
   it("omits the headshot image when headshotUrl is absent", () => {
     const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: SPOTLIGHT });
     expect(output).not.toContain("headshot");
+  });
+
+  it("sizes the headshot by height, not width, so every sport scales alike", () => {
+    // The leagues serve headshots at different aspect ratios (ESPN 600x436
+    // landscape, MLB 213x320 portrait, NHL 336x336 square). Constraining the
+    // width makes the rendered heights differ (72x52, 72x108, 72x72); a fixed
+    // height is what keeps the boards visually consistent, so pin it.
+    const output = render("nba", {
+      ...BASE_NBA_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://example.test/hs.png" },
+    });
+    const tag = output.match(/<img[^>]*headshot[^>]*>/)[0];
+    expect(tag).toContain('height="72"');
+    expect(tag).not.toContain('width="72"');
   });
 
   it("never renders a headshot in compact mode", () => {
@@ -492,7 +507,7 @@ describe("soccer renderer — player spotlight", () => {
       recentGames: [],
       spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/i/headshots/soccer/players/full/233049.png" },
     });
-    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/soccer/players/full/233049.png" alt="Bukayo Saka headshot" width="72" align="right" />');
+    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/soccer/players/full/233049.png" alt="Bukayo Saka headshot" height="72" align="right" />');
   });
 
   it("omits the headshot image when headshotUrl is absent", () => {
@@ -1419,7 +1434,7 @@ describe("renderNfl — player spotlight", () => {
 
   it("renders the headshot next to the heading when the adapter supplies one", () => {
     const output = render("nfl", { ...BASE, spotlight: { ...QB, headshotUrl: "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" } });
-    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" alt="Patrick Mahomes headshot" width="72" align="right" />');
+    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" alt="Patrick Mahomes headshot" height="72" align="right" />');
   });
 
   it("omits the headshot image when headshotUrl is absent", () => {
