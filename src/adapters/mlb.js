@@ -167,6 +167,7 @@ class MlbAdapter extends BaseFreeApiAdapter {
       name: player.fullName,
       season: stats || { avg: 0, homeRuns: 0, rbi: 0, hits: 0, atBats: 0, games: 0, ops: 0 },
       lastGame,
+      headshotUrl: this.getPlayerHeadshotUrl(player.id),
     };
   }
 
@@ -184,6 +185,9 @@ class MlbAdapter extends BaseFreeApiAdapter {
       demo.spotlight = {
         name: "Vladimir Guerrero Jr.",
         season: { avg: 0.259, homeRuns: 8, rbi: 54, hits: 126, atBats: 487, games: 130, ops: 0.682 },
+        // MLB Stats API person id, so the demo board shows the real headshot
+        // and matches what a live run would render.
+        headshotUrl: this.getPlayerHeadshotUrl("665489"),
         lastGame: {
           date: last ? last.date : dateOffset(0),
           opponent: last ? last.oppAbbr : "ATH",
@@ -301,6 +305,15 @@ class MlbAdapter extends BaseFreeApiAdapter {
     const upper = abbr.toUpperCase();
     const slug = ESPN_LOGO_ABBR[upper] || upper.toLowerCase();
     return `https://a.espncdn.com/i/teamlogos/mlb/500/${slug}.png`;
+  }
+
+  // MLB serves player photos from its own CDN rather than ESPN's headshot
+  // path (which is unreliable for baseball). The transformation is fixed, so
+  // only the MLB Stats API person id is needed. Returns null without an id so
+  // the renderer can omit the image instead of emitting a broken one.
+  getPlayerHeadshotUrl(playerId) {
+    if (!playerId) return null;
+    return `https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${playerId}/headshot/67/current`;
   }
 
   parseGameResponse(data) {

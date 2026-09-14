@@ -183,6 +183,9 @@ describe("NbaAdapter — fetchPlayerSpotlight", () => {
     expect(result.name).toBe("Luka Doncic");
     expect(result.season).toEqual({ points: 33.5, rebounds: 7.7, assists: 8.3 });
     expect(result.lastGame).toEqual({ points: 12, rebounds: 4, assists: 7, minutes: 26, date: "2026-09-04T19:00:00Z", opponent: "Minnesota Timberwolves" });
+    // The headshot is built from the roster's athlete id, so a live run shows
+    // the real player image without any extra request.
+    expect(result.headshotUrl).toBe("https://a.espncdn.com/i/headshots/nba/players/full/3945274.png");
   });
 
   it("falls back to zeroed season averages when the season-averages fetch fails, without affecting lastGame", async () => {
@@ -218,6 +221,13 @@ describe("NbaAdapter — getDemoData with a player", () => {
     expect(demo.spotlight.name).toBe("Luka Doncic");
     expect(demo.spotlight.season.points).toBeGreaterThan(0);
     expect(demo.spotlight.lastGame.points).toBeGreaterThan(0);
+  });
+
+  it("includes a headshot URL built from the real ESPN athlete id", () => {
+    const demo = adapter.getDemoData("LAL", "Luka Doncic");
+    expect(demo.spotlight.headshotUrl).toBe(
+      "https://a.espncdn.com/i/headshots/nba/players/full/3945274.png"
+    );
   });
 
   it("includes the last game's opponent and date in the spotlight", () => {

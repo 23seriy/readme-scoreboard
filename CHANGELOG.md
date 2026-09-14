@@ -10,8 +10,26 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **Player headshots**: a player spotlight now shows the athlete's headshot,
+  right-aligned beside the "Player Spotlight" heading, matching how the team
+  logo sits beside the team board. The image is built from the athlete id the
+  roster lookup already fetches, so it needs no extra request, no new input,
+  and no configuration. Supported wherever `player:` is (NBA, MLB, NFL, NHL,
+  and every soccer league). When the upstream feed has no athlete id the image
+  is omitted and the board renders exactly as before, and `compact: true`
+  stays text-only.
+
 ### Fixed
 
+- Corrected several **demo roster athlete ids** that were wrong, which mattered
+  once headshots were built from them: the NHL demo rosters pointed Panarin,
+  McDavid, Draisaitl, Shesterkin, Fox, Kopitar, Kempe, Byfield, Larkin, Seider,
+  Marchand, Swayman and Hyman at the wrong players (or at ids belonging to
+  someone else), and the NFL demo roster reused a single id across two teams in
+  four places (e.g. `Travis Kelce` and `CeeDee Lamb` shared one id). Every id
+  is now verified against the live roster endpoint.
 - Demo/gallery boards no longer show a record that contradicts the results
   printed beneath it. Previously the NFL sample board advertised a hardcoded
   `9W - 3L` season while its recent games were regenerated with `Math.random()`

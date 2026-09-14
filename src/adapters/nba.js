@@ -182,7 +182,12 @@ async function fetchPlayerSpotlight(teamAbbr, playerName) {
     fetchPlayerSeasonAverages(player.id),
     fetchPlayerLastGame(player.id, teamAbbr),
   ]);
-  return { name: player.fullName, season: season || { points: 0, rebounds: 0, assists: 0 }, lastGame };
+  return {
+    name: player.fullName,
+    season: season || { points: 0, rebounds: 0, assists: 0 },
+    lastGame,
+    headshotUrl: getPlayerHeadshotUrl(player.id),
+  };
 }
 
 async function fetchStandings(teamAbbr) {
@@ -356,6 +361,10 @@ function getDemoData(teamAbbr, playerName) {
     spotlight = {
       name: "Luka Doncic",
       season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
+      // ESPN athlete id for Luka Doncic (verified against the live Lakers
+      // roster), so the demo board shows the real headshot and matches what a
+      // live run would render.
+      headshotUrl: getPlayerHeadshotUrl("3945274"),
       lastGame: {
         points: 12, rebounds: 4, assists: 7, minutes: 26,
         date: last ? last.date : DEMO_NOW.toISOString(),
@@ -409,10 +418,21 @@ function getLogoUrl(abbr) {
   return `https://a.espncdn.com/i/teamlogos/nba/500/${slug}.png`;
 }
 
+// ESPN publishes a square cut-out headshot per athlete id. The path is stable
+// and needs no auth, so the id already returned by the roster lookup is all
+// that's required. Returns null when no id is available, so callers can omit
+// the image rather than emit a broken one.
+function getPlayerHeadshotUrl(playerId) {
+  return playerId
+    ? `https://a.espncdn.com/i/headshots/nba/players/full/${playerId}.png`
+    : null;
+}
+
 module.exports = {
   fetchData,
   getDemoData,
   getLogoUrl,
+  getPlayerHeadshotUrl,
   fetchTeamRoster,
   findPlayerOnRoster,
   fetchPlayerSeasonAverages,

@@ -237,28 +237,28 @@ async function fetchRecentGames(teamAbbr, count = 5, events) {
 const DEMO_PLAYERS = {
   KC: [
     { id: "3139477", fullName: "Patrick Mahomes", position: "QB" },
-    { id: "3059760", fullName: "Travis Kelce", position: "TE" },
-    { id: "4241457", fullName: "Isiah Pacheco", position: "RB" },
+    { id: "15847", fullName: "Travis Kelce", position: "TE" },
+    { id: "4361529", fullName: "Isiah Pacheco", position: "RB" },
   ],
   SF: [
-    { id: "3915416", fullName: "Brock Purdy", position: "QB" },
-    { id: "3121023", fullName: "Christian McCaffrey", position: "RB" },
-    { id: "4241370", fullName: "George Kittle", position: "TE" },
+    { id: "4361741", fullName: "Brock Purdy", position: "QB" },
+    { id: "3117251", fullName: "Christian McCaffrey", position: "RB" },
+    { id: "3040151", fullName: "George Kittle", position: "TE" },
   ],
   DAL: [
-    { id: "3917792", fullName: "Dak Prescott", position: "QB" },
-    { id: "3059760", fullName: "CeeDee Lamb", position: "WR" },
-    { id: "4047646", fullName: "Micah Parsons", position: "LB" },
+    { id: "2577417", fullName: "Dak Prescott", position: "QB" },
+    { id: "4241389", fullName: "CeeDee Lamb", position: "WR" },
+    { id: "4361423", fullName: "Micah Parsons", position: "LB" },
   ],
   BUF: [
     { id: "3918298", fullName: "Josh Allen", position: "QB" },
-    { id: "4239996", fullName: "James Cook", position: "RB" },
-    { id: "4241457", fullName: "Dalton Kincaid", position: "TE" },
+    { id: "4379399", fullName: "James Cook", position: "RB" },
+    { id: "4385690", fullName: "Dalton Kincaid", position: "TE" },
   ],
   PHI: [
     { id: "4040715", fullName: "Jalen Hurts", position: "QB" },
     { id: "4047646", fullName: "A.J. Brown", position: "WR" },
-    { id: "4241370", fullName: "Dallas Goedert", position: "TE" },
+    { id: "3121023", fullName: "Dallas Goedert", position: "TE" },
   ],
 };
 
@@ -367,7 +367,13 @@ async function fetchPlayerSpotlight(teamAbbr, playerName) {
     fetchPlayerSeasonStats(player.id),
     fetchPlayerLastGame(player.id),
   ]);
-  return { name: player.fullName, position: player.position, season: season || {}, lastGame };
+  return {
+    name: player.fullName,
+    position: player.position,
+    season: season || {},
+    lastGame,
+    headshotUrl: getPlayerHeadshotUrl(player.id),
+  };
 }
 
 // Deterministic demo spotlight so `--demo` and the generated examples show the
@@ -402,6 +408,9 @@ function getDemoSpotlight(teamAbbr, playerName, recentGames = []) {
     name: player.fullName,
     position: player.position,
     season,
+    // Demo rosters carry the same athlete ids as the live feed, so the demo
+    // headshot resolves to the real image and stays consistent with live runs.
+    headshotUrl: getPlayerHeadshotUrl(player.id),
     lastGame: {
       date: last ? last.date : DEMO_NOW.toISOString(),
       opponent: last ? last.oppAbbr : (DEMO_TEAMS[abbr] ? "SF" : "KC"),
@@ -495,6 +504,15 @@ function getLogoUrl(abbr) {
   return `https://a.espncdn.com/i/teamlogos/nfl/500/${abbr.toLowerCase()}.png`;
 }
 
+// ESPN's NFL headshot path is keyed by athlete id, which the roster lookup
+// already returns. Returns null without an id so the renderer can omit the
+// image rather than emit a broken one.
+function getPlayerHeadshotUrl(playerId) {
+  return playerId
+    ? `https://a.espncdn.com/i/headshots/nfl/players/full/${playerId}.png`
+    : null;
+}
+
 module.exports = {
   fetchData,
   fetchStandings,
@@ -504,6 +522,7 @@ module.exports = {
   getDemoData,
   getDemoSpotlight,
   getLogoUrl,
+  getPlayerHeadshotUrl,
   parseNextGame,
   TEAM_EMOJI,
   DEMO_TEAMS,

@@ -46,6 +46,15 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
     return id ? `https://a.espncdn.com/i/teamlogos/soccer/500/${id}.png` : null;
   }
 
+  // ESPN's soccer headshots share the athlete-id path used by the other
+  // leagues. Returns null without an id so the renderer can omit the image
+  // rather than emit a broken one.
+  getPlayerHeadshotUrl(playerId) {
+    return playerId
+      ? `https://a.espncdn.com/i/headshots/soccer/players/full/${playerId}.png`
+      : null;
+  }
+
   /**
    * The base demo data has no soccer-specific fields (draws, per-team
    * scores), so build a soccer-shaped sample instead. Deterministic: the
@@ -417,7 +426,7 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
         `ESPN has no game log for this athlete yet — this is common in the off-season or early in a season.`
       );
     }
-    return { name: player.fullName, position: player.position, season, lastGame };
+    return { name: player.fullName, position: player.position, season, lastGame, headshotUrl: this.getPlayerHeadshotUrl(player.id) };
   }
 
   // Deterministic demo spotlight: derived from the player's name so repeated
@@ -440,6 +449,11 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
         yellowCards: seed % 6,
         redCards: 0,
       },
+      // Soccer demo data invents a player name rather than using a real
+      // athlete, so there is no id to build a headshot from. The field is
+      // deliberately absent: the renderer treats it as optional and omits the
+      // image, which is better than pointing at a broken URL. Live runs always
+      // populate it from the roster's athlete id.
       lastGame: {
         date: last ? last.date : dateOffset(0),
         opponent: last ? last.oppAbbr : "RIV",

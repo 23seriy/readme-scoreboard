@@ -364,6 +364,16 @@ Each sport's spotlight shows stats that fit the position:
 
 Every spotlight includes the opponent and game date, rendered in the league's timezone.
 
+The spotlight also shows the player's **headshot**, right-aligned beside the heading, matching how the team logo sits beside the team board. The image is built from the athlete id the roster lookup already returns, so it needs no extra request or configuration:
+
+```markdown
+**👑 Player Spotlight: Luka Doncic**
+<img src="https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" alt="Luka Doncic headshot" width="72" align="right" />
+33.5 PPG · 7.7 RPG · 8.3 APG
+```
+
+If the upstream feed doesn't supply an athlete id, the headshot is simply omitted and the board renders exactly as before. Headshots are never shown in `compact: true` mode, which stays text-only.
+
 Soccer season totals are summed from the player's game log, because ESPN publishes no season-stats endpoint for soccer athletes. If ESPN has no game log for the chosen player yet — common in the off-season or in the first weeks of a season — the run fails with a clear "No season stats available" error rather than rendering a line of zeroes.
 
 #### Leagues without player spotlight

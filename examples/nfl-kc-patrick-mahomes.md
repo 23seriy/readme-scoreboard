@@ -22,6 +22,7 @@ AFC · AFC West
 ```
 
 **👑 Player Spotlight: Patrick Mahomes**
+<img src="https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" alt="Patrick Mahomes headshot" width="72" align="right" />
 3464 PASS YDS · 29 PASS TD · 414 RUSH YDS
 
 **📅 Last Game:**
