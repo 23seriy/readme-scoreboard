@@ -9,13 +9,19 @@ Team: **ATL** · Category: Football · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" alt="Atlanta Falcons logo" width="72" align="right" />
 
 ### 🔴 Atlanta Falcons (ATL)
-National Football · NFC South
+NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: National Football · 3
-📅 Next: @ PIT (Sep 13)
+🏅 Standing: NFC · 16
+📅 Next: vs CAR (Sep 20)
 
-📅 No recent games found
+📊 2026 Season: 0W - 1L (0.0%)
+   ░░░░░░░░░░░░░░░░░░░░░░░░░
+
+**📅 Recent Games:**
+```
+❌ L 13-20 @ PIT (Sep 13, 2026)
+```
 
 ## Custom title
 
@@ -26,13 +32,19 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" alt="Atlanta Falcons logo" width="72" align="right" />
 
 ### 🔴 Atlanta Falcons (ATL)
-National Football · NFC South
+NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: National Football · 3
-📅 Next: @ PIT (Sep 13)
+🏅 Standing: NFC · 16
+📅 Next: vs CAR (Sep 20)
 
-📅 No recent games found
+📊 2026 Season: 0W - 1L (0.0%)
+   ░░░░░░░░░░░░░░░░░░░░░░░░░
+
+**📅 Recent Games:**
+```
+❌ L 13-20 @ PIT (Sep 13, 2026)
+```
 
 ## Compact mode
 
@@ -42,13 +54,16 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🔴 Atlanta Falcons (ATL)
-National Football · NFC South
+NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: National Football · 3
-📅 Next: @ PIT (Sep 13)
+🏅 Standing: NFC · 16
+📅 Next: vs CAR (Sep 20)
 
-📅 No recent games found
+📊 2026 Season: 0W - 1L (0.0%)
+   ░░░░░░░░░░░░░░░░░░░░░░░░░
+
+
 
 ## Badge mode
 

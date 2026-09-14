@@ -12,7 +12,7 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing: 2026 Torneo Apertura · 2
+🏅 Standing: 2026 Torneo Apertura · 3
 
 📊 2026 Record: 5W - 1L - 1D  (16 pts)
    ███████████████████▋░░░░░
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing: 2026 Torneo Apertura · 2
+🏅 Standing: 2026 Torneo Apertura · 3
 
 📊 2026 Record: 5W - 1L - 1D  (16 pts)
    ███████████████████▋░░░░░
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing: 2026 Torneo Apertura · 2
+🏅 Standing: 2026 Torneo Apertura · 3
 
 📊 2026 Record: 5W - 1L - 1D  (16 pts)
    ███████████████████▋░░░░░
