@@ -142,6 +142,13 @@ describe("NHL adapter — demo spotlight", () => {
     expect(data.spotlight.lastGame.saves).toBeGreaterThan(0);
   });
 
+  it("includes a headshot URL built from the demo roster's player id", () => {
+    const data = adapter.getDemoData("NYR", "Artemi Panarin");
+    expect(data.spotlight.headshotUrl).toBe(
+      "https://assets.nhle.com/mugs/nhl/20252026/8478550.png"
+    );
+  });
+
   it("preserves the base demo board fields and omits the spotlight without a player", () => {
     const data = adapter.getDemoData("NYR");
     expect(data.team.abbreviation).toBe("NYR");

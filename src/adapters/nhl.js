@@ -34,6 +34,15 @@ class NHLAdapter extends BaseFreeApiAdapter {
     return `https://assets.nhle.com/logos/nhl/svg/${slug}_dark.svg`;
   }
 
+  // NHL headshots come from the league's own asset host, keyed by player id.
+  // Returns null without an id so the renderer can omit the image rather than
+  // emit a broken one.
+  getPlayerHeadshotUrl(playerId) {
+    return playerId
+      ? `https://assets.nhle.com/mugs/nhl/20252026/${playerId}.png`
+      : null;
+  }
+
   DEMO_TEAMS = {
     NYR: {
       id: 3,
@@ -96,17 +105,18 @@ class NHLAdapter extends BaseFreeApiAdapter {
   // Demo rosters so `--demo` and the generated examples can render the Player
   // Spotlight block without a network call. NHL rosters turn over constantly,
   // so the live path resolves players from the current roster endpoint instead
-  // of a maintained id map.
+  // of a maintained id map. Ids are the real NHL player ids: they are what the
+  // headshot URL is built from, so a wrong id would show the wrong face.
   DEMO_PLAYERS = {
     NYR: [
-      { id: "8478402", fullName: "Artemi Panarin", position: "LW" },
-      { id: "8478550", fullName: "Igor Shesterkin", position: "G" },
-      { id: "8480078", fullName: "Adam Fox", position: "D" },
+      { id: "8478550", fullName: "Artemi Panarin", position: "LW" },
+      { id: "8478048", fullName: "Igor Shesterkin", position: "G" },
+      { id: "8479323", fullName: "Adam Fox", position: "D" },
     ],
     LAK: [
       { id: "8471685", fullName: "Anze Kopitar", position: "C" },
-      { id: "8479977", fullName: "Adrian Kempe", position: "RW" },
-      { id: "8481552", fullName: "Quinton Byfield", position: "C" },
+      { id: "8477960", fullName: "Adrian Kempe", position: "RW" },
+      { id: "8482124", fullName: "Quinton Byfield", position: "C" },
     ],
     TOR: [
       { id: "8479318", fullName: "Auston Matthews", position: "C" },
@@ -114,19 +124,19 @@ class NHLAdapter extends BaseFreeApiAdapter {
       { id: "8477939", fullName: "William Nylander", position: "RW" },
     ],
     DET: [
-      { id: "8482124", fullName: "Lucas Raymond", position: "RW" },
-      { id: "8477949", fullName: "Dylan Larkin", position: "C" },
-      { id: "8481554", fullName: "Moritz Seider", position: "D" },
+      { id: "8482078", fullName: "Lucas Raymond", position: "RW" },
+      { id: "8477946", fullName: "Dylan Larkin", position: "C" },
+      { id: "8481542", fullName: "Moritz Seider", position: "D" },
     ],
     BOS: [
       { id: "8477956", fullName: "David Pastrnak", position: "RW" },
-      { id: "8478397", fullName: "Brad Marchand", position: "LW" },
-      { id: "8479619", fullName: "Jeremy Swayman", position: "G" },
+      { id: "8473419", fullName: "Brad Marchand", position: "LW" },
+      { id: "8480280", fullName: "Jeremy Swayman", position: "G" },
     ],
     EDM: [
-      { id: "8478402", fullName: "Leon Draisaitl", position: "C" },
-      { id: "8477934", fullName: "Connor McDavid", position: "C" },
-      { id: "8476456", fullName: "Zach Hyman", position: "LW" },
+      { id: "8477934", fullName: "Leon Draisaitl", position: "C" },
+      { id: "8478402", fullName: "Connor McDavid", position: "C" },
+      { id: "8475786", fullName: "Zach Hyman", position: "LW" },
     ],
   };
 
@@ -229,7 +239,7 @@ class NHLAdapter extends BaseFreeApiAdapter {
       this.fetchPlayerSeasonStats(player.id),
       this.fetchPlayerLastGame(player.id),
     ]);
-    return { name: player.fullName, position: player.position, season: season || {}, lastGame };
+    return { name: player.fullName, position: player.position, season: season || {}, lastGame, headshotUrl: this.getPlayerHeadshotUrl(player.id) };
   }
 
   // Deterministic demo spotlight so examples stay reproducible. `recentGames`
@@ -263,6 +273,9 @@ class NHLAdapter extends BaseFreeApiAdapter {
       name: player.fullName,
       position: player.position,
       season,
+      // Demo rosters carry the same player ids as the live feed, so the demo
+      // headshot resolves to the real image and stays consistent with live runs.
+      headshotUrl: this.getPlayerHeadshotUrl(player.id),
       lastGame: isGoalie
         ? {
             date: lastDate,

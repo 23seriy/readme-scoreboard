@@ -179,6 +179,20 @@ describe("renderMlb — player spotlight", () => {
     const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
     expect(output).not.toContain("Player Spotlight");
   });
+
+  it("renders the headshot next to the heading when the adapter supplies one", () => {
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://img.mlbstatic.com/people/665489/headshot" },
+    });
+    expect(output).toContain('<img src="https://img.mlbstatic.com/people/665489/headshot" alt="Vladimir Guerrero Jr. headshot" width="72" align="right" />');
+  });
+
+  it("omits the headshot image when headshotUrl is absent", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).not.toContain("headshot");
+  });
 });
 
 describe("Soccer renderer — Saudi Pro League and J1 League", () => {
@@ -308,6 +322,34 @@ describe("renderNba — player spotlight", () => {
     expect(output).toContain("👑 Luka Doncic · 33.5 PPG · 7.7 RPG · 8.3 APG");
     expect(output).not.toContain("Last Game");
     expect(output).not.toContain("Player Spotlight:");
+  });
+
+  it("renders the headshot next to the heading when the adapter supplies one", () => {
+    const output = render("nba", {
+      ...BASE_NBA_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" },
+    });
+    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" alt="Luka Doncic headshot" width="72" align="right" />');
+  });
+
+  it("omits the headshot image when headshotUrl is absent", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).not.toContain("headshot");
+  });
+
+  it("never renders a headshot in compact mode", () => {
+    // Compact mode collapses the spotlight to a single stat line, so the
+    // headshot must not be emitted even when one is available. (The renderer
+    // emits no image; compactMarkdown() in index.js strips the team/league
+    // images from the final output separately.)
+    const output = render(
+      "nba",
+      { ...BASE_NBA_DATA, recentGames: [], spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" } },
+      { compact: true }
+    );
+    expect(output).not.toContain("headshot");
+    expect(output).toContain("👑 Luka Doncic · 33.5 PPG · 7.7 RPG · 8.3 APG");
   });
 });
 
@@ -442,6 +484,20 @@ describe("soccer renderer — player spotlight", () => {
   it("defaults missing season stats to zero", () => {
     const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: { name: "Unknown", season: {}, lastGame: null } });
     expect(output).toContain("0 APP · 0 G · 0 A");
+  });
+
+  it("renders the headshot next to the heading when the adapter supplies one", () => {
+    const output = render("mls", {
+      ...BASE_MLS_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/i/headshots/soccer/players/full/233049.png" },
+    });
+    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/soccer/players/full/233049.png" alt="Bukayo Saka headshot" width="72" align="right" />');
+  });
+
+  it("omits the headshot image when headshotUrl is absent", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).not.toContain("headshot");
   });
 
   it("collapses to one line in compact mode and drops last-game detail", () => {
@@ -1359,6 +1415,15 @@ describe("renderNfl — player spotlight", () => {
 
   it("omits the spotlight section when data.spotlight is absent", () => {
     expect(render("nfl", BASE)).not.toContain("Player Spotlight");
+  });
+
+  it("renders the headshot next to the heading when the adapter supplies one", () => {
+    const output = render("nfl", { ...BASE, spotlight: { ...QB, headshotUrl: "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" } });
+    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" alt="Patrick Mahomes headshot" width="72" align="right" />');
+  });
+
+  it("omits the headshot image when headshotUrl is absent", () => {
+    expect(render("nfl", { ...BASE, spotlight: QB })).not.toContain("headshot");
   });
 });
 

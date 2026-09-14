@@ -154,6 +154,29 @@ function extraTeamLines(data) {
   return lines.length ? ["", ...lines] : lines;
 }
 
+/**
+ * Player spotlight heading, optionally with the athlete's headshot.
+ *
+ * The headshot is rendered as its own right-floated image, matching how the
+ * team logo sits beside the team heading. It is entirely optional: adapters
+ * that can't supply an athlete id omit `headshotUrl`, and the heading falls
+ * back to the plain bold text so nothing changes for those leagues.
+ */
+function pushSpotlightHeading(lines, emoji, spotlight) {
+  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+  pushSpotlightHeadshot(lines, spotlight);
+}
+
+// The image is emitted on its own line directly after the heading. It is
+// deliberately not emitted in compact mode (compactMarkdown strips every
+// `<img>` line anyway), so compact boards stay text-only.
+function pushSpotlightHeadshot(lines, spotlight) {
+  if (!spotlight.headshotUrl) return;
+  lines.push(
+    `<img src="${spotlight.headshotUrl}" alt="${spotlight.name} headshot" width="72" align="right" />`
+  );
+}
+
 function generateBarChart(percent, size) {
   const syms = "░▏▎▍▌▋▊▉█";
   const frac = Math.floor((size * 8 * percent) / 100);
@@ -188,7 +211,6 @@ function formatGameResult(game, teamId) {
 function renderNba(data, sport = "nba", title, compact = false) {
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
-
   lines.push(...headingLines(sport, title));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
@@ -240,7 +262,7 @@ function renderNba(data, sport = "nba", title, compact = false) {
       const { points, rebounds, assists } = spotlight.season;
       lines.push(`${emoji} ${spotlight.name} · ${points.toFixed(1)} PPG · ${rebounds.toFixed(1)} RPG · ${assists.toFixed(1)} APG`);
     } else {
-      lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+      pushSpotlightHeading(lines, emoji, spotlight);
       const { points, rebounds, assists } = spotlight.season;
       lines.push(`${points.toFixed(1)} PPG · ${rebounds.toFixed(1)} RPG · ${assists.toFixed(1)} APG`);
       if (spotlight.lastGame) {
@@ -283,6 +305,7 @@ function renderNflSpotlight(lines, spotlight, emoji, compact) {
     return;
   }
   lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+  pushSpotlightHeadshot(lines, spotlight);
   if (position === "QB") {
     lines.push(`${stat(season.passingYards)} PASS YDS · ${stat(season.passingTouchdowns)} PASS TD · ${stat(season.rushingYards)} RUSH YDS`);
   } else if (position === "RB") {
@@ -323,13 +346,13 @@ function renderNhlSpotlight(lines, spotlight, emoji, compact) {
     if (compact) {
       lines.push(`${emoji} ${spotlight.name} · ${stat(season.wins)} W · ${gaa} GAA · ${svPct} SV%`);
     } else {
-      lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+      pushSpotlightHeading(lines, emoji, spotlight);
       lines.push(`${stat(season.wins)} W · ${gaa} GAA · ${svPct} SV%`);
     }
   } else if (compact) {
     lines.push(`${emoji} ${spotlight.name} · ${stat(season.goals)} G · ${stat(season.assists)} A · ${stat(season.points)} PTS`);
   } else {
-    lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+    pushSpotlightHeading(lines, emoji, spotlight);
     lines.push(`${stat(season.goals)} G · ${stat(season.assists)} A · ${stat(season.points)} PTS`);
   }
   if (lastGame && !compact) {
@@ -409,7 +432,7 @@ function renderMlb(data, title) {
   if (spotlight) {
     lines.push("");
     const { avg, homeRuns, rbi } = spotlight.season;
-    lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+    pushSpotlightHeading(lines, emoji, spotlight);
     const battingAvg = avg ? avg.toFixed(3).replace(/^0/, "") : ".000";
     lines.push(`${battingAvg} AVG · ${homeRuns} HR · ${rbi} RBI`);
     if (spotlight.lastGame) {
@@ -628,7 +651,7 @@ function renderSoccerSpotlight(lines, spotlight, emoji, compact) {
     lines.push(`${emoji} ${spotlight.name} · ${appearances} APP · ${goals} G · ${assists} A`);
     return;
   }
-  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+  pushSpotlightHeading(lines, emoji, spotlight);
   lines.push(`${appearances} APP · ${goals} G · ${assists} A`);
   if (lastGame) {
     const parts = [];

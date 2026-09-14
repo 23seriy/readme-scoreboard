@@ -203,6 +203,13 @@ describe("MlbAdapter — getDemoData with a player", () => {
     expect(demo.spotlight.lastGame.opponent).toBeTruthy();
   });
 
+  it("includes a headshot URL built from the real MLB Stats API person id", () => {
+    const demo = adapter.getDemoData("TOR", "Vladimir Guerrero Jr.");
+    expect(demo.spotlight.headshotUrl).toBe(
+      "https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/665489/headshot/67/current"
+    );
+  });
+
   it("omits spotlight when no player is given", () => {
     const demo = adapter.getDemoData("TOR");
     expect(demo.spotlight).toBeUndefined();
