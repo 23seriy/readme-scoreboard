@@ -6,14 +6,14 @@ branding:
   color: "orange"
 inputs:
   sport:
-    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, ncaab, ncaaw, ncaaf, ncaa_hockey, f1, atp, wta, argentina, aleague, isl, csl"
+    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, ncaab, ncaaw, ncaaf, ncaa_hockey, f1, atp, wta, argentina, aleague, isl, csl, greek, austria, denmark, norway, sweden"
     required: false
     default: "nba"
   team:
     description: "Team or player abbreviation (e.g. LAL, TOR, NYR, or SIN for Jannik Sinner). Look up abbreviations in TEAM_DIRECTORY.md."
     required: true
   player:
-    description: "Player full name to feature alongside the team board (e.g. 'Luka Dončić' or 'Bukayo Saka'); must match the roster's exact spelling, including accents. Supported for sport: nba, mlb, nfl, nhl, and every soccer league (mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, argentina, aleague, isl, csl). Not supported together with teams: (multiple boards)."
+    description: "Player full name to feature alongside the team board (e.g. 'Luka Dončić' or 'Bukayo Saka'); must match the roster's exact spelling, including accents. Supported for sport: nba, wnba, mlb, nfl, nhl, and every soccer league (mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, argentina, aleague, isl, csl, greek, austria, denmark, norway, sweden). Not supported together with teams: (multiple boards)."
     required: false
   entity:
     description: "Entity type: 'team' (default) or 'player'. Inferred from the sport; set this to track an individual player (e.g. ATP)."

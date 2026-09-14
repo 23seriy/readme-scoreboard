@@ -19,11 +19,11 @@
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **34 leagues**. The [support manifest](supported-leagues.json),
+The project currently supports **39 leagues**. The [support manifest](supported-leagues.json),
 [team directory](TEAM_DIRECTORY.md), and [player directory](PLAYER_DIRECTORY.md) are generated
 from the same registry used by the action.
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, the **Argentine Primera**, the **A-League Men**, the **Indian Super League**, and the **Chinese Super League** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, the **Greek Super League**, the **Austrian Bundesliga**, the **Danish Superliga**, the **Norwegian Eliteserien**, the **Swedish Allsvenskan**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, the **Argentine Primera**, the **A-League Men**, the **Indian Super League**, and the **Chinese Super League** with more sports coming soon
 
 ---
 
@@ -39,7 +39,7 @@ See rendered output from several sports and every input option without running
 anything. Open the [examples gallery](examples/) to preview real boards (NBA,
 MLB, NFL, NHL, Premier League, MLS, UEFA Champions League, College Football,
 Formula 1, ATP Tennis, and WTA Tennis) plus demos of the `title:`, `teams:` (multi-team),
-`compact:`, and `badge:` options. For every one of the 34 supported leagues,
+`compact:`, and `badge:` options. For every one of the 39 supported leagues,
 see the [league showcase](examples/leagues/) — one file per league, built
 from live data and refreshed daily, showing the default board plus the
 `title:`, `compact:`, and `badge:` options. Or browse the league's
@@ -494,6 +494,11 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men logo" height="20"></picture> A-League Men | 🟢 In progress · ends 2027-07-01 | [`soccer/aus.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2334.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2334.png" alt="Indian Super League logo" height="20"></picture> Indian Super League | 🔴 Off-season · starts 2026-09-15 | [`soccer/ind.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/ind.1/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League logo" height="20"></picture> Chinese Super League | 🟢 In progress · ends 2026-12-31 | [`soccer/chn.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/175.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/175.png" alt="Greek Super League logo" height="20"></picture> Greek Super League | 🟢 In progress · ends 2027-07-01 | [`soccer/gre.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/gre.1/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/207.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/207.png" alt="Austrian Bundesliga logo" height="20"></picture> Austrian Bundesliga | 🟢 In progress · ends 2027-07-01 | [`soccer/aut.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/181.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/181.png" alt="Danish Superliga logo" height="20"></picture> Danish Superliga | 🟢 In progress · ends 2027-07-01 | [`soccer/den.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/20.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/20.png" alt="Norwegian Eliteserien logo" height="20"></picture> Norwegian Eliteserien | 🟢 In progress · ends 2026-12-31 | [`soccer/nor.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/26.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/26.png" alt="Swedish Allsvenskan logo" height="20"></picture> Swedish Allsvenskan | 🟢 In progress · ends 2026-12-01 | [`soccer/swe.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/teams) |
 <!-- supported-sports:end -->
 
 ---
