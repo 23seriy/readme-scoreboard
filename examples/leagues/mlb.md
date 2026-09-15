@@ -13,7 +13,7 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: @ TB (Sep 15)
+📅 Next: @ TB (Sep 16)
 
 📊 2026 Record: 61W - 89L (40.7%)
    ██████████▏░░░░░░░░░░░░░░
@@ -40,7 +40,7 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: @ TB (Sep 15)
+📅 Next: @ TB (Sep 16)
 
 📊 2026 Record: 61W - 89L (40.7%)
    ██████████▏░░░░░░░░░░░░░░
@@ -66,7 +66,7 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: @ TB (Sep 15)
+📅 Next: @ TB (Sep 16)
 
 📊 2026 Record: 61W - 89L (40.7%)
    ██████████▏░░░░░░░░░░░░░░

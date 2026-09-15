@@ -10,7 +10,7 @@ Team: **BFC** · Category: Soccer · Data source: ESPN public API
 
 ### 🔵 Bengaluru FC (BFC)
 Indian Super League
-🔴 Off-season · Next season starts September 2026
+🟢 Season in progress
 
 📅 No recent games found
 
@@ -24,7 +24,7 @@ The `title:` input replaces the default heading.
 
 ### 🔵 Bengaluru FC (BFC)
 Indian Super League
-🔴 Off-season · Next season starts September 2026
+🟢 Season in progress
 
 📅 No recent games found
 
@@ -37,7 +37,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🔵 Bengaluru FC (BFC)
 Indian Super League
-🔴 Off-season · Next season starts September 2026
+🟢 Season in progress
 
 📅 No recent games found
 
