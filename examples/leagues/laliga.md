@@ -12,7 +12,7 @@ Team: **ALA** · Category: Soccer · Data source: ESPN public API
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing: 2026-27 LALIGA · 3
+🏅 Standing: 2026-27 LALIGA · 4
 
 📊 2026 Record: 3W - 1L - 1D  (10 pts)
    █████████████████▌░░░░░░░
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing: 2026-27 LALIGA · 3
+🏅 Standing: 2026-27 LALIGA · 4
 
 📊 2026 Record: 3W - 1L - 1D  (10 pts)
    █████████████████▌░░░░░░░
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing: 2026-27 LALIGA · 3
+🏅 Standing: 2026-27 LALIGA · 4
 
 📊 2026 Record: 3W - 1L - 1D  (10 pts)
    █████████████████▌░░░░░░░
