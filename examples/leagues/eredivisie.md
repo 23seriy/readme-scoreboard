@@ -12,18 +12,18 @@ Team: **AJA** · Category: Soccer · Data source: ESPN public API
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 5
+🏅 Standing: 2026-2027 Dutch Eredivisie · 4
 
-📊 2026 Record: 3W - 1L - 1D  (10 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 4W - 1L - 1D  (13 pts)
+   ██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 5-1 vs WIL   (Sep 15, 2026)
 ✅ W 5-1 @ FOR   (Sep 12, 2026)
 ❌ L 1-3 vs PSV   (Sep 5, 2026)
 ✅ W 4-0 @ TEL   (Aug 30, 2026)
 🟡 D 2-2 vs HEE   (Aug 16, 2026)
-✅ W 2-0 @ PEC   (Aug 9, 2026)
 ```
 
 ## Custom title
@@ -38,18 +38,18 @@ The `title:` input replaces the default heading.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 5
+🏅 Standing: 2026-2027 Dutch Eredivisie · 4
 
-📊 2026 Record: 3W - 1L - 1D  (10 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 4W - 1L - 1D  (13 pts)
+   ██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 5-1 vs WIL   (Sep 15, 2026)
 ✅ W 5-1 @ FOR   (Sep 12, 2026)
 ❌ L 1-3 vs PSV   (Sep 5, 2026)
 ✅ W 4-0 @ TEL   (Aug 30, 2026)
 🟡 D 2-2 vs HEE   (Aug 16, 2026)
-✅ W 2-0 @ PEC   (Aug 9, 2026)
 ```
 
 ## Compact mode
@@ -63,10 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 5
+🏅 Standing: 2026-2027 Dutch Eredivisie · 4
 
-📊 2026 Record: 3W - 1L - 1D  (10 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 4W - 1L - 1D  (13 pts)
+   ██████████████████▊░░░░░░
 
 
 
