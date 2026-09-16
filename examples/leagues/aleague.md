@@ -9,10 +9,10 @@ Team: **ADE** · Category: Soccer · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5321.png" alt="Adelaide United logo" width="72" align="right" />
 
 ### 🔴 Adelaide United (ADE)
-Regular Season
+2026-27 A-League
 🟢 Season in progress
 
-🏅 Standing: Regular Season · 1
+🏅 Standing: 2026-27 A-League · 1
 
 📅 No recent games found
 
@@ -25,10 +25,10 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5321.png" alt="Adelaide United logo" width="72" align="right" />
 
 ### 🔴 Adelaide United (ADE)
-Regular Season
+2026-27 A-League
 🟢 Season in progress
 
-🏅 Standing: Regular Season · 1
+🏅 Standing: 2026-27 A-League · 1
 
 📅 No recent games found
 
@@ -40,10 +40,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🔴 Adelaide United (ADE)
-Regular Season
+2026-27 A-League
 🟢 Season in progress
 
-🏅 Standing: Regular Season · 1
+🏅 Standing: 2026-27 A-League · 1
 
 📅 No recent games found
 
