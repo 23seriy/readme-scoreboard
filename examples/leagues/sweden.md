@@ -14,16 +14,16 @@ Team: **AIK** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing: 2026 Swedish Allsvenskan · 7
 
-📊 2026 Record: 9W - 6L - 5D  (32 pts)
+📊 2026 Record: 9W - 6L - 6D  (33 pts)
    ██████████████▎░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 vs MJA   (Sep 16, 2026)
 ❌ L 1-4 vs VAS   (Sep 12, 2026)
 🟡 D 0-0 @ MAL   (Sep 7, 2026)
 ✅ W 3-2 vs HAM   (Aug 30, 2026)
 ✅ W 3-1 @ DJU   (Aug 16, 2026)
-✅ W 4-3 @ ÖRG   (Aug 8, 2026)
 ```
 
 ## Custom title
@@ -40,16 +40,16 @@ The `title:` input replaces the default heading.
 
 🏅 Standing: 2026 Swedish Allsvenskan · 7
 
-📊 2026 Record: 9W - 6L - 5D  (32 pts)
+📊 2026 Record: 9W - 6L - 6D  (33 pts)
    ██████████████▎░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 vs MJA   (Sep 16, 2026)
 ❌ L 1-4 vs VAS   (Sep 12, 2026)
 🟡 D 0-0 @ MAL   (Sep 7, 2026)
 ✅ W 3-2 vs HAM   (Aug 30, 2026)
 ✅ W 3-1 @ DJU   (Aug 16, 2026)
-✅ W 4-3 @ ÖRG   (Aug 8, 2026)
 ```
 
 ## Compact mode
@@ -65,7 +65,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing: 2026 Swedish Allsvenskan · 7
 
-📊 2026 Record: 9W - 6L - 5D  (32 pts)
+📊 2026 Record: 9W - 6L - 6D  (33 pts)
    ██████████████▎░░░░░░░░░░
 
 
