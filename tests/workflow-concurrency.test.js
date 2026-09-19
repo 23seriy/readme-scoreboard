@@ -35,7 +35,7 @@ describe("README maintenance workflow coordination", () => {
       ".github/workflows/api-health.yml",
     ]) {
       const workflow = fs.readFileSync(file, "utf8");
-      expect(workflow).toMatch(/runs-on: ubuntu-latest\n\s+timeout-minutes: 10/);
+      expect(workflow).toMatch(/runs-on: ubuntu-24\.04\n\s+timeout-minutes: 10/);
     }
   });
 
