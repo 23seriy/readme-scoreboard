@@ -637,7 +637,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Team | Abbreviation | ID |
 |------|--------------|----|
 | Anderlecht | `AND` | 441 |
-| Ararat-Armenia | `ARA` | 20024 |
+| ARARAT-ARMENIA | `Ararat` | 20024 |
 | AZ Alkmaar | `AZ` | 140 |
 | Bayer Leverkusen | `B04` | 131 |
 | Besiktas | `BES` | 1895 |
@@ -651,15 +651,15 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Jagiellonia Bialystok | `JAG` | 11505 |
 | Juventus | `JUV` | 111 |
 | Lech Poznan | `LECH` | 2990 |
-| Levski Sofia | `LEVS` | 490 |
-| Lillestrom | `LIL` | 987 |
+| Levski Sofia | `LEV` | 490 |
 | Liverpool | `LIV` | 364 |
+| Lillestrom | `LSK` | 987 |
 | Lyon | `LYON` | 167 |
 | AC Milan | `MIL` | 103 |
 | Manchester United | `MUN` | 360 |
 | NEC Nijmegen | `NEC` | 147 |
 | NK Celje | `NKC` | 3362 |
-| OFI Crete | `OFI` | 1010 |
+| OFI CRETE | `OFI Crete` | 1010 |
 | Marseille | `OLM` | 176 |
 | Olympiacos | `OLY` | 435 |
 | Omonia Nicosia | `OMON` | 617 |
@@ -1524,8 +1524,6 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Benedictine College Ravens | `BENC` | 16111 |
 | Bentley Falcons | `BENT` | 2060 |
 | Berry Vikings | `BERR` | 2757 |
-| Bethany (Ks) | `BETHA` | 492 |
-| Bethel University Tennessee Wildcats | `BETHTN` | 2064 |
 | Bowling Green Falcons | `BGSU` | 189 |
 | Black Hills State Yellow Jackets | `BHSU` | 2069 |
 | Bluffton Beavers | `BLF` | 2074 |
@@ -1544,11 +1542,13 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Bemidji State Beavers | `BST` | 132 |
 | Buffalo State Bengals | `BSU` | 2085 |
 | Butler Bulldogs | `BTLR` | 2086 |
+| Bethel (TN) Wildcats | `BTTN` | 2064 |
 | Bucknell Bison | `BUCK` | 2083 |
 | Buffalo Bulls | `BUF` | 2084 |
 | Bethel (MN) Royals | `BUMN` | 2802 |
 | Buena Vista Beavers | `BVU` | 63 |
 | Baldwin Wallace Yellow Jackets | `BW` | 188 |
+| Bethany (KS) Swedes | `BYKS` | 492 |
 | BYU Cougars | `BYU` | 252 |
 | California Golden Bears | `CAL` | 25 |
 | Calvin Knights | `CALU` | 129738 |
@@ -1559,6 +1559,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Central Arkansas Bears | `CARK` | 2110 |
 | Catawba Indians | `CAT` | 2107 |
 | Catholic Cardinals | `CATH` | 2108 |
+| Campbellsville Tigers | `CBVU` | 2098 |
 | Curry Colonels | `CC` | 40 |
 | Concordia (MN) Cobbers | `CCMN` | 2152 |
 | Centre Colonels | `CCO` | 2121 |
@@ -1582,7 +1583,6 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Cal Lutheran Kingsmen | `CLU` | 2094 |
 | Cumberlands Indians | `CMBS` | 511 |
 | Colorado School of Mines Orediggers | `CMIN` | 2146 |
-| Campbellsville University Tigers | `CMPBVIL` | 2098 |
 | Claremont Mudd Scripps Stags | `CMS` | 17 |
 | Central Michigan Chippewas | `CMU` | 2117 |
 | Carson Newman Eagles | `CN` | 2105 |
@@ -2479,7 +2479,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Kalamata | `KAL` | 132429 |
 | Kifisia | `KIF` | 21969 |
 | Levadiakos | `LEV` | 5276 |
-| OFI Crete | `OFI` | 1010 |
+| OFI CRETE | `OFI Crete` | 1010 |
 | Olympiacos | `OLY` | 435 |
 | Panetolikos | `PAN` | 11431 |
 | Panathinaikos | `PAO` | 443 |
@@ -2537,7 +2537,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | IK Start | `IKS` | 6750 |
 | KFUM Oslo | `KFUM` | 22165 |
 | Kristiansund BK | `KRI` | 6672 |
-| Lillestrom | `LIL` | 987 |
+| Lillestrom | `LSK` | 987 |
 | Molde | `MOL` | 2715 |
 | Rosenborg | `ROS` | 438 |
 | Sandefjord | `SAN` | 3279 |
