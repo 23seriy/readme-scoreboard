@@ -48,7 +48,9 @@ describe("README navigation links", () => {
     });
 
     const start = readme.indexOf("#### Leagues without player spotlight");
-    const end = readme.indexOf("The **WNBA** used to be on this list", start);
+    // Matches the trailing paragraph whatever leagues it happens to name, so
+    // rewording it doesn't silently make this slice run to the end of the file.
+    const end = readme.indexOf("used to be on this list", start);
     expect(start).toBeGreaterThanOrEqual(0);
     expect(end).toBeGreaterThan(start);
     const section = readme.slice(start, end);

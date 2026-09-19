@@ -30,6 +30,8 @@ const EXAMPLES = [
 const PLAYER_SPOTLIGHT_EXAMPLES = [
   { key: "nba", team: "LAL", player: "Luka Doncic" },
   { key: "wnba", team: "MIN", player: "Napheesa Collier" },
+  { key: "ncaab", team: "ARIZ", player: "Dwayne Aristode" },
+  { key: "ncaaw", team: "UCONN", player: "KK Arnold" },
   { key: "mlb", team: "TOR", player: "Vladimir Guerrero Jr." },
   { key: "nfl", team: "KC", player: "Patrick Mahomes" },
   { key: "nhl", team: "NYR", player: "Artemi Panarin" },

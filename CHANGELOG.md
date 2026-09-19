@@ -10,6 +10,14 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **Player spotlight for college basketball**: `player:` now works with `sport: ncaab`
+  and `sport: ncaaw`. ESPN began serving the same `avgPoints`/`avgRebounds`/`avgAssists`
+  splits payload and game log the NBA and WNBA use, so those boards show the player's
+  season averages, most recent game, and headshot like the other basketball boards. Both
+  leagues come off the "leagues without player spotlight" list, which now holds six.
+
 ## [1.13.1] - 2026-09-19
 
 ### Fixed
