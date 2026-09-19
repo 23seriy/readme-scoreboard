@@ -10,6 +10,14 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- **Stale league counts in the docs.** The README claimed 39 supported leagues and the
+  action description claimed 30, while the registry held 41 — the `action.yml` number had
+  been wrong for several releases, because nothing checked the prose. Both now read 41,
+  and a test asserts every "`<n>` leagues" claim in the README and the action metadata
+  matches the registry, so the numbers can't drift from the code again.
+
 ## [1.14.0] - 2026-09-19
 
 ### Added
