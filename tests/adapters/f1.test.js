@@ -68,6 +68,34 @@ describe("F1Adapter — fetchData", () => {
     expect(axios.get).not.toHaveBeenCalled();
   });
 
+  it("matches a constructor that has no abbreviation in the ESPN payload", async () => {
+    // Audi and Cadillac ship `abbreviation: undefined` upstream (verified against
+    // the live endpoint), so an abbreviation-only lookup reported them as 0 points
+    // with no championship position. The lookup must fall back to the team id.
+    const audiStandings = {
+      data: {
+        children: [{
+          name: "Constructor Standings",
+          standings: {
+            entries: [
+              { team: { id: 106893, abbreviation: "LP", displayName: "Mercedes" }, stats: [{ name: "rank", value: 1 }, { name: "points", value: 503 }] },
+              { team: { id: 132212, abbreviation: undefined, displayName: "Audi" }, stats: [{ name: "rank", value: 8 }, { name: "points", value: 17 }] },
+            ],
+          },
+        }],
+      },
+    };
+    axios.get
+      .mockResolvedValueOnce({ data: { team: { id: "132212", displayName: "Audi", name: "Audi" } } })
+      .mockResolvedValueOnce(audiStandings);
+
+    const result = await f1.fetchData("AUDI");
+    expect(result.team.full_name).toBe("Audi");
+    expect(result.standing).toEqual({ position: 8, label: "Constructor Championship" });
+    expect(result.record.points).toBe(17);
+    expect(result.f1Points).toBe(17);
+  });
+
   it("returns null when the API fails", async () => {
     axios.get.mockRejectedValue(new Error("500"));
     expect(await f1.fetchData("LP")).toBeNull();

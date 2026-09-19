@@ -10,6 +10,15 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- **Formula 1's newest constructors** rendered with no championship position and
+  0 points. ESPN publishes no abbreviation for Audi and Cadillac, and the
+  constructor-standings lookup matched on abbreviation alone, so it never found
+  them. The lookup now matches on the constructor's ESPN team id first and falls
+  back to the abbreviation for entries that only carry one. Audi correctly shows
+  P8 on 17 points, and Cadillac P11.
+
 ## [1.13.0] - 2026-09-14
 
 ### Added
