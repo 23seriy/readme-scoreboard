@@ -14,6 +14,19 @@ describe("README maintenance workflow coordination", () => {
     expect(teamDir).toContain("cancel-in-progress: false");
   });
 
+  it("serializes release alias updates so concurrent releases cannot race", () => {
+    const release = fs.readFileSync(".github/workflows/release.yml", "utf8");
+    const group = /concurrency:\n {2}group: ([^\n]+)/;
+
+    // Two releases published back-to-back both force-push `v1`; without a
+    // concurrency group the loser fails with "cannot lock ref 'refs/tags/v1'".
+    expect(release).toMatch(group);
+    expect(release.match(group)[1]).toBe("release-major-tag");
+    expect(release).toContain("cancel-in-progress: false");
+    // A release must not queue behind scheduled README maintenance.
+    expect(release.match(group)[1]).not.toBe("readme-maintenance");
+  });
+
   it("bounds scheduled maintenance and verification jobs", () => {
     for (const file of [
       ".github/workflows/update-season-status.yml",
