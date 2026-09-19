@@ -382,6 +382,20 @@ describe("documentation and action metadata", () => {
     keys.forEach((key) => expect(action).toContain(key));
   });
 
+  it("keeps every documented league count matching the registry", () => {
+    // Prose counts drift silently: when the registry grew to 41, the README still
+    // claimed 39 and action.yml still claimed 30 — the latter had been wrong for
+    // several releases because nothing checked it.
+    const claims = [...readme.matchAll(/(\d+)\s+(?:supported\s+)?leagues/g)].map((m) => Number(m[1]));
+    const actionClaims = [...action.matchAll(/(\d+)\s+(?:supported\s+)?leagues/g)].map((m) => Number(m[1]));
+
+    expect(claims.length).toBeGreaterThan(0);
+    expect(actionClaims.length).toBeGreaterThan(0);
+    for (const count of [...claims, ...actionClaims]) {
+      expect(count).toBe(LEAGUES.length);
+    }
+  });
+
   it("documents the locked Node 24 development workflow", () => {
     expect(contributing).toContain("Node.js 24+");
     expect(contributing).toContain("npm ci --ignore-scripts");

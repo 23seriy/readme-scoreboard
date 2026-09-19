@@ -19,7 +19,7 @@
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **39 leagues**. The [support manifest](supported-leagues.json),
+The project currently supports **41 leagues**. The [support manifest](supported-leagues.json),
 [team directory](TEAM_DIRECTORY.md), and [player directory](PLAYER_DIRECTORY.md) are generated
 from the same registry used by the action.
 
@@ -39,7 +39,7 @@ See rendered output from several sports and every input option without running
 anything. Open the [examples gallery](examples/) to preview real boards (NBA,
 MLB, NFL, NHL, Premier League, MLS, UEFA Champions League, College Football,
 Formula 1, ATP Tennis, and WTA Tennis) plus demos of the `title:`, `teams:` (multi-team),
-`compact:`, and `badge:` options. For every one of the 39 supported leagues,
+`compact:`, and `badge:` options. For every one of the 41 supported leagues,
 see the [league showcase](examples/leagues/) — one file per league, built
 from live data and refreshed daily, showing the default board plus the
 `title:`, `compact:`, and `badge:` options. Or browse the league's
