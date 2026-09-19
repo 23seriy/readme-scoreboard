@@ -12,7 +12,7 @@ Team: **ACH** · Category: Soccer · Data source: ESPN public API
 Regular Season
 🟢 Season in progress
 
-🏅 Standing: Regular Season · 6
+🏅 Standing: Regular Season · 7
 
 📊 2026 Record: 3W - 4L - 1D  (10 pts)
    ██████████▉░░░░░░░░░░░░░░
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 Regular Season
 🟢 Season in progress
 
-🏅 Standing: Regular Season · 6
+🏅 Standing: Regular Season · 7
 
 📊 2026 Record: 3W - 4L - 1D  (10 pts)
    ██████████▉░░░░░░░░░░░░░░
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 Regular Season
 🟢 Season in progress
 
-🏅 Standing: Regular Season · 6
+🏅 Standing: Regular Season · 7
 
 📊 2026 Record: 3W - 4L - 1D  (10 pts)
    ██████████▉░░░░░░░░░░░░░░

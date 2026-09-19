@@ -12,7 +12,7 @@ Team: **ATL** · Category: Football · Data source: ESPN public API
 NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: NFC · 16
+🏅 Standing: NFC · 15
 📅 Next: vs CAR (Sep 20)
 
 📊 2026 Season: 0W - 1L (0.0%)
@@ -35,7 +35,7 @@ The `title:` input replaces the default heading.
 NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: NFC · 16
+🏅 Standing: NFC · 15
 📅 Next: vs CAR (Sep 20)
 
 📊 2026 Season: 0W - 1L (0.0%)
@@ -57,7 +57,7 @@ The `compact: true` input drops the logo and recent-game details.
 NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: NFC · 16
+🏅 Standing: NFC · 15
 📅 Next: vs CAR (Sep 20)
 
 📊 2026 Season: 0W - 1L (0.0%)
