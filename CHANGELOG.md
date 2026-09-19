@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.13.1] - 2026-09-19
+
 ### Fixed
 
 - **Formula 1's newest constructors** rendered with no championship position and
@@ -18,6 +20,12 @@ that would alter what appears in your README or require editing your workflow.
   them. The lookup now matches on the constructor's ESPN team id first and falls
   back to the abbreviation for entries that only carry one. Audi correctly shows
   P8 on 17 points, and Cadillac P11.
+- **Player-spotlight documentation**: the "Leagues without player spotlight" list
+  claimed six leagues while listing eight, and grouped Formula 1 with the
+  individual-athlete tours. Formula 1 tracks constructors, so it now has its own
+  row, the count is right, and the lookup guidance no longer sends Formula 1 users
+  to the player directory. New tests keep the README list, the generated
+  directories, and the validation allow-list from drifting apart again.
 
 ## [1.13.0] - 2026-09-14
 
@@ -510,7 +518,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.0...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.1...HEAD
+[1.13.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.0...v1.13.1
 [1.13.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.1...v1.13.0
 [1.12.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.11.1...v1.12.0
