@@ -385,4 +385,17 @@ describe("documentation and action metadata", () => {
     expect(contributing).toContain("npm ci --ignore-scripts");
     expect(contributing).toContain("npm test -- --runInBand");
   });
+
+  it("documents the release process, including the traps that break it", () => {
+    expect(contributing).toContain("## Releasing");
+    expect(contributing).toContain("npm version X.Y.Z --no-git-tag-version");
+    // The bump and the CHANGELOG heading must be in one commit, or the release
+    // metadata test above fails.
+    expect(contributing).toContain("same commit");
+    // `--target` rejects a short SHA (HTTP 422), so the docs must say so.
+    expect(contributing).toContain("full");
+    expect(contributing).toContain("422 target_commitish is invalid");
+    // The v1 alias moves on `release: published`.
+    expect(contributing).toContain("release.yml");
+  });
 });
