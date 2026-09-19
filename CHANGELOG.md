@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.14.0] - 2026-09-19
+
 ### Added
 
 - **Player spotlight for college basketball**: `player:` now works with `sport: ncaab`
@@ -543,7 +545,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.1...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.0...HEAD
+[1.14.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.1...v1.14.0
 [1.13.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.0...v1.13.1
 [1.13.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.1...v1.13.0
 [1.12.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.0...v1.12.1
