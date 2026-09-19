@@ -21,9 +21,12 @@ function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adap
     // Leagues whose adapter implements fetchPlayerSpotlight. Each needs a
     // roster endpoint to resolve the name plus per-athlete stats or game-log
     // data. Excluded on purpose, with the reason:
-    //   - f1, atp, wta   already render as a single player board
+    //   - atp, wta       already render as a single player board
     //                    (entity: player), so a spotlight inside one is
     //                    redundant.
+    //   - f1             renders a constructor board from a teams endpoint and
+    //                    has no athlete roster, so there is no player to
+    //                    spotlight.
     //   - wnba, ncaab, ncaaw
     //                    ESPN answers the athlete stats endpoint with 200 but
     //                    an empty values array, and the game log is empty too

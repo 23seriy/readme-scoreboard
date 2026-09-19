@@ -262,9 +262,11 @@ generated output.
 Not sure of the league key or team/player abbreviation? Open the generated
 [team directory](TEAM_DIRECTORY.md) (or its machine-readable
 [`team-directory.json`](team-directory.json)) to look up a league, abbreviation,
-full name, and ID. For individual sports (ATP, F1), use the generated
+full name, and ID. For individual sports (ATP, WTA), use the generated
 [player directory](PLAYER_DIRECTORY.md) (or its machine-readable
-[`player-directory.json`](player-directory.json)). The [Supported Sports](#supported-sports)
+[`player-directory.json`](player-directory.json)). Constructor-based series
+such as Formula 1 are team sports, so look those up in the team directory. The
+[Supported Sports](#supported-sports)
 table lists every league key and endpoint. Run `npm run doctor -- --demo` to validate
 your choices locally before publishing.
 
@@ -389,13 +391,16 @@ Soccer season totals are summed from the player's game log, because ESPN publish
 
 #### Leagues without player spotlight
 
-Six leagues intentionally don't support `player:`, because the upstream data isn't there:
+Eight leagues intentionally don't support `player:`, either because the
+upstream data isn't there or because the league has no athlete roster to
+feature:
 
 | Leagues | Reason |
 |---------|--------|
 | `ncaab`, `ncaaw` | ESPN returns an empty stat payload and an empty game log for every athlete, so a spotlight would render zeroes. |
 | `ncaaf`, `gleague`, `ncaa_hockey` | ESPN publishes no per-athlete season stats — the stats endpoint 404s and the game log is empty. |
-| `f1`, `atp`, `wta` | These already render as a single player board (`entity: player`), so a spotlight inside one is redundant. |
+| `atp`, `wta` | These already render as a single player board (`entity: player`), so a spotlight inside one is redundant. |
+| `f1` | It renders a constructor board from a teams endpoint and has no athlete roster, so there is no player to spotlight. |
 
 The **WNBA** used to be on this list. It isn't any more: ESPN now serves athletes the same `avgPoints`/`avgRebounds`/`avgAssists` splits payload and game log that the NBA uses, so `player:` works there too. If a league's upstream data changes, re-check the endpoints — the exclusions above are verified against the live APIs, not assumed.
 
@@ -615,7 +620,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | `sport` | No | `nba` | League key (for example, `nba`). See [Supported Sports](#supported-sports). |
 | `team` | Yes | — | Team or player abbreviation (e.g. `LAL`, `NYR`, `MIA`, or `SIN` for Jannik Sinner). Invalid abbreviations show example names. |
 | `player` | No | — | Player full name to feature alongside the team board (e.g. `Luka Doncic` or `Napheesa Collier`); must match the roster's exact spelling, including any diacritics. Supported for `nba`, `wnba`, `mlb`, `nfl`, `nhl` and every soccer league; not supported together with `teams:` (use `team:` instead). |
-| `entity` | No | `team` | Entity type: `team` (default) or `player`. Inferred from the sport — individual sports like ATP Tennis and Formula 1 default to `player`. |
+| `entity` | No | `team` | Entity type: `team` (default) or `player`. Inferred from the sport — individual sports like ATP Tennis and WTA Tennis default to `player`. |
 | `teams` | No | — | Comma-separated team/player abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
 | `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard (individual sports default to `<League> Player`). |
 | `badge` | No | `false` | Render shields-style badges instead of a full scoreboard block. |

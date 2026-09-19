@@ -5,9 +5,9 @@ const { countryForFlag } = require("../src/countries");
 
 // The player directory lists individual athletes, not teams. A league is
 // included when its registry marks it as a player entity AND its adapter
-// exposes a dedicated `PLAYER_IDS` roster. This keeps constructors-based
-// leagues (e.g. F1, which is `entity: "player"` but tracks teams) out of the
-// player directory until they expose a real driver roster.
+// exposes a dedicated `PLAYER_IDS` roster. Constructors-based series (e.g. F1,
+// which is `entity: "team"` because it tracks teams, not drivers) are excluded
+// by the entity check and listed in the team directory instead.
 function playerLeagues() {
   return LEAGUES.filter((league) => {
     if (league.entity !== "player") return false;

@@ -35,6 +35,49 @@ describe("README navigation links", () => {
     expect(readme).toContain("[`player-directory.json`](player-directory.json)");
   });
 
+  it("keeps the README player-spotlight exclusions aligned with validation", () => {
+    const { validateInputs } = require("../src/validation");
+    const supportedSports = LEAGUES.map(({ key }) => key);
+    const unsupported = supportedSports.filter((sport) => {
+      try {
+        validateInputs({ sport, team: "ZZZ", entity: "team", adapter: {}, supportedSports, player: "Someone" });
+        return false;
+      } catch (error) {
+        return /player: is not yet supported/.test(error.message);
+      }
+    });
+
+    const start = readme.indexOf("#### Leagues without player spotlight");
+    const end = readme.indexOf("The **WNBA** used to be on this list", start);
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    const section = readme.slice(start, end);
+
+    // The table's league rows must be exactly the leagues validation rejects.
+    const documented = [...section.matchAll(/`([a-z0-9_]+)`/g)].map((match) => match[1]);
+    expect(new Set(documented)).toEqual(new Set(unsupported));
+
+    // F1 is excluded because it has no athlete roster, not because it already
+    // renders a player board, so it must not share a row with the tours.
+    const rows = section.split("\n").filter((line) => line.startsWith("| `"));
+    expect(rows.some((row) => row.includes("`f1`") && row.includes("`atp`"))).toBe(false);
+
+    // ...and the prose count must match, so it cannot drift from the table.
+    const numbers = ["zero", "one", "two", "three", "four", "five", "six",
+      "seven", "eight", "nine", "ten", "eleven", "twelve"];
+    const count = numbers[unsupported.length];
+    expect(count).toBeDefined();
+    const countWord = `${count[0].toUpperCase()}${count.slice(1)}`;
+    expect(section).toContain(`${countWord} leagues intentionally don't support`);
+  });
+
+  it("does not describe Formula 1 as an individual-athlete sport", () => {
+    // F1 tracks constructors, not drivers (reclassified in #241), so it must
+    // never be grouped with the player-entity leagues in the docs.
+    expect(LEAGUES.find(({ key }) => key === "f1").entity).toBe("team");
+    expect(readme).not.toMatch(/individual sport[s]?[^.]*(?:\bF1\b|Formula 1)/i);
+  });
+
   it("keeps every supported-sports row aligned with the league registry", () => {
     const start = readme.indexOf("<!-- supported-sports:start -->");
     const end = readme.indexOf("<!-- supported-sports:end -->");

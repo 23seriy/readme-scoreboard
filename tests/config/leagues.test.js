@@ -58,6 +58,37 @@ describe("supported league registry", () => {
       .forEach((league) => expect(markdown).not.toContain(`## ${league.name}`));
   });
 
+  it("keeps the generated player directory scoped to player-entity leagues", () => {
+    const { playerLeagues } = require("../../scripts/generate-player-directory");
+    const directory = require("../../player-directory.json");
+
+    expect(directory.generatedAt).toEqual(expect.any(String));
+    expect(directory.players.length).toBeGreaterThan(0);
+    // Athlete ids are unique per league, mirroring the team directory's key.
+    expect(new Set(directory.players.map(({ league, id }) => `${league}:${id}`)).size)
+      .toBe(directory.players.length);
+    expect(directory.players.every(({ league, abbreviation, name }) => league && abbreviation && name)).toBe(true);
+    // Only leagues the generator selects — constructor-based team sports such
+    // as F1 are excluded, because they track teams rather than drivers.
+    expect([...new Set(directory.players.map(({ league }) => league))].sort())
+      .toEqual(playerLeagues().map(({ key }) => key).sort());
+    directory.players.forEach(({ league }) => {
+      expect(LEAGUES.find((candidate) => candidate.key === league).entity).toBe("player");
+    });
+  });
+
+  it("keeps the human-readable player directory generated", () => {
+    const { playerLeagues } = require("../../scripts/generate-player-directory");
+    const markdown = fs.readFileSync(path.resolve(__dirname, "../../PLAYER_DIRECTORY.md"), "utf8");
+    const playerKeys = playerLeagues().map(({ key }) => key);
+
+    expect(markdown).toContain("# Player Directory");
+    LEAGUES.filter((league) => playerKeys.includes(league.key))
+      .forEach((league) => expect(markdown).toContain(`## ${league.name}`));
+    LEAGUES.filter((league) => !playerKeys.includes(league.key))
+      .forEach((league) => expect(markdown).not.toContain(`## ${league.name}`));
+  });
+
   it("rejects malformed team directory entries", () => {
     const { validate } = require("../../scripts/validate-team-directory");
     expect(validate({ teams: [] })).toEqual(expect.arrayContaining([expect.stringMatching(/empty roster/)]));
