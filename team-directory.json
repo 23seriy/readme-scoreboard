@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-15T10:24:50.175Z",
+  "generatedAt": "2026-09-19T09:42:17.209Z",
   "teams": [
     {
       "league": "nba",
@@ -3407,6 +3407,13 @@
     {
       "league": "uel",
       "leagueName": "UEFA Europa League",
+      "abbreviation": "Ararat",
+      "name": "ARARAT-ARMENIA",
+      "id": "20024"
+    },
+    {
+      "league": "uel",
+      "leagueName": "UEFA Europa League",
       "abbreviation": "AZ",
       "name": "AZ Alkmaar",
       "id": "140"
@@ -3417,13 +3424,6 @@
       "abbreviation": "AND",
       "name": "Anderlecht",
       "id": "441"
-    },
-    {
-      "league": "uel",
-      "leagueName": "UEFA Europa League",
-      "abbreviation": "ARA",
-      "name": "Ararat-Armenia",
-      "id": "20024"
     },
     {
       "league": "uel",
@@ -3512,14 +3512,14 @@
     {
       "league": "uel",
       "leagueName": "UEFA Europa League",
-      "abbreviation": "LEVS",
+      "abbreviation": "LEV",
       "name": "Levski Sofia",
       "id": "490"
     },
     {
       "league": "uel",
       "leagueName": "UEFA Europa League",
-      "abbreviation": "LIL",
+      "abbreviation": "LSK",
       "name": "Lillestrom",
       "id": "987"
     },
@@ -3554,8 +3554,8 @@
     {
       "league": "uel",
       "leagueName": "UEFA Europa League",
-      "abbreviation": "OFI",
-      "name": "OFI Crete",
+      "abbreviation": "OFI Crete",
+      "name": "OFI CRETE",
       "id": "1010"
     },
     {
@@ -9427,8 +9427,8 @@
     {
       "league": "ncaaf",
       "leagueName": "College Football",
-      "abbreviation": "BETHA",
-      "name": "Bethany (Ks)",
+      "abbreviation": "BYKS",
+      "name": "Bethany (KS) Swedes",
       "id": "492"
     },
     {
@@ -9448,8 +9448,8 @@
     {
       "league": "ncaaf",
       "leagueName": "College Football",
-      "abbreviation": "BETHTN",
-      "name": "Bethel University Tennessee Wildcats",
+      "abbreviation": "BTTN",
+      "name": "Bethel (TN) Wildcats",
       "id": "2064"
     },
     {
@@ -9658,8 +9658,8 @@
     {
       "league": "ncaaf",
       "leagueName": "College Football",
-      "abbreviation": "CMPBVIL",
-      "name": "Campbellsville University Tigers",
+      "abbreviation": "CBVU",
+      "name": "Campbellsville Tigers",
       "id": "2098"
     },
     {
@@ -15734,8 +15734,8 @@
     {
       "league": "greek",
       "leagueName": "Greek Super League",
-      "abbreviation": "OFI",
-      "name": "OFI Crete",
+      "abbreviation": "OFI Crete",
+      "name": "OFI CRETE",
       "id": "1010"
     },
     {
@@ -15993,7 +15993,7 @@
     {
       "league": "norway",
       "leagueName": "Norwegian Eliteserien",
-      "abbreviation": "LIL",
+      "abbreviation": "LSK",
       "name": "Lillestrom",
       "id": "987"
     },
