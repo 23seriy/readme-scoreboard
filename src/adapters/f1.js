@@ -11,7 +11,9 @@ const ESPN_HEADERS = {
 };
 
 // Constructor abbreviations → ESPN team ids (from the F1 teams endpoint).
-// Abbreviations match the Constructor Standings entries.
+// The abbreviations are ESPN's own (odd-looking) values and are matched against
+// the Constructor Standings entries, so don't rename them. Audi and Cadillac
+// have no upstream abbreviation at all; those are matched by id only.
 const TEAM_IDS = {
   SCS: "106922", // Alpine
   ASTM: "123986", // Aston Martin
@@ -77,11 +79,18 @@ async function fetchConstructorStandings(abbr) {
   const season = getSeasonYear();
   try {
     const upper = abbr.toUpperCase();
+    const id = TEAM_IDS[upper];
     const { data } = await httpGet(`${ESPN_BASE_V2}/standings?season=${season}`, { headers: ESPN_HEADERS });
     const group = (data.children || []).find((c) => String(c.name).toLowerCase().includes("constructor"));
     const entries = group?.standings?.entries || [];
-    const index = entries.findIndex((e) => e.team?.abbreviation?.toUpperCase() === upper);
-    const entry = entries[index];
+    // Match on the team id first: the newer constructors (Audi, Cadillac) carry
+    // no abbreviation in the ESPN payload, so an abbreviation-only lookup would
+    // report them as 0 points with no championship position. The abbreviation
+    // stays as a fallback for abbreviation-only entries.
+    const index = entries.findIndex((e) =>
+      (id && String(e.team?.id) === String(id))
+      || e.team?.abbreviation?.toUpperCase() === upper);
+    const entry = index === -1 ? undefined : entries[index];
     if (entry) {
       const stats = Object.fromEntries((entry.stats || []).map((s) => [s.name, s.value]));
       return {
