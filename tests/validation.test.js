@@ -100,15 +100,27 @@ describe("input validation", () => {
   });
 
   it("rejects player: for individual-sport boards that already track one athlete", () => {
-    for (const sport of ["f1", "atp", "wta"]) {
+    for (const sport of ["atp", "wta"]) {
       expect(() => validateInputs({
         ...base,
         sport,
         player: "Someone",
         teamsCount: 1,
-        supportedSports: ["nba", "f1", "atp", "wta"],
+        supportedSports: ["nba", "atp", "wta"],
       })).toThrow(new RegExp(`player: is not yet supported for sport "${sport}"`));
     }
+  });
+
+  it("rejects player: for constructor-based boards with no athlete roster", () => {
+    // F1 is a team sport (constructors, not drivers), so it is excluded for a
+    // different reason than the individual-sport boards above.
+    expect(() => validateInputs({
+      ...base,
+      sport: "f1",
+      player: "Someone",
+      teamsCount: 1,
+      supportedSports: ["nba", "f1"],
+    })).toThrow('player: is not yet supported for sport "f1"');
   });
 
   it("rejects player: together with multiple teams", () => {

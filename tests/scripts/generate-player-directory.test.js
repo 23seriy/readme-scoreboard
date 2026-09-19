@@ -1,4 +1,5 @@
 const { resolveName, playerLeagues } = require("../../scripts/generate-player-directory");
+const { LEAGUES } = require("../../src/config/leagues");
 
 describe("generate-player-directory", () => {
   describe("playerLeagues", () => {
@@ -15,6 +16,8 @@ describe("generate-player-directory", () => {
       // Team-based leagues (e.g. NBA) must never appear in the player directory.
       expect(keys).not.toContain("nba");
       expect(keys).not.toContain("mlb");
+      // F1 tracks constructors, so it is a team league too.
+      expect(keys).not.toContain("f1");
     });
   });
 
@@ -56,12 +59,12 @@ describe("generate-player-directory", () => {
       });
     });
 
-    it("excludes constructors-based player-entity leagues that lack a driver roster", () => {
-      // F1 is entity "player" but tracks constructors, not drivers, so it is
-      // filtered out of the generated player directory.
+    it("keeps constructors-based team leagues (F1) out of the player directory", () => {
+      // F1 tracks constructors, not drivers: its entity is "team", so it is
+      // listed in the team directory and never treated as a player league.
+      expect(LEAGUES.find(({ key }) => key === "f1").entity).toBe("team");
       const keys = playerLeagues().map(({ key }) => key);
       expect(keys).not.toContain("f1");
-      expect(require("../../src/adapters/f1").PLAYER_IDS).toBeUndefined();
     });
   });
 });
