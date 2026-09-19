@@ -13,18 +13,18 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
-📅 Next: vs CON (Sep 17)
+📅 Next: vs CHI (Sep 19)
 
-📊 2026 Record: 26W - 14L (65.0%)
-   ████████████████▎░░░░░░░░
+📊 2026 Record: 27W - 14L (65.9%)
+   ████████████████▍░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 103-59  vs CON (Sep 17, 2026)
 ✅ W  89-81  vs MIN (Aug 30, 2026)
 ❌ L  83-101 vs POR (Aug 28, 2026)
 ✅ W  78-71  @ LA  (Aug 25, 2026)
 ✅ W  99-89  @ PHX (Aug 23, 2026)
-✅ W 124-88  @ LA  (Aug 21, 2026)
 ```
 
 ## Custom title
@@ -40,18 +40,18 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
-📅 Next: vs CON (Sep 17)
+📅 Next: vs CHI (Sep 19)
 
-📊 2026 Record: 26W - 14L (65.0%)
-   ████████████████▎░░░░░░░░
+📊 2026 Record: 27W - 14L (65.9%)
+   ████████████████▍░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 103-59  vs CON (Sep 17, 2026)
 ✅ W  89-81  vs MIN (Aug 30, 2026)
 ❌ L  83-101 vs POR (Aug 28, 2026)
 ✅ W  78-71  @ LA  (Aug 25, 2026)
 ✅ W  99-89  @ PHX (Aug 23, 2026)
-✅ W 124-88  @ LA  (Aug 21, 2026)
 ```
 
 ## Compact mode
@@ -66,10 +66,10 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
-📅 Next: vs CON (Sep 17)
+📅 Next: vs CHI (Sep 19)
 
-📊 2026 Record: 26W - 14L (65.0%)
-   ████████████████▎░░░░░░░░
+📊 2026 Record: 27W - 14L (65.9%)
+   ████████████████▍░░░░░░░░
 
 
 
