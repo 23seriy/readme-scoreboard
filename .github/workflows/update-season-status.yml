@@ -39,8 +39,13 @@ jobs:
           git switch -C automation/season-status
           git add README.md
           git commit -m "docs: update supported league seasons"
-          git fetch origin automation/season-status
-          if git show-ref --verify --quiet refs/remotes/origin/automation/season-status; then
+          # Gate the fetch on the branch existing remotely. `run:` steps execute
+          # under `bash -e`, so fetching a missing branch exits 128 and aborts the
+          # step before the fallback below could create it — which made that
+          # fallback dead code. The gate still fails loudly when the fetch itself
+          # fails, so a real fetch error is never swallowed.
+          if git ls-remote --exit-code --heads origin automation/season-status >/dev/null; then
+            git fetch origin automation/season-status
             git push --force-with-lease=refs/heads/automation/season-status:$(git rev-parse refs/remotes/origin/automation/season-status) origin automation/season-status
           else
             git push origin automation/season-status
