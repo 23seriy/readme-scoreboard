@@ -5,6 +5,10 @@ const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba
 const ESPN_BASE_V2 = "https://site.api.espn.com/apis/v2/sports/basketball/wnba";
 // Athlete stats live on the shared common/v3 host, same shape as the NBA's.
 const ESPN_ATHLETE_BASE = "https://site.web.api.espn.com/apis/common/v3/sports/basketball/wnba/athletes";
+
+// Fixed season for sample boards so generated examples don't drift.
+const DEMO_SEASON = 2026;
+
 const ESPN_HEADERS = {
   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
   "Accept": "application/json",
@@ -422,15 +426,17 @@ function getDemoData(teamAbbr, playerName) {
   const team = DEMO_TEAMS[abbr];
   if (!team) return null;
 
-  const day = 24 * 60 * 60 * 1000;
   const sample = [
     { daysAgo: 2, teamScore: 85, oppScore: 81, opp: "POR", isHome: false, postseason: false },
     { daysAgo: 5, teamScore: 92, oppScore: 78, opp: "SEA", isHome: true, postseason: false },
     { daysAgo: 8, teamScore: 74, oppScore: 88, opp: "LV", isHome: false, postseason: false },
   ];
 
+  // Dates come from the pinned demo clock (DEMO_NOW) rather than Date.now(), so
+  // the committed examples stay byte-identical across days. Using the wall clock
+  // here made examples/wnba-min-napheesa-collier.md churn on every regeneration.
   const recentGames = sample.map((g) => ({
-    date: new Date(Date.now() - g.daysAgo * day).toISOString(),
+    date: dateOffset(-g.daysAgo),
     postseason: g.postseason,
     status: "Final",
     home_team: {
@@ -447,10 +453,10 @@ function getDemoData(teamAbbr, playerName) {
 
   return {
     team,
-    record: { wins: 28, losses: 7, season: getSeasonYear() },
+    record: { wins: 28, losses: 7, season: DEMO_SEASON },
     standing: { position: 1, label: team.conference },
     form: ["W", "W", "L"],
-    nextGame: { date: new Date(Date.now() + 3 * day).toISOString(), opponent: "POR", isHome: true },
+    nextGame: { date: dateOffset(3), opponent: "POR", isHome: true },
     recentGames,
     spotlight: playerName ? getDemoSpotlight(abbr, playerName, recentGames) : null,
   };

@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { dateOffset } = require("../demo");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development";
 const ESPN_BASE_V2 = "https://site.api.espn.com/apis/v2/sports/basketball/nba-development";
@@ -229,21 +230,22 @@ function getDemoData(teamAbbr) {
   const team = DEMO_TEAMS[abbr];
   if (!team) return null;
 
-  const day = 24 * 60 * 60 * 1000;
   const sample = [
     { daysAgo: 2, teamScore: 118, oppScore: 104, opp: "WIS", isHome: true },
     { daysAgo: 4, teamScore: 99, oppScore: 112, opp: "RAP", isHome: false },
     { daysAgo: 7, teamScore: 125, oppScore: 121, opp: "DEL", isHome: true },
   ];
 
+  // Dates come from the pinned demo clock (DEMO_NOW), not Date.now(), so the
+  // committed examples stay byte-identical across days.
   return {
     team,
     record: { wins: 26, losses: 10, season: getSeasonYear() },
     standing: { position: 2, label: team.conference },
     form: ["W", "L", "W"],
-    nextGame: { date: new Date(Date.now() + 2 * day).toISOString(), opponent: "WIS", isHome: true },
+    nextGame: { date: dateOffset(2), opponent: "WIS", isHome: true },
     recentGames: sample.map((g) => ({
-      date: new Date(Date.now() - g.daysAgo * day).toISOString(),
+      date: dateOffset(-g.daysAgo),
       postseason: false,
       status: "Final",
       home_team: { id: g.isHome ? team.id : 0, abbreviation: g.isHome ? abbr : g.opp },

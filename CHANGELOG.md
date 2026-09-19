@@ -18,6 +18,16 @@ that would alter what appears in your README or require editing your workflow.
   season averages, most recent game, and headshot like the other basketball boards. Both
   leagues come off the "leagues without player spotlight" list, which now holds six.
 
+### Fixed
+
+- **The WNBA and G League sample boards drifted every day.** Both built their demo dates
+  from `Date.now()` instead of the pinned demo clock, so `npm run examples:generate`
+  rewrote `examples/wnba-min-napheesa-collier.md` on every run and the committed example
+  could never match a fresh generation. Demo dates now come from `dateOffset()`, and the
+  WNBA sample season is pinned the way the NBA's already was. The determinism test now
+  derives a case from **every** supported league and freezes the clock with fake timers —
+  the previous guard only covered a hand-listed set, which is why this went unnoticed.
+
 ## [1.13.1] - 2026-09-19
 
 ### Fixed

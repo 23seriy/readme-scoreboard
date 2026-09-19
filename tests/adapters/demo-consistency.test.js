@@ -1,4 +1,5 @@
 const { checkDemoConsistency } = require("../../src/demo");
+const { LEAGUES } = require("../../src/config/leagues");
 
 // Every board in the examples gallery is generated from getDemoData(), so each
 // adapter must produce sample data that is (a) identical on every run and
@@ -62,5 +63,47 @@ describe("demo data never depends on the wall clock", () => {
     } finally {
       Date.now = realNow;
     }
+  });
+});
+
+// The curated CASES list above missed `wnba`, which is how a Date.now() leak in
+// its demo board went unnoticed until its committed example began churning. This
+// block derives a case from every league instead, and uses fake timers so that
+// `new Date()` (not just Date.now()) is frozen too.
+//
+// Only the date-bearing fields are compared: a demo board may legitimately label
+// its record with the current season year (most adapters do), but its DATES must
+// come from the pinned demo clock, or the committed examples churn on every
+// regeneration.
+const ALL_LEAGUES = LEAGUES.map(({ key }) => key)
+  .map((key) => ({ key, team: Object.keys(require(`../../src/adapters/${key}`).DEMO_TEAMS || {})[0] }))
+  .filter(({ team }) => Boolean(team));
+
+function demoDates(data) {
+  return JSON.stringify({
+    recent: (data.recentGames || []).map((game) => game.date),
+    next: data.nextGame?.date ?? null,
+    spotlight: data.spotlight?.lastGame?.date ?? null,
+  });
+}
+
+describe("every league's demo dates ignore the system clock", () => {
+  beforeEach(() => jest.useFakeTimers());
+  afterEach(() => jest.useRealTimers());
+
+  it.each(ALL_LEAGUES)("$key uses pinned dates on any day", ({ key, team }) => {
+    const adapter = require(`../../src/adapters/${key}`);
+
+    jest.setSystemTime(new Date("2026-01-04T00:00:00Z"));
+    const early = demoDates(adapter.getDemoData(team));
+    jest.setSystemTime(new Date("2026-09-19T12:00:00Z"));
+    const late = demoDates(adapter.getDemoData(team));
+
+    expect(late).toBe(early);
+  });
+
+  it.each(ALL_LEAGUES)("$key demo data is internally consistent", ({ key, team }) => {
+    const adapter = require(`../../src/adapters/${key}`);
+    expect(checkDemoConsistency(adapter.getDemoData(team))).toEqual([]);
   });
 });
