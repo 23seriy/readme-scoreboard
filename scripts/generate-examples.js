@@ -20,6 +20,8 @@ const EXAMPLES = [
   { key: "f1", team: "LP", entity: "player", note: "A Formula 1 constructor board (entity: player)." },
   { key: "atp", team: "SIN", entity: "player", note: "A tennis board tracking an individual player (entity: player) — world ranking and last match." },
   { key: "wta", team: "SAB", entity: "player", note: "A women's tennis board tracking an individual player (entity: player) — world ranking and last match." },
+  { key: "nascar", team: "HAM", entity: "player", note: "A NASCAR Cup Series driver's championship position and points (entity: player)." },
+  { key: "indycar", team: "PAL", entity: "player", note: "An IndyCar Series driver's championship position and points (entity: player)." },
 ];
 
 // Player-spotlight examples: the same board as above plus a Player Spotlight

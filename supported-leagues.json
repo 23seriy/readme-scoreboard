@@ -904,6 +904,66 @@
       ]
     },
     {
+      "key": "nascar",
+      "name": "NASCAR Cup Series",
+      "category": "Racing",
+      "entity": "player",
+      "endpoint": "racing/nascar-premier",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/racing/nascar-premier/teams",
+      "renderer": "nascar",
+      "emoji": "🏁",
+      "logo": {
+        "light": "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-NASCAR.png",
+        "dark": "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-NASCAR.png"
+      },
+      "seasonWindow": {
+        "start": [
+          2,
+          1
+        ],
+        "end": [
+          11,
+          30
+        ],
+        "nextLabel": "February"
+      },
+      "fallback": [
+        "2026-02-04",
+        "2026-11-08"
+      ]
+    },
+    {
+      "key": "indycar",
+      "name": "IndyCar Series",
+      "category": "Racing",
+      "entity": "player",
+      "endpoint": "racing/irl",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/racing/irl/teams",
+      "renderer": "indycar",
+      "emoji": "🏎️",
+      "logo": {
+        "light": "https://a.espncdn.com/combiner/i?img=/i/espn/teamlogos/500/indycar_series.png",
+        "dark": "https://a.espncdn.com/combiner/i?img=/i/espn/teamlogos/500/indycar_series.png"
+      },
+      "seasonWindow": {
+        "start": [
+          3,
+          1
+        ],
+        "end": [
+          9,
+          30
+        ],
+        "nextLabel": "March"
+      },
+      "fallback": [
+        "2026-03-01",
+        "2026-09-06"
+      ]
+    },
+    {
       "key": "argentina",
       "name": "Argentine Primera",
       "category": "Soccer",

@@ -72,6 +72,18 @@ A women's tennis board tracking an individual player (entity: player) — world 
 
 [View rendered output →](wta-sab.md)
 
+### NASCAR — HAM (player)
+
+A NASCAR Cup Series driver's championship position and points (entity: player).
+
+[View rendered output →](nascar-ham.md)
+
+### INDYCAR — PAL (player)
+
+An IndyCar Series driver's championship position and points (entity: player).
+
+[View rendered output →](indycar-pal.md)
+
 ## Custom title
 
 The `title:` input replaces the default `My Favourite <League> Team` heading.
