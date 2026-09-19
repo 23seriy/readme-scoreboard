@@ -26,6 +26,20 @@ describe("season status updater", () => {
     expect(workflow).not.toContain("git push --force origin automation/season-status");
   });
 
+  it("gates the maintenance branch fetch so a first run can create the branch", () => {
+    const gate = workflow.indexOf("git ls-remote --exit-code --heads origin automation/season-status");
+    const fetch = workflow.indexOf("git fetch origin automation/season-status");
+
+    // `run:` steps execute under `bash -e`, so fetching a missing branch exits 128
+    // and aborts the step before the fallback push could create it. The fetch must
+    // therefore be gated on the branch existing remotely — and the gate must NOT
+    // swallow fetch errors, which would bypass the lease check above.
+    expect(gate).toBeGreaterThanOrEqual(0);
+    expect(fetch).toBeGreaterThan(gate);
+    expect(workflow).not.toContain("git fetch origin automation/season-status || true");
+    expect(workflow).toContain("git push origin automation/season-status");
+  });
+
   it("opens one season maintenance PR with the workflow token", () => {
     expect(workflow).toContain("id: publish");
     expect(workflow).toContain('echo "changed=false" >> "$GITHUB_OUTPUT"');
