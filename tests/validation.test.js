@@ -75,7 +75,7 @@ describe("input validation", () => {
     })).not.toThrow();
   });
 
-  it("rejects player: for basketball leagues ESPN publishes no stats for", () => {
+  it("allows player: for college basketball, which shares the NBA's athlete endpoints", () => {
     for (const sport of ["ncaab", "ncaaw"]) {
       expect(() => validateInputs({
         ...base,
@@ -83,7 +83,7 @@ describe("input validation", () => {
         player: "Some Player",
         teamsCount: 1,
         supportedSports: ["nba", "wnba", "ncaab", "ncaaw"],
-      })).toThrow(new RegExp(`player: is not yet supported for sport "${sport}"`));
+      })).not.toThrow();
     }
   });
 

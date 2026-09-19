@@ -299,7 +299,7 @@ step (one board per team, joined with a divider):
 
 ### Player spotlight
 
-Feature a specific player's season line and last game alongside a team board with the `player:` input. Supported for `nba`, `wnba`, `mlb`, `nfl`, `nhl`, and **every soccer league**.
+Feature a specific player's season line and last game alongside a team board with the `player:` input. Supported for `nba`, `wnba`, `ncaab`, `ncaaw`, `mlb`, `nfl`, `nhl`, and **every soccer league**.
 
 ```yaml
 - uses: 23seriy/readme-scoreboard@v1
@@ -391,18 +391,17 @@ Soccer season totals are summed from the player's game log, because ESPN publish
 
 #### Leagues without player spotlight
 
-Eight leagues intentionally don't support `player:`, either because the
+Six leagues intentionally don't support `player:`, either because the
 upstream data isn't there or because the league has no athlete roster to
 feature:
 
 | Leagues | Reason |
 |---------|--------|
-| `ncaab`, `ncaaw` | ESPN returns an empty stat payload and an empty game log for every athlete, so a spotlight would render zeroes. |
-| `ncaaf`, `gleague`, `ncaa_hockey` | ESPN publishes no per-athlete season stats — the stats endpoint 404s and the game log is empty. |
+| `ncaaf`, `gleague`, `ncaa_hockey` | ESPN publishes no per-athlete season stats — the stats endpoint 404s, and the game log is empty (for `ncaa_hockey` the gamelog 404s too). |
 | `atp`, `wta` | These already render as a single player board (`entity: player`), so a spotlight inside one is redundant. |
 | `f1` | It renders a constructor board from a teams endpoint and has no athlete roster, so there is no player to spotlight. |
 
-The **WNBA** used to be on this list. It isn't any more: ESPN now serves athletes the same `avgPoints`/`avgRebounds`/`avgAssists` splits payload and game log that the NBA uses, so `player:` works there too. If a league's upstream data changes, re-check the endpoints — the exclusions above are verified against the live APIs, not assumed.
+The **WNBA** and **NCAA men's and women's basketball** used to be on this list. They aren't any more: ESPN now serves athletes the same `avgPoints`/`avgRebounds`/`avgAssists` splits payload and game log that the NBA uses, so `player:` works there too. If a league's upstream data changes, re-check the endpoints — the exclusions above are verified against the live APIs, not assumed.
 
 `player:` isn't supported together with `teams:` (multiple boards in one run) — use a single `team:` instead. In `compact: true` mode, the spotlight collapses to a single stat line and drops the last-game details, matching how compact mode trims the rest of the board.
 
@@ -619,7 +618,7 @@ Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/ada
 | `gh_token` | Yes* | — | Token with Contents: Read and write on `target_repo` |
 | `sport` | No | `nba` | League key (for example, `nba`). See [Supported Sports](#supported-sports). |
 | `team` | Yes | — | Team or player abbreviation (e.g. `LAL`, `NYR`, `MIA`, or `SIN` for Jannik Sinner). Invalid abbreviations show example names. |
-| `player` | No | — | Player full name to feature alongside the team board (e.g. `Luka Doncic` or `Napheesa Collier`); must match the roster's exact spelling, including any diacritics. Supported for `nba`, `wnba`, `mlb`, `nfl`, `nhl` and every soccer league; not supported together with `teams:` (use `team:` instead). |
+| `player` | No | — | Player full name to feature alongside the team board (e.g. `Luka Doncic` or `Napheesa Collier`); must match the roster's exact spelling, including any diacritics. Supported for `nba`, `wnba`, `ncaab`, `ncaaw`, `mlb`, `nfl`, `nhl` and every soccer league; not supported together with `teams:` (use `team:` instead). |
 | `entity` | No | `team` | Entity type: `team` (default) or `player`. Inferred from the sport — individual sports like ATP Tennis and WTA Tennis default to `player`. |
 | `teams` | No | — | Comma-separated team/player abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
 | `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard (individual sports default to `<League> Player`). |

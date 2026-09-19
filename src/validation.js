@@ -27,17 +27,21 @@ function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adap
     //   - f1             renders a constructor board from a teams endpoint and
     //                    has no athlete roster, so there is no player to
     //                    spotlight.
-    //   - wnba, ncaab, ncaaw
-    //                    ESPN answers the athlete stats endpoint with 200 but
-    //                    an empty values array, and the game log is empty too
-    //                    (verified for A'ja Wilson, a multi-time MVP). Every
-    //                    spotlight would render zeroes.
     //   - ncaaf, gleague, ncaa_hockey
-    //                    ESPN publishes no athlete stats for these at all.
+    //                    ESPN publishes no athlete stats for these at all: the
+    //                    splits endpoint 404s, the ncaaf and gleague game logs
+    //                    come back empty, and ncaa_hockey's gamelog 404s.
+    //
+    // ncaab and ncaaw used to be on this list. They aren't any more: ESPN now
+    // serves the same splits payload and game log the NBA uses (re-verified
+    // against the live endpoints), so `player:` works there too. If a league's
+    // upstream data changes, re-check the endpoints — these exclusions are
+    // verified against the live APIs, not assumed.
     const PLAYER_SPOTLIGHT_SPORTS = [
-      // Dedicated per-athlete stat APIs. The WNBA shares the NBA's athlete
-      // endpoint shape (avgPoints/avgRebounds/avgAssists plus a game log).
-      "nba", "wnba", "mlb", "nfl", "nhl",
+      // Dedicated per-athlete stat APIs. The WNBA and college basketball share
+      // the NBA's athlete endpoint shape (avgPoints/avgRebounds/avgAssists plus
+      // a game log).
+      "nba", "wnba", "ncaab", "ncaaw", "mlb", "nfl", "nhl",
       // Soccer — season totals are summed from the game log, which every
       // league publishes.
       "mls", "epl", "laliga", "bundesliga", "seriea", "ligue1",

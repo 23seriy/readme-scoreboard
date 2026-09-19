@@ -115,6 +115,18 @@ The name must match the roster's exact spelling, including accents.
 
 [View rendered output →](wnba-min-napheesa-collier.md)
 
+### NCAAB — Dwayne Aristode
+
+`player: Dwayne Aristode` on `team: ARIZ`.
+
+[View rendered output →](ncaab-ariz-dwayne-aristode.md)
+
+### NCAAW — KK Arnold
+
+`player: KK Arnold` on `team: UCONN`.
+
+[View rendered output →](ncaaw-uconn-kk-arnold.md)
+
 ### MLB — Vladimir Guerrero Jr.
 
 `player: Vladimir Guerrero Jr.` on `team: TOR`.
