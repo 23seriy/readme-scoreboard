@@ -391,14 +391,14 @@ Soccer season totals are summed from the player's game log, because ESPN publish
 
 #### Leagues without player spotlight
 
-Six leagues intentionally don't support `player:`, either because the
+Eight leagues intentionally don't support `player:`, either because the
 upstream data isn't there or because the league has no athlete roster to
 feature:
 
 | Leagues | Reason |
 |---------|--------|
 | `ncaaf`, `gleague`, `ncaa_hockey` | ESPN publishes no per-athlete season stats — the stats endpoint 404s, and the game log is empty (for `ncaa_hockey` the gamelog 404s too). |
-| `atp`, `wta` | These already render as a single player board (`entity: player`), so a spotlight inside one is redundant. |
+| `atp`, `wta`, `nascar`, `indycar` | These already render as a single player board (`entity: player`), so a spotlight inside one is redundant. |
 | `f1` | It renders a constructor board from a teams endpoint and has no athlete roster, so there is no player to spotlight. |
 
 The **WNBA** and **NCAA men's and women's basketball** used to be on this list. They aren't any more: ESPN now serves athletes the same `avgPoints`/`avgRebounds`/`avgAssists` splits payload and game log that the NBA uses, so `player:` works there too. If a league's upstream data changes, re-check the endpoints — the exclusions above are verified against the live APIs, not assumed.
@@ -494,6 +494,8 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | 🏆&nbsp;Racing | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/f1.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/f1.png" alt="Formula 1 logo" height="20"></picture> Formula 1 | 🟢 In progress · ends 2026-12-31 | [`racing/f1`](https://site.api.espn.com/apis/site/v2/sports/racing/f1/teams) |
 | 🎾&nbsp;Tennis | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"><img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png" alt="ATP Tennis logo" height="20"></picture> ATP Tennis | 🟢 In progress · ends 2027-01-01 | [`tennis/atp`](https://site.api.espn.com/apis/site/v2/sports/tennis/atp/teams) |
 | 🎾&nbsp;Tennis | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"><img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png" alt="WTA Tennis logo" height="20"></picture> WTA Tennis | 🟢 In progress · ends 2027-01-01 | [`tennis/wta`](https://site.api.espn.com/apis/site/v2/sports/tennis/wta/teams) |
+| 🏆&nbsp;Racing | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-NASCAR.png"><img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-NASCAR.png" alt="NASCAR Cup Series logo" height="20"></picture> NASCAR Cup Series | 🟢 In progress · ends 2026-12-31 | [`racing/nascar-premier`](https://site.api.espn.com/apis/site/v2/sports/racing/nascar-premier/teams) |
+| 🏆&nbsp;Racing | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/combiner/i?img=/i/espn/teamlogos/500/indycar_series.png"><img src="https://a.espncdn.com/combiner/i?img=/i/espn/teamlogos/500/indycar_series.png" alt="IndyCar Series logo" height="20"></picture> IndyCar Series | 🟢 In progress · ends 2026-12-31 | [`racing/irl`](https://site.api.espn.com/apis/site/v2/sports/racing/irl/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1.png" alt="Argentine Primera logo" height="20"></picture> Argentine Primera | 🟢 In progress · ends 2026-12-31 | [`soccer/arg.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/arg.1/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men logo" height="20"></picture> A-League Men | 🟢 In progress · ends 2027-07-01 | [`soccer/aus.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2334.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2334.png" alt="Indian Super League logo" height="20"></picture> Indian Super League | 🟢 In progress · ends 2027-07-01 | [`soccer/ind.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/ind.1/teams) |

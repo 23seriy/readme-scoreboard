@@ -39,6 +39,80 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 | #32 | 🇫🇷 | France | Arthur Rinderknech | `RIN` | 3511 | 1,583 |
 | #35 | 🇵🇪 | Peru | Ignacio Buse | `BUS` | 11226 | 1,460 |
 
+## IndyCar Series
+
+**Racing**
+
+| Rank | Flag | Country | Player | Abbreviation | ID | Points |
+|------|------|---------|--------|--------------|----|--------|
+| — | 🏁 | — | Jacob Abel | `ABE` | 5836 | — |
+| — | 🏁 | — | Marcus Armstrong | `ARM` | 5753 | — |
+| — | 🏁 | — | Alexander Rossi | `ARO` | 4667 | — |
+| — | 🏁 | — | Helio Castroneves | `CAS` | 33 | — |
+| — | 🏁 | — | Caio Collet | `COL` | 5880 | — |
+| — | 🏁 | — | Conor Daly | `DAL` | 4580 | — |
+| — | 🏁 | — | Scott Dixon | `DIX` | 518 | — |
+| — | 🏁 | — | Marcus Ericsson | `ERI` | 4622 | — |
+| — | 🏁 | — | Santino Ferrucci | `FER` | 5553 | — |
+| — | 🏁 | — | Louis Foster | `FOS` | 5842 | — |
+| — | 🏁 | — | Romain Grosjean | `GRO` | 4374 | — |
+| — | 🏁 | — | Jack Harvey | `HAR` | 4781 | — |
+| — | 🏁 | — | Dennis Hauger | `HAU` | 5766 | — |
+| — | 🏁 | — | Kyle Kirkwood | `KIR` | 5704 | — |
+| — | 🏁 | — | Christian Lundgaard | `LUN` | 5691 | — |
+| — | 🏁 | — | David Malukas | `MAL` | 5706 | — |
+| — | 🏁 | — | Scott McLaughlin | `MCL` | 5648 | — |
+| — | 🏁 | — | Josef Newgarden | `NEW` | 4526 | — |
+| — | 🏁 | — | Pato O'Ward | `OWA` | 5581 | — |
+| — | 🏁 | — | Alex Palou | `PAL` | 5632 | — |
+| — | 🏁 | — | Will Power | `POW` | 810 | — |
+| — | 🏁 | — | Graham Rahal | `RAH` | 872 | — |
+| — | 🏁 | — | Christian Rasmussen | `RAS` | 5797 | — |
+| — | 🏁 | — | Sting Ray Robb | `ROB` | 5750 | — |
+| — | 🏁 | — | Felix Rosenqvist | `ROS` | 5590 | — |
+| — | 🏁 | — | Takuma Sato | `SAT` | 432 | — |
+| — | 🏁 | — | Mick Schumacher | `SCH` | 5654 | — |
+| — | 🏁 | — | Nolan Siegel | `SIE` | 5810 | — |
+| — | 🏁 | — | Kyffin Simpson | `SIM` | 5798 | — |
+| — | 🏁 | — | Rinus VeeKay | `VEE` | 5634 | — |
+
+## NASCAR Cup Series
+
+**Racing**
+
+| Rank | Flag | Country | Player | Abbreviation | ID | Points |
+|------|------|---------|--------|--------------|----|--------|
+| — | 🏁 | — | AJ Allmendinger | `ALL` | 805 | — |
+| — | 🏁 | — | Christopher Bell | `BEL` | 4700 | — |
+| — | 🏁 | — | Josh Berry | `BER` | 4656 | — |
+| — | 🏁 | — | Ryan Blaney | `BLA` | 4531 | — |
+| — | 🏁 | — | Alex Bowman | `BOW` | 4555 | — |
+| — | 🏁 | — | Chase Briscoe | `BRI` | 4773 | — |
+| — | 🏁 | — | Chris Buescher | `BUE` | 4480 | — |
+| — | 🏁 | — | William Byron | `BYR` | 4721 | — |
+| — | 🏁 | — | Ross Chastain | `CHA` | 4495 | — |
+| — | 🏁 | — | Austin Cindric | `CIN` | 4718 | — |
+| — | 🏁 | — | Austin Dillon | `DIL` | 4332 | — |
+| — | 🏁 | — | Chase Elliott | `ELL` | 4574 | — |
+| — | 🏁 | — | Ty Gibbs | `GIB` | 5651 | — |
+| — | 🏁 | — | Todd Gilliland | `GIL` | 4782 | — |
+| — | 🏁 | — | Shane van Gisbergen | `GIS` | 5772 | — |
+| — | 🏁 | — | Denny Hamlin | `HAM` | 747 | — |
+| — | 🏁 | — | Riley Herbst | `HER` | 5555 | — |
+| — | 🏁 | — | Carson Hocevar | `HOC` | 5610 | — |
+| — | 🏁 | — | Erik Jones | `JON` | 4777 | — |
+| — | 🏁 | — | Brad Keselowski | `KES` | 626 | — |
+| — | 🏁 | — | Kyle Larson | `LAR` | 4539 | — |
+| — | 🏁 | — | Joey Logano | `LOG` | 4319 | — |
+| — | 🏁 | — | Michael McDowell | `MCD` | 4729 | — |
+| — | 🏁 | — | John Hunter Nemechek | `NEM` | 4612 | — |
+| — | 🏁 | — | Ryan Preece | `PRE` | 4585 | — |
+| — | 🏁 | — | Tyler Reddick | `RED` | 4577 | — |
+| — | 🏁 | — | Zane Smith | `SMI` | 5558 | — |
+| — | 🏁 | — | Ricky Stenhouse Jr. | `STE` | 4351 | — |
+| — | 🏁 | — | Daniel Suarez | `SUA` | 4645 | — |
+| — | 🏁 | — | Bubba Wallace | `WAL` | 4534 | — |
+
 ## WTA Tennis
 
 **Tennis**

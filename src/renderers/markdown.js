@@ -711,6 +711,30 @@ function renderF1(data, title) {
   return lines.join("\n");
 }
 
+// Motorsport series that rank drivers (NASCAR, IndyCar) publish one standings
+// table and no per-race results, so the board mirrors the F1 constructor board:
+// the driver, championship position, and points.
+function renderDriverStanding(sport, label, data, title) {
+  const { team, record, emoji, standing } = data;
+  const lines = [];
+
+  lines.push(...headingLines(sport, title));
+  lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
+  lines.push(`${label} · Driver Championship`);
+  lines.push(seasonStatusLine(sport));
+  lines.push("");
+
+  if (standing && standing.position) {
+    lines.push(`🏆 Championship position: ${standing.position}`);
+  }
+  if (record.points !== undefined) {
+    lines.push(`📍 Points: ${record.points}`);
+  }
+  lines.push("");
+
+  return lines.join("\n");
+}
+
 // Tennis is an individual sport: a board shows a single ranked player's world
 // ranking, ranking points, movement, and most recent match result. ATP and WTA
 // share this same shape, differing only in league key and tour label.
@@ -855,8 +879,12 @@ function render(sport, data, options = {}) {
       return renderAtp(data, title);
     case "wta":
       return renderWta(data, title);
+    case "nascar":
+      return renderDriverStanding("nascar", "NASCAR Cup Series", data, title);
+    case "indycar":
+      return renderDriverStanding("indycar", "IndyCar Series", data, title);
     default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, aleague, isl, csl, greek, austria, denmark, norway, sweden, f1, atp, wta`);
+      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, aleague, isl, csl, greek, austria, denmark, norway, sweden, f1, atp, wta, nascar, indycar`);
   }
 }
 

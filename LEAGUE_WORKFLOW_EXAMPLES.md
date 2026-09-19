@@ -362,6 +362,30 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     marker: readme-scoreboard-wta
 ```
 
+## NASCAR Cup Series
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: nascar
+    team: HAM
+    marker: readme-scoreboard-nascar
+```
+
+## IndyCar Series
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: indycar
+    team: PAL
+    marker: readme-scoreboard-indycar
+```
+
 ## Argentine Primera
 
 ```yaml

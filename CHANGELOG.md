@@ -16,7 +16,14 @@ that would alter what appears in your README or require editing your workflow.
   and `sport: ncaaw`. ESPN began serving the same `avgPoints`/`avgRebounds`/`avgAssists`
   splits payload and game log the NBA and WNBA use, so those boards show the player's
   season averages, most recent game, and headshot like the other basketball boards. Both
-  leagues come off the "leagues without player spotlight" list, which now holds six.
+  leagues come off the "leagues without player spotlight" list, which now holds eight.
+- **NASCAR Cup Series** (`nascar`) and **IndyCar Series** (`indycar`). Both rank drivers
+  rather than teams, so `team:` takes a driver abbreviation and the board shows that
+  driver's championship position and points — the same shape as the Formula 1 constructor
+  board. ESPN publishes no driver abbreviations, so the rosters (top 30 of each
+  championship) use surname-derived codes such as `HAM` for Denny Hamlin and `PAL` for
+  Alex Palou, and both leagues appear in the player directory. The supported-league count
+  is now 41.
 
 ### Fixed
 
