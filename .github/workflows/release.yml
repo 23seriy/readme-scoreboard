@@ -7,6 +7,16 @@ on:
 permissions:
   contents: write
 
+# Serialize alias updates. Without a shared group, two releases published close
+# together both force-push `v1` at once and the loser fails with
+# "cannot lock ref 'refs/tags/v1'". Queued runs still execute in order, so the
+# newest release ends up owning the alias. Deliberately NOT the
+# `readme-maintenance` group, so a release never waits behind scheduled README
+# refreshes.
+concurrency:
+  group: release-major-tag
+  cancel-in-progress: false
+
 jobs:
   update-major-tag:
     runs-on: ubuntu-latest
