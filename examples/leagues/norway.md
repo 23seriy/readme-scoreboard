@@ -12,18 +12,18 @@ Team: **AAL** · Category: Soccer · Data source: ESPN public API
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing: 2026 Norwegian Eliteserien · 15
+🏅 Standing: 2026 Norwegian Eliteserien · 13
 
-📊 2026 Record: 3W - 8L - 9D  (18 pts)
-   █████████▍░░░░░░░░░░░░░░░
+📊 2026 Record: 4W - 8L - 9D  (21 pts)
+   ██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-1 @ MOL   (Sep 19, 2026)
 ❌ L 1-2 @ KFUM  (Sep 13, 2026)
 ✅ W 2-0 vs IKS   (Sep 4, 2026)
 ❌ L 1-2 @ VIK   (Aug 30, 2026)
 🟡 D 5-5 vs VAL   (Aug 16, 2026)
-🟡 D 1-1 @ HAM   (Aug 9, 2026)
 ```
 
 ## Custom title
@@ -38,18 +38,18 @@ The `title:` input replaces the default heading.
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing: 2026 Norwegian Eliteserien · 15
+🏅 Standing: 2026 Norwegian Eliteserien · 13
 
-📊 2026 Record: 3W - 8L - 9D  (18 pts)
-   █████████▍░░░░░░░░░░░░░░░
+📊 2026 Record: 4W - 8L - 9D  (21 pts)
+   ██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-1 @ MOL   (Sep 19, 2026)
 ❌ L 1-2 @ KFUM  (Sep 13, 2026)
 ✅ W 2-0 vs IKS   (Sep 4, 2026)
 ❌ L 1-2 @ VIK   (Aug 30, 2026)
 🟡 D 5-5 vs VAL   (Aug 16, 2026)
-🟡 D 1-1 @ HAM   (Aug 9, 2026)
 ```
 
 ## Compact mode
@@ -63,10 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing: 2026 Norwegian Eliteserien · 15
+🏅 Standing: 2026 Norwegian Eliteserien · 13
 
-📊 2026 Record: 3W - 8L - 9D  (18 pts)
-   █████████▍░░░░░░░░░░░░░░░
+📊 2026 Record: 4W - 8L - 9D  (21 pts)
+   ██████████░░░░░░░░░░░░░░░
 
 
 

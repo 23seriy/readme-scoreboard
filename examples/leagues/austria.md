@@ -12,18 +12,18 @@ Team: **ALU** · Category: Soccer · Data source: ESPN public API
 2026-27 
 🟢 Season in progress
 
-🏅 Standing: 2026-27  · 9
+🏅 Standing: 2026-27  · 7
 
-📊 2026 Record: 1W - 3L - 2D  (5 pts)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 3L - 2D  (8 pts)
+   ██████████▋░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 vs SCR   (Sep 19, 2026)
 ❌ L 1-2 @ VIE   (Sep 13, 2026)
 ❌ L 0-4 vs WST   (Aug 28, 2026)
 🟡 D 1-1 @ STG   (Aug 22, 2026)
 ✅ W 2-1 vs WOL   (Aug 15, 2026)
-❌ L 1-2 @ GRA   (Aug 8, 2026)
 ```
 
 ## Custom title
@@ -38,18 +38,18 @@ The `title:` input replaces the default heading.
 2026-27 
 🟢 Season in progress
 
-🏅 Standing: 2026-27  · 9
+🏅 Standing: 2026-27  · 7
 
-📊 2026 Record: 1W - 3L - 2D  (5 pts)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 3L - 2D  (8 pts)
+   ██████████▋░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 vs SCR   (Sep 19, 2026)
 ❌ L 1-2 @ VIE   (Sep 13, 2026)
 ❌ L 0-4 vs WST   (Aug 28, 2026)
 🟡 D 1-1 @ STG   (Aug 22, 2026)
 ✅ W 2-1 vs WOL   (Aug 15, 2026)
-❌ L 1-2 @ GRA   (Aug 8, 2026)
 ```
 
 ## Compact mode
@@ -63,10 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 
 🟢 Season in progress
 
-🏅 Standing: 2026-27  · 9
+🏅 Standing: 2026-27  · 7
 
-📊 2026 Record: 1W - 3L - 2D  (5 pts)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 3L - 2D  (8 pts)
+   ██████████▋░░░░░░░░░░░░░░
 
 
 
