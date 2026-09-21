@@ -12,13 +12,14 @@ Team: **ARS** · Category: Soccer · Data source: ESPN public API
 2026-27 English Premier League
 🟢 Season in progress
 
-🏅 Standing: 2026-27 English Premier League · 1
+🏅 Standing: 2026-27 English Premier League · 2
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)
-   █████████████████████████
+📊 2026 Record: 4W - 1L - 0D  (12 pts)
+   ████████████████████░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-3 @ BHA   (Sep 19, 2026)
 ✅ W 2-0 @ SUN   (Sep 12, 2026)
 ✅ W 2-1 vs CHE   (Sep 6, 2026)
 ✅ W 1-0 @ AVL   (Aug 31, 2026)
@@ -37,13 +38,14 @@ The `title:` input replaces the default heading.
 2026-27 English Premier League
 🟢 Season in progress
 
-🏅 Standing: 2026-27 English Premier League · 1
+🏅 Standing: 2026-27 English Premier League · 2
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)
-   █████████████████████████
+📊 2026 Record: 4W - 1L - 0D  (12 pts)
+   ████████████████████░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-3 @ BHA   (Sep 19, 2026)
 ✅ W 2-0 @ SUN   (Sep 12, 2026)
 ✅ W 2-1 vs CHE   (Sep 6, 2026)
 ✅ W 1-0 @ AVL   (Aug 31, 2026)
@@ -61,10 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 English Premier League
 🟢 Season in progress
 
-🏅 Standing: 2026-27 English Premier League · 1
+🏅 Standing: 2026-27 English Premier League · 2
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)
-   █████████████████████████
+📊 2026 Record: 4W - 1L - 0D  (12 pts)
+   ████████████████████░░░░░
 
 
 

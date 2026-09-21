@@ -12,7 +12,7 @@ Team: **AIK** · Category: Soccer · Data source: ESPN public API
 2026 Swedish Allsvenskan
 🟢 Season in progress
 
-🏅 Standing: 2026 Swedish Allsvenskan · 7
+🏅 Standing: 2026 Swedish Allsvenskan · 8
 
 📊 2026 Record: 9W - 6L - 6D  (33 pts)
    ██████████████▎░░░░░░░░░░
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 2026 Swedish Allsvenskan
 🟢 Season in progress
 
-🏅 Standing: 2026 Swedish Allsvenskan · 7
+🏅 Standing: 2026 Swedish Allsvenskan · 8
 
 📊 2026 Record: 9W - 6L - 6D  (33 pts)
    ██████████████▎░░░░░░░░░░
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Swedish Allsvenskan
 🟢 Season in progress
 
-🏅 Standing: 2026 Swedish Allsvenskan · 7
+🏅 Standing: 2026 Swedish Allsvenskan · 8
 
 📊 2026 Record: 9W - 6L - 6D  (33 pts)
    ██████████████▎░░░░░░░░░░

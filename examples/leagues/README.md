@@ -42,6 +42,8 @@ gallery** so the new league gets its own showcase file.
 - [Formula 1](f1.md) — Racing
 - [ATP Tennis](atp.md) — Tennis
 - [WTA Tennis](wta.md) — Tennis
+- [NASCAR Cup Series](nascar.md) — Racing
+- [IndyCar Series](indycar.md) — Racing
 - [Argentine Primera](argentina.md) — Soccer
 - [A-League Men](aleague.md) — Soccer
 - [Indian Super League](isl.md) — Soccer

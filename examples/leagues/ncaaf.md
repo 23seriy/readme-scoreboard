@@ -13,10 +13,11 @@ Southeastern Conference
 🟢 Season in progress
 
 🏅 Standing: Southeastern Conference · 1
-📅 Next: vs FSU (Sep 19)
+📅 Next: vs SC (Sep 26)
 
 **📅 Recent Games:**
 ```
+✅ W 50-36 @ FSU (Sep 19, 2026)
 ✅ W 45-17 @ UK  (Sep 12, 2026)
 ✅ W 48-10 @ ECU (Sep 5, 2026)
 ```
@@ -34,10 +35,11 @@ Southeastern Conference
 🟢 Season in progress
 
 🏅 Standing: Southeastern Conference · 1
-📅 Next: vs FSU (Sep 19)
+📅 Next: vs SC (Sep 26)
 
 **📅 Recent Games:**
 ```
+✅ W 50-36 @ FSU (Sep 19, 2026)
 ✅ W 45-17 @ UK  (Sep 12, 2026)
 ✅ W 48-10 @ ECU (Sep 5, 2026)
 ```
@@ -54,7 +56,7 @@ Southeastern Conference
 🟢 Season in progress
 
 🏅 Standing: Southeastern Conference · 1
-📅 Next: vs FSU (Sep 19)
+📅 Next: vs SC (Sep 26)
 
 
 
