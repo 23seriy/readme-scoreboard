@@ -8,42 +8,10 @@ class BaseFreeApiAdapter {
     }
   }
 
-  async fetchData(teamAbbr) {
-    try {
-      const team = await this.fetchTeamByAbbr(teamAbbr);
-      if (!team) return null;
-
-      const fromDate = this.getSeasonStart();
-      const url = this.getGamesUrl(team.id, fromDate, new Date());
-      const { data } = await httpGet(url);
-      const allGames = this.parseGameResponse(data);
-      const season = this.getSeasonYear();
-
-      // Regular season only for W-L record (exclude spring training "S" and playoffs)
-      let wins = 0, losses = 0;
-      const regularFinals = allGames.filter(
-        (g) => g.status === "Final" && g.gameType === "R"
-      );
-      for (const game of regularFinals) {
-        const isHome = game.home_team.id === team.id;
-        const teamScore = isHome ? game.home_team_score : game.visitor_team_score;
-        const oppScore = isHome ? game.visitor_team_score : game.home_team_score;
-        if (teamScore > oppScore) wins++;
-        else losses++;
-      }
-
-      const record = { wins, losses, season };
-      // Recent games: regular season + playoffs, no spring training
-      const recentGames = allGames
-        .filter((g) => g.status === "Final" && g.gameType !== "S")
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 5);
-
-      return { team, record, recentGames };
-    } catch (error) {
-      console.error(`Failed to fetch data: ${error.message}`);
-      return null;
-    }
+  // Subclasses supply the fetch; MLB-shaped logic used to live here, but every
+  // subclass had its own, so it was unreachable and wrong for anything else.
+  async fetchData(_teamAbbr) {
+    throw new Error("fetchData() must be implemented by subclass");
   }
 
   // Deterministic sample board. The record is counted from the same game log
@@ -114,7 +82,8 @@ class BaseFreeApiAdapter {
   }
 
   // Returns the date from which the current season's games should be counted.
-  // MLB/NBA default to April 1; NFL overrides to September 1.
+  // Only MLB relies on this; every other adapter declares its own season window
+  // through the registry.
   getSeasonStart() {
     const year = new Date().getFullYear();
     return new Date(`${year}-04-01`);
@@ -131,28 +100,6 @@ class BaseFreeApiAdapter {
     } catch (error) {
       console.error(`Failed to fetch team: ${error.message}`);
       return null;
-    }
-  }
-
-  async fetchRecentGames(teamId, count = 5) {
-    try {
-      const today = new Date();
-      const pastDate = new Date(today);
-      pastDate.setDate(today.getDate() - 180);
-
-      const url = this.getGamesUrl(teamId, pastDate, today);
-      const { data } = await httpGet(url);
-
-      const games = this.parseGameResponse(data);
-      if (!games) return [];
-
-      return games
-        .filter((g) => g.status === "Final")
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, count);
-    } catch (error) {
-      console.error(`Failed to fetch games: ${error.message}`);
-      return [];
     }
   }
 

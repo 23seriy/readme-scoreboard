@@ -7,8 +7,8 @@
  *
  * Baseline (v1.11.1): statements 81.53%, branches 66.46%,
  * functions 78.35%, lines 83.90%.
- * Current:            statements 85.92%, branches 67.34%,
- *                     functions 82.49%, lines 88.27%.
+ * Current (v1.14.2):  statements 91.64%, branches 70.20%,
+ *                     functions 91.41%, lines 93.89%.
  */
 module.exports = {
   testEnvironment: 'node',
@@ -20,10 +20,10 @@ module.exports = {
   coverageReporters: ['text', 'text-summary', 'lcov', 'json-summary'],
   coverageThreshold: {
     global: {
-      statements: 85,
-      branches: 67,
-      functions: 82,
-      lines: 88,
+      statements: 91,
+      branches: 69,
+      functions: 91,
+      lines: 93,
     },
   },
 };
