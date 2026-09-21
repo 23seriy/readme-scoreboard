@@ -136,7 +136,7 @@ const ENDPOINT_OVERRIDES = {
 // Keep this script's existing row shape while taking all public metadata from
 // the registry. The assignments below are intentionally centralized here so
 // future league additions cannot silently omit a season row or logo.
-LEAGUES.splice(0, LEAGUES.length, ...LEAGUE_REGISTRY.map(({ category, name, endpoint }) => [category, name, endpoint]));
+  LEAGUES.splice(0, LEAGUES.length, ...LEAGUE_REGISTRY.map(({ category, name, endpoint, key }) => [category, name, endpoint, key]));
 Object.keys(LEAGUE_LOGOS).forEach((name) => delete LEAGUE_LOGOS[name]);
 Object.keys(FALLBACK_WINDOWS).forEach((name) => delete FALLBACK_WINDOWS[name]);
 Object.keys(ENDPOINT_OVERRIDES).forEach((name) => delete ENDPOINT_OVERRIDES[name]);
@@ -192,9 +192,9 @@ function updateSupportedSportsTable(readme, rows) {
 
   const sportIcons = { Basketball: "🏀", Baseball: "⚾", Football: "🏈", Hockey: "🏒", Soccer: "⚽", Tennis: "🎾" };
   const table = [
-    "| Sport | League | Season | Endpoint |",
-    "|-------|--------|--------|----------|",
-    ...rows.map((row) => `| ${sportIcons[row.sport] || "🏆"}&nbsp;${row.sport} | ${row.league || row.name} | ${row.season} | ${row.endpoint} |`),
+    "| Sport | League | Key | Season | Endpoint |",
+    "|-------|--------|-----|--------|----------|",
+    ...rows.map((row) => `| ${sportIcons[row.sport] || "🏆"}&nbsp;${row.sport} | ${row.league || row.name} | \`${row.key}\` | ${row.season} | ${row.endpoint} |`),
   ].join("\n");
   return `${readme.slice(0, start + START_MARKER.length)}\n${table}\n${readme.slice(end)}`;
 }
@@ -238,11 +238,11 @@ function normalizeSeasonWindow(name, season, now = new Date()) {
 }
 
 async function buildRows(now = new Date(), { strict = false } = {}) {
-  return Promise.all(LEAGUES.map(async ([sport, name, slug]) => {
+  return Promise.all(LEAGUES.map(async ([sport, name, slug, key]) => {
     const endpoint = ENDPOINT_OVERRIDES[name] || `[\`${slug}\`](https://site.api.espn.com/apis/site/v2/sports/${slug}/teams)`;
     try {
       const season = normalizeSeasonWindow(name, await fetchSeason(slug), now);
-      return { sport, name, league: leagueCell(name), season: formatSeasonCell(classifySeason(season, now)), endpoint };
+      return { sport, name, key, league: leagueCell(name), season: formatSeasonCell(classifySeason(season, now)), endpoint };
     } catch (error) {
       if (strict) throw new Error(`${name}: ${error.message}`, { cause: error });
       console.warn(`Season dates unavailable for ${name}: ${error.message}`);
@@ -250,7 +250,7 @@ async function buildRows(now = new Date(), { strict = false } = {}) {
       const season = fallback
         ? formatSeasonCell(classifySeason({ startDate: fallback[0], endDate: fallback[1] }, now))
         : "⚪ Date unavailable";
-      return { sport, name, league: leagueCell(name), season, endpoint };
+      return { sport, name, key, league: leagueCell(name), season, endpoint };
     }
   }));
 }

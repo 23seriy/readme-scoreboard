@@ -96,7 +96,7 @@ describe("supported league registry", () => {
   });
 
   it("drives the supported-season table in registry order", () => {
-    expect(seasonLeagues).toEqual(LEAGUES.map(({ category, name, endpoint }) => [category, name, endpoint]));
+    expect(seasonLeagues).toEqual(LEAGUES.map(({ category, name, endpoint, key }) => [category, name, endpoint, key]));
   });
 
   it.each(LEAGUES)("$key has complete public metadata", (league) => {

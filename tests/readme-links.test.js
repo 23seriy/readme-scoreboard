@@ -87,13 +87,29 @@ describe("README navigation links", () => {
 
     expect(start).toBeGreaterThanOrEqual(0);
     expect(end).toBeGreaterThan(start);
+    // The README tells readers this table "lists every league key", and the
+    // action's `sport:` input takes exactly those keys, so the column has to
+    // be here for that instruction to be followable.
+    expect(table).toContain("| Sport | League | Key | Season | Endpoint |");
     LEAGUES.forEach((league) => {
       expect(table).toContain(` ${league.name} |`);
+      expect(table).toContain(`\`${league.key}\` |`);
       const endpoint = league.endpointOverride
         ? league.endpointOverride.match(/\((https:\/\/[^)]+)\)/)[1]
         : `https://site.api.espn.com/apis/site/v2/sports/${league.endpoint}/teams`;
       expect(table).toContain(endpoint);
     });
+  });
+
+  it("names every league in the intro enumeration", () => {
+    // The paragraph after the league count spells out every league by name. It
+    // is prose, so nothing caught it drifting: it claimed 41 leagues while
+    // naming 39, because NASCAR and IndyCar were never added to the list.
+    const paragraph = readme.match(/Currently supports ([^\n]+)/)[1];
+    const named = [...paragraph.matchAll(/\*\*([^*]+)\*\*/g)].map((match) => match[1]);
+
+    expect(named.length).toBeGreaterThan(0);
+    expect([...named].sort()).toEqual(LEAGUES.map((league) => league.name).sort());
   });
 
   it("keeps the machine-readable league manifest linked", () => {
