@@ -5,6 +5,8 @@ const { LEAGUES: LEAGUE_REGISTRY } = require("../src/config/leagues");
 
 const START_MARKER = "<!-- supported-sports:start -->";
 const END_MARKER = "<!-- supported-sports:end -->";
+const LEAGUE_LIST_START = "<!-- league-list:start -->";
+const LEAGUE_LIST_END = "<!-- league-list:end -->";
 
 // ESPN exposes the current season window on each league scoreboard response.
 // Keeping this map here makes the daily job data-driven without changing the
@@ -199,6 +201,27 @@ function updateSupportedSportsTable(readme, rows) {
   return `${readme.slice(0, start + START_MARKER.length)}\n${table}\n${readme.slice(end)}`;
 }
 
+// Reads naturally whether there is one league, two, or forty.
+function joinLeagueNames(names) {
+  if (names.length === 1) return names[0];
+  if (names.length === 2) return `${names[0]} and ${names[1]}`;
+  return `${names.slice(0, -1).join(", ")}, and ${names[names.length - 1]}`;
+}
+
+// The intro sentence names every league. It is generated from the same rows as
+// the table so the two cannot disagree: adding a league updates both.
+function updateLeagueList(readme, rows) {
+  const start = readme.indexOf(LEAGUE_LIST_START);
+  const end = readme.indexOf(LEAGUE_LIST_END);
+  if (start === -1 || end === -1 || end < start) {
+    throw new Error("League list markers are missing or out of order");
+  }
+
+  const names = rows.map((row) => `**${row.name}**`);
+  const sentence = `Currently supports ${joinLeagueNames(names)} with more sports coming soon`;
+  return `${readme.slice(0, start + LEAGUE_LIST_START.length)}\n${sentence}\n${readme.slice(end)}`;
+}
+
 async function fetchSeason(slug, request = httpGet) {
   const { data } = await request(`https://site.api.espn.com/apis/site/v2/sports/${slug}/scoreboard`, {
     timeout: 15000,
@@ -259,7 +282,8 @@ async function main() {
   const readmePath = path.resolve(__dirname, "..", "README.md");
   const readme = fs.readFileSync(readmePath, "utf8");
   const rows = await buildRows(new Date(), { strict: process.argv.includes("--strict") });
-  const updated = updateSupportedSportsTable(readme, rows);
+  const withTable = updateSupportedSportsTable(readme, rows);
+  const updated = updateLeagueList(withTable, rows);
   if (updated !== readme) fs.writeFileSync(readmePath, updated);
 }
 
@@ -278,4 +302,5 @@ module.exports = {
   formatSeasonCell,
   normalizeSeasonWindow,
   updateSupportedSportsTable,
+  updateLeagueList,
 };

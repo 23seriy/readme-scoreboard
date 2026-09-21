@@ -12,13 +12,13 @@ function makeRosterResponse(athletes) {
 describe("NbaAdapter — fetchTeamRoster", () => {
   it("returns the team's roster as id/fullName pairs", async () => {
     axios.get.mockResolvedValueOnce(makeRosterResponse([
-      { id: "3945274", fullName: "Luka Dončić" },
+      { id: "3945274", fullName: "Luka Doncic" },
       { id: "4066648", fullName: "Austin Reaves" },
     ]));
 
     const roster = await adapter.fetchTeamRoster("LAL");
     expect(roster).toEqual([
-      { id: "3945274", fullName: "Luka Dončić" },
+      { id: "3945274", fullName: "Luka Doncic" },
       { id: "4066648", fullName: "Austin Reaves" },
     ]);
   });
@@ -37,17 +37,26 @@ describe("NbaAdapter — fetchTeamRoster", () => {
 });
 
 describe("NbaAdapter — findPlayerOnRoster", () => {
+  // ESPN's live roster spells this "Luka Doncic" — no diacritics — so the
+  // fixtures match production rather than a prettier spelling.
   const roster = [
-    { id: "3945274", fullName: "Luka Dončić" },
+    { id: "3945274", fullName: "Luka Doncic" },
     { id: "4066648", fullName: "Austin Reaves" },
   ];
 
   it("matches a player by exact full name", () => {
-    expect(adapter.findPlayerOnRoster(roster, "Luka Dončić")).toEqual(roster[0]);
+    expect(adapter.findPlayerOnRoster(roster, "Luka Doncic")).toEqual(roster[0]);
   });
 
   it("matches case-insensitively", () => {
-    expect(adapter.findPlayerOnRoster(roster, "luka dončić")).toEqual(roster[0]);
+    expect(adapter.findPlayerOnRoster(roster, "luka doncic")).toEqual(roster[0]);
+  });
+
+  it("does not match when the diacritics differ", () => {
+    // A name that looks right still fails: matching is case-insensitive but
+    // otherwise exact, which is why the README tells readers to copy the
+    // roster's own spelling.
+    expect(adapter.findPlayerOnRoster(roster, "Luka Dončić")).toBeNull();
   });
 
   it("returns null when no player matches", () => {

@@ -16,17 +16,26 @@ Thanks for your interest in contributing! Here's how you can help.
 
 ## Adding a New Sport
 
-This is the most impactful contribution you can make! Each sport is a single adapter file:
+This is the most impactful contribution you can make! Each league is one registry
+entry plus one adapter file:
 
-1. Create `src/adapters/your-sport.js`
-2. Export a `fetchData(teamAbbr)` function that returns `{ team, recentGames, record }`
-3. Export `TEAM_EMOJI`, `TEAM_IDS`, and `getDemoData(teamAbbr)` for metadata and demo mode
-4. Register the league in `src/config/leagues.js` (so it appears in the generated
+1. Register the league in `src/config/leagues.js` (key, name, category, endpoint,
+   renderer, emoji, entity, logo, season window, fallback) so it appears in the generated
    [team directory](TEAM_DIRECTORY.md) / [player directory](PLAYER_DIRECTORY.md)
-   and supported-sports table)
-5. Open a PR
+   and supported-sports table
+2. Create `src/adapters/<key>.js`. The filename must match the registry key, because
+   `src/index.js` resolves adapters as `require("./adapters/" + sport)`
+3. Extend the base class that matches the data source: `BaseSoccerAdapter`,
+   `BaseEspnLeagueAdapter`, `BaseRacingDriverAdapter`, or `BaseFreeApiAdapter` for a
+   league with its own official API
+4. Export either a class instance or a plain object — both satisfy the adapter contract,
+   which covers `fetchData`, `getDemoData`, `getLogoUrl`, `TEAM_EMOJI`, `TEAM_IDS`, and
+   `DEMO_TEAMS`
+5. Add tests under `tests/adapters/`, and a `--demo` line to the README's demo list
+6. Open a PR
 
-See `src/adapters/nba.js` as the reference implementation.
+See `src/adapters/nhl.js` (class instance) and `src/adapters/nba.js` (plain object) as
+reference implementations.
 
 ## Generated README Sections
 
