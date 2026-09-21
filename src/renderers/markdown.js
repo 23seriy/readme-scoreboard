@@ -123,7 +123,10 @@ function seasonStatusLine(sport) {
   const m = now.getMonth() + 1;
   const d = now.getDate();
   const startPassed = sm && (m > sm || (m === sm && d > sd));
-  const nextYear = startPassed ? year + 1 : year;
+  // Non-annual events (the quadrennial World Cup) name their next edition
+  // explicitly; the annual arithmetic below would otherwise claim the next
+  // calendar year.
+  const nextYear = window.nextStartYear ?? (startPassed ? year + 1 : year);
   return `🔴 Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
 }
 
@@ -855,6 +858,8 @@ function render(sport, data, options = {}) {
       return renderSoccer(data, "ucl", "UEFA Champions League", title, compact);
     case "uel":
       return renderSoccer(data, "uel", "UEFA Europa League", title, compact);
+    case "worldcup":
+      return renderSoccer(data, "worldcup", "FIFA World Cup", title, compact);
     case "argentina":
       return renderSoccer(data, "argentina", "Argentine Primera", title, compact);
     case "aleague":

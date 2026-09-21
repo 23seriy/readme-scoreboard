@@ -465,6 +465,53 @@ describe("renderMls", () => {
   });
 });
 
+describe("season status line", () => {
+  // The status line computes "next season starts <month> <year>" from the
+  // current date, which is right for an annual league and wrong for a
+  // quadrennial event. The World Cup pins its next edition in the registry;
+  // these pin both behaviours so the annual arithmetic can't regress.
+  const WORLDCUP_DATA = {
+    ...BASE_MLS_DATA,
+    team: {
+      id: 202,
+      abbreviation: "ARG",
+      name: "Argentina",
+      full_name: "Argentina",
+      conference: "",
+      division: "",
+    },
+    emoji: "🇦🇷",
+  };
+
+  function freezeAt(iso) {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date(iso));
+  }
+
+  afterEach(() => jest.useRealTimers());
+
+  it("calls a quadrennial event in progress inside its window", () => {
+    freezeAt("2026-06-20T12:00:00Z");
+    expect(render("worldcup", { ...WORLDCUP_DATA, recentGames: [] }))
+      .toContain("🟢 Season in progress");
+  });
+
+  it("names the next edition of a quadrennial event, not next year", () => {
+    // The annual arithmetic would claim "June 2027" — a year with no tournament.
+    freezeAt("2027-03-01T12:00:00Z");
+    expect(render("worldcup", { ...WORLDCUP_DATA, recentGames: [] }))
+      .toContain("🔴 Off-season · Next season starts June 2030");
+  });
+
+  it("still computes the following year for an annual league", () => {
+    // MLS's window ends in December, so a late-December board is off-season
+    // with its start month already behind it — the +1 branch.
+    freezeAt("2026-12-20T12:00:00Z");
+    expect(render("mls", { ...BASE_MLS_DATA, recentGames: [] }))
+      .toContain("🔴 Off-season · Next season starts late February 2027");
+  });
+});
+
 describe("soccer renderer — player spotlight", () => {
   const SPOTLIGHT = {
     name: "Bukayo Saka",

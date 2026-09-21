@@ -10,6 +10,32 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **The FIFA World Cup, as `worldcup`.** All 48 qualified nations are configured with their ESPN
+  team id and country flag, so a board works for any of them rather than a handful of favourites,
+  and `player:` works here like every other soccer league (ESPN serves a full squad roster and
+  game log). The season window is the tournament itself, June 11 to July 19, so the board flips to
+  off-season the day after the final instead of reporting "season in progress" until December 31
+  — which is what ESPN's own window claims.
+- **A next-edition year for competitions that are not annual.** The status line computed "next
+  season starts `<month>␣<next calendar year>`", which for a quadrennial event named a year with
+  no tournament. Registries can now pin the next start year, and the World Cup names 2030.
+- **`DEMO_OPPONENT_POOL` for the soccer base class**, so a competition whose entrants are not
+  clubs can play its sample fixtures against the right kinds of team. Without it the World Cup
+  demo fielded Argentina against Chelsea and West Ham.
+- **A guard that every league has a runnable demo command**, and negative tests for the three
+  existing demo-consistency checks, which had only ever been called on data that satisfied them —
+  nothing proved they would fire at all.
+
+### Fixed
+
+- **Demo samples could render a win on a 0-0 scoreline.** The generator set the winner's margin
+  with a subtraction floored at zero, so a zero-point winner drew 0-0 — reachable wherever scores
+  start at zero, meaning every soccer and hockey league, though no committed gallery happened to
+  contain one until the World Cup demo did. A result that contradicts its own scoreline is now a
+  consistency failure checked across all 42 leagues, so no adapter can reintroduce it.
+
 ## [1.14.2] - 2026-09-20
 
 ### Added

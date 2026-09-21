@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-20T10:04:54.343Z",
+  "generatedAt": "2026-09-21T04:50:29.042Z",
   "teams": [
     {
       "league": "nba",
@@ -3641,6 +3641,342 @@
       "abbreviation": "PLZ",
       "name": "Viktoria Plzen",
       "id": "11706"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "ALG",
+      "name": "Algeria",
+      "id": "624"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "ARG",
+      "name": "Argentina",
+      "id": "202"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "AUS",
+      "name": "Australia",
+      "id": "628"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "AUT",
+      "name": "Austria",
+      "id": "474"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "BEL",
+      "name": "Belgium",
+      "id": "459"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "BIH",
+      "name": "Bosnia-Herzegovina",
+      "id": "452"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "BRA",
+      "name": "Brazil",
+      "id": "205"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "CAN",
+      "name": "Canada",
+      "id": "206"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "CIV",
+      "name": "Ivory Coast",
+      "id": "4789"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "COD",
+      "name": "Congo DR",
+      "id": "2850"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "COL",
+      "name": "Colombia",
+      "id": "208"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "CPV",
+      "name": "Cape Verde",
+      "id": "2597"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "CRO",
+      "name": "Croatia",
+      "id": "477"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "CUW",
+      "name": "Curaçao",
+      "id": "11678"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "CZE",
+      "name": "Czechia",
+      "id": "450"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "ECU",
+      "name": "Ecuador",
+      "id": "209"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "EGY",
+      "name": "Egypt",
+      "id": "2620"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "ENG",
+      "name": "England",
+      "id": "448"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "ESP",
+      "name": "Spain",
+      "id": "164"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "FRA",
+      "name": "France",
+      "id": "478"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "GER",
+      "name": "Germany",
+      "id": "481"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "GHA",
+      "name": "Ghana",
+      "id": "4469"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "HAI",
+      "name": "Haiti",
+      "id": "2654"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "IRN",
+      "name": "Iran",
+      "id": "469"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "IRQ",
+      "name": "Iraq",
+      "id": "4375"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "JOR",
+      "name": "Jordan",
+      "id": "2917"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "JPN",
+      "name": "Japan",
+      "id": "627"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "KOR",
+      "name": "South Korea",
+      "id": "451"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "KSA",
+      "name": "Saudi Arabia",
+      "id": "655"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "MAR",
+      "name": "Morocco",
+      "id": "2869"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "MEX",
+      "name": "Mexico",
+      "id": "203"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "NED",
+      "name": "Netherlands",
+      "id": "449"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "NOR",
+      "name": "Norway",
+      "id": "464"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "NZL",
+      "name": "New Zealand",
+      "id": "2666"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "PAN",
+      "name": "Panama",
+      "id": "2659"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "PAR",
+      "name": "Paraguay",
+      "id": "210"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "POR",
+      "name": "Portugal",
+      "id": "482"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "QAT",
+      "name": "Qatar",
+      "id": "4398"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "RSA",
+      "name": "South Africa",
+      "id": "467"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "SCO",
+      "name": "Scotland",
+      "id": "580"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "SEN",
+      "name": "Senegal",
+      "id": "654"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "SUI",
+      "name": "Switzerland",
+      "id": "475"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "SWE",
+      "name": "Sweden",
+      "id": "466"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "TUN",
+      "name": "Tunisia",
+      "id": "659"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "TUR",
+      "name": "Türkiye",
+      "id": "465"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "URU",
+      "name": "Uruguay",
+      "id": "212"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "USA",
+      "name": "United States",
+      "id": "660"
+    },
+    {
+      "league": "worldcup",
+      "leagueName": "FIFA World Cup",
+      "abbreviation": "UZB",
+      "name": "Uzbekistan",
+      "id": "2570"
     },
     {
       "league": "gleague",

@@ -70,7 +70,10 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
     // per-competition pool. Without this, a 30-game log repeats opponents and
     // the "next" fixture would duplicate a game already shown.
     const extras = opponentPool([this.LEAGUE_SLUG, "soccer"], []);
-    const pool = [...new Set([...extras, ...ownTeams])].filter((key) => key !== abbr);
+    // A competition whose entrants are not clubs (the World Cup fields
+    // nations) supplies its own pool. Empty for every club league, so their
+    // samples are unchanged.
+    const pool = [...new Set([...(this.DEMO_OPPONENT_POOL || []), ...extras, ...ownTeams])].filter((key) => key !== abbr);
     const log = buildGameLog({
       seed: `${this.LEAGUE_SLUG}-${abbr}`,
       opponents: pool,

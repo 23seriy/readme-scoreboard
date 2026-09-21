@@ -115,6 +115,20 @@ describe("README navigation links", () => {
     expect([...named].sort()).toEqual(LEAGUES.map((league) => league.name).sort());
   });
 
+  it("gives every supported league a runnable demo command", () => {
+    // This list drifted once already: it covered 23 of the 41 leagues, because
+    // nothing connected it to the registry. The keys are validated against the
+    // adapters elsewhere; this ties the list itself to the registry.
+    const start = readme.indexOf("### Demo Mode");
+    const end = readme.indexOf("### College competition examples", start);
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    const block = readme.slice(start, end);
+    LEAGUES.forEach(({ key }) => {
+      expect(block).toContain(`SPORT=${key} TEAM=`);
+    });
+  });
+
   it("keeps the machine-readable league manifest linked", () => {
     expect(readme).toContain("[`supported-leagues.json`](supported-leagues.json)");
     const manifest = require("../supported-leagues.json");

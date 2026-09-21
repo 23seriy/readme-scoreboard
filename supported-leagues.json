@@ -664,6 +664,37 @@
       ]
     },
     {
+      "key": "worldcup",
+      "name": "FIFA World Cup",
+      "category": "Soccer",
+      "entity": "team",
+      "endpoint": "soccer/fifa.world",
+      "apiSource": "ESPN public API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/teams",
+      "renderer": "soccer",
+      "emoji": "⚽",
+      "logo": {
+        "light": "https://a.espncdn.com/i/leaguelogos/soccer/500/4.png",
+        "dark": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/4.png"
+      },
+      "seasonWindow": {
+        "start": [
+          6,
+          11
+        ],
+        "end": [
+          7,
+          19
+        ],
+        "nextLabel": "June",
+        "nextStartYear": 2030
+      },
+      "fallback": [
+        "2026-06-11",
+        "2026-07-19"
+      ]
+    },
+    {
       "key": "gleague",
       "name": "NBA G League",
       "category": "Basketball",
