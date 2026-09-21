@@ -10,6 +10,18 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.14.2] - 2026-09-20
+
+### Added
+
+- **The supported-sports table now lists each league's `sport:` key.** The action takes that key
+  — `epl`, not the ESPN endpoint `soccer/eng.1` — and the README told readers to find it in this
+  table, but the column did not exist, so the documented lookup was not followable. It is there
+  now, and the intro league list is generated from the same registry as the table: it had been
+  claiming 41 leagues while naming 39.
+- **A `--demo` command for every league.** The local preview section listed 23 of the 41
+  leagues; the racing, tennis, and newer soccer leagues had no copy-ready command.
+
 ### Fixed
 
 - **Four league logos were broken and a fifth showed the wrong competition.** The Greek
@@ -567,7 +579,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.1...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.2...HEAD
+[1.14.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.1...v1.14.2
 [1.14.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.0...v1.14.1
 [1.14.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.1...v1.14.0
 [1.13.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.0...v1.13.1
