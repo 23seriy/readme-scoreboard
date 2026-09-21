@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-20T10:04:54.795Z",
+  "generatedAt": "2026-09-21T11:04:40.859Z",
   "players": [
     {
       "league": "atp",
@@ -21,8 +21,8 @@
       "id": "2865",
       "flag": "🇰🇿",
       "country": "Kazakhstan",
-      "rank": 17,
-      "points": 2425
+      "rank": 21,
+      "points": 2185
     },
     {
       "league": "atp",
@@ -43,7 +43,7 @@
       "id": "3700",
       "flag": "🇦🇷",
       "country": "Argentina",
-      "rank": 23,
+      "rank": 22,
       "points": 2130
     },
     {
@@ -65,7 +65,7 @@
       "id": "7833",
       "flag": "🇮🇹",
       "country": "Italy",
-      "rank": 22,
+      "rank": 20,
       "points": 2200
     },
     {
@@ -76,7 +76,7 @@
       "id": "3212",
       "flag": "🇪🇸",
       "country": "Spain",
-      "rank": 30,
+      "rank": 29,
       "points": 1680
     },
     {
@@ -131,7 +131,7 @@
       "id": "11745",
       "flag": "🇧🇷",
       "country": "Brazil",
-      "rank": 29,
+      "rank": 28,
       "points": 1750
     },
     {
@@ -164,7 +164,7 @@
       "id": "3754",
       "flag": "🇨🇿",
       "country": "Czechia",
-      "rank": 24,
+      "rank": 23,
       "points": 2120
     },
     {
@@ -176,7 +176,7 @@
       "flag": "🇺🇸",
       "country": "United States",
       "rank": 13,
-      "points": 2755
+      "points": 2715
     },
     {
       "league": "atp",
@@ -208,8 +208,8 @@
       "id": "3764",
       "flag": "🇮🇹",
       "country": "Italy",
-      "rank": 20,
-      "points": 2255
+      "rank": 24,
+      "points": 2100
     },
     {
       "league": "atp",
@@ -220,7 +220,7 @@
       "flag": "🇺🇸",
       "country": "United States",
       "rank": 16,
-      "points": 2485
+      "points": 2410
     },
     {
       "league": "atp",
@@ -230,7 +230,7 @@
       "id": "2964",
       "flag": "🇺🇸",
       "country": "United States",
-      "rank": 19,
+      "rank": 18,
       "points": 2325
     },
     {
@@ -241,7 +241,7 @@
       "id": "3511",
       "flag": "🇫🇷",
       "country": "France",
-      "rank": 32,
+      "rank": 31,
       "points": 1583
     },
     {
@@ -263,7 +263,7 @@
       "id": "2989",
       "flag": "🇳🇴",
       "country": "Norway",
-      "rank": 18,
+      "rank": 17,
       "points": 2335
     },
     {
@@ -296,8 +296,8 @@
       "id": "2970",
       "flag": "🇨🇱",
       "country": "Chile",
-      "rank": 28,
-      "points": 1778
+      "rank": 32,
+      "points": 1565
     },
     {
       "league": "atp",
@@ -318,7 +318,7 @@
       "id": "9376",
       "flag": "🇲🇨",
       "country": "Monaco",
-      "rank": 21,
+      "rank": 19,
       "points": 2250
     },
     {
