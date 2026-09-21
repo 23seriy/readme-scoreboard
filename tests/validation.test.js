@@ -33,7 +33,7 @@ describe("input validation", () => {
   });
 
   it("allows player: with sport: nba and a single team", () => {
-    expect(() => validateInputs({ ...base, player: "Luka Dončić", teamsCount: 1 })).not.toThrow();
+    expect(() => validateInputs({ ...base, player: "Luka Doncic", teamsCount: 1 })).not.toThrow();
   });
 
   it("allows player: with sport: mlb and a single team", () => {
@@ -124,7 +124,7 @@ describe("input validation", () => {
   });
 
   it("rejects player: together with multiple teams", () => {
-    expect(() => validateInputs({ ...base, player: "Luka Dončić", teamsCount: 2 }))
+    expect(() => validateInputs({ ...base, player: "Luka Doncic", teamsCount: 2 }))
       .toThrow(/player: is not supported together with teams:/);
   });
 

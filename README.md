@@ -20,7 +20,9 @@ The project currently supports **41 leagues**. The [support manifest](supported-
 [team directory](TEAM_DIRECTORY.md), and [player directory](PLAYER_DIRECTORY.md) are generated
 from the same registry used by the action.
 
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, the **Premier League**, **La Liga**, the **Bundesliga**, **Serie A**, **Ligue 1**, the **Primeira Liga**, the **Eredivisie**, the **WNBA**, **Liga MX**, the **Brasileirão**, the **NWSL**, the **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, the **Greek Super League**, the **Austrian Bundesliga**, the **Danish Superliga**, the **Norwegian Eliteserien**, the **Swedish Allsvenskan**, **UEFA Champions League**, **UEFA Europa League**, the **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, the **NASCAR Cup Series**, the **IndyCar Series**, the **Argentine Primera**, the **A-League Men**, the **Indian Super League**, and the **Chinese Super League** with more sports coming soon
+<!-- league-list:start -->
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, **Premier League**, **La Liga**, **Bundesliga**, **Serie A**, **Ligue 1**, **Primeira Liga**, **Eredivisie**, **WNBA**, **Liga MX**, **Brasileirão**, **NWSL**, **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, **NASCAR Cup Series**, **IndyCar Series**, **Argentine Primera**, **A-League Men**, **Indian Super League**, **Chinese Super League**, **Greek Super League**, **Austrian Bundesliga**, **Danish Superliga**, **Norwegian Eliteserien**, and **Swedish Allsvenskan** with more sports coming soon
+<!-- league-list:end -->
 
 ---
 
@@ -559,11 +561,29 @@ SPORT=brasileirao TEAM=PAL node src/index.js --demo
 SPORT=nwsl TEAM=GFC node src/index.js --demo
 SPORT=saudipro TEAM=HIL node src/index.js --demo
 SPORT=j1 TEAM=KAW node src/index.js --demo
+SPORT=scottish TEAM=CEL node src/index.js --demo
+SPORT=belgian TEAM=BRU node src/index.js --demo
+SPORT=ucl TEAM=RMA node src/index.js --demo
+SPORT=uel TEAM=MUN node src/index.js --demo
 SPORT=gleague TEAM=OSC node src/index.js --demo
 SPORT=ncaab TEAM=ARIZ node src/index.js --demo
 SPORT=ncaaw TEAM=UCONN node src/index.js --demo
 SPORT=ncaaf TEAM=ALA node src/index.js --demo
 SPORT=ncaa_hockey TEAM=BC node src/index.js --demo
+SPORT=f1 TEAM=LP node src/index.js --demo
+SPORT=atp TEAM=SIN node src/index.js --demo
+SPORT=wta TEAM=SAB node src/index.js --demo
+SPORT=nascar TEAM=HAM node src/index.js --demo
+SPORT=indycar TEAM=PAL node src/index.js --demo
+SPORT=argentina TEAM=RIV node src/index.js --demo
+SPORT=aleague TEAM=MCY node src/index.js --demo
+SPORT=isl TEAM=BFC node src/index.js --demo
+SPORT=csl TEAM=SIPG node src/index.js --demo
+SPORT=greek TEAM=OLY node src/index.js --demo
+SPORT=austria TEAM=SLZ node src/index.js --demo
+SPORT=denmark TEAM=KBH node src/index.js --demo
+SPORT=norway TEAM=BODO node src/index.js --demo
+SPORT=sweden TEAM=MAL node src/index.js --demo
 ```
 
 ### College competition examples
@@ -599,15 +619,29 @@ npm run leagues:manifest
 
 ## Adding a New Sport
 
-Each sport is a single adapter file extending `BaseFreeApiAdapter`. See `src/adapters/nhl.js` as the reference.
+A league is one registry entry plus one adapter file, and the filename has to match
+the league key — the action loads adapters with `require("./adapters/<key>")`.
 
-1. Create `src/adapters/your-sport.js` extending `BaseFreeApiAdapter`
-2. Implement abstract methods: `fetchTeam()`, `getGamesUrl()`, `parseGameResponse()`, `parseTeamResponse()`
-3. Define `TEAM_EMOJI`, `TEAM_IDS`, and `DEMO_TEAMS`
-4. Create tests in `tests/adapters/your-sport.test.js`
-5. Add the sport case to `src/renderers/markdown.js`
-6. Update this README
-7. Open a PR!
+1. Add the league to [`src/config/leagues.js`](src/config/leagues.js): key, name, category,
+   endpoint, renderer, emoji, entity, logo, season window, and fallback. This one entry
+   drives the supported-sports table, the manifest, and both generated directories.
+2. Create `src/adapters/<key>.js`, extending the base class that matches the data source:
+   `BaseSoccerAdapter` (soccer), `BaseEspnLeagueAdapter` (ESPN league endpoints),
+   `BaseRacingDriverAdapter` (driver standings), or `BaseFreeApiAdapter` for a league with
+   its own official API, such as the NHL or MLB.
+3. Add tests under `tests/adapters/`, and add a `--demo` line to the list above so the
+   league is covered by the local preview.
+4. Only if the league needs its own rendering, add a case to `src/renderers/markdown.js`
+   and set `renderer` in the registry entry to match.
+
+Adapters come in two shapes and both are supported: a class instance
+([`src/adapters/nhl.js`](src/adapters/nhl.js)) or a plain object
+([`src/adapters/nba.js`](src/adapters/nba.js)). The base classes supply the contract —
+`fetchData`, `getDemoData`, `getLogoUrl`, `TEAM_EMOJI`, `TEAM_IDS`, and `DEMO_TEAMS` —
+plus the optional player-spotlight methods.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow, including the generated
+files you may need to refresh.
 
 ---
 

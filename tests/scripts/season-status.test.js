@@ -3,6 +3,7 @@ const {
   formatSeasonCell,
   normalizeSeasonWindow,
   updateSupportedSportsTable,
+  updateLeagueList,
 } = require("../../scripts/update-season-status");
 const fs = require("fs");
 const path = require("path");
@@ -218,5 +219,26 @@ describe("season status updater", () => {
     expect(updated).toContain("| 🏀&nbsp;Basketball | NBA | `nba` | 🟢 In progress · ends 2027-06-30 | [`basketball/nba`](https://example.com) |");
     expect(updated).toContain("before\n<!-- supported-sports:start -->");
     expect(updated).toContain("<!-- supported-sports:end -->\nafter");
+  });
+
+  it("generates the intro league list from the same rows", () => {
+    const readme = [
+      "before",
+      "<!-- league-list:start -->",
+      "Currently supports **stale**, **outdated** with more sports coming soon",
+      "<!-- league-list:end -->",
+      "after",
+    ].join("\n");
+
+    const one = updateLeagueList(readme, [{ name: "NBA" }]);
+    expect(one).toContain("Currently supports **NBA** with more sports coming soon");
+
+    const two = updateLeagueList(readme, [{ name: "NBA" }, { name: "MLB" }]);
+    expect(two).toContain("Currently supports **NBA** and **MLB** with more sports coming soon");
+
+    const three = updateLeagueList(readme, [{ name: "NBA" }, { name: "MLB" }, { name: "NFL" }]);
+    expect(three).toContain("Currently supports **NBA**, **MLB**, and **NFL** with more sports coming soon");
+    expect(three).toContain("before\n<!-- league-list:start -->");
+    expect(three).toContain("<!-- league-list:end -->\nafter");
   });
 });
