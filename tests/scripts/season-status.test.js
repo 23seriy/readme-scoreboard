@@ -211,11 +211,11 @@ describe("season status updater", () => {
       "after",
     ].join("\n");
     const updated = updateSupportedSportsTable(readme, [
-      { name: "NBA", sport: "Basketball", season: "🟢 In progress · ends 2027-06-30", endpoint: "[`basketball/nba`](https://example.com)" },
+      { name: "NBA", sport: "Basketball", key: "nba", season: "🟢 In progress · ends 2027-06-30", endpoint: "[`basketball/nba`](https://example.com)" },
     ]);
 
-    expect(updated).toContain("| Sport | League | Season | Endpoint |");
-    expect(updated).toContain("| 🏀&nbsp;Basketball | NBA | 🟢 In progress · ends 2027-06-30 | [`basketball/nba`](https://example.com) |");
+    expect(updated).toContain("| Sport | League | Key | Season | Endpoint |");
+    expect(updated).toContain("| 🏀&nbsp;Basketball | NBA | `nba` | 🟢 In progress · ends 2027-06-30 | [`basketball/nba`](https://example.com) |");
     expect(updated).toContain("before\n<!-- supported-sports:start -->");
     expect(updated).toContain("<!-- supported-sports:end -->\nafter");
   });
