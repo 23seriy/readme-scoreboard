@@ -34,6 +34,7 @@ gallery** so the new league gets its own showcase file.
 - [Belgian Pro League](belgian.md) — Soccer
 - [UEFA Champions League](ucl.md) — Soccer
 - [UEFA Europa League](uel.md) — Soccer
+- [FIFA World Cup](worldcup.md) — Soccer
 - [NBA G League](gleague.md) — Basketball
 - [NCAA Men's Basketball](ncaab.md) — Basketball
 - [NCAA Women's Basketball](ncaaw.md) — Basketball

@@ -16,12 +16,12 @@
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **41 leagues**. The [support manifest](supported-leagues.json),
+The project currently supports **42 leagues**. The [support manifest](supported-leagues.json),
 [team directory](TEAM_DIRECTORY.md), and [player directory](PLAYER_DIRECTORY.md) are generated
 from the same registry used by the action.
 
 <!-- league-list:start -->
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, **Premier League**, **La Liga**, **Bundesliga**, **Serie A**, **Ligue 1**, **Primeira Liga**, **Eredivisie**, **WNBA**, **Liga MX**, **Brasileirão**, **NWSL**, **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, **NASCAR Cup Series**, **IndyCar Series**, **Argentine Primera**, **A-League Men**, **Indian Super League**, **Chinese Super League**, **Greek Super League**, **Austrian Bundesliga**, **Danish Superliga**, **Norwegian Eliteserien**, and **Swedish Allsvenskan** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, **Premier League**, **La Liga**, **Bundesliga**, **Serie A**, **Ligue 1**, **Primeira Liga**, **Eredivisie**, **WNBA**, **Liga MX**, **Brasileirão**, **NWSL**, **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, **FIFA World Cup**, **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, **NASCAR Cup Series**, **IndyCar Series**, **Argentine Primera**, **A-League Men**, **Indian Super League**, **Chinese Super League**, **Greek Super League**, **Austrian Bundesliga**, **Danish Superliga**, **Norwegian Eliteserien**, and **Swedish Allsvenskan** with more sports coming soon
 <!-- league-list:end -->
 
 ---
@@ -38,7 +38,7 @@ See rendered output from several sports and every input option without running
 anything. Open the [examples gallery](examples/) to preview real boards (NBA,
 MLB, NFL, NHL, Premier League, MLS, UEFA Champions League, College Football,
 Formula 1, ATP Tennis, and WTA Tennis) plus demos of the `title:`, `teams:` (multi-team),
-`compact:`, and `badge:` options. For every one of the 41 supported leagues,
+`compact:`, and `badge:` options. For every one of the 42 supported leagues,
 see the [league showcase](examples/leagues/) — one file per league, built
 from live data and refreshed daily, showing the default board plus the
 `title:`, `compact:`, and `badge:` options. Or browse the league's
@@ -486,6 +486,7 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/6.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/6.png" alt="Belgian Pro League logo" height="20"></picture> Belgian Pro League | `belgian` | 🟢 In progress · ends 2027-07-01 | [`soccer/bel.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2.png" alt="UEFA Champions League logo" height="20"></picture> UEFA Champions League | `ucl` | 🟢 In progress · ends 2027-07-01 | [`soccer/uefa.champions`](https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2310.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2310.png" alt="UEFA Europa League logo" height="20"></picture> UEFA Europa League | `uel` | 🟢 In progress · ends 2027-07-01 | [`soccer/uefa.europa`](https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/teams) |
+| ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/4.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/4.png" alt="FIFA World Cup logo" height="20"></picture> FIFA World Cup | `worldcup` | 🟢 In progress · ends 2026-12-31 | [`soccer/fifa.world`](https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/teams) |
 | 🏀&nbsp;Basketball | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png" alt="NBA G League logo" height="20"></picture> NBA G League | `gleague` | 🔴 Off-season · starts 2026-12-19 | [`basketball/nba-development`](https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development/teams) |
 | 🏀&nbsp;Basketball | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png" alt="NCAA Men's Basketball logo" height="20"></picture> NCAA Men's Basketball | `ncaab` | 🔴 Off-season · starts 2026-11-02 | [`basketball/mens-college-basketball`](https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams) |
 | 🏀&nbsp;Basketball | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png" alt="NCAA Women's Basketball logo" height="20"></picture> NCAA Women's Basketball | `ncaaw` | 🔴 Off-season · starts 2026-11-02 | [`basketball/womens-college-basketball`](https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams) |
@@ -569,6 +570,7 @@ SPORT=scottish TEAM=CEL node src/index.js --demo
 SPORT=belgian TEAM=BRU node src/index.js --demo
 SPORT=ucl TEAM=RMA node src/index.js --demo
 SPORT=uel TEAM=MUN node src/index.js --demo
+SPORT=worldcup TEAM=ARG node src/index.js --demo
 SPORT=gleague TEAM=OSC node src/index.js --demo
 SPORT=ncaab TEAM=ARIZ node src/index.js --demo
 SPORT=ncaaw TEAM=UCONN node src/index.js --demo

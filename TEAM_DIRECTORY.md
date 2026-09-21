@@ -676,6 +676,61 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | TSG Hoffenheim | `TSG` | 7911 |
 | Union St.-Gilloise | `USG` | 5807 |
 
+## FIFA World Cup
+
+**Soccer**
+
+| Team | Abbreviation | ID |
+|------|--------------|----|
+| Algeria | `ALG` | 624 |
+| Argentina | `ARG` | 202 |
+| Australia | `AUS` | 628 |
+| Austria | `AUT` | 474 |
+| Belgium | `BEL` | 459 |
+| Bosnia-Herzegovina | `BIH` | 452 |
+| Brazil | `BRA` | 205 |
+| Canada | `CAN` | 206 |
+| Ivory Coast | `CIV` | 4789 |
+| Congo DR | `COD` | 2850 |
+| Colombia | `COL` | 208 |
+| Cape Verde | `CPV` | 2597 |
+| Croatia | `CRO` | 477 |
+| Curaçao | `CUW` | 11678 |
+| Czechia | `CZE` | 450 |
+| Ecuador | `ECU` | 209 |
+| Egypt | `EGY` | 2620 |
+| England | `ENG` | 448 |
+| Spain | `ESP` | 164 |
+| France | `FRA` | 478 |
+| Germany | `GER` | 481 |
+| Ghana | `GHA` | 4469 |
+| Haiti | `HAI` | 2654 |
+| Iran | `IRN` | 469 |
+| Iraq | `IRQ` | 4375 |
+| Jordan | `JOR` | 2917 |
+| Japan | `JPN` | 627 |
+| South Korea | `KOR` | 451 |
+| Saudi Arabia | `KSA` | 655 |
+| Morocco | `MAR` | 2869 |
+| Mexico | `MEX` | 203 |
+| Netherlands | `NED` | 449 |
+| Norway | `NOR` | 464 |
+| New Zealand | `NZL` | 2666 |
+| Panama | `PAN` | 2659 |
+| Paraguay | `PAR` | 210 |
+| Portugal | `POR` | 482 |
+| Qatar | `QAT` | 4398 |
+| South Africa | `RSA` | 467 |
+| Scotland | `SCO` | 580 |
+| Senegal | `SEN` | 654 |
+| Switzerland | `SUI` | 475 |
+| Sweden | `SWE` | 466 |
+| Tunisia | `TUN` | 659 |
+| Türkiye | `TUR` | 465 |
+| Uruguay | `URU` | 212 |
+| United States | `USA` | 660 |
+| Uzbekistan | `UZB` | 2570 |
+
 ## NBA G League
 
 **Basketball**

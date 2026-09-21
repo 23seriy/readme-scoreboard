@@ -100,11 +100,17 @@ function buildGameLog({
       : result === "loss"
         ? teamScore + 1 + Math.floor(rng() * 13)
         : teamScore;
+    // The margin above floors at 0, so a zero-point winner would "win" 0-0.
+    // That is only reachable where scores start at 0 — soccer and hockey — but
+    // it produced a board that contradicted itself. Nudge the winner ahead
+    // instead of re-rolling, which would shift the random stream and change
+    // every other sample.
+    const finalTeamScore = result === "win" && teamScore <= oppScore ? oppScore + 1 : teamScore;
     const d = new Date(DEMO_NOW);
     d.setUTCDate(d.getUTCDate() - (total - 1 - index) * 7);
     return {
       date: d.toISOString(),
-      teamScore,
+      teamScore: finalTeamScore,
       oppScore,
       oppAbbr: pool[index % pool.length],
       isHome: rng() > 0.5,
@@ -215,6 +221,25 @@ function checkDemoConsistency(data) {
       problems.push("spotlight last-game date matches no recent game");
     }
   }
+
+  // 4. A result must not contradict its own scoreline. The sample generator
+  //    once produced "W 0-0" in soccer, because the winning margin was
+  //    floored at zero.
+  games.forEach((game) => {
+    const { teamScore, oppScore, won, drew } = game;
+    if (typeof teamScore !== "number" || typeof oppScore !== "number") return;
+    // Only judge games that actually declare a result: a game carrying scores
+    // but no flags is not a claim that anything won.
+    if (won === true && teamScore <= oppScore) {
+      problems.push(`game ${String(game.date).slice(0, 10)} is a win at ${teamScore}-${oppScore}`);
+    }
+    if (won === false && drew === false && teamScore >= oppScore) {
+      problems.push(`game ${String(game.date).slice(0, 10)} is a loss at ${teamScore}-${oppScore}`);
+    }
+    if (drew === true && teamScore !== oppScore) {
+      problems.push(`game ${String(game.date).slice(0, 10)} is a draw at ${teamScore}-${oppScore}`);
+    }
+  });
 
   return problems;
 }

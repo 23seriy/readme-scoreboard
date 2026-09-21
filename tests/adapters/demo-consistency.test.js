@@ -66,6 +66,74 @@ describe("demo data never depends on the wall clock", () => {
   });
 });
 
+describe("demo consistency catches every contradiction it claims to", () => {
+  // checks 1–3 had no negative test: they were only ever called on data that
+  // satisfied them, so nothing proved they would fire at all.
+  it("rejects a record that covers fewer games than the board shows", () => {
+    expect(checkDemoConsistency({
+      record: { wins: 1, losses: 0, draws: 0 },
+      recentGames: [{ date: "2026-01-01", won: true }, { date: "2026-01-08", won: true }],
+    })).toEqual([expect.stringContaining("record covers only 1")]);
+  });
+
+  it("rejects a next opponent that was just played", () => {
+    expect(checkDemoConsistency({
+      record: { wins: 1, losses: 0, draws: 0 },
+      recentGames: [{ date: "2026-01-01", oppAbbr: "KC", won: true }],
+      nextGame: { opponent: "KC" },
+    })).toEqual([expect.stringContaining("also appears in recent games")]);
+  });
+
+  it("rejects a spotlight last game that is not among the recent games", () => {
+    expect(checkDemoConsistency({
+      record: { wins: 1, losses: 0, draws: 0 },
+      recentGames: [{ date: "2026-01-01T00:00:00Z", won: true }],
+      spotlight: { lastGame: { date: "2025-12-01T00:00:00Z" } },
+    })).toEqual([expect.stringContaining("matches no recent game")]);
+  });
+
+  it("reports missing data instead of passing silently", () => {
+    expect(checkDemoConsistency(null)).toEqual(["no data returned"]);
+  });
+});
+
+describe("demo scorelines never contradict the result", () => {
+  // The sample generator floored the winning margin at zero, so a zero-point
+  // winner rendered as "W 0-0". That is only reachable where scores start at
+  // 0 — soccer and hockey — and it shipped in every one of those galleries
+  // until the World Cup's demo made it obvious. These cases prove the guard
+  // rejects that shape rather than merely not noticing it.
+  function withGame(game) {
+    return { record: { wins: 1, losses: 0, draws: 0 }, recentGames: [{ date: "2026-01-04T00:00:00Z", ...game }] };
+  }
+
+  it("rejects a win that was not won", () => {
+    expect(checkDemoConsistency(withGame({ teamScore: 0, oppScore: 0, won: true, drew: false })))
+      .toEqual([expect.stringContaining("is a win at 0-0")]);
+  });
+
+  it("rejects a loss with a winning score", () => {
+    expect(checkDemoConsistency(withGame({ teamScore: 3, oppScore: 1, won: false, drew: false })))
+      .toEqual([expect.stringContaining("is a loss at 3-1")]);
+  });
+
+  it("rejects a draw with unequal scores", () => {
+    expect(checkDemoConsistency(withGame({ teamScore: 2, oppScore: 1, won: false, drew: true })))
+      .toEqual([expect.stringContaining("is a draw at 2-1")]);
+  });
+
+  it("accepts results that match their scoreline", () => {
+    expect(checkDemoConsistency(withGame({ teamScore: 1, oppScore: 0, won: true, drew: false }))).toEqual([]);
+    expect(checkDemoConsistency(withGame({ teamScore: 1, oppScore: 1, won: false, drew: true }))).toEqual([]);
+    expect(checkDemoConsistency(withGame({ teamScore: 0, oppScore: 2, won: false, drew: false }))).toEqual([]);
+  });
+
+  it("ignores games that declare no result", () => {
+    // Scores without flags are not a claim that anything won.
+    expect(checkDemoConsistency(withGame({ teamScore: 1, oppScore: 1 }))).toEqual([]);
+  });
+});
+
 // The curated CASES list above missed `wnba`, which is how a Date.now() leak in
 // its demo board went unnoticed until its committed example began churning. This
 // block derives a case from every league instead, and uses fake timers so that
