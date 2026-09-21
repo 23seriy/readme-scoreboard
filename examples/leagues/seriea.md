@@ -14,11 +14,12 @@ Team: **ATA** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing: 2026-2027 Italian Serie A · 11
 
-📊 2026 Record: 2W - 2L - 0D  (6 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 2W - 3L - 0D  (6 pts)
+   ██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-2 @ JUV   (Sep 20, 2026)
 ❌ L 1-2 vs CAG   (Sep 12, 2026)
 ❌ L 1-2 @ ROMA  (Sep 5, 2026)
 ✅ W 1-0 vs BOL   (Aug 31, 2026)
@@ -39,11 +40,12 @@ The `title:` input replaces the default heading.
 
 🏅 Standing: 2026-2027 Italian Serie A · 11
 
-📊 2026 Record: 2W - 2L - 0D  (6 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 2W - 3L - 0D  (6 pts)
+   ██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-2 @ JUV   (Sep 20, 2026)
 ❌ L 1-2 vs CAG   (Sep 12, 2026)
 ❌ L 1-2 @ ROMA  (Sep 5, 2026)
 ✅ W 1-0 vs BOL   (Aug 31, 2026)
@@ -63,8 +65,8 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing: 2026-2027 Italian Serie A · 11
 
-📊 2026 Record: 2W - 2L - 0D  (6 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 2W - 3L - 0D  (6 pts)
+   ██████████░░░░░░░░░░░░░░░
 
 
 

@@ -13,18 +13,18 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs LAA (Sep 22)
+📅 Next: vs LAA (Sep 21)
 
-📊 2026 Record: 61W - 94L (39.4%)
+📊 2026 Record: 61W - 95L (39.1%)
    █████████▊░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L  6-12 @ CLE (Sep 19, 2026)
-❌ L  3-5  @ CLE (Sep 18, 2026)
-❌ L  1-10 @ TB  (Sep 17, 2026)
-❌ L  3-4  @ TB  (Sep 16, 2026)
-❌ L  1-2  @ TB  (Sep 15, 2026)
+❌ L  0-1  @ CLE (Sep 19, 2026)
+❌ L  6-12 @ CLE (Sep 18, 2026)
+❌ L  3-5  @ CLE (Sep 17, 2026)
+❌ L  1-10 @ TB  (Sep 16, 2026)
+❌ L  3-4  @ TB  (Sep 15, 2026)
 ```
 
 ## Custom title
@@ -40,18 +40,18 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs LAA (Sep 22)
+📅 Next: vs LAA (Sep 21)
 
-📊 2026 Record: 61W - 94L (39.4%)
+📊 2026 Record: 61W - 95L (39.1%)
    █████████▊░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L  6-12 @ CLE (Sep 19, 2026)
-❌ L  3-5  @ CLE (Sep 18, 2026)
-❌ L  1-10 @ TB  (Sep 17, 2026)
-❌ L  3-4  @ TB  (Sep 16, 2026)
-❌ L  1-2  @ TB  (Sep 15, 2026)
+❌ L  0-1  @ CLE (Sep 19, 2026)
+❌ L  6-12 @ CLE (Sep 18, 2026)
+❌ L  3-5  @ CLE (Sep 17, 2026)
+❌ L  1-10 @ TB  (Sep 16, 2026)
+❌ L  3-4  @ TB  (Sep 15, 2026)
 ```
 
 ## Compact mode
@@ -66,9 +66,9 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs LAA (Sep 22)
+📅 Next: vs LAA (Sep 21)
 
-📊 2026 Record: 61W - 94L (39.4%)
+📊 2026 Record: 61W - 95L (39.1%)
    █████████▊░░░░░░░░░░░░░░░
 
 

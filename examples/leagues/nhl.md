@@ -13,18 +13,9 @@ Western Conference · Pacific Division
 🔴 Off-season · Next season starts October 2026
 
 🏅 Standing: Pacific · 3
+📅 Next: vs LAK (Sep 23)
 
-📊 2025-2026 Record: 43W - 39L (52.4%)
-   █████████████░░░░░░░░░░░░
-
-**📅 Recent Games:**
-```
-❌ L   1-5   vs VGK (May 15, 2026) [Playoffs]
-❌ L   2-3   @ VGK (May 13, 2026) [Playoffs]
-✅ W   4-3   vs VGK (May 11, 2026) [Playoffs]
-❌ L   2-6   vs VGK (May 9, 2026) [Playoffs]
-✅ W   3-1   @ VGK (May 7, 2026) [Playoffs]
-```
+📅 No recent games found
 
 ## Custom title
 
@@ -39,18 +30,9 @@ Western Conference · Pacific Division
 🔴 Off-season · Next season starts October 2026
 
 🏅 Standing: Pacific · 3
+📅 Next: vs LAK (Sep 23)
 
-📊 2025-2026 Record: 43W - 39L (52.4%)
-   █████████████░░░░░░░░░░░░
-
-**📅 Recent Games:**
-```
-❌ L   1-5   vs VGK (May 15, 2026) [Playoffs]
-❌ L   2-3   @ VGK (May 13, 2026) [Playoffs]
-✅ W   4-3   vs VGK (May 11, 2026) [Playoffs]
-❌ L   2-6   vs VGK (May 9, 2026) [Playoffs]
-✅ W   3-1   @ VGK (May 7, 2026) [Playoffs]
-```
+📅 No recent games found
 
 ## Compact mode
 
@@ -64,11 +46,9 @@ Western Conference · Pacific Division
 🔴 Off-season · Next season starts October 2026
 
 🏅 Standing: Pacific · 3
+📅 Next: vs LAK (Sep 23)
 
-📊 2025-2026 Record: 43W - 39L (52.4%)
-   █████████████░░░░░░░░░░░░
-
-
+📅 No recent games found
 
 ## Badge mode
 

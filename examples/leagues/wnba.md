@@ -13,7 +13,7 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
-📅 Next: @ NY (Sep 22)
+📅 Next: @ NY (Sep 21)
 
 📊 2026 Record: 28W - 14L (66.7%)
    ████████████████▋░░░░░░░░
@@ -24,7 +24,7 @@ Eastern Conference
 ✅ W 103-59  vs CON (Sep 17, 2026)
 ✅ W  89-81  vs MIN (Aug 30, 2026)
 ❌ L  83-101 vs POR (Aug 28, 2026)
-✅ W  78-71  @ LA  (Aug 25, 2026)
+✅ W  78-71  @ LA  (Aug 24, 2026)
 ```
 
 ## Custom title
@@ -40,7 +40,7 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
-📅 Next: @ NY (Sep 22)
+📅 Next: @ NY (Sep 21)
 
 📊 2026 Record: 28W - 14L (66.7%)
    ████████████████▋░░░░░░░░
@@ -51,7 +51,7 @@ Eastern Conference
 ✅ W 103-59  vs CON (Sep 17, 2026)
 ✅ W  89-81  vs MIN (Aug 30, 2026)
 ❌ L  83-101 vs POR (Aug 28, 2026)
-✅ W  78-71  @ LA  (Aug 25, 2026)
+✅ W  78-71  @ LA  (Aug 24, 2026)
 ```
 
 ## Compact mode
@@ -66,7 +66,7 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
-📅 Next: @ NY (Sep 22)
+📅 Next: @ NY (Sep 21)
 
 📊 2026 Record: 28W - 14L (66.7%)
    ████████████████▋░░░░░░░░

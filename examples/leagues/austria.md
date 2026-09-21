@@ -4,7 +4,7 @@ Team: **ALU** · Category: Soccer · Data source: ESPN public API
 
 ## Default
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/207.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/207.png" alt="Austrian Bundesliga" height="28" align="top"></picture> My Favourite Austrian Bundesliga Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/5.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/5.png" alt="Austrian Bundesliga" height="28" align="top"></picture> My Favourite Austrian Bundesliga Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams)
 
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21540.png" alt="Austria Lustenau logo" width="72" align="right" />
 
@@ -12,7 +12,7 @@ Team: **ALU** · Category: Soccer · Data source: ESPN public API
 2026-27 
 🟢 Season in progress
 
-🏅 Standing: 2026-27  · 7
+🏅 Standing: 2026-27  · 9
 
 📊 2026 Record: 2W - 3L - 2D  (8 pts)
    ██████████▋░░░░░░░░░░░░░░
@@ -30,7 +30,7 @@ Team: **ALU** · Category: Soccer · Data source: ESPN public API
 
 The `title:` input replaces the default heading.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/207.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/207.png" alt="Austrian Bundesliga" height="28" align="top"></picture> My Austria Lustenau](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/5.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/5.png" alt="Austrian Bundesliga" height="28" align="top"></picture> My Austria Lustenau](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams)
 
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21540.png" alt="Austria Lustenau logo" width="72" align="right" />
 
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 2026-27 
 🟢 Season in progress
 
-🏅 Standing: 2026-27  · 7
+🏅 Standing: 2026-27  · 9
 
 📊 2026 Record: 2W - 3L - 2D  (8 pts)
    ██████████▋░░░░░░░░░░░░░░
@@ -56,14 +56,14 @@ The `title:` input replaces the default heading.
 
 The `compact: true` input drops the logo and recent-game details.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/207.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/207.png" alt="Austrian Bundesliga" height="28" align="top"></picture> My Favourite Austrian Bundesliga Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/5.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/5.png" alt="Austrian Bundesliga" height="28" align="top"></picture> My Favourite Austrian Bundesliga Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams)
 
 
 ### 🟤 Austria Lustenau (ALU)
 2026-27 
 🟢 Season in progress
 
-🏅 Standing: 2026-27  · 7
+🏅 Standing: 2026-27  · 9
 
 📊 2026 Record: 2W - 3L - 2D  (8 pts)
    ██████████▋░░░░░░░░░░░░░░
