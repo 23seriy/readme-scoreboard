@@ -4,6 +4,7 @@ const {
   normalizeSeasonWindow,
   updateSupportedSportsTable,
   updateLeagueList,
+  SEASON_START_OVERRIDES,
 } = require("../../scripts/update-season-status");
 const fs = require("fs");
 const path = require("path");
@@ -199,6 +200,22 @@ describe("season status updater", () => {
       startDate: "2026-07-07",
       endDate: "2027-06-05",
     });
+  });
+
+  it("keeps the season start overrides in step with the registry fallbacks", () => {
+    // The override normalizes a season to the first official fixture when ESPN's
+    // window opens with preseason activity. The registry's fallback[0] is the
+    // same date, used when the API is unavailable. They are duplicated by
+    // design, so this guard keeps one from moving without the other.
+    const { LEAGUES } = require("../../src/config/leagues");
+
+    const names = Object.keys(SEASON_START_OVERRIDES);
+    expect(names.length).toBeGreaterThan(0);
+    for (const name of names) {
+      const league = LEAGUES.find((entry) => entry.name === name);
+      expect(league).toBeDefined();
+      expect(SEASON_START_OVERRIDES[name]).toBe(`${league.fallback[0]}T00:00:00Z`);
+    }
   });
 
   it("updates only the marked supported-sports table", () => {

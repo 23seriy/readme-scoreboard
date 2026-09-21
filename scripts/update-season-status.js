@@ -8,98 +8,29 @@ const END_MARKER = "<!-- supported-sports:end -->";
 const LEAGUE_LIST_START = "<!-- league-list:start -->";
 const LEAGUE_LIST_END = "<!-- league-list:end -->";
 
-// ESPN exposes the current season window on each league scoreboard response.
-// Keeping this map here makes the daily job data-driven without changing the
-// adapters that power the action itself.
-const LEAGUES = [
-  ["Basketball", "NBA", "basketball/nba"],
-  ["Baseball", "MLB", "baseball/mlb"],
-  ["Football", "NFL", "football/nfl"],
-  ["Hockey", "NHL", "hockey/nhl"],
-  ["Soccer", "MLS", "soccer/usa.1"],
-  ["Soccer", "Premier League", "soccer/eng.1"],
-  ["Soccer", "La Liga", "soccer/esp.1"],
-  ["Soccer", "Bundesliga", "soccer/ger.1"],
-  ["Soccer", "Serie A", "soccer/ita.1"],
-  ["Soccer", "Ligue 1", "soccer/fra.1"],
-  ["Soccer", "Primeira Liga", "soccer/por.1"],
-  ["Soccer", "Eredivisie", "soccer/ned.1"],
-  ["Basketball", "WNBA", "basketball/wnba"],
-  ["Soccer", "Liga MX", "soccer/mex.1"],
-  ["Soccer", "Brasileirão", "soccer/bra.1"],
-  ["Soccer", "NWSL", "soccer/usa.nwsl"],
-  ["Soccer", "Saudi Pro League", "soccer/ksa.1"],
-  ["Soccer", "J1 League", "soccer/jpn.1"],
-  ["Soccer", "Scottish Premiership", "soccer/sco.1"],
-  ["Soccer", "Belgian Pro League", "soccer/bel.1"],
-  ["Soccer", "UEFA Champions League", "soccer/uefa.champions"],
-  ["Soccer", "UEFA Europa League", "soccer/uefa.europa"],
-  ["Basketball", "NBA G League", "basketball/nba-development"],
-  ["Basketball", "NCAA Men's Basketball", "basketball/mens-college-basketball"],
-  ["Basketball", "NCAA Women's Basketball", "basketball/womens-college-basketball"],
-  ["Football", "College Football", "football/college-football"],
-  ["Hockey", "NCAA Men's Ice Hockey", "hockey/mens-college-hockey"],
-  ["Tennis", "ATP Tennis", "tennis/atp"],
-];
-
-const LEAGUE_LOGOS = {
-  NBA: ["teamlogos/leagues/500/nba.png", "teamlogos/leagues/500-dark/nba.png"],
-  MLB: ["teamlogos/leagues/500/mlb.png", "teamlogos/leagues/500-dark/mlb.png"],
-  NFL: ["teamlogos/leagues/500/nfl.png", "teamlogos/leagues/500-dark/nfl.png"],
-  NHL: ["teamlogos/leagues/500/nhl.png", "teamlogos/leagues/500-dark/nhl.png"],
-  WNBA: ["teamlogos/leagues/500/wnba.png", "teamlogos/leagues/500-dark/wnba.png"],
-  "NBA G League": ["teamlogos/leagues/500/nba_gleague.png", "teamlogos/leagues/500-dark/nba_gleague.png"],
-  MLS: ["leaguelogos/soccer/500/19.png", "leaguelogos/soccer/500-dark/19.png"],
-  "Premier League": ["leaguelogos/soccer/500/23.png", "leaguelogos/soccer/500-dark/23.png"],
-  "La Liga": ["leaguelogos/soccer/500/15.png", "leaguelogos/soccer/500-dark/15.png"],
-  Bundesliga: ["leaguelogos/soccer/500/10.png", "leaguelogos/soccer/500-dark/10.png"],
-  "Serie A": ["leaguelogos/soccer/500/12.png", "leaguelogos/soccer/500-dark/12.png"],
-  "Ligue 1": ["leaguelogos/soccer/500/9.png", "leaguelogos/soccer/500-dark/9.png"],
-  "Primeira Liga": ["leaguelogos/soccer/500/14.png", "leaguelogos/soccer/500-dark/14.png"],
-  Eredivisie: ["leaguelogos/soccer/500/11.png", "leaguelogos/soccer/500-dark/11.png"],
-  "Liga MX": ["leaguelogos/soccer/500/22.png", "leaguelogos/soccer/500-dark/22.png"],
-  Brasileirão: ["leaguelogos/soccer/500/85.png", "leaguelogos/soccer/500-dark/85.png"],
-  NWSL: ["leaguelogos/soccer/500/2323.png", "leaguelogos/soccer/500-dark/2323.png"],
-  "Saudi Pro League": ["leaguelogos/soccer/500/2488.png", "leaguelogos/soccer/500-dark/2488.png"],
-  "J1 League": ["leaguelogos/soccer/500/2199.png", "leaguelogos/soccer/500-dark/2199.png"],
-  "Scottish Premiership": ["leaguelogos/soccer/500/45.png", "leaguelogos/soccer/500-dark/45.png"],
-  "Belgian Pro League": ["leaguelogos/soccer/500/6.png", "leaguelogos/soccer/500-dark/6.png"],
-  "UEFA Champions League": ["leaguelogos/soccer/500/2.png", "leaguelogos/soccer/500-dark/2.png"],
-  "UEFA Europa League": ["leaguelogos/soccer/500/2310.png", "leaguelogos/soccer/500-dark/2310.png"],
-  "NCAA Men's Basketball": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"],
-  "NCAA Women's Basketball": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"],
-  "College Football": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png"],
-  "NCAA Men's Ice Hockey": ["https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png", "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png"],
-  "ATP Tennis": ["https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png", "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"],
-};
+// League metadata is owned by the registry in src/config/leagues.js, so these
+// lookups are derived from it instead of kept as a second, drifting copy.
+// Adding a league to the registry is enough to give it a table row and a logo.
+const LEAGUES = LEAGUE_REGISTRY.map(({ category, name, endpoint, key }) => [category, name, endpoint, key]);
+const LEAGUE_LOGOS = Object.fromEntries(
+  LEAGUE_REGISTRY.map((league) => [league.name, [league.logo.light, league.logo.dark]]),
+);
 
 // Conservative fallback windows keep the table useful if an upstream API is
 // temporarily unavailable. The next successful daily run replaces these with
 // the API's exact season dates.
-const FALLBACK_WINDOWS = {
-  NBA: ["2026-10-20", "2027-06-26"], MLB: ["2026-03-25", "2026-11-12"],
-  NFL: ["2026-09-09", "2027-02-16"], NHL: ["2026-09-29", "2027-07-01"],
-  MLS: ["2026-02-21", "2026-12-31"], "Premier League": ["2026-08-21", "2027-06-01"],
-  "La Liga": ["2026-06-01", "2027-06-01"], Bundesliga: ["2026-07-01", "2027-07-01"],
-  "Serie A": ["2026-06-05", "2027-07-01"], "Ligue 1": ["2026-06-01", "2027-06-01"],
-  "Primeira Liga": ["2026-07-01", "2027-07-01"], Eredivisie: ["2026-06-01", "2027-06-01"],
-  WNBA: ["2026-05-08", "2026-10-20"], "Liga MX": ["2026-06-01", "2027-06-01"],
-  Brasileirão: ["2026-01-01", "2026-12-31"], NWSL: ["2026-01-01", "2026-12-31"],
-  "Saudi Pro League": ["2026-07-01", "2027-07-01"], "J1 League": ["2026-01-01", "2027-07-01"],
-  "NBA G League": ["2026-12-19", "2027-05-01"],
-  "Scottish Premiership": ["2026-06-01", "2027-06-01"],
-  "Belgian Pro League": ["2026-07-01", "2027-07-01"],
-  "UEFA Champions League": ["2026-07-07", "2027-06-05"],
-  "UEFA Europa League": ["2026-07-09", "2027-05-26"],
-  "NCAA Men's Basketball": ["2026-11-02", "2027-04-07"],
-  "NCAA Women's Basketball": ["2026-11-02", "2027-04-07"],
-  "College Football": ["2026-08-27", "2027-01-28"],
-  "NCAA Men's Ice Hockey": ["2026-10-02", "2027-05-01"],
-};
+const FALLBACK_WINDOWS = Object.fromEntries(
+  LEAGUE_REGISTRY.map((league) => [league.name, league.fallback]),
+);
 
 // ESPN season windows can begin with preseason, scheduling, or other setup
 // activity. Use each competition's first official fixture for the public
 // status table instead of marking a league active before play begins.
+//
+// Every value here equals the registry's own `fallback[0]` for that league,
+// because that date *is* the first official fixture. The two are kept equal on
+// purpose: tests/scripts/season-status.test.js fails if one moves without the
+// other. Leagues absent from this map use ESPN's window as-is.
 const SEASON_START_OVERRIDES = {
   MLS: "2026-02-21T00:00:00Z",
   "Premier League": "2026-08-21T00:00:00Z",
@@ -130,23 +61,10 @@ const SEASON_START_OVERRIDES = {
   "NCAA Men's Ice Hockey": "2026-10-02T00:00:00Z",
 };
 
-const ENDPOINT_OVERRIDES = {
-  MLB: "[MLB Stats API](https://statsapi.mlb.com/api/v1/teams?sportId=1)",
-  NHL: "[NHL Web API](https://api-web.nhle.com/v1/standings/now)",
-};
-
-// Keep this script's existing row shape while taking all public metadata from
-// the registry. The assignments below are intentionally centralized here so
-// future league additions cannot silently omit a season row or logo.
-  LEAGUES.splice(0, LEAGUES.length, ...LEAGUE_REGISTRY.map(({ category, name, endpoint, key }) => [category, name, endpoint, key]));
-Object.keys(LEAGUE_LOGOS).forEach((name) => delete LEAGUE_LOGOS[name]);
-Object.keys(FALLBACK_WINDOWS).forEach((name) => delete FALLBACK_WINDOWS[name]);
-Object.keys(ENDPOINT_OVERRIDES).forEach((name) => delete ENDPOINT_OVERRIDES[name]);
-LEAGUE_REGISTRY.forEach((entry) => {
-  LEAGUE_LOGOS[entry.name] = [entry.logo.light, entry.logo.dark];
-  FALLBACK_WINDOWS[entry.name] = entry.fallback;
-  if (entry.endpointOverride) ENDPOINT_OVERRIDES[entry.name] = entry.endpointOverride;
-});
+const ENDPOINT_OVERRIDES = Object.fromEntries(
+  LEAGUE_REGISTRY.filter((league) => league.endpointOverride)
+    .map((league) => [league.name, league.endpointOverride]),
+);
 
 function leagueCell(name) {
   const logo = LEAGUE_LOGOS[name];
@@ -303,4 +221,5 @@ module.exports = {
   normalizeSeasonWindow,
   updateSupportedSportsTable,
   updateLeagueList,
+  SEASON_START_OVERRIDES,
 };
