@@ -10,6 +10,18 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- **Four league logos were broken and a fifth showed the wrong competition.** The Greek
+  Super League, Austrian Bundesliga, Danish Superliga, and Norwegian Eliteserien logos all
+  returned 404, and the Swedish Allsvenskan pointed at another competition's artwork. Those
+  URLs are embedded in the README table, the league showcase, and the supported-leagues
+  manifest, so the breakage was public. The registry now carries ESPN's real values — and for
+  Denmark and Norway, whose leagues ESPN has no artwork for, the generic soccer icon. The
+  daily API health check now verifies every logo both resolves and matches the logo ESPN
+  reports for that league, which catches the silent case of a valid file showing the wrong
+  competition.
+
 ## [1.14.1] - 2026-09-19
 
 ### Fixed

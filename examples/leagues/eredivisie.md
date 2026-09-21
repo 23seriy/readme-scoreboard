@@ -12,7 +12,7 @@ Team: **AJA** · Category: Soccer · Data source: ESPN public API
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 4
+🏅 Standing: 2026-2027 Dutch Eredivisie · 5
 
 📊 2026 Record: 4W - 1L - 2D  (14 pts)
    █████████████████▊░░░░░░░
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 4
+🏅 Standing: 2026-2027 Dutch Eredivisie · 5
 
 📊 2026 Record: 4W - 1L - 2D  (14 pts)
    █████████████████▊░░░░░░░
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 4
+🏅 Standing: 2026-2027 Dutch Eredivisie · 5
 
 📊 2026 Record: 4W - 1L - 2D  (14 pts)
    █████████████████▊░░░░░░░

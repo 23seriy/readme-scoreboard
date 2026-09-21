@@ -14,16 +14,16 @@ Team: **CEL** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing: 2026-27 Scottish Premiership · 1
 
-📊 2026 Record: 6W - 0L - 0D  (18 pts)
-   █████████████████████████
+📊 2026 Record: 6W - 1L - 0D  (18 pts)
+   █████████████████████▍░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-1 vs RAN   (Sep 20, 2026)
 ✅ W 1-0 @ STJ   (Sep 9, 2026)
 ✅ W 2-1 @ STM   (Sep 5, 2026)
 ✅ W 3-0 vs ABE   (Sep 2, 2026)
 ✅ W 2-1 vs FALK  (Aug 29, 2026)
-✅ W 5-1 @ KIL   (Aug 9, 2026)
 ```
 
 ## Custom title
@@ -40,16 +40,16 @@ The `title:` input replaces the default heading.
 
 🏅 Standing: 2026-27 Scottish Premiership · 1
 
-📊 2026 Record: 6W - 0L - 0D  (18 pts)
-   █████████████████████████
+📊 2026 Record: 6W - 1L - 0D  (18 pts)
+   █████████████████████▍░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-1 vs RAN   (Sep 20, 2026)
 ✅ W 1-0 @ STJ   (Sep 9, 2026)
 ✅ W 2-1 @ STM   (Sep 5, 2026)
 ✅ W 3-0 vs ABE   (Sep 2, 2026)
 ✅ W 2-1 vs FALK  (Aug 29, 2026)
-✅ W 5-1 @ KIL   (Aug 9, 2026)
 ```
 
 ## Compact mode
@@ -65,8 +65,8 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing: 2026-27 Scottish Premiership · 1
 
-📊 2026 Record: 6W - 0L - 0D  (18 pts)
-   █████████████████████████
+📊 2026 Record: 6W - 1L - 0D  (18 pts)
+   █████████████████████▍░░░
 
 
 

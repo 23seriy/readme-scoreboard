@@ -4,7 +4,7 @@ Team: **AAL** · Category: Soccer · Data source: ESPN public API
 
 ## Default
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/20.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/20.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Favourite Norwegian Eliteserien Team](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Favourite Norwegian Eliteserien Team](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
 
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3278.png" alt="Aalesund logo" width="72" align="right" />
 
@@ -12,7 +12,7 @@ Team: **AAL** · Category: Soccer · Data source: ESPN public API
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing: 2026 Norwegian Eliteserien · 13
+🏅 Standing: 2026 Norwegian Eliteserien · 14
 
 📊 2026 Record: 4W - 8L - 9D  (21 pts)
    ██████████░░░░░░░░░░░░░░░
@@ -30,7 +30,7 @@ Team: **AAL** · Category: Soccer · Data source: ESPN public API
 
 The `title:` input replaces the default heading.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/20.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/20.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Aalesund](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Aalesund](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
 
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/3278.png" alt="Aalesund logo" width="72" align="right" />
 
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing: 2026 Norwegian Eliteserien · 13
+🏅 Standing: 2026 Norwegian Eliteserien · 14
 
 📊 2026 Record: 4W - 8L - 9D  (21 pts)
    ██████████░░░░░░░░░░░░░░░
@@ -56,14 +56,14 @@ The `title:` input replaces the default heading.
 
 The `compact: true` input drops the logo and recent-game details.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/20.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/20.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Favourite Norwegian Eliteserien Team](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Favourite Norwegian Eliteserien Team](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
 
 
 ### 🔵 Aalesund (AAL)
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing: 2026 Norwegian Eliteserien · 13
+🏅 Standing: 2026 Norwegian Eliteserien · 14
 
 📊 2026 Record: 4W - 8L - 9D  (21 pts)
    ██████████░░░░░░░░░░░░░░░

@@ -12,18 +12,18 @@ Team: **BAH** · Category: Soccer · Data source: ESPN public API
 Série A
 🟢 Season in progress
 
-🏅 Standing: 4
+🏅 Standing: 5
 
-📊 2026 Record: 12W - 5L - 10D  (46 pts)
-   ███████████████▋░░░░░░░░░
+📊 2026 Record: 12W - 6L - 10D  (46 pts)
+   ███████████████▏░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ CAP   (Sep 20, 2026)
 ✅ W 2-1 vs REMO  (Sep 14, 2026)
 ✅ W 3-2 @ BRA   (Sep 5, 2026)
 ✅ W 3-2 vs INT   (Aug 30, 2026)
 ✅ W 2-0 @ VIT   (Aug 23, 2026)
-🟡 D 3-3 @ CHA   (Aug 16, 2026)
 ```
 
 ## Custom title
@@ -38,18 +38,18 @@ The `title:` input replaces the default heading.
 Série A
 🟢 Season in progress
 
-🏅 Standing: 4
+🏅 Standing: 5
 
-📊 2026 Record: 12W - 5L - 10D  (46 pts)
-   ███████████████▋░░░░░░░░░
+📊 2026 Record: 12W - 6L - 10D  (46 pts)
+   ███████████████▏░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ CAP   (Sep 20, 2026)
 ✅ W 2-1 vs REMO  (Sep 14, 2026)
 ✅ W 3-2 @ BRA   (Sep 5, 2026)
 ✅ W 3-2 vs INT   (Aug 30, 2026)
 ✅ W 2-0 @ VIT   (Aug 23, 2026)
-🟡 D 3-3 @ CHA   (Aug 16, 2026)
 ```
 
 ## Compact mode
@@ -63,10 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 Série A
 🟢 Season in progress
 
-🏅 Standing: 4
+🏅 Standing: 5
 
-📊 2026 Record: 12W - 5L - 10D  (46 pts)
-   ███████████████▋░░░░░░░░░
+📊 2026 Record: 12W - 6L - 10D  (46 pts)
+   ███████████████▏░░░░░░░░░
 
 
 
