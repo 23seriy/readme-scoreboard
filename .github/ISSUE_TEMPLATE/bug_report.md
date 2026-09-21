@@ -27,7 +27,7 @@ What actually happened. Include any error output.
 
 ## Environment
 
-- **Node.js version:** (e.g., 20.x)
+- **Node.js version:** (e.g., 24.x)
 - **OS:** (e.g., Ubuntu 22.04, macOS 14)
 - **Sport/Team:** (e.g., nba/LAL)
 
