@@ -20,23 +20,23 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 | #10 | 🇺🇸 | United States | Taylor Fritz | `FRI` | 2946 | 3,175 |
 | #11 | 🇫🇷 | France | Arthur Fils | `FIL` | 10052 | 3,150 |
 | #12 | 🇷🇸 | Serbia | Novak Djokovic | `DJO` | 296 | 2,980 |
-| #13 | 🇺🇸 | United States | Learner Tien | `LTI` | 10386 | 2,755 |
+| #13 | 🇺🇸 | United States | Learner Tien | `LTI` | 10386 | 2,715 |
 | #14 | 🇪🇸 | Spain | Rafael Jodar | `JOD` | 12657 | 2,659 |
 | #15 | 🇨🇿 | Czechia | Jakub Mensik | `MEN` | 10319 | 2,495 |
-| #16 | 🇺🇸 | United States | Brandon Nakashima | `NAK` | 3774 | 2,485 |
-| #17 | 🇰🇿 | Kazakhstan | Alexander Bublik | `BUB` | 2865 | 2,425 |
-| #18 | 🇳🇴 | Norway | Casper Ruud | `RUU` | 2989 | 2,335 |
-| #19 | 🇺🇸 | United States | Tommy Paul | `PAU` | 2964 | 2,325 |
-| #20 | 🇮🇹 | Italy | Lorenzo Musetti | `MUS` | 3764 | 2,255 |
-| #21 | 🇲🇨 | Monaco | Valentin Vacherot | `VAC` | 9376 | 2,250 |
-| #22 | 🇮🇹 | Italy | Luciano Darderi | `DAR` | 7833 | 2,200 |
-| #23 | 🇦🇷 | Argentina | Francisco Cerundolo | `CER` | 3700 | 2,130 |
-| #24 | 🇨🇿 | Czechia | Jiri Lehecka | `LEH` | 3754 | 2,120 |
+| #16 | 🇺🇸 | United States | Brandon Nakashima | `NAK` | 3774 | 2,410 |
+| #17 | 🇳🇴 | Norway | Casper Ruud | `RUU` | 2989 | 2,335 |
+| #18 | 🇺🇸 | United States | Tommy Paul | `PAU` | 2964 | 2,325 |
+| #19 | 🇲🇨 | Monaco | Valentin Vacherot | `VAC` | 9376 | 2,250 |
+| #20 | 🇮🇹 | Italy | Luciano Darderi | `DAR` | 7833 | 2,200 |
+| #21 | 🇰🇿 | Kazakhstan | Alexander Bublik | `BUB` | 2865 | 2,185 |
+| #22 | 🇦🇷 | Argentina | Francisco Cerundolo | `CER` | 3700 | 2,130 |
+| #23 | 🇨🇿 | Czechia | Jiri Lehecka | `LEH` | 3754 | 2,120 |
+| #24 | 🇮🇹 | Italy | Lorenzo Musetti | `MUS` | 3764 | 2,100 |
 | #25 | 🇷🇺 | Russia | Andrey Rublev | `RUB` | 2642 | 1,930 |
-| #28 | 🇨🇱 | Chile | Alejandro Tabilo | `TAB` | 2970 | 1,778 |
-| #29 | 🇧🇷 | Brazil | Joao Fonseca | `FON` | 11745 | 1,750 |
-| #30 | 🇪🇸 | Spain | Alejandro Davidovich Fokina | `DAV` | 3212 | 1,680 |
-| #32 | 🇫🇷 | France | Arthur Rinderknech | `RIN` | 3511 | 1,583 |
+| #28 | 🇧🇷 | Brazil | Joao Fonseca | `FON` | 11745 | 1,750 |
+| #29 | 🇪🇸 | Spain | Alejandro Davidovich Fokina | `DAV` | 3212 | 1,680 |
+| #31 | 🇫🇷 | France | Arthur Rinderknech | `RIN` | 3511 | 1,583 |
+| #32 | 🇨🇱 | Chile | Alejandro Tabilo | `TAB` | 2970 | 1,565 |
 | #35 | 🇵🇪 | Peru | Ignacio Buse | `BUS` | 11226 | 1,460 |
 
 ## IndyCar Series
