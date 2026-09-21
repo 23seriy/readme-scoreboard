@@ -521,6 +521,10 @@ truth, so this README no longer duplicates each league's roster inline.
 
 ## Run Locally
 
+Requires **Node.js 24 or newer**. The version is pinned in [`.nvmrc`](.nvmrc), so `nvm use`
+selects the right one, and `package.json` declares the same minimum so package managers warn on
+an older runtime.
+
 ```bash
 cp sample.env .env
 # Fill in your values
