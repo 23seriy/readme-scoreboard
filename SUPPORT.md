@@ -44,5 +44,5 @@ Do **not** open a public issue for security problems. Follow the process in
 ## Contributing
 
 Want to add a sport or improve the project? See
-[CONTRIBUTING.md](CONTRIBUTING.md) — adding a new sport is a single adapter
-file and a great first contribution.
+[CONTRIBUTING.md](CONTRIBUTING.md) — adding a league is a registry entry plus one
+adapter file, and a great first contribution.
