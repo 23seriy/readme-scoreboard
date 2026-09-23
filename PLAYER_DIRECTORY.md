@@ -127,26 +127,26 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 | #6 | 🇨🇿 | Czechia | Linda Noskova | `NOS` | 6970 | 5,328 |
 | #7 | 🇺🇦 | Ukraine | Elina Svitolina | `SVI` | 1797 | 4,809 |
 | #8 | 🇨🇿 | Czechia | Karolina Muchova | `MUC` | 3039 | 4,683 |
-| #9 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 4,619 |
-| #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 3,980 |
+| #9 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 4,119 |
+| #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 4,040 |
 | #11 | 🇺🇸 | United States | Amanda Anisimova | `ANI` | 3221 | 3,363 |
 | #12 | 🇨🇭 | Switzerland | Belinda Bencic | `BEN` | 2183 | 2,935 |
-| #13 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 2,588 |
-| #14 | 🇨🇦 | Canada | Victoria Mboko | `MBO` | 11219 | 2,521 |
-| #15 | 🇷🇴 | Romania | Sorana Cirstea | `CIR` | 1774 | 2,464 |
-| #16 | 🇺🇸 | United States | Iva Jovic | `JOV` | 14311 | 2,390 |
+| #13 | 🇺🇸 | United States | Iva Jovic | `JOV` | 14311 | 2,841 |
+| #14 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 2,588 |
+| #15 | 🇨🇦 | Canada | Victoria Mboko | `MBO` | 11219 | 2,521 |
+| #16 | 🇷🇴 | Romania | Sorana Cirstea | `CIR` | 1774 | 2,464 |
 | #17 | 🇯🇵 | Japan | Naomi Osaka | `OSA` | 2789 | 2,306 |
 | #18 | 🇵🇭 | Philippines | Alexandra Eala | `EAL` | 7759 | 2,276 |
 | #19 | 🇧🇪 | Belgium | Elise Mertens | `MER` | 2221 | 2,165 |
 | #20 | 🇮🇹 | Italy | Jasmine Paolini | `PAO` | 2615 | 2,123 |
-| #21 | 🇷🇺 | Russia | Ekaterina Alexandrova | `ALE` | 3182 | 2,076 |
-| #22 | 🇷🇺 | Russia | Anna Kalinskaya | `KAL` | 2977 | 2,043 |
-| #23 | 🇺🇸 | United States | Madison Keys | `KEY` | 1556 | 2,029 |
-| #24 | 🇺🇸 | United States | Emma Navarro | `NAV` | 3785 | 2,024 |
-| #25 | 🇷🇺 | Russia | Anastasia Potapova | `POT` | 2971 | 1,926 |
-| #26 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 1,888 |
-| #27 | 🇨🇿 | Czechia | Marie Bouzkova | `BOU` | 2392 | 1,873 |
-| #28 | 🇨🇿 | Czechia | Sara Bejlek | `BEJ` | 7819 | 1,632 |
+| #21 | 🇷🇺 | Russia | Anna Kalinskaya | `KAL` | 2977 | 2,043 |
+| #22 | 🇺🇸 | United States | Madison Keys | `KEY` | 1556 | 2,029 |
+| #23 | 🇺🇸 | United States | Emma Navarro | `NAV` | 3785 | 2,024 |
+| #24 | 🇷🇺 | Russia | Anastasia Potapova | `POT` | 2971 | 1,926 |
+| #25 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 1,888 |
+| #26 | 🇨🇿 | Czechia | Marie Bouzkova | `BOU` | 2392 | 1,873 |
+| #27 | 🇷🇺 | Russia | Ekaterina Alexandrova | `ALE` | 3182 | 1,811 |
+| #28 | 🇨🇿 | Czechia | Sara Bejlek | `BEJ` | 7819 | 1,710 |
 | #29 | 🇺🇸 | United States | Ann Li | `ALI` | 3380 | 1,573 |
-| #38 | 🇨🇿 | Czechia | Barbora Krejcikova | `KRE` | 2042 | 1,246 |
+| #44 | 🇨🇿 | Czechia | Barbora Krejcikova | `KRE` | 2042 | 1,139 |
 
