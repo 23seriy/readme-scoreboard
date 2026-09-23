@@ -13,7 +13,7 @@ NFC · NFC South
 🟢 Season in progress
 
 🏅 Standing: NFC · 16
-📅 Next: @ GB (Sep 24)
+📅 Next: @ GB (Sep 25)
 
 📊 2026 Season: 0W - 2L (0.0%)
    ░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -37,7 +37,7 @@ NFC · NFC South
 🟢 Season in progress
 
 🏅 Standing: NFC · 16
-📅 Next: @ GB (Sep 24)
+📅 Next: @ GB (Sep 25)
 
 📊 2026 Season: 0W - 2L (0.0%)
    ░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -60,7 +60,7 @@ NFC · NFC South
 🟢 Season in progress
 
 🏅 Standing: NFC · 16
-📅 Next: @ GB (Sep 24)
+📅 Next: @ GB (Sep 25)
 
 📊 2026 Season: 0W - 2L (0.0%)
    ░░░░░░░░░░░░░░░░░░░░░░░░░

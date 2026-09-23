@@ -11,7 +11,7 @@ Player: **SAB** · Category: Tennis · Data source: ESPN public API
 ### 🇧🇾 Aryna Sabalenka (SAB)
 WTA · World Ranking
 
-🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: ▼ (was No. 1)
+🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: — (was No. 2)
 
 **📅 Last Match:**
 ```
@@ -30,7 +30,7 @@ The `title:` input replaces the default heading.
 ### 🇧🇾 Aryna Sabalenka (SAB)
 WTA · World Ranking
 
-🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: ▼ (was No. 1)
+🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: — (was No. 2)
 
 **📅 Last Match:**
 ```
@@ -48,7 +48,7 @@ The `compact: true` input drops the logo and recent-game details.
 ### 🇧🇾 Aryna Sabalenka (SAB)
 WTA · World Ranking
 
-🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: ▼ (was No. 1)
+🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: — (was No. 2)
 
 **📅 Last Match:**
 ```

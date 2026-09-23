@@ -19,10 +19,10 @@ Group J
 
 **📅 Recent Games:**
 ```
-❌ L 0-2 @ SUI   (Jul 2, 2026)
-🟡 D 3-3 vs AUT   (Jun 27, 2026)
-✅ W 2-1 @ JOR   (Jun 22, 2026)
-❌ L 0-3 @ ARG   (Jun 16, 2026)
+❌ L 0-2 @ SUI   (Jul 3, 2026)
+🟡 D 3-3 vs AUT   (Jun 28, 2026)
+✅ W 2-1 @ JOR   (Jun 23, 2026)
+❌ L 0-3 @ ARG   (Jun 17, 2026)
 ```
 
 ## Custom title
@@ -44,10 +44,10 @@ Group J
 
 **📅 Recent Games:**
 ```
-❌ L 0-2 @ SUI   (Jul 2, 2026)
-🟡 D 3-3 vs AUT   (Jun 27, 2026)
-✅ W 2-1 @ JOR   (Jun 22, 2026)
-❌ L 0-3 @ ARG   (Jun 16, 2026)
+❌ L 0-2 @ SUI   (Jul 3, 2026)
+🟡 D 3-3 vs AUT   (Jun 28, 2026)
+✅ W 2-1 @ JOR   (Jun 23, 2026)
+❌ L 0-3 @ ARG   (Jun 17, 2026)
 ```
 
 ## Compact mode
