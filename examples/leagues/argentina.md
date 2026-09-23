@@ -14,16 +14,16 @@ Group B
 
 🏅 Standing: Group B · 10
 
-📊 2026 Record: 1W - 6L - 2D  (5 pts)
-   █████▌░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 6L - 2D  (8 pts)
+   ███████▌░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 1-0 vs CAT   (Sep 21, 2026)
 ❌ L 3-4 @ RIV   (Sep 12, 2026)
 ✅ W 3-1 vs BAN   (Sep 5, 2026)
 ❌ L 1-2 @ ARGJ  (Aug 30, 2026)
 ❌ L 1-3 vs USF   (Aug 21, 2026)
-🟡 D 0-0 vs TIG   (Aug 15, 2026)
 ```
 
 ## Custom title
@@ -40,16 +40,16 @@ Group B
 
 🏅 Standing: Group B · 10
 
-📊 2026 Record: 1W - 6L - 2D  (5 pts)
-   █████▌░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 6L - 2D  (8 pts)
+   ███████▌░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 1-0 vs CAT   (Sep 21, 2026)
 ❌ L 3-4 @ RIV   (Sep 12, 2026)
 ✅ W 3-1 vs BAN   (Sep 5, 2026)
 ❌ L 1-2 @ ARGJ  (Aug 30, 2026)
 ❌ L 1-3 vs USF   (Aug 21, 2026)
-🟡 D 0-0 vs TIG   (Aug 15, 2026)
 ```
 
 ## Compact mode
@@ -65,8 +65,8 @@ Group B
 
 🏅 Standing: Group B · 10
 
-📊 2026 Record: 1W - 6L - 2D  (5 pts)
-   █████▌░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 6L - 2D  (8 pts)
+   ███████▌░░░░░░░░░░░░░░░░░
 
 
 
