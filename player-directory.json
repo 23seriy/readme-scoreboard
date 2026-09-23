@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-21T11:04:40.859Z",
+  "generatedAt": "2026-09-23T10:15:51.008Z",
   "players": [
     {
       "league": "atp",
@@ -1000,8 +1000,8 @@
       "id": "3182",
       "flag": "🇷🇺",
       "country": "Russia",
-      "rank": 21,
-      "points": 2076
+      "rank": 27,
+      "points": 1811
     },
     {
       "league": "wta",
@@ -1045,7 +1045,7 @@
       "flag": "🇨🇿",
       "country": "Czechia",
       "rank": 28,
-      "points": 1632
+      "points": 1710
     },
     {
       "league": "wta",
@@ -1066,7 +1066,7 @@
       "id": "2392",
       "flag": "🇨🇿",
       "country": "Czechia",
-      "rank": 27,
+      "rank": 26,
       "points": 1873
     },
     {
@@ -1077,7 +1077,7 @@
       "id": "3417",
       "flag": "🇵🇱",
       "country": "Poland",
-      "rank": 26,
+      "rank": 25,
       "points": 1888
     },
     {
@@ -1088,7 +1088,7 @@
       "id": "1774",
       "flag": "🇷🇴",
       "country": "Romania",
-      "rank": 15,
+      "rank": 16,
       "points": 2464
     },
     {
@@ -1121,8 +1121,8 @@
       "id": "14311",
       "flag": "🇺🇸",
       "country": "United States",
-      "rank": 16,
-      "points": 2390
+      "rank": 13,
+      "points": 2841
     },
     {
       "league": "wta",
@@ -1132,7 +1132,7 @@
       "id": "2977",
       "flag": "🇷🇺",
       "country": "Russia",
-      "rank": 22,
+      "rank": 21,
       "points": 2043
     },
     {
@@ -1143,7 +1143,7 @@
       "id": "1556",
       "flag": "🇺🇸",
       "country": "United States",
-      "rank": 23,
+      "rank": 22,
       "points": 2029
     },
     {
@@ -1155,7 +1155,7 @@
       "flag": "🇺🇦",
       "country": "Ukraine",
       "rank": 10,
-      "points": 3980
+      "points": 4040
     },
     {
       "league": "wta",
@@ -1165,8 +1165,8 @@
       "id": "2042",
       "flag": "🇨🇿",
       "country": "Czechia",
-      "rank": 38,
-      "points": 1246
+      "rank": 44,
+      "points": 1139
     },
     {
       "league": "wta",
@@ -1176,7 +1176,7 @@
       "id": "11219",
       "flag": "🇨🇦",
       "country": "Canada",
-      "rank": 14,
+      "rank": 15,
       "points": 2521
     },
     {
@@ -1209,7 +1209,7 @@
       "id": "3785",
       "flag": "🇺🇸",
       "country": "United States",
-      "rank": 24,
+      "rank": 23,
       "points": 2024
     },
     {
@@ -1264,7 +1264,7 @@
       "id": "2971",
       "flag": "🇷🇺",
       "country": "Russia",
-      "rank": 25,
+      "rank": 24,
       "points": 1926
     },
     {
@@ -1297,7 +1297,7 @@
       "id": "8017",
       "flag": "🇷🇺",
       "country": "Russia",
-      "rank": 13,
+      "rank": 14,
       "points": 2588
     },
     {
@@ -1320,7 +1320,7 @@
       "flag": "🇵🇱",
       "country": "Poland",
       "rank": 9,
-      "points": 4619
+      "points": 4119
     }
   ]
 }
