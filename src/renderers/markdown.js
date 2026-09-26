@@ -128,6 +128,17 @@ function seasonStatusLine(sport) {
   // explicitly; the annual arithmetic below would otherwise claim the next
   // calendar year.
   const nextYear = window.nextStartYear ?? (startPassed ? year + 1 : year);
+  // Name the date, not the month. "Next season starts October 2026" was wrong
+  // for the NHL by three days AND a month, and vague everywhere else — and the
+  // registry stores a day, so printing it costs nothing. `nextLabel` remains the
+  // fallback for any league that has no day configured.
+  const nextStart = sm && sd
+    ? formatDate(
+        `${nextYear}-${String(sm).padStart(2, "0")}-${String(sd).padStart(2, "0")}`,
+        { month: "long", day: "numeric" }
+      )
+    : null;
+  if (nextStart) return `🔴 Off-season · Next season starts ${nextStart}, ${nextYear}`;
   return `🔴 Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
 }
 
