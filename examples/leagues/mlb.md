@@ -13,18 +13,18 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs HOU (Sep 25)
+📅 Next: vs HOU (Sep 27)
 
-📊 2026 Record: 63W - 95L (39.9%)
-   █████████▉░░░░░░░░░░░░░░░
+📊 2026 Record: 64W - 96L (40.0%)
+   ██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W  6-5  vs HOU (Sep 25, 2026)
+❌ L  5-7  vs HOU (Sep 24, 2026)
 ✅ W  7-3  vs LAA (Sep 23, 2026)
 ✅ W  9-7  vs LAA (Sep 22, 2026)
 ❌ L  0-1  @ CLE (Sep 20, 2026)
-❌ L  6-12 @ CLE (Sep 19, 2026)
-❌ L  3-5  @ CLE (Sep 18, 2026)
 ```
 
 ## Custom title
@@ -40,18 +40,18 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs HOU (Sep 25)
+📅 Next: vs HOU (Sep 27)
 
-📊 2026 Record: 63W - 95L (39.9%)
-   █████████▉░░░░░░░░░░░░░░░
+📊 2026 Record: 64W - 96L (40.0%)
+   ██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W  6-5  vs HOU (Sep 25, 2026)
+❌ L  5-7  vs HOU (Sep 24, 2026)
 ✅ W  7-3  vs LAA (Sep 23, 2026)
 ✅ W  9-7  vs LAA (Sep 22, 2026)
 ❌ L  0-1  @ CLE (Sep 20, 2026)
-❌ L  6-12 @ CLE (Sep 19, 2026)
-❌ L  3-5  @ CLE (Sep 18, 2026)
 ```
 
 ## Compact mode
@@ -66,10 +66,10 @@ American League · AL West
 🟢 Season in progress
 
 🏅 Standing: AL West · 4
-📅 Next: vs HOU (Sep 25)
+📅 Next: vs HOU (Sep 27)
 
-📊 2026 Record: 63W - 95L (39.9%)
-   █████████▉░░░░░░░░░░░░░░░
+📊 2026 Record: 64W - 96L (40.0%)
+   ██████████░░░░░░░░░░░░░░░
 
 
 

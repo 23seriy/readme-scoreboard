@@ -13,7 +13,7 @@ Western Conference · Pacific Division
 🔴 Off-season · Next season starts October 2026
 
 🏅 Standing: Pacific · 3
-📅 Next: @ SJS (Sep 25)
+📅 Next: @ LAK (Sep 26)
 
 📅 No recent games found
 
@@ -30,7 +30,7 @@ Western Conference · Pacific Division
 🔴 Off-season · Next season starts October 2026
 
 🏅 Standing: Pacific · 3
-📅 Next: @ SJS (Sep 25)
+📅 Next: @ LAK (Sep 26)
 
 📅 No recent games found
 
@@ -46,7 +46,7 @@ Western Conference · Pacific Division
 🔴 Off-season · Next season starts October 2026
 
 🏅 Standing: Pacific · 3
-📅 Next: @ SJS (Sep 25)
+📅 Next: @ LAK (Sep 26)
 
 📅 No recent games found
 

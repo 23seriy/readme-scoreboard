@@ -13,6 +13,7 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
+📅 Next: vs WSH (Sep 27)
 
 📊 2026 Record: 30W - 14L (68.2%)
    █████████████████░░░░░░░░
@@ -39,6 +40,7 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
+📅 Next: vs WSH (Sep 27)
 
 📊 2026 Record: 30W - 14L (68.2%)
    █████████████████░░░░░░░░
@@ -64,6 +66,7 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
+📅 Next: vs WSH (Sep 27)
 
 📊 2026 Record: 30W - 14L (68.2%)
    █████████████████░░░░░░░░
