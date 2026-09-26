@@ -4,7 +4,7 @@
 
 ### 🐺 UConn Huskies (UCONN)
 Big East Conference
-🔴 Off-season · Next season starts November 1, 2026
+🔴 Off-season · Next season starts November 2, 2026
 
 🏅 Standing: Big East · 2
 📅 Next: vs DEN (Jan 11)
