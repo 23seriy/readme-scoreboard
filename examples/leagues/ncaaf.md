@@ -12,7 +12,7 @@ Team: **ALA** · Category: Football · Data source: ESPN public API
 Southeastern Conference
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 1
+🏅 Standing: Southeastern Conference · 2
 📅 Next: vs SC (Sep 26)
 
 **📅 Recent Games:**
@@ -34,7 +34,7 @@ The `title:` input replaces the default heading.
 Southeastern Conference
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 1
+🏅 Standing: Southeastern Conference · 2
 📅 Next: vs SC (Sep 26)
 
 **📅 Recent Games:**
@@ -55,7 +55,7 @@ The `compact: true` input drops the logo and recent-game details.
 Southeastern Conference
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 1
+🏅 Standing: Southeastern Conference · 2
 📅 Next: vs SC (Sep 26)
 
 

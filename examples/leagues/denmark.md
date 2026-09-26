@@ -13,6 +13,7 @@ Regular Season
 🟢 Season in progress
 
 🏅 Standing: Regular Season · 6
+📅 Next: @ SIF (Oct 11)
 
 📊 2026 Record: 3W - 4L - 2D  (11 pts)
    ███████████░░░░░░░░░░░░░░
@@ -39,6 +40,7 @@ Regular Season
 🟢 Season in progress
 
 🏅 Standing: Regular Season · 6
+📅 Next: @ SIF (Oct 11)
 
 📊 2026 Record: 3W - 4L - 2D  (11 pts)
    ███████████░░░░░░░░░░░░░░
@@ -64,6 +66,7 @@ Regular Season
 🟢 Season in progress
 
 🏅 Standing: Regular Season · 6
+📅 Next: @ SIF (Oct 11)
 
 📊 2026 Record: 3W - 4L - 2D  (11 pts)
    ███████████░░░░░░░░░░░░░░

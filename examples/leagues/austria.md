@@ -13,6 +13,7 @@ Team: **ALU** · Category: Soccer · Data source: ESPN public API
 🟢 Season in progress
 
 🏅 Standing: 2026-27  · 9
+📅 Next: @ HAR (Oct 11)
 
 📊 2026 Record: 2W - 3L - 2D  (8 pts)
    ██████████▋░░░░░░░░░░░░░░
@@ -39,6 +40,7 @@ The `title:` input replaces the default heading.
 🟢 Season in progress
 
 🏅 Standing: 2026-27  · 9
+📅 Next: @ HAR (Oct 11)
 
 📊 2026 Record: 2W - 3L - 2D  (8 pts)
    ██████████▋░░░░░░░░░░░░░░
@@ -64,6 +66,7 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing: 2026-27  · 9
+📅 Next: @ HAR (Oct 11)
 
 📊 2026 Record: 2W - 3L - 2D  (8 pts)
    ██████████▋░░░░░░░░░░░░░░

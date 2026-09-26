@@ -9,8 +9,11 @@ Team: **BFC** · Category: Soccer · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18851.png" alt="Bengaluru FC logo" width="72" align="right" />
 
 ### 🔵 Bengaluru FC (BFC)
-Indian Super League
+2026-27 ISL
 🟢 Season in progress
+
+🏅 Standing: 2026-27 ISL · 1
+📅 Next: vs SCD (Oct 10)
 
 📅 No recent games found
 
@@ -23,8 +26,11 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/18851.png" alt="Bengaluru FC logo" width="72" align="right" />
 
 ### 🔵 Bengaluru FC (BFC)
-Indian Super League
+2026-27 ISL
 🟢 Season in progress
+
+🏅 Standing: 2026-27 ISL · 1
+📅 Next: vs SCD (Oct 10)
 
 📅 No recent games found
 
@@ -36,8 +42,11 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🔵 Bengaluru FC (BFC)
-Indian Super League
+2026-27 ISL
 🟢 Season in progress
+
+🏅 Standing: 2026-27 ISL · 1
+📅 Next: vs SCD (Oct 10)
 
 📅 No recent games found
 

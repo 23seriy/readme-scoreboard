@@ -13,6 +13,7 @@ Pro League
 🟢 Season in progress
 
 🏅 Standing: Pro League · 5
+📅 Next: @ CBK (Oct 10)
 
 📊 2026 Record: 4W - 2L - 1D  (13 pts)
    ████████████████░░░░░░░░░
@@ -39,6 +40,7 @@ Pro League
 🟢 Season in progress
 
 🏅 Standing: Pro League · 5
+📅 Next: @ CBK (Oct 10)
 
 📊 2026 Record: 4W - 2L - 1D  (13 pts)
    ████████████████░░░░░░░░░
@@ -64,6 +66,7 @@ Pro League
 🟢 Season in progress
 
 🏅 Standing: Pro League · 5
+📅 Next: @ CBK (Oct 10)
 
 📊 2026 Record: 4W - 2L - 1D  (13 pts)
    ████████████████░░░░░░░░░

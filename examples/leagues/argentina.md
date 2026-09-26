@@ -13,6 +13,7 @@ Group B
 🟢 Season in progress
 
 🏅 Standing: Group B · 10
+📅 Next: @ HUR (Oct 3)
 
 📊 2026 Record: 2W - 6L - 2D  (8 pts)
    ███████▌░░░░░░░░░░░░░░░░░
@@ -39,6 +40,7 @@ Group B
 🟢 Season in progress
 
 🏅 Standing: Group B · 10
+📅 Next: @ HUR (Oct 3)
 
 📊 2026 Record: 2W - 6L - 2D  (8 pts)
    ███████▌░░░░░░░░░░░░░░░░░
@@ -64,6 +66,7 @@ Group B
 🟢 Season in progress
 
 🏅 Standing: Group B · 10
+📅 Next: @ HUR (Oct 3)
 
 📊 2026 Record: 2W - 6L - 2D  (8 pts)
    ███████▌░░░░░░░░░░░░░░░░░

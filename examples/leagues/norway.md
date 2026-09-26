@@ -13,6 +13,7 @@ Team: **AAL** · Category: Soccer · Data source: ESPN public API
 🟢 Season in progress
 
 🏅 Standing: 2026 Norwegian Eliteserien · 14
+📅 Next: vs SAR (Oct 11)
 
 📊 2026 Record: 4W - 8L - 9D  (21 pts)
    ██████████░░░░░░░░░░░░░░░
@@ -39,6 +40,7 @@ The `title:` input replaces the default heading.
 🟢 Season in progress
 
 🏅 Standing: 2026 Norwegian Eliteserien · 14
+📅 Next: vs SAR (Oct 11)
 
 📊 2026 Record: 4W - 8L - 9D  (21 pts)
    ██████████░░░░░░░░░░░░░░░
@@ -64,6 +66,7 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing: 2026 Norwegian Eliteserien · 14
+📅 Next: vs SAR (Oct 11)
 
 📊 2026 Record: 4W - 8L - 9D  (21 pts)
    ██████████░░░░░░░░░░░░░░░

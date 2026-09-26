@@ -6,7 +6,7 @@ Player: **SIN** · Category: Tennis · Data source: ESPN public API
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"><img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png" alt="ATP Tennis" height="28" align="top"></picture> My Favourite ATP Tennis Player](https://site.api.espn.com/apis/site/v2/sports/tennis/atp/teams)
 
-<img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png" alt="Jannik Sinner logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/headshots/tennis/players/full/3623.png" alt="Jannik Sinner logo" width="72" align="right" />
 
 ### 🇮🇹 Jannik Sinner (SIN)
 ATP · World Ranking
@@ -25,7 +25,7 @@ The `title:` input replaces the default heading.
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png"><img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png" alt="ATP Tennis" height="28" align="top"></picture> My Jannik Sinner](https://site.api.espn.com/apis/site/v2/sports/tennis/atp/teams)
 
-<img src="https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png" alt="Jannik Sinner logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/headshots/tennis/players/full/3623.png" alt="Jannik Sinner logo" width="72" align="right" />
 
 ### 🇮🇹 Jannik Sinner (SIN)
 ATP · World Ranking

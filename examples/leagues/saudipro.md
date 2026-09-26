@@ -13,6 +13,7 @@ Saudi Pro League
 🟢 Season in progress
 
 🏅 Standing: Saudi Pro League · 18
+📅 Next: vs ALF (Oct 11)
 
 📊 2026 Record: 0W - 5L - 2D  (2 pts)
    ███▌░░░░░░░░░░░░░░░░░░░░░
@@ -39,6 +40,7 @@ Saudi Pro League
 🟢 Season in progress
 
 🏅 Standing: Saudi Pro League · 18
+📅 Next: vs ALF (Oct 11)
 
 📊 2026 Record: 0W - 5L - 2D  (2 pts)
    ███▌░░░░░░░░░░░░░░░░░░░░░
@@ -64,6 +66,7 @@ Saudi Pro League
 🟢 Season in progress
 
 🏅 Standing: Saudi Pro League · 18
+📅 Next: vs ALF (Oct 11)
 
 📊 2026 Record: 0W - 5L - 2D  (2 pts)
    ███▌░░░░░░░░░░░░░░░░░░░░░
