@@ -10,6 +10,18 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.15.2] - 2026-09-26
+
+### Fixed
+
+- **The off-season "next season starts" date was read from the wrong field.** Every league's start
+  is stored twice in the registry — once as a month and day, once as a real date — and the two
+  disagree for 15 of 43 leagues, because the month/day is a rounded guess. The status line read the
+  guess, so the NBA announced `October 1, 2026` where its own dated window, and its opener, is
+  `October 20`. The dated value now wins, and the year arithmetic advances from it, so a board
+  sitting past its own start date rolls to the following year instead of printing a date in the past.
+  Twenty-eight leagues already agreed and are unchanged.
+
 ## [1.15.1] - 2026-09-26
 
 ### Fixed
@@ -692,7 +704,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.1...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.2...HEAD
+[1.15.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.1...v1.15.2
 [1.15.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.0...v1.15.1
 [1.15.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.2...v1.15.0
 [1.14.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.1...v1.14.2
