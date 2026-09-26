@@ -14,7 +14,7 @@ Premier League
 
 **📅 Recent Games:**
 ```
-✅ W 0-0 vs LIV   (Jan 3, 2026)
+✅ W 1-0 vs LIV   (Jan 3, 2026)
 ❌ L 0-1 vs BHA   (Dec 27, 2025)
 ✅ W 4-0 @ NEW   (Dec 20, 2025)
 🟡 D 1-1 @ MNC   (Dec 13, 2025)

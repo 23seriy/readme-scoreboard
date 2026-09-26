@@ -14,7 +14,7 @@ La Liga
 
 **📅 Recent Games:**
 ```
-✅ W 0-0 @ ATM   (Jan 3, 2026)
+✅ W 1-0 @ ATM   (Jan 3, 2026)
 🟡 D 2-2 @ GIR   (Dec 27, 2025)
 ✅ W 2-0 @ CEL   (Dec 20, 2025)
 ❌ L 3-6 @ VIL   (Dec 13, 2025)

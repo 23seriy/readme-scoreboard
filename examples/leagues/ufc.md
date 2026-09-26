@@ -68,14 +68,7 @@ Middleweight
 
 📅 No fight announced
 
-**📅 Recent Fights:**
-```
-✅ W (R5) vs 🇦🇪 Khamzat Chimaev — May 9, 2026
-✅ W (R3) vs 🇺🇸 Anthony Hernandez — Feb 21, 2026
-❌ L (R5) vs 🇿🇦 Dricus Du Plessis — Feb 8, 2025
-✅ W (R5) vs 🇧🇷 Paulo Costa — Jun 1, 2024
-❌ L (R5) vs 🇿🇦 Dricus Du Plessis — Jan 20, 2024
-```
+
 
 ## Badge mode
 

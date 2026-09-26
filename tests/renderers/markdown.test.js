@@ -1613,6 +1613,13 @@ describe("UFC renderer", () => {
     expect(output).not.toContain("My Favourite UFC Player");
   });
 
+  it("links the heading at the MMA scoreboard rather than a teams endpoint", () => {
+    // MMA has no /teams collection, so the default link would be dead.
+    const heading = ufc().split("\n")[0];
+    expect(heading).toContain("https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard");
+    expect(heading).not.toContain("/ufc/teams");
+  });
+
   it("shows the next fight with its opponent, card and venue", () => {
     const output = ufc();
     expect(output).toContain("**📅 Next Fight:**");

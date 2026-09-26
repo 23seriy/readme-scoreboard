@@ -50,4 +50,26 @@ describe("generated examples", () => {
       expect(wins + losses).toBeGreaterThan(0);
     }
   );
+
+  it.each(files.map((file) => [path.basename(file), file]))(
+    "%s never shows a result that contradicts its scoreline",
+    (_name, file) => {
+      const content = fs.readFileSync(file, "utf8");
+      // "✅ W 2-1 @ ENG" lists the board team's score first, so a win cannot be
+      // 0-0 and a defeat cannot be 3-1. The sample generator once floored the
+      // winning margin at zero and emitted "W 0-0"; when that was fixed the
+      // committed files were left stale because nothing checks the artefacts —
+      // only the generator. This closes that gap. Matches are skipped where a
+      // board lists no score (UFC shows rounds, not points).
+      // The class holds 🟡 (outside the BMP), which needs the unicode flag.
+      const scored = content.match(/^[✅❌🟡] [WLD] \d+-\d+/gmu) || [];
+      scored.forEach((line) => {
+        const [, icon, result, own, opponent] = line.match(/^([✅❌🟡]) ([WLD]) (\d+)-(\d+)/u);
+        const [expectedIcon, expectedResult] = Number(own) > Number(opponent)
+          ? ["✅", "W"]
+          : Number(own) < Number(opponent) ? ["❌", "L"] : ["🟡", "D"];
+        expect(`${icon}${result} for "${line}"`).toBe(`${expectedIcon}${expectedResult} for "${line}"`);
+      });
+    }
+  );
 });

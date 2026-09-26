@@ -2,6 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { LEAGUES } = require("../src/config/leagues");
 const { render } = require("../src/renderers/markdown");
+const { compactMarkdown } = require("../src/compact");
 
 // Representative examples with demo teams so the showcase is reproducible
 // without a live API call. Each entry uses the league's own demo data. The
@@ -42,12 +43,6 @@ const PLAYER_SPOTLIGHT_EXAMPLES = [
   { key: "mls", team: "ATL", player: "Miguel Almiron" },
   { key: "ucl", team: "RMA", player: "Vinicius Junior" },
 ];
-
-function compactMarkdown(content) {
-  return content
-    .replace(/^<img[^>]+>\n?/gm, "")
-    .replace(/\n\*\*📅 Recent Games:\*\*\n```[\s\S]*?```\n?/g, "\n");
-}
 
 // Turn a player name into a filename-safe slug, dropping accents and punctuation
 // so "Vladimir Guerrero Jr." becomes "vladimir-guerrero-jr".

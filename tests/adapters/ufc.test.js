@@ -1,4 +1,6 @@
 const adapter = require("../../src/adapters/ufc");
+const { LEAGUE_BY_KEY } = require("../../src/config/leagues");
+const { validateInputs } = require("../../src/validation");
 const { COUNTRY_ISO, ESPN_IDS, flagFor, normalizeName, parseRecord, surnameCode } = adapter.helpers;
 
 // UFC is the first league whose upstream feed publishes no athlete id, so its
@@ -44,6 +46,21 @@ describe("UFC fighter roster", () => {
       expect(Number.isInteger(entry.id)).toBe(true);
       expect(entry.name).toBe(adapter.FIGHTERS[code].name);
     });
+  });
+
+  it("exposes TEAM_IDS for the live validation path", () => {
+    // validateInputs reads TEAM_IDS to resolve a code, so a player league still
+    // has to expose it — the racing adapters alias it for the same reason. The
+    // value carries the name, so an unknown code can be answered with real
+    // fighters rather than codes.
+    expect(Object.keys(adapter.TEAM_IDS).sort()).toEqual(Object.keys(adapter.FIGHTERS).sort());
+    expect(adapter.TEAM_IDS.STR.name).toBe("Sean Strickland");
+  });
+
+  it("publishes no headshot and falls back to the promotion's mark", () => {
+    expect(adapter.getPlayerHeadshotUrl(3093653)).toBeNull();
+    expect(adapter.getLogoUrl("STR"))
+      .toBe("https://a.espncdn.com/i/teamlogos/leagues/500/ufc.png");
   });
 
   it("derives a real flag for every mapped country", () => {
@@ -221,5 +238,75 @@ describe("UFC fetchData", () => {
     // The current season supplies fewer than five, so exactly one earlier
     // season is requested — never more than the bound.
     expect(calls.length).toBeLessThanOrEqual(3);
+  });
+
+  it("never lists the same bout twice when seasons overlap", async () => {
+    // Every query returns the same card here, which is what two adjacent season
+    // queries do for a card near the boundary. Without de-duplication the board
+    // showed the same fight three times.
+    const data = await withCards(CARDS).fetchData("EVL");
+    const keys = data.recentGames.map((fight) => `${fight.date}|${fight.opponent}`);
+    expect(data.recentGames).toHaveLength(1);
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+});
+
+describe("UFC bout de-duplication", () => {
+  // A bout is identified by its date and card, not by the opponent's name —
+  // rematches are real.
+  const bout = (date, opponent, event) => ({ date, opponentName: opponent, event });
+
+  it("collapses a repeated bout", () => {
+    const once = bout("2026-03-21T21:00Z", "Lerone Murphy", "UFC Fight Night");
+    expect(adapter.dedupeBouts([once, { ...once }])).toHaveLength(1);
+  });
+
+  it("keeps a rematch against the same opponent on a different card", () => {
+    expect(adapter.dedupeBouts([
+      bout("2024-01-20T21:00Z", "Dricus Du Plessis", "UFC 297"),
+      bout("2025-02-08T21:00Z", "Dricus Du Plessis", "UFC 312"),
+    ])).toHaveLength(2);
+  });
+
+  it("leaves a list with no repeats untouched", () => {
+    const bouts = [
+      bout("2026-03-21T21:00Z", "Lerone Murphy", "UFC Fight Night"),
+      bout("2026-10-24T21:00Z", "Alexander Volkanovski", "UFC 333"),
+    ];
+    expect(adapter.dedupeBouts(bouts)).toEqual(bouts);
+  });
+});
+
+describe("UFC registry entry", () => {
+  it("names the entity a Fighter without reshaping other leagues", () => {
+    expect(LEAGUE_BY_KEY.ufc.entityLabel).toBe("Fighter");
+    // The field is only set where it is needed, so every other league keeps the
+    // registry shape it had.
+    expect(LEAGUE_BY_KEY.epl.entityLabel).toBeUndefined();
+    expect(LEAGUE_BY_KEY.worldcup.entityLabel).toBeUndefined();
+  });
+
+  it("is a player league with no standings and no ranking feed", () => {
+    expect(LEAGUE_BY_KEY.ufc.entity).toBe("player");
+    expect(LEAGUE_BY_KEY.ufc.category).toBe("MMA");
+    expect(adapter.fetchRankings).toBeUndefined();
+  });
+
+  it("points its heading at the MMA scoreboard rather than a teams endpoint", () => {
+    // MMA has no /teams, so the default heading link would be dead.
+    expect(LEAGUE_BY_KEY.ufc.endpointOverride).toContain("mma/ufc/scoreboard");
+  });
+
+  it("accepts a roster code and rejects an unknown one through validation", () => {
+    const base = { sport: "ufc", entity: "player", adapter, supportedSports: ["ufc"] };
+    expect(() => validateInputs({ ...base, team: "STR" })).not.toThrow();
+    expect(() => validateInputs({ ...base, team: "XXX" }))
+      .toThrow(/Unknown ufc player abbreviation "XXX"\. Try one of: ABU \(Loai Abushaar\)/);
+  });
+
+  it("refuses player: with a reason, since the board already is a player board", () => {
+    const base = { sport: "ufc", entity: "player", adapter, supportedSports: ["ufc"], team: "STR" };
+    expect(() => validateInputs({ ...base, player: "Someone" }))
+      .toThrow(/player: is not yet supported for sport "ufc"/);
   });
 });

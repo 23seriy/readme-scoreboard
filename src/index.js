@@ -5,6 +5,7 @@ const { updateReadme, updateReadmeLocal } = require("./updater");
 const { LEAGUE_BY_KEY } = require("./config/leagues");
 const { validateInputs } = require("./validation");
 const { writeStepSummary, writeActionOutputs } = require("./action-summary");
+const { compactMarkdown } = require("./compact");
 
 const {
   GH_TOKEN: githubToken,
@@ -52,12 +53,6 @@ function parseEntity(value) {
   const normalized = String(value ?? "").trim().toLowerCase();
   if (!normalized || ["team", "player"].includes(normalized)) return normalized || null;
   throw new Error(`ENTITY must be "team" or "player"; received "${value}"`);
-}
-
-function compactMarkdown(content) {
-  return content
-    .replace(/^<img[^>]+>\n?/gm, "")
-    .replace(/\n\*\*📅 Recent Games:\*\*\n```[\s\S]*?```\n?/g, "\n");
 }
 
 function buildBadge(sportName, teams, blocks) {

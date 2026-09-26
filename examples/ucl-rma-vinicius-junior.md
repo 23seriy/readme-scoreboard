@@ -18,7 +18,7 @@ UEFA Champions League
 ❌ L 3-11 @ PSG   (Dec 27, 2025)
 ✅ W 1-0 vs MCI   (Dec 20, 2025)
 ❌ L 2-10 @ NAP   (Dec 13, 2025)
-✅ W 0-0 @ LIV   (Dec 6, 2025)
+✅ W 1-0 @ LIV   (Dec 6, 2025)
 ```
 
 **👑 Player Spotlight: Vinicius Junior**

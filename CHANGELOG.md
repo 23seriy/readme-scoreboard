@@ -45,7 +45,15 @@ that would alter what appears in your README or require editing your workflow.
   with a subtraction floored at zero, so a zero-point winner drew 0-0 — reachable wherever scores
   start at zero, meaning every soccer and hockey league, though no committed gallery happened to
   contain one until the World Cup demo did. A result that contradicts its own scoreline is now a
-  consistency failure checked across all 42 leagues, so no adapter can reintroduce it.
+  consistency failure checked across all 43 leagues, so no adapter can reintroduce it. Six committed
+  example boards still carried the old "W 0-0" output, because fixing the generator does not
+  regenerate the artefacts — they are now regenerated, and a test reads the committed files rather
+  than trusting the generator.
+- **Compact mode left a UFC board's fight log in place.** Compaction strips the recent-results block
+  by matching its heading, and UFC's read "Recent Fights", so `compact: true` kept the fights in the
+  action and in the league gallery. The heading is covered now, and the pattern lives in one shared
+  module — it had been copied identically into the action and two scripts, which is how a new sport
+  could match none of them.
 - **A bout could appear twice on a UFC board.** The adapter walks back a season when a fighter's
   recent results are thin, and the same card can arrive from two adjacent season queries, so fights
   are now de-duplicated before the board is built.
