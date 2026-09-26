@@ -7,18 +7,18 @@ Big 12 Conference
 🔴 Off-season · Next season starts November 2026
 
 🏅 Standing: Big 12 · 2
-📅 Next: vs BOS (Jan 10)
+📅 Next: vs BOS (Jan 11)
 
 📊 2025-2026 Record: 18W - 6L (75.0%)
    ██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W  30-27  vs DEN (Jan 3, 2026)
-❌ L   9-13  vs PHX (Dec 27, 2025)
-✅ W  25-22  vs GSW (Dec 20, 2025)
-✅ W  43-34  vs MIA (Dec 13, 2025)
-✅ W  38-33  vs NYK (Dec 6, 2025)
+✅ W  30-27  vs DEN (Jan 4, 2026)
+❌ L   9-13  vs PHX (Dec 28, 2025)
+✅ W  25-22  vs GSW (Dec 21, 2025)
+✅ W  43-34  vs MIA (Dec 14, 2025)
+✅ W  38-33  vs NYK (Dec 7, 2025)
 ```
 
 **🐻 Player Spotlight: Dwayne Aristode**
@@ -26,5 +26,5 @@ Big 12 Conference
 
 **📅 Last Game:**
 ```
-19 PTS · 3 REB · 3 AST · 25 MIN vs DEN (Jan 3, 2026)
+19 PTS · 3 REB · 3 AST · 25 MIN vs DEN (Jan 4, 2026)
 ```

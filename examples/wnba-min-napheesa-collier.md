@@ -7,16 +7,16 @@ Western Conference
 🟢 Season in progress
 
 🏅 Standing: Western · 1
-📅 Next: vs POR (Jan 6)
+📅 Next: vs POR (Jan 7)
 
 📊 2026 Record: 28W - 7L (80.0%)
    ████████████████████░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W  85-81  @ POR (Jan 1, 2026)
-✅ W  92-78  vs SEA (Dec 29, 2025)
-❌ L  74-88  @ LV  (Dec 26, 2025)
+✅ W  85-81  @ POR (Jan 2, 2026)
+✅ W  92-78  vs SEA (Dec 30, 2025)
+❌ L  74-88  @ LV  (Dec 27, 2025)
 ```
 
 **🐆 Player Spotlight: Napheesa Collier**
@@ -25,5 +25,5 @@ Western Conference
 
 **📅 Last Game:**
 ```
-23 PTS · 5 REB · 8 AST · 35 MIN vs POR (Jan 1, 2026)
+23 PTS · 5 REB · 8 AST · 35 MIN vs POR (Jan 2, 2026)
 ```

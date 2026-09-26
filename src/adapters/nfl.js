@@ -412,7 +412,7 @@ function getDemoSpotlight(teamAbbr, playerName, recentGames = []) {
     // headshot resolves to the real image and stays consistent with live runs.
     headshotUrl: getPlayerHeadshotUrl(player.id),
     lastGame: {
-      date: last ? last.date : DEMO_NOW.toISOString(),
+      date: last ? last.date : DEMO_NOW.toISOString().slice(0, 10),
       opponent: last ? last.oppAbbr : (DEMO_TEAMS[abbr] ? "SF" : "KC"),
       passingYards: player.position === "QB" ? 240 + (seed % 120) : null,
       passingTouchdowns: player.position === "QB" ? 1 + (seed % 4) : null,
@@ -463,7 +463,7 @@ function getDemoData(teamAbbr, playerName) {
     record,
     standing: { position: 2, label: team.conference },
     nextGame: {
-      date: lastGame.toISOString(),
+      date: lastGame.toISOString().slice(0, 10),
       opponent: nextOpponent,
       isHome: true,
     },

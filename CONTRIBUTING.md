@@ -31,8 +31,19 @@ entry plus one adapter file:
 4. Export either a class instance or a plain object — both satisfy the adapter contract,
    which covers `fetchData`, `getDemoData`, `getLogoUrl`, `TEAM_EMOJI`, `TEAM_IDS`, and
    `DEMO_TEAMS`
-5. Add tests under `tests/adapters/`, and a `--demo` line to the README's demo list
-6. Open a PR
+5. Add tests under `tests/adapters/`: the roster, the data mapping, and a renderer test. Give the
+   results list the standard `**📅 Recent Games:**` heading, or add your wording to the pattern in
+   `src/compact.js` — compact mode strips that block *by heading*, so a board that titles it
+   differently keeps its whole game log in `compact: true` mode
+6. Regenerate what the repository derives from the registry, or CI will disagree with you:
+   `node scripts/update-season-status.js`, `npm run leagues:manifest`, `npm run leagues:examples`,
+   `npm run leagues:showcase`, `npm run teams:directory`, `npm run teams:directory:markdown`,
+   `npm run players:directory`, `npm run players:directory:markdown`. Then update `action.yml` (two
+   places: the `sport:` description and the marketplace summary), the README's league counts, the
+   demo command list, and the changelog
+7. Check it works rather than assuming: `npm run smoke:demo` (every league's demo board),
+   `npm run health:apis` (every endpoint and league logo), and a live board for the new league
+8. Open a PR
 
 See `src/adapters/nhl.js` (class instance) and `src/adapters/nba.js` (plain object) as
 reference implementations.
@@ -98,6 +109,45 @@ SPORT=nba TEAM=BOS node src/index.js --demo
 - Update the README if your change affects usage
 - Add a clear description of what your PR does
 - Include tests for new behavior and confirm the full local checks pass
+
+## Quality Gates
+
+Two rules keep this repository honest. CI enforces the mechanical parts of both, but the judgement
+is yours.
+
+### Coverage must not drop
+
+`npm run test:coverage` runs against the thresholds in `jest.config.js` and CI fails below them.
+After adding code, run coverage and **ratchet the thresholds up** to the new measured figures —
+never down. The current numbers are recorded in a comment in `jest.config.js`; keep it current. If a
+new file is uncovered, either cover it or say why in the PR.
+
+### Every fix ships with the test that would have caught it
+
+A bug fixed without a regression test comes back. Before opening the PR:
+
+1. Write the test first and **watch it fail against the old code.** A guard that has never failed
+   proves nothing — more than one check here looked correct while only ever having been run on data
+   that satisfied it.
+2. Fix the bug, then confirm the test passes.
+3. Check the **artefacts**, not just the source. Fixing a generator does not regenerate what it
+   produced: six committed example boards kept shipping a result the generator had stopped emitting,
+   because nothing read them. That is why CI now regenerates the demo boards and fails on a diff.
+
+### Where the existing guards live
+
+Before adding a new one, look for the check that should already cover the case:
+
+| Concern | Guard |
+|---------|-------|
+| Every league is wired up (table, keys, counts, demo command) | `tests/readme-links.test.js` |
+| Registry, directories and manifest stay in step | `tests/config/leagues.test.js` |
+| Demo boards are deterministic and self-consistent | `tests/adapters/demo-consistency.test.js` |
+| Demo boards render identically in every timezone | `tests/adapters/demo-consistency.test.js` (child processes, one per `TZ`) |
+| Generated example boards render cleanly | `tests/examples.test.js` |
+| The league gallery matches the registry and compacts properly | `tests/league-gallery.test.js` |
+| Compact mode strips logos and game logs | `tests/compact.test.js` |
+| Headless coverage floors | `jest.config.js` thresholds, run by CI |
 
 ## Releasing
 

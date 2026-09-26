@@ -7,16 +7,16 @@ SEC
 🟢 Season in progress
 
 🏅 Standing: SEC · 2
-📅 Next: vs UGA (Jan 10)
+📅 Next: vs UGA (Jan 11)
 
 📊 2026 Season: 18W - 6L (75.0%)
    ██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 14-2  vs OSU (Jan 3, 2026)
-❌ L 18-29 vs MICH (Dec 27, 2025)
-✅ W 39-35 @ FSU (Dec 20, 2025)
-✅ W 24-21 vs CLEM (Dec 13, 2025)
-✅ W 43-33 vs ORE (Dec 6, 2025)
+✅ W 14-2  vs OSU (Jan 4, 2026)
+❌ L 18-29 vs MICH (Dec 28, 2025)
+✅ W 39-35 @ FSU (Dec 21, 2025)
+✅ W 24-21 vs CLEM (Dec 14, 2025)
+✅ W 43-33 vs ORE (Dec 7, 2025)
 ```

@@ -113,6 +113,53 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 | — | 🏁 | — | Daniel Suarez | `SUA` | 4645 | — |
 | — | 🏁 | — | Bubba Wallace | `WAL` | 4534 | — |
 
+## UFC
+
+**MMA**
+
+| Rank | Flag | Country | Player | Abbreviation | ID | Points |
+|------|------|---------|--------|--------------|----|--------|
+| — | 🇺🇸 | United States | Loai Abushaar | `ABU` | 5401059 | — |
+| — | 🇺🇸 | United States | Matt Adams | `ADA` | 5364347 | — |
+| — | 🇳🇬 | Nigeria | Israel Adesanya | `ADE` | 4285679 | — |
+| — | 🇧🇷 | Brazil | Brendan Allen | `ALL` | 4025699 | — |
+| — | 🇺🇸 | United States | Alex Apodaca | `APO` | 5394582 | — |
+| — | 🇦🇱 | Albania | Arlind Berisha | `BER` | 5369721 | — |
+| — | 🇧🇷 | Brazil | Gabriel Bonfim | `BON` | 4921516 | — |
+| — | 🇧🇷 | Brazil | Melquizael Costa | `COS` | 4425763 | — |
+| — | 🇮🇪 | Ireland | Adam Darby | `DAR` | 5369446 | — |
+| — | 🇷🇺 | Russia | Movsar Evloev | `EVL` | 4029275 | — |
+| — | 🇧🇷 | Brazil | Deiveson Figueiredo | `FIG` | 4189320 | — |
+| — | 🇺🇸 | United States | Justin Gaethje | `GAE` | 3022345 | — |
+| — | 🇵🇱 | Poland | Mateusz Gamrot | `GAM` | 3068125 | — |
+| — | 🇺🇸 | United States | Theo Haig | `HAI` | 4977642 | — |
+| — | 🇺🇸 | United States | Anthony Hernandez | `HER` | 4290956 | — |
+| — | 🇺🇸 | United States | Max Holloway | `HOL` | 2614933 | — |
+| — | 🇳🇿 | New Zealand | Dan Hooker | `HOO` | 3109135 | — |
+| — | 🇯🇵 | Japan | Kyoji Horiguchi | `HOR` | 2613374 | — |
+| — | 🇺🇸 | United States | Zevan Hunt | `HUN` | 5369672 | — |
+| — | 🇧🇷 | Brazil | Diego Lopes | `LOP` | 4881999 | — |
+| — | 🇷🇺 | Russia | Islam Makhachev | `MAK` | 3332412 | — |
+| — | 🇨🇦 | Canada | Mike Malott | `MAL` | 3165120 | — |
+| — | 🇺🇸 | United States | Bella Mir | `MIR` | 5369428 | — |
+| — | 🇧🇷 | Brazil | Renato Moicano | `MOI` | 3028863 | — |
+| — | 🇵🇸 | Palestine | Belal Muhammad | `MUH` | 3172112 | — |
+| — | 🇧🇷 | Brazil | Charles Oliveira | `OLI` | 2504169 | — |
+| — | 🇧🇷 | Brazil | Vinicius Oliveira | `OLV` | 4884877 | — |
+| — | 🇧🇷 | Brazil | Alexandre Pantoja | `PAN` | 2560746 | — |
+| — | 🇫🇷 | France | Salahdine Parnasse | `PAR` | 4312859 | — |
+| — | 🇺🇸 | United States | Quentin Pasley | `PAS` | 5307124 | — |
+| — | 🇪🇨 | Ecuador | Mayton Perea | `PER` | 5369676 | — |
+| — | 🏴󠁧󠁢󠁥󠁮󠁧󠁿 | England | Paddy Pimblett | `PIM` | 4008549 | — |
+| — | 🇿🇦 | South Africa | Dricus Du Plessis | `PLE` | 3166126 | — |
+| — | 🇧🇷 | Brazil | Carlos Prates | `PRA` | 4294832 | — |
+| — | 🇨🇿 | Czechia | Jiří Procházka | `PRO` | 3156612 | — |
+| — | 🇺🇸 | United States | Aljamain Sterling | `STE` | 3031559 | — |
+| — | 🇺🇸 | United States | Sean Strickland | `STR` | 3093653 | — |
+| — | 🇦🇺 | Australia | Alexander Volkanovski | `VOL` | 3949584 | — |
+| — | 🇺🇸 | United States | Anthony Wint | `WIN` | 3128853 | — |
+| — | 🇨🇳 | China | Song Yadong | `YAD` | 3151289 | — |
+
 ## WTA Tennis
 
 **Tennis**

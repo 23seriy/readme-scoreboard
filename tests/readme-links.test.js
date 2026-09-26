@@ -247,6 +247,19 @@ describe("repository CI configuration", () => {
     expect(ci).toContain("npm run lint");
   });
 
+  it("fails when the generated example boards are stale", () => {
+    // Those boards come from demo data, so regenerating them is deterministic: a
+    // diff means a committed file is stale. Fixing a generator does not update
+    // what it produced — six boards once kept shipping a result the generator had
+    // stopped emitting, because nothing read them.
+    expect(ci).toContain("npm run examples:generate");
+    expect(ci).toContain("git diff --exit-code");
+    // The gallery is live-data driven and excluded on purpose: including it
+    // would make the gate permanently red. A glob like 'examples/*.md' is not
+    // narrow enough, because git's '*' matches across '/'.
+    expect(ci).toContain(":!examples/leagues");
+  });
+
   it("enforces coverage thresholds in CI", () => {
     expect(require("../package.json").scripts["test:coverage"]).toBe(
       "jest --coverage --runInBand",
@@ -446,5 +459,45 @@ describe("documentation and action metadata", () => {
     expect(contributing).toContain("422 target_commitish is invalid");
     // The v1 alias moves on `release: published`.
     expect(contributing).toContain("release.yml");
+  });
+});
+
+describe("contributor guidance", () => {
+  it("documents the coverage and regression-test rules", () => {
+    // Both rules were learned the hard way. Keeping them written down is what
+    // makes them apply to the next change, not only the one that learned them.
+    expect(contributing).toContain("## Quality Gates");
+    expect(contributing).toContain("Coverage must not drop");
+    expect(contributing).toContain("ratchet the thresholds up");
+    expect(contributing).toContain("Every fix ships with the test that would have caught it");
+    expect(contributing).toContain("watch it fail against the old code");
+  });
+
+  it("points contributors at the guard that should already cover a case", () => {
+    // Adding a redundant guard is cheap; losing an existing one silently is not.
+    expect(contributing).toContain("Where the existing guards live");
+    [
+      "tests/readme-links.test.js",
+      "tests/config/leagues.test.js",
+      "tests/adapters/demo-consistency.test.js",
+      "tests/examples.test.js",
+      "tests/league-gallery.test.js",
+      "tests/compact.test.js",
+    ].forEach((guard) => expect(contributing).toContain(guard));
+  });
+
+  it("lists the artefacts a new league has to regenerate", () => {
+    // Every command here was missed at some point and only caught afterwards by
+    // a guard, so the checklist is the cheap way to avoid repeating that.
+    [
+      "scripts/update-season-status.js",
+      "npm run leagues:manifest",
+      "npm run leagues:examples",
+      "npm run leagues:showcase",
+      "npm run teams:directory",
+      "npm run players:directory",
+      "npm run smoke:demo",
+      "npm run health:apis",
+    ].forEach((step) => expect(contributing).toContain(step));
   });
 });

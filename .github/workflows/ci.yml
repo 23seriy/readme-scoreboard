@@ -17,6 +17,20 @@ jobs:
       - run: npm run docs:check
       - run: npm run lint
       - run: npm run test:coverage
+      # The example boards are generated from demo data, so regenerating them is
+      # deterministic: a diff means a committed file is stale. Fixing a generator
+      # does not update what it produced — six boards once kept shipping a result
+      # the generator had stopped emitting, because nothing read them.
+      #
+      # examples/leagues is excluded on purpose: that gallery is built from live
+      # data and refreshed by its own scheduled workflow, so a diff there is
+      # expected and would leave this gate permanently red. A pathspec glob like
+      # 'examples/*.md' is NOT narrow enough — git's '*' also matches across '/'
+      # and would pull the gallery back in.
+      - name: Check the generated example boards are current
+        run: |
+          npm run examples:generate
+          git diff --exit-code --stat -- examples ':!examples/leagues'
       - name: Upload coverage report
         if: always()
         uses: actions/upload-artifact@v7

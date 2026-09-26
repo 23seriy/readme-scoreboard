@@ -217,7 +217,7 @@ function getDemoData(abbr) {
     lastMatch: {
       opponent: "Alexander Zverev",
       won: true,
-      date: "2026-07-12T15:05:00Z",
+      date: "2026-07-12",
       sets: [[6, 7, 6, 6], [7, 6, 3, 4]],
     },
   };

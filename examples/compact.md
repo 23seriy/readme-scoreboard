@@ -6,7 +6,7 @@ East Conference · Atlantic Division
 🔴 Off-season · Next season starts October 2026
 
 🏅 Standing: East · 3
-📅 Next: vs DEN (Jan 5)
+📅 Next: vs DEN (Jan 6)
 
 📊 2025-2026 Record: 50W - 32L (61.0%)
    ███████████████▎░░░░░░░░░

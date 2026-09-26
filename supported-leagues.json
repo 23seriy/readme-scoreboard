@@ -1263,6 +1263,37 @@
         "2026-03-28",
         "2026-11-09"
       ]
+    },
+    {
+      "key": "ufc",
+      "name": "UFC",
+      "category": "MMA",
+      "entity": "player",
+      "endpoint": "mma/ufc",
+      "apiSource": "official league API",
+      "teamEndpoint": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard",
+      "renderer": "ufc",
+      "emoji": "🥊",
+      "logo": {
+        "light": "https://a.espncdn.com/i/teamlogos/leagues/500/ufc.png",
+        "dark": "https://a.espncdn.com/i/teamlogos/leagues/500/ufc.png"
+      },
+      "seasonWindow": {
+        "start": [
+          1,
+          1
+        ],
+        "end": [
+          12,
+          31
+        ],
+        "nextLabel": "January"
+      },
+      "fallback": [
+        "2026-01-01",
+        "2026-12-31"
+      ],
+      "endpointOverride": "[MMA scoreboard](https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard)"
     }
   ]
 }

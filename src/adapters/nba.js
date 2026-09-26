@@ -367,7 +367,7 @@ function getDemoData(teamAbbr, playerName) {
       headshotUrl: getPlayerHeadshotUrl("3945274"),
       lastGame: {
         points: 12, rebounds: 4, assists: 7, minutes: 26,
-        date: last ? last.date : DEMO_NOW.toISOString(),
+          date: last ? last.date : DEMO_NOW.toISOString().slice(0, 10),
         opponent: last ? last.oppAbbr : "MIN",
       },
     };

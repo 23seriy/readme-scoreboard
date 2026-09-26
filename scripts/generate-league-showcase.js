@@ -2,6 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { LEAGUES } = require("../src/config/leagues");
 const { render } = require("../src/renderers/markdown");
+const { compactMarkdown } = require("../src/compact");
 const directory = require("../team-directory.json");
 
 // One combined file per league (not per sport category) showing every
@@ -13,12 +14,6 @@ const directory = require("../team-directory.json");
 // IMPORTANT: whenever a new league is added to src/config/leagues.js, run
 // `npm run leagues:showcase` (or let the daily workflow pick it up) so this
 // gallery covers it too.
-
-function compactMarkdown(content) {
-  return content
-    .replace(/^<img[^>]+>\n?/gm, "")
-    .replace(/\n\*\*📅 Recent Games:\*\*\n```[\s\S]*?```\n?/g, "\n");
-}
 
 function renderBadge(sportName, abbr) {
   return [

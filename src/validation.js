@@ -24,6 +24,9 @@ function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adap
     //   - atp, wta       already render as a single player board
     //                    (entity: player), so a spotlight inside one is
     //                    redundant.
+    //   - ufc            same reason: the board is already one fighter's
+    //                    record and schedule, and ESPN publishes no MMA
+    //                    headshots or season stats to add to it.
     //   - f1             renders a constructor board from a teams endpoint and
     //                    has no athlete roster, so there is no player to
     //                    spotlight.
