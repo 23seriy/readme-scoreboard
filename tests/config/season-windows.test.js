@@ -56,4 +56,20 @@ describe("league season windows", () => {
     expect(nhl.fallback[0]).toBe("2026-09-29");
     expect(nhl.seasonWindow.nextLabel).toBe("September");
   });
+
+  // The registry keeps a month/day window AND a dated fallback, and for most
+  // leagues they disagree because the month/day is a rounded guess — the NBA's
+  // said October 1 while its own dated window is October 20.
+  //
+  // The status line now reads the DATED value, so the disagreement is no longer
+  // a rendering bug, and pinning them equal here would mean inventing a fixture
+  // date for 25 leagues from a guess. It is reported by `npm run audit:leagues`
+  // instead, which prints every league where the two differ, so the drift stays
+  // visible without asserting an invariant nobody has verified.
+  it("has a dated fallback for every league with a window", () => {
+    const windowed = LEAGUES.filter((league) => league.seasonWindow?.start);
+    const dated = windowed.filter((league) => /^\d{4}-\d{2}-\d{2}$/.test(String(league.fallback?.[0])));
+    expect(windowed.length).toBeGreaterThan(0);
+    expect(dated.length).toBe(windowed.length);
+  });
 });

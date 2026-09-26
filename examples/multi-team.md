@@ -3,7 +3,7 @@
 
 ### 👑 Los Angeles Lakers (LAL)
 West Conference · Pacific Division
-🔴 Off-season · Next season starts October 1, 2026
+🔴 Off-season · Next season starts October 20, 2026
 
 🏅 Standing: West · 3
 📅 Next: vs BOS (Jan 6)

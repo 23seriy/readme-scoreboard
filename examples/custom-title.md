@@ -4,7 +4,7 @@
 
 ### ☘️ Boston Celtics (BOS)
 East Conference · Atlantic Division
-🔴 Off-season · Next season starts October 1, 2026
+🔴 Off-season · Next season starts October 20, 2026
 
 🏅 Standing: East · 3
 📅 Next: vs DEN (Jan 6)

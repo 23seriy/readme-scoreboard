@@ -70,7 +70,9 @@ const LEAGUE_LOGOS = {
 // The registry is authoritative; these assignments preserve the renderer's
 // existing lookup shape while keeping all league metadata in one place.
 LEAGUE_REGISTRY.forEach((entry) => {
-  SEASON_WINDOWS[entry.key] = entry.seasonWindow;
+  // The dated window (`fallback`) travels with the month/day window because the
+  // status line prefers it — see seasonStatusLine.
+  SEASON_WINDOWS[entry.key] = { ...entry.seasonWindow, fallback: entry.fallback?.[0] };
   LEAGUE_LOGOS[entry.key] = { ...entry.logo, alt: entry.name };
 });
 
@@ -117,29 +119,36 @@ function seasonStatusLine(sport) {
   if (isSeasonActive(sport)) return "🟢 Season in progress";
   const window = SEASON_WINDOWS[sport] || {};
   const now = new Date();
-  const year = now.getFullYear();
+  const today = now.toISOString().slice(0, 10);
   const [sm, sd] = window.start || [];
-  // If this year's start date has already passed, the next one is next year.
-  // Compare the full date: on Aug 8 a season starting Aug 10 is still this year.
-  const m = now.getMonth() + 1;
-  const d = now.getDate();
-  const startPassed = sm && (m > sm || (m === sm && d > sd));
-  // Non-annual events (the quadrennial World Cup) name their next edition
-  // explicitly; the annual arithmetic below would otherwise claim the next
-  // calendar year.
-  const nextYear = window.nextStartYear ?? (startPassed ? year + 1 : year);
-  // Name the date, not the month. "Next season starts October 2026" was wrong
-  // for the NHL by three days AND a month, and vague everywhere else — and the
-  // registry stores a day, so printing it costs nothing. `nextLabel` remains the
-  // fallback for any league that has no day configured.
-  const nextStart = sm && sd
-    ? formatDate(
-        `${nextYear}-${String(sm).padStart(2, "0")}-${String(sd).padStart(2, "0")}`,
-        { month: "long", day: "numeric" }
-      )
+  const pad = (n) => String(n).padStart(2, "0");
+  // Prefer the DATED window. The registry keeps both a month/day (`start`) and a
+  // real `fallback` date, and they disagree for most leagues because the
+  // month/day is a rounded guess: the NBA's said October 1 while its own dated
+  // window — and its opener — is October 20. Only the dated one is trustworthy,
+  // so the day comes from it whenever it exists.
+  const dated = /^\d{4}-\d{2}-\d{2}$/.test(String(window.fallback || ""))
+    ? String(window.fallback)
     : null;
-  if (nextStart) return `🔴 Off-season · Next season starts ${nextStart}, ${nextYear}`;
-  return `🔴 Off-season · Next season starts ${window.nextLabel || "soon"} ${nextYear}`;
+  let nextStart = null;
+  if (dated && window.nextStartYear) {
+    nextStart = `${window.nextStartYear}-${dated.slice(5)}`;
+  } else if (dated) {
+    // Already behind us this year? The next edition starts on the same day next
+    // year, which is the arithmetic the month-only version kept getting wrong.
+    nextStart = dated > today ? dated : `${Number(dated.slice(0, 4)) + 1}-${dated.slice(5)}`;
+  } else if (sm && sd) {
+    const m = now.getMonth() + 1;
+    const d = now.getDate();
+    const startPassed = m > sm || (m === sm && d > sd);
+    const nextYear = window.nextStartYear ?? (startPassed ? now.getFullYear() + 1 : now.getFullYear());
+    nextStart = `${nextYear}-${pad(sm)}-${pad(sd)}`;
+  }
+  const year = nextStart ? nextStart.slice(0, 4) : (now.getFullYear() + 1);
+  const when = nextStart
+    ? formatDate(nextStart, { month: "long", day: "numeric" })
+    : window.nextLabel || "soon";
+  return `🔴 Off-season · Next season starts ${when}${nextStart ? `, ${year}` : ` ${year}`}`;
 }
 
 // Optional richer stats rendered as their own row after the season line.

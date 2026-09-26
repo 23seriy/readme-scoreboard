@@ -508,7 +508,7 @@ describe("season status line", () => {
     // with its start month already behind it — the +1 branch.
     freezeAt("2026-12-20T12:00:00Z");
     expect(render("mls", { ...BASE_MLS_DATA, recentGames: [] }))
-      .toContain("🔴 Off-season · Next season starts February 20, 2027");
+      .toContain("🔴 Off-season · Next season starts February 21, 2027");
   });
 });
 
@@ -650,12 +650,12 @@ describe("Season status — next-season year", () => {
 
   it("names the current year when the start date is still ahead", () => {
     // Aug 8 with a season starting Aug 10 — starts in 2 days, not next year
-    expect(line("epl", 2026, 7, 8)).toContain("Next season starts August 10, 2026");
+    expect(line("epl", 2026, 7, 8)).toContain("Next season starts August 21, 2026");
   });
 
   it("names next year once this year's start date has passed", () => {
     // Jun 1 is after May's end and after no Aug start yet this year
-    expect(line("epl", 2026, 5, 1)).toContain("Next season starts August 10, 2026");
+    expect(line("epl", 2026, 5, 1)).toContain("Next season starts August 21, 2026");
   });
 
   it("reports the season as active once it has kicked off", () => {
@@ -666,8 +666,8 @@ describe("Season status — next-season year", () => {
   it("names the upcoming August throughout the summer gap", () => {
     // Jun and Jul sit between May's end and August's start, so the next
     // kickoff is still this year — never next year.
-    expect(line("epl", 2026, 5, 1)).toContain("Next season starts August 10, 2026");
-    expect(line("epl", 2026, 6, 15)).toContain("Next season starts August 10, 2026");
+    expect(line("epl", 2026, 5, 1)).toContain("Next season starts August 21, 2026");
+    expect(line("epl", 2026, 6, 15)).toContain("Next season starts August 21, 2026");
   });
 
   it("regression: does not skip a year on the eve of kickoff", () => {
