@@ -236,6 +236,22 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
         httpGet(`${this.baseUrl}/teams/${team.id}/schedule?season=${season}`),
       ]);
 
+      // The plain schedule endpoint returns a truncated page of COMPLETED matches
+      // — five events for a Premier League season — so it never holds an upcoming
+      // fixture and no soccer board could show a next game. `fixture=true` returns
+      // the future ones instead (33 for Arsenal, out to next May).
+      //
+      // Deliberately fetched AFTER the two calls above, not alongside them, and
+      // deliberately non-fatal. A sequenced test stub hands responses out in
+      // order, so a third parallel request would take the standings payload; and
+      // when a stub runs out of queued responses it returns undefined rather than
+      // rejecting, which `.catch` alone does not cover — hence the explicit
+      // coercion of a successful non-result.
+      const fixtureData = await Promise.resolve()
+        .then(() => httpGet(`${this.baseUrl}/teams/${team.id}/schedule?season=${season}&fixture=true`))
+        .then((res) => res || { data: { events: [] } })
+        .catch(() => ({ data: { events: [] } }));
+
       team.conference = standings.conference;
 
       return {
@@ -251,7 +267,7 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
           ? { position: standings.position, label: standings.conference }
           : null,
         form: this.parseForm(schedData.data.events, team.id),
-        nextGame: this.parseNextGame(schedData.data.events, team.id),
+        nextGame: this.parseNextGame(fixtureData.data.events, team.id),
       };
     } catch (error) {
       console.error(`Failed to fetch ${this.LEAGUE_NAME} data: ${error.message}`);
