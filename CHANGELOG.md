@@ -10,6 +10,43 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.15.1] - 2026-09-26
+
+### Fixed
+
+- **Hockey and tennis athlete images were blank or generic.** The NHL spotlight headshot pointed at
+  `mugs/nhl/<season>/<id>.png`, a path that answers `200` with an 11 KB placeholder for every player
+  and every season — GitHub drew the grey silhouette, so the broken image looked like a working URL.
+  It now uses the season-free path the league's own API reports. A tennis board also shows the
+  player's ESPN headshot rather than a generic tennis icon, because a tennis board tracks one person.
+- **A hockey board showed no recent games, and a 0-0 record, during the off-season.** Late September
+  counts as off-season, but the upcoming season had already played pre-season fixtures — which are
+  final — and those were taken as proof the season had started, so the adapter settled one call short
+  of the completed season. It now requires a completed regular-season or playoff game, which is what
+  brings last season's results back. The next fixture still comes from the upcoming season, so the
+  board keeps announcing the opener.
+- **The next season start named a month, and for hockey it named the wrong one.** The registry said
+  October while its own fallback date, and the league's API, both said September 29.
+- **A standing from a completed season read as a live one.** The NHL reports no in-season standing
+  off-season, so its board printed a final table as current.
+
+### Changed
+
+- **The status line names a date:** `🔴 Off-season · Next season starts September 29, 2026` instead
+  of `... September 2026`. The registry already stores the day, so printing it costs nothing. The
+  World Cup keeps its pinned edition and now reads `June 11, 2030`.
+- **A standing taken from a finished season says so:** `🏅 Standing (2025-26): Atlantic · 8`. Leagues
+  whose standing is current are unchanged.
+
+### Added
+
+- **`npm run audit:leagues`**, a maintainer-facing check of every configured league for the classes
+  of bug that reached a board: a 0-0 record alongside listed games, an image URL that resolves to a
+  placeholder, and an off-season board whose next season start is already in the past. It reports 40
+  of 43 leagues clean and names three open findings — `belgian` has no teams configured, and `ncaaf`
+  and `ncaa_hockey` report 0-0 records over games they list. It runs on request, not in CI, because
+  it makes roughly 100 live requests.
+
 ## [1.15.0] - 2026-09-26
 
 ### Added
@@ -655,7 +692,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.0...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.1...HEAD
+[1.15.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.0...v1.15.1
 [1.15.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.2...v1.15.0
 [1.14.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.1...v1.14.2
 [1.14.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.0...v1.14.1
