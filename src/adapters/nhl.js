@@ -35,11 +35,15 @@ class NHLAdapter extends BaseFreeApiAdapter {
   }
 
   // NHL headshots come from the league's own asset host, keyed by player id.
-  // Returns null without an id so the renderer can omit the image rather than
-  // emit a broken one.
+  // The path must NOT name a season: `mugs/nhl/<season>/<id>.png` — with or
+  // without a club segment, and for every season id including the current one —
+  // serves an 11 KB placeholder mug that GitHub renders as the grey silhouette.
+  // `latest` serves the real photo and is byte-identical to the URL the API
+  // itself reports in `player/<id>/landing` -> `headshot`. Returns null without
+  // an id so the renderer can omit the image rather than emit a broken one.
   getPlayerHeadshotUrl(playerId) {
     return playerId
-      ? `https://assets.nhle.com/mugs/nhl/20252026/${playerId}.png`
+      ? `https://assets.nhle.com/mugs/nhl/latest/${playerId}.png`
       : null;
   }
 
@@ -322,6 +326,11 @@ class NHLAdapter extends BaseFreeApiAdapter {
         conference: entry?.conferenceName || "",
         division: entry?.divisionName || "",
         position: entry?.divisionSequence || entry?.conferenceSequence || null,
+        // These standings are the last COMPLETED season's final table
+        // (standings/now reports nothing off-season), so carry the season along
+        // rather than letting a final position read as a live one. The seasons
+        // list names the field `id` (e.g. 20252026), not `seasonId`.
+        season: this.formatSeasonId(completed?.id),
       };
     } catch {
       return { conference: "", division: "", position: null };
@@ -330,6 +339,13 @@ class NHLAdapter extends BaseFreeApiAdapter {
 
   getSeasonCode(year) {
     return `${year}${year + 1}`;
+  }
+
+  // "20252026" -> "2025-26", for labelling data that comes from a completed
+  // season rather than the current one.
+  formatSeasonId(seasonId) {
+    const id = String(seasonId || "");
+    return /^\d{8}$/.test(id) ? `${id.slice(0, 4)}-${id.slice(6)}` : null;
   }
 
   getGamesUrl(teamId, _fromDate, _toDate, season = "now") {
@@ -348,7 +364,12 @@ class NHLAdapter extends BaseFreeApiAdapter {
       team.conference = confDiv.conference;
       team.division = confDiv.division;
 
-      // Try "now", then this calendar year's season, then last year's — whichever has Final games
+      // Try "now", then this calendar year's season, then last year's — whichever
+      // has completed REGULAR-SEASON or playoff games. Pre-season fixtures
+      // (gameType 1) must not count: in late September the upcoming season has
+      // already played them, and treating those as evidence that the season has
+      // started stopped the walk-back — leaving the board with no recent games
+      // and a 0-0 record while the season it wanted was right there.
       const currentYear = new Date().getFullYear();
       const seasonsToTry = [
         "now",
@@ -356,12 +377,18 @@ class NHLAdapter extends BaseFreeApiAdapter {
         this.getSeasonCode(currentYear - 2), // e.g. 20242025 as last resort
       ];
       let allGames = [];
+      // The upcoming season's schedule is where the next fixture lives, but it
+      // is not where the record and recent results come from, so keep it aside.
+      let upcomingGames = [];
       let usedSeasonYear = currentYear - 1;
       for (const season of seasonsToTry) {
         const url = this.getGamesUrl(team.id, null, null, season);
         const { data } = await httpGet(url);
         allGames = this.parseGameResponse(data);
-        if (allGames.some((g) => g.status === "Final")) {
+        if (!upcomingGames.some((g) => g.status !== "Final")) {
+          if (allGames.some((g) => g.status !== "Final")) upcomingGames = allGames;
+        }
+        if (allGames.some((g) => g.status === "Final" && g.gameType !== 1)) {
           // Derive the display year from the season code (first 4 digits)
           usedSeasonYear = season === "now" ? currentYear - 1 : parseInt(season.slice(0, 4), 10);
           // Extract team name from schedule now that we have games
@@ -409,16 +436,23 @@ class NHLAdapter extends BaseFreeApiAdapter {
           return teamScore > oppScore ? "W" : teamScore < oppScore ? "L" : "D";
         });
 
-      const nextGame = allGames
+      // Prefer the first unplayed regular-season game; pre-season fixtures are
+      // only used when no regular-season game is scheduled yet.
+      const pending = (upcomingGames.length ? upcomingGames : allGames)
         .filter((g) => g.status !== "Final")
-        .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+      const nextGame = pending.find((g) => g.gameType !== 1) || pending[0];
 
       return {
         team,
         record,
         recentGames,
         standing: confDiv.position
-          ? { position: confDiv.position, label: team.division || team.conference }
+          ? {
+              position: confDiv.position,
+              label: team.division || team.conference,
+              season: confDiv.season,
+            }
           : null,
         form,
         nextGame: nextGame ? {

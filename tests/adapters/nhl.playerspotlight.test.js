@@ -145,8 +145,20 @@ describe("NHL adapter — demo spotlight", () => {
   it("includes a headshot URL built from the demo roster's player id", () => {
     const data = adapter.getDemoData("NYR", "Artemi Panarin");
     expect(data.spotlight.headshotUrl).toBe(
-      "https://assets.nhle.com/mugs/nhl/20252026/8478550.png"
+      "https://assets.nhle.com/mugs/nhl/latest/8478550.png"
     );
+  });
+
+  // The season-scoped mug path — mugs/nhl/<season>/<id>.png, with or without a
+  // club segment — answers 200 with an 11 KB placeholder for every player, and
+  // GitHub renders that as the grey silhouette. A hardcoded season therefore
+  // broke every headshot at once, silently: the URL was valid, the image was
+  // not. Keep the path season-free.
+  it("builds a headshot URL that names no season", () => {
+    const url = adapter.getPlayerHeadshotUrl(8477939);
+    expect(url).toContain("/mugs/nhl/latest/");
+    expect(url).not.toMatch(/\/(19|20)\d{6}\//);
+    expect(adapter.getPlayerHeadshotUrl(null)).toBeNull();
   });
 
   it("preserves the base demo board fields and omits the spotlight without a player", () => {

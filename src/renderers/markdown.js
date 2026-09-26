@@ -144,7 +144,12 @@ function extraTeamLines(data) {
   const { standing, nextGame } = data || {};
 
   if (standing && standing.position) {
-    lines.push(`🏅 Standing: ${standing.label ? `${standing.label} · ` : ""}${standing.position}`);
+    // Some standings come from the last COMPLETED season — the NHL reports no
+    // in-season standing off-season, so its board would otherwise present a
+    // final table as a live position. Naming the season keeps that honest, and
+    // is omitted for leagues whose standing is current.
+    const scope = standing.season ? ` (${standing.season})` : "";
+    lines.push(`🏅 Standing${scope}: ${standing.label ? `${standing.label} · ` : ""}${standing.position}`);
   }
 
   if (nextGame && nextGame.opponent) {
