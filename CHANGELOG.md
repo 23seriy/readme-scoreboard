@@ -10,6 +10,18 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.16.0] - 2026-09-26
+
+### Added
+
+- **Soccer boards now show the next fixture.** `📅 Next: vs LEE (Oct 10)` appears on Premier
+  League, La Liga, MLS and the other eighteen soccer leagues, alongside the standing and recent
+  results they already had. The adapter had always been able to render it — the schedule call it
+  read simply returned a page of finished matches, so the next fixture was never in the response.
+  Asking the same endpoint for future fixtures instead takes the number of leagues that can show a
+  next fixture from 7 of 43 to 30. Leagues that legitimately have no upcoming match — a cup between
+  editions, a completed season — are unchanged.
+
 ## [1.15.2] - 2026-09-26
 
 ### Fixed
@@ -704,7 +716,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.2...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.16.0...HEAD
+[1.16.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.2...v1.16.0
 [1.15.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.1...v1.15.2
 [1.15.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.0...v1.15.1
 [1.15.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.2...v1.15.0
