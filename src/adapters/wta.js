@@ -68,8 +68,15 @@ function getSeasonYear() {
 
 // WTA has no per-team logo on ESPN's CDN, so fall back to the tennis icon used
 // by the ATP league itself.
-function getLogoUrl() {
-  return "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png";
+// A tennis board tracks one player, so the image beside the heading is that
+// player's own headshot rather than a generic sport icon. ESPN publishes WTA
+// headshots under the same /i/headshots tree the other sports use. An unknown
+// abbreviation keeps the icon, so a board never renders a broken image.
+function getLogoUrl(abbr) {
+  const player = PLAYER_IDS[String(abbr || "").toUpperCase()];
+  return player
+    ? `https://a.espncdn.com/i/headshots/tennis/players/full/${player.id}.png`
+    : "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png";
 }
 
 async function fetchRankings() {

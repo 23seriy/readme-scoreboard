@@ -155,4 +155,101 @@ describe("NHLAdapter — fetchData record filtering", () => {
     expect(result.team.conference).toBe("Eastern");
     expect(result.team.division).toBe("Atlantic");
   });
+
+  // Late September: the upcoming season has already played PRE-SEASON games,
+  // which are Final with gameType 1. Treating those as proof that the season had
+  // started stopped the walk-back to the completed season, so the board showed
+  // "No recent games found" and a 0-0 record in the middle of the off-season.
+  // The existing fallback test only covered "now" returning NO games at all,
+  // which is the one shape this bug does not take.
+  describe("off-season walk-back", () => {
+    const NOW_SEASON = "20262027";
+    const COMPLETED_SEASON = "20252026";
+
+    function stubApi() {
+      axios.get.mockImplementation((url) => {
+        const u = String(url);
+        if (u.includes(`club-schedule-season/tor/${NOW_SEASON}`) || u.includes("club-schedule-season/tor/now")) {
+          return Promise.resolve({
+            data: {
+              games: [
+                // Pre-season: Final, but gameType 1.
+                makeGame({ homeAbbr: "TOR", awayAbbr: "MTL", homeId: 10, awayId: 8, homeScore: 3, awayScore: 2, gameState: "OFF", gameType: 1, date: "2026-09-19T23:00:00Z" }),
+                // The season opener, not played yet.
+                makeGame({ homeAbbr: "TOR", awayAbbr: "MTL", homeId: 10, awayId: 8, homeScore: 0, awayScore: 0, gameState: "FUT", gameType: 2, date: "2026-09-29T23:00:00Z" }),
+              ],
+            },
+          });
+        }
+        if (u.includes(`club-schedule-season/tor/${COMPLETED_SEASON}`)) {
+          return Promise.resolve({
+            data: {
+              games: [
+                makeGame({ homeAbbr: "TOR", awayAbbr: "OTT", homeId: 10, awayId: 9, homeScore: 5, awayScore: 1, gameState: "OFF", gameType: 2, date: "2026-04-15T23:00:00Z" }),
+                makeGame({ homeAbbr: "BOS", awayAbbr: "TOR", homeId: 6, awayId: 10, homeScore: 2, awayScore: 4, gameState: "OFF", gameType: 2, date: "2026-04-13T23:00:00Z" }),
+              ],
+            },
+          });
+        }
+        if (u.includes("standings-season")) {
+          return Promise.resolve({ data: { seasons: [{ id: Number(COMPLETED_SEASON), standingsEnd: "2026-04-17" }] } });
+        }
+        if (u.includes("/standings/")) {
+          return Promise.resolve({
+            data: {
+              standings: [
+                { teamAbbrev: { default: "TOR" }, conferenceName: "Eastern", divisionName: "Atlantic", divisionSequence: 8 },
+              ],
+            },
+          });
+        }
+        return Promise.resolve({ data: {} });
+      });
+    }
+
+    beforeEach(() => {
+      stubApi();
+    });
+
+    it("uses the completed season for the record and recent games", async () => {
+      const result = await adapter.fetchData("TOR");
+      expect(result.record).toEqual({ wins: 2, losses: 0, season: 2025 });
+      expect(result.recentGames).toHaveLength(2);
+      expect(result.recentGames[0].date).toContain("2026-04-15");
+      // Pre-season is never a "recent game".
+      expect(result.recentGames.every((g) => g.gameType !== 1)).toBe(true);
+    });
+
+    it("still reports the next fixture from the upcoming season", async () => {
+      const result = await adapter.fetchData("TOR");
+      expect(result.nextGame.opponent).toBe("MTL");
+      expect(result.nextGame.date).toContain("2026-09-29");
+      expect(result.nextGame.isHome).toBe(true);
+    });
+
+    it("names the season its standing came from", async () => {
+      // The season label is a mapping question, so stub the standings lookup
+      // rather than the endpoint payload: fetchData's other requests are
+      // already exercised above and would only add noise here.
+      jest.spyOn(adapter, "fetchConferenceDivision").mockResolvedValue({
+        conference: "Eastern",
+        division: "Atlantic",
+        position: 8,
+        season: "2025-26",
+      });
+
+      const result = await adapter.fetchData("TOR");
+      expect(result.standing).toEqual({
+        position: 8,
+        label: "Atlantic",
+        season: "2025-26",
+      });
+
+      // "20252026" -> "2025-26"; anything else is not a season id.
+      expect(adapter.formatSeasonId("20252026")).toBe("2025-26");
+      expect(adapter.formatSeasonId("2025")).toBeNull();
+      expect(adapter.formatSeasonId(null)).toBeNull();
+      expect(adapter.formatSeasonId(undefined)).toBeNull();
+    });
+  });
 });

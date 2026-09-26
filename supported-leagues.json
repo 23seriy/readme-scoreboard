@@ -108,14 +108,14 @@
       },
       "seasonWindow": {
         "start": [
-          10,
-          1
+          9,
+          29
         ],
         "end": [
           6,
           30
         ],
-        "nextLabel": "October"
+        "nextLabel": "September"
       },
       "fallback": [
         "2026-09-29",

@@ -1662,3 +1662,23 @@ describe("UFC renderer", () => {
     expect(output).toContain("🟡 D vs");
   });
 });
+  // A standing can come from the last COMPLETED season: the NHL reports no
+  // in-season standing off-season, so its board would otherwise print a final
+  // table as though it were current. Naming the season keeps that honest, and
+  // leagues whose standing is live are unchanged.
+  it("names the season a standing came from, and omits it when it is current", () => {
+    const fromCompletedSeason = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 8, label: "Atlantic", season: "2025-26" },
+    });
+    expect(fromCompletedSeason).toContain("🏅 Standing (2025-26): Atlantic · 8");
+
+    const live = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 2, label: "American League" },
+    });
+    expect(live).toContain("🏅 Standing: American League · 2");
+    expect(live).not.toContain("🏅 Standing (");
+  });

@@ -2484,14 +2484,15 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 |------|--------------|----|
 | Bengaluru FC | `BFC` | 18851 |
 | Chennaiyin FC | `CFC` | 18000 |
+| Churchill Brothers | `CHU` | 8896 |
 | SC East Bengal | `EBEN` | 8897 |
 | FC Goa | `GOA` | 18003 |
 | Inter Kashi | `ITKA` | 22069 |
-| Jamshedpur FC | `JFC` | 18850 |
+| JFC | `JFC` | 18850 |
 | Kerala Blasters FC | `KER` | 17997 |
 | Mohun Bagan Super Giant | `MBSG` | 20774 |
 | Mumbai City FC | `MCFC` | 18002 |
-| Mohammedan SC | `MOH` | 20842 |
+| MOH | `MOH` | 20842 |
 | NorthEast United FC | `NEU` | 18004 |
 | Odisha FC | `OFC` | 17998 |
 | Punjab FC | `PFC` | 18894 |

@@ -131,3 +131,22 @@ describe("ATPAdapter — demo data", () => {
     expect(atp.getDemoData("ZZZ")).toBeNull();
   });
 });
+// A tennis board tracks one player, so the image beside the heading is that
+// player's own headshot rather than a generic sport icon. ESPN publishes ATP
+// headshots under the same /i/headshots tree the other sports use.
+describe("ATP — player headshots", () => {
+  it("uses the athlete's ESPN headshot as the board image", () => {
+    expect(atp.getLogoUrl("DJO")).toBe(
+      "https://a.espncdn.com/i/headshots/tennis/players/full/296.png"
+    );
+    expect(atp.getLogoUrl("sin")).toBe(
+      "https://a.espncdn.com/i/headshots/tennis/players/full/3623.png"
+    );
+  });
+
+  it("keeps the sport icon for an abbreviation it does not track", () => {
+    expect(atp.getLogoUrl("ZZZ")).toContain("ESPN-icon-tennis.png");
+    expect(atp.getLogoUrl()).toContain("ESPN-icon-tennis.png");
+    expect(atp.getLogoUrl("")).toContain("ESPN-icon-tennis.png");
+  });
+});

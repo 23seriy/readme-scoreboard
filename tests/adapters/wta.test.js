@@ -195,3 +195,18 @@ describe("WTAAdapter — demo data", () => {
     expect(wta.getDemoData("ZZZ")).toBeNull();
   });
 });
+// A tennis board tracks one player, so the image beside the heading is that
+// player's own headshot rather than a generic sport icon. ESPN publishes WTA
+// headshots under the same /i/headshots tree the other sports use.
+describe("WTA — player headshots", () => {
+  it("uses the athlete's ESPN headshot as the board image", () => {
+    expect(wta.getLogoUrl("SAB")).toBe(
+      "https://a.espncdn.com/i/headshots/tennis/players/full/3038.png"
+    );
+  });
+
+  it("keeps the sport icon for an abbreviation it does not track", () => {
+    expect(wta.getLogoUrl("ZZZ")).toContain("ESPN-icon-tennis.png");
+    expect(wta.getLogoUrl()).toContain("ESPN-icon-tennis.png");
+  });
+});
