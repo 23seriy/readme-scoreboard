@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.15.0] - 2026-09-26
+
 ### Added
 
 - **UFC, as `ufc`** — a fighter's career record, their next bout, and their recent results, keyed by
@@ -38,6 +40,20 @@ that would alter what appears in your README or require editing your workflow.
 - **A guard that every league has a runnable demo command**, and negative tests for the three
   existing demo-consistency checks, which had only ever been called on data that satisfied them —
   nothing proved they would fire at all.
+- **A CI gate that the generated artefacts are current.** Regenerating the example boards and
+  failing on any resulting diff sounds like ceremony until you know that a generator fix does not
+  regenerate what was already committed: six boards carried a stale `W 0-0` result for days with
+  nothing to notice. The gate is what caught the timezone bug below, on its first run.
+
+### Changed
+
+- **Node 24 is now declared rather than assumed** — in `.nvmrc`, in the `engines` field, in the
+  action's own Node setup, and in the docs. Nothing changes for anyone using the action; the
+  requirement was simply invisible before, and a major version behind it is easy to not notice.
+- **Two unreachable methods left the shared free-API base class.** `fetchData` and
+  `fetchRecentGames` had no callers left (every subclass overrode or ignored them), and two of the
+  tests covering them had been recomputing the methods' arithmetic inline instead of calling them,
+  so they passed regardless. Both are gone, and what remained is now called for real.
 
 ### Fixed
 
@@ -61,6 +77,14 @@ that would alter what appears in your README or require editing your workflow.
   file proved fragile: a toolchain passing them through replaced one of the two regional indicators
   with U+FFFD, which blanks a country's name in the generated directory without failing anything
   else. A test now decodes every key and asserts a country resolves for every UFC fighter.
+- **A board could differ by a day depending on your timezone.** Sample values were stored as
+  UTC-midnight instants and then formatted in the *local* zone, so any machine east of UTC
+  rendered the next day: the same input produced a different board on different machines, and the
+  committed example boards had been generated a day early. Date-only values are now formatted in
+  UTC, while real timestamps — live game times, which genuinely have a time of day — keep the
+  reader's zone as they should. Every sample date is a calendar date now, and a test renders all of
+  them in five timezones and asserts a single result, in child processes, because Node caches the
+  timezone at startup.
 
 ## [1.14.2] - 2026-09-20
 
@@ -631,7 +655,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.2...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.0...HEAD
+[1.15.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.2...v1.15.0
 [1.14.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.1...v1.14.2
 [1.14.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.0...v1.14.1
 [1.14.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.1...v1.14.0
