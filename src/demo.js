@@ -13,7 +13,10 @@ const DEMO_NOW = new Date("2026-01-04T00:00:00Z");
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 function dateOffset(days, from = DEMO_NOW) {
-  return new Date(from.getTime() + days * DAY_MS).toISOString();
+  // A calendar date, not an instant: the demo clock is a fixed day, and emitting
+  // a UTC-midnight instant made every board that renders it shift a day on any
+  // machine west of UTC — so the committed examples differed from CI's.
+  return new Date(from.getTime() + days * DAY_MS).toISOString().slice(0, 10);
 }
 
 // Seeded 32-bit xorshift. Only needs to be stable and reasonably well spread.
@@ -109,7 +112,7 @@ function buildGameLog({
     const d = new Date(DEMO_NOW);
     d.setUTCDate(d.getUTCDate() - (total - 1 - index) * 7);
     return {
-      date: d.toISOString(),
+      date: d.toISOString().slice(0, 10),
       teamScore: finalTeamScore,
       oppScore,
       oppAbbr: pool[index % pool.length],

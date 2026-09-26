@@ -149,7 +149,7 @@ function extraTeamLines(data) {
 
   if (nextGame && nextGame.opponent) {
     const when = nextGame.date
-      ? new Date(nextGame.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })
+      ? formatDate(nextGame.date, { month: "short", day: "numeric" })
       : "next";
     const place = nextGame.isHome !== false ? "vs" : "@";
     lines.push(`📅 Next: ${place} ${nextGame.opponent} (${when})`);
@@ -211,7 +211,7 @@ function formatGameResult(game, teamId) {
   const won = teamScore > oppScore;
   const prefix = isHome ? "vs" : "@";
   const result = won ? "W" : "L";
-  const dateStr = new Date(game.date).toLocaleDateString("en-US", {
+  const dateStr = formatDate(game.date, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -286,7 +286,7 @@ function renderNba(data, sport = "nba", title, compact = false) {
           // shift a day. NBA games are given as UTC instants; interpreting them
           // in US Eastern time shows the actual calendar day the game was played.
           const when = gdate
-            ? new Date(gdate).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
+            ? formatDate(gdate, { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
             : "";
           detail += ` vs ${gopp}${when ? ` (${when})` : ""}`;
         }
@@ -336,7 +336,7 @@ function renderNflSpotlight(lines, spotlight, emoji, compact) {
     let detail = parts.length > 0 ? parts.join(" · ") : "No stats recorded";
     if (lastGame.opponent) {
       const when = lastGame.date
-        ? new Date(lastGame.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
+        ? formatDate(lastGame.date, { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
         : "";
       detail += ` vs ${lastGame.opponent}${when ? ` (${when})` : ""}`;
     }
@@ -374,7 +374,7 @@ function renderNhlSpotlight(lines, spotlight, emoji, compact) {
       : `${stat(lastGame.goals)} G · ${stat(lastGame.assists)} A · ${stat(lastGame.points)} P`;
     if (lastGame.opponent) {
       const when = lastGame.date
-        ? new Date(lastGame.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
+        ? formatDate(lastGame.date, { month: "short", day: "numeric", year: "numeric", timeZone: "America/New_York" })
         : "";
       detail += ` vs ${lastGame.opponent}${when ? ` (${when})` : ""}`;
     }
@@ -394,7 +394,7 @@ function formatMlbGameResult(game, teamId) {
   const won = teamScore > oppScore;
   const prefix = isHome ? "vs" : "@";
   const result = won ? "W" : "L";
-  const dateStr = new Date(game.date).toLocaleDateString("en-US", {
+  const dateStr = formatDate(game.date, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -473,11 +473,32 @@ function renderMlb(data, title) {
 // Render a game date as "Jan 3, 2026". The live feeds return calendar dates
 // ("2026-09-15") while demo data carries full ISO timestamps, so a bare date is
 // anchored to midday to stop a UTC parse shifting it to the previous day.
-function formatCalendarDate(value) {
+/**
+ * Format a date for a board.
+ *
+ * A calendar date — a demo clock value or a schedule date that ESPN publishes as
+ * plain YYYY-MM-DD, with no time and no zone — must read the same on every
+ * machine and in every zone: 2026-01-03 means the 3rd. Parsing it as an instant
+ * and rendering it through the machine's zone is what made the committed example
+ * boards differ by a day between a laptop and a CI runner, and the same mistake
+ * rendered live schedule dates a day early on any machine west of UTC.
+ *
+ * Full instants are real moments, so they keep their existing handling and are
+ * formatted in the zone the caller asks for.
+ */
+function formatDate(value, options) {
   if (!value) return "";
   const raw = String(value);
-  const anchor = /^\d{4}-\d{2}-\d{2}$/.test(raw) ? `${raw}T12:00:00` : raw;
-  return new Date(anchor).toLocaleDateString("en-US", {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) {
+    return new Date(`${raw}T00:00:00Z`)
+      .toLocaleDateString("en-US", { ...options, timeZone: "UTC" });
+  }
+  return new Date(raw).toLocaleDateString("en-US", options);
+}
+
+function formatCalendarDate(value) {
+  if (!value) return "";
+  return formatDate(value, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -593,7 +614,7 @@ function formatMlsGameResult(game) {
   const prefix = game.isHome ? "vs" : "@";
   const result = game.won ? "W" : game.drew ? "D" : "L";
   const icon = game.won ? "✅" : game.drew ? "🟡" : "❌";
-  const dateStr = new Date(game.date).toLocaleDateString("en-US", {
+  const dateStr = formatDate(game.date, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -673,7 +694,7 @@ function renderSoccerSpotlight(lines, spotlight, emoji, compact) {
     let detail = parts.length > 0 ? parts.join(" · ") : "No stats recorded";
     if (lastGame.opponent) {
       const when = lastGame.date
-        ? new Date(lastGame.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
+        ? formatDate(lastGame.date, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
         : "";
       detail += ` vs ${lastGame.opponent}${when ? ` (${when})` : ""}`;
     }
@@ -839,7 +860,7 @@ function renderTennisPlayer(sport, tourLabel, data, title) {
     const icon = lastMatch.won ? "✅" : "❌";
     const result = lastMatch.won ? "W" : "L";
     const when = lastMatch.date
-      ? new Date(lastMatch.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+      ? formatDate(lastMatch.date, { month: "short", day: "numeric", year: "numeric" })
       : "";
     let setsText = "";
     const [playerSets, oppSets] = lastMatch.sets || [];

@@ -1,3 +1,5 @@
+const { execFileSync } = require("node:child_process");
+const path = require("node:path");
 const { checkDemoConsistency } = require("../../src/demo");
 const { LEAGUES } = require("../../src/config/leagues");
 
@@ -175,3 +177,46 @@ describe("every league's demo dates ignore the system clock", () => {
     expect(checkDemoConsistency(adapter.getDemoData(team))).toEqual([]);
   });
 });
+  // The boards above must also read the same on every machine. The renderer
+  // formats dates with toLocaleDateString(), so a demo value stored as a UTC
+  // instant instead of a calendar date shifts by a day east of UTC — that made
+  // `npm run examples:generate` leave a dirty tree on CI (UTC) while staying
+  // clean locally, which is what the "examples are current" gate in CI catches.
+  // Node caches the timezone at startup, so this is only observable across
+  // process boundaries.
+  describe("demo boards are timezone independent", () => {
+    const RENDER_EVERY_BOARD = `
+      const crypto = require("node:crypto");
+      const { LEAGUES } = require("./src/config/leagues");
+      const { render } = require("./src/renderers/markdown");
+      const examples = require("./scripts/generate-examples");
+      const boards = [...examples.EXAMPLES, ...examples.PLAYER_SPOTLIGHT_EXAMPLES].map(examples.renderExample);
+      for (const { key } of LEAGUES) {
+        const adapter = require("./src/adapters/" + key);
+        for (const team of Object.keys(adapter.DEMO_TEAMS || {})) {
+          boards.push(render(key, adapter.getDemoData(team), {}));
+        }
+      }
+      process.stdout.write(crypto.createHash("sha256").update(boards.join("\\u0000")).digest("hex"));
+    `;
+
+    const TIMEZONES = ["UTC", "America/Los_Angeles", "Asia/Tokyo", "Pacific/Auckland", "Europe/London"];
+
+    const renderEveryBoardIn = (timeZone) =>
+      execFileSync(process.execPath, ["-e", RENDER_EVERY_BOARD], {
+        cwd: path.join(__dirname, "..", ".."),
+        env: { ...process.env, TZ: timeZone },
+        encoding: "utf8",
+      });
+
+    it(
+      "renders every demo board identically in every timezone",
+      () => {
+        const utc = renderEveryBoardIn("UTC");
+        for (const timeZone of TIMEZONES.slice(1)) {
+          expect(`${timeZone}: ${renderEveryBoardIn(timeZone)}`).toBe(`${timeZone}: ${utc}`);
+        }
+      },
+      60000
+    );
+  });

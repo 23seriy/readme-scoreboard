@@ -143,6 +143,7 @@ Before adding a new one, look for the check that should already cover the case:
 | Every league is wired up (table, keys, counts, demo command) | `tests/readme-links.test.js` |
 | Registry, directories and manifest stay in step | `tests/config/leagues.test.js` |
 | Demo boards are deterministic and self-consistent | `tests/adapters/demo-consistency.test.js` |
+| Demo boards render identically in every timezone | `tests/adapters/demo-consistency.test.js` (child processes, one per `TZ`) |
 | Generated example boards render cleanly | `tests/examples.test.js` |
 | The league gallery matches the registry and compacts properly | `tests/league-gallery.test.js` |
 | Compact mode strips logos and game logs | `tests/compact.test.js` |

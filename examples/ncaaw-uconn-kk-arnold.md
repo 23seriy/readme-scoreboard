@@ -7,18 +7,18 @@ Big East Conference
 🔴 Off-season · Next season starts November 2026
 
 🏅 Standing: Big East · 2
-📅 Next: vs DEN (Jan 10)
+📅 Next: vs DEN (Jan 11)
 
 📊 2025-2026 Record: 18W - 6L (75.0%)
    ██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W  27-15  vs BOS (Jan 3, 2026)
-❌ L  32-42  vs CLE (Dec 27, 2025)
-✅ W  27-15  vs OKC (Dec 20, 2025)
-✅ W  37-36  vs MIL (Dec 13, 2025)
-✅ W  23-18  @ GSW (Dec 6, 2025)
+✅ W  27-15  vs BOS (Jan 4, 2026)
+❌ L  32-42  vs CLE (Dec 28, 2025)
+✅ W  27-15  vs OKC (Dec 21, 2025)
+✅ W  37-36  vs MIL (Dec 14, 2025)
+✅ W  23-18  @ GSW (Dec 7, 2025)
 ```
 
 **🐺 Player Spotlight: KK Arnold**
@@ -26,5 +26,5 @@ Big East Conference
 
 **📅 Last Game:**
 ```
-21 PTS · 10 REB · 8 AST · 28 MIN vs BOS (Jan 3, 2026)
+21 PTS · 10 REB · 8 AST · 28 MIN vs BOS (Jan 4, 2026)
 ```

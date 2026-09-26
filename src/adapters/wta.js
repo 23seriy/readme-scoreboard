@@ -217,7 +217,7 @@ function getDemoData(abbr) {
     lastMatch: {
       opponent: "Elena Rybakina",
       won: true,
-      date: "2026-08-30T15:05:00Z",
+      date: "2026-08-30",
       sets: [[6, 4, 6], [3, 6, 2]],
     },
   };
