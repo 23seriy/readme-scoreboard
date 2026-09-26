@@ -54,3 +54,4 @@ gallery** so the new league gets its own showcase file.
 - [Danish Superliga](denmark.md) — Soccer
 - [Norwegian Eliteserien](norway.md) — Soccer
 - [Swedish Allsvenskan](sweden.md) — Soccer
+- [UFC](ufc.md) — MMA

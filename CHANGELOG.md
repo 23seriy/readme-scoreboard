@@ -12,6 +12,17 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Added
 
+- **UFC, as `ufc`** — a fighter's career record, their next bout, and their recent results, keyed by
+  surname code (`STR` for Strickland, `VOL` for Volkanovski). 40 fighters taken from the season's
+  cards. This is the first sport here with no scores and no standings: ESPN's MMA feed reports a
+  lifetime W-L-D, so the record is labelled a career record rather than a season one, and no
+  standing is shown at all instead of inventing a position. It is also the first league whose
+  upstream feed publishes **no athlete id** — a name is the only identity ESPN gives — so the
+  roster is matched by name, with case, punctuation and diacritics normalised, rather than by id.
+  `player:` is not offered: `ufc` joins the documented list of leagues that already render a single
+  athlete board.
+- **A per-league `entityLabel`**, so a heading can name the right noun — UFC boards read
+  "My Favourite UFC Fighter", which "Player" would have got wrong.
 - **The FIFA World Cup, as `worldcup`.** All 48 qualified nations are configured with their ESPN
   team id and country flag, so a board works for any of them rather than a handful of favourites,
   and `player:` works here like every other soccer league (ESPN serves a full squad roster and
@@ -35,6 +46,13 @@ that would alter what appears in your README or require editing your workflow.
   start at zero, meaning every soccer and hockey league, though no committed gallery happened to
   contain one until the World Cup demo did. A result that contradicts its own scoreline is now a
   consistency failure checked across all 42 leagues, so no adapter can reintroduce it.
+- **A bout could appear twice on a UFC board.** The adapter walks back a season when a fighter's
+  recent results are thin, and the same card can arrive from two adjacent season queries, so fights
+  are now de-duplicated before the board is built.
+- **The country flag map is now escape sequences, and fully validated.** Literal flag glyphs in that
+  file proved fragile: a toolchain passing them through replaced one of the two regional indicators
+  with U+FFFD, which blanks a country's name in the generated directory without failing anything
+  else. A test now decodes every key and asserts a country resolves for every UFC fighter.
 
 ## [1.14.2] - 2026-09-20
 

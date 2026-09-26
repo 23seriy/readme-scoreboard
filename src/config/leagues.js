@@ -1,6 +1,6 @@
 const ESPN_CDN = "https://a.espncdn.com";
 
-function league({ key, name, category, endpoint, renderer, emoji, light, dark, start, end, nextLabel, nextStartYear, fallback, endpointOverride, entity = "team" }) {
+function league({ key, name, category, endpoint, renderer, emoji, light, dark, start, end, nextLabel, nextStartYear, fallback, endpointOverride, entity = "team", entityLabel }) {
   return {
     key,
     name,
@@ -11,6 +11,9 @@ function league({ key, name, category, endpoint, renderer, emoji, light, dark, s
     emoji,
     entity,
     logo: { light, dark },
+    // entityLabel names the default heading's noun where "Player" or "Team"
+    // would read wrong (UFC fields fighters, not players).
+    ...(entityLabel ? { entityLabel } : {}),
     // nextStartYear is only for events that are not annual — the off-season
     // line would otherwise compute "next year" and name a year with no
     // competition. Spread conditionally so every annual league keeps the
@@ -67,6 +70,10 @@ const LEAGUES = [
   league({ key: "denmark", name: "Danish Superliga", category: "Soccer", endpoint: "soccer/den.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-soccer.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-soccer.png`, start: [7, 18], end: [5, 24], nextLabel: "July", fallback: ["2026-07-18", "2027-05-24"] }),
   league({ key: "norway", name: "Norwegian Eliteserien", category: "Soccer", endpoint: "soccer/nor.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-soccer.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-soccer.png`, start: [3, 28], end: [12, 1], nextLabel: "late March", fallback: ["2026-03-28", "2026-12-01"] }),
   league({ key: "sweden", name: "Swedish Allsvenskan", category: "Soccer", endpoint: "soccer/swe.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/16.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500/16.png`, start: [3, 28], end: [11, 9], nextLabel: "late March", fallback: ["2026-03-28", "2026-11-09"] }),
+  // ESPN publishes no dark variant of the UFC mark, so both themes use the same
+  // file (as Denmark, Norway, Greece, and Sweden do). Cards run year-round, so
+  // the season window is the calendar year, like the tennis tours.
+  league({ key: "ufc", name: "UFC", category: "MMA", endpoint: "mma/ufc", renderer: "ufc", emoji: "🥊", entity: "player", entityLabel: "Fighter", endpointOverride: "[MMA scoreboard](https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard)", light: `${ESPN_CDN}/i/teamlogos/leagues/500/ufc.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500/ufc.png`, start: [1, 1], end: [12, 31], nextLabel: "January", fallback: ["2026-01-01", "2026-12-31"] }),
 ];
 
 const LEAGUE_BY_KEY = Object.fromEntries(LEAGUES.map((entry) => [entry.key, entry]));

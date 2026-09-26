@@ -1555,3 +1555,103 @@ describe("renderNhl — player spotlight", () => {
     expect(render("nhl", BASE)).not.toContain("Player Spotlight");
   });
 });
+
+describe("UFC renderer", () => {
+  const ENG = "\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}";
+  const UFC_DATA = {
+    team: {
+      id: 0,
+      abbreviation: "EVL",
+      name: "Evloev",
+      full_name: "Movsar Evloev",
+      conference: "Featherweight",
+      division: "",
+    },
+    record: { wins: 20, losses: 0, draws: 0, season: "2026" },
+    emoji: "🇷🇺",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/leagues/500/ufc.png",
+    recentGames: [{
+      date: "2026-03-21T21:00Z",
+      opponent: "Lerone Murphy",
+      opponentAbbr: "MUR",
+      opponentFlag: ENG,
+      won: true,
+      drew: false,
+      round: 5,
+      event: "UFC Fight Night",
+    }],
+    nextGame: {
+      date: "2026-10-24T21:00Z",
+      opponent: "VOL",
+      opponentName: "Alexander Volkanovski",
+      opponentFlag: "🇦🇺",
+      event: "UFC 333",
+      venue: "Etihad Arena",
+      weight: "Featherweight",
+    },
+    standing: null,
+    form: ["W"],
+  };
+  const ufc = (overrides = {}) => render("ufc", { ...UFC_DATA, ...overrides });
+
+  it("calls the record a career record, not a season one", () => {
+    // ESPN reports a lifetime W-L-D for a fighter; labelling it a season record
+    // would be wrong.
+    expect(ufc()).toContain("🥊 Career record: 20W - 0L");
+    expect(ufc()).not.toMatch(/2026 Record/);
+  });
+
+  it("renders the division and the fighter", () => {
+    const output = ufc();
+    expect(output).toContain("### 🇷🇺 Movsar Evloev (EVL)");
+    expect(output).toContain("Featherweight");
+  });
+
+  it("names the entity a Fighter in the default heading", () => {
+    const output = ufc();
+    expect(output).toContain("My Favourite UFC Fighter");
+    expect(output).not.toContain("My Favourite UFC Player");
+  });
+
+  it("shows the next fight with its opponent, card and venue", () => {
+    const output = ufc();
+    expect(output).toContain("**📅 Next Fight:**");
+    expect(output).toContain("🇦🇺 vs Alexander Volkanovski (VOL) — Oct 24, 2026");
+    expect(output).toContain("UFC 333 · Etihad Arena");
+  });
+
+  it("lists recent fights with the result and the finishing round", () => {
+    expect(ufc()).toContain(`✅ W (R5) vs ${ENG} Lerone Murphy — Mar 21, 2026`);
+  });
+
+  it("reports an unbooked fighter instead of inventing a fight", () => {
+    const output = ufc({ nextGame: null });
+    expect(output).toContain("📅 No fight announced");
+    expect(output).not.toContain("**📅 Next Fight:**");
+  });
+
+  it("drops a missing flag rather than printing a placeholder", () => {
+    const output = ufc({ nextGame: { ...UFC_DATA.nextGame, opponentFlag: "" } });
+    expect(output).toContain("vs Alexander Volkanovski (VOL)");
+    expect(output).not.toContain("🏳️");
+  });
+
+  it("renders a fighter with no completed fights", () => {
+    const output = ufc({ recentGames: [], form: [] });
+    expect(output).toContain("📅 No completed fights found");
+  });
+
+  it("renders without a standings block", () => {
+    // ESPN publishes no UFC rankings on this feed, so there is no position.
+    expect(ufc()).not.toMatch(/🏅 Standing/);
+  });
+
+  it("renders draws when a fighter has them", () => {
+    const output = ufc({
+      record: { wins: 10, losses: 2, draws: 1, season: "2026" },
+      recentGames: [{ ...UFC_DATA.recentGames[0], won: false, drew: true, round: null }],
+    });
+    expect(output).toContain("10W - 2L - 1D");
+    expect(output).toContain("🟡 D vs");
+  });
+});

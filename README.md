@@ -16,12 +16,12 @@
 [![API health](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/api-health.yml)
 [![Dependency health](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml/badge.svg)](https://github.com/23seriy/readme-scoreboard/actions/workflows/dependency-health.yml)
 
-The project currently supports **42 leagues**. The [support manifest](supported-leagues.json),
+The project currently supports **43 leagues**. The [support manifest](supported-leagues.json),
 [team directory](TEAM_DIRECTORY.md), and [player directory](PLAYER_DIRECTORY.md) are generated
 from the same registry used by the action.
 
 <!-- league-list:start -->
-Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, **Premier League**, **La Liga**, **Bundesliga**, **Serie A**, **Ligue 1**, **Primeira Liga**, **Eredivisie**, **WNBA**, **Liga MX**, **Brasileirão**, **NWSL**, **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, **FIFA World Cup**, **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, **NASCAR Cup Series**, **IndyCar Series**, **Argentine Primera**, **A-League Men**, **Indian Super League**, **Chinese Super League**, **Greek Super League**, **Austrian Bundesliga**, **Danish Superliga**, **Norwegian Eliteserien**, and **Swedish Allsvenskan** with more sports coming soon
+Currently supports **NBA**, **MLB**, **NFL**, **NHL**, **MLS**, **Premier League**, **La Liga**, **Bundesliga**, **Serie A**, **Ligue 1**, **Primeira Liga**, **Eredivisie**, **WNBA**, **Liga MX**, **Brasileirão**, **NWSL**, **Saudi Pro League**, **J1 League**, **Scottish Premiership**, **Belgian Pro League**, **UEFA Champions League**, **UEFA Europa League**, **FIFA World Cup**, **NBA G League**, **NCAA Men's Basketball**, **NCAA Women's Basketball**, **College Football**, **NCAA Men's Ice Hockey**, **Formula 1**, **ATP Tennis**, **WTA Tennis**, **NASCAR Cup Series**, **IndyCar Series**, **Argentine Primera**, **A-League Men**, **Indian Super League**, **Chinese Super League**, **Greek Super League**, **Austrian Bundesliga**, **Danish Superliga**, **Norwegian Eliteserien**, **Swedish Allsvenskan**, and **UFC** with more sports coming soon
 <!-- league-list:end -->
 
 ---
@@ -38,7 +38,7 @@ See rendered output from several sports and every input option without running
 anything. Open the [examples gallery](examples/) to preview real boards (NBA,
 MLB, NFL, NHL, Premier League, MLS, UEFA Champions League, College Football,
 Formula 1, ATP Tennis, and WTA Tennis) plus demos of the `title:`, `teams:` (multi-team),
-`compact:`, and `badge:` options. For every one of the 42 supported leagues,
+`compact:`, and `badge:` options. For every one of the 43 supported leagues,
 see the [league showcase](examples/leagues/) — one file per league, built
 from live data and refreshed daily, showing the default board plus the
 `title:`, `compact:`, and `badge:` options. Or browse the league's
@@ -391,14 +391,14 @@ Soccer season totals are summed from the player's game log, because ESPN publish
 
 #### Leagues without player spotlight
 
-Eight leagues intentionally don't support `player:`, either because the
+Nine leagues intentionally don't support `player:`, either because the
 upstream data isn't there or because the league has no athlete roster to
 feature:
 
 | Leagues | Reason |
 |---------|--------|
 | `ncaaf`, `gleague`, `ncaa_hockey` | ESPN publishes no per-athlete season stats — the stats endpoint 404s, and the game log is empty (for `ncaa_hockey` the gamelog 404s too). |
-| `atp`, `wta`, `nascar`, `indycar` | These already render as a single player board (`entity: player`), so a spotlight inside one is redundant. |
+| `atp`, `wta`, `nascar`, `indycar`, `ufc` | These already render as a single player board (`entity: player`), so a spotlight inside one is redundant. |
 | `f1` | It renders a constructor board from a teams endpoint and has no athlete roster, so there is no player to spotlight. |
 
 The **WNBA** and **NCAA men's and women's basketball** used to be on this list. They aren't any more: ESPN now serves athletes the same `avgPoints`/`avgRebounds`/`avgAssists` splits payload and game log that the NBA uses, so `player:` works there too. If a league's upstream data changes, re-check the endpoints — the exclusions above are verified against the live APIs, not assumed.
@@ -506,6 +506,7 @@ The **Season** column is refreshed daily by [`.github/workflows/update-season-st
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png" alt="Danish Superliga logo" height="20"></picture> Danish Superliga | `denmark` | 🟢 In progress · ends 2027-07-01 | [`soccer/den.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png" alt="Norwegian Eliteserien logo" height="20"></picture> Norwegian Eliteserien | `norway` | 🟢 In progress · ends 2026-12-31 | [`soccer/nor.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams) |
 | ⚽&nbsp;Soccer | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500/16.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/16.png" alt="Swedish Allsvenskan logo" height="20"></picture> Swedish Allsvenskan | `sweden` | 🟢 In progress · ends 2026-12-01 | [`soccer/swe.1`](https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/teams) |
+| 🏆&nbsp;MMA | <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500/ufc.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/ufc.png" alt="UFC logo" height="20"></picture> UFC | `ufc` | 🟢 In progress · ends 2026-12-31 | [MMA scoreboard](https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard) |
 <!-- supported-sports:end -->
 
 ---
@@ -571,6 +572,7 @@ SPORT=belgian TEAM=BRU node src/index.js --demo
 SPORT=ucl TEAM=RMA node src/index.js --demo
 SPORT=uel TEAM=MUN node src/index.js --demo
 SPORT=worldcup TEAM=ARG node src/index.js --demo
+SPORT=ufc TEAM=STR node src/index.js --demo
 SPORT=gleague TEAM=OSC node src/index.js --demo
 SPORT=ncaab TEAM=ARIZ node src/index.js --demo
 SPORT=ncaaw TEAM=UCONN node src/index.js --demo

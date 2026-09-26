@@ -506,3 +506,15 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     marker: readme-scoreboard-sweden
 ```
 
+## UFC
+
+```yaml
+- uses: 23seriy/readme-scoreboard@v1
+  with:
+    gh_token: ${{ secrets.GH_TOKEN }}
+    target_repo: ${{ github.repository }}
+    sport: ufc
+    team: STR
+    marker: readme-scoreboard-ufc
+```
+
