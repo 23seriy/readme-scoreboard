@@ -10,7 +10,7 @@ Team: **CONN** · Category: Basketball · Data source: ESPN public API
 
 ### 🏀 UConn Huskies (CONN)
 Big East Conference Conference
-🔴 Off-season · Next season starts November 2026
+🔴 Off-season · Next season starts November 2, 2026
 
 🏅 Standing: Big East Conference · 11
 
@@ -36,7 +36,7 @@ The `title:` input replaces the default heading.
 
 ### 🏀 UConn Huskies (CONN)
 Big East Conference Conference
-🔴 Off-season · Next season starts November 2026
+🔴 Off-season · Next season starts November 2, 2026
 
 🏅 Standing: Big East Conference · 11
 
@@ -61,7 +61,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🏀 UConn Huskies (CONN)
 Big East Conference Conference
-🔴 Off-season · Next season starts November 2026
+🔴 Off-season · Next season starts November 2, 2026
 
 🏅 Standing: Big East Conference · 11
 

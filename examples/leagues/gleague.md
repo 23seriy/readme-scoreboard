@@ -10,7 +10,7 @@ Team: **AUS** · Category: Basketball · Data source: ESPN public API
 
 ### 🐐 Austin Spurs (AUS)
 Western Conference
-🔴 Off-season · Next season starts November 2026
+🔴 Off-season · Next season starts December 19, 2026
 
 🏅 Standing: Western · 13
 
@@ -19,10 +19,10 @@ Western Conference
 
 **📅 Recent Games:**
 ```
-❌ L 106-117 @ RGV (Apr 1, 2026) [Playoffs]
-✅ W 118-86  vs MXC (Mar 29, 2026)
-❌ L 101-106 vs RCITY (Mar 28, 2026)
-✅ W  99-93  vs RCITY (Mar 26, 2026)
+❌ L 106-117 @ RGV (Mar 31, 2026) [Playoffs]
+✅ W 118-86  vs MXC (Mar 28, 2026)
+❌ L 101-106 vs RCITY (Mar 27, 2026)
+✅ W  99-93  vs RCITY (Mar 25, 2026)
 ✅ W 117-97  @ NOB (Mar 22, 2026)
 ```
 
@@ -36,7 +36,7 @@ The `title:` input replaces the default heading.
 
 ### 🐐 Austin Spurs (AUS)
 Western Conference
-🔴 Off-season · Next season starts November 2026
+🔴 Off-season · Next season starts December 19, 2026
 
 🏅 Standing: Western · 13
 
@@ -45,10 +45,10 @@ Western Conference
 
 **📅 Recent Games:**
 ```
-❌ L 106-117 @ RGV (Apr 1, 2026) [Playoffs]
-✅ W 118-86  vs MXC (Mar 29, 2026)
-❌ L 101-106 vs RCITY (Mar 28, 2026)
-✅ W  99-93  vs RCITY (Mar 26, 2026)
+❌ L 106-117 @ RGV (Mar 31, 2026) [Playoffs]
+✅ W 118-86  vs MXC (Mar 28, 2026)
+❌ L 101-106 vs RCITY (Mar 27, 2026)
+✅ W  99-93  vs RCITY (Mar 25, 2026)
 ✅ W 117-97  @ NOB (Mar 22, 2026)
 ```
 
@@ -61,7 +61,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🐐 Austin Spurs (AUS)
 Western Conference
-🔴 Off-season · Next season starts November 2026
+🔴 Off-season · Next season starts December 19, 2026
 
 🏅 Standing: Western · 13
 

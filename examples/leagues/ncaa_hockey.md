@@ -10,15 +10,15 @@ Team: **BC** · Category: Hockey · Data source: ESPN public API
 
 ### 🦅 Boston College Eagles (BC)
  Conference
-🔴 Off-season · Next season starts October 2026
+🔴 Off-season · Next season starts October 2, 2026
 
 **📅 Recent Games:**
 ```
 ❌ L   3-4   @ CONN (Mar 20, 2026)
 ✅ W   5-0   vs ME  (Mar 13, 2026)
-❌ L   2-4   vs NE  (Mar 8, 2026)
-❌ L   1-2   @ MASS (Mar 6, 2026)
-❌ L   1-5   vs BU  (Mar 1, 2026)
+❌ L   2-4   vs NE  (Mar 7, 2026)
+❌ L   1-2   @ MASS (Mar 5, 2026)
+❌ L   1-5   vs BU  (Feb 28, 2026)
 ```
 
 ## Custom title
@@ -31,15 +31,15 @@ The `title:` input replaces the default heading.
 
 ### 🦅 Boston College Eagles (BC)
  Conference
-🔴 Off-season · Next season starts October 2026
+🔴 Off-season · Next season starts October 2, 2026
 
 **📅 Recent Games:**
 ```
 ❌ L   3-4   @ CONN (Mar 20, 2026)
 ✅ W   5-0   vs ME  (Mar 13, 2026)
-❌ L   2-4   vs NE  (Mar 8, 2026)
-❌ L   1-2   @ MASS (Mar 6, 2026)
-❌ L   1-5   vs BU  (Mar 1, 2026)
+❌ L   2-4   vs NE  (Mar 7, 2026)
+❌ L   1-2   @ MASS (Mar 5, 2026)
+❌ L   1-5   vs BU  (Feb 28, 2026)
 ```
 
 ## Compact mode
@@ -51,7 +51,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🦅 Boston College Eagles (BC)
  Conference
-🔴 Off-season · Next season starts October 2026
+🔴 Off-season · Next season starts October 2, 2026
 
 
 

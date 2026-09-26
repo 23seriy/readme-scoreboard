@@ -13,6 +13,7 @@ Série A
 🟢 Season in progress
 
 🏅 Standing: 5
+📅 Next: @ PAL (Oct 8)
 
 📊 2026 Record: 12W - 6L - 10D  (46 pts)
    ███████████████▏░░░░░░░░░
@@ -39,6 +40,7 @@ Série A
 🟢 Season in progress
 
 🏅 Standing: 5
+📅 Next: @ PAL (Oct 8)
 
 📊 2026 Record: 12W - 6L - 10D  (46 pts)
    ███████████████▏░░░░░░░░░
@@ -64,6 +66,7 @@ Série A
 🟢 Season in progress
 
 🏅 Standing: 5
+📅 Next: @ PAL (Oct 8)
 
 📊 2026 Record: 12W - 6L - 10D  (46 pts)
    ███████████████▏░░░░░░░░░

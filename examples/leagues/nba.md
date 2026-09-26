@@ -10,7 +10,7 @@ Team: **ATL** · Category: Basketball · Data source: ESPN public API
 
 ### 🦅 Atlanta Hawks (ATL)
 Eastern Conference · Southeast Division
-🔴 Off-season · Next season starts October 2026
+🔴 Off-season · Next season starts October 20, 2026
 
 🏅 Standing: Eastern · 11
 
@@ -20,10 +20,10 @@ Eastern Conference · Southeast Division
 **📅 Recent Games:**
 ```
 ❌ L  89-140 vs NY  (Apr 30, 2026) [Playoffs]
-❌ L  97-126 @ NY  (Apr 29, 2026) [Playoffs]
+❌ L  97-126 @ NY  (Apr 28, 2026) [Playoffs]
 ❌ L  98-114 vs NY  (Apr 25, 2026) [Playoffs]
 ✅ W 109-108 vs NY  (Apr 23, 2026) [Playoffs]
-✅ W 107-106 @ NY  (Apr 21, 2026) [Playoffs]
+✅ W 107-106 @ NY  (Apr 20, 2026) [Playoffs]
 ```
 
 ## Custom title
@@ -36,7 +36,7 @@ The `title:` input replaces the default heading.
 
 ### 🦅 Atlanta Hawks (ATL)
 Eastern Conference · Southeast Division
-🔴 Off-season · Next season starts October 2026
+🔴 Off-season · Next season starts October 20, 2026
 
 🏅 Standing: Eastern · 11
 
@@ -46,10 +46,10 @@ Eastern Conference · Southeast Division
 **📅 Recent Games:**
 ```
 ❌ L  89-140 vs NY  (Apr 30, 2026) [Playoffs]
-❌ L  97-126 @ NY  (Apr 29, 2026) [Playoffs]
+❌ L  97-126 @ NY  (Apr 28, 2026) [Playoffs]
 ❌ L  98-114 vs NY  (Apr 25, 2026) [Playoffs]
 ✅ W 109-108 vs NY  (Apr 23, 2026) [Playoffs]
-✅ W 107-106 @ NY  (Apr 21, 2026) [Playoffs]
+✅ W 107-106 @ NY  (Apr 20, 2026) [Playoffs]
 ```
 
 ## Compact mode
@@ -61,7 +61,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🦅 Atlanta Hawks (ATL)
 Eastern Conference · Southeast Division
-🔴 Off-season · Next season starts October 2026
+🔴 Off-season · Next season starts October 20, 2026
 
 🏅 Standing: Eastern · 11
 

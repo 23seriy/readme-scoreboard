@@ -13,6 +13,7 @@ Team: **B04** · Category: Soccer · Data source: ESPN public API
 🟢 Season in progress
 
 🏅 Standing: 2026-27 German Bundesliga · 5
+📅 Next: @ M05 (Oct 10)
 
 📊 2026 Record: 2W - 1L - 1D  (7 pts)
    ███████████████▋░░░░░░░░░
@@ -38,6 +39,7 @@ The `title:` input replaces the default heading.
 🟢 Season in progress
 
 🏅 Standing: 2026-27 German Bundesliga · 5
+📅 Next: @ M05 (Oct 10)
 
 📊 2026 Record: 2W - 1L - 1D  (7 pts)
    ███████████████▋░░░░░░░░░
@@ -62,6 +64,7 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing: 2026-27 German Bundesliga · 5
+📅 Next: @ M05 (Oct 10)
 
 📊 2026 Record: 2W - 1L - 1D  (7 pts)
    ███████████████▋░░░░░░░░░

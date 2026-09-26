@@ -13,6 +13,7 @@ League Phase
 🟢 Season in progress
 
 🏅 Standing: League Phase · 14
+📅 Next: @ ROMA (Oct 14)
 
 📊 2026 Record: 1W - 0L - 0D  (3 pts)
    █████████████████████████
@@ -35,6 +36,7 @@ League Phase
 🟢 Season in progress
 
 🏅 Standing: League Phase · 14
+📅 Next: @ ROMA (Oct 14)
 
 📊 2026 Record: 1W - 0L - 0D  (3 pts)
    █████████████████████████
@@ -56,6 +58,7 @@ League Phase
 🟢 Season in progress
 
 🏅 Standing: League Phase · 14
+📅 Next: @ ROMA (Oct 14)
 
 📊 2026 Record: 1W - 0L - 0D  (3 pts)
    █████████████████████████
