@@ -14,6 +14,7 @@
     "docs:check": "jest --runInBand tests/readme-links.test.js",
     "leagues:manifest": "node scripts/generate-league-manifest.js",
     "audit:leagues": "node scripts/audit-league-invariants.js",
+    "changelog:check": "node scripts/check-changelog.js",
     "teams:directory": "node scripts/generate-team-directory.js",
     "teams:directory:markdown": "node scripts/generate-team-directory-markdown.js",
     "teams:directory:validate": "node scripts/validate-team-directory.js",

@@ -31,6 +31,8 @@ jobs:
         run: |
           npm run examples:generate
           git diff --exit-code --stat -- examples ':!examples/leagues'
+      - name: Check a src change came with a changelog entry
+        run: npm run changelog:check
       - name: Upload coverage report
         if: always()
         uses: actions/upload-artifact@v7
