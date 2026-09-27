@@ -13,7 +13,7 @@ Team: **ADE** · Category: Soccer · Data source: ESPN public API
 🟢 Season in progress
 
 🏅 Standing: 2026-27 A-League · 1
-📅 Next: @ SYD (Oct 25)
+📅 Next: @ PER (Nov 1)
 
 📅 No recent games found
 
@@ -30,7 +30,7 @@ The `title:` input replaces the default heading.
 🟢 Season in progress
 
 🏅 Standing: 2026-27 A-League · 1
-📅 Next: @ SYD (Oct 25)
+📅 Next: @ PER (Nov 1)
 
 📅 No recent games found
 
@@ -46,7 +46,7 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing: 2026-27 A-League · 1
-📅 Next: @ SYD (Oct 25)
+📅 Next: @ PER (Nov 1)
 
 📅 No recent games found
 
