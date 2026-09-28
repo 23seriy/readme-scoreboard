@@ -19,7 +19,14 @@ function validateSeasonWindow(name, season, now = new Date()) {
   if (apiStart >= apiEnd) {
     failures.push(`${name}: API season start ${isoDate(apiStart)} is not before end ${isoDate(apiEnd)}`);
   }
-  if (normalizedStart < apiStart) {
+  // Compare CALENDAR DAYS, not instants. This invariant exists to catch an
+  // override that lands in a different, earlier season — a date-level mistake.
+  // Comparing instants flagged the same day as a violation whenever the two
+  // sides disagreed on the time of day: the fixture calendar reports the
+  // opener's kick-off (2026-02-21T08:00Z) while the registry stores the day
+  // (2026-02-21T00:00Z), so 13 leagues were reported as "before API season
+  // start 2026-02-21" while quoting that same date on both sides.
+  if (isoDate(normalizedStart) < isoDate(apiStart)) {
     failures.push(`${name}: normalized start ${isoDate(normalizedStart)} is before API season start ${isoDate(apiStart)}`);
   }
   if (now <= apiEnd && normalizedStart > apiEnd) {

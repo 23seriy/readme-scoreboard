@@ -26,6 +26,27 @@ describe("daily season-date verification", () => {
     }, new Date("2027-08-25T00:00:00Z"))).toEqual(["La Liga: normalized start 2027-08-15 is before API season start 2027-08-20"]);
   });
 
+  it("compares calendar days, so a time-of-day difference is not a failure", () => {
+    // The fixture calendar reports the opener's kick-off (08:00Z) while the
+    // registry stores the day (00:00Z). Comparing instants made this look like
+    // an earlier-season override and failed all 13 leagues whose override
+    // reproduces the calendar date exactly, printing the SAME date on both
+    // sides of the message.
+    expect(validateSeasonWindow("MLS", {
+      startDate: "2026-02-21T08:00:00Z",
+      endDate: "2026-12-31T23:59:59Z",
+    }, new Date("2026-09-27T00:00:00Z"))).toEqual([]);
+  });
+
+  it("still reports an override one day earlier than the API season", () => {
+    // The day-level comparison must not go slack: a single day is a real
+    // mismatch and is what the check exists to catch.
+    expect(validateSeasonWindow("La Liga", {
+      startDate: "2026-08-20T00:00:00Z",
+      endDate: "2027-06-01T23:59:59Z",
+    }, new Date("2026-09-27T00:00:00Z"))).toEqual(["La Liga: normalized start 2026-08-15 is before API season start 2026-08-20"]);
+  });
+
   it("uses the next season year when ESPN returns an ended season", () => {
     expect(validateSeasonWindow("UEFA Europa League", {
       startDate: "2025-08-27T04:00:00Z",
