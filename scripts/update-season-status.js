@@ -144,9 +144,24 @@ async function fetchSeason(slug, request = httpGet) {
   const { data } = await request(`https://site.api.espn.com/apis/site/v2/sports/${slug}/scoreboard`, {
     timeout: 15000,
   });
-  const season = data.leagues?.[0]?.season;
+  const league = data.leagues?.[0];
+  const season = league?.season;
   if (!season?.startDate || !season?.endDate) {
     throw new Error(`No season dates returned for ${slug}`);
+  }
+  // ESPN's `season.startDate` is a ROUNDED PLACEHOLDER, not the opener: it is
+  // always the 1st of a month and disagrees with the league's own fixtures for
+  // 24 of the 27 soccer leagues (Ligue 1 declares June 1 for an August 21
+  // season; the A-League declares July 1 for October 16). The fixture calendar
+  // carries the real dates, so where it exists the earliest entry wins for the
+  // start. The declared end is kept: the calendar is a window that can run past
+  // the last fixture, and no end-side placeholder problem has been observed.
+  const calendar = (league.calendar || [])
+    .map((entry) => new Date(entry))
+    .filter((d) => !Number.isNaN(d.valueOf()));
+  if (calendar.length > 0) {
+    const earliest = new Date(Math.min(...calendar.map((d) => d.valueOf())));
+    return { ...season, startDate: earliest.toISOString() };
   }
   return season;
 }

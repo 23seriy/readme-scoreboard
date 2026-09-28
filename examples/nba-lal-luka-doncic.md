@@ -7,6 +7,7 @@ West Conference · Pacific Division
 🔴 Off-season · Next season starts October 20, 2026
 
 🏅 Standing: West · 3
+
 📅 Next: vs BOS (Jan 6)
 
 📊 2025-2026 Record: 50W - 32L (61.0%)

@@ -110,6 +110,21 @@ describe("renderMlb / formatMlbGameResult", () => {
     expect(output).toMatch(/🟢 Season in progress\n\n🏅 Standing: American League · 2/);
   });
 
+  it("puts the next game on its own row, not joined to the standing", () => {
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 2, label: "American League" },
+      nextGame: { date: "2026-07-20T20:00:00Z", opponent: "NYY", isHome: false },
+    };
+    const output = render("mlb", data);
+    // A single "\n" is a soft break: GitHub folds the two into one wrapped
+    // paragraph (`... · 2 📅 Next: @ NYY`) exactly as the A-League showcase
+    // rendered. Only a BLANK line makes them two rows.
+    expect(output).toMatch(/🏅 Standing: American League · 2\n\n📅 Next: @ NYY/);
+    expect(output).not.toMatch(/🏅 Standing: American League · 2\n📅 Next:/);
+  });
+
   it("omits rich-stat lines when the adapter does not provide them", () => {
     const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
     expect(output).not.toContain("🏅 Standing:");

@@ -13,6 +13,7 @@ Team: **ATA** · Category: Soccer · Data source: ESPN public API
 🟢 Season in progress
 
 🏅 Standing: 2026-2027 Italian Serie A · 11
+
 📅 Next: vs VEN (Oct 12)
 
 📊 2026 Record: 2W - 3L - 0D  (6 pts)
@@ -40,6 +41,7 @@ The `title:` input replaces the default heading.
 🟢 Season in progress
 
 🏅 Standing: 2026-2027 Italian Serie A · 11
+
 📅 Next: vs VEN (Oct 12)
 
 📊 2026 Record: 2W - 3L - 0D  (6 pts)
@@ -66,6 +68,7 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing: 2026-2027 Italian Serie A · 11
+
 📅 Next: vs VEN (Oct 12)
 
 📊 2026 Record: 2W - 3L - 0D  (6 pts)

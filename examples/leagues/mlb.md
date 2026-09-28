@@ -14,16 +14,16 @@ American League · AL West
 
 🏅 Standing: AL West · 4
 
-📊 2026 Record: 64W - 97L (39.8%)
+📊 2026 Record: 64W - 98L (39.5%)
    █████████▉░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  0-9  vs HOU (Sep 27, 2026)
 ❌ L  2-13 vs HOU (Sep 26, 2026)
 ✅ W  6-5  vs HOU (Sep 25, 2026)
 ❌ L  5-7  vs HOU (Sep 24, 2026)
 ✅ W  7-3  vs LAA (Sep 23, 2026)
-✅ W  9-7  vs LAA (Sep 22, 2026)
 ```
 
 ## Custom title
@@ -40,16 +40,16 @@ American League · AL West
 
 🏅 Standing: AL West · 4
 
-📊 2026 Record: 64W - 97L (39.8%)
+📊 2026 Record: 64W - 98L (39.5%)
    █████████▉░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  0-9  vs HOU (Sep 27, 2026)
 ❌ L  2-13 vs HOU (Sep 26, 2026)
 ✅ W  6-5  vs HOU (Sep 25, 2026)
 ❌ L  5-7  vs HOU (Sep 24, 2026)
 ✅ W  7-3  vs LAA (Sep 23, 2026)
-✅ W  9-7  vs LAA (Sep 22, 2026)
 ```
 
 ## Compact mode
@@ -65,7 +65,7 @@ American League · AL West
 
 🏅 Standing: AL West · 4
 
-📊 2026 Record: 64W - 97L (39.8%)
+📊 2026 Record: 64W - 98L (39.5%)
    █████████▉░░░░░░░░░░░░░░░
 
 

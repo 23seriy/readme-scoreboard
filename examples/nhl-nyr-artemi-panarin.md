@@ -7,6 +7,7 @@ Eastern Conference · Metropolitan Division
 🔴 Off-season · Next season starts September 29, 2026
 
 🏅 Standing: Metropolitan · 4
+
 📅 Next: vs COL (Jan 6)
 
 📊 2025-2026 Record: 42W - 28L (60.0%)

@@ -6,6 +6,7 @@ West Conference · Pacific Division
 🔴 Off-season · Next season starts October 20, 2026
 
 🏅 Standing: West · 3
+
 📅 Next: vs BOS (Jan 6)
 
 📊 2025-2026 Record: 50W - 32L (61.0%)
@@ -28,6 +29,7 @@ American League · AL East
 🟢 Season in progress
 
 🏅 Standing: AL East · 4
+
 📅 Next: vs SEA (Jan 6)
 
 📊 2026 Record: 42W - 28L (60.0%)
@@ -50,6 +52,7 @@ Premier League
 🟢 Season in progress
 
 🏅 Standing: Premier League · 2
+
 📅 Next: vs TOT (Jan 11)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)

@@ -7,6 +7,7 @@ Big East Conference
 🔴 Off-season · Next season starts November 2, 2026
 
 🏅 Standing: Big East · 2
+
 📅 Next: vs DEN (Jan 11)
 
 📊 2025-2026 Record: 18W - 6L (75.0%)

@@ -13,18 +13,19 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
-📅 Next: vs WSH (Sep 27)
+
+📅 Next: @ WSH (Sep 30)
 
 📊 2026 Record: 30W - 14L (68.2%)
    █████████████████░░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W  83-65  @ NY  (Sep 24, 2026)
-✅ W  95-84  @ NY  (Sep 22, 2026)
+✅ W  92-77  vs WSH (Sep 27, 2026) [Playoffs]
+✅ W  83-65  @ NY  (Sep 23, 2026)
+✅ W  95-84  @ NY  (Sep 21, 2026)
 ✅ W 106-81  vs CHI (Sep 19, 2026)
 ✅ W 103-59  vs CON (Sep 17, 2026)
-✅ W  89-81  vs MIN (Aug 30, 2026)
 ```
 
 ## Custom title
@@ -40,18 +41,19 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
-📅 Next: vs WSH (Sep 27)
+
+📅 Next: @ WSH (Sep 30)
 
 📊 2026 Record: 30W - 14L (68.2%)
    █████████████████░░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W  83-65  @ NY  (Sep 24, 2026)
-✅ W  95-84  @ NY  (Sep 22, 2026)
+✅ W  92-77  vs WSH (Sep 27, 2026) [Playoffs]
+✅ W  83-65  @ NY  (Sep 23, 2026)
+✅ W  95-84  @ NY  (Sep 21, 2026)
 ✅ W 106-81  vs CHI (Sep 19, 2026)
 ✅ W 103-59  vs CON (Sep 17, 2026)
-✅ W  89-81  vs MIN (Aug 30, 2026)
 ```
 
 ## Compact mode
@@ -66,7 +68,8 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: Eastern · 1
-📅 Next: vs WSH (Sep 27)
+
+📅 Next: @ WSH (Sep 30)
 
 📊 2026 Record: 30W - 14L (68.2%)
    █████████████████░░░░░░░░

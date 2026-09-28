@@ -7,6 +7,7 @@ Eastern Conference
 🟢 Season in progress
 
 🏅 Standing: MLS · 2
+
 📅 Next: vs SEA (Jan 11)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)

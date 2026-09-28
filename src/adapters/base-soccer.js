@@ -172,6 +172,16 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
         const entry = entries[index];
         if (entry) {
           const stats = (entry.stats || []).reduce((acc, s) => { acc[s.name] = s.value; return acc; }, {});
+          // An unplayed season still returns a full table: every team on 0
+          // games and 0 points, ordered ALPHABETICALLY. Reporting `index + 1`
+          // then names a league leader who has not played — the A-League
+          // showcase put Adelaide United top purely because "Adelaide" sorts
+          // first. A position is only meaningful once the table has results,
+          // so a blank table reports none at all.
+          const played = entries.some((e) => {
+            const s = (e.stats || []).reduce((acc, x) => { acc[x.name] = x.value; return acc; }, {});
+            return Number(s.gamesPlayed) > 0;
+          });
           return {
             // Conference for MLS; for single-table leagues ESPN returns
             // the league name here, which the renderer falls back on.
@@ -179,7 +189,7 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
             wins: stats.wins || 0,
             losses: stats.losses || 0,
             draws: stats.ties || 0,
-            position: index + 1,
+            position: played ? index + 1 : null,
             season,
           };
         }

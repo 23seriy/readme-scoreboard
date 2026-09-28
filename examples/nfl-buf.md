@@ -7,6 +7,7 @@ AFC · AFC East
 🟢 Season in progress
 
 🏅 Standing: AFC · 2
+
 📅 Next: vs SF (Jan 11)
 
 📊 2026 Season: 11W - 6L (64.7%)

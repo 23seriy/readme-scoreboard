@@ -1040,18 +1040,18 @@
       },
       "seasonWindow": {
         "start": [
-          7,
-          1
+          10,
+          16
         ],
         "end": [
-          6,
-          30
+          5,
+          31
         ],
-        "nextLabel": "July"
+        "nextLabel": "October"
       },
       "fallback": [
-        "2026-07-01",
-        "2027-07-01"
+        "2026-10-16",
+        "2027-05-31"
       ]
     },
     {
@@ -1070,18 +1070,18 @@
       },
       "seasonWindow": {
         "start": [
-          9,
-          15
+          10,
+          10
         ],
         "end": [
-          7,
-          1
+          5,
+          31
         ],
-        "nextLabel": "September"
+        "nextLabel": "October"
       },
       "fallback": [
-        "2026-09-15",
-        "2027-07-01"
+        "2026-10-10",
+        "2027-05-31"
       ]
     },
     {

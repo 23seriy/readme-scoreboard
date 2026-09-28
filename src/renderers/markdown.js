@@ -106,12 +106,23 @@ function isSeasonActive(sport) {
   const now = new Date();
   const m = now.getMonth() + 1;
   const d = now.getDate();
-  const [sm, sd] = window.start;
+  // Prefer the DATED window's start, exactly as seasonStatusLine does. The
+  // month/day is a rounded guess and disagrees for 15 of 43 leagues, so reading
+  // it here made a season look underway weeks before its first fixture: the
+  // A-League's guess says July 1 while its opener is October 16, so every
+  // A-League and ISL board claimed "🟢 Season in progress" through the whole
+  // off-season. Only the month/day remains for the wrap-around end comparison,
+  // because no dated end is stored.
+  const dated = /^\d{4}-\d{2}-\d{2}$/.test(String(window.fallback || ""))
+    ? String(window.fallback)
+    : null;
+  const startMonth = dated ? Number(dated.slice(5, 7)) : window.start[0];
+  const startDay = dated ? Number(dated.slice(8, 10)) : window.start[1];
   const [em, ed] = window.end;
-  const after = m > sm || (m === sm && d >= sd);
+  const after = m > startMonth || (m === startMonth && d >= startDay);
   const before = m < em || (m === em && d <= ed);
   // Handle wrap-around seasons (NFL: Sep–Feb crosses year boundary)
-  if (sm > em) return after || before;
+  if (startMonth > em) return after || before;
   return after && before;
 }
 
@@ -173,6 +184,12 @@ function extraTeamLines(data) {
   }
 
   if (nextGame && nextGame.opponent) {
+    // Each row needs a blank line before it, not just a line break. GitHub
+    // renders a single "\n" as a soft break, so standing and next game were
+    // joined into one wrapped paragraph on the profile even though they are
+    // separate array entries here. A blank line between them is what makes
+    // them two rows.
+    if (lines.length) lines.push("");
     const when = nextGame.date
       ? formatDate(nextGame.date, { month: "short", day: "numeric" })
       : "next";

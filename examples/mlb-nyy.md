@@ -7,6 +7,7 @@ American League · AL East
 🟢 Season in progress
 
 🏅 Standing: AL East · 4
+
 📅 Next: vs SEA (Jan 6)
 
 📊 2026 Record: 42W - 28L (60.0%)
