@@ -12,17 +12,17 @@ Team: **ALG** · Category: Soccer · Data source: ESPN public API
 Group J
 🔴 Off-season · Next season starts June 11, 2030
 
-🏅 Standing: Group J · 3
+🏅 Standing (2026): Group J · 3
 
 📊 2026 Record: 1W - 1L - 1D  (4 pts)
    ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L 0-2 @ SUI   (Jul 3, 2026)
-🟡 D 3-3 vs AUT   (Jun 28, 2026)
-✅ W 2-1 @ JOR   (Jun 23, 2026)
-❌ L 0-3 @ ARG   (Jun 17, 2026)
+❌ L 0-2 @ SUI   (Jul 2, 2026)
+🟡 D 3-3 vs AUT   (Jun 27, 2026)
+✅ W 2-1 @ JOR   (Jun 22, 2026)
+❌ L 0-3 @ ARG   (Jun 16, 2026)
 ```
 
 ## Custom title
@@ -37,17 +37,17 @@ The `title:` input replaces the default heading.
 Group J
 🔴 Off-season · Next season starts June 11, 2030
 
-🏅 Standing: Group J · 3
+🏅 Standing (2026): Group J · 3
 
 📊 2026 Record: 1W - 1L - 1D  (4 pts)
    ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L 0-2 @ SUI   (Jul 3, 2026)
-🟡 D 3-3 vs AUT   (Jun 28, 2026)
-✅ W 2-1 @ JOR   (Jun 23, 2026)
-❌ L 0-3 @ ARG   (Jun 17, 2026)
+❌ L 0-2 @ SUI   (Jul 2, 2026)
+🟡 D 3-3 vs AUT   (Jun 27, 2026)
+✅ W 2-1 @ JOR   (Jun 22, 2026)
+❌ L 0-3 @ ARG   (Jun 16, 2026)
 ```
 
 ## Compact mode
@@ -61,7 +61,7 @@ The `compact: true` input drops the logo and recent-game details.
 Group J
 🔴 Off-season · Next season starts June 11, 2030
 
-🏅 Standing: Group J · 3
+🏅 Standing (2026): Group J · 3
 
 📊 2026 Record: 1W - 1L - 1D  (4 pts)
    ████████████▌░░░░░░░░░░░░

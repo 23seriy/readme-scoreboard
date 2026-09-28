@@ -157,6 +157,35 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
   }
 
   /**
+   * The label for a standings table, from ESPN's group name.
+   *
+   * ESPN's group name is inconsistent across the 27 soccer leagues:
+   *   - "2026"          a bare year (Brasileirão)
+   *   - "2026-27 "      a year with a trailing space (Austria), which rendered
+   *                     as "Standing (2026): 2026-27  · 9"
+   *   - "2026-27 English Premier League"  a season-qualified competition name
+   *   - "Regular Season", "Group B", "Group C"  a phase or group
+   *
+   * Only the first two are unusable, and they are unusable for the same reason:
+   * they carry no competition name at all, just a season. Those fall back to the
+   * league's own name so the position has a referent.
+   *
+   * A season-qualified name is deliberately LEFT ALONE. Liga MX splits each year
+   * into Apertura and Clausura tournaments, so "2026 Torneo Apertura" needs its
+   * year to disambiguate — an adapter test pins that, and stripping it here
+   * would regress it. The duplication this creates on European leagues
+   * ("Standing (2026): 2026-27 English Premier League") is cosmetic and is
+   * handled per-adapter by its owner rather than centrally.
+   */
+  standingsLabel(groupName) {
+    const raw = String(groupName || "").trim().replace(/\s+/g, " ");
+    // A name that is nothing but a season ("2026", "2026-27", "2026-2027").
+    const seasonOnly = /^\d{4}(\s*[-–/]\s*\d{2,4})?$/;
+    if (!raw || seasonOnly.test(raw)) return this.LEAGUE_NAME;
+    return raw;
+  }
+
+  /**
    * Table position and W/L/D come from standings, which is authoritative —
    * counting fixtures would miss abandoned and rescheduled matches.
    */
@@ -185,7 +214,7 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
           return {
             // Conference for MLS; for single-table leagues ESPN returns
             // the league name here, which the renderer falls back on.
-            conference: group.name || "",
+            conference: this.standingsLabel(group.name),
             wins: stats.wins || 0,
             losses: stats.losses || 0,
             draws: stats.ties || 0,
@@ -273,8 +302,13 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
           season: standings.season,
         },
         recentGames: this.parseSchedule(schedData.data.events, team.id),
+        // The season travels with the position so the board can name it, as
+        // the NHL adapter does. Without it a board read "Standing: 5" with no
+        // context on the line above "2026 Record", and the ambiguity is real:
+        // half these leagues run Aug-May and their table can be the previous
+        // season's for weeks after it ends.
         standing: standings.position
-          ? { position: standings.position, label: standings.conference }
+          ? { position: standings.position, label: standings.conference, season: standings.season }
           : null,
         form: this.parseForm(schedData.data.events, team.id),
         nextGame: this.parseNextGame(fixtureData.data.events, team.id),

@@ -12,7 +12,7 @@ Team: **ACH** · Category: Soccer · Data source: ESPN public API
 Regular Season
 🟢 Season in progress
 
-🏅 Standing: Regular Season · 6
+🏅 Standing (2026): Regular Season · 6
 
 📅 Next: @ SIF (Oct 11)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 Regular Season
 🟢 Season in progress
 
-🏅 Standing: Regular Season · 6
+🏅 Standing (2026): Regular Season · 6
 
 📅 Next: @ SIF (Oct 11)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 Regular Season
 🟢 Season in progress
 
-🏅 Standing: Regular Season · 6
+🏅 Standing (2026): Regular Season · 6
 
 📅 Next: @ SIF (Oct 11)
 

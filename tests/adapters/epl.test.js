@@ -117,6 +117,50 @@ describe("EplAdapter — fetchData", () => {
     expect(result.record.draws).toBe(9);
   });
 
+  it("names the season alongside the position", async () => {
+    // A soccer table can be the previous season's for weeks after it ends, so
+    // the position is ambiguous without the season it belongs to. The record
+    // above it already names the year, which made the bare "Standing: 5" look
+    // like a different, unattributed number.
+    // `gamesPlayed` is required: a table where everyone is on 0 games reports
+    // no position at all, so a fixture without it would pass for the wrong
+    // reason (see "reports no position when the table has not been played").
+    const withPosition = {
+      data: {
+        children: [{
+          name: "English Premier League",
+          standings: {
+            entries: [
+              {
+                team: { abbreviation: "MCI" },
+                stats: [{ name: "wins", value: 20 }, { name: "gamesPlayed", value: 38 }],
+              },
+              {
+                team: { abbreviation: "LIV" },
+                stats: [
+                  { name: "wins", value: 17 },
+                  { name: "losses", value: 12 },
+                  { name: "ties", value: 9 },
+                  { name: "gamesPlayed", value: 38 },
+                ],
+              },
+            ],
+          },
+        }],
+      },
+    };
+    axios.get
+      .mockResolvedValueOnce(teamResponse)
+      .mockResolvedValueOnce(withPosition)
+      .mockResolvedValueOnce({ data: { events: [] } });
+    const result = await epl.fetchData("LIV");
+    expect(result.standing).toEqual({
+      position: 2,
+      label: "English Premier League",
+      season: 2026,
+    });
+  });
+
   it("flags a draw rather than a win or loss", async () => {
     axios.get
       .mockResolvedValueOnce(teamResponse)

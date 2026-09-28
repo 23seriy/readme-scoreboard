@@ -9,10 +9,10 @@ Team: **BAH** · Category: Soccer · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9967.png" alt="Bahia logo" width="72" align="right" />
 
 ### 🔵 Bahia (BAH)
-Série A
+Brasileirão
 🟢 Season in progress
 
-🏅 Standing: 5
+🏅 Standing (2026): Brasileirão · 5
 
 📅 Next: @ PAL (Oct 9)
 
@@ -37,10 +37,10 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/9967.png" alt="Bahia logo" width="72" align="right" />
 
 ### 🔵 Bahia (BAH)
-Série A
+Brasileirão
 🟢 Season in progress
 
-🏅 Standing: 5
+🏅 Standing (2026): Brasileirão · 5
 
 📅 Next: @ PAL (Oct 9)
 
@@ -64,10 +64,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🔵 Bahia (BAH)
-Série A
+Brasileirão
 🟢 Season in progress
 
-🏅 Standing: 5
+🏅 Standing (2026): Brasileirão · 5
 
 📅 Next: @ PAL (Oct 9)
 

@@ -12,7 +12,7 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing: 2026 Torneo Apertura · 3
+🏅 Standing (2026): 2026 Torneo Apertura · 3
 
 📅 Next: @ NCX (Sep 28)
 
@@ -21,10 +21,10 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 
 **📅 Recent Games:**
 ```
-🟡 D 2-2 vs GDL   (Sep 20, 2026)
-❌ L 3-4 @ CAZ   (Sep 13, 2026)
-✅ W 2-0 vs PUE   (Aug 30, 2026)
-✅ W 2-1 @ JUA   (Aug 22, 2026)
+🟡 D 2-2 vs GDL   (Sep 19, 2026)
+❌ L 3-4 @ CAZ   (Sep 12, 2026)
+✅ W 2-0 vs PUE   (Aug 29, 2026)
+✅ W 2-1 @ JUA   (Aug 21, 2026)
 ✅ W 3-0 vs ASL   (Aug 16, 2026)
 ```
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing: 2026 Torneo Apertura · 3
+🏅 Standing (2026): 2026 Torneo Apertura · 3
 
 📅 Next: @ NCX (Sep 28)
 
@@ -49,10 +49,10 @@ The `title:` input replaces the default heading.
 
 **📅 Recent Games:**
 ```
-🟡 D 2-2 vs GDL   (Sep 20, 2026)
-❌ L 3-4 @ CAZ   (Sep 13, 2026)
-✅ W 2-0 vs PUE   (Aug 30, 2026)
-✅ W 2-1 @ JUA   (Aug 22, 2026)
+🟡 D 2-2 vs GDL   (Sep 19, 2026)
+❌ L 3-4 @ CAZ   (Sep 12, 2026)
+✅ W 2-0 vs PUE   (Aug 29, 2026)
+✅ W 2-1 @ JUA   (Aug 21, 2026)
 ✅ W 3-0 vs ASL   (Aug 16, 2026)
 ```
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing: 2026 Torneo Apertura · 3
+🏅 Standing (2026): 2026 Torneo Apertura · 3
 
 📅 Next: @ NCX (Sep 28)
 

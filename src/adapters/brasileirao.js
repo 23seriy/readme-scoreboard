@@ -32,19 +32,13 @@ class BrasileiraoAdapter extends BaseSoccerAdapter {
   TEAM_IDS = TEAM_IDS;
   DEMO_TEAMS = DEMO_TEAMS;
 
-  /**
-   * ESPN labels the Brasileirão standings group with just the year ("2026"),
-   * unlike other leagues which give a descriptive name. That reads as noise
-   * under the club name, and the year already appears in the record line, so
-   * drop it and let the renderer fall back to the league name.
-   */
-  async fetchConferenceRecord(teamAbbr) {
-    const record = await super.fetchConferenceRecord(teamAbbr);
-    if (/^\d{4}$/.test((record.conference || "").trim())) {
-      return { ...record, conference: "" };
-    }
-    return record;
-  }
+  // ESPN labels this league's standings group with just the year ("2026"),
+  // unlike other leagues which give a descriptive name. `standingsLabel` in the
+  // base class replaces a season-only label with the league name, so the label
+  // reads "Brasileirão" here rather than the bare year. That used to be handled
+  // by an override that blanked the year and relied on the renderer's
+  // `fallbackLabel`; naming it at the source means the value the adapter
+  // reports is the one that gets printed.
 }
 
 module.exports = new BrasileiraoAdapter();

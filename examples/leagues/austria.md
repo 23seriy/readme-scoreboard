@@ -9,10 +9,10 @@ Team: **ALU** · Category: Soccer · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21540.png" alt="Austria Lustenau logo" width="72" align="right" />
 
 ### 🟤 Austria Lustenau (ALU)
-2026-27 
+Bundesliga
 🟢 Season in progress
 
-🏅 Standing: 2026-27  · 9
+🏅 Standing (2026): Bundesliga · 9
 
 📅 Next: @ HAR (Oct 11)
 
@@ -37,10 +37,10 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/21540.png" alt="Austria Lustenau logo" width="72" align="right" />
 
 ### 🟤 Austria Lustenau (ALU)
-2026-27 
+Bundesliga
 🟢 Season in progress
 
-🏅 Standing: 2026-27  · 9
+🏅 Standing (2026): Bundesliga · 9
 
 📅 Next: @ HAR (Oct 11)
 
@@ -64,10 +64,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🟤 Austria Lustenau (ALU)
-2026-27 
+Bundesliga
 🟢 Season in progress
 
-🏅 Standing: 2026-27  · 9
+🏅 Standing (2026): Bundesliga · 9
 
 📅 Next: @ HAR (Oct 11)
 
