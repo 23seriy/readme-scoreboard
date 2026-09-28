@@ -1,0 +1,794 @@
+# Changelog
+
+All notable changes to this project are documented here.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+Because this is a GitHub Action rather than a library, "breaking" means a change
+that would alter what appears in your README or require editing your workflow.
+
+## [Unreleased]
+
+### Fixed
+
+- **A board could claim a league position for a season that has not started.** An unplayed
+  standings table is not empty — ESPN returns every team on 0 games and 0 points, ordered
+  **alphabetically** — and the board read that array position as a rank. The A-League showcase
+  therefore opened with `🏅 Standing: 2026-27 A-League · 1` for Adelaide United, whose only claim to
+  first place was that "Adelaide" sorts first with no matches played. A position is now reported
+  only once the table has results, so a not-yet-started season shows the next fixture and nothing
+  else. Two leagues were affected today: the A-League and the Indian Super League.
+- **Two leagues reported "🟢 Season in progress" through their entire off-season.** The A-League and
+  the ISL had their season windows stored as the rounded July and September guesses, so from July
+  onwards a board announced a season underway weeks before its first fixture. Their real openers are
+  October 16 and October 10, verified against each league's live fixture calendar. Corrected in the
+  registry and in the generated README table.
+- **The next fixture sat on the same line as the standing.** A single newline is a soft break in
+  Markdown, so `🏅 Standing: … · 2` and `📅 Next: …` were folded into one wrapped paragraph on the
+  profile instead of reading as two rows. They are now separate lines in every board that shows
+  both.
+- **The daily season-date check failed on a time of day.** The check that verifies every league's
+  season window compares the registry's opening date against the live one, and it compared them as
+  exact instants. The fixture calendar reports a kick-off (`2026-02-21T08:00Z`) while the registry
+  stores the day (`2026-02-21T00:00Z`), so thirteen leagues were reported as starting before
+  themselves — the error message quoted the same date on both sides. The comparison is now by
+  calendar day, which is the level the check exists to police: a genuine earlier-season override is
+  still caught.
+- **A game's date could differ by a day depending on where the board was generated.** Leagues play in
+  the evening, so a North American fixture belongs to the previous UTC day: ESPN reports the Lakers'
+  `May 11` playoff game as `2026-05-12T02:30Z`. The recent-games list had no timezone, so it printed
+  `May 12` on a UTC machine and `May 11` in New York — the same board showing two dates for one game.
+  Dates are now rendered in the zone the league plays in, so they match the fixture list, and NBA,
+  WNBA, NCAAB, NCAAW, NFL, NHL, MLB, MLS and every soccer league agree everywhere. This surfaced
+  while regenerating the example boards: CI (UTC) produced eight files that differed from the same
+  command run locally (EDT).
+
+### Changed
+
+- **The example boards in `examples/` are now built from live league data.** They were generated from the
+  action's offline sample data, which made them a fiction: the college-football board showed an 18-6
+  record and a `14-2` score in a sport where two points cannot be scored, and the tennis boards
+  named players who had left their club. Every figure is now real as of the day it was generated.
+  Run `npm run examples:generate` for live boards, or `npm run examples:generate:demo` for the
+  offline samples.
+
+## [1.16.0] - 2026-09-26
+
+### Added
+
+- **Soccer boards now show the next fixture.** `📅 Next: vs LEE (Oct 10)` appears on Premier
+  League, La Liga, MLS and the other eighteen soccer leagues, alongside the standing and recent
+  results they already had. The adapter had always been able to render it — the schedule call it
+  read simply returned a page of finished matches, so the next fixture was never in the response.
+  Asking the same endpoint for future fixtures instead takes the number of leagues that can show a
+  next fixture from 7 of 43 to 30. Leagues that legitimately have no upcoming match — a cup between
+  editions, a completed season — are unchanged.
+
+## [1.15.2] - 2026-09-26
+
+### Fixed
+
+- **The off-season "next season starts" date was read from the wrong field.** Every league's start
+  is stored twice in the registry — once as a month and day, once as a real date — and the two
+  disagree for 15 of 43 leagues, because the month/day is a rounded guess. The status line read the
+  guess, so the NBA announced `October 1, 2026` where its own dated window, and its opener, is
+  `October 20`. The dated value now wins, and the year arithmetic advances from it, so a board
+  sitting past its own start date rolls to the following year instead of printing a date in the past.
+  Twenty-eight leagues already agreed and are unchanged.
+
+## [1.15.1] - 2026-09-26
+
+### Fixed
+
+- **Hockey and tennis athlete images were blank or generic.** The NHL spotlight headshot pointed at
+  `mugs/nhl/<season>/<id>.png`, a path that answers `200` with an 11 KB placeholder for every player
+  and every season — GitHub drew the grey silhouette, so the broken image looked like a working URL.
+  It now uses the season-free path the league's own API reports. A tennis board also shows the
+  player's ESPN headshot rather than a generic tennis icon, because a tennis board tracks one person.
+- **A hockey board showed no recent games, and a 0-0 record, during the off-season.** Late September
+  counts as off-season, but the upcoming season had already played pre-season fixtures — which are
+  final — and those were taken as proof the season had started, so the adapter settled one call short
+  of the completed season. It now requires a completed regular-season or playoff game, which is what
+  brings last season's results back. The next fixture still comes from the upcoming season, so the
+  board keeps announcing the opener.
+- **The next season start named a month, and for hockey it named the wrong one.** The registry said
+  October while its own fallback date, and the league's API, both said September 29.
+- **A standing from a completed season read as a live one.** The NHL reports no in-season standing
+  off-season, so its board printed a final table as current.
+
+### Changed
+
+- **The status line names a date:** `🔴 Off-season · Next season starts September 29, 2026` instead
+  of `... September 2026`. The registry already stores the day, so printing it costs nothing. The
+  World Cup keeps its pinned edition and now reads `June 11, 2030`.
+- **A standing taken from a finished season says so:** `🏅 Standing (2025-26): Atlantic · 8`. Leagues
+  whose standing is current are unchanged.
+
+### Added
+
+- **`npm run audit:leagues`**, a maintainer-facing check of every configured league for the classes
+  of bug that reached a board: a 0-0 record alongside listed games, an image URL that resolves to a
+  placeholder, and an off-season board whose next season start is already in the past. It reports 40
+  of 43 leagues clean and names three open findings — `belgian` has no teams configured, and `ncaaf`
+  and `ncaa_hockey` report 0-0 records over games they list. It runs on request, not in CI, because
+  it makes roughly 100 live requests.
+
+## [1.15.0] - 2026-09-26
+
+### Added
+
+- **UFC, as `ufc`** — a fighter's career record, their next bout, and their recent results, keyed by
+  surname code (`STR` for Strickland, `VOL` for Volkanovski). 40 fighters taken from the season's
+  cards. This is the first sport here with no scores and no standings: ESPN's MMA feed reports a
+  lifetime W-L-D, so the record is labelled a career record rather than a season one, and no
+  standing is shown at all instead of inventing a position. It is also the first league whose
+  upstream feed publishes **no athlete id** — a name is the only identity ESPN gives — so the
+  roster is matched by name, with case, punctuation and diacritics normalised, rather than by id.
+  `player:` is not offered: `ufc` joins the documented list of leagues that already render a single
+  athlete board.
+- **A per-league `entityLabel`**, so a heading can name the right noun — UFC boards read
+  "My Favourite UFC Fighter", which "Player" would have got wrong.
+- **The FIFA World Cup, as `worldcup`.** All 48 qualified nations are configured with their ESPN
+  team id and country flag, so a board works for any of them rather than a handful of favourites,
+  and `player:` works here like every other soccer league (ESPN serves a full squad roster and
+  game log). The season window is the tournament itself, June 11 to July 19, so the board flips to
+  off-season the day after the final instead of reporting "season in progress" until December 31
+  — which is what ESPN's own window claims.
+- **A next-edition year for competitions that are not annual.** The status line computed "next
+  season starts `<month>␣<next calendar year>`", which for a quadrennial event named a year with
+  no tournament. Registries can now pin the next start year, and the World Cup names 2030.
+- **`DEMO_OPPONENT_POOL` for the soccer base class**, so a competition whose entrants are not
+  clubs can play its sample fixtures against the right kinds of team. Without it the World Cup
+  demo fielded Argentina against Chelsea and West Ham.
+- **A guard that every league has a runnable demo command**, and negative tests for the three
+  existing demo-consistency checks, which had only ever been called on data that satisfied them —
+  nothing proved they would fire at all.
+- **A CI gate that the generated artefacts are current.** Regenerating the example boards and
+  failing on any resulting diff sounds like ceremony until you know that a generator fix does not
+  regenerate what was already committed: six boards carried a stale `W 0-0` result for days with
+  nothing to notice. The gate is what caught the timezone bug below, on its first run.
+
+### Changed
+
+- **Node 24 is now declared rather than assumed** — in `.nvmrc`, in the `engines` field, in the
+  action's own Node setup, and in the docs. Nothing changes for anyone using the action; the
+  requirement was simply invisible before, and a major version behind it is easy to not notice.
+- **Two unreachable methods left the shared free-API base class.** `fetchData` and
+  `fetchRecentGames` had no callers left (every subclass overrode or ignored them), and two of the
+  tests covering them had been recomputing the methods' arithmetic inline instead of calling them,
+  so they passed regardless. Both are gone, and what remained is now called for real.
+
+### Fixed
+
+- **Demo samples could render a win on a 0-0 scoreline.** The generator set the winner's margin
+  with a subtraction floored at zero, so a zero-point winner drew 0-0 — reachable wherever scores
+  start at zero, meaning every soccer and hockey league, though no committed gallery happened to
+  contain one until the World Cup demo did. A result that contradicts its own scoreline is now a
+  consistency failure checked across all 43 leagues, so no adapter can reintroduce it. Six committed
+  example boards still carried the old "W 0-0" output, because fixing the generator does not
+  regenerate the artefacts — they are now regenerated, and a test reads the committed files rather
+  than trusting the generator.
+- **Compact mode left a UFC board's fight log in place.** Compaction strips the recent-results block
+  by matching its heading, and UFC's read "Recent Fights", so `compact: true` kept the fights in the
+  action and in the league gallery. The heading is covered now, and the pattern lives in one shared
+  module — it had been copied identically into the action and two scripts, which is how a new sport
+  could match none of them.
+- **A bout could appear twice on a UFC board.** The adapter walks back a season when a fighter's
+  recent results are thin, and the same card can arrive from two adjacent season queries, so fights
+  are now de-duplicated before the board is built.
+- **The country flag map is now escape sequences, and fully validated.** Literal flag glyphs in that
+  file proved fragile: a toolchain passing them through replaced one of the two regional indicators
+  with U+FFFD, which blanks a country's name in the generated directory without failing anything
+  else. A test now decodes every key and asserts a country resolves for every UFC fighter.
+- **A board could differ by a day depending on your timezone.** Sample values were stored as
+  UTC-midnight instants and then formatted in the *local* zone, so any machine east of UTC
+  rendered the next day: the same input produced a different board on different machines, and the
+  committed example boards had been generated a day early. Date-only values are now formatted in
+  UTC, while real timestamps — live game times, which genuinely have a time of day — keep the
+  reader's zone as they should. Every sample date is a calendar date now, and a test renders all of
+  them in five timezones and asserts a single result, in child processes, because Node caches the
+  timezone at startup.
+
+## [1.14.2] - 2026-09-20
+
+### Added
+
+- **The supported-sports table now lists each league's `sport:` key.** The action takes that key
+  — `epl`, not the ESPN endpoint `soccer/eng.1` — and the README told readers to find it in this
+  table, but the column did not exist, so the documented lookup was not followable. It is there
+  now, and the intro league list is generated from the same registry as the table: it had been
+  claiming 41 leagues while naming 39.
+- **A `--demo` command for every league.** The local preview section listed 23 of the 41
+  leagues; the racing, tennis, and newer soccer leagues had no copy-ready command.
+
+### Fixed
+
+- **Four league logos were broken and a fifth showed the wrong competition.** The Greek
+  Super League, Austrian Bundesliga, Danish Superliga, and Norwegian Eliteserien logos all
+  returned 404, and the Swedish Allsvenskan pointed at another competition's artwork. Those
+  URLs are embedded in the README table, the league showcase, and the supported-leagues
+  manifest, so the breakage was public. The registry now carries ESPN's real values — and for
+  Denmark and Norway, whose leagues ESPN has no artwork for, the generic soccer icon. The
+  daily API health check now verifies every logo both resolves and matches the logo ESPN
+  reports for that league, which catches the silent case of a valid file showing the wrong
+  competition.
+
+## [1.14.1] - 2026-09-19
+
+### Fixed
+
+- **Stale league counts in the docs.** The README claimed 39 supported leagues and the
+  action description claimed 30, while the registry held 41 — the `action.yml` number had
+  been wrong for several releases, because nothing checked the prose. Both now read 41,
+  and a test asserts every "`<n>` leagues" claim in the README and the action metadata
+  matches the registry, so the numbers can't drift from the code again.
+
+## [1.14.0] - 2026-09-19
+
+### Added
+
+- **Player spotlight for college basketball**: `player:` now works with `sport: ncaab`
+  and `sport: ncaaw`. ESPN began serving the same `avgPoints`/`avgRebounds`/`avgAssists`
+  splits payload and game log the NBA and WNBA use, so those boards show the player's
+  season averages, most recent game, and headshot like the other basketball boards. Both
+  leagues come off the "leagues without player spotlight" list, which now holds eight.
+- **NASCAR Cup Series** (`nascar`) and **IndyCar Series** (`indycar`). Both rank drivers
+  rather than teams, so `team:` takes a driver abbreviation and the board shows that
+  driver's championship position and points — the same shape as the Formula 1 constructor
+  board. ESPN publishes no driver abbreviations, so the rosters (top 30 of each
+  championship) use surname-derived codes such as `HAM` for Denny Hamlin and `PAL` for
+  Alex Palou, and both leagues appear in the player directory. The supported-league count
+  is now 41.
+
+### Fixed
+
+- **The WNBA and G League sample boards drifted every day.** Both built their demo dates
+  from `Date.now()` instead of the pinned demo clock, so `npm run examples:generate`
+  rewrote `examples/wnba-min-napheesa-collier.md` on every run and the committed example
+  could never match a fresh generation. Demo dates now come from `dateOffset()`, and the
+  WNBA sample season is pinned the way the NBA's already was. The determinism test now
+  derives a case from **every** supported league and freezes the clock with fake timers —
+  the previous guard only covered a hand-listed set, which is why this went unnoticed.
+
+## [1.13.1] - 2026-09-19
+
+### Fixed
+
+- **Formula 1's newest constructors** rendered with no championship position and
+  0 points. ESPN publishes no abbreviation for Audi and Cadillac, and the
+  constructor-standings lookup matched on abbreviation alone, so it never found
+  them. The lookup now matches on the constructor's ESPN team id first and falls
+  back to the abbreviation for entries that only carry one. Audi correctly shows
+  P8 on 17 points, and Cadillac P11.
+- **Player-spotlight documentation**: the "Leagues without player spotlight" list
+  claimed six leagues while listing eight, and grouped Formula 1 with the
+  individual-athlete tours. Formula 1 tracks constructors, so it now has its own
+  row, the count is right, and the lookup guidance no longer sends Formula 1 users
+  to the player directory. New tests keep the README list, the generated
+  directories, and the validation allow-list from drifting apart again.
+
+## [1.13.0] - 2026-09-14
+
+### Added
+
+- **Five new soccer leagues**, all with live standings, schedules, and full team
+  rosters verified against ESPN's public API:
+  - **Greek Super League** (`greek`) — 14 clubs
+  - **Austrian Bundesliga** (`austria`) — 12 clubs
+  - **Danish Superliga** (`denmark`) — 12 clubs
+  - **Norwegian Eliteserien** (`norway`) — 16 clubs
+  - **Swedish Allsvenskan** (`sweden`) — 16 clubs
+
+  The supported-league count is now 39. All five reuse the shared soccer base
+  class, so they get records, points, conference standings, the next fixture,
+  recent results, and the `player:` spotlight along with the other soccer
+  leagues. Two clubs needed non-obvious team keys, because ESPN's own
+  abbreviations are unusable as inputs: Austria Vienna and Rapid Vienna both
+  report as `VIE`, so they are `AUS` and `RAP` here, and Örgryte's key is the
+  ASCII `ORG` so it can be typed in a workflow.
+
+### Fixed
+
+- Player **headshots rendered at visibly different sizes between sports**. Each
+  league serves its headshots at a different aspect ratio — ESPN's are 600×436
+  landscape, MLB's are 213×320 portrait and the NHL's are 336×336 square — and
+  the image was sized by width alone, so the rendered heights came out at 72×52,
+  72×108 and 72×72. A spotlight from one sport was more than twice as tall as
+  another's. The image is now sized by **height**, giving every sport the same
+  vertical footprint; this also matches how the team logo was already sized.
+
+## [1.12.1] - 2026-09-13
+
+### Added
+
+- **WNBA player spotlight**: the `player:` input now works for `sport: wnba`,
+  showing the player's season averages (points/rebounds/assists per game), most
+  recent game, and headshot. ESPN now serves WNBA athletes the same
+  `avgPoints`/`avgRebounds`/`avgAssists` splits payload and game log that the
+  NBA already uses, so the WNBA is no longer one of the leagues that can't
+  support a spotlight. A new sample board (`examples/wnba-min-napheesa-collier.md`)
+  demonstrates it.
+
+### Changed
+
+- Corrected the README's **"Leagues without player spotlight"** table: the WNBA
+  was listed there with the reason "ESPN returns an empty stat payload and an
+  empty game log for every athlete", which is no longer true. The remaining
+  exclusions (`ncaab`, `ncaaw`, `ncaaf`, `gleague`, `ncaa_hockey`) are
+  re-verified against the live APIs — their stats endpoints still 404 and their
+  game logs are still empty.
+- The `player` input description no longer claims support is limited to `nba`
+  and `mlb`; it now lists every league that supports it.
+
+## [1.12.0] - 2026-09-13
+
+### Added
+
+- **Player headshots**: a player spotlight now shows the athlete's headshot,
+  right-aligned beside the "Player Spotlight" heading, matching how the team
+  logo sits beside the team board. The image is built from the athlete id the
+  roster lookup already fetches, so it needs no extra request, no new input,
+  and no configuration. Supported wherever `player:` is (NBA, MLB, NFL, NHL,
+  and every soccer league). When the upstream feed has no athlete id the image
+  is omitted and the board renders exactly as before, and `compact: true`
+  stays text-only.
+
+### Fixed
+
+- Corrected several **demo roster athlete ids** that were wrong, which mattered
+  once headshots were built from them: the NHL demo rosters pointed Panarin,
+  McDavid, Draisaitl, Shesterkin, Fox, Kopitar, Kempe, Byfield, Larkin, Seider,
+  Marchand, Swayman and Hyman at the wrong players (or at ids belonging to
+  someone else), and the NFL demo roster reused a single id across two teams in
+  four places (e.g. `Travis Kelce` and `CeeDee Lamb` shared one id). Every id
+  is now verified against the live roster endpoint.
+- Demo/gallery boards no longer show a record that contradicts the results
+  printed beneath it. Previously the NFL sample board advertised a hardcoded
+  `9W - 3L` season while its recent games were regenerated with `Math.random()`
+  on every run, so the two could never agree and each run produced different
+  output. Sample data is now derived from a seeded generator: it is identical on
+  every run (so `npm run examples:generate` is reproducible), and the headline
+  record is counted from the same full game log that the recent results are
+  sliced from.
+- The **Next** fixture on every sample board is no longer the same team that
+  just appeared in **Recent Games**. The NFL demo listed "vs SF" as both the
+  latest result and the upcoming game; leagues with only two or three demo teams
+  (EPL, MLS, UCL, La Liga, NCAAF) had no unused opponent at all, so they now
+  draw from a padded per-sport opponent pool.
+- Player Spotlight **Last Game** dates now match the team board's most recent
+  game on every sample board. The NFL, NBA, MLB, NHL and soccer spotlights
+  previously used their own offset date, so the same fixture appeared with two
+  different dates (or the wrong opponent) in one board.
+- The NFL demo no longer returns raw game-log objects to the renderer, which
+  produced `Invalid Date` and blank scores. All adapters now emit the same
+  renderer-ready game shape.
+- Dates are formatted consistently whether a feed supplies a calendar date
+  (`2026-09-15`) or a full ISO timestamp. The NFL and MLB renderers appended
+  `T12:00:00` unconditionally, which turned a valid timestamp into
+  `Invalid Date`.
+- The NBA sample board now includes per-game scores and outcomes. Its mapping
+  dropped `teamScore`/`oppScore`/`won`, so recent games rendered without scores.
+- The NFL **Standing** label now reads `AFC`/`NFC` instead of the raw ESPN group
+  name (`American Football`), matching the abbreviation used elsewhere on the
+  board.
+- Washington is accepted as both `WSH` (ESPN's abbreviation) and `WAS` (the
+  previous alias), so `team: WSH` no longer fails validation.
+
+## [1.11.0] - 2026-09-08
+
+### Added
+
+- MLB player spotlight support for the `player:` input. You can now feature a
+  batter's season line and last game alongside an MLB team board, e.g.
+  `player: "Vladimir Guerrero Jr."` with `sport: mlb` and `team: TOR`. The
+  spotlight shows the season batting average, home runs, and RBIs, plus the
+  player's last game (hits, home runs, RBIs, batting average, opponent, and
+  date). The Blue Jays demo board now includes Vladimir Guerrero Jr.
+
+### Fixed
+
+- The ATP and WTA **Last Match** fields no longer show an upcoming (scheduled)
+  match as a played result. ESPN's athlete competitions endpoint returns the
+  player's most recent competition, which can be a future opponent with no
+  result yet. The adapters now only report the most recent match that has
+  actually been played (a determined winner or a `completed` status), so a
+  scheduled opponent isn't rendered with a fake score.
+
+## [1.11.1] - 2026-09-08
+
+### Fixed
+
+- The MLB player spotlight **Last Game** now reports the player's most recent
+  game. The MLB Stats API returns the game log in chronological order (oldest
+  first), so the last game is the final entry, not the first one — previously
+  the season opener was shown instead of the latest result (e.g. Mar 27 instead
+  of Sep 7 for Vladimir Guerrero Jr.).
+
+## [1.10.4] - 2026-09-07
+
+### Fixed
+
+- The NBA player spotlight **Last Game** date was rendered in UTC, which shifted
+  late-night games to the wrong day (e.g. a game on Apr 2 showed as Apr 3). It's
+  now rendered in the league's timezone (`America/New_York`) so the date shows
+  the actual calendar day the game was played.
+
+## [1.10.3] - 2026-09-07
+
+### Added
+
+- The NBA player spotlight's **Last Game** line now also shows the opponent and
+  the game date (e.g. `26 PTS · 4 REB · 7 AST · 34 MIN vs Minnesota
+  Timberwolves (Sep 4, 2026)`), fetched from the event summary and rendered in
+  UTC so the date doesn't shift across timezones.
+
+### Changed
+
+- Corrected the NBA player spotlight docs example to use the player's exact
+  live-roster spelling (`Luka Doncic`, no diacritic), and clarified that the
+  match must mirror ESPN's exact spelling.
+
+## [1.10.2] - 2026-09-07
+
+### Fixed
+
+- The **NBA player spotlight** `player:` input was not being passed to the
+  action runtime: `action.yml` defined the input but never exported it to the
+  `PLAYER` environment variable, so the spotlight silently never rendered. The
+  env block now maps `PLAYER` to `inputs.player`.
+
+## [1.10.1] - 2026-09-06
+
+### Added
+
+- **Player spotlight (NBA)**: a new `player:` input shows a specific player's season averages (points/rebounds/assists per game) and most recent game's box score alongside an NBA team board. NBA-only for now; other team sports are planned as follow-ups.
+
+## [1.10.0] - 2026-09-05
+
+### Added
+
+- **Three new soccer leagues**: A-League Men (Australia), Indian Super League,
+  and Chinese Super League, all with live standings, schedules, and full
+  team rosters verified against ESPN's public API.
+- **NFL standings**: the NFL board now shows the team's conference **standing**
+  and **next game**, matching the other team leagues. The adapter fetches the
+  ESPN NFL standings endpoint for the conference rank and reads the next
+  non-final game from the schedule.
+- **League showcase**: `examples/leagues/` now has one file per supported
+  league, built from live data, demonstrating the default board plus the
+  `title:`, `compact:`, and `badge:` options in one place. Run
+  `npm run leagues:showcase` to regenerate it; a new daily workflow
+  (`update-league-showcase.yml`) does this automatically and opens a PR when
+  live data changes the output.
+- **WTA Tennis**: added as a new individual-athlete league (`sport: wta`),
+  mirroring the existing ATP Tennis board — world ranking, ranking points,
+  movement, and the player's most recent match result. Both the ATP and WTA
+  rosters cover the top 30 singles ranking, each with a country flag emoji.
+- **Player directory columns**: `PLAYER_DIRECTORY.md` / `player-directory.json`
+  now include each player's country **flag**, **country name**, and live
+  **rank**/**points** from their tour's current rankings, refreshed daily by
+  the existing directory workflow.
+
+### Fixed
+
+- **F1 entity classification**: Formula 1 tracks constructors (Ferrari,
+  Mercedes, Red Bull, ...), not individual drivers, so it was incorrectly
+  tagged as an individual-athlete league. It's now classified as a team
+  sport and listed in the team directory instead of the player directory.
+- **Team directory leak**: individual-athlete leagues (ATP, WTA) no longer
+  appear in `team-directory.json` / `TEAM_DIRECTORY.md` — their rosters live
+  solely in `player-directory.json` / `PLAYER_DIRECTORY.md`.
+- **Broken README anchors**: the "Team & Player Abbreviations" table-of-contents
+  link and the profile-example link now point at the correct sections.
+
+## [1.9.3] - 2026-09-02
+
+### Changed
+
+- The **standing** and **next-game** lines on team boards (basketball,
+  baseball, football, hockey, soccer) now render on their own row, separated
+  from the conference/season paragraph, so they read clearly instead of
+  wrapping awkwardly into the season status.
+
+## [1.9.2] - 2026-09-01
+
+### Changed
+
+- The ATP board's **Last Match** result now renders in its own fenced block,
+  mirroring the recent-games blocks on other boards, so it no longer merges
+  into the ranking meta line.
+- The generated **team directory** now resolves real team names (e.g. "Atlanta
+  Hawks") instead of abbreviation-only names for leagues whose static registry
+  lacked embedded names, so team lookups show full names.
+
+## [1.9.1] - 2026-09-01
+
+### Changed
+
+- Improved the ATP tennis board's readability: the world ranking, ranking
+  points, and movement are now grouped on a single line, and the latest match
+  result gets its own labeled **Last Match** line instead of being buried in
+  the ranking info.
+
+## [1.9.0] - 2026-09-01
+
+### Added
+
+- **Entity typing**: sports now declare whether they track a `team` or a
+  `player`. Individual sports like **ATP Tennis** and **Formula 1** default to
+  `player`, so boards read "My Favourite ATP Tennis Player" and validations say
+  "player abbreviation". The `entity` input lets you override the inferred type.
+- **ATP Tennis** support: an individual-sport board showing a ranked player's
+  world ranking, ranking points, movement, and most recent match result. A new
+  `atp` adapter reads the free ESPN ATP rankings endpoint and the player's
+  latest competition (opponent, result, set scores), and a new `renderAtp`
+  renders the board.
+
+### Changed
+
+- Added a generated **player directory** ([PLAYER_DIRECTORY.md](PLAYER_DIRECTORY.md)
+  and its machine-readable [`player-directory.json`](player-directory.json)),
+  mirroring the team directory for individual sports. It lists player
+  abbreviations, names, and IDs so individual-sport boards (ATP) can be looked
+  up the same way team boards use the team directory. The daily directory
+  refresh workflow regenerates it alongside the team directory.
+- Removed the huge per-league team abbreviation tables from the README. The
+  generated [team directory](TEAM_DIRECTORY.md) is now the single source of
+  truth for team names, abbreviations, and IDs, so the README no longer
+  duplicates each league's roster inline (README shrank from ~2000 to ~550
+  lines). The college roster automation workflow and scripts were retired in
+  favor of the daily team-directory refresh.
+
+## [1.8.2] - 2026-08-30
+
+### Added
+
+- **Argentine Primera** support: a new `argentina` soccer adapter reusing the
+  shared soccer base (single-table standings, record, and richer stats).
+- Expanded the [examples gallery](examples/): boards for MLB, UEFA Champions
+  League, College Football, and Formula 1, plus demos of the `title:`, `teams:`
+  (multi-team), `compact:`, and `badge:` options.
+
+### Changed
+
+- The generated [team directory](TEAM_DIRECTORY.md) now pulls the **complete**
+  live roster for collegiate and UEFA tournament leagues, so it no longer shows
+  just the handful of hardcoded teams.
+- Removed the redundant last-five `🔥 Form:` line from the board: the Recent
+  Games list already shows the W/L/D sequence.
+- Fixed the MLB "next game" showing a stale postponed game (e.g. "Apr 3") by
+  fetching the upcoming schedule and only treating genuinely future games as
+  the next opponent.
+- Corrected the supported-league count to 29.
+- The README GitHub Marketplace badge and install line now point at the
+  repository; a tip explains how to publish the action so the Marketplace
+  listing appears.
+- Added the required `author` field to `action.yml` so the action can be
+  published to the GitHub Marketplace.
+
+## [1.8.1] - 2026-08-30
+
+### Fixed
+
+- Repaired the invalid `action.yml` YAML that broke opening the action. The
+  composite `env:` block had over-indented `TEAMS`/`TITLE`/`BADGE` mappings and
+  was missing `MARKER`/`TARGET_REPO`/`DRY_RUN`/`COMPACT`, so the GitHub Actions
+  manifest loader rejected the action. All 10 env mappings now sit at a
+  consistent level.
+
+## [1.8.0] - 2026-08-29
+
+### Added
+
+- **Formula 1** support: constructor championship position and points on the
+  board via a new `f1` adapter and renderer.
+- Extended the richer board output (standing position, next game, last-five
+  form) to the remaining leagues: WNBA, NBA G League, MLB, and NHL.
+
+## [1.7.0] - 2026-08-29
+
+### Added
+
+- Generated examples gallery under `examples/` (with `npm run examples:generate`)
+  and a `SUPPORT.md` getting-help guide.
+- GitHub Marketplace, stars, and forks badges plus a Marketplace/Discussions
+  callout at the top of the README.
+- A "30-second setup" quick-start box and a "Customizing the board" section
+  documenting `compact` and `dry_run`.
+- `teams:` input to render multiple scoreboards in a single action run.
+- `title:` input to customize the scoreboard heading.
+- `badge:` input to render shields-style badges instead of a full block.
+- Richer board output: league/standing position, the next scheduled game, and
+  last-five form (W/D/L), shown for supported leagues.
+
+### Fixed
+
+- Team-directory generation no longer writes `null` team names when a live
+  name lookup fails or omits a name; it falls back to demo data and finally the
+  abbreviation so the generated directory never shows an empty cell.
+
+### Changed
+
+- `action.yml` input descriptions clarified (team, token, marker, target repo).
+- README team-abbreviation section links to the generated `TEAM_DIRECTORY.md`
+  as the single searchable source of truth.
+
+## [1.6.0] - 2026-08-20
+
+### Added
+
+- Live dry-run mode, step outputs, and workflow-dispatch inputs for easier
+  testing and automation.
+- Daily API and season-date verification, including regular-season opening-date
+  checks for supported leagues.
+
+### Changed
+
+- README examples now target the versioned `@v1` action release and document
+  fine-grained token permissions.
+- Maintenance updates use strict live-date checks, serialized branches, safe
+  fetches, and bounded workflow runtimes.
+
+### Fixed
+
+- League logos, heading alt text, and season-year rollover handling across the
+  generated README output.
+
+## [1.5.0] - 2026-08-19
+
+### Added
+
+- All-adapter demo smoke tests and a scheduled API health check workflow.
+- `npm run doctor` for local configuration and connectivity diagnostics.
+- GitHub Actions step summaries for generated README output and run results.
+
+### Changed
+
+- Shared API requests now use bounded timeouts and retries across adapters and
+  maintenance scripts.
+- Action inputs are validated before a run can modify a README.
+- Maintenance workflows serialize updates to avoid competing README changes.
+
+### Fixed
+
+- README league headings and registry links are checked for complete logos,
+  accessible alt text, and supported endpoints.
+
+## [1.4.0] - 2026-08-18
+
+### Added
+
+- Weekly automation for refreshing NCAA team abbreviation tables from ESPN.
+- Safer README update retries and serialized maintenance workflows.
+
+### Changed
+
+- Action metadata now documents every supported league and installs production
+  dependencies with the locked package file.
+
+## [1.3.0] - 2026-08-14
+
+Five new leagues, and the generated block now includes its own section heading.
+
+### Added
+
+- **Primeira Liga** (`primeiraliga`) — 18 clubs ([#61])
+- **Eredivisie** (`eredivisie`) — 18 clubs ([#66])
+- **WNBA** (`wnba`) — 15 teams, the first non-soccer league since the NBA and the
+  first women's league. Standalone adapter: single-year season, conferences but
+  no divisions, and playoff tagging via a separate schedule fetch ([#67])
+- **Liga MX** (`ligamx`) — 18 clubs. Plays two 17-match tournaments a year
+  (Apertura and Clausura), so the season label stays within one calendar year and
+  the standings group names the current tournament ([#68])
+- **Brasileirão** (`brasileirao`) — 20 clubs ([#69])
+- The section heading (`## My Favourite <League> Team`, with the league logo) is
+  now rendered **inside** the marker block, so the whole section is generated
+  rather than half-authored by hand ([#65])
+
+### Fixed
+
+- The NHL entry in the Supported Sports table linked to a URL that returned
+  **404**. Every league now links to an endpoint that returns real data ([#70])
+- The Supported Sports table linked "ESPN API" to the ESPN homepage 13 times;
+  it now shows each league's actual endpoint path ([#70])
+
+### Documentation
+
+- Explained that **each sport needs its own marker pair**. Two sports sharing one
+  pair caused the second to silently overwrite the first, with no error ([#62])
+- Added the missing `marker` input to the MLB, NFL, NHL and Quick Start examples,
+  which previously demonstrated the overwrite bug they now warn about ([#63])
+
+## [1.2.0] - 2026-08-09
+
+### Added
+
+- **Premier League** (`epl`) — 20 clubs, with W/L/D records, points (W×3 + D) and
+  draws marked 🟡 ([#51])
+- `BaseSoccerAdapter`, shared by every soccer league. MLS dropped to a 39-line
+  data file, and each new league since has been roughly 35 lines ([#51])
+- League logos in the README section headings and the sports table ([#52])
+
+### Fixed
+
+- **Team logos were broken across four of five sports.** The NBA CDN returned 403
+  for all 30 teams, MLB's `.png` path 404'd for all 30, several MLS clubs pointed
+  at other clubs' crests, and three NHL abbreviations (`NJ`, `SJ`, `TB`) don't
+  match the CDN's spelling. All now verified working ([#48], [#49])
+- Off-season status reported next season a year late on the eve of kickoff — it
+  compared only the month, so Aug 8 with an Aug 10 start read "August 2027" ([#51])
+
+### Changed
+
+- Logo construction moved out of `index.js` into a `getLogoUrl()` on each adapter,
+  so per-sport quirks live with the sport that owns them ([#49])
+
+## [1.1.0] - 2026-08-05
+
+### Added
+
+- **MLS** (`mls`), including draw handling — the first sport where a game can end
+  in neither a win nor a loss
+- `[Playoffs]` tag on postseason games, across all sports
+- Season status line (🟢 in progress / 🔴 off-season with the next start date)
+- Year included in recent-game dates
+
+### Changed
+
+- **NBA moved from BallDontLie to ESPN's free API, removing the last API key.**
+  Every sport now uses a free, no-auth source, and the `api_key` action input is
+  gone
+
+### Fixed
+
+- NBA season label used the wrong year — ESPN's season number is the *end* year
+- MLB records read from the standings API rather than counted game by game, which
+  had missed doubleheaders
+- NHL off-season detection now falls back to the previous season
+- Pre-season games excluded, playoff games included, across all sports
+
+## [1.0.0] - 2026-07-31
+
+Initial release.
+
+### Added
+
+- NBA, MLB, NFL and NHL scoreboards, written between HTML comment markers in your
+  profile README
+- `marker` input, so multiple scoreboards can live in one README
+- Team abbreviation tables and demo mode (`--demo`)
+
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.16.0...HEAD
+[1.16.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.2...v1.16.0
+[1.15.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.1...v1.15.2
+[1.15.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.0...v1.15.1
+[1.15.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.2...v1.15.0
+[1.14.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.1...v1.14.2
+[1.14.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.14.0...v1.14.1
+[1.14.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.1...v1.14.0
+[1.13.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.13.0...v1.13.1
+[1.13.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.1...v1.13.0
+[1.12.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.12.0...v1.12.1
+[1.12.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.11.1...v1.12.0
+[1.11.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.10.4...v1.11.0
+[1.5.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.4.0...v1.5.0
+[1.4.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.3.0...v1.4.0
+[1.3.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/23seriy/readme-scoreboard/releases/tag/v1.0.0
+
+[#48]: https://github.com/23seriy/readme-scoreboard/pull/48
+[#49]: https://github.com/23seriy/readme-scoreboard/pull/49
+[#51]: https://github.com/23seriy/readme-scoreboard/pull/51
+[#52]: https://github.com/23seriy/readme-scoreboard/pull/52
+[#61]: https://github.com/23seriy/readme-scoreboard/pull/61
+[#62]: https://github.com/23seriy/readme-scoreboard/pull/62
+[#63]: https://github.com/23seriy/readme-scoreboard/pull/63
+[#65]: https://github.com/23seriy/readme-scoreboard/pull/65
+[#66]: https://github.com/23seriy/readme-scoreboard/pull/66
+[#67]: https://github.com/23seriy/readme-scoreboard/pull/67
+[#68]: https://github.com/23seriy/readme-scoreboard/pull/68
+[#69]: https://github.com/23seriy/readme-scoreboard/pull/69
+[#70]: https://github.com/23seriy/readme-scoreboard/pull/70

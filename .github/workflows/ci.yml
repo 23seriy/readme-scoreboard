@@ -1,0 +1,49 @@
+name: Lint
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - run: npm ci --ignore-scripts
+      - run: npm run docs:check
+      - run: npm run lint
+      - run: npm run test:coverage
+      # The example boards are generated from live league APIs, so a diff here
+      # means one of two things, and both are worth failing on: the committed
+      # file is stale (the scheduled update-examples workflow should have
+      # refreshed it), or a change to a renderer/adapter altered what every board
+      # says. The gate is what caught six boards still shipping a result the
+      # generator had stopped emitting, because nothing read them.
+      #
+      # A live source does NOT make this flaky within a run: the generator omits
+      # the `Last updated` footer, and league data changes on the scale of days,
+      # not seconds. It goes red when the data genuinely moves — which is the
+      # signal to merge the refresh PR, not a false alarm.
+      #
+      # examples/leagues is excluded on purpose: that gallery is built from live
+      # data and refreshed by its own scheduled workflow, so a diff there is
+      # expected and would leave this gate permanently red. A pathspec glob like
+      # 'examples/*.md' is NOT narrow enough — git's '*' also matches across '/'
+      # and would pull the gallery back in.
+      - name: Check the generated example boards are current
+        run: |
+          npm run examples:generate
+          git diff --exit-code --stat -- examples ':!examples/leagues'
+      - name: Check a src change came with a changelog entry
+        run: npm run changelog:check
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-report
+          path: coverage/
+          if-no-files-found: ignore

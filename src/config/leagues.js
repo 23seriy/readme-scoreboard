@@ -1,0 +1,87 @@
+const ESPN_CDN = "https://a.espncdn.com";
+
+function league({ key, name, category, endpoint, renderer, emoji, light, dark, start, end, nextLabel, nextStartYear, fallback, endpointOverride, entity = "team", entityLabel }) {
+  return {
+    key,
+    name,
+    category,
+    endpoint,
+    endpointOverride,
+    renderer,
+    emoji,
+    entity,
+    logo: { light, dark },
+    // entityLabel names the default heading's noun where "Player" or "Team"
+    // would read wrong (UFC fields fighters, not players).
+    ...(entityLabel ? { entityLabel } : {}),
+    // nextStartYear is only for events that are not annual — the off-season
+    // line would otherwise compute "next year" and name a year with no
+    // competition. Spread conditionally so every annual league keeps the
+    // exact same seasonWindow shape it had before.
+    seasonWindow: { start, end, nextLabel, ...(nextStartYear ? { nextStartYear } : {}) },
+    fallback,
+  };
+}
+
+const LEAGUES = [
+  league({ key: "nba", name: "NBA", category: "Basketball", endpoint: "basketball/nba", renderer: "nba", emoji: "🏀", light: `${ESPN_CDN}/i/teamlogos/leagues/500/nba.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500-dark/nba.png`, start: [10, 1], end: [6, 30], nextLabel: "October", fallback: ["2026-10-20", "2027-06-26"] }),
+  league({ key: "mlb", name: "MLB", category: "Baseball", endpoint: "baseball/mlb", renderer: "mlb", emoji: "⚾", light: `${ESPN_CDN}/i/teamlogos/leagues/500/mlb.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500-dark/mlb.png`, start: [3, 20], end: [11, 10], nextLabel: "late March", fallback: ["2026-03-25", "2026-11-12"], endpointOverride: "[MLB Stats API](https://statsapi.mlb.com/api/v1/teams?sportId=1)" }),
+  league({ key: "nfl", name: "NFL", category: "Football", endpoint: "football/nfl", renderer: "nfl", emoji: "🏈", light: `${ESPN_CDN}/i/teamlogos/leagues/500/nfl.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500-dark/nfl.png`, start: [9, 1], end: [2, 15], nextLabel: "September", fallback: ["2026-09-09", "2027-02-16"] }),
+  league({ key: "nhl", name: "NHL", category: "Hockey", endpoint: "hockey/nhl", renderer: "nhl", emoji: "🏒", light: `${ESPN_CDN}/i/teamlogos/leagues/500/nhl.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500-dark/nhl.png`, start: [9, 29], end: [6, 30], nextLabel: "September", fallback: ["2026-09-29", "2027-07-01"], endpointOverride: "[NHL Web API](https://api-web.nhle.com/v1/standings/now)" }),
+  league({ key: "mls", name: "MLS", category: "Soccer", endpoint: "soccer/usa.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/19.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/19.png`, start: [2, 20], end: [12, 10], nextLabel: "late February", fallback: ["2026-02-21", "2026-12-31"] }),
+  league({ key: "epl", name: "Premier League", category: "Soccer", endpoint: "soccer/eng.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/23.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/23.png`, start: [8, 10], end: [5, 25], nextLabel: "August", fallback: ["2026-08-21", "2027-06-01"] }),
+  league({ key: "laliga", name: "La Liga", category: "Soccer", endpoint: "soccer/esp.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/15.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/15.png`, start: [8, 15], end: [5, 25], nextLabel: "August", fallback: ["2026-08-15", "2027-06-01"] }),
+  league({ key: "bundesliga", name: "Bundesliga", category: "Soccer", endpoint: "soccer/ger.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/10.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/10.png`, start: [8, 28], end: [5, 20], nextLabel: "August", fallback: ["2026-08-28", "2027-07-01"] }),
+  league({ key: "seriea", name: "Serie A", category: "Soccer", endpoint: "soccer/ita.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/12.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/12.png`, start: [8, 22], end: [5, 25], nextLabel: "August", fallback: ["2026-08-22", "2027-07-01"] }),
+  league({ key: "ligue1", name: "Ligue 1", category: "Soccer", endpoint: "soccer/fra.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/9.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/9.png`, start: [8, 23], end: [5, 20], nextLabel: "August", fallback: ["2026-08-23", "2027-06-01"] }),
+  league({ key: "primeiraliga", name: "Primeira Liga", category: "Soccer", endpoint: "soccer/por.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/14.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/14.png`, start: [8, 9], end: [5, 20], nextLabel: "August", fallback: ["2026-08-09", "2027-07-01"] }),
+  league({ key: "eredivisie", name: "Eredivisie", category: "Soccer", endpoint: "soccer/ned.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/11.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/11.png`, start: [8, 7], end: [5, 20], nextLabel: "August", fallback: ["2026-08-07", "2027-06-01"] }),
+  league({ key: "wnba", name: "WNBA", category: "Basketball", endpoint: "basketball/wnba", renderer: "nba", emoji: "🏀", light: `${ESPN_CDN}/i/teamlogos/leagues/500/wnba.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500-dark/wnba.png`, start: [5, 1], end: [10, 20], nextLabel: "May", fallback: ["2026-05-08", "2026-10-20"] }),
+  league({ key: "ligamx", name: "Liga MX", category: "Soccer", endpoint: "soccer/mex.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/22.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/22.png`, start: [7, 16], end: [5, 31], nextLabel: "July", fallback: ["2026-07-16", "2027-06-01"] }),
+  league({ key: "brasileirao", name: "Brasileirão", category: "Soccer", endpoint: "soccer/bra.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/85.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/85.png`, start: [1, 28], end: [12, 2], nextLabel: "January", fallback: ["2026-01-28", "2026-12-02"] }),
+  league({ key: "nwsl", name: "NWSL", category: "Soccer", endpoint: "soccer/usa.nwsl", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/2323.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/2323.png`, start: [3, 13], end: [11, 1], nextLabel: "March", fallback: ["2026-03-13", "2026-11-01"] }),
+  league({ key: "saudipro", name: "Saudi Pro League", category: "Soccer", endpoint: "soccer/ksa.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/2488.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/2488.png`, start: [8, 13], end: [5, 29], nextLabel: "August", fallback: ["2026-08-13", "2027-05-29"] }),
+  league({ key: "j1", name: "J1 League", category: "Soccer", endpoint: "soccer/jpn.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/2199.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/2199.png`, start: [8, 7], end: [6, 6], nextLabel: "August", fallback: ["2026-08-07", "2027-06-06"] }),
+  league({ key: "scottish", name: "Scottish Premiership", category: "Soccer", endpoint: "soccer/sco.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/45.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/45.png`, start: [7, 31], end: [5, 16], nextLabel: "July", fallback: ["2026-07-31", "2027-05-16"] }),
+  league({ key: "belgian", name: "Belgian Pro League", category: "Soccer", endpoint: "soccer/bel.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/6.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/6.png`, start: [8, 7], end: [5, 23], nextLabel: "August", fallback: ["2026-08-07", "2027-05-23"] }),
+  league({ key: "ucl", name: "UEFA Champions League", category: "Soccer", endpoint: "soccer/uefa.champions", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/2.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/2.png`, start: [7, 1], end: [6, 30], nextLabel: "July", fallback: ["2026-07-07", "2027-06-05"] }),
+  league({ key: "uel", name: "UEFA Europa League", category: "Soccer", endpoint: "soccer/uefa.europa", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/2310.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/2310.png`, start: [7, 1], end: [6, 30], nextLabel: "July", fallback: ["2026-07-09", "2027-05-26"] }),
+  // The World Cup is quadrennial, so nextStartYear pins the off-season line to
+  // the real next edition instead of the following year.
+  league({ key: "worldcup", name: "FIFA World Cup", category: "Soccer", endpoint: "soccer/fifa.world", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/4.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/4.png`, start: [6, 11], end: [7, 19], nextLabel: "June", nextStartYear: 2030, fallback: ["2026-06-11", "2026-07-19"] }),
+  league({ key: "gleague", name: "NBA G League", category: "Basketball", endpoint: "basketball/nba-development", renderer: "nba", emoji: "🏀", light: `${ESPN_CDN}/i/teamlogos/leagues/500/nba_gleague.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500-dark/nba_gleague.png`, start: [11, 1], end: [4, 15], nextLabel: "November", fallback: ["2026-12-19", "2027-05-01"] }),
+  league({ key: "ncaab", name: "NCAA Men's Basketball", category: "Basketball", endpoint: "basketball/mens-college-basketball", renderer: "nba", emoji: "🏀", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-basketball.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-basketball.png`, start: [11, 1], end: [4, 15], nextLabel: "November", fallback: ["2026-11-02", "2027-04-07"] }),
+  league({ key: "ncaaw", name: "NCAA Women's Basketball", category: "Basketball", endpoint: "basketball/womens-college-basketball", renderer: "nba", emoji: "🏀", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-basketball.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-basketball.png`, start: [11, 1], end: [4, 15], nextLabel: "November", fallback: ["2026-11-02", "2027-04-07"] }),
+  league({ key: "ncaaf", name: "College Football", category: "Football", endpoint: "football/college-football", renderer: "nfl", emoji: "🏈", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-football-college.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-football-college.png`, start: [8, 24], end: [1, 20], nextLabel: "August", fallback: ["2026-08-27", "2027-01-28"] }),
+  league({ key: "ncaa_hockey", name: "NCAA Men's Ice Hockey", category: "Hockey", endpoint: "hockey/mens-college-hockey", renderer: "nhl", emoji: "🏒", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-hockey.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-hockey.png`, start: [10, 1], end: [4, 15], nextLabel: "October", fallback: ["2026-10-02", "2027-05-01"] }),
+  league({ key: "f1", name: "Formula 1", category: "Racing", endpoint: "racing/f1", renderer: "f1", emoji: "🏎️", light: `${ESPN_CDN}/i/teamlogos/leagues/500/f1.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500-dark/f1.png`, start: [3, 1], end: [12, 31], nextLabel: "March", fallback: ["2026-03-06", "2026-12-06"] }),
+  league({ key: "atp", name: "ATP Tennis", category: "Tennis", endpoint: "tennis/atp", renderer: "atp", emoji: "🎾", entity: "player", light: `${ESPN_CDN}/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png`, dark: `${ESPN_CDN}/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png`, start: [1, 1], end: [12, 31], nextLabel: "January", fallback: ["2026-01-01", "2026-12-31"] }),
+  league({ key: "wta", name: "WTA Tennis", category: "Tennis", endpoint: "tennis/wta", renderer: "wta", emoji: "🎾", entity: "player", light: `${ESPN_CDN}/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png`, dark: `${ESPN_CDN}/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png`, start: [1, 1], end: [12, 31], nextLabel: "January", fallback: ["2026-01-01", "2026-12-31"] }),
+  league({ key: "nascar", name: "NASCAR Cup Series", category: "Racing", endpoint: "racing/nascar-premier", renderer: "nascar", emoji: "🏁", entity: "player", light: "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-NASCAR.png", dark: "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-NASCAR.png", start: [2, 1], end: [11, 30], nextLabel: "February", fallback: ["2026-02-04", "2026-11-08"] }),
+  league({ key: "indycar", name: "IndyCar Series", category: "Racing", endpoint: "racing/irl", renderer: "indycar", emoji: "🏎️", entity: "player", light: "https://a.espncdn.com/combiner/i?img=/i/espn/teamlogos/500/indycar_series.png", dark: "https://a.espncdn.com/combiner/i?img=/i/espn/teamlogos/500/indycar_series.png", start: [3, 1], end: [9, 30], nextLabel: "March", fallback: ["2026-03-01", "2026-09-06"] }),
+  league({ key: "argentina", name: "Argentine Primera", category: "Soccer", endpoint: "soccer/arg.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/1.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/1.png`, start: [2, 1], end: [12, 31], nextLabel: "February", fallback: ["2026-02-01", "2026-12-31"] }),
+  // A-League and ISL both open in mid-October, NOT the July/September the
+  // month/day fields previously guessed. The guess made every board for these
+  // two leagues claim "Season in progress" from July onwards, and — because an
+  // unplayed standings table is ordered alphabetically — award a fabricated
+  // "1st" to whichever club sorts first. Dates verified from each league's
+  // live scoreboard (aus.1 opener 2026-10-16, ind.1 opener 2026-10-10).
+  league({ key: "aleague", name: "A-League Men", category: "Soccer", endpoint: "soccer/aus.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/1308.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/1308.png`, start: [10, 16], end: [5, 31], nextLabel: "October", fallback: ["2026-10-16", "2027-05-31"] }),
+  league({ key: "isl", name: "Indian Super League", category: "Soccer", endpoint: "soccer/ind.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/2334.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/2334.png`, start: [10, 10], end: [5, 31], nextLabel: "October", fallback: ["2026-10-10", "2027-05-31"] }),
+  league({ key: "csl", name: "Chinese Super League", category: "Soccer", endpoint: "soccer/chn.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/2350.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/2350.png`, start: [1, 1], end: [12, 31], nextLabel: "January", fallback: ["2026-01-01", "2026-12-31"] }),
+  league({ key: "greek", name: "Greek Super League", category: "Soccer", endpoint: "soccer/gre.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/98.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500/98.png`, start: [8, 22], end: [5, 24], nextLabel: "August", fallback: ["2026-08-22", "2027-05-24"] }),
+  league({ key: "austria", name: "Austrian Bundesliga", category: "Soccer", endpoint: "soccer/aut.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/5.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500-dark/5.png`, start: [8, 1], end: [5, 24], nextLabel: "August", fallback: ["2026-08-01", "2027-05-24"] }),
+  // Denmark and Norway use the generic soccer icon: ESPN publishes no league
+  // artwork for either, and its own API returns a placeholder for them.
+  league({ key: "denmark", name: "Danish Superliga", category: "Soccer", endpoint: "soccer/den.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-soccer.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-soccer.png`, start: [7, 18], end: [5, 24], nextLabel: "July", fallback: ["2026-07-18", "2027-05-24"] }),
+  league({ key: "norway", name: "Norwegian Eliteserien", category: "Soccer", endpoint: "soccer/nor.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-soccer.png`, dark: `${ESPN_CDN}/redesign/assets/img/icons/ESPN-icon-soccer.png`, start: [3, 28], end: [12, 1], nextLabel: "late March", fallback: ["2026-03-28", "2026-12-01"] }),
+  league({ key: "sweden", name: "Swedish Allsvenskan", category: "Soccer", endpoint: "soccer/swe.1", renderer: "soccer", emoji: "⚽", light: `${ESPN_CDN}/i/leaguelogos/soccer/500/16.png`, dark: `${ESPN_CDN}/i/leaguelogos/soccer/500/16.png`, start: [3, 28], end: [11, 9], nextLabel: "late March", fallback: ["2026-03-28", "2026-11-09"] }),
+  // ESPN publishes no dark variant of the UFC mark, so both themes use the same
+  // file (as Denmark, Norway, Greece, and Sweden do). Cards run year-round, so
+  // the season window is the calendar year, like the tennis tours.
+  league({ key: "ufc", name: "UFC", category: "MMA", endpoint: "mma/ufc", renderer: "ufc", emoji: "🥊", entity: "player", entityLabel: "Fighter", endpointOverride: "[MMA scoreboard](https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard)", light: `${ESPN_CDN}/i/teamlogos/leagues/500/ufc.png`, dark: `${ESPN_CDN}/i/teamlogos/leagues/500/ufc.png`, start: [1, 1], end: [12, 31], nextLabel: "January", fallback: ["2026-01-01", "2026-12-31"] }),
+];
+
+const LEAGUE_BY_KEY = Object.fromEntries(LEAGUES.map((entry) => [entry.key, entry]));
+
+module.exports = { LEAGUES, LEAGUE_BY_KEY };

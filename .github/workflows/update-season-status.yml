@@ -1,0 +1,71 @@
+name: Update season status
+
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: readme-maintenance
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: node scripts/check-season-dates.js
+      - run: node scripts/update-season-status.js --strict
+      - name: Publish season status branch
+        id: publish
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "Season status is already current"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C automation/season-status
+          git add README.md
+          git commit -m "docs: update supported league seasons"
+          # Gate the fetch on the branch existing remotely. `run:` steps execute
+          # under `bash -e`, so fetching a missing branch exits 128 and aborts the
+          # step before the fallback below could create it — which made that
+          # fallback dead code. The gate still fails loudly when the fetch itself
+          # fails, so a real fetch error is never swallowed.
+          if git ls-remote --exit-code --heads origin automation/season-status >/dev/null; then
+            git fetch origin automation/season-status
+            git push --force-with-lease=refs/heads/automation/season-status:$(git rev-parse refs/remotes/origin/automation/season-status) origin automation/season-status
+          else
+            git push origin automation/season-status
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Open or update season status PR
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="automation/season-status"
+          existing_pr=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$branch" --state open --json number --jq '.[0].number')
+          if [[ -n "$existing_pr" ]]; then
+            echo "Season status PR #$existing_pr already exists"
+            exit 0
+          fi
+          gh pr create \
+            --repo "$GITHUB_REPOSITORY" \
+            --base main \
+            --head "$branch" \
+            --title "docs: update supported league seasons" \
+            --body "Automated season-window refresh from the supported league APIs." \
+            || { echo "::error::Unable to create the maintenance PR. Enable GitHub Actions to create pull requests in repository settings."; exit 1; }

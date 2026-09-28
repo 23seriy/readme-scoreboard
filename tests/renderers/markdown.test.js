@@ -1,0 +1,1806 @@
+const { render } = require("../../src/renderers/markdown");
+
+function makeGame({ homeId, awayId, homeScore, awayScore, date = "2026-07-15T20:00:00Z" }) {
+  return {
+    date,
+    home_team: { id: homeId, abbreviation: "HOM" },
+    visitor_team: { id: awayId, abbreviation: "AWY" },
+    home_team_score: homeScore,
+    visitor_team_score: awayScore,
+    status: "Final",
+  };
+}
+
+const BASE_MLB_DATA = {
+  team: {
+    id: 141,
+    abbreviation: "TOR",
+    name: "Blue Jays",
+    full_name: "Toronto Blue Jays",
+    league: "American League",
+    division: "AL East",
+  },
+  record: { wins: 51, losses: 59, season: 2026 },
+  emoji: "🐦",
+  logoUrl: "https://www.mlbstatic.com/team-logos/141.svg",
+};
+
+describe("renderMlb / formatMlbGameResult", () => {
+  it("links the league heading to its live team endpoint", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
+    expect(output).toContain("[<picture>");
+    expect(output).toContain("https://statsapi.mlb.com/api/v1/teams?sportId=1");
+  });
+
+  it("renders W when home team wins", () => {
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [makeGame({ homeId: 141, awayId: 999, homeScore: 5, awayScore: 2 })],
+    };
+    const output = render("mlb", data);
+    expect(output).toContain("✅");
+    expect(output).toContain("W");
+    expect(output).toContain("vs");
+  });
+
+  it("renders L when away team loses", () => {
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [makeGame({ homeId: 999, awayId: 141, homeScore: 6, awayScore: 1 })],
+    };
+    const output = render("mlb", data);
+    expect(output).toContain("❌");
+    expect(output).toContain("L");
+    expect(output).toContain("@");
+  });
+
+  it("renders W when away team wins", () => {
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [makeGame({ homeId: 999, awayId: 141, homeScore: 2, awayScore: 7 })],
+    };
+    const output = render("mlb", data);
+    expect(output).toContain("✅");
+    expect(output).toContain("W");
+  });
+
+  it("includes the date in output", () => {
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [makeGame({ homeId: 141, awayId: 999, homeScore: 3, awayScore: 1, date: "2026-07-15T20:00:00Z" })],
+    };
+    const output = render("mlb", data);
+    expect(output).toMatch(/Jul\s+\d+/);
+  });
+
+  it("renders fallback when no recent games", () => {
+    const data = { ...BASE_MLB_DATA, recentGames: [] };
+    const output = render("mlb", data);
+    expect(output).toContain("No recent games found");
+  });
+
+  it("uses a custom title when provided", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] }, { title: "Toronto Baseball" });
+    expect(output).toContain("Toronto Baseball");
+    expect(output).not.toContain("My Favourite MLB Team");
+  });
+
+  it("defaults to the league title when no custom title is provided", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
+    expect(output).toContain("My Favourite MLB Team");
+  });
+
+  it("renders standing and next game when the adapter provides them", () => {
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 2, label: "American League" },
+      nextGame: { date: "2026-07-20T20:00:00Z", opponent: "NYY", isHome: false },
+      form: ["W", "L", "W", "W", "D"],
+    };
+    const output = render("mlb", data);
+    expect(output).toContain("🏅 Standing: American League · 2");
+    expect(output).toContain("📅 Next: @ NYY");
+    // The last-five form is intentionally not rendered: the Recent Games list
+    // already shows the W/L/D sequence, so a separate 🔥 Form line is redundant.
+    expect(output).not.toContain("🔥 Form:");
+    // Standing and next game sit on their own separated row (a blank line
+    // precedes them) so they read clearly instead of wrapping into the
+    // conference/season paragraph.
+    expect(output).toMatch(/🟢 Season in progress\n\n🏅 Standing: American League · 2/);
+  });
+
+  it("puts the next game on its own row, not joined to the standing", () => {
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 2, label: "American League" },
+      nextGame: { date: "2026-07-20T20:00:00Z", opponent: "NYY", isHome: false },
+    };
+    const output = render("mlb", data);
+    // A single "\n" is a soft break: GitHub folds the two into one wrapped
+    // paragraph (`... · 2 📅 Next: @ NYY`) exactly as the A-League showcase
+    // rendered. Only a BLANK line makes them two rows.
+    expect(output).toMatch(/🏅 Standing: American League · 2\n\n📅 Next: @ NYY/);
+    expect(output).not.toMatch(/🏅 Standing: American League · 2\n📅 Next:/);
+  });
+
+  it("names the season in the standing when the adapter supplies one", () => {
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 5, label: "Série A", season: 2026 },
+    });
+    expect(output).toContain("🏅 Standing (2026): Série A · 5");
+  });
+
+  it("renders an evening game date in the league's timezone", () => {
+    // A North American evening game belongs to the previous UTC day. ESPN
+    // reports the Lakers' 2026-05-11 playoff game as 2026-05-12T02:30Z, so
+    // formatting the instant in the viewer's zone printed May 12 on a UTC
+    // machine and May 11 in New York — the same board, two dates. This is the
+    // NBA path; the fixture below is real.
+    const output = render("nba", {
+      team: { id: 13, abbreviation: "LAL", full_name: "Los Angeles Lakers", league: "Western Conference", division: "Pacific Division" },
+      record: { wins: 50, losses: 32, season: 2026 },
+      emoji: "🟣",
+      logoUrl: "https://example.com/lal.png",
+      recentGames: [{
+        date: "2026-05-12T02:30Z",
+        home_team: { id: 13, abbreviation: "LAL" },
+        visitor_team: { id: 25, abbreviation: "OKC" },
+        home_team_score: 110,
+        visitor_team_score: 115,
+        gameType: 3,
+      }],
+    });
+    expect(output).toContain("(May 11, 2026)");
+    expect(output).not.toContain("(May 12, 2026)");
+  });
+
+  it("leaves the season off the standing when the adapter omits it", () => {
+    // The suffix is opt-in: a league whose standing is unambiguously current
+    // keeps the shorter row, so existing boards do not change.
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 5, label: "Série A" },
+    });
+    expect(output).toContain("🏅 Standing: Série A · 5");
+    expect(output).not.toContain("Standing (");
+  });
+
+  it("renders the next game date in the sport's timezone, not the viewer's", () => {
+    // A fixture is an instant, so an evening kick-off in the Americas falls on
+    // the next UTC day. Palmeiras v Bahia is 2026-10-09T00:30Z: the evening of
+    // October 8 in Brazil. Formatting in the host's zone made the SAME board
+    // print "Oct 9" on a UTC machine and "Oct 8" on a Brazilian one.
+    //
+    // The date is chosen so the assertion holds in EVERY host zone: 00:30Z is
+    // still Oct 9 from UTC eastward (so a Tokyo or UTC runner sees Oct 9 either
+    // way), and the pinned "Oct 9" only fails for a runner behind UTC if the
+    // zone is not pinned. Testing mid-UTC-day instead would go red only on some
+    // machines, which is how the original bug survived.
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      nextGame: { date: "2026-10-09T00:30:00Z", opponent: "PAL", isHome: false },
+    };
+    const output = render("mlb", data);
+    expect(output).toContain("📅 Next: @ PAL (Oct 9)");
+  });
+
+  it("does not shift the next game date for a viewer behind UTC", () => {
+    // Runs the renderer in a child process with TZ set. Doing it in-process
+    // does nothing: Node caches the timezone at startup. This is the assertion
+    // that actually catches an unpinned formatDate, because only a zone behind
+    // UTC lands on the previous calendar day.
+    const { execFileSync } = require("child_process");
+    // The module path is injected so the child resolves the same copy under
+    // test. Written with string concatenation rather than a template because
+    // the script itself contains `$` sequences that must survive intact.
+    const script = [
+      "const { render } = require(" + JSON.stringify(require.resolve("../../src/renderers/markdown")) + ");",
+      "process.stdout.write(render('mlb', {",
+      "  team: { abbreviation: 'MLB', full_name: 'Test', conference: '', division: '' },",
+      "  record: { wins: 1, losses: 1, draws: 0, season: 2026 },",
+      "  recentGames: [],",
+      "  emoji: '\\u26be',",
+      "  logoUrl: 'https://example.com/logo.png',",
+      "  standing: null,",
+      "  nextGame: { date: '2026-10-09T00:30:00Z', opponent: 'PAL', isHome: false },",
+      "}));",
+    ].join("\n");
+    const output = execFileSync(process.execPath, ["-e", script], {
+      env: { ...process.env, TZ: "America/Sao_Paulo" },
+      encoding: "utf8",
+    });
+    expect(output).toContain("📅 Next: @ PAL (Oct 9)");
+  });
+
+  it("honours an explicit timeZone on the next game", () => {
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      nextGame: {
+        date: "2026-10-09T00:30:00Z",
+        opponent: "PAL",
+        isHome: false,
+        timeZone: "America/Sao_Paulo",
+      },
+    });
+    expect(output).toContain("📅 Next: @ PAL (Oct 8)");
+  });
+
+  it("omits rich-stat lines when the adapter does not provide them", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
+    expect(output).not.toContain("🏅 Standing:");
+    expect(output).not.toContain("📅 Next:");
+    expect(output).not.toContain("🔥 Form:");
+  });
+
+  it("renders a Formula 1 constructor board with championship position and points", () => {
+    const data = {
+      team: { abbreviation: "LP", name: "Mercedes", full_name: "Mercedes", conference: "Formula 1", division: "" },
+      record: { wins: 0, losses: 0, points: 425, season: 2026 },
+      recentGames: [],
+      standing: { position: 1, label: "Constructor Championship" },
+      emoji: "⚫",
+      logoUrl: "https://a.espncdn.com/i/teamlogos/leagues/500/f1.png",
+    };
+    const output = render("f1", data);
+    expect(output).toContain("Mercedes");
+    expect(output).toContain("Championship position: 1");
+    expect(output).toContain("Points: 425");
+  });
+
+  it("renders season record with win percentage", () => {
+    const data = { ...BASE_MLB_DATA, recentGames: [] };
+    const output = render("mlb", data);
+    expect(output).toContain("51W - 59L");
+    expect(output).toContain("46.4%");
+  });
+
+  it("renders multiple games in order", () => {
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [
+        makeGame({ homeId: 141, awayId: 999, homeScore: 5, awayScore: 2, date: "2026-07-15T00:00:00Z" }),
+        makeGame({ homeId: 999, awayId: 141, homeScore: 6, awayScore: 1, date: "2026-07-14T00:00:00Z" }),
+      ],
+    };
+    const output = render("mlb", data);
+    const winIdx = output.indexOf("✅");
+    const lossIdx = output.indexOf("❌");
+    expect(winIdx).toBeLessThan(lossIdx);
+  });
+});
+
+describe("renderMlb — player spotlight", () => {
+  const SPOTLIGHT = {
+    name: "Vladimir Guerrero Jr.",
+    season: { avg: 0.259, homeRuns: 8, rbi: 54, hits: 126, atBats: 487, games: 130, ops: 0.682 },
+    lastGame: { hits: 1, homeRuns: 0, rbi: 0, avg: 0.259, opponent: "Athletics", date: "2026-09-07" },
+  };
+
+  it("renders the season stats and last game when spotlight is present", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).toContain("Player Spotlight: Vladimir Guerrero Jr.");
+    expect(output).toContain(".259 AVG · 8 HR · 54 RBI");
+    expect(output).toContain("**📅 Last Game:**");
+    expect(output).toContain("1 H · 0 HR · 0 RBI · .259 AVG vs Athletics (Sep 7, 2026)");
+  });
+
+  it("omits the Last Game block when lastGame is null", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [], spotlight: { ...SPOTLIGHT, lastGame: null } });
+    expect(output).toContain(".259 AVG · 8 HR · 54 RBI");
+    expect(output).not.toContain("Last Game");
+  });
+
+  it("omits the spotlight section entirely when data.spotlight is absent", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
+    expect(output).not.toContain("Player Spotlight");
+  });
+
+  it("renders the headshot next to the heading when the adapter supplies one", () => {
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://img.mlbstatic.com/people/665489/headshot" },
+    });
+    expect(output).toContain('<img src="https://img.mlbstatic.com/people/665489/headshot" alt="Vladimir Guerrero Jr. headshot" height="72" align="right" />');
+  });
+
+  it("omits the headshot image when headshotUrl is absent", () => {
+    const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).not.toContain("headshot");
+  });
+});
+
+describe("Soccer renderer — Saudi Pro League and J1 League", () => {
+  const data = (team, overrides = {}) => ({
+    team: { abbreviation: team.abbreviation, full_name: team.full_name, conference: team.league },
+    record: { wins: 10, losses: 2, draws: 3, season: 2026 },
+    recentGames: [],
+    emoji: "⚽",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
+    ...overrides,
+  });
+
+  it("renders Saudi Pro League output", () => {
+    const out = render("saudipro", data({ abbreviation: "HIL", full_name: "Al Hilal", league: "Saudi Pro League" }));
+    expect(out).toContain("My Favourite Saudi Pro League Team");
+    expect(out).toContain("Al Hilal (HIL)");
+  });
+
+  it("renders J1 League output", () => {
+    const out = render("j1", data({ abbreviation: "KAW", full_name: "Kawasaki Frontale", league: "J1 League" }));
+    expect(out).toContain("My Favourite J1 League Team");
+    expect(out).toContain("Kawasaki Frontale (KAW)");
+  });
+});
+
+const BASE_NBA_DATA = {
+  team: { id: 1610612747, abbreviation: "LAL", name: "Lakers", full_name: "Los Angeles Lakers", conference: "West", division: "Pacific" },
+  record: { wins: 57, losses: 25, season: 2025 },
+  emoji: "👑",
+  logoUrl: "https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg",
+};
+
+describe("renderNba / formatGameResult", () => {
+  it("renders NBA output with team info", () => {
+    const data = { ...BASE_NBA_DATA, recentGames: [makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 })] };
+    const output = render("nba", data);
+    expect(output).toContain("Los Angeles Lakers");
+    expect(output).toContain("✅");
+  });
+
+  it("shows season as start-end using ESPN end-year convention (season=2025 → 2024-2025)", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    expect(output).toContain("2024-2025");
+    expect(output).not.toContain("2025-2026");
+  });
+
+  it("renders season record with win percentage", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    expect(output).toContain("57W - 25L");
+    expect(output).toContain("69.5%");
+  });
+
+  it("renders W when home team wins", () => {
+    const data = { ...BASE_NBA_DATA, recentGames: [makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 })] };
+    expect(render("nba", data)).toContain("W");
+  });
+
+  it("renders L when away team loses", () => {
+    const data = { ...BASE_NBA_DATA, recentGames: [makeGame({ homeId: 2, awayId: 1610612747, homeScore: 110, awayScore: 98 })] };
+    expect(render("nba", data)).toContain("L");
+  });
+
+  it("renders [Playoffs] tag for postseason games", () => {
+    const game = { ...makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 }), postseason: true };
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [game] });
+    expect(output).toContain("[Playoffs]");
+  });
+
+  it("does not render [Playoffs] tag for regular season games", () => {
+    const game = { ...makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 }), postseason: false };
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [game] });
+    expect(output).not.toContain("[Playoffs]");
+  });
+
+  it("renders fallback when no recent games", () => {
+    expect(render("nba", { ...BASE_NBA_DATA, recentGames: [] })).toContain("No recent games found");
+  });
+});
+
+describe("renderNba — player spotlight", () => {
+  const SPOTLIGHT = {
+    name: "Luka Doncic",
+    season: { points: 33.5, rebounds: 7.7, assists: 8.3 },
+    lastGame: { points: 26, rebounds: 4, assists: 7, minutes: 34, opponent: "Minnesota Timberwolves", date: "2026-09-04T19:00:00Z" },
+  };
+
+  it("renders the season averages and last game when spotlight is present", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).toContain("Player Spotlight: Luka Doncic");
+    expect(output).toContain("33.5 PPG · 7.7 RPG · 8.3 APG");
+    expect(output).toContain("**📅 Last Game:**");
+    expect(output).toContain("26 PTS · 4 REB · 7 AST · 34 MIN vs Minnesota Timberwolves (Sep 4, 2026)");
+  });
+
+  it("renders a late-night game's date on the actual game day, not the UTC day", () => {
+    // ESPN reports the game as a UTC instant. A game tipped at 9:30pm ET on
+    // Apr 2 is timestamped 2026-04-03T01:30Z — rendering it in UTC would show
+    // Apr 3 (a day late). The renderer must use the league timezone so it shows
+    // the actual calendar day the game was played.
+    const lateNightGame = {
+      ...SPOTLIGHT,
+      lastGame: {
+        points: 12, rebounds: 4, assists: 7, minutes: 26,
+        opponent: "Oklahoma City Thunder",
+        date: "2026-04-03T01:30:00Z",
+      },
+    };
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: lateNightGame });
+    expect(output).toContain("vs Oklahoma City Thunder (Apr 2, 2026)");
+    // Guard against a regression back to UTC rendering (which would show Apr 3).
+    expect(output).not.toContain("(Apr 3, 2026)");
+  });
+
+  it("omits the Last Game block when lastGame is null", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: { ...SPOTLIGHT, lastGame: null } });
+    expect(output).toContain("33.5 PPG · 7.7 RPG · 8.3 APG");
+    expect(output).not.toContain("Last Game");
+  });
+
+  it("omits the spotlight section entirely when data.spotlight is absent", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    expect(output).not.toContain("Player Spotlight");
+  });
+
+  it("renders a condensed one-line form in compact mode, dropping the Last Game block", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: SPOTLIGHT }, { compact: true });
+    expect(output).toContain("👑 Luka Doncic · 33.5 PPG · 7.7 RPG · 8.3 APG");
+    expect(output).not.toContain("Last Game");
+    expect(output).not.toContain("Player Spotlight:");
+  });
+
+  it("renders the headshot next to the heading when the adapter supplies one", () => {
+    const output = render("nba", {
+      ...BASE_NBA_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" },
+    });
+    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" alt="Luka Doncic headshot" height="72" align="right" />');
+  });
+
+  it("omits the headshot image when headshotUrl is absent", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).not.toContain("headshot");
+  });
+
+  it("sizes the headshot by height, not width, so every sport scales alike", () => {
+    // The leagues serve headshots at different aspect ratios (ESPN 600x436
+    // landscape, MLB 213x320 portrait, NHL 336x336 square). Constraining the
+    // width makes the rendered heights differ (72x52, 72x108, 72x72); a fixed
+    // height is what keeps the boards visually consistent, so pin it.
+    const output = render("nba", {
+      ...BASE_NBA_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://example.test/hs.png" },
+    });
+    const tag = output.match(/<img[^>]*headshot[^>]*>/)[0];
+    expect(tag).toContain('height="72"');
+    expect(tag).not.toContain('width="72"');
+  });
+
+  it("never renders a headshot in compact mode", () => {
+    // Compact mode collapses the spotlight to a single stat line, so the
+    // headshot must not be emitted even when one is available. (The renderer
+    // emits no image; compactMarkdown() in index.js strips the team/league
+    // images from the final output separately.)
+    const output = render(
+      "nba",
+      { ...BASE_NBA_DATA, recentGames: [], spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" } },
+      { compact: true }
+    );
+    expect(output).not.toContain("headshot");
+    expect(output).toContain("👑 Luka Doncic · 33.5 PPG · 7.7 RPG · 8.3 APG");
+  });
+});
+
+const BASE_MLS_DATA = {
+  team: {
+    id: 20232,
+    abbreviation: "MIA",
+    name: "Inter Miami CF",
+    full_name: "Inter Miami CF",
+    conference: "Eastern Conference",
+    division: "",
+  },
+  record: { wins: 11, losses: 2, draws: 5, season: 2026 },
+  emoji: "🦩",
+  logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
+};
+
+function makeMlsGame({ teamId = 20232, oppId = 999, oppAbbr = "CLB", teamScore, oppScore, isHome = true, date = "2026-07-15T02:00:00Z" }) {
+  const won = teamScore > oppScore;
+  const drew = teamScore === oppScore;
+  return {
+    date,
+    gameType: "R",
+    home_team: { id: isHome ? teamId : oppId, abbreviation: isHome ? "MIA" : oppAbbr },
+    visitor_team: { id: isHome ? oppId : teamId, abbreviation: isHome ? oppAbbr : "MIA" },
+    home_team_score: isHome ? teamScore : oppScore,
+    visitor_team_score: isHome ? oppScore : teamScore,
+    status: "Final",
+    isHome,
+    teamScore,
+    oppScore,
+    oppAbbr,
+    won,
+    drew,
+  };
+}
+
+describe("renderMls", () => {
+  it("renders team name and abbreviation", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).toContain("Inter Miami CF");
+    expect(output).toContain("(MIA)");
+  });
+
+  it("does not duplicate the word Conference in the label", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).not.toContain("Conference Conference");
+    expect(output).toContain("Eastern Conference");
+  });
+
+  it("appends Conference when API value does not already include it", () => {
+    const data = { ...BASE_MLS_DATA, team: { ...BASE_MLS_DATA.team, conference: "Western" }, recentGames: [] };
+    const output = render("mls", data);
+    expect(output).toContain("Western Conference");
+    expect(output).not.toContain("Conference Conference");
+  });
+
+  it("renders W/L/D record with points", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).toContain("11W - 2L - 5D");
+    // Points = 11*3 + 5 = 38
+    expect(output).toContain("38 pts");
+  });
+
+  it("renders win as ✅ W", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 3, oppScore: 1 })] });
+    expect(output).toContain("✅");
+    expect(output).toContain("W 3-1");
+  });
+
+  it("renders draw as 🟡 D", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 2, oppScore: 2 })] });
+    expect(output).toContain("🟡");
+    expect(output).toContain("D 2-2");
+  });
+
+  it("renders loss as ❌ L", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 0, oppScore: 2 })] });
+    expect(output).toContain("❌");
+    expect(output).toContain("L 0-2");
+  });
+
+  it("shows vs for home games and @ for away games", () => {
+    const homeOutput = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 1, oppScore: 0, isHome: true })] });
+    expect(homeOutput).toContain("vs");
+    const awayOutput = render("mls", { ...BASE_MLS_DATA, recentGames: [makeMlsGame({ teamScore: 1, oppScore: 0, isHome: false })] });
+    expect(awayOutput).toContain("@");
+  });
+
+  it("renders fallback when no recent games", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).toContain("No recent games found");
+  });
+
+  it("includes the season status line", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).toMatch(/🟢 Season in progress|🔴 Off-season/);
+  });
+});
+
+describe("season status line", () => {
+  // The status line computes "next season starts <month> <year>" from the
+  // current date, which is right for an annual league and wrong for a
+  // quadrennial event. The World Cup pins its next edition in the registry;
+  // these pin both behaviours so the annual arithmetic can't regress.
+  const WORLDCUP_DATA = {
+    ...BASE_MLS_DATA,
+    team: {
+      id: 202,
+      abbreviation: "ARG",
+      name: "Argentina",
+      full_name: "Argentina",
+      conference: "",
+      division: "",
+    },
+    emoji: "🇦🇷",
+  };
+
+  function freezeAt(iso) {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date(iso));
+  }
+
+  afterEach(() => jest.useRealTimers());
+
+  it("calls a quadrennial event in progress inside its window", () => {
+    freezeAt("2026-06-20T12:00:00Z");
+    expect(render("worldcup", { ...WORLDCUP_DATA, recentGames: [] }))
+      .toContain("🟢 Season in progress");
+  });
+
+  it("names the next edition of a quadrennial event, not next year", () => {
+    // The annual arithmetic would claim "June 2027" — a year with no tournament.
+    freezeAt("2027-03-01T12:00:00Z");
+    expect(render("worldcup", { ...WORLDCUP_DATA, recentGames: [] }))
+      .toContain("🔴 Off-season · Next season starts June 11, 2030");
+  });
+
+  it("still computes the following year for an annual league", () => {
+    // MLS's window ends in December, so a late-December board is off-season
+    // with its start month already behind it — the +1 branch.
+    freezeAt("2026-12-20T12:00:00Z");
+    expect(render("mls", { ...BASE_MLS_DATA, recentGames: [] }))
+      .toContain("🔴 Off-season · Next season starts February 21, 2027");
+  });
+});
+
+describe("soccer renderer — player spotlight", () => {
+  const SPOTLIGHT = {
+    name: "Bukayo Saka",
+    position: "RW",
+    season: { appearances: 34, goals: 14, assists: 11, saves: 0, cleanSheets: 0 },
+    lastGame: { date: "2026-09-06T15:30:00.000Z", opponent: "CHE", goals: 1, assists: 1 },
+  };
+
+  it("renders appearances, goals, and assists from the game log", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).toContain("Player Spotlight: Bukayo Saka");
+    expect(output).toContain("34 APP · 14 G · 11 A");
+  });
+
+  it("renders the last game with opponent and date", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).toContain("1 G · 1 A vs CHE");
+    expect(output).toContain("Sep 6, 2026");
+  });
+
+  it("renders the same block for other soccer leagues", () => {
+    const output = render("epl", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).toContain("Player Spotlight: Bukayo Saka");
+  });
+
+  it("handles a spotlight with no last game", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: { ...SPOTLIGHT, lastGame: null } });
+    expect(output).toContain("Player Spotlight: Bukayo Saka");
+    expect(output).not.toContain("**📅 Last Game:**");
+  });
+
+  it("defaults missing season stats to zero", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: { name: "Unknown", season: {}, lastGame: null } });
+    expect(output).toContain("0 APP · 0 G · 0 A");
+  });
+
+  it("renders the headshot next to the heading when the adapter supplies one", () => {
+    const output = render("mls", {
+      ...BASE_MLS_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/i/headshots/soccer/players/full/233049.png" },
+    });
+    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/soccer/players/full/233049.png" alt="Bukayo Saka headshot" height="72" align="right" />');
+  });
+
+  it("omits the headshot image when headshotUrl is absent", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT });
+    expect(output).not.toContain("headshot");
+  });
+
+  it("collapses to one line in compact mode and drops last-game detail", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [], spotlight: SPOTLIGHT }, { compact: true });
+    expect(output).toContain("Bukayo Saka · 34 APP · 14 G · 11 A");
+    expect(output).not.toContain("**📅 Last Game:**");
+  });
+
+  it("omits the spotlight section when data.spotlight is absent", () => {
+    const output = render("mls", { ...BASE_MLS_DATA, recentGames: [] });
+    expect(output).not.toContain("Player Spotlight");
+  });
+});
+
+describe("render dispatch", () => {
+  it("throws for unsupported sport", () => {
+    expect(() => render("cricket", {})).toThrow("Unsupported sport");
+  });
+});
+
+describe("Soccer renderer — EPL", () => {
+  const demoData = (overrides = {}) => ({
+    team: { abbreviation: "LIV", full_name: "Liverpool", conference: "English Premier League" },
+    record: { wins: 17, losses: 12, draws: 9, season: 2025 },
+    recentGames: [],
+    emoji: "🔴",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("epl", demoData());
+    expect(out).toContain("Liverpool (LIV)");
+    expect(out).toContain("teamlogos/soccer/500/364.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("epl", demoData());
+    expect(out).toContain("English Premier League");
+    expect(out).not.toContain("English Premier League Conference");
+  });
+
+  it("falls back to 'Premier League' when the group is missing", () => {
+    const out = render("epl", demoData({ team: { abbreviation: "LIV", full_name: "Liverpool", conference: "" } }));
+    expect(out).toContain("Premier League");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("epl", demoData());
+    expect(out).toContain("17W - 12L - 9D");
+    expect(out).toContain("(60 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("epl", demoData({
+      recentGames: [{ date: "2026-05-24T14:00:00Z", teamScore: 1, oppScore: 1, oppAbbr: "BRE", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+
+  it("still appends 'Conference' for MLS's Eastern/Western groups", () => {
+    const out = render("mls", demoData({
+      team: { abbreviation: "MIA", full_name: "Inter Miami CF", conference: "Eastern" },
+    }));
+    expect(out).toContain("Eastern Conference");
+  });
+
+  it("does not double up when MLS already says 'Conference'", () => {
+    const out = render("mls", demoData({
+      team: { abbreviation: "MIA", full_name: "Inter Miami CF", conference: "Eastern Conference" },
+    }));
+    expect(out).toContain("Eastern Conference");
+    expect(out).not.toContain("Eastern Conference Conference");
+  });
+});
+
+describe("Season status — next-season year", () => {
+  afterEach(() => jest.useRealTimers());
+
+  const line = (sport, y, mIdx, d) => {
+    jest.useFakeTimers().setSystemTime(new Date(y, mIdx, d));
+    return render(sport, {
+      team: { abbreviation: "LIV", full_name: "Liverpool", conference: "English Premier League" },
+      record: { wins: 0, losses: 0, draws: 0, season: y },
+      recentGames: [], emoji: "🔴", logoUrl: "x",
+    });
+  };
+
+  it("names the current year when the start date is still ahead", () => {
+    // Aug 8 with a season starting Aug 10 — starts in 2 days, not next year
+    expect(line("epl", 2026, 7, 8)).toContain("Next season starts August 21, 2026");
+  });
+
+  it("names next year once this year's start date has passed", () => {
+    // Jun 1 is after May's end and after no Aug start yet this year
+    expect(line("epl", 2026, 5, 1)).toContain("Next season starts August 21, 2026");
+  });
+
+  it("reports the season as active once it has kicked off", () => {
+    // Sep 20 sits inside the Aug–May window
+    expect(line("epl", 2026, 8, 20)).toContain("🟢 Season in progress");
+  });
+
+  it("names the upcoming August throughout the summer gap", () => {
+    // Jun and Jul sit between May's end and August's start, so the next
+    // kickoff is still this year — never next year.
+    expect(line("epl", 2026, 5, 1)).toContain("Next season starts August 21, 2026");
+    expect(line("epl", 2026, 6, 15)).toContain("Next season starts August 21, 2026");
+  });
+
+  it("regression: does not skip a year on the eve of kickoff", () => {
+    // The bug: month >= startMonth ignored the day, so Aug 8 (start Aug 10)
+    // reported August 2027 — a full year late.
+    expect(line("epl", 2026, 7, 8)).not.toContain("2027");
+  });
+});
+
+describe("Team logo sizing", () => {
+  const cases = [
+    ["nba", { ...BASE_NBA_DATA, recentGames: [] }],
+    ["mlb", { ...BASE_MLB_DATA, recentGames: [] }],
+    ["mls", { ...BASE_MLS_DATA, recentGames: [] }],
+  ];
+
+  cases.forEach(([sport, data]) => {
+    it(`${sport} renders the team logo at 72px, right-aligned`, () => {
+      const out = render(sport, data);
+      expect(out).toContain('width="72" align="right"');
+      expect(out).not.toContain('width="60"');
+    });
+
+    it(`${sport} gives the team logo descriptive alt text`, () => {
+      const out = render(sport, data);
+      expect(out).toContain(`alt="${data.team.full_name} logo"`);
+    });
+  });
+
+  it("renders the league logo in the section heading, not beside the team", () => {
+    // The heading now lives inside the markers so it survives every run. The
+    // logo belongs there at 28px — an earlier attempt put a 16px badge on the
+    // conference line instead, which was too small to read.
+    cases.forEach(([sport, data]) => {
+      const out = render(sport, data);
+      expect(out).toContain('height="28"');
+      expect(out).not.toContain('height="16"');
+    });
+  });
+});
+
+describe("Section heading", () => {
+  const SPORTS = [
+    ["nba", "NBA"], ["mlb", "MLB"], ["nfl", "NFL"], ["nhl", "NHL"],
+    ["mls", "MLS"], ["epl", "Premier League"], ["laliga", "La Liga"],
+    ["bundesliga", "Bundesliga"], ["seriea", "Serie A"], ["ligue1", "Ligue 1"],
+    ["primeiraliga", "Primeira Liga"],
+  ];
+
+  const dataFor = (sport) => {
+    if (sport === "mlb") return { ...BASE_MLB_DATA, recentGames: [] };
+    if (sport === "nba") return { ...BASE_NBA_DATA, recentGames: [] };
+    return {
+      team: { abbreviation: "XYZ", full_name: "Test Club", conference: "Test", division: "Test" },
+      record: { wins: 1, losses: 1, draws: 1, season: 2026 },
+      recentGames: [], emoji: "⚽", logoUrl: "https://example.com/x.png",
+    };
+  };
+
+  SPORTS.forEach(([sport, label]) => {
+    it(`${sport} renders "My Favourite ${label} Team" as an h2`, () => {
+      const out = render(sport, dataFor(sport));
+      expect(out).toContain(`My Favourite ${label} Team`);
+      expect(out.split("\n")[0]).toMatch(/^## /);
+    });
+  });
+
+  it("puts the heading first so it lands inside the markers", () => {
+    // A heading above the start marker would be outside the tool's reach.
+    const out = render("nba", dataFor("nba"));
+    const lines = out.split("\n");
+    expect(lines[0]).toContain("My Favourite NBA Team");
+    expect(lines[1]).toBe("");
+    expect(lines[2]).toContain("<img src=");
+  });
+
+  it("gives the heading logo both theme variants", () => {
+    const out = render("nba", dataFor("nba"));
+    expect(out).toContain("prefers-color-scheme: dark");
+    expect(out).toContain("leagues/500/nba.png");
+    expect(out).toContain("leagues/500-dark/nba.png");
+  });
+
+  it("renders exactly one heading per block", () => {
+    const out = render("nba", dataFor("nba"));
+    expect(out.split("\n").filter((l) => l.startsWith("## ")).length).toBe(1);
+  });
+});
+
+describe("Soccer renderer — La Liga", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "RMA", full_name: "Real Madrid", conference: "LALIGA" },
+    record: { wins: 27, losses: 6, draws: 5, season: 2025 },
+    recentGames: [],
+    emoji: "👑",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("laliga", data());
+    expect(out).toContain("Real Madrid (RMA)");
+    expect(out).toContain("teamlogos/soccer/500/86.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("laliga", data());
+    expect(out).toContain("LALIGA");
+    expect(out).not.toContain("LALIGA Conference");
+  });
+
+  it("falls back to 'La Liga' when the group is missing", () => {
+    const out = render("laliga", data({ team: { abbreviation: "RMA", full_name: "Real Madrid", conference: "" } }));
+    expect(out).toContain("La Liga");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("laliga", data());
+    expect(out).toContain("27W - 6L - 5D");
+    expect(out).toContain("(86 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("laliga", data({
+      recentGames: [{ date: "2026-05-23T19:00:00Z", teamScore: 2, oppScore: 2, oppAbbr: "BAR", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+
+  it("renders the team logo at 72px like every other sport", () => {
+    expect(render("laliga", data())).toContain('width="72" align="right"');
+  });
+});
+
+describe("Soccer renderer — Bundesliga", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "MUN", full_name: "Bayern Munich", conference: "German Bundesliga" },
+    record: { wins: 28, losses: 1, draws: 5, season: 2025 },
+    recentGames: [],
+    emoji: "🔴",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("bundesliga", data());
+    expect(out).toContain("Bayern Munich (MUN)");
+    expect(out).toContain("teamlogos/soccer/500/132.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("bundesliga", data());
+    expect(out).toContain("German Bundesliga");
+    expect(out).not.toContain("Bundesliga Conference");
+  });
+
+  it("falls back to 'Bundesliga' when the group is missing", () => {
+    const out = render("bundesliga", data({ team: { abbreviation: "MUN", full_name: "Bayern Munich", conference: "" } }));
+    expect(out).toContain("Bundesliga");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("bundesliga", data());
+    expect(out).toContain("28W - 1L - 5D");
+    expect(out).toContain("(89 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("bundesliga", data({
+      recentGames: [{ date: "2026-05-02T13:30:00Z", teamScore: 3, oppScore: 3, oppAbbr: "HDH", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
+
+describe("Soccer renderer — Serie A", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "INT", full_name: "Internazionale", conference: "Italian Serie A" },
+    record: { wins: 27, losses: 5, draws: 6, season: 2025 },
+    recentGames: [],
+    emoji: "🐍",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("seriea", data());
+    expect(out).toContain("Internazionale (INT)");
+    expect(out).toContain("teamlogos/soccer/500/110.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("seriea", data());
+    expect(out).toContain("Italian Serie A");
+    expect(out).not.toContain("Serie A Conference");
+  });
+
+  it("falls back to 'Serie A' when the group is missing", () => {
+    const out = render("seriea", data({ team: { abbreviation: "INT", full_name: "Internazionale", conference: "" } }));
+    expect(out).toContain("Serie A");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("seriea", data());
+    expect(out).toContain("27W - 5L - 6D");
+    expect(out).toContain("(87 pts)");
+  });
+
+  it("marks a 0-0 draw with the draw icon", () => {
+    const out = render("seriea", data({
+      recentGames: [{ date: "2026-04-26T18:45:00Z", teamScore: 0, oppScore: 0, oppAbbr: "JUV", isHome: false, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+    expect(out).toContain("0-0");
+  });
+});
+
+describe("Soccer renderer — Ligue 1", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "PSG", full_name: "Paris Saint-Germain", conference: "French Ligue 1" },
+    record: { wins: 24, losses: 6, draws: 4, season: 2025 },
+    recentGames: [],
+    emoji: "🗼",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("ligue1", data());
+    expect(out).toContain("Paris Saint-Germain (PSG)");
+    expect(out).toContain("teamlogos/soccer/500/160.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("ligue1", data());
+    expect(out).toContain("French Ligue 1");
+    expect(out).not.toContain("Ligue 1 Conference");
+  });
+
+  it("falls back to 'Ligue 1' when the group is missing", () => {
+    const out = render("ligue1", data({ team: { abbreviation: "PSG", full_name: "Paris Saint-Germain", conference: "" } }));
+    expect(out).toContain("Ligue 1");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("ligue1", data());
+    expect(out).toContain("24W - 6L - 4D");
+    expect(out).toContain("(76 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("ligue1", data({
+      recentGames: [{ date: "2026-05-02T19:00:00Z", teamScore: 2, oppScore: 2, oppAbbr: "LOR", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
+
+describe("Soccer renderer — Primeira Liga", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "SLB", full_name: "Benfica", conference: "Portuguese Liga" },
+    record: { wins: 24, losses: 4, draws: 6, season: 2025 },
+    recentGames: [],
+    emoji: "🦅",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("primeiraliga", data());
+    expect(out).toContain("Benfica (SLB)");
+    expect(out).toContain("teamlogos/soccer/500/1929.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("primeiraliga", data());
+    expect(out).toContain("Portuguese Liga");
+    expect(out).not.toContain("Portuguese Liga Conference");
+  });
+
+  it("falls back to 'Primeira Liga' when the group is missing", () => {
+    const out = render("primeiraliga", data({ team: { abbreviation: "SLB", full_name: "Benfica", conference: "" } }));
+    expect(out).toContain("Primeira Liga");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("primeiraliga", data());
+    expect(out).toContain("24W - 4L - 6D");
+    expect(out).toContain("(78 pts)");
+  });
+
+  it("handles a single-match season without dividing by zero", () => {
+    const out = render("primeiraliga", data({ record: { wins: 0, losses: 0, draws: 1, season: 2026 } }));
+    expect(out).toContain("0W - 0L - 1D");
+    expect(out).toContain("(1 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("primeiraliga", data({
+      recentGames: [{ date: "2026-08-09T19:00:00Z", teamScore: 2, oppScore: 2, oppAbbr: "ACV", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
+
+describe("Soccer renderer — Eredivisie", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "AJA", full_name: "Ajax Amsterdam", conference: "Dutch Eredivisie" },
+    record: { wins: 25, losses: 4, draws: 5, season: 2025 },
+    recentGames: [],
+    emoji: "🔴",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/139.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("eredivisie", data());
+    expect(out).toContain("Ajax Amsterdam (AJA)");
+    expect(out).toContain("teamlogos/soccer/500/139.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("eredivisie", data())).toContain("My Favourite Eredivisie Team");
+  });
+
+  it("uses the Eredivisie league logo in the heading", () => {
+    const out = render("eredivisie", data());
+    expect(out).toContain("leaguelogos/soccer/500/11.png");
+    expect(out).toContain("leaguelogos/soccer/500-dark/11.png");
+  });
+
+  it("shows the league name as-is, without appending 'Conference'", () => {
+    const out = render("eredivisie", data());
+    expect(out).toContain("Dutch Eredivisie");
+    expect(out).not.toContain("Eredivisie Conference");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("eredivisie", data());
+    expect(out).toContain("25W - 4L - 5D");
+    expect(out).toContain("(80 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("eredivisie", data({
+      recentGames: [{ date: "2026-08-08T13:30:00Z", teamScore: 2, oppScore: 2, oppAbbr: "PSV", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
+
+describe("renderNba — WNBA variant", () => {
+  const data = (overrides = {}) => ({
+    team: { id: 8, abbreviation: "MIN", full_name: "Minnesota Lynx", conference: "Western", division: "" },
+    record: { wins: 28, losses: 7, season: 2026 },
+    recentGames: [],
+    emoji: "🐆",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/wnba/500/min.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("wnba", data());
+    expect(out).toContain("Minnesota Lynx (MIN)");
+    expect(out).toContain("teamlogos/wnba/500/min.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("wnba", data())).toContain("My Favourite WNBA Team");
+  });
+
+  it("uses the WNBA league logo, not the NBA one", () => {
+    const out = render("wnba", data());
+    expect(out).toContain("leagues/500/wnba.png");
+    expect(out).not.toContain("leagues/500/nba.png");
+  });
+
+  it("shows the season as a single year, not a span", () => {
+    const out = render("wnba", data());
+    expect(out).toContain("2026 Record");
+    expect(out).not.toContain("2025-2026");
+  });
+
+  it("omits the division half when there is no division", () => {
+    const out = render("wnba", data());
+    expect(out).toContain("Western Conference");
+    expect(out).not.toContain("Division");
+    expect(out).not.toContain("· ");
+  });
+
+  it("still renders the division for the NBA, which has them", () => {
+    const out = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    expect(out).toContain("Conference · ");
+    expect(out).toContain("Division");
+  });
+
+  it("tags playoff games", () => {
+    const out = render("wnba", data({
+      recentGames: [{ date: "2026-09-29T02:00:00Z", postseason: true, status: "Final",
+        home_team: { id: 0, abbreviation: "PHX" }, visitor_team: { id: 8, abbreviation: "MIN" },
+        home_team_score: 86, visitor_team_score: 81 }],
+    }));
+    expect(out).toContain("[Playoffs]");
+  });
+});
+
+describe("Soccer renderer — Liga MX", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "AME", full_name: "América", conference: "2026 Torneo Apertura" },
+    record: { wins: 2, losses: 0, draws: 1, season: 2026 },
+    recentGames: [],
+    emoji: "🦅",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/227.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("ligamx", data());
+    expect(out).toContain("América (AME)");
+    expect(out).toContain("teamlogos/soccer/500/227.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("ligamx", data())).toContain("My Favourite Liga MX Team");
+  });
+
+  it("uses the Liga MX league logo in the heading", () => {
+    const out = render("ligamx", data());
+    expect(out).toContain("leaguelogos/soccer/500/22.png");
+    expect(out).toContain("leaguelogos/soccer/500-dark/22.png");
+  });
+
+  it("shows the tournament name as-is, without appending 'Conference'", () => {
+    const out = render("ligamx", data());
+    expect(out).toContain("2026 Torneo Apertura");
+    expect(out).not.toContain("Torneo Apertura Conference");
+  });
+
+  it("falls back to 'Liga MX' when the tournament is missing", () => {
+    const out = render("ligamx", data({ team: { abbreviation: "AME", full_name: "América", conference: "" } }));
+    expect(out).toContain("Liga MX");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("ligamx", data());
+    expect(out).toContain("2W - 0L - 1D");
+    expect(out).toContain("(7 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("ligamx", data({
+      recentGames: [{ date: "2026-07-24T02:00:00Z", teamScore: 1, oppScore: 1, oppAbbr: "ATL", isHome: false, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
+
+describe("Soccer renderer — Brasileirão", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "PAL", full_name: "Palmeiras", conference: "" },
+    record: { wins: 14, losses: 2, draws: 6, season: 2026 },
+    recentGames: [],
+    emoji: "🟩",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/2029.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("brasileirao", data());
+    expect(out).toContain("Palmeiras (PAL)");
+    expect(out).toContain("teamlogos/soccer/500/2029.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("brasileirao", data())).toContain("My Favourite Brasileirão Team");
+  });
+
+  it("uses the Brasileirão league logo in the heading", () => {
+    const out = render("brasileirao", data());
+    expect(out).toContain("leaguelogos/soccer/500/85.png");
+    expect(out).toContain("leaguelogos/soccer/500-dark/85.png");
+  });
+
+  it("falls back to 'Série A' rather than showing a bare year", () => {
+    const out = render("brasileirao", data());
+    expect(out).toContain("Série A");
+    expect(out).not.toMatch(/\n2026\n/);
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("brasileirao", data());
+    expect(out).toContain("14W - 2L - 6D");
+    expect(out).toContain("(48 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("brasileirao", data({
+      recentGames: [{ date: "2026-08-09T20:00:00Z", teamScore: 0, oppScore: 0, oppAbbr: "INT", isHome: true, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
+
+describe("Soccer renderer — NWSL", () => {
+  const data = (overrides = {}) => ({
+    team: { abbreviation: "GFC", full_name: "Gotham FC", conference: "NWSL Regular Season" },
+    record: { wins: 12, losses: 3, draws: 4, season: 2026 },
+    recentGames: [],
+    emoji: "🦇",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/soccer/500/15364.png",
+    ...overrides,
+  });
+
+  it("renders the club name and logo", () => {
+    const out = render("nwsl", data());
+    expect(out).toContain("Gotham FC (GFC)");
+    expect(out).toContain("teamlogos/soccer/500/15364.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("nwsl", data())).toContain("My Favourite NWSL Team");
+  });
+
+  it("uses the NWSL league logo, not the MLS one", () => {
+    const out = render("nwsl", data());
+    expect(out).toContain("leaguelogos/soccer/500/2323.png");
+    expect(out).not.toContain("leaguelogos/soccer/500/19.png");
+  });
+
+  it("renders W/L/D with points (W×3 + D)", () => {
+    const out = render("nwsl", data());
+    expect(out).toContain("12W - 3L - 4D");
+    expect(out).toContain("(40 pts)");
+  });
+
+  it("marks a draw with the draw icon", () => {
+    const out = render("nwsl", data({
+      recentGames: [{ date: "2026-07-24T23:00:00Z", teamScore: 2, oppScore: 2, oppAbbr: "POR", isHome: false, won: false, drew: true }],
+    }));
+    expect(out).toContain("🟡");
+  });
+});
+
+describe("renderNba — G League variant", () => {
+  const data = (overrides = {}) => ({
+    team: { id: 11, abbreviation: "OSC", full_name: "Osceola Magic", conference: "Eastern", division: "" },
+    record: { wins: 26, losses: 10, season: 2026 },
+    recentGames: [],
+    emoji: "✨",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/nba-development/500/osc.png",
+    ...overrides,
+  });
+
+  it("renders the team name and logo", () => {
+    const out = render("gleague", data());
+    expect(out).toContain("Osceola Magic (OSC)");
+    expect(out).toContain("nba-development/500/osc.png");
+  });
+
+  it("renders its own section heading", () => {
+    expect(render("gleague", data())).toContain("My Favourite NBA G League Team");
+  });
+
+  it("uses the G League logo, not the NBA one", () => {
+    const out = render("gleague", data());
+    expect(out).toContain("leagues/500/nba_gleague.png");
+    expect(out).not.toContain("leagues/500/nba.png");
+  });
+
+  it("shows the season as a span, since it crosses the new year", () => {
+    // Unlike the WNBA, whose season sits inside one calendar year.
+    const out = render("gleague", data());
+    expect(out).toContain("2025-2026 Record");
+  });
+
+  it("omits the division half, since the G League has none", () => {
+    const out = render("gleague", data());
+    expect(out).toContain("Eastern Conference");
+    expect(out).not.toContain("Division");
+  });
+
+  it("tags playoff games", () => {
+    const out = render("gleague", data({
+      recentGames: [{ date: "2026-04-05T00:00:00Z", postseason: true, status: "Final",
+        home_team: { id: 11, abbreviation: "OSC" }, visitor_team: { id: 0, abbreviation: "GBO" },
+        home_team_score: 121, visitor_team_score: 134 }],
+    }));
+    expect(out).toContain("[Playoffs]");
+  });
+});
+
+describe("renderAtp", () => {
+  const BASE_ATP_DATA = {
+    team: { id: "296", abbreviation: "DJO", full_name: "Novak Djokovic", conference: "ATP", division: "" },
+    emoji: "🇷🇸",
+    logoUrl: "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png",
+    standing: { position: 5, label: "ATP" },
+    rankPoints: 3770,
+    previousRank: 5,
+    trend: "-",
+    lastMatch: {
+      opponent: "Mariano Navone",
+      won: false,
+      date: "2026-08-30T15:05:00Z",
+      sets: [[7, 5, 4, 6, 6], [6, 7, 6, 2, 1]],
+    },
+  };
+
+  it("renders the player heading with the Player entity label", () => {
+    const output = render("atp", BASE_ATP_DATA);
+    expect(output).toContain("My Favourite ATP Tennis Player");
+    expect(output).toContain("Novak Djokovic (DJO)");
+  });
+
+  it("groups ranking, points, and movement onto one meta line", () => {
+    const output = render("atp", BASE_ATP_DATA);
+    expect(output).toContain("🏆 World No. 5");
+    expect(output).toContain("📍 3,770 ranking points");
+    expect(output).toContain("📈 Movement");
+    // All three share a single line (joined by ·), not three separate lines.
+    expect(output).toMatch(/🏆 World No\. 5 · 📍 3,770 ranking points · 📈 Movement/);
+  });
+
+  it("renders the last match on its own labeled fenced block", () => {
+    const output = render("atp", BASE_ATP_DATA);
+    expect(output).toContain("**📅 Last Match:**");
+    expect(output).toContain("❌ L vs Mariano Navone");
+    expect(output).toContain("7-6, 5-7, 4-6, 6-2, 6-1");
+    // The match sits in its own fenced code block, like team boards' Recent Games.
+    expect(output).toMatch(/\*\*📅 Last Match:\*\*\n```\n❌ L vs Mariano Navone .*```/s);
+  });
+
+  it("renders a win with the W icon", () => {
+    const output = render("atp", { ...BASE_ATP_DATA, lastMatch: { ...BASE_ATP_DATA.lastMatch, won: true } });
+    expect(output).toContain("✅ W vs");
+  });
+
+  it("omits the last-match block when there is no match", () => {
+    const output = render("atp", { ...BASE_ATP_DATA, lastMatch: null });
+    expect(output).not.toContain("Last Match");
+  });
+
+  it("omits ranking meta when no standing is present", () => {
+    const output = render("atp", { ...BASE_ATP_DATA, standing: null, rankPoints: undefined, previousRank: undefined });
+    expect(output).not.toContain("🏆");
+    expect(output).not.toContain("ranking points");
+    expect(output).not.toContain("Movement");
+  });
+});
+
+describe("renderWta", () => {
+  const BASE_WTA_DATA = {
+    team: { id: "3038", abbreviation: "SAB", full_name: "Aryna Sabalenka", conference: "WTA", division: "" },
+    emoji: "🇧🇾",
+    logoUrl: "https://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-tennis.png",
+    standing: { position: 1, label: "WTA" },
+    rankPoints: 8575,
+    previousRank: 1,
+    trend: "-",
+    lastMatch: {
+      opponent: "Elena Rybakina",
+      won: true,
+      date: "2026-08-30T15:05:00Z",
+      sets: [[6, 4, 6], [3, 6, 2]],
+    },
+  };
+
+  it("renders the player heading with the Player entity label", () => {
+    const output = render("wta", BASE_WTA_DATA);
+    expect(output).toContain("My Favourite WTA Tennis Player");
+    expect(output).toContain("Aryna Sabalenka (SAB)");
+  });
+
+  it("groups ranking, points, and movement onto one meta line", () => {
+    const output = render("wta", BASE_WTA_DATA);
+    expect(output).toContain("🏆 World No. 1");
+    expect(output).toContain("📍 8,575 ranking points");
+    expect(output).toContain("📈 Movement");
+    expect(output).toMatch(/🏆 World No\. 1 · 📍 8,575 ranking points · 📈 Movement/);
+  });
+
+  it("renders the last match on its own labeled fenced block", () => {
+    const output = render("wta", BASE_WTA_DATA);
+    expect(output).toContain("**📅 Last Match:**");
+    expect(output).toContain("✅ W vs Elena Rybakina");
+    expect(output).toContain("6-3, 4-6, 6-2");
+    expect(output).toMatch(/\*\*📅 Last Match:\*\*\n```\n✅ W vs Elena Rybakina .*```/s);
+  });
+
+  it("omits the last-match block when there is no match", () => {
+    const output = render("wta", { ...BASE_WTA_DATA, lastMatch: null });
+    expect(output).not.toContain("Last Match");
+  });
+
+  it("omits ranking meta when no standing is present", () => {
+    const output = render("wta", { ...BASE_WTA_DATA, standing: null, rankPoints: undefined, previousRank: undefined });
+    expect(output).not.toContain("🏆");
+    expect(output).not.toContain("ranking points");
+    expect(output).not.toContain("Movement");
+  });
+});
+
+describe("renderNfl", () => {
+  const BASE_NFL_DATA = {
+    team: { abbreviation: "KC", full_name: "Kansas City Chiefs", conference: "AFC", division: "AFC West" },
+    record: { wins: 9, losses: 3, season: 2026 },
+    recentGames: [],
+    emoji: "👑",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+    standing: { position: 2, label: "AFC" },
+    nextGame: { date: "2026-09-15T00:00:00Z", opponent: "DEN", isHome: false },
+  };
+
+  it("renders the standing and next game on their own row", () => {
+    const output = render("nfl", BASE_NFL_DATA);
+    expect(output).toContain("🏅 Standing: AFC · 2");
+    expect(output).toContain("📅 Next: @ DEN");
+    // Separated from the conference/season paragraph by a blank line.
+    expect(output).toMatch(/🟢 Season in progress\n\n🏅 Standing: AFC · 2/);
+  });
+
+  it("renders a home next game with 'vs'", () => {
+    const output = render("nfl", { ...BASE_NFL_DATA, nextGame: { date: "2026-09-15T00:00:00Z", opponent: "LAC", isHome: true } });
+    expect(output).toContain("📅 Next: vs LAC");
+  });
+
+  it("omits the standing row when no standing is present", () => {
+    const output = render("nfl", { ...BASE_NFL_DATA, standing: null, nextGame: null });
+    expect(output).not.toContain("🏅 Standing:");
+    expect(output).not.toContain("📅 Next:");
+  });
+
+  it("renders the record with win percentage", () => {
+    const output = render("nfl", BASE_NFL_DATA);
+    expect(output).toContain("📊 2026 Season: 9W - 3L (75.0%)");
+  });
+});
+
+describe("renderNfl — player spotlight", () => {
+  const BASE = {
+    team: { abbreviation: "KC", full_name: "Kansas City Chiefs", conference: "AFC", division: "AFC West" },
+    record: { wins: 9, losses: 3, season: 2026 },
+    recentGames: [],
+    emoji: "👑",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+  };
+
+  const QB = {
+    name: "Patrick Mahomes",
+    position: "QB",
+    season: { passingYards: 4183, passingTouchdowns: 31, rushingYards: 320, rushingTouchdowns: 2, receptions: 0, receivingYards: 0, receivingTouchdowns: 0 },
+    lastGame: { date: "2026-01-04T18:00:00Z", opponent: "DEN", passingYards: 280, passingTouchdowns: 2 },
+  };
+
+  const RB = {
+    name: "Isiah Pacheco",
+    position: "RB",
+    season: { rushingYards: 1030, rushingTouchdowns: 8, receptions: 40, receivingYards: 300 },
+    lastGame: { date: "2026-01-04T18:00:00Z", opponent: "DEN", rushingYards: 88 },
+  };
+
+  const WR = {
+    name: "Travis Kelce",
+    position: "TE",
+    season: { receptions: 93, receivingYards: 1120, receivingTouchdowns: 9 },
+    lastGame: { date: "2026-01-04T18:00:00Z", opponent: "DEN", receptions: 7, receivingYards: 95 },
+  };
+
+  it("renders passing stats for a quarterback", () => {
+    const output = render("nfl", { ...BASE, spotlight: QB });
+    expect(output).toContain("Player Spotlight: Patrick Mahomes");
+    expect(output).toContain("4183 PASS YDS · 31 PASS TD · 320 RUSH YDS");
+    expect(output).toContain("280 PASS YDS · 2 PASS TD vs DEN");
+  });
+
+  it("renders rushing stats for a running back", () => {
+    const output = render("nfl", { ...BASE, spotlight: RB });
+    expect(output).toContain("1030 RUSH YDS · 8 RUSH TD · 40 REC");
+    expect(output).toContain("88 RUSH YDS vs DEN");
+  });
+
+  it("renders receiving stats for a receiver", () => {
+    const output = render("nfl", { ...BASE, spotlight: WR });
+    expect(output).toContain("93 REC · 1120 REC YDS · 9 REC TD");
+    expect(output).toContain("7 REC · 95 REC YDS vs DEN");
+  });
+
+  it("handles a spotlight with no last game", () => {
+    const output = render("nfl", { ...BASE, spotlight: { ...QB, lastGame: null } });
+    expect(output).toContain("Player Spotlight: Patrick Mahomes");
+    expect(output).not.toContain("**📅 Last Game:**");
+  });
+
+  it("defaults missing season stats to zero", () => {
+    const output = render("nfl", { ...BASE, spotlight: { name: "Rookie", position: "QB", season: {}, lastGame: null } });
+    expect(output).toContain("0 PASS YDS · 0 PASS TD · 0 RUSH YDS");
+  });
+
+  it("renders the compact form per position group", () => {
+    expect(render("nfl", { ...BASE, spotlight: QB }, { compact: true }))
+      .toContain("👑 Patrick Mahomes · 4183 PASS YDS · 31 PASS TD");
+    expect(render("nfl", { ...BASE, spotlight: RB }, { compact: true }))
+      .toContain("👑 Isiah Pacheco · 1030 RUSH YDS · 8 RUSH TD");
+    expect(render("nfl", { ...BASE, spotlight: WR }, { compact: true }))
+      .toContain("👑 Travis Kelce · 93 REC · 1120 REC YDS");
+  });
+
+  it("omits the spotlight section when data.spotlight is absent", () => {
+    expect(render("nfl", BASE)).not.toContain("Player Spotlight");
+  });
+
+  it("renders the headshot next to the heading when the adapter supplies one", () => {
+    const output = render("nfl", { ...BASE, spotlight: { ...QB, headshotUrl: "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" } });
+    expect(output).toContain('<img src="https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" alt="Patrick Mahomes headshot" height="72" align="right" />');
+  });
+
+  it("omits the headshot image when headshotUrl is absent", () => {
+    expect(render("nfl", { ...BASE, spotlight: QB })).not.toContain("headshot");
+  });
+});
+
+describe("renderNhl — player spotlight", () => {
+  const BASE = {
+    team: { abbreviation: "NYR", full_name: "New York Rangers", conference: "Eastern", division: "Metropolitan" },
+    record: { wins: 52, losses: 24, season: 2025 },
+    recentGames: [],
+    emoji: "🦢",
+    logoUrl: "https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg",
+  };
+
+  const SKATER = {
+    name: "Artemi Panarin",
+    position: "LW",
+    season: { gamesPlayed: 82, goals: 49, assists: 71, points: 120, isGoalie: false },
+    lastGame: { date: "2026-04-10T23:00:00Z", opponent: "BOS", goals: 2, assists: 1, points: 3 },
+  };
+
+  const GOALIE = {
+    name: "Igor Shesterkin",
+    position: "G",
+    season: { gamesPlayed: 55, wins: 36, goalsAgainstAverage: 2.35, savePercentage: 0.919, isGoalie: true },
+    lastGame: { date: "2026-04-10T23:00:00Z", opponent: "BOS", saves: 32, shotsAgainst: 34 },
+  };
+
+  it("renders goals, assists, and points for a skater", () => {
+    const output = render("nhl", { ...BASE, spotlight: SKATER });
+    expect(output).toContain("Player Spotlight: Artemi Panarin");
+    expect(output).toContain("49 G · 71 A · 120 PTS");
+    expect(output).toContain("2 G · 1 A · 3 P vs BOS");
+  });
+
+  it("renders wins, GAA, and save percentage for a goalie", () => {
+    const output = render("nhl", { ...BASE, spotlight: GOALIE });
+    expect(output).toContain("36 W · 2.35 GAA · .919 SV%");
+    expect(output).toContain("32 SV · 34 SA vs BOS");
+  });
+
+  it("strips the leading zero from the save percentage", () => {
+    const output = render("nhl", { ...BASE, spotlight: GOALIE });
+    expect(output).toContain(".919 SV%");
+    expect(output).not.toContain("0.919 SV%");
+  });
+
+  it("handles a spotlight with no last game", () => {
+    const output = render("nhl", { ...BASE, spotlight: { ...SKATER, lastGame: null } });
+    expect(output).toContain("Player Spotlight: Artemi Panarin");
+    expect(output).not.toContain("**📅 Last Game:**");
+  });
+
+  it("defaults missing season stats to zero", () => {
+    expect(render("nhl", { ...BASE, spotlight: { name: "Rookie", position: "C", season: {}, lastGame: null } }))
+      .toContain("0 G · 0 A · 0 PTS");
+    expect(render("nhl", { ...BASE, spotlight: { name: "Rookie G", position: "G", season: { isGoalie: true }, lastGame: null } }))
+      .toContain("0 W · 0.00 GAA · .000 SV%");
+  });
+
+  it("renders the compact form for skaters and goalies", () => {
+    expect(render("nhl", { ...BASE, spotlight: SKATER }, { compact: true }))
+      .toContain("🦢 Artemi Panarin · 49 G · 71 A · 120 PTS");
+    expect(render("nhl", { ...BASE, spotlight: GOALIE }, { compact: true }))
+      .toContain("🦢 Igor Shesterkin · 36 W · 2.35 GAA · .919 SV%");
+  });
+
+  it("omits the spotlight section when data.spotlight is absent", () => {
+    expect(render("nhl", BASE)).not.toContain("Player Spotlight");
+  });
+});
+
+describe("UFC renderer", () => {
+  const ENG = "\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}";
+  const UFC_DATA = {
+    team: {
+      id: 0,
+      abbreviation: "EVL",
+      name: "Evloev",
+      full_name: "Movsar Evloev",
+      conference: "Featherweight",
+      division: "",
+    },
+    record: { wins: 20, losses: 0, draws: 0, season: "2026" },
+    emoji: "🇷🇺",
+    logoUrl: "https://a.espncdn.com/i/teamlogos/leagues/500/ufc.png",
+    recentGames: [{
+      date: "2026-03-21T21:00Z",
+      opponent: "Lerone Murphy",
+      opponentAbbr: "MUR",
+      opponentFlag: ENG,
+      won: true,
+      drew: false,
+      round: 5,
+      event: "UFC Fight Night",
+    }],
+    nextGame: {
+      date: "2026-10-24T21:00Z",
+      opponent: "VOL",
+      opponentName: "Alexander Volkanovski",
+      opponentFlag: "🇦🇺",
+      event: "UFC 333",
+      venue: "Etihad Arena",
+      weight: "Featherweight",
+    },
+    standing: null,
+    form: ["W"],
+  };
+  const ufc = (overrides = {}) => render("ufc", { ...UFC_DATA, ...overrides });
+
+  it("calls the record a career record, not a season one", () => {
+    // ESPN reports a lifetime W-L-D for a fighter; labelling it a season record
+    // would be wrong.
+    expect(ufc()).toContain("🥊 Career record: 20W - 0L");
+    expect(ufc()).not.toMatch(/2026 Record/);
+  });
+
+  it("renders the division and the fighter", () => {
+    const output = ufc();
+    expect(output).toContain("### 🇷🇺 Movsar Evloev (EVL)");
+    expect(output).toContain("Featherweight");
+  });
+
+  it("names the entity a Fighter in the default heading", () => {
+    const output = ufc();
+    expect(output).toContain("My Favourite UFC Fighter");
+    expect(output).not.toContain("My Favourite UFC Player");
+  });
+
+  it("links the heading at the MMA scoreboard rather than a teams endpoint", () => {
+    // MMA has no /teams collection, so the default link would be dead.
+    const heading = ufc().split("\n")[0];
+    expect(heading).toContain("https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard");
+    expect(heading).not.toContain("/ufc/teams");
+  });
+
+  it("shows the next fight with its opponent, card and venue", () => {
+    const output = ufc();
+    expect(output).toContain("**📅 Next Fight:**");
+    expect(output).toContain("🇦🇺 vs Alexander Volkanovski (VOL) — Oct 24, 2026");
+    expect(output).toContain("UFC 333 · Etihad Arena");
+  });
+
+  it("lists recent fights with the result and the finishing round", () => {
+    expect(ufc()).toContain(`✅ W (R5) vs ${ENG} Lerone Murphy — Mar 21, 2026`);
+  });
+
+  it("reports an unbooked fighter instead of inventing a fight", () => {
+    const output = ufc({ nextGame: null });
+    expect(output).toContain("📅 No fight announced");
+    expect(output).not.toContain("**📅 Next Fight:**");
+  });
+
+  it("drops a missing flag rather than printing a placeholder", () => {
+    const output = ufc({ nextGame: { ...UFC_DATA.nextGame, opponentFlag: "" } });
+    expect(output).toContain("vs Alexander Volkanovski (VOL)");
+    expect(output).not.toContain("🏳️");
+  });
+
+  it("renders a fighter with no completed fights", () => {
+    const output = ufc({ recentGames: [], form: [] });
+    expect(output).toContain("📅 No completed fights found");
+  });
+
+  it("renders without a standings block", () => {
+    // ESPN publishes no UFC rankings on this feed, so there is no position.
+    expect(ufc()).not.toMatch(/🏅 Standing/);
+  });
+
+  it("renders draws when a fighter has them", () => {
+    const output = ufc({
+      record: { wins: 10, losses: 2, draws: 1, season: "2026" },
+      recentGames: [{ ...UFC_DATA.recentGames[0], won: false, drew: true, round: null }],
+    });
+    expect(output).toContain("10W - 2L - 1D");
+    expect(output).toContain("🟡 D vs");
+  });
+});
+  // A standing can come from the last COMPLETED season: the NHL reports no
+  // in-season standing off-season, so its board would otherwise print a final
+  // table as though it were current. Naming the season keeps that honest, and
+  // leagues whose standing is live are unchanged.
+  it("names the season a standing came from, and omits it when it is current", () => {
+    const fromCompletedSeason = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 8, label: "Atlantic", season: "2025-26" },
+    });
+    expect(fromCompletedSeason).toContain("🏅 Standing (2025-26): Atlantic · 8");
+
+    const live = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 2, label: "American League" },
+    });
+    expect(live).toContain("🏅 Standing: American League · 2");
+    expect(live).not.toContain("🏅 Standing (");
+  });

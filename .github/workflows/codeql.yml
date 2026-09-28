@@ -1,0 +1,58 @@
+name: Code scanning
+
+# This repository uses ADVANCED setup rather than code scanning's default setup,
+# deliberately. Default setup runs a GitHub-managed ("dynamic") analysis whose
+# Copilot AI-findings step was configured to call a model this account cannot
+# use, so it failed on every push with:
+#   CAPIError: 400 The requested model is not supported
+#   (COPILOT_AGENT_MODEL=sweagent-capi:claude-opus-5)
+# That configuration lives in org/enterprise settings and cannot be changed from
+# the repository, so the scan is owned here instead. The languages and the
+# `category` value below match what default setup used, so alerts carry over.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Weekly, so a dependency or query-pack change is still picked up without a push.
+    - cron: "24 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# A newer commit on the same ref supersedes an in-flight analysis.
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+      # Required to upload the analysis results.
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [actions, javascript-typescript]
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+
+      # Neither language needs a build: `actions` analyses the workflow files and
+      # `javascript-typescript` is interpreted, so no build step runs here.
+      - name: Analyze
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:${{ matrix.language }}"

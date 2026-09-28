@@ -1,0 +1,43 @@
+{
+  "name": "readme-scoreboard",
+  "version": "1.16.0",
+  "description": "🏆 Live sports stats on your GitHub profile README",
+  "author": "solshanetski",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "doctor": "node scripts/doctor.js",
+    "health:apis": "node scripts/check-api-health.js",
+    "docs:check": "jest --runInBand tests/readme-links.test.js",
+    "leagues:manifest": "node scripts/generate-league-manifest.js",
+    "audit:leagues": "node scripts/audit-league-invariants.js",
+    "changelog:check": "node scripts/check-changelog.js",
+    "teams:directory": "node scripts/generate-team-directory.js",
+    "teams:directory:markdown": "node scripts/generate-team-directory-markdown.js",
+    "teams:directory:validate": "node scripts/validate-team-directory.js",
+    "players:directory": "node scripts/generate-player-directory.js",
+    "players:directory:markdown": "node scripts/generate-player-directory-markdown.js",
+    "players:directory:validate": "node scripts/validate-player-directory.js",
+    "leagues:examples": "node scripts/generate-league-examples.js",
+    "leagues:showcase": "node scripts/generate-league-showcase.js",
+    "examples:generate": "node scripts/generate-examples.js",
+    "examples:generate:demo": "node scripts/generate-examples.js --demo",
+    "smoke:demo": "node scripts/demo-smoke.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage --runInBand",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@octokit/rest": "^22.0.1",
+    "axios": "^1.20.0",
+    "dotenv": "^18.0.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "jest": "^30.5.2"
+  }
+}

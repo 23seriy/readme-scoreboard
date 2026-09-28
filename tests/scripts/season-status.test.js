@@ -1,0 +1,298 @@
+const {
+  classifySeason,
+  fetchSeason,
+  formatSeasonCell,
+  normalizeSeasonWindow,
+  updateSupportedSportsTable,
+  updateLeagueList,
+  SEASON_START_OVERRIDES,
+} = require("../../scripts/update-season-status");
+const fs = require("fs");
+const path = require("path");
+
+const workflow = fs.readFileSync(
+  path.join(__dirname, "../../.github/workflows/update-season-status.yml"),
+  "utf-8"
+);
+const teamDirWorkflow = fs.readFileSync(
+  path.join(__dirname, "../../.github/workflows/update-team-directory.yml"),
+  "utf-8"
+);
+
+describe("season status updater", () => {
+  it("serializes scheduled runs and protects the automation branch push", () => {
+    expect(workflow).toContain("group: readme-maintenance");
+    expect(workflow).toContain("cancel-in-progress: false");
+    expect(workflow).toContain("git push --force-with-lease=");
+    expect(workflow).toContain("git fetch origin automation/season-status");
+    expect(workflow).not.toContain("git fetch origin automation/season-status || true");
+    expect(workflow).not.toContain("git push --force origin automation/season-status");
+  });
+
+  it("gates the maintenance branch fetch so a first run can create the branch", () => {
+    const gate = workflow.indexOf("git ls-remote --exit-code --heads origin automation/season-status");
+    const fetch = workflow.indexOf("git fetch origin automation/season-status");
+
+    // `run:` steps execute under `bash -e`, so fetching a missing branch exits 128
+    // and aborts the step before the fallback push could create it. The fetch must
+    // therefore be gated on the branch existing remotely — and the gate must NOT
+    // swallow fetch errors, which would bypass the lease check above.
+    expect(gate).toBeGreaterThanOrEqual(0);
+    expect(fetch).toBeGreaterThan(gate);
+    expect(workflow).not.toContain("git fetch origin automation/season-status || true");
+    expect(workflow).toContain("git push origin automation/season-status");
+  });
+
+  it("opens one season maintenance PR with the workflow token", () => {
+    expect(workflow).toContain("id: publish");
+    expect(workflow).toContain('echo "changed=false" >> "$GITHUB_OUTPUT"');
+    expect(workflow).toContain("if: steps.publish.outputs.changed == 'true'");
+    expect(workflow).toContain("pull-requests: write");
+    expect(workflow).toContain("GH_TOKEN: ${{ github.token }}");
+    expect(workflow).toContain("gh pr list");
+    expect(workflow).toContain("gh pr create");
+    expect(workflow).toContain("--state open");
+  });
+
+  it("opens a team-directory maintenance PR with the workflow token", () => {
+    expect(teamDirWorkflow).toContain("pull-requests: write");
+    expect(teamDirWorkflow).toContain("GH_TOKEN: ${{ github.token }}");
+    expect(teamDirWorkflow).toContain("gh pr create");
+    expect(teamDirWorkflow).toContain("automation/team-directory");
+  });
+
+  it("verifies live season dates before allowing a README update", () => {
+    const preflight = "node scripts/check-season-dates.js";
+    const updater = "node scripts/update-season-status.js --strict";
+
+    expect(workflow).toContain(preflight);
+    expect(workflow).toContain(updater);
+    expect(workflow.indexOf(preflight)).toBeLessThan(workflow.indexOf(updater));
+  });
+
+  it("marks a season in progress and shows its end date", () => {
+    const status = classifySeason(
+      { startDate: "2026-08-01T00:00:00Z", endDate: "2027-05-31T23:59:59Z" },
+      new Date("2026-08-16T12:00:00Z")
+    );
+
+    expect(status).toEqual({ active: true, date: "2027-05-31" });
+    expect(formatSeasonCell(status)).toBe("🟢 In progress · ends 2027-05-31");
+  });
+
+  it("marks an ended season off-season and shows the next start date", () => {
+    const status = classifySeason(
+      { startDate: "2026-03-01T00:00:00Z", endDate: "2026-07-31T23:59:59Z" },
+      new Date("2026-08-16T12:00:00Z")
+    );
+
+    expect(status).toEqual({ active: false, date: "2027-03-01" });
+    expect(formatSeasonCell(status)).toBe("🔴 Off-season · starts 2027-03-01");
+  });
+
+  it("takes the season start from the fixture calendar, not the rounded placeholder", async () => {
+    // ESPN's `season.startDate` is always the 1st of a month and disagrees with
+    // the league's own fixtures for 24 of 27 soccer leagues. The A-League
+    // declares July 1 for a season that opens October 16, which made every
+    // A-League board claim "in progress" through the whole off-season.
+    const request = async () => ({
+      data: {
+        leagues: [{
+          season: { startDate: "2026-07-01T04:00:00Z", endDate: "2027-07-01T03:59:59Z", year: 2026 },
+          calendar: ["2026-10-16T07:00:00Z", "2026-10-17T07:00:00Z", "2026-10-23T07:00:00Z"],
+        }],
+      },
+    });
+
+    const season = await fetchSeason("soccer/aus.1", request);
+
+    expect(season.startDate).toBe("2026-10-16T07:00:00.000Z");
+    // The declared end is kept: the calendar is a window that can run past the
+    // last fixture, and no end-side placeholder problem has been seen.
+    expect(season.endDate).toBe("2027-07-01T03:59:59Z");
+  });
+
+  it("falls back to the declared season dates when no calendar is returned", async () => {
+    // Not every league publishes a calendar. Without this the earliest-of()
+    // on an empty list would be Infinity and throw.
+    const request = async () => ({
+      data: {
+        leagues: [{ season: { startDate: "2026-08-15T04:00:00Z", endDate: "2027-06-01T03:59:59Z" } }],
+      },
+    });
+
+    const season = await fetchSeason("soccer/esp.1", request);
+
+    expect(season.startDate).toBe("2026-08-15T04:00:00Z");
+  });
+
+  it("uses the first regular-season contest date for NCAA men's basketball", () => {
+    expect(normalizeSeasonWindow("NCAA Men's Basketball", {
+      startDate: "2026-07-13T00:00:00Z",
+      endDate: "2027-04-07T23:59:59Z",
+    })).toEqual({
+      startDate: "2026-11-02T00:00:00Z",
+      endDate: "2027-04-07T23:59:59Z",
+    });
+  });
+
+  it("uses the first regular-season contest date for NCAA women's basketball", () => {
+    expect(normalizeSeasonWindow("NCAA Women's Basketball", {
+      startDate: "2026-07-13T00:00:00Z",
+      endDate: "2027-04-07T23:59:59Z",
+    })).toEqual({
+      startDate: "2026-11-02T00:00:00Z",
+      endDate: "2027-04-07T23:59:59Z",
+    });
+  });
+
+  it("uses the first scheduled college-football game date", () => {
+    expect(normalizeSeasonWindow("College Football", {
+      startDate: "2026-02-01T00:00:00Z",
+      endDate: "2027-01-28T23:59:59Z",
+    })).toEqual({
+      startDate: "2026-08-27T00:00:00Z",
+      endDate: "2027-01-28T23:59:59Z",
+    });
+  });
+
+  it.each([
+    ["NBA", "2026-09-30T00:00:00Z", "2026-10-20T00:00:00Z"],
+    ["MLB", "2026-02-19T00:00:00Z", "2026-03-25T00:00:00Z"],
+    ["NFL", "2026-08-06T00:00:00Z", "2026-09-09T00:00:00Z"],
+    ["NHL", "2026-09-15T00:00:00Z", "2026-09-29T00:00:00Z"],
+    ["WNBA", "2026-04-03T00:00:00Z", "2026-05-08T00:00:00Z"],
+    ["NBA G League", "2026-09-01T00:00:00Z", "2026-12-19T00:00:00Z"],
+  ])("normalizes %s to its regular-season start", (name, apiStart, regularStart) => {
+    expect(normalizeSeasonWindow(name, {
+      startDate: apiStart,
+      endDate: "2027-06-30T23:59:59Z",
+    }).startDate).toBe(regularStart);
+  });
+
+  it("uses the NCAA Division I men's hockey first contest date", () => {
+    expect(normalizeSeasonWindow("NCAA Men's Ice Hockey", {
+      startDate: "2026-09-01T00:00:00Z",
+      endDate: "2027-05-01T23:59:59Z",
+    }).startDate).toBe("2026-10-02T00:00:00Z");
+  });
+
+  it.each([
+    ["MLS", "2026-01-01T00:00:00Z", "2026-02-21T00:00:00Z"],
+    ["Premier League", "2026-06-01T00:00:00Z", "2026-08-21T00:00:00Z"],
+    ["La Liga", "2026-06-01T00:00:00Z", "2026-08-15T00:00:00Z"],
+    ["Bundesliga", "2026-07-01T00:00:00Z", "2026-08-28T00:00:00Z"],
+    ["Serie A", "2026-06-05T00:00:00Z", "2026-08-22T00:00:00Z"],
+    ["Ligue 1", "2026-06-01T00:00:00Z", "2026-08-23T00:00:00Z"],
+    ["Primeira Liga", "2026-07-01T00:00:00Z", "2026-08-09T00:00:00Z"],
+    ["Eredivisie", "2026-06-01T00:00:00Z", "2026-08-07T00:00:00Z"],
+    ["Liga MX", "2026-06-01T00:00:00Z", "2026-07-16T00:00:00Z"],
+    ["Brasileirão", "2026-01-01T00:00:00Z", "2026-01-28T00:00:00Z"],
+    ["NWSL", "2026-01-01T00:00:00Z", "2026-03-13T00:00:00Z"],
+    ["Saudi Pro League", "2026-07-01T00:00:00Z", "2026-08-13T00:00:00Z"],
+    ["J1 League", "2026-01-01T00:00:00Z", "2026-08-07T00:00:00Z"],
+    ["Scottish Premiership", "2026-06-01T00:00:00Z", "2026-07-31T00:00:00Z"],
+    ["Belgian Pro League", "2026-07-01T00:00:00Z", "2026-08-07T00:00:00Z"],
+    ["UEFA Champions League", "2026-07-01T00:00:00Z", "2026-07-07T00:00:00Z"],
+    ["UEFA Europa League", "2026-08-27T00:00:00Z", "2026-07-09T00:00:00Z"],
+  ])("normalizes %s to its published opening date", (name, apiStart, regularStart) => {
+    expect(normalizeSeasonWindow(name, {
+      startDate: apiStart,
+      endDate: "2027-07-01T23:59:59Z",
+    }, new Date("2026-06-01T00:00:00Z")).startDate).toBe(regularStart);
+  });
+
+  it("rolls published opening dates into the season's reported year", () => {
+    expect(normalizeSeasonWindow("La Liga", {
+      startDate: "2027-06-01T00:00:00Z",
+      endDate: "2028-06-01T23:59:59Z",
+    }, new Date("2027-08-25T00:00:00Z")).startDate).toBe("2027-08-15T00:00:00Z");
+  });
+
+  it("keeps the active Champions League season when ESPN jumps to next year", () => {
+    expect(normalizeSeasonWindow("UEFA Champions League", {
+      startDate: "2027-07-01T00:00:00Z",
+      endDate: "2028-06-30T23:59:59Z",
+    }, new Date("2026-08-21T12:00:00Z"))).toEqual({
+      startDate: "2026-07-07",
+      endDate: "2027-06-05",
+    });
+  });
+
+  it("keeps the active Europa League season when ESPN jumps to next year", () => {
+    expect(normalizeSeasonWindow("UEFA Europa League", {
+      startDate: "2027-07-01T00:00:00Z",
+      endDate: "2028-06-30T23:59:59Z",
+    }, new Date("2026-08-21T12:00:00Z"))).toEqual({
+      startDate: "2026-07-09",
+      endDate: "2027-05-26",
+    });
+  });
+
+  it("keeps the active Champions League season when ESPN returns the ended season", () => {
+    expect(normalizeSeasonWindow("UEFA Champions League", {
+      startDate: "2025-07-07T00:00:00Z",
+      endDate: "2026-06-05T23:59:59Z",
+    }, new Date("2026-08-21T12:00:00Z"))).toEqual({
+      startDate: "2026-07-07",
+      endDate: "2027-06-05",
+    });
+  });
+
+  it("keeps the season start overrides in step with the registry fallbacks", () => {
+    // The override normalizes a season to the first official fixture when ESPN's
+    // window opens with preseason activity. The registry's fallback[0] is the
+    // same date, used when the API is unavailable. They are duplicated by
+    // design, so this guard keeps one from moving without the other.
+    const { LEAGUES } = require("../../src/config/leagues");
+
+    const names = Object.keys(SEASON_START_OVERRIDES);
+    expect(names.length).toBeGreaterThan(0);
+    for (const name of names) {
+      const league = LEAGUES.find((entry) => entry.name === name);
+      expect(league).toBeDefined();
+      expect(SEASON_START_OVERRIDES[name]).toBe(`${league.fallback[0]}T00:00:00Z`);
+    }
+  });
+
+  it("updates only the marked supported-sports table", () => {
+    const readme = [
+      "before",
+      "<!-- supported-sports:start -->",
+      "| Sport | Status | Endpoint |",
+      "|---|---|---|",
+      "| old | old | old |",
+      "<!-- supported-sports:end -->",
+      "after",
+    ].join("\n");
+    const updated = updateSupportedSportsTable(readme, [
+      { name: "NBA", sport: "Basketball", key: "nba", season: "🟢 In progress · ends 2027-06-30", endpoint: "[`basketball/nba`](https://example.com)" },
+    ]);
+
+    expect(updated).toContain("| Sport | League | Key | Season | Endpoint |");
+    expect(updated).toContain("| 🏀&nbsp;Basketball | NBA | `nba` | 🟢 In progress · ends 2027-06-30 | [`basketball/nba`](https://example.com) |");
+    expect(updated).toContain("before\n<!-- supported-sports:start -->");
+    expect(updated).toContain("<!-- supported-sports:end -->\nafter");
+  });
+
+  it("generates the intro league list from the same rows", () => {
+    const readme = [
+      "before",
+      "<!-- league-list:start -->",
+      "Currently supports **stale**, **outdated** with more sports coming soon",
+      "<!-- league-list:end -->",
+      "after",
+    ].join("\n");
+
+    const one = updateLeagueList(readme, [{ name: "NBA" }]);
+    expect(one).toContain("Currently supports **NBA** with more sports coming soon");
+
+    const two = updateLeagueList(readme, [{ name: "NBA" }, { name: "MLB" }]);
+    expect(two).toContain("Currently supports **NBA** and **MLB** with more sports coming soon");
+
+    const three = updateLeagueList(readme, [{ name: "NBA" }, { name: "MLB" }, { name: "NFL" }]);
+    expect(three).toContain("Currently supports **NBA**, **MLB**, and **NFL** with more sports coming soon");
+    expect(three).toContain("before\n<!-- league-list:start -->");
+    expect(three).toContain("<!-- league-list:end -->\nafter");
+  });
+});

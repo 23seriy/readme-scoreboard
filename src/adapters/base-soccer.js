@@ -1,0 +1,531 @@
+const { get: httpGet } = require("../http");
+const BaseFreeApiAdapter = require("./base-free-api");
+const { buildGameLog, dateOffset, opponentPool, recordFromGames } = require("../demo");
+
+const ESPN_HOST = "https://site.api.espn.com/apis";
+
+/**
+ * Shared behaviour for soccer leagues on ESPN's free API.
+ *
+ * Every league lives at the same endpoints under a different slug
+ * (MLS = usa.1, Premier League = eng.1, ...), so subclasses only supply
+ * the slug, their team tables, and their season window.
+ */
+class BaseSoccerAdapter extends BaseFreeApiAdapter {
+  // Subclasses must define: LEAGUE_SLUG, LEAGUE_NAME, TEAM_EMOJI,
+  // TEAM_IDS, DEMO_TEAMS. SEASON_SPANS_YEARS defaults to false
+  // (calendar-year seasons like MLS); set true for Aug–May leagues.
+  SEASON_SPANS_YEARS = false;
+
+  get baseUrl() {
+    return `${ESPN_HOST}/site/v2/sports/soccer/${this.LEAGUE_SLUG}`;
+  }
+
+  get baseUrlV2() {
+    return `${ESPN_HOST}/v2/sports/soccer/${this.LEAGUE_SLUG}`;
+  }
+
+  /**
+   * ESPN labels a season by the year it starts in. Leagues that run
+   * Aug–May therefore belong to the previous year once January arrives.
+   */
+  getSeasonYear() {
+    const now = new Date();
+    const year = now.getFullYear();
+    if (!this.SEASON_SPANS_YEARS) return year;
+    // Months Jan–Jun still belong to the season that began last year.
+    return now.getMonth() + 1 <= 6 ? year - 1 : year;
+  }
+
+  getLogoUrl(abbr) {
+    const upper = abbr.toUpperCase();
+    if (this.TEAM_LOGO_OVERRIDES?.[upper]) return this.TEAM_LOGO_OVERRIDES[upper];
+    // Dynamic leagues may not have a static roster yet; keep demo logos
+    // available until the first live team lookup populates TEAM_IDS.
+    const id = this.TEAM_IDS[upper] || this.DEMO_TEAMS?.[upper]?.id;
+    return id ? `https://a.espncdn.com/i/teamlogos/soccer/500/${id}.png` : null;
+  }
+
+  // ESPN's soccer headshots share the athlete-id path used by the other
+  // leagues. Returns null without an id so the renderer can omit the image
+  // rather than emit a broken one.
+  getPlayerHeadshotUrl(playerId) {
+    return playerId
+      ? `https://a.espncdn.com/i/headshots/soccer/players/full/${playerId}.png`
+      : null;
+  }
+
+  /**
+   * The base demo data has no soccer-specific fields (draws, per-team
+   * scores), so build a soccer-shaped sample instead. Deterministic: the
+   * record is counted from the same game log that is displayed.
+   */
+  getDemoData(teamAbbr, playerName) {
+    const abbr = teamAbbr.toUpperCase();
+    const team = this.DEMO_TEAMS[abbr];
+    if (!team) return null;
+
+    const ownTeams = Object.keys(this.DEMO_TEAMS).filter((key) => key !== abbr);
+    // League tables are tiny (one entry per gallery example), so pad with a
+    // per-competition pool. Without this, a 30-game log repeats opponents and
+    // the "next" fixture would duplicate a game already shown.
+    const extras = opponentPool([this.LEAGUE_SLUG, "soccer"], []);
+    // A competition whose entrants are not clubs (the World Cup fields
+    // nations) supplies its own pool. Empty for every club league, so their
+    // samples are unchanged.
+    const pool = [...new Set([...(this.DEMO_OPPONENT_POOL || []), ...extras, ...ownTeams])].filter((key) => key !== abbr);
+    const log = buildGameLog({
+      seed: `${this.LEAGUE_SLUG}-${abbr}`,
+      opponents: pool,
+      wins: 18,
+      losses: 6,
+      draws: 6,
+      scoreRange: { team: [0, 4], opponent: [0, 3] },
+    });
+    log.reverse();
+    const record = recordFromGames(log, this.getSeasonYear());
+    const recentGames = log.slice(0, 5);
+
+    // Keep the upcoming fixture distinct from anything just played.
+    const playedRecently = new Set(recentGames.map((g) => g.oppAbbr));
+    const nextOpponent = pool.find((opp) => !playedRecently.has(opp)) || pool[0];
+
+    return {
+      team,
+      record,
+      standing: { position: 2, label: this.LEAGUE_NAME },
+      form: recentGames.map((g) => (g.drew ? "D" : g.won ? "W" : "L")),
+      nextGame: {
+        date: dateOffset(7),
+        opponent: nextOpponent,
+        isHome: true,
+      },
+      recentGames: recentGames.map((g) => ({
+        date: g.date,
+        gameType: "R",
+        home_team: {
+          id: g.isHome ? team.id : 0,
+          abbreviation: g.isHome ? team.abbreviation : g.oppAbbr,
+        },
+        visitor_team: {
+          id: g.isHome ? 0 : team.id,
+          abbreviation: g.isHome ? g.oppAbbr : team.abbreviation,
+        },
+        home_team_score: g.isHome ? g.teamScore : g.oppScore,
+        visitor_team_score: g.isHome ? g.oppScore : g.teamScore,
+        status: "Final",
+        isHome: g.isHome,
+        teamScore: g.teamScore,
+        oppScore: g.oppScore,
+        oppAbbr: g.oppAbbr,
+        won: g.won,
+        drew: g.drew,
+      })),
+      spotlight: playerName ? this.getDemoSpotlight(abbr, playerName, recentGames) : null,
+    };
+  }
+
+  async fetchTeam(abbr) {
+    try {
+      const upper = abbr.toUpperCase();
+      const configuredId = this.TEAM_IDS[upper];
+      let data;
+      if (configuredId) {
+        ({ data } = await httpGet(`${this.baseUrl}/teams/${configuredId}`));
+      } else {
+        ({ data } = await httpGet(`${this.baseUrl}/teams?limit=1000`));
+      }
+      const teams = [
+        ...(data.teams || []),
+        ...(data.sports || []).flatMap((sport) => sport.leagues || []).flatMap((league) => league.teams || []),
+      ].map((entry) => entry.team || entry);
+      const team = configuredId ? data.team : teams.find((candidate) => candidate.abbreviation?.toUpperCase() === upper);
+      if (!team) return null;
+      this.TEAM_IDS[upper] = Number(team.id);
+      return {
+        id: team.id,
+        abbreviation: team.abbreviation,
+        name: team.name,
+        full_name: team.displayName,
+        conference: "",
+        division: "",
+      };
+    } catch (error) {
+      console.error(`Failed to fetch ${this.LEAGUE_NAME} team: ${error.message}`);
+      return null;
+    }
+  }
+
+  /**
+   * The label for a standings table, from ESPN's group name.
+   *
+   * ESPN's group name is inconsistent across the 27 soccer leagues:
+   *   - "2026"          a bare year (Brasileirão)
+   *   - "2026-27 "      a year with a trailing space (Austria), which rendered
+   *                     as "Standing (2026): 2026-27  · 9"
+   *   - "2026-27 English Premier League"  a season-qualified competition name
+   *   - "Regular Season", "Group B", "Group C"  a phase or group
+   *
+   * Only the first two are unusable, and they are unusable for the same reason:
+   * they carry no competition name at all, just a season. Those fall back to the
+   * league's own name so the position has a referent.
+   *
+   * A season-qualified name is deliberately LEFT ALONE. Liga MX splits each year
+   * into Apertura and Clausura tournaments, so "2026 Torneo Apertura" needs its
+   * year to disambiguate — an adapter test pins that, and stripping it here
+   * would regress it. The duplication this creates on European leagues
+   * ("Standing (2026): 2026-27 English Premier League") is cosmetic and is
+   * handled per-adapter by its owner rather than centrally.
+   */
+  standingsLabel(groupName) {
+    const raw = String(groupName || "").trim().replace(/\s+/g, " ");
+    // A name that is nothing but a season ("2026", "2026-27", "2026-2027").
+    const seasonOnly = /^\d{4}(\s*[-–/]\s*\d{2,4})?$/;
+    if (!raw || seasonOnly.test(raw)) return this.LEAGUE_NAME;
+    return raw;
+  }
+
+  /**
+   * Table position and W/L/D come from standings, which is authoritative —
+   * counting fixtures would miss abandoned and rescheduled matches.
+   */
+  async fetchConferenceRecord(teamAbbr) {
+    const season = this.getSeasonYear();
+    const empty = { conference: "", wins: 0, losses: 0, draws: 0, season };
+    try {
+      const upper = teamAbbr.toUpperCase();
+      const { data } = await httpGet(`${this.baseUrlV2}/standings?season=${season}`);
+      for (const group of (data.children || [])) {
+        const entries = group.standings?.entries || [];
+        const index = entries.findIndex((e) => e.team?.abbreviation?.toUpperCase() === upper);
+        const entry = entries[index];
+        if (entry) {
+          const stats = (entry.stats || []).reduce((acc, s) => { acc[s.name] = s.value; return acc; }, {});
+          // An unplayed season still returns a full table: every team on 0
+          // games and 0 points, ordered ALPHABETICALLY. Reporting `index + 1`
+          // then names a league leader who has not played — the A-League
+          // showcase put Adelaide United top purely because "Adelaide" sorts
+          // first. A position is only meaningful once the table has results,
+          // so a blank table reports none at all.
+          const played = entries.some((e) => {
+            const s = (e.stats || []).reduce((acc, x) => { acc[x.name] = x.value; return acc; }, {});
+            return Number(s.gamesPlayed) > 0;
+          });
+          return {
+            // Conference for MLS; for single-table leagues ESPN returns
+            // the league name here, which the renderer falls back on.
+            conference: this.standingsLabel(group.name),
+            wins: stats.wins || 0,
+            losses: stats.losses || 0,
+            draws: stats.ties || 0,
+            position: played ? index + 1 : null,
+            season,
+          };
+        }
+      }
+      return empty;
+    } catch (error) {
+      console.error(`Failed to fetch ${this.LEAGUE_NAME} standings: ${error.message}`);
+      return empty;
+    }
+  }
+
+  parseSchedule(events, teamId) {
+    return (events || [])
+      .filter((e) => e.competitions?.[0]?.status?.type?.completed)
+      .map((e) => {
+        const comp = e.competitions[0];
+        const teamComp = comp.competitors.find((c) => String(c.team?.id) === String(teamId));
+        const oppComp = comp.competitors.find((c) => String(c.team?.id) !== String(teamId));
+        if (!teamComp || !oppComp) return null;
+        const home = comp.competitors.find((c) => c.homeAway === "home");
+        const away = comp.competitors.find((c) => c.homeAway === "away");
+        const teamScore = teamComp.score?.value ?? 0;
+        const oppScore = oppComp.score?.value ?? 0;
+        return {
+          date: e.date,
+          gameType: "R",
+          home_team: { id: home?.team?.id, abbreviation: home?.team?.abbreviation },
+          visitor_team: { id: away?.team?.id, abbreviation: away?.team?.abbreviation },
+          home_team_score: home?.score?.value ?? 0,
+          visitor_team_score: away?.score?.value ?? 0,
+          status: "Final",
+          // Soccer-specific
+          isHome: teamComp.homeAway === "home",
+          teamScore,
+          oppScore,
+          oppAbbr: oppComp.team?.abbreviation,
+          won: teamScore > oppScore,
+          drew: teamScore === oppScore,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 5);
+  }
+
+  async fetchData(teamAbbr) {
+    try {
+      const team = await this.fetchTeamByAbbr(teamAbbr);
+      if (!team) return null;
+
+      const season = this.getSeasonYear();
+      const [standings, schedData] = await Promise.all([
+        this.fetchConferenceRecord(teamAbbr),
+        httpGet(`${this.baseUrl}/teams/${team.id}/schedule?season=${season}`),
+      ]);
+
+      // The plain schedule endpoint returns a truncated page of COMPLETED matches
+      // — five events for a Premier League season — so it never holds an upcoming
+      // fixture and no soccer board could show a next game. `fixture=true` returns
+      // the future ones instead (33 for Arsenal, out to next May).
+      //
+      // Deliberately fetched AFTER the two calls above, not alongside them, and
+      // deliberately non-fatal. A sequenced test stub hands responses out in
+      // order, so a third parallel request would take the standings payload; and
+      // when a stub runs out of queued responses it returns undefined rather than
+      // rejecting, which `.catch` alone does not cover — hence the explicit
+      // coercion of a successful non-result.
+      const fixtureData = await Promise.resolve()
+        .then(() => httpGet(`${this.baseUrl}/teams/${team.id}/schedule?season=${season}&fixture=true`))
+        .then((res) => res || { data: { events: [] } })
+        .catch(() => ({ data: { events: [] } }));
+
+      team.conference = standings.conference;
+
+      return {
+        team,
+        record: {
+          wins: standings.wins,
+          losses: standings.losses,
+          draws: standings.draws,
+          season: standings.season,
+        },
+        recentGames: this.parseSchedule(schedData.data.events, team.id),
+        // The season travels with the position so the board can name it, as
+        // the NHL adapter does. Without it a board read "Standing: 5" with no
+        // context on the line above "2026 Record", and the ambiguity is real:
+        // half these leagues run Aug-May and their table can be the previous
+        // season's for weeks after it ends.
+        standing: standings.position
+          ? { position: standings.position, label: standings.conference, season: standings.season }
+          : null,
+        form: this.parseForm(schedData.data.events, team.id),
+        nextGame: this.parseNextGame(fixtureData.data.events, team.id),
+      };
+    } catch (error) {
+      console.error(`Failed to fetch ${this.LEAGUE_NAME} data: ${error.message}`);
+      return null;
+    }
+  }
+
+  // Last five completed results as W/D/L, most recent first.
+  parseForm(events, teamId) {
+    return (events || [])
+      .filter((e) => e.competitions?.[0]?.status?.type?.completed)
+      .map((e) => {
+        const comp = e.competitions[0];
+        const teamComp = comp.competitors.find((c) => String(c.team?.id) === String(teamId));
+        const oppComp = comp.competitors.find((c) => String(c.team?.id) !== String(teamId));
+        if (!teamComp || !oppComp) return null;
+        const teamScore = Number(teamComp.score?.value ?? 0);
+        const oppScore = Number(oppComp.score?.value ?? 0);
+        return teamScore === oppScore ? "D" : teamScore > oppScore ? "W" : "L";
+      })
+      .filter(Boolean)
+      .slice(0, 5);
+  }
+
+  // First upcoming (not yet completed) fixture for a team.
+  parseNextGame(events, teamId) {
+    const upcoming = (events || [])
+      .filter((e) => e.competitions?.[0]?.status?.type?.completed === false)
+      .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+    if (!upcoming) return null;
+    const comp = upcoming.competitions[0];
+    const teamComp = comp.competitors.find((c) => String(c.team?.id) === String(teamId));
+    const oppComp = comp.competitors.find((c) => String(c.team?.id) !== String(teamId));
+    if (!teamComp || !oppComp) return null;
+    return {
+      date: upcoming.date,
+      opponent: oppComp.team?.abbreviation || oppComp.team?.displayName,
+      isHome: teamComp.homeAway === "home",
+    };
+  }
+
+  // Unused by soccer adapters — schedule parsing is handled above.
+  parseGameResponse() { return []; }
+  parseTeamResponse() { return null; }
+  getGamesUrl() { return ""; }
+
+  // ------------------------------------------------------------------
+  // Player spotlight
+  //
+  // ESPN exposes no season-stats endpoint for soccer athletes (it 404s), but
+  // the game log does carry per-match stat columns. Season totals are
+  // therefore summed from the log. Every soccer league shares this endpoint
+  // shape, so a single implementation covers all of them.
+  // ------------------------------------------------------------------
+
+  findPlayerOnRoster(roster, playerName) {
+    const target = playerName.trim().toLowerCase();
+    return roster.find((player) => (player.fullName || "").toLowerCase() === target) || null;
+  }
+
+  async fetchTeamRoster(teamAbbr) {
+    try {
+      const team = await this.fetchTeam(teamAbbr);
+      if (!team) return [];
+      const { data } = await httpGet(`${this.baseUrl}/teams/${team.id}/roster`);
+      const athletes = (data.athletes || []).flatMap((group) => group.items || group);
+      return athletes
+        .filter((athlete) => athlete && athlete.id)
+        .map((athlete) => ({
+          id: String(athlete.id),
+          fullName: athlete.fullName || athlete.displayName || "",
+          position: athlete.position?.abbreviation || athlete.position?.name || "",
+        }))
+        .filter((athlete) => athlete.fullName);
+    } catch (error) {
+      console.error(`Failed to fetch ${this.LEAGUE_NAME} roster: ${error.message}`);
+      return [];
+    }
+  }
+
+  // Sum a game log into season totals. The log's `names` array labels each
+  // numeric column in every event's `stats` array.
+  summarizeGameLog(gameLog) {
+    const names = gameLog.names || [];
+    const events = (gameLog.seasonTypes || [])
+      .flatMap((seasonType) => seasonType.categories || [])
+      .flatMap((category) => category.events || []);
+    const indexOf = (name) => names.indexOf(name);
+    const idx = {
+      goals: indexOf("totalGoals"),
+      assists: indexOf("goalAssists"),
+      saves: indexOf("saves"),
+      cleanSheets: indexOf("cleanSheet"),
+      yellowCards: indexOf("yellowCards"),
+      redCards: indexOf("redCards"),
+    };
+    const total = (column) => {
+      if (column === -1) return 0;
+      return events.reduce((sum, event) => {
+        const value = Number(event.stats?.[column]);
+        return sum + (Number.isFinite(value) ? value : 0);
+      }, 0);
+    };
+    return {
+      appearances: events.length,
+      goals: total(idx.goals),
+      assists: total(idx.assists),
+      saves: total(idx.saves),
+      cleanSheets: total(idx.cleanSheets),
+      yellowCards: total(idx.yellowCards),
+      redCards: total(idx.redCards),
+    };
+  }
+
+  async fetchPlayerSeasonStats(athleteId) {
+    try {
+      const { data } = await httpGet(
+        `https://site.web.api.espn.com/apis/common/v3/sports/soccer/${this.LEAGUE_SLUG}/athletes/${athleteId}/gamelog`
+      );
+      return this.summarizeGameLog(data);
+    } catch (error) {
+      console.error(`Failed to fetch ${this.LEAGUE_NAME} player season stats: ${error.message}`);
+      return null;
+    }
+  }
+
+  async fetchPlayerLastGame(athleteId) {
+    try {
+      const { data } = await httpGet(
+        `https://site.web.api.espn.com/apis/common/v3/sports/soccer/${this.LEAGUE_SLUG}/athletes/${athleteId}/gamelog`
+      );
+      const names = data.names || [];
+      const categories = (data.seasonTypes || []).flatMap((seasonType) => seasonType.categories || []);
+      const latest = categories.flatMap((category) => category.events || [])[0];
+      if (!latest) return null;
+      const events = data.events || {};
+      const meta = events[latest.eventId] || {};
+      const at = (name) => {
+        const index = names.indexOf(name);
+        if (index === -1) return null;
+        const value = Number(latest.stats?.[index]);
+        return Number.isFinite(value) ? value : null;
+      };
+      return {
+        date: meta.gameDate || null,
+        opponent: meta.opponent?.abbreviation || meta.opponent?.displayName || null,
+        goals: at("totalGoals"),
+        assists: at("goalAssists"),
+        saves: at("saves"),
+      };
+    } catch (error) {
+      console.error(`Failed to fetch ${this.LEAGUE_NAME} player last game: ${error.message}`);
+      return null;
+    }
+  }
+
+  async fetchPlayerSpotlight(teamAbbr, playerName) {
+    const roster = await this.fetchTeamRoster(teamAbbr);
+    const player = this.findPlayerOnRoster(roster, playerName);
+    if (!player) {
+      const names = roster.slice(0, 8).map((entry) => entry.fullName);
+      const suffix = roster.length > 8 ? ", ..." : "";
+      throw new Error(`Unknown player "${playerName}" on ${teamAbbr}. Try one of: ${names.join(", ")}${suffix}`);
+    }
+    const [season, lastGame] = await Promise.all([
+      this.fetchPlayerSeasonStats(player.id),
+      this.fetchPlayerLastGame(player.id),
+    ]);
+    // Fail loudly rather than render a line of zeroes: an empty game log means
+    // ESPN has no stats for this athlete, and silently printing "0 APP · 0 G"
+    // would look like a bug in the board rather than missing upstream data.
+    if (!season || season.appearances === 0) {
+      throw new Error(
+        `No season stats available for "${player.fullName}" on ${teamAbbr} (${this.LEAGUE_NAME}). ` +
+        `ESPN has no game log for this athlete yet — this is common in the off-season or early in a season.`
+      );
+    }
+    return { name: player.fullName, position: player.position, season, lastGame, headshotUrl: this.getPlayerHeadshotUrl(player.id) };
+  }
+
+  // Deterministic demo spotlight: derived from the player's name so repeated
+  // runs and the generated examples stay byte-identical. `recentGames` is the
+  // team board's own list, so the spotlight's last game can't contradict it.
+  getDemoSpotlight(teamAbbr, playerName, recentGames = []) {
+    const team = this.DEMO_TEAMS[teamAbbr.toUpperCase()];
+    if (!team || !playerName) return null;
+    const seed = playerName.split("").reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+    const last = recentGames[0];
+    return {
+      name: playerName,
+      position: "MF",
+      season: {
+        appearances: 20 + (seed % 15),
+        goals: seed % 18,
+        assists: seed % 12,
+        saves: 0,
+        cleanSheets: 0,
+        yellowCards: seed % 6,
+        redCards: 0,
+      },
+      // Soccer demo data invents a player name rather than using a real
+      // athlete, so there is no id to build a headshot from. The field is
+      // deliberately absent: the renderer treats it as optional and omits the
+      // image, which is better than pointing at a broken URL. Live runs always
+      // populate it from the roster's athlete id.
+      lastGame: {
+        date: last ? last.date : dateOffset(0),
+        opponent: last ? last.oppAbbr : "RIV",
+        goals: seed % 2,
+        assists: seed % 2,
+        saves: 0,
+      },
+    };
+  }
+}
+
+module.exports = BaseSoccerAdapter;

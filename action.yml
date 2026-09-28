@@ -1,0 +1,85 @@
+name: "readme-scoreboard"
+description: "🏆 Live sports scores, records, and recent games on your GitHub profile README. 43 leagues, free no-auth APIs, drop-in."
+author: "23seriy"
+branding:
+  icon: "activity"
+  color: "orange"
+inputs:
+  sport:
+    description: "Sport: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, worldcup, ufc, gleague, ncaab, ncaaw, ncaaf, ncaa_hockey, f1, atp, wta, argentina, aleague, isl, csl, greek, austria, denmark, norway, sweden, nascar, indycar"
+    required: false
+    default: "nba"
+  team:
+    description: "Team or player abbreviation (e.g. LAL, TOR, NYR, or SIN for Jannik Sinner). Look up abbreviations in TEAM_DIRECTORY.md."
+    required: true
+  player:
+    description: "Player full name to feature alongside the team board (e.g. 'Luka Doncic' or 'Bukayo Saka'); must match the roster's exact spelling, including accents. Supported for sport: nba, wnba, ncaab, ncaaw, mlb, nfl, nhl, and every soccer league (mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, argentina, aleague, isl, csl, greek, austria, denmark, norway, sweden). Not supported together with teams: (multiple boards)."
+    required: false
+  entity:
+    description: "Entity type: 'team' (default) or 'player'. Inferred from the sport; set this to track an individual player (e.g. ATP)."
+    required: false
+    default: "team"
+  teams:
+    description: "Optional comma-separated list of team/player abbreviations to render multiple boards in one run (e.g. LAL, NYY, ARS)."
+    required: false
+  title:
+    description: "Custom heading text for the scoreboard (default: 'My Favourite <League> Team')."
+    required: false
+  badge:
+    description: "Render shields-style badges instead of a full scoreboard block (true/false)."
+    required: false
+    default: "false"
+  gh_token:
+    description: "Token with Contents read/write access to target_repo. Required for live README updates; omit for dry-run."
+    required: false
+  marker:
+    description: "HTML comment marker name (default: readme-scoreboard). Use unique names (e.g. readme-scoreboard-nba) for multiple scoreboards."
+    required: false
+    default: "readme-scoreboard"
+  target_repo:
+    description: "Repository to update (default: your profile repo). Format: owner/repo."
+    required: false
+  dry_run:
+    description: "Fetch and render live data without updating a README (true/false)."
+    required: false
+    default: "false"
+  compact:
+    description: "Use a smaller README block without team logos or recent-game details (true/false)."
+    required: false
+    default: "false"
+outputs:
+  updated:
+    description: "Whether the target README was changed"
+    value: ${{ steps.run.outputs.updated }}
+  mode:
+    description: "Execution mode: live, dry-run, or preview"
+    value: ${{ steps.run.outputs.mode }}
+  target_repo:
+    description: "Repository targeted by the action"
+    value: ${{ steps.run.outputs.target_repo }}
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-node@v7
+      with:
+        node-version: "24"
+    - run: npm ci --omit=dev --ignore-scripts
+      shell: bash
+      working-directory: ${{ github.action_path }}
+    - id: run
+      run: node src/index.js
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      env:
+        GH_TOKEN: ${{ inputs.gh_token }}
+        SPORT: ${{ inputs.sport }}
+        TEAM: ${{ inputs.team }}
+        TEAMS: ${{ inputs.teams }}
+        ENTITY: ${{ inputs.entity }}
+        TITLE: ${{ inputs.title }}
+        BADGE: ${{ inputs.badge }}
+        MARKER: ${{ inputs.marker }}
+        TARGET_REPO: ${{ inputs.target_repo }}
+        PLAYER: ${{ inputs.player }}
+        DRY_RUN: ${{ inputs.dry_run }}
+        COMPACT: ${{ inputs.compact }}
