@@ -5,10 +5,10 @@
 ### 🇧🇾 Aryna Sabalenka (SAB)
 WTA · World Ranking
 
-🏆 World No. 1 · 📍 8,575 ranking points · 📈 Movement: — (was No. 1)
+🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: — (was No. 2)
 
 **📅 Last Match:**
 ```
-✅ W vs Elena Rybakina (Aug 30, 2026) 6-3, 4-6, 6-2
+❌ L vs Elena Rybakina (Sep 12, 2026) 4-6, 7-5, 2-6
 ```
 

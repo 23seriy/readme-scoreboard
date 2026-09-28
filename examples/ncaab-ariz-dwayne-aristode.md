@@ -3,29 +3,28 @@
 <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/12.png" alt="Arizona Wildcats logo" width="72" align="right" />
 
 ### 🐻 Arizona Wildcats (ARIZ)
-Big 12 Conference
+Big 12 Conference Conference
 🔴 Off-season · Next season starts November 2, 2026
 
-🏅 Standing: Big 12 · 2
+🏅 Standing: Big 12 Conference · 16
 
-📅 Next: vs BOS (Jan 11)
-
-📊 2025-2026 Record: 18W - 6L (75.0%)
-   ██████████████████▊░░░░░░
+📊 2025-2026 Record: 16W - 2L (88.9%)
+   ██████████████████████▏░░
 
 **📅 Recent Games:**
 ```
-✅ W  30-27  vs DEN (Jan 4, 2026)
-❌ L   9-13  vs PHX (Dec 28, 2025)
-✅ W  25-22  vs GSW (Dec 21, 2025)
-✅ W  43-34  vs MIA (Dec 14, 2025)
-✅ W  38-33  vs NYK (Dec 7, 2025)
+✅ W  79-74  vs HOU (Mar 14, 2026)
+✅ W  82-80  vs ISU (Mar 13, 2026)
+✅ W  81-59  vs UCF (Mar 12, 2026)
+✅ W  89-79  @ COLO (Mar 7, 2026)
+✅ W  73-57  vs ISU (Mar 2, 2026)
 ```
 
 **🐻 Player Spotlight: Dwayne Aristode**
-9.4 PPG · 7.7 RPG · 2.3 APG
+<img src="https://a.espncdn.com/i/headshots/mens-college-basketball/players/full/5186456.png" alt="Dwayne Aristode headshot" height="72" align="right" />
+5.2 PPG · 1.9 RPG · 1.0 APG
 
 **📅 Last Game:**
 ```
-19 PTS · 3 REB · 3 AST · 25 MIN vs DEN (Jan 4, 2026)
+3 PTS · 1 REB · 0 AST · 10 MIN vs Michigan Wolverines (Apr 4, 2026)
 ```

@@ -16,6 +16,36 @@ describe("generated examples", () => {
     expect(files.length).toBeGreaterThan(0);
   });
 
+  it("has a synchronous demo renderer for deterministic fixtures", () => {
+    // `renderExample` is async and hits the network, so a caller that wants a
+    // stable fixture must use `renderDemoExample`. Passing the async one where a
+    // string is expected does NOT fail: it yields "[object Promise]", which
+    // hashes and compares like any other value. That silently emptied the
+    // timezone-independence check, which renders every board and compares a
+    // hash — it kept passing while covering nothing.
+    const examples = require("../scripts/generate-examples");
+    expect(typeof examples.renderExample).toBe("function");
+    expect(typeof examples.renderDemoExample).toBe("function");
+    expect(examples.renderExample.constructor.name).toBe("AsyncFunction");
+    expect(examples.renderDemoExample.constructor.name).toBe("Function");
+
+    const board = examples.renderDemoExample({ key: "nba", team: "LAL" });
+    expect(typeof board).toBe("string");
+    expect(board).toContain("### ");
+    expect(board).not.toContain("object Promise");
+  });
+
+  it("does not leak a build timestamp into the committed boards", () => {
+    // A generated `Last updated: <now>` footer would make every regeneration
+    // differ by construction, so the CI "boards are current" gate could never
+    // pass. The action writes that footer into a user's README; the committed
+    // examples deliberately omit it.
+    files.forEach((file) => {
+      const content = fs.readFileSync(file, "utf8");
+      expect(content).not.toMatch(/Last updated:/);
+    });
+  });
+
   it.each(files.map((file) => [path.basename(file), file]))(
     "%s renders no invalid dates",
     (_name, file) => {

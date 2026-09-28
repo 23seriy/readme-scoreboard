@@ -4,6 +4,6 @@
 NASCAR Cup Series · Driver Championship
 🟢 Season in progress
 
-🏆 Championship position: 1
-📍 Points: 2168
+🏆 Championship position: 2
+📍 Points: 2256
 

@@ -6,27 +6,25 @@
 American League · AL East
 🟢 Season in progress
 
-🏅 Standing: AL East · 4
+🏅 Standing: AL East · 5
 
-📅 Next: vs ATL (Jan 6)
-
-📊 2026 Record: 42W - 28L (60.0%)
-   ███████████████░░░░░░░░░░
+📊 2026 Record: 79W - 83L (48.8%)
+   ████████████▏░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W  2-0  @ BAL (Jan 4, 2026)
-❌ L  8-11 vs TB  (Dec 28, 2025)
-✅ W  8-2  @ MIL (Dec 21, 2025)
-❌ L  7-19 vs SEA (Dec 14, 2025)
-✅ W  4-1  vs TEX (Dec 7, 2025)
+✅ W  5-1  vs CIN (Sep 27, 2026)
+❌ L  1-5  vs CIN (Sep 26, 2026)
+✅ W  6-5  vs CIN (Sep 25, 2026)
+❌ L  2-4  @ BAL (Sep 23, 2026)
+❌ L  2-4  @ BAL (Sep 23, 2026)
 ```
 
 **🐦 Player Spotlight: Vladimir Guerrero Jr.**
 <img src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/665489/headshot/67/current" alt="Vladimir Guerrero Jr. headshot" height="72" align="right" />
-.259 AVG · 8 HR · 54 RBI
+.260 AVG · 9 HR · 57 RBI
 
 **📅 Last Game:**
 ```
-1 H · 0 HR · 0 RBI · .259 AVG vs BAL (Jan 4, 2026)
+0 H · 0 HR · 0 RBI · .260 AVG vs Cincinnati Reds (Sep 26, 2026)
 ```

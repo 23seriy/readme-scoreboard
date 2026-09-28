@@ -21,3 +21,12 @@ Eastern Conference · Metropolitan Division
 ❌ L   3-5   vs BUF (Apr 8, 2026)
 ✅ W   8-1   vs WSH (Apr 5, 2026)
 ```
+
+**🦢 Player Spotlight: Mika Zibanejad**
+<img src="https://assets.nhle.com/mugs/nhl/latest/8476459.png" alt="Mika Zibanejad headshot" height="72" align="right" />
+34 G · 44 A · 78 PTS
+
+**📅 Last Game:**
+```
+1 G · 1 A · 2 P vs TBL (Apr 15, 2026)
+```

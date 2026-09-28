@@ -3,21 +3,21 @@
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/359.png" alt="Arsenal logo" width="72" align="right" />
 
 ### 🔴 Arsenal (ARS)
-Premier League
+2026-27 English Premier League
 🟢 Season in progress
 
-🏅 Standing: Premier League · 2
+🏅 Standing (2026): 2026-27 English Premier League · 2
 
-📅 Next: vs TOT (Jan 11)
+📅 Next: vs LEE (Oct 10)
 
-📊 2026 Record: 18W - 6L - 6D  (60 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 4W - 1L - 0D  (12 pts)
+   ████████████████████░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 1-0 vs LIV   (Jan 4, 2026)
-❌ L 0-1 vs BHA   (Dec 28, 2025)
-✅ W 4-0 @ NEW   (Dec 21, 2025)
-🟡 D 1-1 @ MNC   (Dec 14, 2025)
-✅ W 1-0 vs EVE   (Dec 7, 2025)
+❌ L 0-3 @ BHA   (Sep 19, 2026)
+✅ W 2-0 @ SUN   (Sep 12, 2026)
+✅ W 2-1 vs CHE   (Sep 6, 2026)
+✅ W 1-0 @ AVL   (Aug 31, 2026)
+✅ W 3-0 vs COV   (Aug 21, 2026)
 ```
