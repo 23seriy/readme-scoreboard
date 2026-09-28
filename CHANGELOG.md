@@ -28,6 +28,13 @@ that would alter what appears in your README or require editing your workflow.
   Markdown, so `🏅 Standing: … · 2` and `📅 Next: …` were folded into one wrapped paragraph on the
   profile instead of reading as two rows. They are now separate lines in every board that shows
   both.
+- **The daily season-date check failed on a time of day.** The check that verifies every league's
+  season window compares the registry's opening date against the live one, and it compared them as
+  exact instants. The fixture calendar reports a kick-off (`2026-02-21T08:00Z`) while the registry
+  stores the day (`2026-02-21T00:00Z`), so thirteen leagues were reported as starting before
+  themselves — the error message quoted the same date on both sides. The comparison is now by
+  calendar day, which is the level the check exists to police: a genuine earlier-season override is
+  still caught.
 
 ## [1.16.0] - 2026-09-26
 
