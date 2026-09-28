@@ -7,6 +7,7 @@ Big 12 Conference
 🔴 Off-season · Next season starts November 2, 2026
 
 🏅 Standing: Big 12 · 2
+
 📅 Next: vs BOS (Jan 11)
 
 📊 2025-2026 Record: 18W - 6L (75.0%)

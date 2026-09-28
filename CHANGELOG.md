@@ -10,6 +10,25 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- **A board could claim a league position for a season that has not started.** An unplayed
+  standings table is not empty — ESPN returns every team on 0 games and 0 points, ordered
+  **alphabetically** — and the board read that array position as a rank. The A-League showcase
+  therefore opened with `🏅 Standing: 2026-27 A-League · 1` for Adelaide United, whose only claim to
+  first place was that "Adelaide" sorts first with no matches played. A position is now reported
+  only once the table has results, so a not-yet-started season shows the next fixture and nothing
+  else. Two leagues were affected today: the A-League and the Indian Super League.
+- **Two leagues reported "🟢 Season in progress" through their entire off-season.** The A-League and
+  the ISL had their season windows stored as the rounded July and September guesses, so from July
+  onwards a board announced a season underway weeks before its first fixture. Their real openers are
+  October 16 and October 10, verified against each league's live fixture calendar. Corrected in the
+  registry and in the generated README table.
+- **The next fixture sat on the same line as the standing.** A single newline is a soft break in
+  Markdown, so `🏅 Standing: … · 2` and `📅 Next: …` were folded into one wrapped paragraph on the
+  profile instead of reading as two rows. They are now separate lines in every board that shows
+  both.
+
 ## [1.16.0] - 2026-09-26
 
 ### Added

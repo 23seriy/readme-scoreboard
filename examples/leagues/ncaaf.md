@@ -13,6 +13,7 @@ Southeastern Conference
 🟢 Season in progress
 
 🏅 Standing: Southeastern Conference · 1
+
 📅 Next: @ MSST (Oct 3)
 
 **📅 Recent Games:**
@@ -36,6 +37,7 @@ Southeastern Conference
 🟢 Season in progress
 
 🏅 Standing: Southeastern Conference · 1
+
 📅 Next: @ MSST (Oct 3)
 
 **📅 Recent Games:**
@@ -58,6 +60,7 @@ Southeastern Conference
 🟢 Season in progress
 
 🏅 Standing: Southeastern Conference · 1
+
 📅 Next: @ MSST (Oct 3)
 
 

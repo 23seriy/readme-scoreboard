@@ -13,6 +13,7 @@ Team: **BG** · Category: Soccer · Data source: ESPN public API
 🟢 Season in progress
 
 🏅 Standing: 2026 Chinese Super League · 3
+
 📅 Next: @ QIN (Oct 9)
 
 📊 2026 Record: 11W - 5L - 10D  (43 pts)
@@ -40,6 +41,7 @@ The `title:` input replaces the default heading.
 🟢 Season in progress
 
 🏅 Standing: 2026 Chinese Super League · 3
+
 📅 Next: @ QIN (Oct 9)
 
 📊 2026 Record: 11W - 5L - 10D  (43 pts)
@@ -66,6 +68,7 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing: 2026 Chinese Super League · 3
+
 📅 Next: @ QIN (Oct 9)
 
 📊 2026 Record: 11W - 5L - 10D  (43 pts)

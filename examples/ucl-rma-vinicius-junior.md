@@ -7,6 +7,7 @@ UEFA Champions League
 🟢 Season in progress
 
 🏅 Standing: UEFA Champions League · 2
+
 📅 Next: vs BAY (Jan 11)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)

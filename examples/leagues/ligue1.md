@@ -13,6 +13,7 @@ French Ligue 1 2026-27
 🟢 Season in progress
 
 🏅 Standing: French Ligue 1 2026-27 · 7
+
 📅 Next: @ BRE (Oct 10)
 
 📊 2026 Record: 2W - 2L - 1D  (7 pts)
@@ -40,6 +41,7 @@ French Ligue 1 2026-27
 🟢 Season in progress
 
 🏅 Standing: French Ligue 1 2026-27 · 7
+
 📅 Next: @ BRE (Oct 10)
 
 📊 2026 Record: 2W - 2L - 1D  (7 pts)
@@ -66,6 +68,7 @@ French Ligue 1 2026-27
 🟢 Season in progress
 
 🏅 Standing: French Ligue 1 2026-27 · 7
+
 📅 Next: @ BRE (Oct 10)
 
 📊 2026 Record: 2W - 2L - 1D  (7 pts)

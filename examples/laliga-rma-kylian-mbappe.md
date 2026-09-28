@@ -7,6 +7,7 @@ La Liga
 🟢 Season in progress
 
 🏅 Standing: La Liga · 2
+
 📅 Next: vs BET (Jan 11)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)

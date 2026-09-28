@@ -20,10 +20,10 @@ Eastern Conference · Southeast Division
 **📅 Recent Games:**
 ```
 ❌ L  89-140 vs NY  (Apr 30, 2026) [Playoffs]
-❌ L  97-126 @ NY  (Apr 29, 2026) [Playoffs]
+❌ L  97-126 @ NY  (Apr 28, 2026) [Playoffs]
 ❌ L  98-114 vs NY  (Apr 25, 2026) [Playoffs]
 ✅ W 109-108 vs NY  (Apr 23, 2026) [Playoffs]
-✅ W 107-106 @ NY  (Apr 21, 2026) [Playoffs]
+✅ W 107-106 @ NY  (Apr 20, 2026) [Playoffs]
 ```
 
 ## Custom title
@@ -46,10 +46,10 @@ Eastern Conference · Southeast Division
 **📅 Recent Games:**
 ```
 ❌ L  89-140 vs NY  (Apr 30, 2026) [Playoffs]
-❌ L  97-126 @ NY  (Apr 29, 2026) [Playoffs]
+❌ L  97-126 @ NY  (Apr 28, 2026) [Playoffs]
 ❌ L  98-114 vs NY  (Apr 25, 2026) [Playoffs]
 ✅ W 109-108 vs NY  (Apr 23, 2026) [Playoffs]
-✅ W 107-106 @ NY  (Apr 21, 2026) [Playoffs]
+✅ W 107-106 @ NY  (Apr 20, 2026) [Playoffs]
 ```
 
 ## Compact mode

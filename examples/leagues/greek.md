@@ -13,6 +13,7 @@ Team: **AEK** · Category: Soccer · Data source: ESPN public API
 🟢 Season in progress
 
 🏅 Standing: 2026-27 Greek Super League · 3
+
 📅 Next: vs OFI Crete (Oct 10)
 
 📊 2026 Record: 3W - 0L - 2D  (11 pts)
@@ -40,6 +41,7 @@ The `title:` input replaces the default heading.
 🟢 Season in progress
 
 🏅 Standing: 2026-27 Greek Super League · 3
+
 📅 Next: vs OFI Crete (Oct 10)
 
 📊 2026 Record: 3W - 0L - 2D  (11 pts)
@@ -66,6 +68,7 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing: 2026-27 Greek Super League · 3
+
 📅 Next: vs OFI Crete (Oct 10)
 
 📊 2026 Record: 3W - 0L - 2D  (11 pts)

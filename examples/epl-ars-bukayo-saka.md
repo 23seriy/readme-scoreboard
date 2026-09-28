@@ -7,6 +7,7 @@ Premier League
 🟢 Season in progress
 
 🏅 Standing: Premier League · 2
+
 📅 Next: vs TOT (Jan 11)
 
 📊 2026 Record: 18W - 6L - 6D  (60 pts)

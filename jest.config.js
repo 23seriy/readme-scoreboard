@@ -7,8 +7,8 @@
  *
  * Baseline (v1.11.1): statements 81.53%, branches 66.46%,
  * functions 78.35%, lines 83.90%.
- * Current (v1.14.2):  statements 91.64%, branches 70.20%,
- *                     functions 91.41%, lines 93.89%.
+ * Current (v1.16.0):  statements 92.13%, branches 71.11%,
+ *                     functions 91.83%, lines 94.22%.
  */
 module.exports = {
   testEnvironment: 'node',

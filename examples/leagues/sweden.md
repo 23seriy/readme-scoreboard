@@ -13,6 +13,7 @@ Team: **AIK** · Category: Soccer · Data source: ESPN public API
 🟢 Season in progress
 
 🏅 Standing: 2026 Swedish Allsvenskan · 8
+
 📅 Next: vs BRO (Oct 10)
 
 📊 2026 Record: 9W - 7L - 6D  (33 pts)
@@ -40,6 +41,7 @@ The `title:` input replaces the default heading.
 🟢 Season in progress
 
 🏅 Standing: 2026 Swedish Allsvenskan · 8
+
 📅 Next: vs BRO (Oct 10)
 
 📊 2026 Record: 9W - 7L - 6D  (33 pts)
@@ -66,6 +68,7 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing: 2026 Swedish Allsvenskan · 8
+
 📅 Next: vs BRO (Oct 10)
 
 📊 2026 Record: 9W - 7L - 6D  (33 pts)

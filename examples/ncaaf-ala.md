@@ -7,6 +7,7 @@ SEC
 🟢 Season in progress
 
 🏅 Standing: SEC · 2
+
 📅 Next: vs UGA (Jan 11)
 
 📊 2026 Season: 18W - 6L (75.0%)

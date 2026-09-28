@@ -10,9 +10,8 @@ Team: **ADE** · Category: Soccer · Data source: ESPN public API
 
 ### 🔴 Adelaide United (ADE)
 2026-27 A-League
-🟢 Season in progress
+🔴 Off-season · Next season starts October 16, 2026
 
-🏅 Standing: 2026-27 A-League · 1
 📅 Next: @ PER (Nov 1)
 
 📅 No recent games found
@@ -27,9 +26,8 @@ The `title:` input replaces the default heading.
 
 ### 🔴 Adelaide United (ADE)
 2026-27 A-League
-🟢 Season in progress
+🔴 Off-season · Next season starts October 16, 2026
 
-🏅 Standing: 2026-27 A-League · 1
 📅 Next: @ PER (Nov 1)
 
 📅 No recent games found
@@ -43,9 +41,8 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🔴 Adelaide United (ADE)
 2026-27 A-League
-🟢 Season in progress
+🔴 Off-season · Next season starts October 16, 2026
 
-🏅 Standing: 2026-27 A-League · 1
 📅 Next: @ PER (Nov 1)
 
 📅 No recent games found

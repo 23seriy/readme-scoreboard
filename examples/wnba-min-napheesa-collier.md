@@ -7,6 +7,7 @@ Western Conference
 🟢 Season in progress
 
 🏅 Standing: Western · 1
+
 📅 Next: vs POR (Jan 7)
 
 📊 2026 Record: 28W - 7L (80.0%)

@@ -11,7 +11,7 @@ NASCAR Cup Series · Driver Championship
 🟢 Season in progress
 
 🏆 Championship position: 2
-📍 Points: 2205
+📍 Points: 2256
 
 
 ## Custom title
@@ -25,7 +25,7 @@ NASCAR Cup Series · Driver Championship
 🟢 Season in progress
 
 🏆 Championship position: 2
-📍 Points: 2205
+📍 Points: 2256
 
 
 ## Compact mode
@@ -39,7 +39,7 @@ NASCAR Cup Series · Driver Championship
 🟢 Season in progress
 
 🏆 Championship position: 2
-📍 Points: 2205
+📍 Points: 2256
 
 
 ## Badge mode

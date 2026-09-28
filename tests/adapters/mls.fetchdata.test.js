@@ -53,6 +53,30 @@ function makeStandingsResponse(abbr, wins, losses, draws, conference = "Western 
   };
 }
 
+// An unplayed season still returns a full table: everyone on 0 games and 0
+// points, ordered ALPHABETICALLY by ESPN. Position is then just array order.
+function makeUnplayedStandingsResponse(entries) {
+  return {
+    data: {
+      children: [{
+        name: "2026-27 A-League",
+        standings: {
+          entries: entries.map((abbr) => ({
+            team: { abbreviation: abbr },
+            stats: [
+              { name: "wins", value: 0 },
+              { name: "losses", value: 0 },
+              { name: "ties", value: 0 },
+              { name: "points", value: 0 },
+              { name: "gamesPlayed", value: 0 },
+            ],
+          })),
+        },
+      }],
+    },
+  };
+}
+
 beforeEach(() => {
   jest.clearAllMocks();
   jest.spyOn(adapter, "fetchTeamByAbbr").mockResolvedValue({ ...LAFC_TEAM });
@@ -82,6 +106,26 @@ describe("MlsAdapter — fetchConferenceRecord", () => {
     expect(record.wins).toBe(0);
     expect(record.losses).toBe(0);
     expect(record.draws).toBe(0);
+  });
+
+  it("reports no position when the table has not been played", async () => {
+    // The A-League showcase named Adelaide United "1st" purely because
+    // "Adelaide" sorts first in ESPN's alphabetical placeholder table — a
+    // season with no matches played has no league leader.
+    axios.get.mockResolvedValue(makeUnplayedStandingsResponse(["ADE", "AFC", "BRR"]));
+    const record = await adapter.fetchConferenceRecord("ADE");
+    expect(record.position).toBeNull();
+    expect(record.wins).toBe(0);
+  });
+
+  it("still reports a position once the table has results", async () => {
+    // The guard above must not disable the real thing: a single played fixture
+    // makes the table meaningful again.
+    const entries = makeUnplayedStandingsResponse(["ADE", "AFC", "BRR"]);
+    entries.data.children[0].standings.entries[2].stats.push({ name: "gamesPlayed", value: 3 });
+    axios.get.mockResolvedValue(entries);
+    const record = await adapter.fetchConferenceRecord("AFC");
+    expect(record.position).toBe(2);
   });
 });
 

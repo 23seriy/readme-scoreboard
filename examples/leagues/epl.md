@@ -13,6 +13,7 @@ Team: **ARS** · Category: Soccer · Data source: ESPN public API
 🟢 Season in progress
 
 🏅 Standing: 2026-27 English Premier League · 2
+
 📅 Next: vs LEE (Oct 10)
 
 📊 2026 Record: 4W - 1L - 0D  (12 pts)
@@ -40,6 +41,7 @@ The `title:` input replaces the default heading.
 🟢 Season in progress
 
 🏅 Standing: 2026-27 English Premier League · 2
+
 📅 Next: vs LEE (Oct 10)
 
 📊 2026 Record: 4W - 1L - 0D  (12 pts)
@@ -66,6 +68,7 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing: 2026-27 English Premier League · 2
+
 📅 Next: vs LEE (Oct 10)
 
 📊 2026 Record: 4W - 1L - 0D  (12 pts)
