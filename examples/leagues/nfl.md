@@ -14,7 +14,7 @@ NFC · NFC South
 
 🏅 Standing: NFC · 11
 
-📅 Next: @ NO (Oct 5)
+📅 Next: @ NO (Oct 6)
 
 📊 2026 Season: 1W - 2L (33.3%)
    ████████▎░░░░░░░░░░░░░░░░
@@ -40,7 +40,7 @@ NFC · NFC South
 
 🏅 Standing: NFC · 11
 
-📅 Next: @ NO (Oct 5)
+📅 Next: @ NO (Oct 6)
 
 📊 2026 Season: 1W - 2L (33.3%)
    ████████▎░░░░░░░░░░░░░░░░
@@ -65,7 +65,7 @@ NFC · NFC South
 
 🏅 Standing: NFC · 11
 
-📅 Next: @ NO (Oct 5)
+📅 Next: @ NO (Oct 6)
 
 📊 2026 Season: 1W - 2L (33.3%)
    ████████▎░░░░░░░░░░░░░░░░

@@ -22,8 +22,8 @@ Eastern Conference
 **📅 Recent Games:**
 ```
 ✅ W  92-77  vs WSH (Sep 27, 2026) [Playoffs]
-✅ W  83-65  @ NY  (Sep 23, 2026)
-✅ W  95-84  @ NY  (Sep 21, 2026)
+✅ W  83-65  @ NY  (Sep 24, 2026)
+✅ W  95-84  @ NY  (Sep 22, 2026)
 ✅ W 106-81  vs CHI (Sep 19, 2026)
 ✅ W 103-59  vs CON (Sep 17, 2026)
 ```
@@ -50,8 +50,8 @@ Eastern Conference
 **📅 Recent Games:**
 ```
 ✅ W  92-77  vs WSH (Sep 27, 2026) [Playoffs]
-✅ W  83-65  @ NY  (Sep 23, 2026)
-✅ W  95-84  @ NY  (Sep 21, 2026)
+✅ W  83-65  @ NY  (Sep 24, 2026)
+✅ W  95-84  @ NY  (Sep 22, 2026)
 ✅ W 106-81  vs CHI (Sep 19, 2026)
 ✅ W 103-59  vs CON (Sep 17, 2026)
 ```
