@@ -36,6 +36,22 @@ that would alter what appears in your README or require editing your workflow.
   calendar day, which is the level the check exists to police: a genuine earlier-season override is
   still caught.
 
+### Changed
+
+- **A standing now names the season it belongs to:** `🏅 Standing (2026): Brasileirão · 5` instead of
+  `🏅 Standing: 5`. Half these leagues run August–May, so their table can still be the previous
+  season's for weeks after it ends, and the record line directly below already named the year — the
+  bare position read as an unattributed number.
+- **The next fixture's date is formatted in the sport's timezone, not the reader's.** A fixture is an
+  instant, so an evening kick-off in the Americas falls on the next UTC day: Palmeiras v Bahia is
+  `2026-10-09T00:30Z`, the evening of October 8 in Brazil. The same board therefore printed `Oct 9`
+  on one machine and `Oct 8` on another, depending only on where it was generated.
+- **A standings label that was only a season is replaced with the league's name.** ESPN names some
+  groups `2026` or `2026-27 ` — a year, sometimes with a trailing space — which printed as the
+  meaningless `Standing: 2026-27  · 9` once the season was named separately. Those now read
+  `Bundesliga · 9`. A season-qualified name is left alone, because Liga MX splits each year into
+  Apertura and Clausura tournaments and needs its year to disambiguate.
+
 ## [1.16.0] - 2026-09-26
 
 ### Added

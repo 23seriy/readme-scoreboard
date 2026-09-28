@@ -190,8 +190,20 @@ function extraTeamLines(data) {
     // separate array entries here. A blank line between them is what makes
     // them two rows.
     if (lines.length) lines.push("");
+    // Format in the SPORT's timezone, not the viewer's. A fixture is an
+    // instant, and an evening kick-off in the Americas lands on the next UTC
+    // day: Palmeiras v Bahia is 2026-10-09T00:30Z, which is the evening of
+    // October 8 in Brazil. Without an explicit zone this printed "Oct 9" on a
+    // UTC machine and "Oct 8" on a Brazilian one, so the same board showed two
+    // different dates depending on who generated it. Soccer dates are
+    // generated in UTC elsewhere in this file, so a soccer board stays
+    // internally consistent.
     const when = nextGame.date
-      ? formatDate(nextGame.date, { month: "short", day: "numeric" })
+      ? formatDate(nextGame.date, {
+          month: "short",
+          day: "numeric",
+          timeZone: nextGame.timeZone || "UTC",
+        })
       : "next";
     const place = nextGame.isHome !== false ? "vs" : "@";
     lines.push(`📅 Next: ${place} ${nextGame.opponent} (${when})`);

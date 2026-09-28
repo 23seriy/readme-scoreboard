@@ -12,7 +12,7 @@ Team: **ALDO** · Category: Soccer · Data source: ESPN public API
 Group B
 🟢 Season in progress
 
-🏅 Standing: Group B · 10
+🏅 Standing (2026): Group B · 10
 
 📅 Next: @ HUR (Oct 4)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 Group B
 🟢 Season in progress
 
-🏅 Standing: Group B · 10
+🏅 Standing (2026): Group B · 10
 
 📅 Next: @ HUR (Oct 4)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 Group B
 🟢 Season in progress
 
-🏅 Standing: Group B · 10
+🏅 Standing (2026): Group B · 10
 
 📅 Next: @ HUR (Oct 4)
 

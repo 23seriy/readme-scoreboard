@@ -12,7 +12,7 @@ Team: **AND** · Category: Soccer · Data source: ESPN public API
 Pro League
 🟢 Season in progress
 
-🏅 Standing: Pro League · 5
+🏅 Standing (2026): Pro League · 5
 
 📅 Next: @ CBK (Oct 10)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 Pro League
 🟢 Season in progress
 
-🏅 Standing: Pro League · 5
+🏅 Standing (2026): Pro League · 5
 
 📅 Next: @ CBK (Oct 10)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 Pro League
 🟢 Season in progress
 
-🏅 Standing: Pro League · 5
+🏅 Standing (2026): Pro League · 5
 
 📅 Next: @ CBK (Oct 10)
 

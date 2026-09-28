@@ -12,7 +12,7 @@ Team: **RMA** · Category: Soccer · Data source: ESPN public API
 League Phase
 🟢 Season in progress
 
-🏅 Standing: League Phase · 14
+🏅 Standing (2026): League Phase · 14
 
 📅 Next: @ ROMA (Oct 14)
 
@@ -36,7 +36,7 @@ The `title:` input replaces the default heading.
 League Phase
 🟢 Season in progress
 
-🏅 Standing: League Phase · 14
+🏅 Standing (2026): League Phase · 14
 
 📅 Next: @ ROMA (Oct 14)
 
@@ -59,7 +59,7 @@ The `compact: true` input drops the logo and recent-game details.
 League Phase
 🟢 Season in progress
 
-🏅 Standing: League Phase · 14
+🏅 Standing (2026): League Phase · 14
 
 📅 Next: @ ROMA (Oct 14)
 

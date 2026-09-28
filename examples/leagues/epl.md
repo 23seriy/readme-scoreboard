@@ -12,7 +12,7 @@ Team: **ARS** · Category: Soccer · Data source: ESPN public API
 2026-27 English Premier League
 🟢 Season in progress
 
-🏅 Standing: 2026-27 English Premier League · 2
+🏅 Standing (2026): 2026-27 English Premier League · 2
 
 📅 Next: vs LEE (Oct 10)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 2026-27 English Premier League
 🟢 Season in progress
 
-🏅 Standing: 2026-27 English Premier League · 2
+🏅 Standing (2026): 2026-27 English Premier League · 2
 
 📅 Next: vs LEE (Oct 10)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 English Premier League
 🟢 Season in progress
 
-🏅 Standing: 2026-27 English Premier League · 2
+🏅 Standing (2026): 2026-27 English Premier League · 2
 
 📅 Next: vs LEE (Oct 10)
 

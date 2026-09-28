@@ -12,7 +12,7 @@ Team: **ANG** · Category: Soccer · Data source: ESPN public API
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing: French Ligue 1 2026-27 · 7
+🏅 Standing (2026): French Ligue 1 2026-27 · 7
 
 📅 Next: @ BRE (Oct 10)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing: French Ligue 1 2026-27 · 7
+🏅 Standing (2026): French Ligue 1 2026-27 · 7
 
 📅 Next: @ BRE (Oct 10)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing: French Ligue 1 2026-27 · 7
+🏅 Standing (2026): French Ligue 1 2026-27 · 7
 
 📅 Next: @ BRE (Oct 10)
 

@@ -12,7 +12,7 @@ Team: **ABH** · Category: Soccer · Data source: ESPN public API
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing: Saudi Pro League · 18
+🏅 Standing (2026): Saudi Pro League · 18
 
 📅 Next: vs ALF (Oct 11)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing: Saudi Pro League · 18
+🏅 Standing (2026): Saudi Pro League · 18
 
 📅 Next: vs ALF (Oct 11)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing: Saudi Pro League · 18
+🏅 Standing (2026): Saudi Pro League · 18
 
 📅 Next: vs ALF (Oct 11)
 

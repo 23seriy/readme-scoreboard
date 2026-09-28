@@ -12,7 +12,7 @@ Team: **AJA** · Category: Soccer · Data source: ESPN public API
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 5
+🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 5
 
 📅 Next: vs NEC (Oct 10)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 5
+🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 5
 
 📅 Next: vs NEC (Oct 10)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing: 2026-2027 Dutch Eredivisie · 5
+🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 5
 
 📅 Next: vs NEC (Oct 10)
 

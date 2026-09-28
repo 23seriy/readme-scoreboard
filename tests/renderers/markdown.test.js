@@ -125,6 +125,89 @@ describe("renderMlb / formatMlbGameResult", () => {
     expect(output).not.toMatch(/🏅 Standing: American League · 2\n📅 Next:/);
   });
 
+  it("names the season in the standing when the adapter supplies one", () => {
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 5, label: "Série A", season: 2026 },
+    });
+    expect(output).toContain("🏅 Standing (2026): Série A · 5");
+  });
+
+  it("leaves the season off the standing when the adapter omits it", () => {
+    // The suffix is opt-in: a league whose standing is unambiguously current
+    // keeps the shorter row, so existing boards do not change.
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      standing: { position: 5, label: "Série A" },
+    });
+    expect(output).toContain("🏅 Standing: Série A · 5");
+    expect(output).not.toContain("Standing (");
+  });
+
+  it("renders the next game date in the sport's timezone, not the viewer's", () => {
+    // A fixture is an instant, so an evening kick-off in the Americas falls on
+    // the next UTC day. Palmeiras v Bahia is 2026-10-09T00:30Z: the evening of
+    // October 8 in Brazil. Formatting in the host's zone made the SAME board
+    // print "Oct 9" on a UTC machine and "Oct 8" on a Brazilian one.
+    //
+    // The date is chosen so the assertion holds in EVERY host zone: 00:30Z is
+    // still Oct 9 from UTC eastward (so a Tokyo or UTC runner sees Oct 9 either
+    // way), and the pinned "Oct 9" only fails for a runner behind UTC if the
+    // zone is not pinned. Testing mid-UTC-day instead would go red only on some
+    // machines, which is how the original bug survived.
+    const data = {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      nextGame: { date: "2026-10-09T00:30:00Z", opponent: "PAL", isHome: false },
+    };
+    const output = render("mlb", data);
+    expect(output).toContain("📅 Next: @ PAL (Oct 9)");
+  });
+
+  it("does not shift the next game date for a viewer behind UTC", () => {
+    // Runs the renderer in a child process with TZ set. Doing it in-process
+    // does nothing: Node caches the timezone at startup. This is the assertion
+    // that actually catches an unpinned formatDate, because only a zone behind
+    // UTC lands on the previous calendar day.
+    const { execFileSync } = require("child_process");
+    // The module path is injected so the child resolves the same copy under
+    // test. Written with string concatenation rather than a template because
+    // the script itself contains `$` sequences that must survive intact.
+    const script = [
+      "const { render } = require(" + JSON.stringify(require.resolve("../../src/renderers/markdown")) + ");",
+      "process.stdout.write(render('mlb', {",
+      "  team: { abbreviation: 'MLB', full_name: 'Test', conference: '', division: '' },",
+      "  record: { wins: 1, losses: 1, draws: 0, season: 2026 },",
+      "  recentGames: [],",
+      "  emoji: '\\u26be',",
+      "  logoUrl: 'https://example.com/logo.png',",
+      "  standing: null,",
+      "  nextGame: { date: '2026-10-09T00:30:00Z', opponent: 'PAL', isHome: false },",
+      "}));",
+    ].join("\n");
+    const output = execFileSync(process.execPath, ["-e", script], {
+      env: { ...process.env, TZ: "America/Sao_Paulo" },
+      encoding: "utf8",
+    });
+    expect(output).toContain("📅 Next: @ PAL (Oct 9)");
+  });
+
+  it("honours an explicit timeZone on the next game", () => {
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      nextGame: {
+        date: "2026-10-09T00:30:00Z",
+        opponent: "PAL",
+        isHome: false,
+        timeZone: "America/Sao_Paulo",
+      },
+    });
+    expect(output).toContain("📅 Next: @ PAL (Oct 8)");
+  });
+
   it("omits rich-stat lines when the adapter does not provide them", () => {
     const output = render("mlb", { ...BASE_MLB_DATA, recentGames: [] });
     expect(output).not.toContain("🏅 Standing:");

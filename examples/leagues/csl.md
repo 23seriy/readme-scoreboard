@@ -12,7 +12,7 @@ Team: **BG** · Category: Soccer · Data source: ESPN public API
 2026 Chinese Super League
 🟢 Season in progress
 
-🏅 Standing: 2026 Chinese Super League · 3
+🏅 Standing (2026): 2026 Chinese Super League · 3
 
 📅 Next: @ QIN (Oct 9)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 2026 Chinese Super League
 🟢 Season in progress
 
-🏅 Standing: 2026 Chinese Super League · 3
+🏅 Standing (2026): 2026 Chinese Super League · 3
 
 📅 Next: @ QIN (Oct 9)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Chinese Super League
 🟢 Season in progress
 
-🏅 Standing: 2026 Chinese Super League · 3
+🏅 Standing (2026): 2026 Chinese Super League · 3
 
 📅 Next: @ QIN (Oct 9)
 

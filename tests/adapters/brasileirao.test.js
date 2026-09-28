@@ -125,15 +125,16 @@ describe("BrasileiraoAdapter — fetchData", () => {
     expect(result.record.draws).toBe(6);
   });
 
-  it("drops ESPN's bare-year group label so the renderer shows the league name", async () => {
+  it("replaces ESPN's bare-year group label with the league name", async () => {
     // ESPN labels this league's standings group "2026" rather than giving it a
-    // descriptive name; the year already appears in the record line.
+    // descriptive name, so the position had no referent. It is replaced with
+    // the league name, which is what the board prints.
     axios.get
       .mockResolvedValueOnce(teamResponse)
       .mockResolvedValueOnce(standings("2026"))
       .mockResolvedValueOnce({ data: { events: [] } });
     const { team } = await brasileirao.fetchData("PAL");
-    expect(team.conference).toBe("");
+    expect(team.conference).toBe("Brasileirão");
   });
 
   it("keeps a descriptive group label if ESPN ever provides one", async () => {
@@ -143,6 +144,17 @@ describe("BrasileiraoAdapter — fetchData", () => {
       .mockResolvedValueOnce({ data: { events: [] } });
     const { team } = await brasileirao.fetchData("PAL");
     expect(team.conference).toBe("Brazilian Serie A");
+  });
+
+  it("normalises a season label with a trailing space", async () => {
+    // Austria's group name arrives as "2026-27 " and rendered as
+    // "Standing (2026): 2026-27  · 9" — a season-only label with a stray space.
+    axios.get
+      .mockResolvedValueOnce(teamResponse)
+      .mockResolvedValueOnce(standings("2026-27 "))
+      .mockResolvedValueOnce({ data: { events: [] } });
+    const { team } = await brasileirao.fetchData("PAL");
+    expect(team.conference).toBe("Brasileirão");
   });
 
   it("a full 20-team season totals 38 matches", async () => {
