@@ -17,10 +17,17 @@ jobs:
       - run: npm run docs:check
       - run: npm run lint
       - run: npm run test:coverage
-      # The example boards are generated from demo data, so regenerating them is
-      # deterministic: a diff means a committed file is stale. Fixing a generator
-      # does not update what it produced — six boards once kept shipping a result
-      # the generator had stopped emitting, because nothing read them.
+      # The example boards are generated from live league APIs, so a diff here
+      # means one of two things, and both are worth failing on: the committed
+      # file is stale (the scheduled update-examples workflow should have
+      # refreshed it), or a change to a renderer/adapter altered what every board
+      # says. The gate is what caught six boards still shipping a result the
+      # generator had stopped emitting, because nothing read them.
+      #
+      # A live source does NOT make this flaky within a run: the generator omits
+      # the `Last updated` footer, and league data changes on the scale of days,
+      # not seconds. It goes red when the data genuinely moves — which is the
+      # signal to merge the refresh PR, not a false alarm.
       #
       # examples/leagues is excluded on purpose: that gallery is built from live
       # data and refreshed by its own scheduled workflow, so a diff there is

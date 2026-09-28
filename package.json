@@ -24,6 +24,7 @@
     "leagues:examples": "node scripts/generate-league-examples.js",
     "leagues:showcase": "node scripts/generate-league-showcase.js",
     "examples:generate": "node scripts/generate-examples.js",
+    "examples:generate:demo": "node scripts/generate-examples.js --demo",
     "smoke:demo": "node scripts/demo-smoke.js",
     "test": "jest",
     "test:coverage": "jest --coverage --runInBand",

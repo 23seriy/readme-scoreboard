@@ -1,0 +1,57 @@
+name: Update example boards
+
+on:
+  schedule:
+    # Ahead of the league showcase so a live failure here is visible before the
+    # gallery run, which shares the readme-maintenance concurrency group.
+    - cron: "5 6 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: readme-maintenance
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      # These boards are built from live league APIs, so they go stale on their
+      # own: a new result, a shifted fixture, or a player leaving a roster all
+      # change what the action would write. The CI freshness gate only holds
+      # while the committed files match what the generator produces *today*, so
+      # without this the gate would go red on the next data change rather than
+      # the board being refreshed.
+      - run: npm run examples:generate
+      - name: Open update pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- examples ':!examples/leagues'; then
+            echo "Example boards are already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C automation/example-boards
+          # `examples/README.md` is regenerated alongside the boards, and a
+          # board that no longer generates would have been DELETED by the
+          # generator — `git add -A` records that removal instead of leaving a
+          # stale file behind that the freshness gate would flag forever.
+          git add -A -- examples
+          git commit -m "docs: refresh example boards from live data"
+          git push --force origin automation/example-boards
+          gh pr create --base main --head automation/example-boards \
+            --title "docs: refresh example boards from live data" \
+            --body "Automated refresh of the example boards in \`examples/\` from live league APIs." \
+            || echo "An update PR may already be open."

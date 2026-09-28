@@ -134,6 +134,30 @@ describe("renderMlb / formatMlbGameResult", () => {
     expect(output).toContain("🏅 Standing (2026): Série A · 5");
   });
 
+  it("renders an evening game date in the league's timezone", () => {
+    // A North American evening game belongs to the previous UTC day. ESPN
+    // reports the Lakers' 2026-05-11 playoff game as 2026-05-12T02:30Z, so
+    // formatting the instant in the viewer's zone printed May 12 on a UTC
+    // machine and May 11 in New York — the same board, two dates. This is the
+    // NBA path; the fixture below is real.
+    const output = render("nba", {
+      team: { id: 13, abbreviation: "LAL", full_name: "Los Angeles Lakers", league: "Western Conference", division: "Pacific Division" },
+      record: { wins: 50, losses: 32, season: 2026 },
+      emoji: "🟣",
+      logoUrl: "https://example.com/lal.png",
+      recentGames: [{
+        date: "2026-05-12T02:30Z",
+        home_team: { id: 13, abbreviation: "LAL" },
+        visitor_team: { id: 25, abbreviation: "OKC" },
+        home_team_score: 110,
+        visitor_team_score: 115,
+        gameType: 3,
+      }],
+    });
+    expect(output).toContain("(May 11, 2026)");
+    expect(output).not.toContain("(May 12, 2026)");
+  });
+
   it("leaves the season off the standing when the adapter omits it", () => {
     // The suffix is opt-in: a league whose standing is unambiguously current
     // keeps the shorter row, so existing boards do not change.

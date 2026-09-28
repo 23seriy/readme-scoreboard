@@ -3,23 +3,21 @@
 <img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Los Angeles Lakers logo" width="72" align="right" />
 
 ### 👑 Los Angeles Lakers (LAL)
-West Conference · Pacific Division
+Western Conference · Pacific Division
 🔴 Off-season · Next season starts October 20, 2026
 
-🏅 Standing: West · 3
+🏅 Standing: Western · 6
 
-📅 Next: vs BOS (Jan 6)
-
-📊 2025-2026 Record: 50W - 32L (61.0%)
-   ███████████████▎░░░░░░░░░
+📊 2025-2026 Record: 53W - 29L (64.6%)
+   ████████████████▏░░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W 119-113 @ PHX (Jan 4, 2026)
-❌ L 112-113 vs MIL (Dec 28, 2025)
-✅ W  99-93  @ CHI (Dec 21, 2025)
-❌ L 130-143 @ DEN (Dec 14, 2025)
-✅ W 113-112 vs OKC (Dec 7, 2025)
+❌ L 110-115 vs OKC (May 11, 2026) [Playoffs]
+❌ L 108-131 vs OKC (May 9, 2026) [Playoffs]
+❌ L 107-125 @ OKC (May 7, 2026) [Playoffs]
+❌ L  90-108 @ OKC (May 5, 2026) [Playoffs]
+✅ W  98-78  @ HOU (May 1, 2026) [Playoffs]
 ```
 
 **👑 Player Spotlight: Luka Doncic**
@@ -28,5 +26,5 @@ West Conference · Pacific Division
 
 **📅 Last Game:**
 ```
-12 PTS · 4 REB · 7 AST · 26 MIN vs PHX (Jan 4, 2026)
+12 PTS · 4 REB · 7 AST · 26 MIN vs Oklahoma City Thunder (Apr 2, 2026)
 ```

@@ -35,22 +35,23 @@ that would alter what appears in your README or require editing your workflow.
   themselves — the error message quoted the same date on both sides. The comparison is now by
   calendar day, which is the level the check exists to police: a genuine earlier-season override is
   still caught.
+- **A game's date could differ by a day depending on where the board was generated.** Leagues play in
+  the evening, so a North American fixture belongs to the previous UTC day: ESPN reports the Lakers'
+  `May 11` playoff game as `2026-05-12T02:30Z`. The recent-games list had no timezone, so it printed
+  `May 12` on a UTC machine and `May 11` in New York — the same board showing two dates for one game.
+  Dates are now rendered in the zone the league plays in, so they match the fixture list, and NBA,
+  WNBA, NCAAB, NCAAW, NFL, NHL, MLB, MLS and every soccer league agree everywhere. This surfaced
+  while regenerating the example boards: CI (UTC) produced eight files that differed from the same
+  command run locally (EDT).
 
 ### Changed
 
-- **A standing now names the season it belongs to:** `🏅 Standing (2026): Brasileirão · 5` instead of
-  `🏅 Standing: 5`. Half these leagues run August–May, so their table can still be the previous
-  season's for weeks after it ends, and the record line directly below already named the year — the
-  bare position read as an unattributed number.
-- **The next fixture's date is formatted in the sport's timezone, not the reader's.** A fixture is an
-  instant, so an evening kick-off in the Americas falls on the next UTC day: Palmeiras v Bahia is
-  `2026-10-09T00:30Z`, the evening of October 8 in Brazil. The same board therefore printed `Oct 9`
-  on one machine and `Oct 8` on another, depending only on where it was generated.
-- **A standings label that was only a season is replaced with the league's name.** ESPN names some
-  groups `2026` or `2026-27 ` — a year, sometimes with a trailing space — which printed as the
-  meaningless `Standing: 2026-27  · 9` once the season was named separately. Those now read
-  `Bundesliga · 9`. A season-qualified name is left alone, because Liga MX splits each year into
-  Apertura and Clausura tournaments and needs its year to disambiguate.
+- **The example boards in `examples/` are now built from live league data.** They were generated from the
+  action's offline sample data, which made them a fiction: the college-football board showed an 18-6
+  record and a `14-2` score in a sport where two points cannot be scored, and the tennis boards
+  named players who had left their club. Every figure is now real as of the day it was generated.
+  Run `npm run examples:generate` for live boards, or `npm run examples:generate:demo` for the
+  offline samples.
 
 ## [1.16.0] - 2026-09-26
 

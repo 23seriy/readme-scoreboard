@@ -190,7 +190,7 @@ describe("every league's demo dates ignore the system clock", () => {
       const { LEAGUES } = require("./src/config/leagues");
       const { render } = require("./src/renderers/markdown");
       const examples = require("./scripts/generate-examples");
-      const boards = [...examples.EXAMPLES, ...examples.PLAYER_SPOTLIGHT_EXAMPLES].map(examples.renderExample);
+      const boards = [...examples.EXAMPLES, ...examples.PLAYER_SPOTLIGHT_EXAMPLES].map(examples.renderDemoExample);
       for (const { key } of LEAGUES) {
         const adapter = require("./src/adapters/" + key);
         for (const team of Object.keys(adapter.DEMO_TEAMS || {})) {

@@ -1,8 +1,8 @@
 # Examples
 
 These are the rendered outputs readme-scoreboard writes between your markers.
-Each file below is actual action output — open it to see the live-markdown preview.
-Run `npm run examples:generate` to refresh these from the current demo data.
+Each file below is generated from the leagues' LIVE APIs, so the figures are real as of the date at the end of each board.
+Run `npm run examples:generate` to refresh them. Add `-- --demo` for the offline samples.
 
 ## Boards by sport
 
@@ -151,11 +151,11 @@ The name must match the roster's exact spelling, including accents.
 
 [View rendered output →](nfl-kc-patrick-mahomes.md)
 
-### NHL — Artemi Panarin
+### NHL — Mika Zibanejad
 
-`player: Artemi Panarin` on `team: NYR`.
+`player: Mika Zibanejad` on `team: NYR`.
 
-[View rendered output →](nhl-nyr-artemi-panarin.md)
+[View rendered output →](nhl-nyr-mika-zibanejad.md)
 
 ### EPL — Bukayo Saka
 
@@ -163,21 +163,21 @@ The name must match the roster's exact spelling, including accents.
 
 [View rendered output →](epl-ars-bukayo-saka.md)
 
-### LALIGA — Kylian Mbappe
+### LALIGA — Kylian Mbappé
 
-`player: Kylian Mbappe` on `team: RMA`.
+`player: Kylian Mbappé` on `team: RMA`.
 
 [View rendered output →](laliga-rma-kylian-mbappe.md)
 
-### MLS — Miguel Almiron
+### MLS — Miguel Almirón
 
-`player: Miguel Almiron` on `team: ATL`.
+`player: Miguel Almirón` on `team: ATL`.
 
 [View rendered output →](mls-atl-miguel-almiron.md)
 
-### UCL — Vinicius Junior
+### UCL — Vinícius Júnior
 
-`player: Vinicius Junior` on `team: RMA`.
+`player: Vinícius Júnior` on `team: RMA`.
 
 [View rendered output →](ucl-rma-vinicius-junior.md)
 

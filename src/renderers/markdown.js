@@ -244,6 +244,64 @@ function pushSpotlightHeadshot(lines, spotlight) {
   );
 }
 
+// The timezone each sport's games are PLAYED in, used to render a game date.
+//
+// A game is an instant, and these leagues play in the evening: ESPN reports the
+// Lakers' 2026-05-11 game as `2026-05-12T02:30Z`, because 7:30pm in Los Angeles
+// is already the next day in UTC. Formatting that instant in the viewer's zone
+// therefore printed May 12 on a UTC machine and May 11 in New York — the same
+// board showing two different dates. That is how this surfaced: regenerating
+// the example boards on CI (UTC) produced eight files that differed from the
+// same command run locally (EDT), so the "boards are current" gate went red on
+// a timezone difference rather than on a code change.
+//
+// The zone is the one the league's own schedule is published in, so the board
+// agrees with the fixture list a fan would read.
+const SPORT_TIMEZONES = {
+  nba: "America/New_York",
+  wnba: "America/New_York",
+  ncaab: "America/New_York",
+  ncaaw: "America/New_York",
+  ncaaf: "America/New_York",
+  ncaa_hockey: "America/New_York",
+  nfl: "America/New_York",
+  mlb: "America/New_York",
+  nhl: "America/New_York",
+  mls: "America/New_York",
+  gleague: "America/New_York",
+  // European, Mexican and South American leagues also kick off in the evening
+  // locally, so the same boundary applies to their dates.
+  epl: "Europe/London",
+  ucl: "Europe/London",
+  uel: "Europe/London",
+  scottish: "Europe/London",
+  laliga: "Europe/Madrid",
+  seriea: "Europe/Rome",
+  bundesliga: "Europe/Berlin",
+  ligue1: "Europe/Paris",
+  eredivisie: "Europe/Amsterdam",
+  primeiraliga: "Europe/Lisbon",
+  belgian: "Europe/Brussels",
+  austria: "Europe/Vienna",
+  greek: "Europe/Athens",
+  denmark: "Europe/Copenhagen",
+  norway: "Europe/Oslo",
+  sweden: "Europe/Stockholm",
+  brasileirao: "America/Sao_Paulo",
+  argentina: "America/Argentina/Buenos_Aires",
+  ligamx: "America/Mexico_City",
+};
+
+// Render a game, fixture or result date in the zone that sport plays in, falling
+// back to UTC for any league without an entry (lacrosse-style events, UFC cards,
+// motorsport sessions and tennis matches are quoted in UTC by convention).
+function formatSportDate(sport, value, options = {}) {
+  return formatDate(value, {
+    ...options,
+    timeZone: SPORT_TIMEZONES[sport] || "UTC",
+  });
+}
+
 function generateBarChart(percent, size) {
   const syms = "░▏▎▍▌▋▊▉█";
   const frac = Math.floor((size * 8 * percent) / 100);
@@ -257,7 +315,7 @@ function generateBarChart(percent, size) {
     .padEnd(size, syms.substring(0, 1));
 }
 
-function formatGameResult(game, teamId) {
+function formatGameResult(game, teamId, sport) {
   const isHome = game.home_team.id === teamId;
   const teamScore = isHome ? game.home_team_score : game.visitor_team_score;
   const oppScore = isHome ? game.visitor_team_score : game.home_team_score;
@@ -265,7 +323,7 @@ function formatGameResult(game, teamId) {
   const won = teamScore > oppScore;
   const prefix = isHome ? "vs" : "@";
   const result = won ? "W" : "L";
-  const dateStr = formatDate(game.date, {
+  const dateStr = formatSportDate(sport, game.date, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -316,7 +374,7 @@ function renderNba(data, sport = "nba", title, compact = false) {
     lines.push("**📅 Recent Games:**");
     lines.push("```");
     for (const game of recentGames) {
-      lines.push(formatGameResult(game, team.id));
+      lines.push(formatGameResult(game, team.id, sport));
     }
     lines.push("```");
   } else {
@@ -440,7 +498,7 @@ function renderNhlSpotlight(lines, spotlight, emoji, compact) {
   }
 }
 
-function formatMlbGameResult(game, teamId) {
+function formatMlbGameResult(game, teamId, sport) {
   const isHome = game.home_team.id === teamId;
   const teamScore = isHome ? game.home_team_score : game.visitor_team_score;
   const oppScore = isHome ? game.visitor_team_score : game.home_team_score;
@@ -448,7 +506,7 @@ function formatMlbGameResult(game, teamId) {
   const won = teamScore > oppScore;
   const prefix = isHome ? "vs" : "@";
   const result = won ? "W" : "L";
-  const dateStr = formatDate(game.date, {
+  const dateStr = formatSportDate(sport, game.date, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -489,7 +547,9 @@ function renderMlb(data, title) {
     lines.push("**📅 Recent Games:**");
     lines.push("```");
     for (const game of recentGames) {
-      lines.push(formatMlbGameResult(game, team.id));
+      // renderMlb is MLB-specific and takes no `sport` argument, so the key is
+      // passed literally.
+      lines.push(formatMlbGameResult(game, team.id, "mlb"));
     }
     lines.push("```");
   } else {
@@ -649,7 +709,7 @@ function renderNhl(data, sport = "nhl", title, compact = false) {
     lines.push("**📅 Recent Games:**");
     lines.push("```");
     for (const game of recentGames) {
-      lines.push(formatGameResult(game, team.id));
+      lines.push(formatGameResult(game, team.id, sport));
     }
     lines.push("```");
   } else {
@@ -664,11 +724,11 @@ function renderNhl(data, sport = "nhl", title, compact = false) {
   return lines.join("\n");
 }
 
-function formatMlsGameResult(game) {
+function formatMlsGameResult(game, sport = "mls") {
   const prefix = game.isHome ? "vs" : "@";
   const result = game.won ? "W" : game.drew ? "D" : "L";
   const icon = game.won ? "✅" : game.drew ? "🟡" : "❌";
-  const dateStr = formatDate(game.date, {
+  const dateStr = formatSportDate(sport, game.date, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -712,7 +772,7 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title, compact
     lines.push("**📅 Recent Games:**");
     lines.push("```");
     for (const game of recentGames) {
-      lines.push(formatMlsGameResult(game));
+      lines.push(formatMlsGameResult(game, sport));
     }
     lines.push("```");
   } else {
