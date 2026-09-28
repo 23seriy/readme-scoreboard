@@ -22,10 +22,10 @@ Eastern Conference
 **📅 Recent Games:**
 ```
 🟡 D 2-2 vs NYC   (Sep 26, 2026)
-✅ W 1-0 @ POR   (Sep 19, 2026)
+✅ W 1-0 @ POR   (Sep 20, 2026)
 🟡 D 0-0 @ DC    (Sep 12, 2026)
 ❌ L 2-3 vs ORL   (Sep 9, 2026)
-🟡 D 2-2 @ MIA   (Sep 5, 2026)
+🟡 D 2-2 @ MIA   (Sep 6, 2026)
 ```
 
 ## Custom title
@@ -50,10 +50,10 @@ Eastern Conference
 **📅 Recent Games:**
 ```
 🟡 D 2-2 vs NYC   (Sep 26, 2026)
-✅ W 1-0 @ POR   (Sep 19, 2026)
+✅ W 1-0 @ POR   (Sep 20, 2026)
 🟡 D 0-0 @ DC    (Sep 12, 2026)
 ❌ L 2-3 vs ORL   (Sep 9, 2026)
-🟡 D 2-2 @ MIA   (Sep 5, 2026)
+🟡 D 2-2 @ MIA   (Sep 6, 2026)
 ```
 
 ## Compact mode
