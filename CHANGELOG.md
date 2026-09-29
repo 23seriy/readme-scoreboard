@@ -12,6 +12,14 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **The example-board freshness check ran on every pull request, so unrelated PRs failed.** Once the
+  boards became live-data driven, regenerating a long-lived automation branch picked up league data
+  the branch predates and reported five boards as stale — on PRs that only touched markdown and JSON.
+  The check now runs only when a PR changes something that decides a board's output (`scripts/` or
+  `src/`), and always on a push to `main`, so it still catches a merge that left the boards stale.
+  This is a correction to how the gate introduced with the live-data boards is scoped; it also fixes
+  three open automation PRs that were red for this reason.
+
 - **A board could claim a league position for a season that has not started.** An unplayed
   standings table is not empty — ESPN returns every team on 0 games and 0 points, ordered
   **alphabetically** — and the board read that array position as a rank. The A-League showcase
