@@ -248,16 +248,24 @@ describe("repository CI configuration", () => {
   });
 
   it("fails when the generated example boards are stale", () => {
-    // Those boards come from demo data, so regenerating them is deterministic: a
-    // diff means a committed file is stale. Fixing a generator does not update
-    // what it produced — six boards once kept shipping a result the generator had
-    // stopped emitting, because nothing read them.
+    // Those boards are generated from LIVE league APIs, so the gate runs only
+    // when a PR changes something that decides a board's output. Running it on
+    // every PR made long-lived automation branches fail for data they predate —
+    // five boards reported stale on PRs that only touched markdown and JSON.
     expect(ci).toContain("npm run examples:generate");
     expect(ci).toContain("git diff --exit-code");
     // The gallery is live-data driven and excluded on purpose: including it
     // would make the gate permanently red. A glob like 'examples/*.md' is not
     // narrow enough, because git's '*' matches across '/'.
     expect(ci).toContain(":!examples/leagues");
+  });
+
+  it("scopes the board freshness check to changes that can alter a board", () => {
+    // The gate is conditional, so verify the condition itself rather than just
+    // the command. `push` to main must still check unconditionally — that is
+    // what catches a merge that left the boards stale, when no PR diff exists.
+    expect(ci).toContain("steps.changed.outputs.boards != 'false'");
+    expect(ci).toMatch(/git diff --name-only "\$base" HEAD -- scripts src/);
   });
 
   it("enforces coverage thresholds in CI", () => {
