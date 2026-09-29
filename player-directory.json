@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-28T02:41:17.067Z",
+  "generatedAt": "2026-09-29T11:32:58.494Z",
   "players": [
     {
       "league": "atp",
@@ -1440,7 +1440,7 @@
       "id": "3182",
       "flag": "🇷🇺",
       "country": "Russia",
-      "rank": 27,
+      "rank": 28,
       "points": 1811
     },
     {
@@ -1451,7 +1451,7 @@
       "id": "3380",
       "flag": "🇺🇸",
       "country": "United States",
-      "rank": 29,
+      "rank": 30,
       "points": 1573
     },
     {
@@ -1463,7 +1463,7 @@
       "flag": "🇷🇺",
       "country": "Russia",
       "rank": 5,
-      "points": 5743
+      "points": 5841
     },
     {
       "league": "wta",
@@ -1484,7 +1484,7 @@
       "id": "7819",
       "flag": "🇨🇿",
       "country": "Czechia",
-      "rank": 28,
+      "rank": 29,
       "points": 1710
     },
     {
@@ -1496,7 +1496,7 @@
       "flag": "🇨🇭",
       "country": "Switzerland",
       "rank": 12,
-      "points": 2935
+      "points": 2925
     },
     {
       "league": "wta",
@@ -1506,7 +1506,7 @@
       "id": "2392",
       "flag": "🇨🇿",
       "country": "Czechia",
-      "rank": 26,
+      "rank": 27,
       "points": 1873
     },
     {
@@ -1517,8 +1517,8 @@
       "id": "3417",
       "flag": "🇵🇱",
       "country": "Poland",
-      "rank": 25,
-      "points": 1888
+      "rank": 21,
+      "points": 2082
     },
     {
       "league": "wta",
@@ -1572,7 +1572,7 @@
       "id": "2977",
       "flag": "🇷🇺",
       "country": "Russia",
-      "rank": 21,
+      "rank": 22,
       "points": 2043
     },
     {
@@ -1583,7 +1583,7 @@
       "id": "1556",
       "flag": "🇺🇸",
       "country": "United States",
-      "rank": 22,
+      "rank": 23,
       "points": 2029
     },
     {
@@ -1605,8 +1605,8 @@
       "id": "2042",
       "flag": "🇨🇿",
       "country": "Czechia",
-      "rank": 44,
-      "points": 1139
+      "rank": 43,
+      "points": 1198
     },
     {
       "league": "wta",
@@ -1649,7 +1649,7 @@
       "id": "3785",
       "flag": "🇺🇸",
       "country": "United States",
-      "rank": 23,
+      "rank": 24,
       "points": 2024
     },
     {
@@ -1672,7 +1672,7 @@
       "flag": "🇯🇵",
       "country": "Japan",
       "rank": 17,
-      "points": 2306
+      "points": 2296
     },
     {
       "league": "wta",
@@ -1683,7 +1683,7 @@
       "flag": "🇮🇹",
       "country": "Italy",
       "rank": 20,
-      "points": 2123
+      "points": 2122
     },
     {
       "league": "wta",
@@ -1704,7 +1704,7 @@
       "id": "2971",
       "flag": "🇷🇺",
       "country": "Russia",
-      "rank": 24,
+      "rank": 25,
       "points": 1926
     },
     {
@@ -1727,7 +1727,7 @@
       "flag": "🇧🇾",
       "country": "Belarus",
       "rank": 2,
-      "points": 7875
+      "points": 7810
     },
     {
       "league": "wta",
