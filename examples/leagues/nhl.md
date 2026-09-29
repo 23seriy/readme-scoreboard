@@ -10,9 +10,9 @@ Team: **ANA** · Category: Hockey · Data source: official league API
 
 ### 🦆 Anaheim Ducks (ANA)
 Western Conference · Pacific Division
-🔴 Off-season · Next season starts September 29, 2026
+🟢 Season in progress
 
-🏅 Standing (2025-26): Pacific · 3
+🏅 Standing (2026-27): Pacific · 1
 
 📅 Next: @ VGK (Oct 3)
 
@@ -38,9 +38,9 @@ The `title:` input replaces the default heading.
 
 ### 🦆 Anaheim Ducks (ANA)
 Western Conference · Pacific Division
-🔴 Off-season · Next season starts September 29, 2026
+🟢 Season in progress
 
-🏅 Standing (2025-26): Pacific · 3
+🏅 Standing (2026-27): Pacific · 1
 
 📅 Next: @ VGK (Oct 3)
 
@@ -65,9 +65,9 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🦆 Anaheim Ducks (ANA)
 Western Conference · Pacific Division
-🔴 Off-season · Next season starts September 29, 2026
+🟢 Season in progress
 
-🏅 Standing (2025-26): Pacific · 3
+🏅 Standing (2026-27): Pacific · 1
 
 📅 Next: @ VGK (Oct 3)
 

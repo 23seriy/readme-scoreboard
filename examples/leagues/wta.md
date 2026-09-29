@@ -11,11 +11,11 @@ Player: **SAB** · Category: Tennis · Data source: ESPN public API
 ### 🇧🇾 Aryna Sabalenka (SAB)
 WTA · World Ranking
 
-🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: — (was No. 2)
+🏆 World No. 2 · 📍 7,810 ranking points · 📈 Movement: — (was No. 2)
 
 **📅 Last Match:**
 ```
-❌ L vs Elena Rybakina (Sep 12, 2026) 4-6, 7-5, 2-6
+✅ W vs Bye (Sep 30, 2026)
 ```
 
 
@@ -30,11 +30,11 @@ The `title:` input replaces the default heading.
 ### 🇧🇾 Aryna Sabalenka (SAB)
 WTA · World Ranking
 
-🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: — (was No. 2)
+🏆 World No. 2 · 📍 7,810 ranking points · 📈 Movement: — (was No. 2)
 
 **📅 Last Match:**
 ```
-❌ L vs Elena Rybakina (Sep 12, 2026) 4-6, 7-5, 2-6
+✅ W vs Bye (Sep 30, 2026)
 ```
 
 
@@ -48,11 +48,11 @@ The `compact: true` input drops the logo and recent-game details.
 ### 🇧🇾 Aryna Sabalenka (SAB)
 WTA · World Ranking
 
-🏆 World No. 2 · 📍 7,875 ranking points · 📈 Movement: — (was No. 2)
+🏆 World No. 2 · 📍 7,810 ranking points · 📈 Movement: — (was No. 2)
 
 **📅 Last Match:**
 ```
-❌ L vs Elena Rybakina (Sep 12, 2026) 4-6, 7-5, 2-6
+✅ W vs Bye (Sep 30, 2026)
 ```
 
 
