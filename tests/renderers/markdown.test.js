@@ -1404,13 +1404,22 @@ describe("renderAtp", () => {
     expect(output).toContain("Novak Djokovic (DJO)");
   });
 
-  it("groups ranking, points, and movement onto one meta line", () => {
+  it("groups ranking and movement onto one meta line", () => {
     const output = render("atp", BASE_ATP_DATA);
     expect(output).toContain("🏆 World No. 5");
-    expect(output).toContain("📍 3,770 ranking points");
     expect(output).toContain("📈 Movement");
-    // All three share a single line (joined by ·), not three separate lines.
-    expect(output).toMatch(/🏆 World No\. 5 · 📍 3,770 ranking points · 📈 Movement/);
+    // Both share a single line (joined by ·), not two separate lines.
+    expect(output).toMatch(/🏆 World No\. 5 · 📈 Movement/);
+  });
+
+  it("never renders ranking points, which change between refreshes", () => {
+    // ESPN re-posts ranking points as tournaments progress, so a committed
+    // board carrying them goes stale within days and the "example boards are
+    // current" CI gate can never stay green. See the tennis freshness fix.
+    const output = render("atp", BASE_ATP_DATA);
+    expect(output).not.toContain("ranking points");
+    expect(output).not.toContain("3,770");
+    expect(output).not.toContain("📍");
   });
 
   it("renders the last match on its own labeled fenced block", () => {
@@ -1437,8 +1446,7 @@ describe("renderAtp", () => {
     expect(output).not.toContain("🏆");
     expect(output).not.toContain("ranking points");
     expect(output).not.toContain("Movement");
-  });
-});
+  });});
 
 describe("renderWta", () => {
   const BASE_WTA_DATA = {
@@ -1463,12 +1471,18 @@ describe("renderWta", () => {
     expect(output).toContain("Aryna Sabalenka (SAB)");
   });
 
-  it("groups ranking, points, and movement onto one meta line", () => {
+  it("groups ranking and movement onto one meta line", () => {
     const output = render("wta", BASE_WTA_DATA);
     expect(output).toContain("🏆 World No. 1");
-    expect(output).toContain("📍 8,575 ranking points");
     expect(output).toContain("📈 Movement");
-    expect(output).toMatch(/🏆 World No\. 1 · 📍 8,575 ranking points · 📈 Movement/);
+    expect(output).toMatch(/🏆 World No\. 1 · 📈 Movement/);
+  });
+
+  it("never renders ranking points, which change between refreshes", () => {
+    const output = render("wta", BASE_WTA_DATA);
+    expect(output).not.toContain("ranking points");
+    expect(output).not.toContain("8,575");
+    expect(output).not.toContain("📍");
   });
 
   it("renders the last match on its own labeled fenced block", () => {
