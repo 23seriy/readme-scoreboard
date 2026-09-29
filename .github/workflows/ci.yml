@@ -17,24 +17,44 @@ jobs:
       - run: npm run docs:check
       - run: npm run lint
       - run: npm run test:coverage
-      # The example boards are generated from live league APIs, so a diff here
-      # means one of two things, and both are worth failing on: the committed
-      # file is stale (the scheduled update-examples workflow should have
-      # refreshed it), or a change to a renderer/adapter altered what every board
-      # says. The gate is what caught six boards still shipping a result the
-      # generator had stopped emitting, because nothing read them.
+      # The example boards are generated from live league APIs, so the committed
+      # file can legitimately differ from a fresh run for two reasons:
       #
-      # A live source does NOT make this flaky within a run: the generator omits
-      # the `Last updated` footer, and league data changes on the scale of days,
-      # not seconds. It goes red when the data genuinely moves — which is the
-      # signal to merge the refresh PR, not a false alarm.
+      #   1. the league data moved (a result, a fixture, an injury) — the daily
+      #      update-examples workflow opens a refresh PR for this;
+      #   2. something in the generator or renderer changed what a board says.
+      #
+      # Only (2) is a defect in the changed code, so this gate runs ONLY when a
+      # PR touches the things that decide a board's output. Running it
+      # unconditionally made every long-lived automation branch fail: those
+      # branches are force-pushed by their own workflows and can be days old, so
+      # regenerating them picked up data the branch predates and reported five
+      # boards as stale — for PRs that only touched markdown and JSON. That is
+      # noise on a required check, not a signal.
       #
       # examples/leagues is excluded on purpose: that gallery is built from live
       # data and refreshed by its own scheduled workflow, so a diff there is
       # expected and would leave this gate permanently red. A pathspec glob like
       # 'examples/*.md' is NOT narrow enough — git's '*' also matches across '/'
       # and would pull the gallery back in.
+      - name: Note which files changed
+        id: changed
+        if: github.event_name == 'pull_request'
+        run: |
+          base="origin/${{ github.base_ref }}"
+          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          # The generator, the renderers, the adapters and the league registry
+          # are the only things that change what a board renders.
+          if git diff --name-only "$base" HEAD -- scripts src | grep -q .; then
+            echo "boards=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "boards=false" >> "$GITHUB_OUTPUT"
+            echo "No generator or renderer change; skipping the board freshness check."
+          fi
+      # `push` to main always checks, so a merge that staled the boards is still
+      # caught even though no PR diff is available to inspect.
       - name: Check the generated example boards are current
+        if: steps.changed.outputs.boards != 'false'
         run: |
           npm run examples:generate
           git diff --exit-code --stat -- examples ':!examples/leagues'
