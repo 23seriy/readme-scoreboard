@@ -4,9 +4,9 @@
 
 ### 🦢 New York Rangers (NYR)
 Eastern Conference · Metropolitan Division
-🔴 Off-season · Next season starts September 29, 2026
+🟢 Season in progress
 
-🏅 Standing (2025-26): Metropolitan · 8
+🏅 Standing (2026-27): Metropolitan · 5
 
 📅 Next: @ BOS (Sep 30)
 
