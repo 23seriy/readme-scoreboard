@@ -5,7 +5,7 @@
 ### 🇮🇹 Jannik Sinner (SIN)
 ATP · World Ranking
 
-🏆 World No. 1 · 📍 11,500 ranking points · 📈 Movement: — (was No. 1)
+🏆 World No. 1 · 📈 Movement: — (was No. 1)
 
 **📅 Last Match:**
 ```

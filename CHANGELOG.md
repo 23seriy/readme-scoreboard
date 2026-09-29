@@ -12,6 +12,35 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **Tennis and football boards rendered a different day depending on the machine
+that generated them.** Match
+  and kick-off times arrive from ESPN as UTC instants, and four places formatted
+them in the *host's* zone
+  instead of the sport's. The same soccer-style fix applied to the team boards h
+ad missed them, so a tennis
+  "Last Match" read Sep 30 on a UTC machine and Sep 29 on a US Eastern one, and
+college football games were a
+  day later on hosts in Tokyo or Auckland. Because the daily refresh regenerates
+these files, the difference
+  turned into a permanent red "example boards are current" check on `main` that n
+o amount of regenerating
+  could clear. Tennis match dates are now quoted in UTC and football dates in th
+e conference's local zone.
+  New guard `tests/renderers/live-board-dates.test.js` renders live-shaped paylo
+ads in six timezones and
+  asserts one result — the existing demo-board guard could not catch this, becau
+se demo dates are calendar
+  strings rather than instants.
+- **Tennis boards printed a live ranking-points total, so they went stale within
+days.** ESPN re-posts
+  ranking points as tournaments progress (the men's No. 1 moved 11,500 → 12,800
+→ 11,000 during a single
+  session), which meant any committed board holding the number was wrong almost
+immediately and the
+  freshness check could never stay green. The ranking position and movement arro
+w are stable and still
+  shown; the points figure is no longer rendered.
+
 - **The example-board freshness check ran on every pull request, so unrelated PRs failed.** Once the
   boards became live-data driven, regenerating a long-lived automation branch picked up league data
   the branch predates and reported five boards as stale — on PRs that only touched markdown and JSON.

@@ -570,7 +570,7 @@ function renderMlb(data, title) {
         // Render the date in Eastern time so a late-night game doesn't shift a
         // day. MLB game dates are calendar dates in the MLB Stats API, while
         // demo data uses full ISO timestamps, so both shapes are handled.
-        const when = gdate ? formatCalendarDate(gdate) : "";
+        const when = gdate ? formatCalendarDate(gdate, "mlb") : "";
         detail += ` vs ${gopp}${when ? ` (${when})` : ""}`;
       }
       lines.push("");
@@ -610,19 +610,26 @@ function formatDate(value, options) {
   return new Date(raw).toLocaleDateString("en-US", options);
 }
 
-function formatCalendarDate(value) {
-  if (!value) return "";
-  return formatDate(value, {
+function formatCalendarDate(value, sport) {
+  const options = {
     month: "short",
     day: "numeric",
     year: "numeric",
-  });
+  };
+  // When a sport is supplied the date is a real instant from a live feed, so it
+  // must be quoted in that sport's zone rather than the host's. Without one the
+  // value is a bare calendar date and formatDate already pins it to UTC.
+  return sport
+    ? formatSportDate(sport, value, options)
+    : formatDate(value, options);
 }
 
-function formatNflGameResult(game) {
+function formatNflGameResult(game, sport = "nfl") {
   const prefix = game.isHome ? "vs" : "@";
   const result = game.won ? "W" : "L";
-  const dateStr = formatCalendarDate(game.date);
+  // ESPN reports kick-off as a UTC instant, so the zone must be explicit or a
+  // Saturday-night game reads as Sunday on a host east of the US.
+  const dateStr = formatCalendarDate(game.date, sport);
 
   const tag = game.gameType === 3 ? " [Playoffs]" : "";
   return `${game.won ? "✅" : "❌"} ${result} ${String(game.teamScore).padStart(2)}-${String(game.oppScore).padEnd(2)} ${prefix} ${game.oppAbbr.padEnd(3)} (${dateStr})${tag}`;
@@ -661,7 +668,7 @@ function renderNfl(data, sport = "nfl", title, compact = false) {
     lines.push("**📅 Recent Games:**");
     lines.push("```");
     for (const game of recentGames) {
-      lines.push(formatNflGameResult(game));
+      lines.push(formatNflGameResult(game, sport));
     }
     lines.push("```");
   } else {
@@ -909,7 +916,7 @@ function renderUfc(data, title) {
   if (nextGame) {
     lines.push("**📅 Next Fight:**");
     lines.push("```");
-    lines.push(`${named(nextGame.opponentFlag, `vs ${nextGame.opponentName} (${nextGame.opponent})`)} — ${formatCalendarDate(nextGame.date)}`);
+    lines.push(`${named(nextGame.opponentFlag, `vs ${nextGame.opponentName} (${nextGame.opponent})`)} — ${formatCalendarDate(nextGame.date, "ufc")}`);
     const where = [nextGame.event, nextGame.venue].filter(Boolean).join(" · ");
     if (where) lines.push(where);
     lines.push("```");
@@ -927,7 +934,7 @@ function renderUfc(data, title) {
       const result = fight.drew ? "D" : fight.won ? "W" : "L";
       const round = fight.round ? ` (R${fight.round})` : "";
       lines.push(
-        `${icon} ${result}${round} vs ${named(fight.opponentFlag, fight.opponent)} — ${formatCalendarDate(fight.date)}`,
+        `${icon} ${result}${round} vs ${named(fight.opponentFlag, fight.opponent)} — ${formatCalendarDate(fight.date, "ufc")}`,
       );
     }
     lines.push("```");
@@ -942,7 +949,7 @@ function renderUfc(data, title) {
 // ranking, ranking points, movement, and most recent match result. ATP and WTA
 // share this same shape, differing only in league key and tour label.
 function renderTennisPlayer(sport, tourLabel, data, title) {
-  const { team, emoji, logoUrl, standing, rankPoints, previousRank, trend, lastMatch } = data;
+  const { team, emoji, logoUrl, standing, previousRank, trend, lastMatch } = data;
   const lines = [];
 
   lines.push(...headingLines(sport, title));
@@ -954,11 +961,14 @@ function renderTennisPlayer(sport, tourLabel, data, title) {
   lines.push(`${tourLabel} · World Ranking`);
   lines.push("");
 
-  // World ranking, points, and movement form a compact meta line, mirroring the
+  // World ranking and movement form a compact meta line, mirroring the
   // single status line used by team boards (e.g. MLB's season/standing/next).
+  // Ranking POINTS are deliberately omitted: ESPN re-posts them as tournaments
+  // progress, so a committed board carrying them is stale within days and the
+  // "example boards are current" CI gate can never stay green. Rank and
+  // movement are stable, so they carry the information.
   const meta = [];
   if (standing && standing.position) meta.push(`🏆 World No. ${standing.position}`);
-  if (rankPoints !== undefined) meta.push(`📍 ${rankPoints.toLocaleString()} ranking points`);
   if (previousRank !== undefined && trend) {
     const arrow = trend === "-" ? "—" : trend === "up" || trend === "+" ? "▲" : "▼";
     meta.push(`📈 Movement: ${arrow} (was No. ${previousRank})`);
@@ -973,8 +983,17 @@ function renderTennisPlayer(sport, tourLabel, data, title) {
   if (lastMatch && lastMatch.opponent) {
     const icon = lastMatch.won ? "✅" : "❌";
     const result = lastMatch.won ? "W" : "L";
+    // Tennis has no home venue, so a match date is quoted in UTC by convention.
+    // Passing the zone explicitly keeps the board identical on every host:
+    // without it an instant like 2026-09-30T04:00Z renders Sep 30 on UTC but
+    // Sep 29 on US Eastern machines.
     const when = lastMatch.date
-      ? formatDate(lastMatch.date, { month: "short", day: "numeric", year: "numeric" })
+      ? formatDate(lastMatch.date, {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+          timeZone: "UTC",
+        })
       : "";
     let setsText = "";
     const [playerSets, oppSets] = lastMatch.sets || [];
