@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const BaseFreeApiAdapter = require("./base-free-api");
 const { buildGameLog, dateOffset, opponentPool, recordFromGames } = require("../demo");
 
@@ -30,11 +31,12 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
    * Aug–May therefore belong to the previous year once January arrives.
    */
   getSeasonYear() {
-    const now = new Date();
-    const year = now.getFullYear();
+    // UTC, not the host's calendar: a machine east of UTC would otherwise
+    // advance the season a few hours before CI does.
+    const { year, month } = utcParts();
     if (!this.SEASON_SPANS_YEARS) return year;
     // Months Jan–Jun still belong to the season that began last year.
-    return now.getMonth() + 1 <= 6 ? year - 1 : year;
+    return month <= 6 ? year - 1 : year;
   }
 
   getLogoUrl(abbr) {

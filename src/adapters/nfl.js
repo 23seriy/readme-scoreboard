@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const {
   DEMO_NOW,
   buildGameLog,
@@ -99,9 +100,9 @@ async function fetchTeamInfo(teamAbbr) {
 async function fetchStandings(teamAbbr) {
   try {
     const upper = teamAbbr.toUpperCase();
-    const now = new Date();
+    const { year, month } = utcParts();
     // NFL season runs Sep–Feb; before September use the previous year's season.
-    const season = now.getMonth() < 8 ? now.getFullYear() - 1 : now.getFullYear();
+    const season = month < 9 ? year - 1 : year;
     const { data } = await httpGet(
       `https://site.api.espn.com/apis/v2/sports/football/nfl/standings?season=${season}&seasontype=2`
     );
@@ -135,9 +136,9 @@ async function fetchStandings(teamAbbr) {
 // Shared schedule fetch used by both recent-games and next-game detection.
 async function fetchScheduleEvents(teamAbbr) {
   const upper = teamAbbr.toUpperCase();
-  const now = new Date();
+  const { year, month } = utcParts();
   // NFL season runs Sep–Feb; before September use the previous year's season.
-  const season = now.getMonth() < 8 ? now.getFullYear() - 1 : now.getFullYear();
+  const season = month < 9 ? year - 1 : year;
   const [regData, postData] = await Promise.all([
     httpGet(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=2`),
     httpGet(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${upper}/schedule?season=${season}&seasontype=3`),
@@ -177,10 +178,9 @@ function parseRecordFromTeam(teamRecord, season) {
 
 async function fetchSeasonRecord(team) {
   // If the current season hasn't started yet, fetch last year's team data for the record
-  const now = new Date();
-  const currentYear = now.getFullYear();
+  const { year: currentYear, month } = utcParts();
   // NFL season runs Sep–Feb; if before Sep use previous year's season
-  const nflSeason = now.getMonth() < 8 ? currentYear - 1 : currentYear;
+  const nflSeason = month < 9 ? currentYear - 1 : currentYear;
 
   if (nflSeason === currentYear && team._record) {
     return parseRecordFromTeam(team._record, currentYear);

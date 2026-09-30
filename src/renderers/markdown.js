@@ -1,6 +1,7 @@
 // Season windows: [activeStartMonth, activeEndMonth] (1-indexed, inclusive)
 // "active" means regular season or playoffs are ongoing
 const { LEAGUES: LEAGUE_REGISTRY } = require("../config/leagues");
+const { utcParts } = require("../clock");
 
 const SEASON_WINDOWS = {
   nba: { start: [10, 1], end: [6, 30], nextLabel: "October" },
@@ -103,9 +104,8 @@ function headingLines(sport, title) {
 function isSeasonActive(sport) {
   const window = SEASON_WINDOWS[sport];
   if (!window) return true;
-  const now = new Date();
-  const m = now.getMonth() + 1;
-  const d = now.getDate();
+  // UTC, so the season boundary lands at the same instant on every host.
+  const { month: m, day: d } = utcParts();
   // Prefer the DATED window's start, exactly as seasonStatusLine does. The
   // month/day is a rounded guess and disagrees for 15 of 43 leagues, so reading
   // it here made a season look underway weeks before its first fixture: the
@@ -129,8 +129,8 @@ function isSeasonActive(sport) {
 function seasonStatusLine(sport) {
   if (isSeasonActive(sport)) return "🟢 Season in progress";
   const window = SEASON_WINDOWS[sport] || {};
-  const now = new Date();
-  const today = now.toISOString().slice(0, 10);
+  const { year: utcYear } = utcParts();
+  const today = new Date().toISOString().slice(0, 10);
   const [sm, sd] = window.start || [];
   const pad = (n) => String(n).padStart(2, "0");
   // Prefer the DATED window. The registry keeps both a month/day (`start`) and a
@@ -149,13 +149,12 @@ function seasonStatusLine(sport) {
     // year, which is the arithmetic the month-only version kept getting wrong.
     nextStart = dated > today ? dated : `${Number(dated.slice(0, 4)) + 1}-${dated.slice(5)}`;
   } else if (sm && sd) {
-    const m = now.getMonth() + 1;
-    const d = now.getDate();
+    const { month: m, day: d } = utcParts();
     const startPassed = m > sm || (m === sm && d > sd);
-    const nextYear = window.nextStartYear ?? (startPassed ? now.getFullYear() + 1 : now.getFullYear());
+    const nextYear = window.nextStartYear ?? (startPassed ? utcYear + 1 : utcYear);
     nextStart = `${nextYear}-${pad(sm)}-${pad(sd)}`;
   }
-  const year = nextStart ? nextStart.slice(0, 4) : (now.getFullYear() + 1);
+  const year = nextStart ? nextStart.slice(0, 4) : (utcYear + 1);
   const when = nextStart
     ? formatDate(nextStart, { month: "long", day: "numeric" })
     : window.nextLabel || "soon";
