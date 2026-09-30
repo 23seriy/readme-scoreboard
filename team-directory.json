@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-29T11:32:58.099Z",
+  "generatedAt": "2026-09-30T11:20:33.388Z",
   "teams": [
     {
       "league": "nba",
@@ -2295,7 +2295,7 @@
       "league": "ligamx",
       "leagueName": "Liga MX",
       "abbreviation": "JUA",
-      "name": "FC Juarez",
+      "name": "FC Juárez",
       "id": "17851"
     },
     {
@@ -3554,8 +3554,8 @@
     {
       "league": "uel",
       "leagueName": "UEFA Europa League",
-      "abbreviation": "OFI Crete",
-      "name": "OFI CRETE",
+      "abbreviation": "OFI",
+      "name": "OFI Crete",
       "id": "1010"
     },
     {
@@ -16077,8 +16077,8 @@
     {
       "league": "greek",
       "leagueName": "Greek Super League",
-      "abbreviation": "OFI Crete",
-      "name": "OFI CRETE",
+      "abbreviation": "OFI",
+      "name": "OFI Crete",
       "id": "1010"
     },
     {
