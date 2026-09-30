@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const { buildGameLog, dateOffset, opponentPool, recordFromGames } = require("../demo");
 
 class BaseFreeApiAdapter {
@@ -76,16 +77,17 @@ class BaseFreeApiAdapter {
   }
 
   getSeasonYear() {
-    const now = new Date();
-    const month = now.getMonth() + 1;
-    return month >= 10 ? now.getFullYear() : now.getFullYear() - 1;
+    // Read the calendar in UTC: a host east of UTC would otherwise flip season
+    // a few hours early and render a different year than CI does.
+    const { year, month } = utcParts();
+    return month >= 10 ? year : year - 1;
   }
 
   // Returns the date from which the current season's games should be counted.
   // Only MLB relies on this; every other adapter declares its own season window
   // through the registry.
   getSeasonStart() {
-    const year = new Date().getFullYear();
+    const { year } = utcParts();
     return new Date(`${year}-04-01`);
   }
 
@@ -106,9 +108,11 @@ class BaseFreeApiAdapter {
   async fetchSeasonRecord(teamId) {
     try {
       const season = this.getSeasonYear();
-      const today = new Date();
+      // A UTC "today" keeps the rolling half-season window identical on every
+      // host; a local midnight shifts both edges by a day near the boundary.
+      const today = new Date(`${new Date().toISOString().slice(0, 10)}T00:00:00Z`);
       const pastDate = new Date(today);
-      pastDate.setDate(today.getDate() - 180);
+      pastDate.setUTCDate(today.getUTCDate() - 180);
 
       const url = this.getGamesUrl(teamId, pastDate, today);
       const { data } = await httpGet(url);

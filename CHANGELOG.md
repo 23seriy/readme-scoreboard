@@ -12,6 +12,26 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **Boards disagreed about which season it was, depending on the machine's
+timezone.** Every adapter decided the
+  current season with the *host's* calendar month (`new Date().getMonth()`).
+Because a machine east of UTC
+  crosses a month boundary hours earlier, the same board could report a different
+year: at 2026-09-30T21:47Z the
+  UTC month was still September, so the season year was 2025, while Asia/Tokyo had
+already rolled into October
+  and produced 2026. Fifteen sample boards changed year between zones — every NHL,
+G League and IndyCar example —
+  and the CI `lint` job failed for all three open automation PRs. A new
+`src/clock.js` reads the calendar in UTC
+  and all ten season calculations, plus the season-status line and the
+college/NFL/NBA/G League/tennis/motorsport
+  adapters, now use it, so the answer no longer depends on where the process runs.
+Guarded by
+  `tests/clock.test.js`, which pins the behaviour at the boundary instant itself —
+the bug otherwise only
+  appears in the few hours a year a month boundary is crossed.
+
 - **Tennis and football boards rendered a different day depending on the machine
 that generated them.** Match
   and kick-off times arrive from ESPN as UTC instants, and four places formatted

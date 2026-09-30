@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const { dateOffset } = require("../demo");
 const BaseFreeApiAdapter = require("./base-free-api");
 
@@ -154,7 +155,7 @@ class NHLAdapter extends BaseFreeApiAdapter {
     try {
       const upper = teamAbbr.toUpperCase();
       const abbr = this.LOGO_ABBR[upper] || upper;
-      const currentYear = new Date().getFullYear();
+      const currentYear = utcParts().year;
       // The current season's roster, falling back to the previous season during
       // the off-season when the new roster is not yet published.
       for (const season of [this.getSeasonCode(currentYear - 1), this.getSeasonCode(currentYear - 2)]) {
@@ -370,7 +371,7 @@ class NHLAdapter extends BaseFreeApiAdapter {
       // already played them, and treating those as evidence that the season has
       // started stopped the walk-back — leaving the board with no recent games
       // and a 0-0 record while the season it wanted was right there.
-      const currentYear = new Date().getFullYear();
+      const currentYear = utcParts().year;
       const seasonsToTry = [
         "now",
         this.getSeasonCode(currentYear - 1), // e.g. 20252026 when year=2026
