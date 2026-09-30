@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/tennis/atp";
 const ESPN_CORE_BASE = "https://sports.core.api.espn.com/v2/sports/tennis/leagues/atp";
@@ -63,7 +64,7 @@ const DEMO_PLAYERS = {
 const DATA_SOURCE = "ESPN public API";
 
 function getSeasonYear() {
-  return new Date().getFullYear();
+  return utcParts().year;
 }
 
 // ATP has no per-team logo on ESPN's CDN, so fall back to the tennis icon used

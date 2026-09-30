@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 
 const ESPN_HEADERS = {
   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
@@ -16,7 +17,7 @@ const DEMO_SEASON = 2026;
 // same logic and differ only in their series key, labels and roster.
 class BaseRacingDriverAdapter {
   getSeasonYear() {
-    return new Date().getFullYear();
+    return utcParts().year;
   }
 
   // Motorsport drivers have no club crest and ESPN serves no driver headshot

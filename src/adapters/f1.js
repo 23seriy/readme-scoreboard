@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const { dateOffset } = require("../demo");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/racing/f1";
@@ -42,7 +43,7 @@ const DEMO_TEAMS = {
 const DATA_SOURCE = "ESPN public API";
 
 function getSeasonYear() {
-  return new Date().getFullYear();
+  return utcParts().year;
 }
 
 function getLogoUrl() {
