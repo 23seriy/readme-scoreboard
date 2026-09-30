@@ -8,18 +8,16 @@ Western Conference
 
 🏅 Standing: Western · 1
 
-📅 Next: @ NY (Sep 30)
-
 📊 2026 Record: 33W - 11L (75.0%)
    ██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  71-87  @ NY  (Sep 29, 2026) [Playoffs]
 ❌ L  75-91  vs NY  (Sep 27, 2026) [Playoffs]
 ✅ W  86-66  vs IND (Sep 24, 2026)
 ❌ L  77-96  @ IND (Sep 22, 2026)
 ✅ W 101-89  @ CON (Sep 20, 2026)
-❌ L  81-93  vs NY  (Sep 18, 2026)
 ```
 
 **🐆 Player Spotlight: Napheesa Collier**
@@ -28,5 +26,5 @@ Western Conference
 
 **📅 Last Game:**
 ```
-12 PTS · 5 REB · 3 AST · 33 MIN vs New York Liberty (Sep 27, 2026)
+14 PTS · 7 REB · 1 AST · 33 MIN vs New York Liberty (Sep 29, 2026)
 ```

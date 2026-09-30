@@ -8,16 +8,16 @@ American League · AL East
 
 🏅 Standing: AL East · 2
 
-📅 Next: vs BOS (Sep 30)
+📅 Next: vs BOS (Oct 1)
 
 📊 2026 Record: 93W - 68L (57.8%)
    ██████████████▍░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W  9-0  vs BOS (Sep 29, 2026) [Playoffs]
 ❌ L  2-10 vs BAL (Sep 25, 2026)
 ✅ W  6-3  vs BAL (Sep 25, 2026)
 ✅ W  6-4  vs TB  (Sep 24, 2026)
 ✅ W  9-2  vs TB  (Sep 23, 2026)
-✅ W  2-0  vs TB  (Sep 22, 2026)
 ```
