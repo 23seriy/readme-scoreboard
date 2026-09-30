@@ -427,7 +427,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Atlas | `ATS` | 216 |
 | Cruz Azul | `CAZ` | 218 |
 | Guadalajara | `GDL` | 219 |
-| FC Juarez | `JUA` | 17851 |
+| FC Juárez | `JUA` | 17851 |
 | León | `LEO` | 228 |
 | MAZ | `MAZ` | 20702 |
 | Monterrey | `MTY` | 220 |
@@ -659,7 +659,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Manchester United | `MUN` | 360 |
 | NEC Nijmegen | `NEC` | 147 |
 | NK Celje | `NKC` | 3362 |
-| OFI CRETE | `OFI Crete` | 1010 |
+| OFI Crete | `OFI` | 1010 |
 | Marseille | `OLM` | 176 |
 | Olympiacos | `OLY` | 435 |
 | Omonia Nicosia | `OMON` | 617 |
@@ -2535,7 +2535,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Kalamata | `KAL` | 132429 |
 | Kifisia | `KIF` | 21969 |
 | Levadiakos | `LEV` | 5276 |
-| OFI CRETE | `OFI Crete` | 1010 |
+| OFI Crete | `OFI` | 1010 |
 | Olympiacos | `OLY` | 435 |
 | Panetolikos | `PAN` | 11431 |
 | Panathinaikos | `PAO` | 443 |
