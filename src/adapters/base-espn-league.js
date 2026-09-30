@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const {
   buildGameLog,
   dateOffset,
@@ -20,7 +21,9 @@ class BaseEspnLeagueAdapter {
   }
 
   getSeasonYear() {
-    return new Date().getFullYear();
+    // UTC so the college leagues agree with every other adapter's season year
+    // regardless of the host zone.
+    return utcParts().year;
   }
 
   getLogoUrl(abbr) {

@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const { dateOffset, makeRng, seedFromString } = require("../demo");
 
 const ESPN_HOST = "https://site.api.espn.com/apis";
@@ -218,7 +219,7 @@ class UfcAdapter {
   }
 
   getSeasonYear() {
-    return new Date().getFullYear();
+    return utcParts().year;
   }
 
   // ESPN publishes no fighter headshots, so every board carries the promotion's

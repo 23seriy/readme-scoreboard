@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const { dateOffset } = require("../demo");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development";
@@ -50,8 +51,8 @@ const DEMO_TEAMS = {
  * labels it by the year it ends in — the same convention the NBA uses.
  */
 function getSeasonYear() {
-  const now = new Date();
-  return now.getMonth() >= 9 ? now.getFullYear() + 1 : now.getFullYear();
+  const { year, month } = utcParts();
+  return month >= 10 ? year + 1 : year;
 }
 
 function getLogoUrl(abbr) {
