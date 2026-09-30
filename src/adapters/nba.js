@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const {
   DEMO_NOW,
   buildGameLog,
@@ -194,10 +195,10 @@ async function fetchStandings(teamAbbr) {
   try {
     const upper = teamAbbr.toUpperCase();
     const espnAbbr = ESPN_ABBR[upper] || upper;
-    const now = new Date();
+    const { year, month } = utcParts();
     // NBA season ends in June; ESPN season param = end year
     // Oct-Dec: new season (ends next year), Jan-Sep: current season (ends this year)
-    const season = now.getMonth() >= 9 ? now.getFullYear() + 1 : now.getFullYear();
+    const season = month >= 10 ? year + 1 : year;
     const { data } = await httpGet(
       `${ESPN_BASE_V2}/standings?level=3&season=${season}&seasontype=2`,
       { headers: ESPN_HEADERS }
@@ -227,15 +228,15 @@ async function fetchStandings(teamAbbr) {
     return { wins: 0, losses: 0, season, conference: "", division: "", position: null };
   } catch (error) {
     console.error(`Failed to fetch NBA standings: ${error.message}`);
-    return { wins: 0, losses: 0, season: new Date().getFullYear() - 1, conference: "", division: "" };
+    return { wins: 0, losses: 0, season: utcParts().year - 1, conference: "", division: "" };
   }
 }
 
 async function fetchScheduleEvents(teamAbbr) {
   const upper = teamAbbr.toUpperCase();
   const espnId = ESPN_TEAM_IDS[upper];
-  const now = new Date();
-  const season = now.getMonth() >= 9 ? now.getFullYear() + 1 : now.getFullYear();
+  const { year, month } = utcParts();
+  const season = month >= 10 ? year + 1 : year;
   const [regData, postData] = await Promise.all([
     httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
     httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),

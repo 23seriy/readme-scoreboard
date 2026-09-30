@@ -1,4 +1,5 @@
 const { get: httpGet } = require("../http");
+const { utcParts } = require("../clock");
 const { dateOffset } = require("../demo");
 const BaseFreeApiAdapter = require("./base-free-api");
 
@@ -54,7 +55,7 @@ class MlbAdapter extends BaseFreeApiAdapter {
   DEMO_POOL_KEY = "baseball";
 
   getSeasonYear() {
-    return new Date().getFullYear();
+    return utcParts().year;
   }
 
   async fetchSeasonRecord(teamId) {
