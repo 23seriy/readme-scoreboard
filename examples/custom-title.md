@@ -8,14 +8,6 @@ Eastern Conference · Atlantic Division
 
 🏅 Standing: Eastern · 1
 
-📊 2025-2026 Record: 56W - 26L (68.3%)
-   █████████████████░░░░░░░░
+📅 Next: @ DET (Oct 20)
 
-**📅 Recent Games:**
-```
-❌ L 100-109 vs PHI (May 2, 2026) [Playoffs]
-❌ L  93-106 @ PHI (Apr 30, 2026) [Playoffs]
-❌ L  97-113 vs PHI (Apr 28, 2026) [Playoffs]
-✅ W 128-96  @ PHI (Apr 26, 2026) [Playoffs]
-✅ W 108-100 @ PHI (Apr 24, 2026) [Playoffs]
-```
+📅 No recent games found

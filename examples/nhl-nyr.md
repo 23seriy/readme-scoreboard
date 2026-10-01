@@ -6,7 +6,7 @@
 Eastern Conference · Metropolitan Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Metropolitan · 8
+🏅 Standing (2026-27): Metropolitan · 7
 
 📅 Next: vs TBL (Oct 1)
 
