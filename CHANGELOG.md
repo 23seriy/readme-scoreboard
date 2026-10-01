@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.17.0] - 2026-09-30
+
 ### Fixed
 
 - **Boards disagreed about which season it was, depending on the machine's
@@ -816,7 +818,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.16.0...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.0...HEAD
+[1.17.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.16.0...v1.17.0
 [1.16.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.2...v1.16.0
 [1.15.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.1...v1.15.2
 [1.15.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.0...v1.15.1
