@@ -10,6 +10,26 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- **`main` went red whenever the live example boards drifted, blocking unrelated
+work.** The boards are
+  generated from live league APIs and refreshed by a scheduled workflow, which
+opens a pull request that
+  then waits for a maintainer — observed waiting times were 10 and 29 hours.
+While that request is open the
+  committed files no longer match the generator, and because the freshness chec
+k ran on every push to
+  `main`, the next unrelated merge inherited the failure and had to be unblocke
+d by hand. A pull request that
+  changes what a board renders is still blocked (regenerating is the author's jo
+b), but on a push the same
+  comparison now reports the drift as a warning instead of failing a build nobod
+y can fix. The check also
+  reads `git status --porcelain` rather than `git diff`, so a board the generato
+r adds or renames is caught,
+  not only one it edits.
+
 ## [1.17.0] - 2026-09-30
 
 ### Fixed
