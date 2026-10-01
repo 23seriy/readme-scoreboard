@@ -253,17 +253,38 @@ describe("repository CI configuration", () => {
     // every PR made long-lived automation branches fail for data they predate —
     // five boards reported stale on PRs that only touched markdown and JSON.
     expect(ci).toContain("npm run examples:generate");
-    expect(ci).toContain("git diff --exit-code");
+    // `git diff` alone ignores untracked files, so a newly emitted board or a
+    // rename would pass unnoticed. The gate reads `status --porcelain`, which
+    // reports both, and the generator also deletes what it no longer produces.
+    expect(ci).toContain("git status --porcelain -- examples ':!examples/leagues'");
     // The gallery is live-data driven and excluded on purpose: including it
     // would make the gate permanently red. A glob like 'examples/*.md' is not
     // narrow enough, because git's '*' matches across '/'.
     expect(ci).toContain(":!examples/leagues");
   });
 
+  it("blocks a stale board on a pull request but only warns on a push", () => {
+    // The boards refresh themselves on a schedule and that refresh lands as a
+    // pull request, which sat open for 10 and 29 hours in practice. While it is
+    // open the committed files no longer match the generator, so failing on
+    // `push` reddened main for a data change nobody had made — and every
+    // unrelated merge in that window inherited it. A PR touching src/scripts is
+    // still blocked, because regenerating is the author's to do.
+    expect(ci).toContain('if [ "${{ github.event_name }}" = "pull_request" ]');
+    expect(ci).toContain("::error::The example boards are stale");
+    expect(ci).toContain("::warning::The example boards are stale");
+    // The failing path must only be reachable on a pull request.
+    const boardStep = ci.slice(
+      ci.indexOf("Check the generated example boards are current"),
+      ci.indexOf("Check a src change came with a changelog entry"),
+    );
+    expect(boardStep).toMatch(/pull_request" \]; then[\s\S]*?exit 1/);
+    expect(boardStep).not.toContain("git diff --exit-code");
+  });
+
   it("scopes the board freshness check to changes that can alter a board", () => {
     // The gate is conditional, so verify the condition itself rather than just
-    // the command. `push` to main must still check unconditionally — that is
-    // what catches a merge that left the boards stale, when no PR diff exists.
+    // the command.
     expect(ci).toContain("steps.changed.outputs.boards != 'false'");
     expect(ci).toMatch(/git diff --name-only "\$base" HEAD -- scripts src/);
   });

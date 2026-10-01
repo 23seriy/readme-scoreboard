@@ -51,13 +51,44 @@ jobs:
             echo "boards=false" >> "$GITHUB_OUTPUT"
             echo "No generator or renderer change; skipping the board freshness check."
           fi
-      # `push` to main always checks, so a merge that staled the boards is still
-      # caught even though no PR diff is available to inspect.
+      # The boards are built from LIVE league APIs, so they go stale on their
+      # own and are refreshed by the scheduled update-examples workflow, which
+      # opens a pull request. That PR sits open until a maintainer merges it —
+      # observed gaps of 10 and 29 hours — and while it is open the committed
+      # files no longer match what the generator produces. Checking on `push`
+      # therefore turned main red for a data change nobody had made yet, and
+      # every unrelated merge landing in that window inherited the failure.
+      #
+      # On a pull request the check still BLOCKS: a change to `src/` or
+      # `scripts/` that alters a board must regenerate it. On `push` the same
+      # comparison runs but only REPORTS, so genuine drift stays visible in the
+      # run summary without failing a build the author cannot fix.
       - name: Check the generated example boards are current
         if: steps.changed.outputs.boards != 'false'
         run: |
           npm run examples:generate
-          git diff --exit-code --stat -- examples ':!examples/leagues'
+          # `git diff` alone ignores untracked files, so a board the generator
+          # newly emits (or a renamed one) would slip through. `--porcelain`
+          # reports both, and the generator deletes files it no longer produces,
+          # so any entry here means the committed set is wrong.
+          changed=$(git status --porcelain -- examples ':!examples/leagues')
+          if [ -z "$changed" ]; then
+            echo "Example boards are current."
+            exit 0
+          fi
+          echo "$changed"
+          git --no-pager diff --stat -- examples ':!examples/leagues'
+          # A pull request that changes what a board renders must regenerate it:
+          # that is the author's to fix, so it fails.
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "::error::The example boards are stale. Run 'npm run examples:generate' and commit the result."
+            exit 1
+          fi
+          # On a push the boards went stale on their own — the scheduled
+          # update-examples workflow already has a refresh pull request open, and
+          # merging that is what fixes it. Failing here would redden main for a
+          # change no one made and block unrelated work, so report and move on.
+          echo "::warning::The example boards are stale and will be refreshed by the update-examples workflow."
       - name: Check a src change came with a changelog entry
         run: npm run changelog:check
       - name: Upload coverage report
