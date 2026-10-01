@@ -2,7 +2,7 @@
 
 ### 🏁 Álex Palou (PAL)
 IndyCar Series · Driver Championship
-🟢 Season in progress
+🔴 Off-season · Next season starts March 1, 2027
 
 🏆 Championship position: 1
 📍 Points: 631

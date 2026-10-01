@@ -7,7 +7,6 @@ Eastern Conference · Atlantic Division
 
 🏅 Standing: Eastern · 1
 
-📊 2025-2026 Record: 56W - 26L (68.3%)
-   █████████████████░░░░░░░░
+📅 Next: @ DET (Oct 20)
 
-
+📅 No recent games found
