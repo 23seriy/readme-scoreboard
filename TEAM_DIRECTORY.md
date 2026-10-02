@@ -1876,7 +1876,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Maryville (TN) Scots | `MCTN` | 2373 |
 | Maryland Terrapins | `MD` | 120 |
 | UMass Dartmouth Corsairs | `MDAR` | 379 |
-| MADONNA | `MDNN` | 126146 |
+| Madonna Crusaders | `MDNN` | 126146 |
 | Maine Black Bears | `ME` | 311 |
 | Memphis Tigers | `MEM` | 235 |
 | Mercer Bears | `MER` | 2382 |
@@ -1933,7 +1933,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Michigan Tech Huskies | `MTU` | 2392 |
 | Methodist Monarchs | `MU` | 291 |
 | Muhlenberg Mules | `MUHL` | 2422 |
-| Marian (IN) MARIAN | `MUIN` | 2366 |
+| Marian (IN) Knights | `MUIN` | 2366 |
 | Murray State Racers | `MUR` | 93 |
 | Mississippi Valley State Delta Devils | `MVSU` | 2400 |
 | Northwest Missouri State Bearcats | `MWMO` | 138 |
@@ -1985,7 +1985,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Oklahoma Baptist Bison | `OKBU` | 319 |
 | Oklahoma State Cowboys | `OKST` | 197 |
 | St. Olaf Oles | `OLAF` | 133 |
-| Oklahoma Panhandle OK PANHANDLE ST | `OPSU` | 2824 |
+| Oklahoma Panhandle Aggies | `OPSU` | 2824 |
 | Oregon Ducks | `ORE` | 2483 |
 | Oregon State Beavers | `ORST` | 204 |
 | Ohio State Buckeyes | `OSU` | 194 |
