@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-09-30T11:20:33.388Z",
+  "generatedAt": "2026-10-02T11:19:50.030Z",
   "teams": [
     {
       "league": "nba",
@@ -11793,13 +11793,6 @@
     {
       "league": "ncaaf",
       "leagueName": "College Football",
-      "abbreviation": "MDNN",
-      "name": "MADONNA",
-      "id": "126146"
-    },
-    {
-      "league": "ncaaf",
-      "leagueName": "College Football",
       "abbreviation": "MB",
       "name": "MANITOBA",
       "id": "2770"
@@ -11817,6 +11810,13 @@
       "abbreviation": "MAC",
       "name": "Macalester Scots",
       "id": "2359"
+    },
+    {
+      "league": "ncaaf",
+      "leagueName": "College Football",
+      "abbreviation": "MDNN",
+      "name": "Madonna Crusaders",
+      "id": "126146"
     },
     {
       "league": "ncaaf",
@@ -11850,7 +11850,7 @@
       "league": "ncaaf",
       "leagueName": "College Football",
       "abbreviation": "MUIN",
-      "name": "Marian (IN) MARIAN",
+      "name": "Marian (IN) Knights",
       "id": "2366"
     },
     {
@@ -12676,7 +12676,7 @@
       "league": "ncaaf",
       "leagueName": "College Football",
       "abbreviation": "OPSU",
-      "name": "Oklahoma Panhandle OK PANHANDLE ST",
+      "name": "Oklahoma Panhandle Aggies",
       "id": "2824"
     },
     {
