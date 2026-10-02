@@ -8,7 +8,7 @@ Player: **PAL** · Category: Racing · Data source: ESPN public API
 
 ### 🏁 Álex Palou (PAL)
 IndyCar Series · Driver Championship
-🟢 Season in progress
+🔴 Off-season · Next season starts March 1, 2027
 
 🏆 Championship position: 1
 📍 Points: 631
@@ -22,7 +22,7 @@ The `title:` input replaces the default heading.
 
 ### 🏁 Álex Palou (PAL)
 IndyCar Series · Driver Championship
-🟢 Season in progress
+🔴 Off-season · Next season starts March 1, 2027
 
 🏆 Championship position: 1
 📍 Points: 631
@@ -36,7 +36,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🏁 Álex Palou (PAL)
 IndyCar Series · Driver Championship
-🟢 Season in progress
+🔴 Off-season · Next season starts March 1, 2027
 
 🏆 Championship position: 1
 📍 Points: 631
