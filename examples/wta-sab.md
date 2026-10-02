@@ -7,8 +7,3 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
-**📅 Last Match:**
-```
-✅ W vs Bye (Sep 30, 2026)
-```
-

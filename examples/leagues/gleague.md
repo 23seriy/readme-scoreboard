@@ -9,22 +9,12 @@ Team: **AUS** · Category: Basketball · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/aus.png" alt="Austin Spurs logo" width="72" align="right" />
 
 ### 🐐 Austin Spurs (AUS)
-Western Conference
+ Conference
 🔴 Off-season · Next season starts December 19, 2026
 
-🏅 Standing: Western · 13
+📅 Next: vs STO (Dec 27)
 
-📊 2025-2026 Record: 23W - 13L (63.9%)
-   ███████████████▉░░░░░░░░░
-
-**📅 Recent Games:**
-```
-❌ L 106-117 @ RGV (Mar 31, 2026) [Playoffs]
-✅ W 118-86  vs MXC (Mar 28, 2026)
-❌ L 101-106 vs RCITY (Mar 27, 2026)
-✅ W  99-93  vs RCITY (Mar 25, 2026)
-✅ W 117-97  @ NOB (Mar 22, 2026)
-```
+📅 No recent games found
 
 ## Custom title
 
@@ -35,22 +25,12 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/nba-development/500/aus.png" alt="Austin Spurs logo" width="72" align="right" />
 
 ### 🐐 Austin Spurs (AUS)
-Western Conference
+ Conference
 🔴 Off-season · Next season starts December 19, 2026
 
-🏅 Standing: Western · 13
+📅 Next: vs STO (Dec 27)
 
-📊 2025-2026 Record: 23W - 13L (63.9%)
-   ███████████████▉░░░░░░░░░
-
-**📅 Recent Games:**
-```
-❌ L 106-117 @ RGV (Mar 31, 2026) [Playoffs]
-✅ W 118-86  vs MXC (Mar 28, 2026)
-❌ L 101-106 vs RCITY (Mar 27, 2026)
-✅ W  99-93  vs RCITY (Mar 25, 2026)
-✅ W 117-97  @ NOB (Mar 22, 2026)
-```
+📅 No recent games found
 
 ## Compact mode
 
@@ -60,15 +40,12 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🐐 Austin Spurs (AUS)
-Western Conference
+ Conference
 🔴 Off-season · Next season starts December 19, 2026
 
-🏅 Standing: Western · 13
+📅 Next: vs STO (Dec 27)
 
-📊 2025-2026 Record: 23W - 13L (63.9%)
-   ███████████████▉░░░░░░░░░
-
-
+📅 No recent games found
 
 ## Badge mode
 
