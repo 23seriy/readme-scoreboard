@@ -15,7 +15,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Bye (Sep 30, 2026)
+✅ W vs Renata Zarazua (Oct 2, 2026) 1-6, 3-6
 ```
 
 
@@ -34,7 +34,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Bye (Sep 30, 2026)
+✅ W vs Renata Zarazua (Oct 2, 2026) 1-6, 3-6
 ```
 
 
@@ -52,7 +52,7 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Bye (Sep 30, 2026)
+✅ W vs Renata Zarazua (Oct 2, 2026) 1-6, 3-6
 ```
 
 
