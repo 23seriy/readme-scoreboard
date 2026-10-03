@@ -13,11 +13,6 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
-**📅 Last Match:**
-```
-✅ W vs Renata Zarazua (Oct 2, 2026) 1-6, 3-6
-```
-
 
 ## Custom title
 
@@ -32,11 +27,6 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
-**📅 Last Match:**
-```
-✅ W vs Renata Zarazua (Oct 2, 2026) 1-6, 3-6
-```
-
 
 ## Compact mode
 
@@ -49,11 +39,6 @@ The `compact: true` input drops the logo and recent-game details.
 WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
-
-**📅 Last Match:**
-```
-✅ W vs Renata Zarazua (Oct 2, 2026) 1-6, 3-6
-```
 
 
 ## Badge mode
