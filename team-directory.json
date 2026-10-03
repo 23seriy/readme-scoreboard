@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-10-02T11:19:50.030Z",
+  "generatedAt": "2026-10-03T10:35:13.757Z",
   "teams": [
     {
       "league": "nba",
@@ -3407,13 +3407,6 @@
     {
       "league": "uel",
       "leagueName": "UEFA Europa League",
-      "abbreviation": "Ararat",
-      "name": "ARARAT-ARMENIA",
-      "id": "20024"
-    },
-    {
-      "league": "uel",
-      "leagueName": "UEFA Europa League",
       "abbreviation": "AZ",
       "name": "AZ Alkmaar",
       "id": "140"
@@ -3424,6 +3417,13 @@
       "abbreviation": "AND",
       "name": "Anderlecht",
       "id": "441"
+    },
+    {
+      "league": "uel",
+      "leagueName": "UEFA Europa League",
+      "abbreviation": "ARA",
+      "name": "Ararat-Armenia",
+      "id": "20024"
     },
     {
       "league": "uel",
