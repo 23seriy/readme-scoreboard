@@ -12,20 +12,16 @@ Team: **ANA** · Category: Hockey · Data source: official league API
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 6
+🏅 Standing (2026-27): Pacific · 3
 
-📅 Next: @ VGK (Oct 3)
+📅 Next: vs FLA (Oct 5)
 
-📊 2025-2026 Record: 43W - 39L (52.4%)
-   █████████████░░░░░░░░░░░░
+📊 2025-2026 Record: 1W - 0L (100.0%)
+   █████████████████████████
 
 **📅 Recent Games:**
 ```
-❌ L   1-5   vs VGK (May 14, 2026) [Playoffs]
-❌ L   2-3   @ VGK (May 12, 2026) [Playoffs]
-✅ W   4-3   vs VGK (May 10, 2026) [Playoffs]
-❌ L   2-6   vs VGK (May 8, 2026) [Playoffs]
-✅ W   3-1   @ VGK (May 6, 2026) [Playoffs]
+✅ W   4-3   @ VGK (Oct 2, 2026)
 ```
 
 ## Custom title
@@ -40,20 +36,16 @@ The `title:` input replaces the default heading.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 6
+🏅 Standing (2026-27): Pacific · 3
 
-📅 Next: @ VGK (Oct 3)
+📅 Next: vs FLA (Oct 5)
 
-📊 2025-2026 Record: 43W - 39L (52.4%)
-   █████████████░░░░░░░░░░░░
+📊 2025-2026 Record: 1W - 0L (100.0%)
+   █████████████████████████
 
 **📅 Recent Games:**
 ```
-❌ L   1-5   vs VGK (May 14, 2026) [Playoffs]
-❌ L   2-3   @ VGK (May 12, 2026) [Playoffs]
-✅ W   4-3   vs VGK (May 10, 2026) [Playoffs]
-❌ L   2-6   vs VGK (May 8, 2026) [Playoffs]
-✅ W   3-1   @ VGK (May 6, 2026) [Playoffs]
+✅ W   4-3   @ VGK (Oct 2, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +59,12 @@ The `compact: true` input drops the logo and recent-game details.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 6
+🏅 Standing (2026-27): Pacific · 3
 
-📅 Next: @ VGK (Oct 3)
+📅 Next: vs FLA (Oct 5)
 
-📊 2025-2026 Record: 43W - 39L (52.4%)
-   █████████████░░░░░░░░░░░░
+📊 2025-2026 Record: 1W - 0L (100.0%)
+   █████████████████████████
 
 
 
