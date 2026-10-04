@@ -637,7 +637,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Team | Abbreviation | ID |
 |------|--------------|----|
 | Anderlecht | `AND` | 441 |
-| ARARAT-ARMENIA | `Ararat` | 20024 |
+| Ararat-Armenia | `ARA` | 20024 |
 | AZ Alkmaar | `AZ` | 140 |
 | Bayer Leverkusen | `B04` | 131 |
 | Besiktas | `BES` | 1895 |
