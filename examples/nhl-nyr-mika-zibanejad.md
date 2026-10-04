@@ -6,7 +6,7 @@
 Eastern Conference · Metropolitan Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Metropolitan · 1
+🏅 Standing (2026-27): Metropolitan · 2
 
 📅 Next: vs UTA (Oct 4)
 
