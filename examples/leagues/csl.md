@@ -1,23 +1,18 @@
 # Chinese Super League (csl)
 
-Team: **BG** · Category: Soccer · Data source: ESPN public API
+Team: **BEIJING GUOAN** · Category: Soccer · Data source: ESPN public API
 
 ## Default
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My Favourite Chinese Super League Team](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/2052.png" alt="Beijing Guoan logo" width="72" align="right" />
+<img src="null" alt="BEIJING GUOAN logo" width="72" align="right" />
 
-### 🔵 Beijing Guoan (BG)
-2026 Chinese Super League
+### ⚽ BEIJING GUOAN (Beijing Guoan)
+Chinese Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Chinese Super League · 3
-
 📅 Next: @ QIN (Oct 9)
-
-📊 2026 Record: 11W - 5L - 10D  (43 pts)
-   ███████████████▍░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -32,20 +27,15 @@ Team: **BG** · Category: Soccer · Data source: ESPN public API
 
 The `title:` input replaces the default heading.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My Beijing Guoan](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My BEIJING GUOAN](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/2052.png" alt="Beijing Guoan logo" width="72" align="right" />
+<img src="null" alt="BEIJING GUOAN logo" width="72" align="right" />
 
-### 🔵 Beijing Guoan (BG)
-2026 Chinese Super League
+### ⚽ BEIJING GUOAN (Beijing Guoan)
+Chinese Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Chinese Super League · 3
-
 📅 Next: @ QIN (Oct 9)
-
-📊 2026 Record: 11W - 5L - 10D  (43 pts)
-   ███████████████▍░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -63,16 +53,11 @@ The `compact: true` input drops the logo and recent-game details.
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My Favourite Chinese Super League Team](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
 
 
-### 🔵 Beijing Guoan (BG)
-2026 Chinese Super League
+### ⚽ BEIJING GUOAN (Beijing Guoan)
+Chinese Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Chinese Super League · 3
-
 📅 Next: @ QIN (Oct 9)
-
-📊 2026 Record: 11W - 5L - 10D  (43 pts)
-   ███████████████▍░░░░░░░░░
 
 
 
@@ -81,6 +66,6 @@ The `compact: true` input drops the logo and recent-game details.
 The `badge: true` input renders a shields-style badge instead of a full board.
 
 <p align="center">
-<img src="https://img.shields.io/badge/CHINESE%20SUPER%20LEAGUE-BG-orange?style=flat" />
+<img src="https://img.shields.io/badge/CHINESE%20SUPER%20LEAGUE-BEIJING%20GUOAN-orange?style=flat" />
 </p>
 

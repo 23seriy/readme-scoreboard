@@ -12,7 +12,7 @@ Team: **ANA** · Category: Hockey · Data source: official league API
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 3
+🏅 Standing (2026-27): Pacific · 4
 
 📅 Next: vs FLA (Oct 5)
 
@@ -36,7 +36,7 @@ The `title:` input replaces the default heading.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 3
+🏅 Standing (2026-27): Pacific · 4
 
 📅 Next: vs FLA (Oct 5)
 
@@ -59,7 +59,7 @@ The `compact: true` input drops the logo and recent-game details.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 3
+🏅 Standing (2026-27): Pacific · 4
 
 📅 Next: vs FLA (Oct 5)
 
