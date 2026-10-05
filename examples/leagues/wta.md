@@ -13,6 +13,11 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
+**📅 Last Match:**
+```
+❌ L vs Nikola Bartunkova (Oct 4, 2026) 6-4, 6-3
+```
+
 
 ## Custom title
 
@@ -27,6 +32,11 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
+**📅 Last Match:**
+```
+❌ L vs Nikola Bartunkova (Oct 4, 2026) 6-4, 6-3
+```
+
 
 ## Compact mode
 
@@ -39,6 +49,11 @@ The `compact: true` input drops the logo and recent-game details.
 WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
+
+**📅 Last Match:**
+```
+❌ L vs Nikola Bartunkova (Oct 4, 2026) 6-4, 6-3
+```
 
 
 ## Badge mode
