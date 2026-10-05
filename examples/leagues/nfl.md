@@ -12,7 +12,7 @@ Team: **ATL** · Category: Football · Data source: ESPN public API
 NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: NFC · 13
+🏅 Standing: NFC · 12
 
 📅 Next: @ NO (Oct 6)
 
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: NFC · 13
+🏅 Standing: NFC · 12
 
 📅 Next: @ NO (Oct 6)
 
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: NFC · 13
+🏅 Standing: NFC · 12
 
 📅 Next: @ NO (Oct 6)
 

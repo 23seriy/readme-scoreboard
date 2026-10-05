@@ -12,15 +12,16 @@ Team: **ANA** · Category: Hockey · Data source: official league API
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 4
+🏅 Standing (2026-27): Pacific · 2
 
-📅 Next: vs FLA (Oct 5)
+📅 Next: vs EDM (Oct 8)
 
-📊 2025-2026 Record: 1W - 0L (100.0%)
+📊 2025-2026 Record: 2W - 0L (100.0%)
    █████████████████████████
 
 **📅 Recent Games:**
 ```
+✅ W   3-2   vs FLA (Oct 4, 2026)
 ✅ W   4-3   @ VGK (Oct 2, 2026)
 ```
 
@@ -36,15 +37,16 @@ The `title:` input replaces the default heading.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 4
+🏅 Standing (2026-27): Pacific · 2
 
-📅 Next: vs FLA (Oct 5)
+📅 Next: vs EDM (Oct 8)
 
-📊 2025-2026 Record: 1W - 0L (100.0%)
+📊 2025-2026 Record: 2W - 0L (100.0%)
    █████████████████████████
 
 **📅 Recent Games:**
 ```
+✅ W   3-2   vs FLA (Oct 4, 2026)
 ✅ W   4-3   @ VGK (Oct 2, 2026)
 ```
 
@@ -59,11 +61,11 @@ The `compact: true` input drops the logo and recent-game details.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 4
+🏅 Standing (2026-27): Pacific · 2
 
-📅 Next: vs FLA (Oct 5)
+📅 Next: vs EDM (Oct 8)
 
-📊 2025-2026 Record: 1W - 0L (100.0%)
+📊 2025-2026 Record: 2W - 0L (100.0%)
    █████████████████████████
 
 
