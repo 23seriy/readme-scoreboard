@@ -2504,7 +2504,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 
 | Team | Abbreviation | ID |
 |------|--------------|----|
-| Beijing Guoan | `BG` | 2052 |
+| BEIJING GUOAN | `Beijing Guoan` | 2052 |
 | Chengdu Rongcheng | `CHE` | 21355 |
 | Chongqing Tonglianglong | `CHO` | 131704 |
 | Dalian Yingbo | `DYI` | 22537 |
