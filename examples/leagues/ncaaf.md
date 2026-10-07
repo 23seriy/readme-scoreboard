@@ -16,8 +16,7 @@ Southeastern Conference
 
 📅 Next: vs UGA (Oct 10)
 
-📊 2026 Season: 1W - 0L (100.0%)
-   █████████████████████████
+📊 2026 Season: 5W
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ Southeastern Conference
 
 📅 Next: vs UGA (Oct 10)
 
-📊 2026 Season: 1W - 0L (100.0%)
-   █████████████████████████
+📊 2026 Season: 5W
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ Southeastern Conference
 
 📅 Next: vs UGA (Oct 10)
 
-📊 2026 Season: 1W - 0L (100.0%)
-   █████████████████████████
+📊 2026 Season: 5W
 
 
 

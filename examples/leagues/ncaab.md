@@ -14,8 +14,8 @@ Big 12 Conference Conference
 
 🏅 Standing: Big 12 Conference · 16
 
-📊 2025-2026 Record: 16W - 2L (88.9%)
-   ██████████████████████▏░░
+📊 2025-2026 Record: 36W - 3L (92.3%)
+   ███████████████████████░░
 
 **📅 Recent Games:**
 ```
@@ -40,8 +40,8 @@ Big 12 Conference Conference
 
 🏅 Standing: Big 12 Conference · 16
 
-📊 2025-2026 Record: 16W - 2L (88.9%)
-   ██████████████████████▏░░
+📊 2025-2026 Record: 36W - 3L (92.3%)
+   ███████████████████████░░
 
 **📅 Recent Games:**
 ```
@@ -65,8 +65,8 @@ Big 12 Conference Conference
 
 🏅 Standing: Big 12 Conference · 16
 
-📊 2025-2026 Record: 16W - 2L (88.9%)
-   ██████████████████████▏░░
+📊 2025-2026 Record: 36W - 3L (92.3%)
+   ███████████████████████░░
 
 
 
