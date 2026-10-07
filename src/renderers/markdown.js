@@ -650,16 +650,23 @@ function renderNfl(data, sport = "nfl", title, compact = false) {
   lines.push(...extraTeamLines(data));
   lines.push("");
 
-  const totalGames = record.wins + record.losses;
-  const winPct = totalGames > 0
+  // Some feeds publish only a win count (college football's conference
+  // standings have no loss or games-played figure at all). A null `losses`
+  // means "unknown", so state the wins without inventing a record or a
+  // percentage that would always read 100%.
+  const lossesKnown = record.losses !== null && record.losses !== undefined;
+  const totalGames = lossesKnown ? record.wins + record.losses : record.wins;
+  const winPct = lossesKnown && totalGames > 0
     ? ((record.wins / totalGames) * 100).toFixed(1)
-    : "0.0";
+    : null;
 
   if (totalGames > 0) {
     lines.push(
-      `📊 ${record.season} Season: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      lossesKnown
+        ? `📊 ${record.season} Season: ${record.wins}W - ${record.losses}L (${winPct}%)`
+        : `📊 ${record.season} Season: ${record.wins}W`
     );
-    lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
+    if (winPct !== null) lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
   }
 

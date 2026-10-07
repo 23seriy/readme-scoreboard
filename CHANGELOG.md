@@ -12,6 +12,23 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **A college football board reported a win total that contradicted the games i
+t listed.** ESPN's
+  conference standings return one entry whose `stats` array is every category co
+ncatenated — overall
+  first, then Home, Road, vs Division, vs Conference, vs AP Top 25 — so `wins` a
+ppears once per
+  category and `Object.fromEntries` kept only the **last** one. Alabama's 5-0 ove
+rall season was
+  therefore reported as its 1-0 record against ranked teams, printed directly abo
+ve a list of five
+  wins. The overall figures are now taken from the first occurrence of each stat.
+  College football also publishes **no loss figure at all** (no `losses`, no
+`gamesPlayed`), so a
+  board claimed `1W - 0L (100.0%)` and every team looked undefeated; wins are no
+w stated on their
+  own (`📊 2026 Season: 5W`) instead of inventing a record and a win percentage.
+
 - **`main` went red whenever the live example boards drifted, blocking unrelated
 work.** The boards are
   generated from live league APIs and refreshed by a scheduled workflow, which
