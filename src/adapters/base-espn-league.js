@@ -175,8 +175,27 @@ class BaseEspnLeagueAdapter {
       const index = entries.findIndex((item) => item.team?.abbreviation?.toUpperCase() === abbr.toUpperCase());
       const entry = entries[index];
       if (entry) {
-        const stats = Object.fromEntries((entry.stats || []).map((item) => [item.name, item.value]));
-        return { wins: stats.wins || 0, losses: stats.losses || 0, season, conference: group.name || "", position: index + 1 };
+        // An entry's `stats` is NOT a flat record: it is every category
+        // concatenated — overall first, then Home, Road, vs Division, vs
+        // Conference, vs AP Top 25 and so on. `wins` therefore appears once per
+        // category, and `Object.fromEntries` kept only the LAST one, so
+        // Alabama's 5-0 overall season was reported as its 1-0 record against
+        // ranked teams. Take the FIRST occurrence of each name instead, which is
+        // the overall figure. College football also publishes no plain `losses`
+        // stat at all, so it is derived from the games played.
+        const stats = {};
+        for (const item of entry.stats || []) {
+          if (!(item.name in stats)) stats[item.name] = item.value;
+        }
+        const wins = Number(stats.wins) || 0;
+        // College football publishes WINS ONLY here: there is no `losses`,
+        // no `gamesPlayed`, and no other overall loss figure (verified across
+        // the whole 2026 SEC table; `divisionLosses` counts conference games
+        // only and is not a substitute). Reporting `losses: 0` therefore
+        // claimed every team was undefeated, so leave it null and let the
+        // renderer state wins without inventing a record or a win percentage.
+        const losses = stats.losses !== undefined ? Number(stats.losses) || 0 : null;
+        return { wins, losses, season, conference: group.name || "", position: index + 1 };
       }
     }
     return { wins: 0, losses: 0, season, conference: "", position: null };

@@ -127,11 +127,11 @@ The name must match the roster's exact spelling, including accents.
 
 [View rendered output →](wnba-min-napheesa-collier.md)
 
-### NCAAB — Dwayne Aristode
+### NCAAB — Motiejus Krivas
 
-`player: Dwayne Aristode` on `team: ARIZ`.
+`player: Motiejus Krivas` on `team: ARIZ`.
 
-[View rendered output →](ncaab-ariz-dwayne-aristode.md)
+[View rendered output →](ncaab-ariz-motiejus-krivas.md)
 
 ### NCAAW — KK Arnold
 

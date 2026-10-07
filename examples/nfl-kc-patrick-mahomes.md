@@ -8,13 +8,14 @@ AFC · AFC West
 
 🏅 Standing: AFC · 1
 
-📅 Next: @ LV (Oct 4)
+📅 Next: vs LAC (Oct 18)
 
-📊 2026 Season: 3W - 0L (100.0%)
+📊 2026 Season: 4W - 0L (100.0%)
    █████████████████████████
 
 **📅 Recent Games:**
 ```
+✅ W 30-27 @ LV  (Oct 4, 2026)
 ✅ W 24-10 @ MIA (Sep 27, 2026)
 ✅ W 33-30 vs IND (Sep 21, 2026)
 ✅ W 31-10 vs DEN (Sep 15, 2026)
@@ -26,5 +27,5 @@ AFC · AFC West
 
 **📅 Last Game:**
 ```
-No stats recorded vs MIA (Sep 27, 2026)
+No stats recorded vs LV (Oct 4, 2026)
 ```

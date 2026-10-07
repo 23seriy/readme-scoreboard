@@ -12,6 +12,34 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **A stale player name stopped the example boards generating at all.** The exam
+ples pin one player per
+  sport, and a roster move made that name invalid, so `npm run examples:generate`
+aborted with
+  "Unknown player ... on ARIZ" and the scheduled refresh failed — taking every b
+oard with it, not just
+  the affected one. The Arizona entry now names a current player, and
+`npm run health:apis` verifies every
+  example player against their live roster so the breakage is reported as one na
+med entry instead of
+  breaking generation on a schedule.
+- **A college football board reported a win total that contradicted the games i
+t listed.** ESPN's
+  conference standings return one entry whose `stats` array is every category co
+ncatenated — overall
+  first, then Home, Road, vs Division, vs Conference, vs AP Top 25 — so `wins` a
+ppears once per
+  category and `Object.fromEntries` kept only the **last** one. Alabama's 5-0 ove
+rall season was
+  therefore reported as its 1-0 record against ranked teams, printed directly abo
+ve a list of five
+  wins. The overall figures are now taken from the first occurrence of each stat.
+  College football also publishes **no loss figure at all** (no `losses`, no
+`gamesPlayed`), so a
+  board claimed `1W - 0L (100.0%)` and every team looked undefeated; wins are no
+w stated on their
+  own (`📊 2026 Season: 5W`) instead of inventing a record and a win percentage.
+
 - **`main` went red whenever the live example boards drifted, blocking unrelated
 work.** The boards are
   generated from live league APIs and refreshed by a scheduled workflow, which
