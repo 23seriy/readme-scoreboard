@@ -12,6 +12,17 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **A stale player name stopped the example boards generating at all.** The exam
+ples pin one player per
+  sport, and a roster move made that name invalid, so `npm run examples:generate`
+aborted with
+  "Unknown player ... on ARIZ" and the scheduled refresh failed — taking every b
+oard with it, not just
+  the affected one. The Arizona entry now names a current player, and
+`npm run health:apis` verifies every
+  example player against their live roster so the breakage is reported as one na
+med entry instead of
+  breaking generation on a schedule.
 - **A college football board reported a win total that contradicted the games i
 t listed.** ESPN's
   conference standings return one entry whose `stats` array is every category co

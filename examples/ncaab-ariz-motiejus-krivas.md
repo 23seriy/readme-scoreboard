@@ -8,8 +8,8 @@ Big 12 Conference Conference
 
 🏅 Standing: Big 12 Conference · 16
 
-📊 2025-2026 Record: 16W - 2L (88.9%)
-   ██████████████████████▏░░
+📊 2025-2026 Record: 36W - 3L (92.3%)
+   ███████████████████████░░
 
 **📅 Recent Games:**
 ```
@@ -20,11 +20,11 @@ Big 12 Conference Conference
 ✅ W  73-57  vs ISU (Mar 2, 2026)
 ```
 
-**🐻 Player Spotlight: Dwayne Aristode**
-<img src="https://a.espncdn.com/i/headshots/mens-college-basketball/players/full/5186456.png" alt="Dwayne Aristode headshot" height="72" align="right" />
-5.2 PPG · 1.9 RPG · 1.0 APG
+**🐻 Player Spotlight: Motiejus Krivas**
+<img src="https://a.espncdn.com/i/headshots/mens-college-basketball/players/full/5174954.png" alt="Motiejus Krivas headshot" height="72" align="right" />
+10.6 PPG · 7.7 RPG · 1.0 APG
 
 **📅 Last Game:**
 ```
-3 PTS · 1 REB · 0 AST · 10 MIN vs Michigan Wolverines (Apr 4, 2026)
+11 PTS · 6 REB · 1 AST · 28 MIN vs Michigan Wolverines (Apr 4, 2026)
 ```

@@ -80,26 +80,59 @@ async function checkApiHealth(request = httpGet) {
   };
 }
 
-if (require.main === module) {
-  Promise.all([checkApiHealth(), checkLeagueLogos()]).then(([api, logoFailures]) => {
-    if (api.failures.length > 0) {
-      console.error(`API health check failed for ${api.failures.length} of ${api.checked} endpoints:`);
-      api.failures.forEach((failure) => console.error(`- ${failure}`));
-      console.error(`Slowest response: ${Math.max(...Object.values(api.timings))} ms`);
-      process.exitCode = 1;
+// The example boards hard-code a player name per sport, and a roster move makes
+// that name invalid. `npm run examples:generate` then aborts with "Unknown
+// player ... on ARIZ" — the whole generation stops, and the CI freshness gate
+// fails on a schedule, not on anyone's change. That is exactly what happened
+// when Dwayne Aristode left Arizona. The names are verified here daily so the
+// breakage surfaces as a health check naming the stale entry, before it takes
+// the generator down.
+async function checkSpotlightPlayers() {
+  const { PLAYER_SPOTLIGHT_EXAMPLES } = require("./generate-examples");
+  const failures = [];
+
+  for (const { key, team, player } of PLAYER_SPOTLIGHT_EXAMPLES) {
+    try {
+      const adapter = require(`../src/adapters/${key}`);
+      const result = await adapter.fetchPlayerSpotlight(team, player);
+      if (!result) {
+        failures.push(`${key} ${team}: "${player}" returned no spotlight data`);
+      }
+    } catch (error) {
+      failures.push(`${key} ${team}: "${player}" is not on the roster (${error.message.split(".")[0]})`);
     }
-    if (logoFailures.length > 0) {
-      console.error(`Logo check failed for ${logoFailures.length} ${logoFailures.length === 1 ? "entry" : "entries"}:`);
-      logoFailures.forEach((failure) => console.error(`- ${failure}`));
-      process.exitCode = 1;
-    }
-    if (process.exitCode !== 1) {
-      console.log(`API health check passed for all ${api.checked} supported leagues, including their logos.`);
-    }
-  }).catch((error) => {
-    console.error(`API health check failed: ${error.message}`);
-    process.exitCode = 1;
-  });
+  }
+
+  return failures;
 }
 
-module.exports = { buildEndpointList, checkApiHealth, checkLeagueLogos };
+if (require.main === module) {
+  Promise.all([checkApiHealth(), checkLeagueLogos(), checkSpotlightPlayers()])
+    .then(([api, logoFailures, spotlightFailures]) => {
+      if (api.failures.length > 0) {
+        console.error(`API health check failed for ${api.failures.length} of ${api.checked} endpoints:`);
+        api.failures.forEach((failure) => console.error(`- ${failure}`));
+        console.error(`Slowest response: ${Math.max(...Object.values(api.timings))} ms`);
+        process.exitCode = 1;
+      }
+      if (logoFailures.length > 0) {
+        console.error(`Logo check failed for ${logoFailures.length} ${logoFailures.length === 1 ? "entry" : "entries"}:`);
+        logoFailures.forEach((failure) => console.error(`- ${failure}`));
+        process.exitCode = 1;
+      }
+      if (spotlightFailures.length > 0) {
+        console.error(`Spotlight check failed for ${spotlightFailures.length} example ${spotlightFailures.length === 1 ? "board" : "boards"}:`);
+        spotlightFailures.forEach((failure) => console.error(`- ${failure}`));
+        process.exitCode = 1;
+      }
+      if (process.exitCode !== 1) {
+        console.log(`API health check passed for all ${api.checked} supported leagues, including their logos and example spotlights.`);
+      }
+    })
+    .catch((error) => {
+      console.error(`API health check failed: ${error.message}`);
+      process.exitCode = 1;
+    });
+}
+
+module.exports = { buildEndpointList, checkApiHealth, checkLeagueLogos, checkSpotlightPlayers };
