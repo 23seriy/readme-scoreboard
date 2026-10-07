@@ -14,8 +14,8 @@ Big East Conference Conference
 
 🏅 Standing: Big East Conference · 11
 
-📊 2025-2026 Record: 20W - 0L (100.0%)
-   █████████████████████████
+📊 2025-2026 Record: 38W - 1L (97.4%)
+   ████████████████████████▎
 
 **📅 Recent Games:**
 ```
@@ -40,8 +40,8 @@ Big East Conference Conference
 
 🏅 Standing: Big East Conference · 11
 
-📊 2025-2026 Record: 20W - 0L (100.0%)
-   █████████████████████████
+📊 2025-2026 Record: 38W - 1L (97.4%)
+   ████████████████████████▎
 
 **📅 Recent Games:**
 ```
@@ -65,8 +65,8 @@ Big East Conference Conference
 
 🏅 Standing: Big East Conference · 11
 
-📊 2025-2026 Record: 20W - 0L (100.0%)
-   █████████████████████████
+📊 2025-2026 Record: 38W - 1L (97.4%)
+   ████████████████████████▎
 
 
 
