@@ -1184,7 +1184,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | California Golden Bears | `CAL` | 25 |
 | Campbell Fighting Camels | `CAM` | 2097 |
 | Canisius Golden Griffins | `CAN` | 2099 |
-| Central Arkansas Bears | `CARK` | 2110 |
+| Central Arkansas Sugar Bears | `CARK` | 2110 |
 | California Baptist Lancers | `CBU` | 2856 |
 | Central Connecticut Blue Devils | `CCSU` | 2115 |
 | Coastal Carolina Chanticleers | `CCU` | 324 |
@@ -1226,7 +1226,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Elon Phoenix | `ELON` | 2210 |
 | Eastern Michigan Eagles | `EMU` | 2199 |
 | East Texas A&M Lions | `ETAM` | 2837 |
-| East Tennessee State Bucs | `ETSU` | 2193 |
+| East Tennessee State Buccaneers | `ETSU` | 2193 |
 | Evansville Purple Aces | `EVAN` | 339 |
 | Eastern Washington Eagles | `EWU` | 331 |
 | Fairfield Stags | `FAIR` | 2217 |
@@ -1254,7 +1254,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Seton Hall Pirates | `HALL` | 2550 |
 | Hampton Lady Pirates | `HAMP` | 2261 |
 | Harvard Crimson | `HARV` | 108 |
-| Hawai'i Rainbow Warriors | `HAW` | 62 |
+| Hawai'i Rainbow Wahine | `HAW` | 62 |
 | Holy Cross Crusaders | `HC` | 107 |
 | Houston Christian Huskies | `HCU` | 2277 |
 | Hofstra Pride | `HOF` | 2275 |
