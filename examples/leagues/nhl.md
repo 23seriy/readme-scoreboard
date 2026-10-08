@@ -14,13 +14,14 @@ Western Conference · Pacific Division
 
 🏅 Standing (2026-27): Pacific · 3
 
-📅 Next: vs EDM (Oct 8)
+📅 Next: @ WPG (Oct 10)
 
-📊 2025-2026 Record: 2W - 0L (100.0%)
-   █████████████████████████
+📊 2025-2026 Record: 2W - 1L (66.7%)
+   ████████████████▋░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L   2-5   vs EDM (Oct 7, 2026)
 ✅ W   3-2   vs FLA (Oct 4, 2026)
 ✅ W   4-3   @ VGK (Oct 2, 2026)
 ```
@@ -39,13 +40,14 @@ Western Conference · Pacific Division
 
 🏅 Standing (2026-27): Pacific · 3
 
-📅 Next: vs EDM (Oct 8)
+📅 Next: @ WPG (Oct 10)
 
-📊 2025-2026 Record: 2W - 0L (100.0%)
-   █████████████████████████
+📊 2025-2026 Record: 2W - 1L (66.7%)
+   ████████████████▋░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L   2-5   vs EDM (Oct 7, 2026)
 ✅ W   3-2   vs FLA (Oct 4, 2026)
 ✅ W   4-3   @ VGK (Oct 2, 2026)
 ```
@@ -63,10 +65,10 @@ Western Conference · Pacific Division
 
 🏅 Standing (2026-27): Pacific · 3
 
-📅 Next: vs EDM (Oct 8)
+📅 Next: @ WPG (Oct 10)
 
-📊 2025-2026 Record: 2W - 0L (100.0%)
-   █████████████████████████
+📊 2025-2026 Record: 2W - 1L (66.7%)
+   ████████████████▋░░░░░░░░
 
 
 

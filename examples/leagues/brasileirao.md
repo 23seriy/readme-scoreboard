@@ -12,7 +12,7 @@ Team: **BAH** · Category: Soccer · Data source: ESPN public API
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 5
+🏅 Standing (2026): Brasileirão · 6
 
 📅 Next: @ PAL (Oct 9)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 5
+🏅 Standing (2026): Brasileirão · 6
 
 📅 Next: @ PAL (Oct 9)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 5
+🏅 Standing (2026): Brasileirão · 6
 
 📅 Next: @ PAL (Oct 9)
 
