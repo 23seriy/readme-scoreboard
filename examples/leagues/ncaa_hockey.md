@@ -9,8 +9,13 @@ Team: **BC** · Category: Hockey · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" alt="Boston College Eagles logo" width="72" align="right" />
 
 ### 🦅 Boston College Eagles (BC)
- Conference
+Hockey East Conference
 🟢 Season in progress
+
+🏅 Standing: Hockey East · 2
+
+📊 2026-2027 Record: 0W - 1L (0.0%)
+   ░░░░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -30,8 +35,13 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/103.png" alt="Boston College Eagles logo" width="72" align="right" />
 
 ### 🦅 Boston College Eagles (BC)
- Conference
+Hockey East Conference
 🟢 Season in progress
+
+🏅 Standing: Hockey East · 2
+
+📊 2026-2027 Record: 0W - 1L (0.0%)
+   ░░░░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -50,8 +60,13 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🦅 Boston College Eagles (BC)
- Conference
+Hockey East Conference
 🟢 Season in progress
+
+🏅 Standing: Hockey East · 2
+
+📊 2026-2027 Record: 0W - 1L (0.0%)
+   ░░░░░░░░░░░░░░░░░░░░░░░░░
 
 
 

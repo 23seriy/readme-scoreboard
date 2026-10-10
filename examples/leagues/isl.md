@@ -10,7 +10,7 @@ Team: **BFC** · Category: Soccer · Data source: ESPN public API
 
 ### 🔵 Bengaluru FC (BFC)
 2026-27 ISL
-🔴 Off-season · Next season starts October 10, 2026
+🟢 Season in progress
 
 📅 Next: vs SCD (Oct 10)
 
@@ -26,7 +26,7 @@ The `title:` input replaces the default heading.
 
 ### 🔵 Bengaluru FC (BFC)
 2026-27 ISL
-🔴 Off-season · Next season starts October 10, 2026
+🟢 Season in progress
 
 📅 Next: vs SCD (Oct 10)
 
@@ -41,7 +41,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🔵 Bengaluru FC (BFC)
 2026-27 ISL
-🔴 Off-season · Next season starts October 10, 2026
+🟢 Season in progress
 
 📅 Next: vs SCD (Oct 10)
 
