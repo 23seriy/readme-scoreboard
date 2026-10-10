@@ -12,7 +12,7 @@ Team: **ALV** · Category: Soccer · Data source: ESPN public API
 2026-2027 Portuguese Liga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-2027 Portuguese Liga · 12
+🏅 Standing (2026): 2026-2027 Portuguese Liga · 11
 
 📅 Next: @ FCF (Oct 12)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 2026-2027 Portuguese Liga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-2027 Portuguese Liga · 12
+🏅 Standing (2026): 2026-2027 Portuguese Liga · 11
 
 📅 Next: @ FCF (Oct 12)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-2027 Portuguese Liga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-2027 Portuguese Liga · 12
+🏅 Standing (2026): 2026-2027 Portuguese Liga · 11
 
 📅 Next: @ FCF (Oct 12)
 

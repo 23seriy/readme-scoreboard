@@ -12,7 +12,7 @@ Team: **B04** · Category: Soccer · Data source: ESPN public API
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 German Bundesliga · 5
+🏅 Standing (2026): 2026-27 German Bundesliga · 6
 
 📅 Next: @ M05 (Oct 10)
 
@@ -39,7 +39,7 @@ The `title:` input replaces the default heading.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 German Bundesliga · 5
+🏅 Standing (2026): 2026-27 German Bundesliga · 6
 
 📅 Next: @ M05 (Oct 10)
 
@@ -65,7 +65,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 German Bundesliga · 5
+🏅 Standing (2026): 2026-27 German Bundesliga · 6
 
 📅 Next: @ M05 (Oct 10)
 

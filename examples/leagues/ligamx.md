@@ -12,7 +12,7 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Torneo Apertura · 2
+🏅 Standing (2026): 2026 Torneo Apertura · 1
 
 📅 Next: vs MTY (Oct 11)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Torneo Apertura · 2
+🏅 Standing (2026): 2026 Torneo Apertura · 1
 
 📅 Next: vs MTY (Oct 11)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Torneo Apertura · 2
+🏅 Standing (2026): 2026 Torneo Apertura · 1
 
 📅 Next: vs MTY (Oct 11)
 
