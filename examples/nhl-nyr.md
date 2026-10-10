@@ -8,16 +8,16 @@ Eastern Conference · Metropolitan Division
 
 🏅 Standing (2026-27): Metropolitan · 1
 
-📅 Next: @ WSH (Oct 9)
+📅 Next: vs VAN (Oct 11)
 
-📊 2025-2026 Record: 4W - 1L (80.0%)
-   ████████████████████░░░░░
+📊 2025-2026 Record: 4W - 2L (66.7%)
+   ████████████████▋░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L   1-3   @ WSH (Oct 9, 2026)
 ✅ W   5-2   vs NYI (Oct 6, 2026)
 ✅ W   4-2   vs UTA (Oct 4, 2026)
 ✅ W   2-0   @ DET (Oct 2, 2026)
 ✅ W   5-1   vs TBL (Oct 1, 2026)
-❌ L   0-3   @ BOS (Sep 29, 2026)
 ```
