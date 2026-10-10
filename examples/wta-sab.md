@@ -7,8 +7,3 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
-**📅 Last Match:**
-```
-❌ L vs Nikola Bartunkova (Oct 4, 2026) 6-4, 6-3
-```
-
