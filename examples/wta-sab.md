@@ -9,6 +9,6 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-❌ L vs Nikola Bartunkova (Oct 4, 2026) 6-4, 6-3
+✅ W vs Bye (Oct 12, 2026)
 ```
 
