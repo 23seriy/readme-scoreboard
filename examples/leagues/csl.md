@@ -14,18 +14,18 @@ Team: **BEIJING GUOAN** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026 Chinese Super League · 3
 
-📅 Next: @ QIN (Oct 9)
+📅 Next: vs QWC (Oct 18)
 
-📊 2026 Record: 11W - 5L - 10D  (43 pts)
-   ███████████████▍░░░░░░░░░
+📊 2026 Record: 12W - 5L - 10D  (46 pts)
+   ███████████████▋░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-0 @ QIN   (Oct 9, 2026)
 🟡 D 0-0 @ SIPG  (Sep 5, 2026)
 🟡 D 1-1 @ DYI   (Aug 28, 2026)
 🟡 D 3-3 vs YUN   (Aug 22, 2026)
 ✅ W 3-0 @ SHE   (Aug 18, 2026)
-✅ W 4-2 @ TIG   (Aug 15, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026 Chinese Super League · 3
 
-📅 Next: @ QIN (Oct 9)
+📅 Next: vs QWC (Oct 18)
 
-📊 2026 Record: 11W - 5L - 10D  (43 pts)
-   ███████████████▍░░░░░░░░░
+📊 2026 Record: 12W - 5L - 10D  (46 pts)
+   ███████████████▋░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-0 @ QIN   (Oct 9, 2026)
 🟡 D 0-0 @ SIPG  (Sep 5, 2026)
 🟡 D 1-1 @ DYI   (Aug 28, 2026)
 🟡 D 3-3 vs YUN   (Aug 22, 2026)
 ✅ W 3-0 @ SHE   (Aug 18, 2026)
-✅ W 4-2 @ TIG   (Aug 15, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026 Chinese Super League · 3
 
-📅 Next: @ QIN (Oct 9)
+📅 Next: vs QWC (Oct 18)
 
-📊 2026 Record: 11W - 5L - 10D  (43 pts)
-   ███████████████▍░░░░░░░░░
+📊 2026 Record: 12W - 5L - 10D  (46 pts)
+   ███████████████▋░░░░░░░░░
 
 
 

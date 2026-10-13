@@ -12,20 +12,20 @@ Team: **AIK** · Category: Soccer · Data source: ESPN public API
 2026 Swedish Allsvenskan
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Swedish Allsvenskan · 8
+🏅 Standing (2026): 2026 Swedish Allsvenskan · 9
 
-📅 Next: vs BRO (Oct 10)
+📅 Next: vs GOT (Oct 17)
 
-📊 2026 Record: 9W - 7L - 6D  (33 pts)
-   █████████████▋░░░░░░░░░░░
+📊 2026 Record: 9W - 8L - 6D  (33 pts)
+   █████████████░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 5-6 vs BRO   (Oct 10, 2026)
 ❌ L 1-2 @ HBK   (Sep 20, 2026)
 🟡 D 1-1 vs MJA   (Sep 16, 2026)
 ❌ L 1-4 vs VAS   (Sep 12, 2026)
 🟡 D 0-0 @ MAL   (Sep 7, 2026)
-✅ W 3-2 vs HAM   (Aug 30, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 2026 Swedish Allsvenskan
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Swedish Allsvenskan · 8
+🏅 Standing (2026): 2026 Swedish Allsvenskan · 9
 
-📅 Next: vs BRO (Oct 10)
+📅 Next: vs GOT (Oct 17)
 
-📊 2026 Record: 9W - 7L - 6D  (33 pts)
-   █████████████▋░░░░░░░░░░░
+📊 2026 Record: 9W - 8L - 6D  (33 pts)
+   █████████████░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 5-6 vs BRO   (Oct 10, 2026)
 ❌ L 1-2 @ HBK   (Sep 20, 2026)
 🟡 D 1-1 vs MJA   (Sep 16, 2026)
 ❌ L 1-4 vs VAS   (Sep 12, 2026)
 🟡 D 0-0 @ MAL   (Sep 7, 2026)
-✅ W 3-2 vs HAM   (Aug 30, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Swedish Allsvenskan
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Swedish Allsvenskan · 8
+🏅 Standing (2026): 2026 Swedish Allsvenskan · 9
 
-📅 Next: vs BRO (Oct 10)
+📅 Next: vs GOT (Oct 17)
 
-📊 2026 Record: 9W - 7L - 6D  (33 pts)
-   █████████████▋░░░░░░░░░░░
+📊 2026 Record: 9W - 8L - 6D  (33 pts)
+   █████████████░░░░░░░░░░░░
 
 
 
