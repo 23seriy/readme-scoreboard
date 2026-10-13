@@ -6,7 +6,7 @@
 AFC · AFC East
 🟢 Season in progress
 
-🏅 Standing: AFC · 3
+🏅 Standing: AFC · 4
 
 📅 Next: @ LAR (Oct 13)
 

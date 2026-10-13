@@ -12,15 +12,16 @@ Team: **B04** · Category: Soccer · Data source: ESPN public API
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 German Bundesliga · 5
+🏅 Standing (2026): 2026-27 German Bundesliga · 4
 
-📅 Next: @ M05 (Oct 10)
+📅 Next: vs SCF (Oct 18)
 
-📊 2026 Record: 2W - 1L - 1D  (7 pts)
-   ███████████████▋░░░░░░░░░
+📊 2026 Record: 3W - 1L - 1D  (10 pts)
+   █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-3 @ M05   (Oct 10, 2026)
 ✅ W 2-0 vs RBL   (Sep 20, 2026)
 🟡 D 2-2 @ FCA   (Sep 12, 2026)
 ✅ W 4-0 vs FCU   (Sep 5, 2026)
@@ -39,15 +40,16 @@ The `title:` input replaces the default heading.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 German Bundesliga · 5
+🏅 Standing (2026): 2026-27 German Bundesliga · 4
 
-📅 Next: @ M05 (Oct 10)
+📅 Next: vs SCF (Oct 18)
 
-📊 2026 Record: 2W - 1L - 1D  (7 pts)
-   ███████████████▋░░░░░░░░░
+📊 2026 Record: 3W - 1L - 1D  (10 pts)
+   █████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-3 @ M05   (Oct 10, 2026)
 ✅ W 2-0 vs RBL   (Sep 20, 2026)
 🟡 D 2-2 @ FCA   (Sep 12, 2026)
 ✅ W 4-0 vs FCU   (Sep 5, 2026)
@@ -65,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 German Bundesliga · 5
+🏅 Standing (2026): 2026-27 German Bundesliga · 4
 
-📅 Next: @ M05 (Oct 10)
+📅 Next: vs SCF (Oct 18)
 
-📊 2026 Record: 2W - 1L - 1D  (7 pts)
-   ███████████████▋░░░░░░░░░
+📊 2026 Record: 3W - 1L - 1D  (10 pts)
+   █████████████████▌░░░░░░░
 
 
 

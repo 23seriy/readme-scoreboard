@@ -8,25 +8,25 @@ Eastern Conference
 
 🏅 Standing (2026): Eastern Conference · 12
 
-📅 Next: vs CIN (Oct 10)
+📅 Next: @ MTL (Oct 14)
 
-📊 2026 Record: 7W - 14L - 6D  (27 pts)
-   █████████▎░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 15L - 6D  (27 pts)
+   ████████▉░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-3 vs CIN   (Oct 10, 2026)
 🟡 D 2-2 vs NYC   (Sep 26, 2026)
 ✅ W 1-0 @ POR   (Sep 19, 2026)
 🟡 D 0-0 @ DC    (Sep 12, 2026)
 ❌ L 2-3 vs ORL   (Sep 9, 2026)
-🟡 D 2-2 @ MIA   (Sep 5, 2026)
 ```
 
 **🦅 Player Spotlight: Miguel Almirón**
 <img src="https://a.espncdn.com/i/headshots/soccer/players/full/48128.png" alt="Miguel Almirón headshot" height="72" align="right" />
-20 APP · 4 G · 5 A
+21 APP · 5 G · 5 A
 
 **📅 Last Game:**
 ```
-0 G · 0 A vs POR (Sep 20, 2026)
+1 G · 0 A vs CIN (Oct 10, 2026)
 ```

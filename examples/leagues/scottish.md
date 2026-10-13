@@ -14,10 +14,10 @@ Team: **CEL** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-27 Scottish Premiership · 1
 
-📅 Next: @ MOT (Oct 11)
+📅 Next: vs HOM (Oct 18)
 
-📊 2026 Record: 6W - 1L - 0D  (18 pts)
-   █████████████████████▍░░░
+📊 2026 Record: 7W - 1L - 0D  (21 pts)
+   █████████████████████▉░░░
 
 **📅 Recent Games:**
 ```
@@ -42,10 +42,10 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-27 Scottish Premiership · 1
 
-📅 Next: @ MOT (Oct 11)
+📅 Next: vs HOM (Oct 18)
 
-📊 2026 Record: 6W - 1L - 0D  (18 pts)
-   █████████████████████▍░░░
+📊 2026 Record: 7W - 1L - 0D  (21 pts)
+   █████████████████████▉░░░
 
 **📅 Recent Games:**
 ```
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-27 Scottish Premiership · 1
 
-📅 Next: @ MOT (Oct 11)
+📅 Next: vs HOM (Oct 18)
 
-📊 2026 Record: 6W - 1L - 0D  (18 pts)
-   █████████████████████▍░░░
+📊 2026 Record: 7W - 1L - 0D  (21 pts)
+   █████████████████████▉░░░
 
 
 
