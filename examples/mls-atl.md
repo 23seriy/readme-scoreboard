@@ -8,16 +8,16 @@ Eastern Conference
 
 🏅 Standing (2026): Eastern Conference · 12
 
-📅 Next: vs CIN (Oct 10)
+📅 Next: @ MTL (Oct 14)
 
-📊 2026 Record: 7W - 14L - 6D  (27 pts)
-   █████████▎░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 15L - 6D  (27 pts)
+   ████████▉░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-3 vs CIN   (Oct 10, 2026)
 🟡 D 2-2 vs NYC   (Sep 26, 2026)
 ✅ W 1-0 @ POR   (Sep 19, 2026)
 🟡 D 0-0 @ DC    (Sep 12, 2026)
 ❌ L 2-3 vs ORL   (Sep 9, 2026)
-🟡 D 2-2 @ MIA   (Sep 5, 2026)
 ```

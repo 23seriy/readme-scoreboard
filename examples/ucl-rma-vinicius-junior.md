@@ -20,9 +20,9 @@ League Phase
 
 **👑 Player Spotlight: Vinícius Júnior**
 <img src="https://a.espncdn.com/i/headshots/soccer/players/full/252107.png" alt="Vinícius Júnior headshot" height="72" align="right" />
-7 APP · 1 G · 3 A
+8 APP · 1 G · 3 A
 
 **📅 Last Game:**
 ```
-0 G · 0 A vs ATM (Sep 20, 2026)
+0 G · 0 A vs VIL (Oct 10, 2026)
 ```
