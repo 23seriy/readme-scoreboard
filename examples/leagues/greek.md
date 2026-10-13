@@ -12,20 +12,20 @@ Team: **AEK** · Category: Soccer · Data source: ESPN public API
 2026-27 Greek Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Greek Super League · 3
+🏅 Standing (2026): 2026-27 Greek Super League · 2
 
-📅 Next: vs OFI (Oct 10)
+📅 Next: vs PAN (Oct 24)
 
-📊 2026 Record: 3W - 0L - 2D  (11 pts)
-   ████████████████████░░░░░
+📊 2026 Record: 4W - 0L - 2D  (14 pts)
+   ████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-0 vs OFI   (Oct 10, 2026)
 ✅ W 2-1 @ VOL   (Sep 20, 2026)
 🟡 D 1-1 @ AST   (Sep 13, 2026)
 ✅ W 5-0 vs ARI   (Sep 5, 2026)
 🟡 D 1-1 @ KIF   (Aug 30, 2026)
-✅ W 4-0 vs IRAK  (Aug 22, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 2026-27 Greek Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Greek Super League · 3
+🏅 Standing (2026): 2026-27 Greek Super League · 2
 
-📅 Next: vs OFI (Oct 10)
+📅 Next: vs PAN (Oct 24)
 
-📊 2026 Record: 3W - 0L - 2D  (11 pts)
-   ████████████████████░░░░░
+📊 2026 Record: 4W - 0L - 2D  (14 pts)
+   ████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-0 vs OFI   (Oct 10, 2026)
 ✅ W 2-1 @ VOL   (Sep 20, 2026)
 🟡 D 1-1 @ AST   (Sep 13, 2026)
 ✅ W 5-0 vs ARI   (Sep 5, 2026)
 🟡 D 1-1 @ KIF   (Aug 30, 2026)
-✅ W 4-0 vs IRAK  (Aug 22, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 Greek Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Greek Super League · 3
+🏅 Standing (2026): 2026-27 Greek Super League · 2
 
-📅 Next: vs OFI (Oct 10)
+📅 Next: vs PAN (Oct 24)
 
-📊 2026 Record: 3W - 0L - 2D  (11 pts)
-   ████████████████████░░░░░
+📊 2026 Record: 4W - 0L - 2D  (14 pts)
+   ████████████████████▊░░░░
 
 
 

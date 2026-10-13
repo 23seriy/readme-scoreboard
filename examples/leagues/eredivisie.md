@@ -14,18 +14,18 @@ Team: **AJA** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 5
 
-📅 Next: vs NEC (Oct 10)
+📅 Next: @ GRO (Oct 18)
 
-📊 2026 Record: 4W - 1L - 2D  (14 pts)
-   █████████████████▊░░░░░░░
+📊 2026 Record: 4W - 1L - 3D  (15 pts)
+   █████████████████▏░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 vs NEC   (Oct 10, 2026)
 🟡 D 2-2 vs EXC   (Sep 19, 2026)
 ✅ W 5-1 vs WIL   (Sep 15, 2026)
 ✅ W 5-1 @ FOR   (Sep 12, 2026)
 ❌ L 1-3 vs PSV   (Sep 5, 2026)
-✅ W 4-0 @ TEL   (Aug 30, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 5
 
-📅 Next: vs NEC (Oct 10)
+📅 Next: @ GRO (Oct 18)
 
-📊 2026 Record: 4W - 1L - 2D  (14 pts)
-   █████████████████▊░░░░░░░
+📊 2026 Record: 4W - 1L - 3D  (15 pts)
+   █████████████████▏░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 vs NEC   (Oct 10, 2026)
 🟡 D 2-2 vs EXC   (Sep 19, 2026)
 ✅ W 5-1 vs WIL   (Sep 15, 2026)
 ✅ W 5-1 @ FOR   (Sep 12, 2026)
 ❌ L 1-3 vs PSV   (Sep 5, 2026)
-✅ W 4-0 @ TEL   (Aug 30, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 5
 
-📅 Next: vs NEC (Oct 10)
+📅 Next: @ GRO (Oct 18)
 
-📊 2026 Record: 4W - 1L - 2D  (14 pts)
-   █████████████████▊░░░░░░░
+📊 2026 Record: 4W - 1L - 3D  (15 pts)
+   █████████████████▏░░░░░░░
 
 
 
