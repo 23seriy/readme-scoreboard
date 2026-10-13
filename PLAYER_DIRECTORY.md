@@ -166,34 +166,34 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 
 | Rank | Flag | Country | Player | Abbreviation | ID | Points |
 |------|------|---------|--------|--------------|----|--------|
-| #1 | 🇰🇿 | Kazakhstan | Elena Rybakina | `RYB` | 3126 | 9,901 |
-| #2 | 🇧🇾 | Belarus | Aryna Sabalenka | `SAB` | 3038 | 7,810 |
-| #3 | 🇺🇸 | United States | Jessica Pegula | `PEG` | 2113 | 7,265 |
-| #4 | 🇺🇸 | United States | Coco Gauff | `GAU` | 3626 | 7,244 |
-| #5 | 🇷🇺 | Russia | Mirra Andreeva | `AND` | 9820 | 5,841 |
-| #6 | 🇨🇿 | Czechia | Linda Noskova | `NOS` | 6970 | 5,328 |
-| #7 | 🇺🇦 | Ukraine | Elina Svitolina | `SVI` | 1797 | 4,809 |
-| #8 | 🇨🇿 | Czechia | Karolina Muchova | `MUC` | 3039 | 4,683 |
-| #9 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 4,119 |
-| #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 4,040 |
-| #11 | 🇺🇸 | United States | Amanda Anisimova | `ANI` | 3221 | 3,363 |
-| #12 | 🇨🇭 | Switzerland | Belinda Bencic | `BEN` | 2183 | 2,925 |
-| #13 | 🇺🇸 | United States | Iva Jovic | `JOV` | 14311 | 2,841 |
-| #14 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 2,588 |
-| #15 | 🇨🇦 | Canada | Victoria Mboko | `MBO` | 11219 | 2,521 |
-| #16 | 🇷🇴 | Romania | Sorana Cirstea | `CIR` | 1774 | 2,464 |
-| #17 | 🇯🇵 | Japan | Naomi Osaka | `OSA` | 2789 | 2,296 |
-| #18 | 🇵🇭 | Philippines | Alexandra Eala | `EAL` | 7759 | 2,276 |
-| #19 | 🇧🇪 | Belgium | Elise Mertens | `MER` | 2221 | 2,165 |
-| #20 | 🇮🇹 | Italy | Jasmine Paolini | `PAO` | 2615 | 2,122 |
-| #21 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 2,082 |
-| #22 | 🇷🇺 | Russia | Anna Kalinskaya | `KAL` | 2977 | 2,043 |
-| #23 | 🇺🇸 | United States | Madison Keys | `KEY` | 1556 | 2,029 |
-| #24 | 🇺🇸 | United States | Emma Navarro | `NAV` | 3785 | 2,024 |
-| #25 | 🇷🇺 | Russia | Anastasia Potapova | `POT` | 2971 | 1,926 |
-| #27 | 🇨🇿 | Czechia | Marie Bouzkova | `BOU` | 2392 | 1,873 |
-| #28 | 🇷🇺 | Russia | Ekaterina Alexandrova | `ALE` | 3182 | 1,811 |
-| #29 | 🇨🇿 | Czechia | Sara Bejlek | `BEJ` | 7819 | 1,710 |
-| #30 | 🇺🇸 | United States | Ann Li | `ALI` | 3380 | 1,573 |
-| #43 | 🇨🇿 | Czechia | Barbora Krejcikova | `KRE` | 2042 | 1,198 |
+| #1 | 🇰🇿 | Kazakhstan | Elena Rybakina | `RYB` | 3126 | 9,696 |
+| #2 | 🇧🇾 | Belarus | Aryna Sabalenka | `SAB` | 3038 | 7,550 |
+| #3 | 🇷🇺 | Russia | Mirra Andreeva | `AND` | 9820 | 6,371 |
+| #4 | 🇺🇸 | United States | Jessica Pegula | `PEG` | 2113 | 6,225 |
+| #5 | 🇺🇸 | United States | Coco Gauff | `GAU` | 3626 | 5,974 |
+| #6 | 🇺🇦 | Ukraine | Elina Svitolina | `SVI` | 1797 | 5,024 |
+| #7 | 🇨🇿 | Czechia | Karolina Muchova | `MUC` | 3039 | 4,773 |
+| #8 | 🇨🇿 | Czechia | Linda Noskova | `NOS` | 6970 | 4,679 |
+| #9 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 3,999 |
+| #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 3,910 |
+| #11 | 🇺🇸 | United States | Iva Jovic | `JOV` | 14311 | 2,860 |
+| #12 | 🇨🇭 | Switzerland | Belinda Bencic | `BEN` | 2183 | 2,760 |
+| #13 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 2,643 |
+| #14 | 🇧🇪 | Belgium | Elise Mertens | `MER` | 2221 | 2,540 |
+| #15 | 🇨🇦 | Canada | Victoria Mboko | `MBO` | 11219 | 2,502 |
+| #16 | 🇷🇴 | Romania | Sorana Cirstea | `CIR` | 1774 | 2,424 |
+| #17 | 🇺🇸 | United States | Amanda Anisimova | `ANI` | 3221 | 2,363 |
+| #18 | 🇯🇵 | Japan | Naomi Osaka | `OSA` | 2789 | 2,351 |
+| #19 | 🇵🇭 | Philippines | Alexandra Eala | `EAL` | 7759 | 2,241 |
+| #20 | 🇺🇸 | United States | Madison Keys | `KEY` | 1556 | 2,110 |
+| #21 | 🇷🇺 | Russia | Anna Kalinskaya | `KAL` | 2977 | 2,043 |
+| #22 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 2,043 |
+| #24 | 🇷🇺 | Russia | Ekaterina Alexandrova | `ALE` | 3182 | 1,906 |
+| #26 | 🇷🇺 | Russia | Anastasia Potapova | `POT` | 2971 | 1,816 |
+| #27 | 🇺🇸 | United States | Emma Navarro | `NAV` | 3785 | 1,809 |
+| #28 | 🇨🇿 | Czechia | Marie Bouzkova | `BOU` | 2392 | 1,763 |
+| #30 | 🇨🇿 | Czechia | Sara Bejlek | `BEJ` | 7819 | 1,650 |
+| #31 | 🇺🇸 | United States | Ann Li | `ALI` | 3380 | 1,648 |
+| #33 | 🇮🇹 | Italy | Jasmine Paolini | `PAO` | 2615 | 1,528 |
+| #46 | 🇨🇿 | Czechia | Barbora Krejcikova | `KRE` | 2042 | 1,134 |
 
