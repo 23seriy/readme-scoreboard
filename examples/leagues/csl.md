@@ -1,14 +1,14 @@
 # Chinese Super League (csl)
 
-Team: **BEIJING GUOAN** · Category: Soccer · Data source: ESPN public API
+Team: **BFC** · Category: Soccer · Data source: ESPN public API
 
 ## Default
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My Favourite Chinese Super League Team](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/2052.png" alt="BEIJING GUOAN logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/2052.png" alt="Beijing Guoan logo" width="72" align="right" />
 
-### ⚽ BEIJING GUOAN (Beijing Guoan)
+### ⚽ Beijing Guoan (BFC)
 2026 Chinese Super League
 🟢 Season in progress
 
@@ -32,11 +32,11 @@ Team: **BEIJING GUOAN** · Category: Soccer · Data source: ESPN public API
 
 The `title:` input replaces the default heading.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My BEIJING GUOAN](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My Beijing Guoan](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/2052.png" alt="BEIJING GUOAN logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/2052.png" alt="Beijing Guoan logo" width="72" align="right" />
 
-### ⚽ BEIJING GUOAN (Beijing Guoan)
+### ⚽ Beijing Guoan (BFC)
 2026 Chinese Super League
 🟢 Season in progress
 
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My Favourite Chinese Super League Team](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
 
 
-### ⚽ BEIJING GUOAN (Beijing Guoan)
+### ⚽ Beijing Guoan (BFC)
 2026 Chinese Super League
 🟢 Season in progress
 
@@ -81,6 +81,6 @@ The `compact: true` input drops the logo and recent-game details.
 The `badge: true` input renders a shields-style badge instead of a full board.
 
 <p align="center">
-<img src="https://img.shields.io/badge/CHINESE%20SUPER%20LEAGUE-BEIJING%20GUOAN-orange?style=flat" />
+<img src="https://img.shields.io/badge/CHINESE%20SUPER%20LEAGUE-BFC-orange?style=flat" />
 </p>
 

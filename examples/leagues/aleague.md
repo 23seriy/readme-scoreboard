@@ -12,7 +12,7 @@ Team: **ADE** · Category: Soccer · Data source: ESPN public API
 2026-27 A-League
 🔴 Off-season · Next season starts October 16, 2026
 
-📅 Next: @ PER (Nov 1)
+📅 Next: @ SYD (Oct 25)
 
 📅 No recent games found
 
@@ -28,7 +28,7 @@ The `title:` input replaces the default heading.
 2026-27 A-League
 🔴 Off-season · Next season starts October 16, 2026
 
-📅 Next: @ PER (Nov 1)
+📅 Next: @ SYD (Oct 25)
 
 📅 No recent games found
 
@@ -43,7 +43,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 A-League
 🔴 Off-season · Next season starts October 16, 2026
 
-📅 Next: @ PER (Nov 1)
+📅 Next: @ SYD (Oct 25)
 
 📅 No recent games found
 

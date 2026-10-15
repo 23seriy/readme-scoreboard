@@ -14,18 +14,18 @@ Bundesliga
 
 🏅 Standing (2026): Bundesliga · 9
 
-📅 Next: @ HAR (Oct 11)
+📅 Next: vs LAS (Oct 17)
 
-📊 2026 Record: 2W - 3L - 2D  (8 pts)
-   ██████████▋░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 4L - 2D  (8 pts)
+   █████████▍░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 3-4 @ HAR   (Oct 11, 2026)
 ✅ W 2-0 vs SCR   (Sep 19, 2026)
 ❌ L 1-2 @ VIE   (Sep 13, 2026)
 ❌ L 0-4 vs WST   (Aug 28, 2026)
 🟡 D 1-1 @ STG   (Aug 22, 2026)
-✅ W 2-1 vs WOL   (Aug 15, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ Bundesliga
 
 🏅 Standing (2026): Bundesliga · 9
 
-📅 Next: @ HAR (Oct 11)
+📅 Next: vs LAS (Oct 17)
 
-📊 2026 Record: 2W - 3L - 2D  (8 pts)
-   ██████████▋░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 4L - 2D  (8 pts)
+   █████████▍░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 3-4 @ HAR   (Oct 11, 2026)
 ✅ W 2-0 vs SCR   (Sep 19, 2026)
 ❌ L 1-2 @ VIE   (Sep 13, 2026)
 ❌ L 0-4 vs WST   (Aug 28, 2026)
 🟡 D 1-1 @ STG   (Aug 22, 2026)
-✅ W 2-1 vs WOL   (Aug 15, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ Bundesliga
 
 🏅 Standing (2026): Bundesliga · 9
 
-📅 Next: @ HAR (Oct 11)
+📅 Next: vs LAS (Oct 17)
 
-📊 2026 Record: 2W - 3L - 2D  (8 pts)
-   ██████████▋░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 4L - 2D  (8 pts)
+   █████████▍░░░░░░░░░░░░░░░
 
 
 

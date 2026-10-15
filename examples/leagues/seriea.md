@@ -12,20 +12,20 @@ Team: **ATA** · Category: Soccer · Data source: ESPN public API
 2026-2027 Italian Serie A
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-2027 Italian Serie A · 11
+🏅 Standing (2026): 2026-2027 Italian Serie A · 10
 
-📅 Next: vs VEN (Oct 12)
+📅 Next: @ MIL (Oct 18)
 
-📊 2026 Record: 2W - 3L - 0D  (6 pts)
-   ██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 3L - 0D  (9 pts)
+   ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-1 vs VEN   (Oct 12, 2026)
 ❌ L 0-2 @ JUV   (Sep 20, 2026)
 ❌ L 1-2 vs CAG   (Sep 12, 2026)
 ❌ L 1-2 @ ROMA  (Sep 5, 2026)
 ✅ W 1-0 vs BOL   (Aug 31, 2026)
-✅ W 2-1 vs SAS   (Aug 23, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 2026-2027 Italian Serie A
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-2027 Italian Serie A · 11
+🏅 Standing (2026): 2026-2027 Italian Serie A · 10
 
-📅 Next: vs VEN (Oct 12)
+📅 Next: @ MIL (Oct 18)
 
-📊 2026 Record: 2W - 3L - 0D  (6 pts)
-   ██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 3L - 0D  (9 pts)
+   ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-1 vs VEN   (Oct 12, 2026)
 ❌ L 0-2 @ JUV   (Sep 20, 2026)
 ❌ L 1-2 vs CAG   (Sep 12, 2026)
 ❌ L 1-2 @ ROMA  (Sep 5, 2026)
 ✅ W 1-0 vs BOL   (Aug 31, 2026)
-✅ W 2-1 vs SAS   (Aug 23, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 2026-2027 Italian Serie A
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-2027 Italian Serie A · 11
+🏅 Standing (2026): 2026-2027 Italian Serie A · 10
 
-📅 Next: vs VEN (Oct 12)
+📅 Next: @ MIL (Oct 18)
 
-📊 2026 Record: 2W - 3L - 0D  (6 pts)
-   ██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 3L - 0D  (9 pts)
+   ████████████▌░░░░░░░░░░░░
 
 
 
