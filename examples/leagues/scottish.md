@@ -21,11 +21,11 @@ Team: **CEL** · Category: Soccer · Data source: ESPN public API
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 @ MOT   (Oct 11, 2026)
 ❌ L 0-1 vs RAN   (Sep 20, 2026)
 ✅ W 1-0 @ STJ   (Sep 9, 2026)
 ✅ W 2-1 @ STM   (Sep 5, 2026)
 ✅ W 3-0 vs ABE   (Sep 2, 2026)
-✅ W 2-1 vs FALK  (Aug 29, 2026)
 ```
 
 ## Custom title
@@ -49,11 +49,11 @@ The `title:` input replaces the default heading.
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 @ MOT   (Oct 11, 2026)
 ❌ L 0-1 vs RAN   (Sep 20, 2026)
 ✅ W 1-0 @ STJ   (Sep 9, 2026)
 ✅ W 2-1 @ STM   (Sep 5, 2026)
 ✅ W 3-0 vs ABE   (Sep 2, 2026)
-✅ W 2-1 vs FALK  (Aug 29, 2026)
 ```
 
 ## Compact mode
