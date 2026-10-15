@@ -627,7 +627,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Slovan Bratislava | `SLB` | 521 |
 | Slavia Prague | `SLP` | 494 |
 | VfB Stuttgart | `VFB` | 134 |
-| Viking FK | `VIK` | 510 |
+| VIKING FK | `Viking FK` | 510 |
 | Villarreal | `VIL` | 102 |
 
 ## UEFA Europa League
@@ -2601,7 +2601,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | SK Brann | `SKBR` | 620 |
 | Tromso | `TRO` | 5270 |
 | Vålerenga | `VAL` | 2791 |
-| Viking FK | `VIK` | 510 |
+| VIKING FK | `Viking FK` | 510 |
 
 ## Swedish Allsvenskan
 
