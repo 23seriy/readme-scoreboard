@@ -9,6 +9,6 @@ WTA · World Ranking
 
 **📅 Last Match:**
 ```
-✅ W vs Bye (Oct 12, 2026)
+❌ L vs Ann Li (Oct 14, 2026) 6-3, 4-6, 6-7
 ```
 
