@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-10-14T10:34:50.093Z",
+  "generatedAt": "2026-10-15T10:16:46.891Z",
   "teams": [
     {
       "league": "nba",
@@ -3351,16 +3351,16 @@
     {
       "league": "ucl",
       "leagueName": "UEFA Champions League",
-      "abbreviation": "VFB",
-      "name": "VfB Stuttgart",
-      "id": "134"
+      "abbreviation": "Viking FK",
+      "name": "VIKING FK",
+      "id": "510"
     },
     {
       "league": "ucl",
       "leagueName": "UEFA Champions League",
-      "abbreviation": "VIK",
-      "name": "Viking FK",
-      "id": "510"
+      "abbreviation": "VFB",
+      "name": "VfB Stuttgart",
+      "id": "134"
     },
     {
       "league": "ucl",
@@ -16392,8 +16392,8 @@
     {
       "league": "norway",
       "leagueName": "Norwegian Eliteserien",
-      "abbreviation": "VIK",
-      "name": "Viking FK",
+      "abbreviation": "Viking FK",
+      "name": "VIKING FK",
       "id": "510"
     },
     {
