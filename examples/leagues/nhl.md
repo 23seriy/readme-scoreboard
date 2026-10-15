@@ -12,20 +12,20 @@ Team: **ANA** · Category: Hockey · Data source: official league API
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 3
+🏅 Standing (2026-27): Pacific · 4
 
-📅 Next: vs CGY (Oct 14)
+📅 Next: vs BOS (Oct 17)
 
-📊 2025-2026 Record: 4W - 1L (80.0%)
-   ████████████████████░░░░░
+📊 2025-2026 Record: 4W - 2L (66.7%)
+   ████████████████▋░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L   2-4   vs CGY (Oct 13, 2026)
 ✅ W   4-2   @ CGY (Oct 10, 2026)
 ✅ W   5-1   @ WPG (Oct 9, 2026)
 ❌ L   2-5   vs EDM (Oct 7, 2026)
 ✅ W   3-2   vs FLA (Oct 4, 2026)
-✅ W   4-3   @ VGK (Oct 2, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 3
+🏅 Standing (2026-27): Pacific · 4
 
-📅 Next: vs CGY (Oct 14)
+📅 Next: vs BOS (Oct 17)
 
-📊 2025-2026 Record: 4W - 1L (80.0%)
-   ████████████████████░░░░░
+📊 2025-2026 Record: 4W - 2L (66.7%)
+   ████████████████▋░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L   2-4   vs CGY (Oct 13, 2026)
 ✅ W   4-2   @ CGY (Oct 10, 2026)
 ✅ W   5-1   @ WPG (Oct 9, 2026)
 ❌ L   2-5   vs EDM (Oct 7, 2026)
 ✅ W   3-2   vs FLA (Oct 4, 2026)
-✅ W   4-3   @ VGK (Oct 2, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 3
+🏅 Standing (2026-27): Pacific · 4
 
-📅 Next: vs CGY (Oct 14)
+📅 Next: vs BOS (Oct 17)
 
-📊 2025-2026 Record: 4W - 1L (80.0%)
-   ████████████████████░░░░░
+📊 2025-2026 Record: 4W - 2L (66.7%)
+   ████████████████▋░░░░░░░░
 
 
 
