@@ -12,7 +12,7 @@ Team: **ADE** · Category: Soccer · Data source: ESPN public API
 2026-27 A-League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 3
+🏅 Standing (2026): 2026-27 A-League · 7
 
 📅 Next: @ PER (Nov 1)
 
@@ -30,7 +30,7 @@ The `title:` input replaces the default heading.
 2026-27 A-League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 3
+🏅 Standing (2026): 2026-27 A-League · 7
 
 📅 Next: @ PER (Nov 1)
 
@@ -47,7 +47,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 A-League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 3
+🏅 Standing (2026): 2026-27 A-League · 7
 
 📅 Next: @ PER (Nov 1)
 
