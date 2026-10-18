@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-10-16T10:05:05.692Z",
+  "generatedAt": "2026-10-18T09:52:19.557Z",
   "teams": [
     {
       "league": "nba",
@@ -2819,8 +2819,8 @@
     {
       "league": "j1",
       "leagueName": "J1 League",
-      "abbreviation": "KYO",
-      "name": "Kyoto Sanga",
+      "abbreviation": "Kyoto Sanga",
+      "name": "KYOTO SANGA",
       "id": "21361"
     },
     {
@@ -15818,8 +15818,8 @@
     {
       "league": "isl",
       "leagueName": "Indian Super League",
-      "abbreviation": "GOA",
-      "name": "FC Goa",
+      "abbreviation": "FC Goa",
+      "name": "FC GOA",
       "id": "18003"
     },
     {
@@ -15888,8 +15888,8 @@
     {
       "league": "isl",
       "leagueName": "Indian Super League",
-      "abbreviation": "EBEN",
-      "name": "SC East Bengal",
+      "abbreviation": "East Bengal FC",
+      "name": "EAST BENGAL FC",
       "id": "8897"
     },
     {
@@ -15909,7 +15909,7 @@
     {
       "league": "csl",
       "leagueName": "Chinese Super League",
-      "abbreviation": "BFC",
+      "abbreviation": "BEI",
       "name": "Beijing Guoan",
       "id": "2052"
     },
@@ -15972,7 +15972,7 @@
     {
       "league": "csl",
       "leagueName": "Chinese Super League",
-      "abbreviation": "SIPG",
+      "abbreviation": "SHP",
       "name": "Shanghai Port",
       "id": "15515"
     },
