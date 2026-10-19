@@ -529,7 +529,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Kashima Antlers | `KAN` | 7115 |
 | Kawasaki Frontale | `KAW` | 7112 |
 | Kashiwa Reysol | `KRE` | 7476 |
-| Kyoto Sanga | `KYO` | 21361 |
+| KYOTO SANGA | `Kyoto Sanga` | 21361 |
 | Mito Hollyhock | `MITO` | 131701 |
 | Nagoya Grampus | `NAG` | 7108 |
 | Fagiano Okayama | `OKA` | 22522 |
@@ -2485,8 +2485,8 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Bengaluru FC | `BFC` | 18851 |
 | Chennaiyin FC | `CFC` | 18000 |
 | Churchill Brothers | `CHU` | 8896 |
-| SC East Bengal | `EBEN` | 8897 |
-| FC Goa | `GOA` | 18003 |
+| EAST BENGAL FC | `East Bengal FC` | 8897 |
+| FC GOA | `FC Goa` | 18003 |
 | Inter Kashi | `ITKA` | 22069 |
 | JFC | `JFC` | 18850 |
 | Kerala Blasters FC | `KER` | 17997 |
@@ -2504,7 +2504,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 
 | Team | Abbreviation | ID |
 |------|--------------|----|
-| Beijing Guoan | `BFC` | 2052 |
+| Beijing Guoan | `BEI` | 2052 |
 | Chengdu Rongcheng | `CHE` | 21355 |
 | Chongqing Tonglianglong | `CHO` | 131704 |
 | Dalian Yingbo | `DYI` | 22537 |
@@ -2513,9 +2513,9 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Qingdao Hainiu | `QIN` | 21910 |
 | Qingdao West Coast | `QWC` | 22198 |
 | Shanghai Shenhua | `SHE` | 977 |
+| Shanghai Port | `SHP` | 15515 |
 | Shandong Taishan | `SHT` | 7521 |
 | Shenzhen Xinpengcheng | `SHX` | 22199 |
-| Shanghai Port | `SIPG` | 15515 |
 | Tianjin Jinmen Tiger | `TIG` | 8239 |
 | Wuhan Three Towns | `WTT` | 21506 |
 | Yunnan Yukun | `YUN` | 22536 |

@@ -14,18 +14,18 @@ Regular Season
 
 🏅 Standing (2026): Regular Season · 6
 
-📅 Next: vs RAN (Oct 16)
+📅 Next: vs SON (Oct 25)
 
-📊 2026 Record: 3W - 4L - 3D  (12 pts)
+📊 2026 Record: 3W - 4L - 4D  (13 pts)
    ███████████▎░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 vs RAN   (Oct 16, 2026)
 🟡 D 3-3 @ SIF   (Oct 11, 2026)
 🟡 D 2-2 vs AGF   (Sep 20, 2026)
 ❌ L 0-2 @ KBH   (Sep 11, 2026)
 ✅ W 5-2 @ SON   (Sep 6, 2026)
-❌ L 2-3 vs VIB   (Aug 28, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ Regular Season
 
 🏅 Standing (2026): Regular Season · 6
 
-📅 Next: vs RAN (Oct 16)
+📅 Next: vs SON (Oct 25)
 
-📊 2026 Record: 3W - 4L - 3D  (12 pts)
+📊 2026 Record: 3W - 4L - 4D  (13 pts)
    ███████████▎░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 vs RAN   (Oct 16, 2026)
 🟡 D 3-3 @ SIF   (Oct 11, 2026)
 🟡 D 2-2 vs AGF   (Sep 20, 2026)
 ❌ L 0-2 @ KBH   (Sep 11, 2026)
 ✅ W 5-2 @ SON   (Sep 6, 2026)
-❌ L 2-3 vs VIB   (Aug 28, 2026)
 ```
 
 ## Compact mode
@@ -69,9 +69,9 @@ Regular Season
 
 🏅 Standing (2026): Regular Season · 6
 
-📅 Next: vs RAN (Oct 16)
+📅 Next: vs SON (Oct 25)
 
-📊 2026 Record: 3W - 4L - 3D  (12 pts)
+📊 2026 Record: 3W - 4L - 4D  (13 pts)
    ███████████▎░░░░░░░░░░░░░
 
 
