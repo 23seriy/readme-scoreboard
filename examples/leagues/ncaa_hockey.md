@@ -12,20 +12,18 @@ Team: **BC** · Category: Hockey · Data source: ESPN public API
 Hockey East Conference
 🟢 Season in progress
 
-🏅 Standing: Hockey East · 2
+🏅 Standing: Hockey East · 1
 
-📅 Next: vs VGK (Jan 11)
-
-📊 2026-2027 Record: 18W - 6L (75.0%)
-   ██████████████████▊░░░░░░
+📊 2026-2027 Record: 1W - 1L (50.0%)
+   ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W  22-18  @ FLA (Jan 4, 2026)
-❌ L  40-53  @ COL (Dec 28, 2025)
-✅ W  39-26  @ SEA (Dec 21, 2025)
-✅ W  43-41  vs MIN (Dec 14, 2025)
-✅ W  35-27  @ PIT (Dec 7, 2025)
+❌ L   3-4   @ CONN (Mar 20, 2026)
+✅ W   5-0   vs ME  (Mar 13, 2026)
+❌ L   2-4   vs NE  (Mar 7, 2026)
+❌ L   1-2   @ MASS (Mar 5, 2026)
+❌ L   1-5   vs BU  (Feb 28, 2026)
 ```
 
 ## Custom title
@@ -40,20 +38,18 @@ The `title:` input replaces the default heading.
 Hockey East Conference
 🟢 Season in progress
 
-🏅 Standing: Hockey East · 2
+🏅 Standing: Hockey East · 1
 
-📅 Next: vs VGK (Jan 11)
-
-📊 2026-2027 Record: 18W - 6L (75.0%)
-   ██████████████████▊░░░░░░
+📊 2026-2027 Record: 1W - 1L (50.0%)
+   ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-✅ W  22-18  @ FLA (Jan 4, 2026)
-❌ L  40-53  @ COL (Dec 28, 2025)
-✅ W  39-26  @ SEA (Dec 21, 2025)
-✅ W  43-41  vs MIN (Dec 14, 2025)
-✅ W  35-27  @ PIT (Dec 7, 2025)
+❌ L   3-4   @ CONN (Mar 20, 2026)
+✅ W   5-0   vs ME  (Mar 13, 2026)
+❌ L   2-4   vs NE  (Mar 7, 2026)
+❌ L   1-2   @ MASS (Mar 5, 2026)
+❌ L   1-5   vs BU  (Feb 28, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +63,10 @@ The `compact: true` input drops the logo and recent-game details.
 Hockey East Conference
 🟢 Season in progress
 
-🏅 Standing: Hockey East · 2
+🏅 Standing: Hockey East · 1
 
-📅 Next: vs VGK (Jan 11)
-
-📊 2026-2027 Record: 18W - 6L (75.0%)
-   ██████████████████▊░░░░░░
+📊 2026-2027 Record: 1W - 1L (50.0%)
+   ████████████▌░░░░░░░░░░░░
 
 
 
