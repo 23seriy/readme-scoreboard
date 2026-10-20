@@ -14,18 +14,18 @@ NWSL Regular Season
 
 🏅 Standing (2026): NWSL Regular Season · 14
 
-📅 Next: vs POR (Oct 18)
+📅 Next: @ LA (Oct 25)
 
-📊 2026 Record: 7W - 15L - 5D  (26 pts)
-   ████████▊░░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 15L - 6D  (27 pts)
+   ████████▉░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 vs POR   (Oct 18, 2026)
 ❌ L 1-5 @ KC    (Oct 3, 2026)
 ❌ L 1-3 vs ORL   (Sep 27, 2026)
 ✅ W 2-0 vs LOU   (Sep 20, 2026)
 🟡 D 2-2 @ DEN   (Sep 17, 2026)
-❌ L 0-2 @ SEA   (Sep 13, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ NWSL Regular Season
 
 🏅 Standing (2026): NWSL Regular Season · 14
 
-📅 Next: vs POR (Oct 18)
+📅 Next: @ LA (Oct 25)
 
-📊 2026 Record: 7W - 15L - 5D  (26 pts)
-   ████████▊░░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 15L - 6D  (27 pts)
+   ████████▉░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 vs POR   (Oct 18, 2026)
 ❌ L 1-5 @ KC    (Oct 3, 2026)
 ❌ L 1-3 vs ORL   (Sep 27, 2026)
 ✅ W 2-0 vs LOU   (Sep 20, 2026)
 🟡 D 2-2 @ DEN   (Sep 17, 2026)
-❌ L 0-2 @ SEA   (Sep 13, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ NWSL Regular Season
 
 🏅 Standing (2026): NWSL Regular Season · 14
 
-📅 Next: vs POR (Oct 18)
+📅 Next: @ LA (Oct 25)
 
-📊 2026 Record: 7W - 15L - 5D  (26 pts)
-   ████████▊░░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 15L - 6D  (27 pts)
+   ████████▉░░░░░░░░░░░░░░░░
 
 
 

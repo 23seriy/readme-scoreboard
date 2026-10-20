@@ -14,8 +14,8 @@ Hockey East Conference
 
 🏅 Standing: Hockey East · 1
 
-📊 2026-2027 Record: 1W - 1L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2026-2027 Record: 1W - 2L (33.3%)
+   ████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -40,8 +40,8 @@ Hockey East Conference
 
 🏅 Standing: Hockey East · 1
 
-📊 2026-2027 Record: 1W - 1L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2026-2027 Record: 1W - 2L (33.3%)
+   ████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -65,8 +65,8 @@ Hockey East Conference
 
 🏅 Standing: Hockey East · 1
 
-📊 2026-2027 Record: 1W - 1L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2026-2027 Record: 1W - 2L (33.3%)
+   ████████▎░░░░░░░░░░░░░░░░
 
 
 

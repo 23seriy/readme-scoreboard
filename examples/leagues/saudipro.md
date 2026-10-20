@@ -14,7 +14,7 @@ Saudi Pro League
 
 🏅 Standing (2026): Saudi Pro League · 18
 
-📅 Next: vs KHO (Oct 19)
+📅 Next: @ NEOM (Oct 24)
 
 📊 2026 Record: 0W - 6L - 2D  (2 pts)
    ███▏░░░░░░░░░░░░░░░░░░░░░
@@ -42,7 +42,7 @@ Saudi Pro League
 
 🏅 Standing (2026): Saudi Pro League · 18
 
-📅 Next: vs KHO (Oct 19)
+📅 Next: @ NEOM (Oct 24)
 
 📊 2026 Record: 0W - 6L - 2D  (2 pts)
    ███▏░░░░░░░░░░░░░░░░░░░░░
@@ -69,7 +69,7 @@ Saudi Pro League
 
 🏅 Standing (2026): Saudi Pro League · 18
 
-📅 Next: vs KHO (Oct 19)
+📅 Next: @ NEOM (Oct 24)
 
 📊 2026 Record: 0W - 6L - 2D  (2 pts)
    ███▏░░░░░░░░░░░░░░░░░░░░░

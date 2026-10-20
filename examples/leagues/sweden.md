@@ -14,18 +14,18 @@ Team: **AIK** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026 Swedish Allsvenskan · 9
 
-📅 Next: vs GOT (Oct 17)
+📅 Next: @ SIR (Oct 24)
 
-📊 2026 Record: 9W - 8L - 6D  (33 pts)
+📊 2026 Record: 9W - 8L - 7D  (34 pts)
    █████████████░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 vs GOT   (Oct 17, 2026)
 ❌ L 5-6 vs BRO   (Oct 10, 2026)
 ❌ L 1-2 @ HBK   (Sep 20, 2026)
 🟡 D 1-1 vs MJA   (Sep 16, 2026)
 ❌ L 1-4 vs VAS   (Sep 12, 2026)
-🟡 D 0-0 @ MAL   (Sep 7, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026 Swedish Allsvenskan · 9
 
-📅 Next: vs GOT (Oct 17)
+📅 Next: @ SIR (Oct 24)
 
-📊 2026 Record: 9W - 8L - 6D  (33 pts)
+📊 2026 Record: 9W - 8L - 7D  (34 pts)
    █████████████░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 vs GOT   (Oct 17, 2026)
 ❌ L 5-6 vs BRO   (Oct 10, 2026)
 ❌ L 1-2 @ HBK   (Sep 20, 2026)
 🟡 D 1-1 vs MJA   (Sep 16, 2026)
 ❌ L 1-4 vs VAS   (Sep 12, 2026)
-🟡 D 0-0 @ MAL   (Sep 7, 2026)
 ```
 
 ## Compact mode
@@ -69,9 +69,9 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026 Swedish Allsvenskan · 9
 
-📅 Next: vs GOT (Oct 17)
+📅 Next: @ SIR (Oct 24)
 
-📊 2026 Record: 9W - 8L - 6D  (33 pts)
+📊 2026 Record: 9W - 8L - 7D  (34 pts)
    █████████████░░░░░░░░░░░░
 
 
