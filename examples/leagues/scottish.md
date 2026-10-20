@@ -14,18 +14,18 @@ Team: **CEL** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-27 Scottish Premiership · 1
 
-📅 Next: vs HOM (Oct 18)
+📅 Next: @ HIBS (Oct 25)
 
-📊 2026 Record: 7W - 1L - 0D  (21 pts)
-   █████████████████████▉░░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)
+   ██████████████████████▏░░
 
 **📅 Recent Games:**
 ```
+✅ W 7-1 vs HOM   (Oct 18, 2026)
 ✅ W 2-0 @ MOT   (Oct 11, 2026)
 ❌ L 0-1 vs RAN   (Sep 20, 2026)
 ✅ W 1-0 @ STJ   (Sep 9, 2026)
 ✅ W 2-1 @ STM   (Sep 5, 2026)
-✅ W 3-0 vs ABE   (Sep 2, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-27 Scottish Premiership · 1
 
-📅 Next: vs HOM (Oct 18)
+📅 Next: @ HIBS (Oct 25)
 
-📊 2026 Record: 7W - 1L - 0D  (21 pts)
-   █████████████████████▉░░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)
+   ██████████████████████▏░░
 
 **📅 Recent Games:**
 ```
+✅ W 7-1 vs HOM   (Oct 18, 2026)
 ✅ W 2-0 @ MOT   (Oct 11, 2026)
 ❌ L 0-1 vs RAN   (Sep 20, 2026)
 ✅ W 1-0 @ STJ   (Sep 9, 2026)
 ✅ W 2-1 @ STM   (Sep 5, 2026)
-✅ W 3-0 vs ABE   (Sep 2, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-27 Scottish Premiership · 1
 
-📅 Next: vs HOM (Oct 18)
+📅 Next: @ HIBS (Oct 25)
 
-📊 2026 Record: 7W - 1L - 0D  (21 pts)
-   █████████████████████▉░░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)
+   ██████████████████████▏░░
 
 
 

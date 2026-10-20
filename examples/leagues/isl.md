@@ -14,13 +14,14 @@ Team: **BFC** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-27 ISL · 2
 
-📅 Next: vs CFC (Oct 17)
+📅 Next: @ NEU (Oct 30)
 
-📊 2026 Record: 1W - 0L - 0D  (3 pts)
+📊 2026 Record: 2W - 0L - 0D  (6 pts)
    █████████████████████████
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 vs CFC   (Oct 17, 2026)
 ✅ W 3-2 vs SCD   (Oct 10, 2026)
 ```
 
@@ -38,13 +39,14 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-27 ISL · 2
 
-📅 Next: vs CFC (Oct 17)
+📅 Next: @ NEU (Oct 30)
 
-📊 2026 Record: 1W - 0L - 0D  (3 pts)
+📊 2026 Record: 2W - 0L - 0D  (6 pts)
    █████████████████████████
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 vs CFC   (Oct 17, 2026)
 ✅ W 3-2 vs SCD   (Oct 10, 2026)
 ```
 
@@ -61,9 +63,9 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-27 ISL · 2
 
-📅 Next: vs CFC (Oct 17)
+📅 Next: @ NEU (Oct 30)
 
-📊 2026 Record: 1W - 0L - 0D  (3 pts)
+📊 2026 Record: 2W - 0L - 0D  (6 pts)
    █████████████████████████
 
 
