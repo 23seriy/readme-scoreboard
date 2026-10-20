@@ -6,18 +6,18 @@
 AFC · AFC East
 🟢 Season in progress
 
-🏅 Standing: AFC · 4
+🏅 Standing: AFC · 2
 
-📅 Next: @ LV (Oct 18)
+📅 Next: vs BAL (Nov 1)
 
-📊 2026 Season: 4W - 1L (80.0%)
-   ████████████████████░░░░░
+📊 2026 Season: 5W - 1L (83.3%)
+   ████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 33-30 @ LV  (Oct 18, 2026)
 ✅ W 37-34 @ LAR (Oct 13, 2026)
 ❌ L 26-29 vs NE  (Oct 4, 2026)
 ✅ W 24-16 vs LAC (Sep 27, 2026)
 ✅ W 41-31 vs DET (Sep 18, 2026)
-✅ W 36-31 @ HOU (Sep 13, 2026)
 ```
