@@ -529,7 +529,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Kashima Antlers | `KAN` | 7115 |
 | Kawasaki Frontale | `KAW` | 7112 |
 | Kashiwa Reysol | `KRE` | 7476 |
-| KYOTO SANGA | `Kyoto Sanga` | 21361 |
+| Kyoto Sanga | `KYO` | 21361 |
 | Mito Hollyhock | `MITO` | 131701 |
 | Nagoya Grampus | `NAG` | 7108 |
 | Fagiano Okayama | `OKA` | 22522 |
@@ -627,7 +627,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Slovan Bratislava | `SLB` | 521 |
 | Slavia Prague | `SLP` | 494 |
 | VfB Stuttgart | `VFB` | 134 |
-| VIKING FK | `Viking FK` | 510 |
+| Viking FK | `VFK` | 510 |
 | Villarreal | `VIL` | 102 |
 
 ## UEFA Europa League
@@ -2485,7 +2485,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Bengaluru FC | `BFC` | 18851 |
 | Chennaiyin FC | `CFC` | 18000 |
 | Churchill Brothers | `CHU` | 8896 |
-| EAST BENGAL FC | `East Bengal FC` | 8897 |
+| East Bengal FC | `EBFC` | 8897 |
 | FC GOA | `FC Goa` | 18003 |
 | Inter Kashi | `ITKA` | 22069 |
 | JFC | `JFC` | 18850 |
@@ -2601,7 +2601,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | SK Brann | `SKBR` | 620 |
 | Tromso | `TRO` | 5270 |
 | Vålerenga | `VAL` | 2791 |
-| VIKING FK | `Viking FK` | 510 |
+| Viking FK | `VFK` | 510 |
 
 ## Swedish Allsvenskan
 

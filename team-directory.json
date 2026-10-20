@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-10-18T09:52:19.557Z",
+  "generatedAt": "2026-10-20T10:23:37.214Z",
   "teams": [
     {
       "league": "nba",
@@ -2819,8 +2819,8 @@
     {
       "league": "j1",
       "leagueName": "J1 League",
-      "abbreviation": "Kyoto Sanga",
-      "name": "KYOTO SANGA",
+      "abbreviation": "KYO",
+      "name": "Kyoto Sanga",
       "id": "21361"
     },
     {
@@ -3351,16 +3351,16 @@
     {
       "league": "ucl",
       "leagueName": "UEFA Champions League",
-      "abbreviation": "Viking FK",
-      "name": "VIKING FK",
-      "id": "510"
+      "abbreviation": "VFB",
+      "name": "VfB Stuttgart",
+      "id": "134"
     },
     {
       "league": "ucl",
       "leagueName": "UEFA Champions League",
-      "abbreviation": "VFB",
-      "name": "VfB Stuttgart",
-      "id": "134"
+      "abbreviation": "VFK",
+      "name": "Viking FK",
+      "id": "510"
     },
     {
       "league": "ucl",
@@ -15888,8 +15888,8 @@
     {
       "league": "isl",
       "leagueName": "Indian Super League",
-      "abbreviation": "East Bengal FC",
-      "name": "EAST BENGAL FC",
+      "abbreviation": "EBFC",
+      "name": "East Bengal FC",
       "id": "8897"
     },
     {
@@ -16392,8 +16392,8 @@
     {
       "league": "norway",
       "leagueName": "Norwegian Eliteserien",
-      "abbreviation": "Viking FK",
-      "name": "VIKING FK",
+      "abbreviation": "VFK",
+      "name": "Viking FK",
       "id": "510"
     },
     {

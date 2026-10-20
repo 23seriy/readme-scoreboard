@@ -8,36 +8,36 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 
 | Rank | Flag | Country | Player | Abbreviation | ID | Points |
 |------|------|---------|--------|--------------|----|--------|
-| #1 | 🇮🇹 | Italy | Jannik Sinner | `SIN` | 3623 | 11,000 |
-| #2 | 🇩🇪 | Germany | Alexander Zverev | `ZVE` | 2375 | 9,720 |
-| #3 | 🇪🇸 | Spain | Carlos Alcaraz | `ALC` | 3782 | 5,560 |
-| #4 | 🇺🇸 | United States | Ben Shelton | `SHE` | 9250 | 4,680 |
-| #5 | 🇨🇦 | Canada | Felix Auger-Aliassime | `FAA` | 3209 | 3,890 |
-| #6 | 🇷🇺 | Russia | Daniil Medvedev | `MED` | 2383 | 3,860 |
-| #7 | 🇮🇹 | Italy | Flavio Cobolli | `COB` | 7602 | 3,680 |
-| #8 | 🇷🇸 | Serbia | Novak Djokovic | `DJO` | 296 | 3,480 |
-| #9 | 🇦🇺 | Australia | Alex de Minaur | `DEM` | 2651 | 3,430 |
-| #10 | 🇺🇸 | United States | Frances Tiafoe | `TIA` | 2708 | 3,380 |
-| #11 | 🇫🇷 | France | Arthur Fils | `FIL` | 10052 | 3,275 |
-| #12 | 🇺🇸 | United States | Taylor Fritz | `FRI` | 2946 | 2,880 |
-| #13 | 🇪🇸 | Spain | Rafael Jodar | `JOD` | 12657 | 2,659 |
-| #14 | 🇲🇨 | Monaco | Valentin Vacherot | `VAC` | 9376 | 2,450 |
-| #15 | 🇨🇿 | Czechia | Jakub Mensik | `MEN` | 10319 | 2,445 |
-| #16 | 🇨🇿 | Czechia | Jiri Lehecka | `LEH` | 3754 | 2,440 |
-| #17 | 🇺🇸 | United States | Learner Tien | `LTI` | 10386 | 2,395 |
-| #18 | 🇺🇸 | United States | Tommy Paul | `PAU` | 2964 | 2,375 |
-| #19 | 🇺🇸 | United States | Brandon Nakashima | `NAK` | 3774 | 2,335 |
-| #20 | 🇦🇷 | Argentina | Francisco Cerundolo | `CER` | 3700 | 2,220 |
-| #21 | 🇮🇹 | Italy | Luciano Darderi | `DAR` | 7833 | 2,200 |
-| #22 | 🇰🇿 | Kazakhstan | Alexander Bublik | `BUB` | 2865 | 2,185 |
-| #23 | 🇷🇺 | Russia | Andrey Rublev | `RUB` | 2642 | 2,175 |
-| #24 | 🇳🇴 | Norway | Casper Ruud | `RUU` | 2989 | 2,145 |
-| #25 | 🇮🇹 | Italy | Lorenzo Musetti | `MUS` | 3764 | 2,010 |
-| #26 | 🇪🇸 | Spain | Alejandro Davidovich Fokina | `DAV` | 3212 | 1,930 |
-| #29 | 🇧🇷 | Brazil | Joao Fonseca | `FON` | 11745 | 1,750 |
-| #30 | 🇨🇱 | Chile | Alejandro Tabilo | `TAB` | 2970 | 1,605 |
-| #33 | 🇫🇷 | France | Arthur Rinderknech | `RIN` | 3511 | 1,520 |
-| #36 | 🇵🇪 | Peru | Ignacio Buse | `BUS` | 11226 | 1,447 |
+| #1 | 🇮🇹 | Italy | Jannik Sinner | `SIN` | 3623 | 10,950 |
+| #2 | 🇩🇪 | Germany | Alexander Zverev | `ZVE` | 2375 | 10,070 |
+| #3 | 🇪🇸 | Spain | Carlos Alcaraz | `ALC` | 3782 | 5,610 |
+| #4 | 🇺🇸 | United States | Ben Shelton | `SHE` | 9250 | 4,720 |
+| #5 | 🇷🇺 | Russia | Daniil Medvedev | `MED` | 2383 | 3,660 |
+| #6 | 🇮🇹 | Italy | Flavio Cobolli | `COB` | 7602 | 3,640 |
+| #7 | 🇨🇦 | Canada | Felix Auger-Aliassime | `FAA` | 3209 | 3,590 |
+| #8 | 🇦🇺 | Australia | Alex de Minaur | `DEM` | 2651 | 3,430 |
+| #9 | 🇺🇸 | United States | Frances Tiafoe | `TIA` | 2708 | 3,380 |
+| #10 | 🇫🇷 | France | Arthur Fils | `FIL` | 10052 | 3,325 |
+| #11 | 🇪🇸 | Spain | Rafael Jodar | `JOD` | 12657 | 3,234 |
+| #12 | 🇷🇸 | Serbia | Novak Djokovic | `DJO` | 296 | 3,090 |
+| #13 | 🇪🇸 | Spain | Alejandro Davidovich Fokina | `DAV` | 3212 | 2,880 |
+| #14 | 🇺🇸 | United States | Taylor Fritz | `FRI` | 2946 | 2,880 |
+| #15 | 🇺🇸 | United States | Tommy Paul | `PAU` | 2964 | 2,575 |
+| #16 | 🇨🇿 | Czechia | Jakub Mensik | `MEN` | 10319 | 2,500 |
+| #17 | 🇺🇸 | United States | Brandon Nakashima | `NAK` | 3774 | 2,375 |
+| #18 | 🇺🇸 | United States | Learner Tien | `LTI` | 10386 | 2,345 |
+| #19 | 🇰🇿 | Kazakhstan | Alexander Bublik | `BUB` | 2865 | 2,275 |
+| #20 | 🇨🇿 | Czechia | Jiri Lehecka | `LEH` | 3754 | 2,235 |
+| #21 | 🇦🇷 | Argentina | Francisco Cerundolo | `CER` | 3700 | 2,220 |
+| #22 | 🇷🇺 | Russia | Andrey Rublev | `RUB` | 2642 | 2,175 |
+| #23 | 🇮🇹 | Italy | Luciano Darderi | `DAR` | 7833 | 2,160 |
+| #24 | 🇳🇴 | Norway | Casper Ruud | `RUU` | 2989 | 2,095 |
+| #26 | 🇮🇹 | Italy | Lorenzo Musetti | `MUS` | 3764 | 1,870 |
+| #28 | 🇧🇷 | Brazil | Joao Fonseca | `FON` | 11745 | 1,750 |
+| #31 | 🇨🇱 | Chile | Alejandro Tabilo | `TAB` | 2970 | 1,565 |
+| #32 | 🇲🇨 | Monaco | Valentin Vacherot | `VAC` | 9376 | 1,480 |
+| #33 | 🇵🇪 | Peru | Ignacio Buse | `BUS` | 11226 | 1,445 |
+| #61 | 🇫🇷 | France | Arthur Rinderknech | `RIN` | 3511 | 870 |
 
 ## IndyCar Series
 
@@ -166,34 +166,34 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 
 | Rank | Flag | Country | Player | Abbreviation | ID | Points |
 |------|------|---------|--------|--------------|----|--------|
-| #1 | 🇰🇿 | Kazakhstan | Elena Rybakina | `RYB` | 3126 | 9,696 |
+| #1 | 🇰🇿 | Kazakhstan | Elena Rybakina | `RYB` | 3126 | 9,196 |
 | #2 | 🇧🇾 | Belarus | Aryna Sabalenka | `SAB` | 3038 | 7,550 |
-| #3 | 🇷🇺 | Russia | Mirra Andreeva | `AND` | 9820 | 6,371 |
-| #4 | 🇺🇸 | United States | Jessica Pegula | `PEG` | 2113 | 6,225 |
+| #3 | 🇷🇺 | Russia | Mirra Andreeva | `AND` | 9820 | 6,306 |
+| #4 | 🇺🇸 | United States | Jessica Pegula | `PEG` | 2113 | 6,235 |
 | #5 | 🇺🇸 | United States | Coco Gauff | `GAU` | 3626 | 5,974 |
-| #6 | 🇺🇦 | Ukraine | Elina Svitolina | `SVI` | 1797 | 5,024 |
-| #7 | 🇨🇿 | Czechia | Karolina Muchova | `MUC` | 3039 | 4,773 |
-| #8 | 🇨🇿 | Czechia | Linda Noskova | `NOS` | 6970 | 4,679 |
-| #9 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 3,999 |
-| #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 3,910 |
-| #11 | 🇺🇸 | United States | Iva Jovic | `JOV` | 14311 | 2,860 |
-| #12 | 🇨🇭 | Switzerland | Belinda Bencic | `BEN` | 2183 | 2,760 |
-| #13 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 2,643 |
-| #14 | 🇧🇪 | Belgium | Elise Mertens | `MER` | 2221 | 2,540 |
-| #15 | 🇨🇦 | Canada | Victoria Mboko | `MBO` | 11219 | 2,502 |
-| #16 | 🇷🇴 | Romania | Sorana Cirstea | `CIR` | 1774 | 2,424 |
-| #17 | 🇺🇸 | United States | Amanda Anisimova | `ANI` | 3221 | 2,363 |
-| #18 | 🇯🇵 | Japan | Naomi Osaka | `OSA` | 2789 | 2,351 |
-| #19 | 🇵🇭 | Philippines | Alexandra Eala | `EAL` | 7759 | 2,241 |
-| #20 | 🇺🇸 | United States | Madison Keys | `KEY` | 1556 | 2,110 |
-| #21 | 🇷🇺 | Russia | Anna Kalinskaya | `KAL` | 2977 | 2,043 |
-| #22 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 2,043 |
-| #24 | 🇷🇺 | Russia | Ekaterina Alexandrova | `ALE` | 3182 | 1,906 |
-| #26 | 🇷🇺 | Russia | Anastasia Potapova | `POT` | 2971 | 1,816 |
-| #27 | 🇺🇸 | United States | Emma Navarro | `NAV` | 3785 | 1,809 |
-| #28 | 🇨🇿 | Czechia | Marie Bouzkova | `BOU` | 2392 | 1,763 |
-| #30 | 🇨🇿 | Czechia | Sara Bejlek | `BEJ` | 7819 | 1,650 |
-| #31 | 🇺🇸 | United States | Ann Li | `ALI` | 3380 | 1,648 |
-| #33 | 🇮🇹 | Italy | Jasmine Paolini | `PAO` | 2615 | 1,528 |
-| #46 | 🇨🇿 | Czechia | Barbora Krejcikova | `KRE` | 2042 | 1,134 |
+| #6 | 🇺🇦 | Ukraine | Elina Svitolina | `SVI` | 1797 | 5,229 |
+| #7 | 🇨🇿 | Czechia | Karolina Muchova | `MUC` | 3039 | 4,833 |
+| #8 | 🇨🇿 | Czechia | Linda Noskova | `NOS` | 6970 | 4,678 |
+| #9 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 4,389 |
+| #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 3,920 |
+| #11 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 3,031 |
+| #12 | 🇺🇸 | United States | Iva Jovic | `JOV` | 14311 | 2,931 |
+| #13 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 2,663 |
+| #14 | 🇨🇭 | Switzerland | Belinda Bencic | `BEN` | 2183 | 2,662 |
+| #15 | 🇧🇪 | Belgium | Elise Mertens | `MER` | 2221 | 2,540 |
+| #16 | 🇨🇦 | Canada | Victoria Mboko | `MBO` | 11219 | 2,501 |
+| #17 | 🇷🇴 | Romania | Sorana Cirstea | `CIR` | 1774 | 2,380 |
+| #18 | 🇺🇸 | United States | Amanda Anisimova | `ANI` | 3221 | 2,363 |
+| #19 | 🇯🇵 | Japan | Naomi Osaka | `OSA` | 2789 | 2,297 |
+| #20 | 🇵🇭 | Philippines | Alexandra Eala | `EAL` | 7759 | 2,241 |
+| #21 | 🇺🇸 | United States | Madison Keys | `KEY` | 1556 | 2,029 |
+| #23 | 🇷🇺 | Russia | Anna Kalinskaya | `KAL` | 2977 | 1,989 |
+| #25 | 🇺🇸 | United States | Ann Li | `ALI` | 3380 | 1,833 |
+| #26 | 🇨🇿 | Czechia | Marie Bouzkova | `BOU` | 2392 | 1,818 |
+| #27 | 🇷🇺 | Russia | Anastasia Potapova | `POT` | 2971 | 1,814 |
+| #28 | 🇺🇸 | United States | Emma Navarro | `NAV` | 3785 | 1,794 |
+| #32 | 🇨🇿 | Czechia | Sara Bejlek | `BEJ` | 7819 | 1,650 |
+| #33 | 🇷🇺 | Russia | Ekaterina Alexandrova | `ALE` | 3182 | 1,591 |
+| #35 | 🇮🇹 | Italy | Jasmine Paolini | `PAO` | 2615 | 1,453 |
+| #45 | 🇨🇿 | Czechia | Barbora Krejcikova | `KRE` | 2042 | 1,133 |
 
