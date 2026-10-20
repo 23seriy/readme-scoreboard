@@ -12,20 +12,20 @@ Team: **ANG** · Category: Soccer · Data source: ESPN public API
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing (2026): French Ligue 1 2026-27 · 13
+🏅 Standing (2026): French Ligue 1 2026-27 · 15
 
-📅 Next: vs OLM (Oct 18)
+📅 Next: vs LOR (Oct 25)
 
-📊 2026 Record: 2W - 3L - 1D  (7 pts)
-   ██████████▍░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 4L - 1D  (7 pts)
+   ████████▉░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-5 vs OLM   (Oct 18, 2026)
 ❌ L 1-5 @ BRE   (Oct 10, 2026)
 ✅ W 2-0 vs TRY   (Sep 19, 2026)
 🟡 D 0-0 @ HAC   (Sep 12, 2026)
 ❌ L 1-2 vs REN   (Sep 6, 2026)
-✅ W 3-1 @ AUX   (Aug 29, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing (2026): French Ligue 1 2026-27 · 13
+🏅 Standing (2026): French Ligue 1 2026-27 · 15
 
-📅 Next: vs OLM (Oct 18)
+📅 Next: vs LOR (Oct 25)
 
-📊 2026 Record: 2W - 3L - 1D  (7 pts)
-   ██████████▍░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 4L - 1D  (7 pts)
+   ████████▉░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-5 vs OLM   (Oct 18, 2026)
 ❌ L 1-5 @ BRE   (Oct 10, 2026)
 ✅ W 2-0 vs TRY   (Sep 19, 2026)
 🟡 D 0-0 @ HAC   (Sep 12, 2026)
 ❌ L 1-2 vs REN   (Sep 6, 2026)
-✅ W 3-1 @ AUX   (Aug 29, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing (2026): French Ligue 1 2026-27 · 13
+🏅 Standing (2026): French Ligue 1 2026-27 · 15
 
-📅 Next: vs OLM (Oct 18)
+📅 Next: vs LOR (Oct 25)
 
-📊 2026 Record: 2W - 3L - 1D  (7 pts)
-   ██████████▍░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 4L - 1D  (7 pts)
+   ████████▉░░░░░░░░░░░░░░░░
 
 
 

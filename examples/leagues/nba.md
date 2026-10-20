@@ -10,7 +10,7 @@ Team: **ATL** · Category: Basketball · Data source: ESPN public API
 
 ### 🦅 Atlanta Hawks (ATL)
 Eastern Conference · Southeast Division
-🔴 Off-season · Next season starts October 20, 2026
+🟢 Season in progress
 
 🏅 Standing: Eastern · 11
 
@@ -28,7 +28,7 @@ The `title:` input replaces the default heading.
 
 ### 🦅 Atlanta Hawks (ATL)
 Eastern Conference · Southeast Division
-🔴 Off-season · Next season starts October 20, 2026
+🟢 Season in progress
 
 🏅 Standing: Eastern · 11
 
@@ -45,7 +45,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🦅 Atlanta Hawks (ATL)
 Eastern Conference · Southeast Division
-🔴 Off-season · Next season starts October 20, 2026
+🟢 Season in progress
 
 🏅 Standing: Eastern · 11
 
