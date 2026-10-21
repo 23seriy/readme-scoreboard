@@ -6,7 +6,7 @@
 League Phase
 🟢 Season in progress
 
-🏅 Standing (2026): League Phase · 8
+🏅 Standing (2026): League Phase · 9
 
 📅 Next: vs RBL (Oct 21)
 
