@@ -12,7 +12,7 @@ Team: **RMA** · Category: Soccer · Data source: ESPN public API
 League Phase
 🟢 Season in progress
 
-🏅 Standing (2026): League Phase · 8
+🏅 Standing (2026): League Phase · 9
 
 📅 Next: vs RBL (Oct 21)
 
@@ -37,7 +37,7 @@ The `title:` input replaces the default heading.
 League Phase
 🟢 Season in progress
 
-🏅 Standing (2026): League Phase · 8
+🏅 Standing (2026): League Phase · 9
 
 📅 Next: vs RBL (Oct 21)
 
@@ -61,7 +61,7 @@ The `compact: true` input drops the logo and recent-game details.
 League Phase
 🟢 Season in progress
 
-🏅 Standing (2026): League Phase · 8
+🏅 Standing (2026): League Phase · 9
 
 📅 Next: vs RBL (Oct 21)
 
