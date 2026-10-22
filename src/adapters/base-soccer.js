@@ -191,8 +191,7 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
    * Table position and W/L/D come from standings, which is authoritative —
    * counting fixtures would miss abandoned and rescheduled matches.
    */
-  async fetchConferenceRecord(teamAbbr) {
-    const season = this.getSeasonYear();
+    async fetchConferenceRecord(teamAbbr, season = this.getSeasonYear()) {
     const empty = { conference: "", wins: 0, losses: 0, draws: 0, season };
     try {
       const upper = teamAbbr.toUpperCase();
@@ -272,7 +271,7 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
       if (!team) return null;
 
       const season = this.getSeasonYear();
-      const [standings, schedData] = await Promise.all([
+        let [standings, schedData] = await Promise.all([
         this.fetchConferenceRecord(teamAbbr),
         httpGet(`${this.baseUrl}/teams/${team.id}/schedule?season=${season}`),
       ]);
@@ -293,7 +292,26 @@ class BaseSoccerAdapter extends BaseFreeApiAdapter {
         .then((res) => res || { data: { events: [] } })
         .catch(() => ({ data: { events: [] } }));
 
-      team.conference = standings.conference;
+// A season that has produced no completed match yet — not started, or a
+        // day old — leaves the board saying "No recent games found" with a 0-0
+        // record, which reads as broken rather than as a season that has barely
+        // begun. Fall back to the previous season's results instead of nothing.
+        if (this.parseSchedule(schedData.data.events, team.id).length === 0) {
+          try {
+            const [prevStandings, prevSchedule] = await Promise.all([
+              this.fetchConferenceRecord(teamAbbr, season - 1),
+              httpGet(`${this.baseUrl}/teams/${team.id}/schedule?season=${season - 1}`),
+            ]);
+            if (this.parseSchedule(prevSchedule.data.events, team.id).length > 0) {
+              standings = prevStandings;
+              schedData = prevSchedule;
+            }
+          } catch {
+            // Keep this season's empty result rather than losing the board.
+          }
+        }
+
+        team.conference = standings.conference;
 
       return {
         team,
