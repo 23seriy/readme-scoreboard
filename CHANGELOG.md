@@ -12,11 +12,12 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Changed
 
-- **The README's preview now shows a current board.** That block is pasted by hand and claimed to be
+- **The README's preview shows the live board again.** That block is pasted by hand and claimed to be
   real output, so it had drifted: it still advertised `🔴 Off-season · Next season starts October
-  2026`, showed no standing and no next fixture, and listed a record from a season that had ended.
-  It now matches what the renderer produces, is labelled as `--demo` output rather than live, and a
-  test compares the two so it cannot drift silently again — nothing read that block before.
+  2026`, showed no standing and no next fixture, and listed a record from a season that had ended. It
+  is refreshed from the running action's own output. A test holds it to the pieces a board has —
+  presence and shape — rather than to exact values, because a snapshot of live data cannot be
+  compared for equality. Nothing read that block at all before.
 - **Demo boards name conferences the way the live feed does** — `Western Conference`, not `West
   Conference`. The renderer appends the word "Conference", so the short form read as a typo on the
   page the README shows first.

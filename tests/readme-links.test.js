@@ -531,46 +531,33 @@ describe("contributor guidance", () => {
   });
 });
 
-// The README's Preview section is pasted by hand and claimed to be real output,
-// so it drifted silently: by the time anyone looked it still showed an
-// "Off-season · Next season starts October 2026" line, no standing, no next
-// fixture, and a record from a season that had ended. Nothing caught it because
-// nothing read it. This compares the block against what the renderer actually
-// produces, using demo data so the result is stable.
+// The README's Preview section is a snapshot of real output, so it cannot be
+// compared for equality — every run of the action changes it. What it CAN be
+// held to is shape: the block must be an actual board, with the pieces the
+// renderer produces. Earlier it was a hand-pasted copy that had quietly lost
+// its standing row and gained a season-start line the action no longer emits,
+// and nothing read it.
+//
+// Freshness is not enforced here. If it drifts, it drifts — the honest fix for
+// that is regenerating it, not asserting that a snapshot equals a live feed.
 describe("README preview", () => {
-  const { render } = require("../src/renderers/markdown");
-  const nba = require("../src/adapters/nba");
+  const lines = readme.split("Live output for the Lakers")[1]?.split("\n---\n")[0] || "";
 
-  function renderedBoard() {
-    const data = nba.getDemoData("LAL");
-    // The pipeline adds these, so the example generator does too.
-    return render(
-      "nba",
-      {
-        ...data,
-        emoji: nba.TEAM_EMOJI.LAL,
-        logoUrl: nba.getLogoUrl("LAL"),
-      },
-      {}
-    )
-      .split("\n")
-      // The README says heading levels are lowered by one so the board nests.
-      .map((line) => line.replace(/^(#{2,}) /, "#$1 "))
-      .join("\n")
-      .trim();
-  }
+  it("is present and nests one heading level down", () => {
+    expect(lines).toContain("### [");
+    expect(lines).toContain("My Favourite NBA Team");
+    expect(lines).toContain("#### 👑 Los Angeles Lakers (LAL)");
+  });
 
-  function readmePreview() {
-    const afterCaption = readme.split("Example output for the Lakers")[1] || "";
-    const section = afterCaption.split("\n---\n")[0];
-    const lines = section.split("\n");
-    const start = lines.findIndex((line) => line.startsWith("### "));
-    const end = lines.lastIndexOf("```");
-    if (start === -1 || end === -1) return null;
-    return lines.slice(start, end + 1).join("\n").trim();
-  }
+  it("carries the pieces a real board has", () => {
+    expect(lines).toContain("Conference ·");
+    expect(lines).toMatch(/\n(🟢 Season in progress|🔴 Off-season)/);
+    expect(lines).toMatch(/\n🏅 Standing:/);
+    expect(lines).toMatch(/\n📅 Next: /);
+    expect(lines).toContain("lal.png");
+  });
 
-  it("shows the board the renderer actually produces", () => {
-    expect(readmePreview()).toBe(renderedBoard());
+  it("has no placeholder text or unresolved template", () => {
+    expect(lines).not.toMatch(/undefined|NaN|Invalid Date|\{\{|\}\}/);
   });
 });

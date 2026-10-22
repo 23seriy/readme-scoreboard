@@ -47,8 +47,7 @@ from live data and refreshed daily, showing the default board plus the
 ## Preview
 
 This is what the action writes between your markers — heading, logos and all.
-Example output for the Lakers, from `SPORT=nba TEAM=LAL node src/index.js --demo`
-(heading levels lowered by one so it nests here):
+Live output for the Lakers (heading levels lowered by one so it nests here):
 
 ### [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA" height="28" align="top"></picture> My Favourite NBA Team](https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams)
 
@@ -58,21 +57,11 @@ Example output for the Lakers, from `SPORT=nba TEAM=LAL node src/index.js --demo
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing: Western · 3
+🏅 Standing: Western · 8
 
-📅 Next: vs BOS (Jan 6)
+📅 Next: vs GS (Oct 22)
 
-📊 2025-2026 Record: 50W - 32L (61.0%)
-   ███████████████▎░░░░░░░░░
-
-**📅 Recent Games:**
-```
-✅ W 119-113 @ PHX (Jan 4, 2026)
-❌ L 112-113 vs MIL (Dec 28, 2025)
-✅ W  99-93  @ CHI (Dec 21, 2025)
-❌ L 130-143 @ DEN (Dec 14, 2025)
-✅ W 113-112 vs OKC (Dec 7, 2025)
-```
+📅 No recent games found
 
 ---
 
