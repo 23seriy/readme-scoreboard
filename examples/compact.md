@@ -5,8 +5,11 @@
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 1
+🏅 Standing: Eastern · 2
 
-📅 Next: @ DET (Oct 20)
+📅 Next: vs NY (Oct 23)
 
-📅 No recent games found
+📊 2026-2027 Record: 0W - 1L (0.0%)
+   ░░░░░░░░░░░░░░░░░░░░░░░░░
+
+
