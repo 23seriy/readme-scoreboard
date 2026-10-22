@@ -56,11 +56,11 @@ const ESPN_TEAM_IDS = {
 };
 
 const DEMO_TEAMS = {
-  LAL: { id: 13, abbreviation: "LAL", name: "Lakers", full_name: "Los Angeles Lakers", conference: "West", division: "Pacific" },
-  BOS: { id: 2,  abbreviation: "BOS", name: "Celtics", full_name: "Boston Celtics", conference: "East", division: "Atlantic" },
-  GSW: { id: 9,  abbreviation: "GSW", name: "Warriors", full_name: "Golden State Warriors", conference: "West", division: "Pacific" },
-  NYK: { id: 18, abbreviation: "NYK", name: "Knicks", full_name: "New York Knicks", conference: "East", division: "Atlantic" },
-  CHI: { id: 4,  abbreviation: "CHI", name: "Bulls", full_name: "Chicago Bulls", conference: "East", division: "Central" },
+  LAL: { id: 13, abbreviation: "LAL", name: "Lakers", full_name: "Los Angeles Lakers", conference: "Western", division: "Pacific" },
+  BOS: { id: 2,  abbreviation: "BOS", name: "Celtics", full_name: "Boston Celtics", conference: "Eastern", division: "Atlantic" },
+  GSW: { id: 9,  abbreviation: "GSW", name: "Warriors", full_name: "Golden State Warriors", conference: "Western", division: "Pacific" },
+  NYK: { id: 18, abbreviation: "NYK", name: "Knicks", full_name: "New York Knicks", conference: "Eastern", division: "Atlantic" },
+  CHI: { id: 4,  abbreviation: "CHI", name: "Bulls", full_name: "Chicago Bulls", conference: "Eastern", division: "Central" },
 };
 
 async function fetchTeamInfo(teamAbbr) {
@@ -321,7 +321,7 @@ function getDemoData(teamAbbr, playerName) {
   const abbr = teamAbbr.toUpperCase();
   const team = DEMO_TEAMS[abbr] || {
     id: 13, abbreviation: abbr, name: abbr,
-    full_name: `${abbr} Team`, conference: "West", division: "Pacific",
+    full_name: `${abbr} Team`, conference: "Western", division: "Pacific",
   };
   const ownTeams = Object.keys(DEMO_TEAMS).filter((t) => t !== abbr);
   // Pad with a per-sport pool so an 82-game log doesn't repeat the few demo

@@ -530,3 +530,47 @@ describe("contributor guidance", () => {
     ].forEach((step) => expect(contributing).toContain(step));
   });
 });
+
+// The README's Preview section is pasted by hand and claimed to be real output,
+// so it drifted silently: by the time anyone looked it still showed an
+// "Off-season · Next season starts October 2026" line, no standing, no next
+// fixture, and a record from a season that had ended. Nothing caught it because
+// nothing read it. This compares the block against what the renderer actually
+// produces, using demo data so the result is stable.
+describe("README preview", () => {
+  const { render } = require("../src/renderers/markdown");
+  const nba = require("../src/adapters/nba");
+
+  function renderedBoard() {
+    const data = nba.getDemoData("LAL");
+    // The pipeline adds these, so the example generator does too.
+    return render(
+      "nba",
+      {
+        ...data,
+        emoji: nba.TEAM_EMOJI.LAL,
+        logoUrl: nba.getLogoUrl("LAL"),
+      },
+      {}
+    )
+      .split("\n")
+      // The README says heading levels are lowered by one so the board nests.
+      .map((line) => line.replace(/^(#{2,}) /, "#$1 "))
+      .join("\n")
+      .trim();
+  }
+
+  function readmePreview() {
+    const afterCaption = readme.split("Example output for the Lakers")[1] || "";
+    const section = afterCaption.split("\n---\n")[0];
+    const lines = section.split("\n");
+    const start = lines.findIndex((line) => line.startsWith("### "));
+    const end = lines.lastIndexOf("```");
+    if (start === -1 || end === -1) return null;
+    return lines.slice(start, end + 1).join("\n").trim();
+  }
+
+  it("shows the board the renderer actually produces", () => {
+    expect(readmePreview()).toBe(renderedBoard());
+  });
+});
