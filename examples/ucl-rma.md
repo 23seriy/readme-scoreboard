@@ -6,15 +6,16 @@
 League Phase
 🟢 Season in progress
 
-🏅 Standing (2026): League Phase · 8
+🏅 Standing (2026): League Phase · 4
 
-📅 Next: vs RBL (Oct 21)
+📅 Next: @ AEK (Nov 4)
 
-📊 2026 Record: 2W - 0L - 0D  (6 pts)
+📊 2026 Record: 3W - 0L - 0D  (9 pts)
    █████████████████████████
 
 **📅 Recent Games:**
 ```
+✅ W 4-1 vs RBL   (Oct 21, 2026)
 ✅ W 4-3 @ ROMA  (Oct 14, 2026)
 ✅ W 2-1 vs INT   (Sep 8, 2026)
 ```

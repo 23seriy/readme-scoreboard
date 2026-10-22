@@ -10,7 +10,7 @@ Team: **ATL** · Category: Basketball · Data source: ESPN public API
 
 ### 🌙 Atlanta Dream (ATL)
 Eastern Conference
-🟢 Season in progress
+🔴 Off-season · Next season starts May 8, 2027
 
 🏅 Standing: Eastern · 1
 
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 
 ### 🌙 Atlanta Dream (ATL)
 Eastern Conference
-🟢 Season in progress
+🔴 Off-season · Next season starts May 8, 2027
 
 🏅 Standing: Eastern · 1
 
@@ -65,7 +65,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🌙 Atlanta Dream (ATL)
 Eastern Conference
-🟢 Season in progress
+🔴 Off-season · Next season starts May 8, 2027
 
 🏅 Standing: Eastern · 1
 
