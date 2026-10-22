@@ -14,18 +14,18 @@ Eastern Conference
 
 🏅 Standing: Eastern · 1
 
-📅 Next: vs GS (Oct 22)
+📅 Next: vs GS (Oct 24)
 
 📊 2026 Record: 30W - 14L (68.2%)
    █████████████████░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W  97-71  vs GS  (Oct 21, 2026) [Playoffs]
 ✅ W  79-65  @ GS  (Oct 19, 2026) [Playoffs]
 ❌ L  64-68  @ GS  (Oct 17, 2026) [Playoffs]
 ✅ W  85-83  @ NY  (Oct 9, 2026) [Playoffs]
 ✅ W 101-98  vs NY  (Oct 7, 2026) [Playoffs]
-✅ W  92-82  vs NY  (Oct 4, 2026) [Playoffs]
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ Eastern Conference
 
 🏅 Standing: Eastern · 1
 
-📅 Next: vs GS (Oct 22)
+📅 Next: vs GS (Oct 24)
 
 📊 2026 Record: 30W - 14L (68.2%)
    █████████████████░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W  97-71  vs GS  (Oct 21, 2026) [Playoffs]
 ✅ W  79-65  @ GS  (Oct 19, 2026) [Playoffs]
 ❌ L  64-68  @ GS  (Oct 17, 2026) [Playoffs]
 ✅ W  85-83  @ NY  (Oct 9, 2026) [Playoffs]
 ✅ W 101-98  vs NY  (Oct 7, 2026) [Playoffs]
-✅ W  92-82  vs NY  (Oct 4, 2026) [Playoffs]
 ```
 
 ## Compact mode
@@ -69,7 +69,7 @@ Eastern Conference
 
 🏅 Standing: Eastern · 1
 
-📅 Next: vs GS (Oct 22)
+📅 Next: vs GS (Oct 24)
 
 📊 2026 Record: 30W - 14L (68.2%)
    █████████████████░░░░░░░░
