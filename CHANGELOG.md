@@ -10,6 +10,23 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- **A season that has barely started shows last season's games, not "No recent
+ games found".** In
+  the first days of a season — or in the window after a fixture list rolls over
+but before any game
+  is played — the board fell back to an empty game list and a 0-0 record, which
+reads as broken
+  rather than as a season that has just begun. NBA and the 30 soccer leagues now
+walk back one season
+  and show those results and that same season's record and standing. A season
+that has any completed
+  game is untouched, so this only fills a board that would otherwise be blank.
+  Seen on the Leafs and Lakers boards, which both said "No recent games found"
+while last season's
+  results were available.
+
 ### Changed
 
 - **The README's preview shows the live board again.** That block is pasted by hand and claimed to be
