@@ -6,18 +6,14 @@
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing: Western · 6
+🏅 Standing: Western · 10
 
-📅 Next: vs GS (Oct 22)
+📅 Next: vs LAC (Oct 24)
 
-📊 2025-2026 Record: 53W - 29L (64.6%)
-   ████████████████▏░░░░░░░░
+📊 2026-2027 Record: 1W - 0L (100.0%)
+   █████████████████████████
 
 **📅 Recent Games:**
 ```
-❌ L 110-115 vs OKC (May 11, 2026) [Playoffs]
-❌ L 108-131 vs OKC (May 9, 2026) [Playoffs]
-❌ L 107-125 @ OKC (May 7, 2026) [Playoffs]
-❌ L  90-108 @ OKC (May 5, 2026) [Playoffs]
-✅ W  98-78  @ HOU (May 1, 2026) [Playoffs]
+✅ W 127-105 vs GS  (Oct 21, 2026)
 ```
