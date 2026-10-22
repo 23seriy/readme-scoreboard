@@ -63,6 +63,21 @@ function completedGame(date, homeScore, awayScore) {
   };
 }
 
+function upcomingGame(date) {
+  return {
+    date,
+    competitions: [
+      {
+        status: { type: { completed: false } },
+        competitors: [
+          { team: { id: 13, abbreviation: "LAL" }, homeAway: "home" },
+          { team: { id: 25, abbreviation: "GSW" }, homeAway: "away" },
+        ],
+      },
+    ],
+  };
+}
+
 describe("NBA — previous season fallback", () => {
   beforeEach(() => axios.get.mockReset());
 
@@ -70,7 +85,7 @@ describe("NBA — previous season fallback", () => {
     axios.get
       .mockResolvedValueOnce(teamResponse)
       .mockResolvedValueOnce(standingsResponse(0, 0)) // current season: nothing played
-      .mockResolvedValueOnce(scheduleResponse([])) // regular season
+      .mockResolvedValueOnce(scheduleResponse([upcomingGame("2026-10-23T02:00:00Z")])) // regular season
       .mockResolvedValueOnce(scheduleResponse([])) // playoffs
       // Fallback, previous season:
       .mockResolvedValueOnce(standingsResponse(53, 29))
@@ -84,6 +99,10 @@ describe("NBA — previous season fallback", () => {
     // Record comes from the same season as the games, not the empty current one.
     expect(result.record.wins).toBe(53);
     expect(result.record.losses).toBe(29);
+    // The next fixture belongs to the season under way, so filling the results
+    // from last season must not take it away.
+    expect(result.nextGame).not.toBeNull();
+    expect(result.nextGame.opponent).toBe("GSW");
   });
 
   it("keeps the current season when it has results", async () => {

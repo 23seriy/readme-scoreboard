@@ -399,42 +399,47 @@ async function fetchData(teamAbbr) {
 
   const upper = teamAbbr.toUpperCase();
   const espnAbbr = (ESPN_ABBR[upper] || upper).toUpperCase();
-let events = await fetchScheduleEvents(teamAbbr);
-    let recentGames = await fetchRecentGames(teamAbbr, 5, events);
-    let results = standings;
 
-    // A season that has produced no completed game yet — the opener is days away,
-    // or the season is over — would render "No recent games found" over a 0-0
-    // record. Fall back to the previous season so the board shows real results,
-    // which is what the soccer base does too.
-    if (recentGames.length === 0) {
-      try {
-        const { year, month } = utcParts();
-        const previousSeason = (month >= 10 ? year + 1 : year) - 1;
-        const [prevStandings, prevEvents] = await Promise.all([
-          fetchStandings(teamAbbr, previousSeason),
-          fetchScheduleEvents(teamAbbr, previousSeason),
-        ]);
-        const prevGames = await fetchRecentGames(teamAbbr, 5, prevEvents);
-        if (prevGames.length > 0) {
-          results = prevStandings;
-          events = prevEvents;
-          recentGames = prevGames;
-        }
-      } catch {
-        // Keep this season's empty result rather than losing the board.
+  // The next fixture belongs to the season under way, so keep this season's events
+  // for it even when the results below come from the previous season. Deriving both
+  // from one list silently dropped the next game from a board the fallback filled.
+  const currentEvents = await fetchScheduleEvents(teamAbbr);
+  let events = currentEvents;
+  let recentGames = await fetchRecentGames(teamAbbr, 5, events);
+  let results = standings;
+
+  // A season that has produced no completed game yet — the opener is days away,
+  // or the season is over — would render "No recent games found" over a 0-0
+  // record. Fall back to the previous season so the board shows real results,
+  // which is what the soccer base does too.
+  if (recentGames.length === 0) {
+    try {
+      const { year, month } = utcParts();
+      const previousSeason = (month >= 10 ? year + 1 : year) - 1;
+      const [prevStandings, prevEvents] = await Promise.all([
+        fetchStandings(teamAbbr, previousSeason),
+        fetchScheduleEvents(teamAbbr, previousSeason),
+      ]);
+      const prevGames = await fetchRecentGames(teamAbbr, 5, prevEvents);
+      if (prevGames.length > 0) {
+        results = prevStandings;
+        events = prevEvents;
+        recentGames = prevGames;
       }
+    } catch {
+      // Keep this season's empty result rather than losing the board.
     }
+  }
 
-    const record = { wins: results.wins, losses: results.losses, season: results.season };
+  const record = { wins: results.wins, losses: results.losses, season: results.season };
 
   return {
     team,
     recentGames,
     record,
-      standing: results.position ? { position: results.position, label: results.conference } : null,
+    standing: results.position ? { position: results.position, label: results.conference } : null,
     form: parseNbaForm(events, espnAbbr),
-    nextGame: parseNbaNextGame(events, espnAbbr),
+    nextGame: parseNbaNextGame(currentEvents, espnAbbr),
   };
 }
 
