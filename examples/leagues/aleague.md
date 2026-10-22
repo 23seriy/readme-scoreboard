@@ -9,14 +9,24 @@ Team: **ADE** · Category: Soccer · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5321.png" alt="Adelaide United logo" width="72" align="right" />
 
 ### 🔴 Adelaide United (ADE)
-2026-27 A-League
+2025-26 A-League Men
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 8
+🏅 Standing (2025): 2025-26 A-League Men · 2
 
 📅 Next: @ PER (Nov 1)
 
-📅 No recent games found
+📊 2025 Record: 12W - 7L - 7D  (43 pts)
+   ██████████████▉░░░░░░░░░░
+
+**📅 Recent Games:**
+```
+❌ L 0-3 vs AFC   (May 15, 2026)
+🟡 D 1-1 @ AFC   (May 9, 2026)
+✅ W 2-1 @ MCY   (Apr 26, 2026)
+✅ W 3-1 vs MAC   (Apr 19, 2026)
+🟡 D 1-1 @ NEW   (Apr 11, 2026)
+```
 
 ## Custom title
 
@@ -27,14 +37,24 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/5321.png" alt="Adelaide United logo" width="72" align="right" />
 
 ### 🔴 Adelaide United (ADE)
-2026-27 A-League
+2025-26 A-League Men
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 8
+🏅 Standing (2025): 2025-26 A-League Men · 2
 
 📅 Next: @ PER (Nov 1)
 
-📅 No recent games found
+📊 2025 Record: 12W - 7L - 7D  (43 pts)
+   ██████████████▉░░░░░░░░░░
+
+**📅 Recent Games:**
+```
+❌ L 0-3 vs AFC   (May 15, 2026)
+🟡 D 1-1 @ AFC   (May 9, 2026)
+✅ W 2-1 @ MCY   (Apr 26, 2026)
+✅ W 3-1 vs MAC   (Apr 19, 2026)
+🟡 D 1-1 @ NEW   (Apr 11, 2026)
+```
 
 ## Compact mode
 
@@ -44,14 +64,17 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🔴 Adelaide United (ADE)
-2026-27 A-League
+2025-26 A-League Men
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 8
+🏅 Standing (2025): 2025-26 A-League Men · 2
 
 📅 Next: @ PER (Nov 1)
 
-📅 No recent games found
+📊 2025 Record: 12W - 7L - 7D  (43 pts)
+   ██████████████▉░░░░░░░░░░
+
+
 
 ## Badge mode
 

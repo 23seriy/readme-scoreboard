@@ -14,18 +14,18 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026 Torneo Apertura · 1
 
-📅 Next: @ ATS (Oct 22)
+📅 Next: vs PAC (Oct 26)
 
-📊 2026 Record: 7W - 1L - 3D  (24 pts)
-   ███████████████████▎░░░░░
+📊 2026 Record: 8W - 1L - 3D  (27 pts)
+   ███████████████████▊░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 5-2 @ ATS   (Oct 21, 2026)
 ✅ W 5-3 @ LEO   (Oct 17, 2026)
 🟡 D 1-1 vs MTY   (Oct 10, 2026)
 ✅ W 4-2 @ NCX   (Sep 27, 2026)
 🟡 D 2-2 vs GDL   (Sep 19, 2026)
-❌ L 3-4 @ CAZ   (Sep 12, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026 Torneo Apertura · 1
 
-📅 Next: @ ATS (Oct 22)
+📅 Next: vs PAC (Oct 26)
 
-📊 2026 Record: 7W - 1L - 3D  (24 pts)
-   ███████████████████▎░░░░░
+📊 2026 Record: 8W - 1L - 3D  (27 pts)
+   ███████████████████▊░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 5-2 @ ATS   (Oct 21, 2026)
 ✅ W 5-3 @ LEO   (Oct 17, 2026)
 🟡 D 1-1 vs MTY   (Oct 10, 2026)
 ✅ W 4-2 @ NCX   (Sep 27, 2026)
 🟡 D 2-2 vs GDL   (Sep 19, 2026)
-❌ L 3-4 @ CAZ   (Sep 12, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026 Torneo Apertura · 1
 
-📅 Next: @ ATS (Oct 22)
+📅 Next: vs PAC (Oct 26)
 
-📊 2026 Record: 7W - 1L - 3D  (24 pts)
-   ███████████████████▎░░░░░
+📊 2026 Record: 8W - 1L - 3D  (27 pts)
+   ███████████████████▊░░░░░
 
 
 
