@@ -12,11 +12,17 @@ Team: **ATL** · Category: Basketball · Data source: ESPN public API
 Eastern Conference · Southeast Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 11
+🏅 Standing: Eastern · 14
 
-📅 Next: @ ORL (Oct 21)
+📅 Next: @ CHA (Oct 23)
 
-📅 No recent games found
+📊 2026-2027 Record: 1W - 0L (100.0%)
+   █████████████████████████
+
+**📅 Recent Games:**
+```
+✅ W 132-125 @ ORL (Oct 21, 2026)
+```
 
 ## Custom title
 
@@ -30,11 +36,17 @@ The `title:` input replaces the default heading.
 Eastern Conference · Southeast Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 11
+🏅 Standing: Eastern · 14
 
-📅 Next: @ ORL (Oct 21)
+📅 Next: @ CHA (Oct 23)
 
-📅 No recent games found
+📊 2026-2027 Record: 1W - 0L (100.0%)
+   █████████████████████████
+
+**📅 Recent Games:**
+```
+✅ W 132-125 @ ORL (Oct 21, 2026)
+```
 
 ## Compact mode
 
@@ -47,11 +59,14 @@ The `compact: true` input drops the logo and recent-game details.
 Eastern Conference · Southeast Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 11
+🏅 Standing: Eastern · 14
 
-📅 Next: @ ORL (Oct 21)
+📅 Next: @ CHA (Oct 23)
 
-📅 No recent games found
+📊 2026-2027 Record: 1W - 0L (100.0%)
+   █████████████████████████
+
+
 
 ## Badge mode
 
