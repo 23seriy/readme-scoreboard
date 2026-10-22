@@ -1177,7 +1177,13 @@ describe("renderNba — WNBA variant", () => {
     const out = render("wnba", data());
     expect(out).toContain("Western Conference");
     expect(out).not.toContain("Division");
-    expect(out).not.toContain("· ");
+    // Assert on the conference/division line itself, not the whole document.
+    // The season status line legitimately reads
+    // "🔴 Off-season · Next season starts May 8, 2027", so a blanket
+    // `not.toContain("· ")` passed only while the WNBA was mid-season and broke
+    // the day the calendar reached its off-season — which is what turned `main`
+    // red and, through the merge commit, every open pull request with it.
+    expect(out).not.toMatch(/Conference · /);
   });
 
   it("still renders the division for the NBA, which has them", () => {

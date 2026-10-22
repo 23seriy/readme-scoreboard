@@ -4,7 +4,7 @@
 
 ### 🐆 Minnesota Lynx (MIN)
 Western Conference
-🟢 Season in progress
+🔴 Off-season · Next season starts May 8, 2027
 
 🏅 Standing: Western · 1
 
