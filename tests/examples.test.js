@@ -11,6 +11,24 @@ const files = fs
   .filter((name) => name.endsWith(".md"))
   .map((name) => path.join(EXAMPLES_DIR, name));
 
+// A file can hold several boards — multi-team.md holds three — so games are
+// attributed to the record that precedes them. Reading only the file's first
+// record and counting every game line compared one board's season against three
+// boards' fixtures: it passed while that first record happened to be large, and
+// failed the morning it was a season opener at 1W - 0L.
+function boardsIn(content) {
+  const boards = [];
+  for (const line of content.split("\n")) {
+    const record = line.match(/(\d+)W - (\d+)L/);
+    if (record) {
+      boards.push({ wins: Number(record[1]), losses: Number(record[2]), results: 0 });
+    } else if (boards.length > 0 && /[✅❌] [WL] /.test(line)) {
+      boards[boards.length - 1].results += 1;
+    }
+  }
+  return boards;
+}
+
 describe("generated examples", () => {
   it("are present", () => {
     expect(files.length).toBeGreaterThan(0);
@@ -69,17 +87,35 @@ describe("generated examples", () => {
     "%s shows W-L totals matching the games it lists",
     (_name, file) => {
       const content = fs.readFileSync(file, "utf8");
-      const record = content.match(/(\d+)W - (\d+)L/);
-      const results = (content.match(/[✅❌] [WL] /g) || []).length;
-      if (!record) return; // F1/tennis boards are standings-only.
-      const wins = Number(record[1]);
-      const losses = Number(record[2]);
-      // A board displays at most its five most recent games, so the season
-      // totals must be at least as large as the results shown.
-      expect(wins + losses).toBeGreaterThanOrEqual(results);
-      expect(wins + losses).toBeGreaterThan(0);
+      const boards = boardsIn(content);
+      if (boards.length === 0) return; // F1/tennis boards are standings-only.
+      for (const board of boards) {
+        // A board displays at most its five most recent games, so its season
+        // totals must be at least as large as the results shown.
+        expect(board.wins + board.losses).toBeGreaterThanOrEqual(board.results);
+        expect(board.wins + board.losses).toBeGreaterThan(0);
+      }
     }
   );
+
+  it("compares each board with its own games, not the file's total", () => {
+    // The exact shape that broke it: a three-game opener board above two boards
+    // with five games each. One record, eleven results.
+    const fixture = [
+      "### 👑 Los Angeles Lakers (LAL)",
+      "📊 2026-2027 Record: 1W - 0L (100.0%)",
+      "✅ W 127-105 vs GS  (Oct 21, 2026)",
+      "### ⚾ New York Yankees (NYY)",
+      "📊 2026 Record: 93W - 68L (57.8%)",
+      "❌ L  3-4  vs TB  (Oct 7, 2026)",
+      "✅ W  9-2  vs BOS (Sep 30, 2026)",
+    ].join("\n");
+
+    expect(boardsIn(fixture)).toEqual([
+      { wins: 1, losses: 0, results: 1 },
+      { wins: 93, losses: 68, results: 2 },
+    ]);
+  });
 
   it.each(files.map((file) => [path.basename(file), file]))(
     "%s never shows a result that contradicts its scoreline",
