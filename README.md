@@ -47,26 +47,31 @@ from live data and refreshed daily, showing the default board plus the
 ## Preview
 
 This is what the action writes between your markers — heading, logos and all.
-Live output for the Lakers (heading levels lowered by one so it nests here):
+Example output for the Lakers, from `SPORT=nba TEAM=LAL node src/index.js --demo`
+(heading levels lowered by one so it nests here):
 
-### <picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA" height="28" align="top"></picture> My Favourite NBA Team
+### [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA" height="28" align="top"></picture> My Favourite NBA Team](https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Los Angeles Lakers logo" width="72" align="right" />
 
 #### 👑 Los Angeles Lakers (LAL)
 Western Conference · Pacific Division
-🔴 Off-season · Next season starts October 2026
+🟢 Season in progress
 
-📊 2025-2026 Record: 53W - 29L (64.6%)
-   ████████████████▏░░░░░░░░
+🏅 Standing: Western · 3
+
+📅 Next: vs BOS (Jan 6)
+
+📊 2025-2026 Record: 50W - 32L (61.0%)
+   ███████████████▎░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L 110-115 vs OKC (May 11, 2026) [Playoffs]
-❌ L 108-131 vs OKC (May 9, 2026) [Playoffs]
-❌ L 107-125 @ OKC (May 7, 2026) [Playoffs]
-❌ L  90-108 @ OKC (May 5, 2026) [Playoffs]
-✅ W  98-78  @ HOU (May 1, 2026) [Playoffs]
+✅ W 119-113 @ PHX (Jan 4, 2026)
+❌ L 112-113 vs MIL (Dec 28, 2025)
+✅ W  99-93  @ CHI (Dec 21, 2025)
+❌ L 130-143 @ DEN (Dec 14, 2025)
+✅ W 113-112 vs OKC (Dec 7, 2025)
 ```
 
 ---
