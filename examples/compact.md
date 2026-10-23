@@ -5,7 +5,7 @@
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 3
+🏅 Standing: Eastern · 1
 
 📅 Next: vs NY (Oct 23)
 
