@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-10-22T10:36:27.967Z",
+  "generatedAt": "2026-10-23T10:28:51.399Z",
   "teams": [
     {
       "league": "nba",
@@ -15720,29 +15720,29 @@
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "ADE",
-      "name": "Adelaide United",
+      "abbreviation": "ADL",
+      "name": "Adelaide United FC",
       "id": "5321"
     },
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "AFC",
-      "name": "Auckland FC",
+      "abbreviation": "Auckland FC",
+      "name": "AUCKLAND FC",
       "id": "22344"
     },
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "BRR",
-      "name": "Brisbane Roar",
+      "abbreviation": "BRI",
+      "name": "Brisbane Roar FC",
       "id": "5326"
     },
     {
       "league": "aleague",
       "leagueName": "A-League Men",
       "abbreviation": "CCM",
-      "name": "Central Coast Mariners",
+      "name": "Central Coast Mariners FC",
       "id": "5325"
     },
     {
@@ -15755,15 +15755,15 @@
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "MCY",
-      "name": "Melbourne City FC",
+      "abbreviation": "Melbourne City",
+      "name": "MELBOURNE CITY FC",
       "id": "11143"
     },
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "MVC",
-      "name": "Melbourne Victory",
+      "abbreviation": "Melbourne Vict",
+      "name": "MELBOURNE VICTORY",
       "id": "5328"
     },
     {
@@ -15777,7 +15777,7 @@
       "league": "aleague",
       "leagueName": "A-League Men",
       "abbreviation": "PER",
-      "name": "Perth Glory",
+      "name": "Perth Glory FC",
       "id": "5322"
     },
     {
@@ -15790,15 +15790,15 @@
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "WEL",
-      "name": "Wellington Phoenix FC",
+      "abbreviation": "Wellington",
+      "name": "WELLINGTON PHOENIX FC",
       "id": "8352"
     },
     {
       "league": "aleague",
       "leagueName": "A-League Men",
       "abbreviation": "WSW",
-      "name": "Western Sydney Wanderers",
+      "name": "Western Sydney Wanderers FC",
       "id": "13696"
     },
     {
@@ -15973,14 +15973,14 @@
       "league": "csl",
       "leagueName": "Chinese Super League",
       "abbreviation": "SHP",
-      "name": "Shanghai Port",
+      "name": "Shanghai Port FC",
       "id": "15515"
     },
     {
       "league": "csl",
       "leagueName": "Chinese Super League",
-      "abbreviation": "SHE",
-      "name": "Shanghai Shenhua",
+      "abbreviation": "Shanghai Shenh",
+      "name": "SHANGHAI SHENHUA FC",
       "id": "977"
     },
     {
