@@ -2463,18 +2463,18 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 
 | Team | Abbreviation | ID |
 |------|--------------|----|
-| Adelaide United | `ADE` | 5321 |
-| Auckland FC | `AFC` | 22344 |
-| Brisbane Roar | `BRR` | 5326 |
-| Central Coast Mariners | `CCM` | 5325 |
+| Adelaide United FC | `ADL` | 5321 |
+| AUCKLAND FC | `Auckland FC` | 22344 |
+| Brisbane Roar FC | `BRI` | 5326 |
+| Central Coast Mariners FC | `CCM` | 5325 |
 | Macarthur FC | `MAC` | 19340 |
-| Melbourne City FC | `MCY` | 11143 |
-| Melbourne Victory | `MVC` | 5328 |
+| MELBOURNE CITY FC | `Melbourne City` | 11143 |
+| MELBOURNE VICTORY | `Melbourne Vict` | 5328 |
 | Newcastle Jets | `NEW` | 5323 |
-| Perth Glory | `PER` | 5322 |
+| Perth Glory FC | `PER` | 5322 |
 | Sydney FC | `SYD` | 5327 |
-| Wellington Phoenix FC | `WEL` | 8352 |
-| Western Sydney Wanderers | `WSW` | 13696 |
+| WELLINGTON PHOENIX FC | `Wellington` | 8352 |
+| Western Sydney Wanderers FC | `WSW` | 13696 |
 
 ## Indian Super League
 
@@ -2512,8 +2512,8 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Liaoning Tieren | `LIA` | 131705 |
 | Qingdao Hainiu | `QIN` | 21910 |
 | Qingdao West Coast | `QWC` | 22198 |
-| Shanghai Shenhua | `SHE` | 977 |
-| Shanghai Port | `SHP` | 15515 |
+| SHANGHAI SHENHUA FC | `Shanghai Shenh` | 977 |
+| Shanghai Port FC | `SHP` | 15515 |
 | Shandong Taishan | `SHT` | 7521 |
 | Shenzhen Xinpengcheng | `SHX` | 22199 |
 | Tianjin Jinmen Tiger | `TIG` | 8239 |
