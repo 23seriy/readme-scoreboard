@@ -6,14 +6,15 @@
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 1
+🏅 Standing: Eastern · 3
 
-📅 Next: vs NY (Oct 23)
+📅 Next: vs CHI (Oct 26)
 
-📊 2026-2027 Record: 0W - 1L (0.0%)
-   ░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026-2027 Record: 1W - 1L (50.0%)
+   ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 107-103 vs NY  (Oct 23, 2026)
 ❌ L 113-121 @ DET (Oct 20, 2026)
 ```

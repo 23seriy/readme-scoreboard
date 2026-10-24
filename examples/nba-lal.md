@@ -8,12 +8,13 @@ Western Conference · Pacific Division
 
 🏅 Standing: Western · 10
 
-📅 Next: vs LAC (Oct 24)
+📅 Next: @ UTAH (Oct 25)
 
-📊 2026-2027 Record: 1W - 0L (100.0%)
+📊 2026-2027 Record: 2W - 0L (100.0%)
    █████████████████████████
 
 **📅 Recent Games:**
 ```
+✅ W 125-117 vs LAC (Oct 23, 2026)
 ✅ W 127-105 vs GS  (Oct 21, 2026)
 ```
