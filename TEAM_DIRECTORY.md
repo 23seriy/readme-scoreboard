@@ -2464,16 +2464,16 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Team | Abbreviation | ID |
 |------|--------------|----|
 | Adelaide United FC | `ADL` | 5321 |
-| AUCKLAND FC | `Auckland FC` | 22344 |
+| Auckland FC | `AUC` | 22344 |
 | Brisbane Roar FC | `BRI` | 5326 |
 | Central Coast Mariners FC | `CCM` | 5325 |
 | Macarthur FC | `MAC` | 19340 |
-| MELBOURNE CITY FC | `Melbourne City` | 11143 |
-| MELBOURNE VICTORY | `Melbourne Vict` | 5328 |
+| Melbourne City FC | `MBC` | 11143 |
+| Melbourne Victory | `MBV` | 5328 |
 | Newcastle Jets | `NEW` | 5323 |
 | Perth Glory FC | `PER` | 5322 |
 | Sydney FC | `SYD` | 5327 |
-| WELLINGTON PHOENIX FC | `Wellington` | 8352 |
+| Wellington Phoenix | `WEL` | 8352 |
 | Western Sydney Wanderers FC | `WSW` | 13696 |
 
 ## Indian Super League

@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-10-23T10:28:51.399Z",
+  "generatedAt": "2026-10-24T09:46:13.725Z",
   "teams": [
     {
       "league": "nba",
@@ -15727,8 +15727,8 @@
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "Auckland FC",
-      "name": "AUCKLAND FC",
+      "abbreviation": "AUC",
+      "name": "Auckland FC",
       "id": "22344"
     },
     {
@@ -15755,15 +15755,15 @@
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "Melbourne City",
-      "name": "MELBOURNE CITY FC",
+      "abbreviation": "MBC",
+      "name": "Melbourne City FC",
       "id": "11143"
     },
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "Melbourne Vict",
-      "name": "MELBOURNE VICTORY",
+      "abbreviation": "MBV",
+      "name": "Melbourne Victory",
       "id": "5328"
     },
     {
@@ -15790,8 +15790,8 @@
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "Wellington",
-      "name": "WELLINGTON PHOENIX FC",
+      "abbreviation": "WEL",
+      "name": "Wellington Phoenix",
       "id": "8352"
     },
     {
