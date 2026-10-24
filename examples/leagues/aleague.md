@@ -6,19 +6,24 @@ Team: **ADL** · Category: Soccer · Data source: ESPN public API
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men" height="28" align="top"></picture> My Favourite A-League Men Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams)
 
-<img src="null" alt="Adelaide United FC logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/5321.png" alt="Adelaide United FC logo" width="72" align="right" />
 
 ### ⚽ Adelaide United FC (ADL)
-A-League Men
+2025-26 A-League Men
 🟢 Season in progress
+
+🏅 Standing (2025): 2025-26 A-League Men · 2
 
 📅 Next: @ PER (Nov 1)
 
+📊 2025 Record: 12W - 7L - 7D  (43 pts)
+   ██████████████▉░░░░░░░░░░
+
 **📅 Recent Games:**
 ```
-❌ L 0-3 vs Auckland FC (May 15, 2026)
-🟡 D 1-1 @ Auckland FC (May 9, 2026)
-✅ W 2-1 @ Melbourne City (Apr 26, 2026)
+❌ L 0-3 vs AUC   (May 15, 2026)
+🟡 D 1-1 @ AUC   (May 9, 2026)
+✅ W 2-1 @ MBC   (Apr 26, 2026)
 ✅ W 3-1 vs MAC   (Apr 19, 2026)
 🟡 D 1-1 @ NEW   (Apr 11, 2026)
 ```
@@ -29,19 +34,24 @@ The `title:` input replaces the default heading.
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men" height="28" align="top"></picture> My Adelaide United FC](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams)
 
-<img src="null" alt="Adelaide United FC logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/5321.png" alt="Adelaide United FC logo" width="72" align="right" />
 
 ### ⚽ Adelaide United FC (ADL)
-A-League Men
+2025-26 A-League Men
 🟢 Season in progress
+
+🏅 Standing (2025): 2025-26 A-League Men · 2
 
 📅 Next: @ PER (Nov 1)
 
+📊 2025 Record: 12W - 7L - 7D  (43 pts)
+   ██████████████▉░░░░░░░░░░
+
 **📅 Recent Games:**
 ```
-❌ L 0-3 vs Auckland FC (May 15, 2026)
-🟡 D 1-1 @ Auckland FC (May 9, 2026)
-✅ W 2-1 @ Melbourne City (Apr 26, 2026)
+❌ L 0-3 vs AUC   (May 15, 2026)
+🟡 D 1-1 @ AUC   (May 9, 2026)
+✅ W 2-1 @ MBC   (Apr 26, 2026)
 ✅ W 3-1 vs MAC   (Apr 19, 2026)
 🟡 D 1-1 @ NEW   (Apr 11, 2026)
 ```
@@ -54,10 +64,15 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### ⚽ Adelaide United FC (ADL)
-A-League Men
+2025-26 A-League Men
 🟢 Season in progress
 
+🏅 Standing (2025): 2025-26 A-League Men · 2
+
 📅 Next: @ PER (Nov 1)
+
+📊 2025 Record: 12W - 7L - 7D  (43 pts)
+   ██████████████▉░░░░░░░░░░
 
 
 

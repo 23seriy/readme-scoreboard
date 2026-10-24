@@ -12,7 +12,7 @@ Team: **ALU** · Category: Soccer · Data source: ESPN public API
 Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): Bundesliga · 9
+🏅 Standing (2026): Bundesliga · 10
 
 📅 Next: @ VIE (Oct 24)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): Bundesliga · 9
+🏅 Standing (2026): Bundesliga · 10
 
 📅 Next: @ VIE (Oct 24)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): Bundesliga · 9
+🏅 Standing (2026): Bundesliga · 10
 
 📅 Next: @ VIE (Oct 24)
 
