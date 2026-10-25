@@ -14,18 +14,18 @@ Team: **BEI** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026 Chinese Super League · 3
 
-📅 Next: @ HEN (Oct 24)
+📅 Next: vs CHO (Nov 8)
 
-📊 2026 Record: 13W - 5L - 10D  (49 pts)
-   ████████████████░░░░░░░░░
+📊 2026 Record: 14W - 5L - 10D  (52 pts)
+   ████████████████▍░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-3 @ HEN   (Oct 24, 2026)
 ✅ W 1-0 vs QWC   (Oct 18, 2026)
 ✅ W 3-0 @ QIN   (Oct 9, 2026)
 🟡 D 0-0 @ SHP   (Sep 5, 2026)
 🟡 D 1-1 @ DYI   (Aug 28, 2026)
-🟡 D 3-3 vs YUN   (Aug 22, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026 Chinese Super League · 3
 
-📅 Next: @ HEN (Oct 24)
+📅 Next: vs CHO (Nov 8)
 
-📊 2026 Record: 13W - 5L - 10D  (49 pts)
-   ████████████████░░░░░░░░░
+📊 2026 Record: 14W - 5L - 10D  (52 pts)
+   ████████████████▍░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-3 @ HEN   (Oct 24, 2026)
 ✅ W 1-0 vs QWC   (Oct 18, 2026)
 ✅ W 3-0 @ QIN   (Oct 9, 2026)
 🟡 D 0-0 @ SHP   (Sep 5, 2026)
 🟡 D 1-1 @ DYI   (Aug 28, 2026)
-🟡 D 3-3 vs YUN   (Aug 22, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026 Chinese Super League · 3
 
-📅 Next: @ HEN (Oct 24)
+📅 Next: vs CHO (Nov 8)
 
-📊 2026 Record: 13W - 5L - 10D  (49 pts)
-   ████████████████░░░░░░░░░
+📊 2026 Record: 14W - 5L - 10D  (52 pts)
+   ████████████████▍░░░░░░░░
 
 
 

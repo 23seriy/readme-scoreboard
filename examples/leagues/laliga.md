@@ -14,18 +14,18 @@ Team: **ALA** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-27 LALIGA · 7
 
-📅 Next: vs MCF (Oct 23)
+📅 Next: @ BAR (Oct 31)
 
-📊 2026 Record: 3W - 4L - 2D  (11 pts)
-   ███████████░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 4L - 3D  (12 pts)
+   ███████████▎░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 vs MCF   (Oct 23, 2026)
 ❌ L 1-2 @ CEL   (Oct 18, 2026)
 ❌ L 1-2 vs ATM   (Oct 10, 2026)
 🟡 D 0-0 @ ATH   (Sep 19, 2026)
 ❌ L 0-1 vs VAL   (Sep 15, 2026)
-❌ L 1-2 @ RAC   (Sep 12, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-27 LALIGA · 7
 
-📅 Next: vs MCF (Oct 23)
+📅 Next: @ BAR (Oct 31)
 
-📊 2026 Record: 3W - 4L - 2D  (11 pts)
-   ███████████░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 4L - 3D  (12 pts)
+   ███████████▎░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 vs MCF   (Oct 23, 2026)
 ❌ L 1-2 @ CEL   (Oct 18, 2026)
 ❌ L 1-2 vs ATM   (Oct 10, 2026)
 🟡 D 0-0 @ ATH   (Sep 19, 2026)
 ❌ L 0-1 vs VAL   (Sep 15, 2026)
-❌ L 1-2 @ RAC   (Sep 12, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-27 LALIGA · 7
 
-📅 Next: vs MCF (Oct 23)
+📅 Next: @ BAR (Oct 31)
 
-📊 2026 Record: 3W - 4L - 2D  (11 pts)
-   ███████████░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 4L - 3D  (12 pts)
+   ███████████▎░░░░░░░░░░░░░
 
 
 

@@ -12,19 +12,19 @@ Team: **ALA** · Category: Football · Data source: ESPN public API
 Southeastern Conference
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 5
+🏅 Standing: Southeastern Conference · 3
 
-📅 Next: vs TA&M (Oct 24)
+📅 Next: @ LSU (Nov 7)
 
-📊 2026 Season: 5W
+📊 2026 Season: 6W
 
 **📅 Recent Games:**
 ```
+✅ W 31-20 @ TA&M (Oct 24, 2026)
 ❌ L 10-26 @ TENN (Oct 17, 2026)
 ❌ L 17-20 @ UGA (Oct 10, 2026)
 ✅ W 56-23 @ MSST (Oct 3, 2026)
 ✅ W 49-18 @ SC  (Sep 26, 2026)
-✅ W 50-36 @ FSU (Sep 19, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 Southeastern Conference
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 5
+🏅 Standing: Southeastern Conference · 3
 
-📅 Next: vs TA&M (Oct 24)
+📅 Next: @ LSU (Nov 7)
 
-📊 2026 Season: 5W
+📊 2026 Season: 6W
 
 **📅 Recent Games:**
 ```
+✅ W 31-20 @ TA&M (Oct 24, 2026)
 ❌ L 10-26 @ TENN (Oct 17, 2026)
 ❌ L 17-20 @ UGA (Oct 10, 2026)
 ✅ W 56-23 @ MSST (Oct 3, 2026)
 ✅ W 49-18 @ SC  (Sep 26, 2026)
-✅ W 50-36 @ FSU (Sep 19, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 Southeastern Conference
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 5
+🏅 Standing: Southeastern Conference · 3
 
-📅 Next: vs TA&M (Oct 24)
+📅 Next: @ LSU (Nov 7)
 
-📊 2026 Season: 5W
+📊 2026 Season: 6W
 
 
 
