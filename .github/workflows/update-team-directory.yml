@@ -11,7 +11,6 @@ concurrency:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   update:
@@ -31,21 +30,29 @@ jobs:
       - run: npm run leagues:examples
       - run: npm run teams:directory:validate
       - run: npm run players:directory:validate
-      - name: Open update pull request
-        env:
-          GH_TOKEN: ${{ github.token }}
+      # These files are generated from live league APIs and reviewed by nobody in
+      # practice: the refresh pull requests were merged unread 56 times, and the
+      # two that were not had gone stale and been closed. Waiting for a human also
+      # had a cost — a refresh pull request sat open for up to 29 hours, during
+      # which the committed files no longer matched the generator and CI went red
+      # for unrelated merges. The commit is therefore pushed straight to main.
+      # `ci.yml` and CodeQL both run on push, so the machine checks are unchanged.
+      #
+      # `update-season-status.yml` keeps its pull request: it edits README.md
+      # prose that a person reads, which is a different kind of review.
+      - name: Commit the refreshed directories
         run: |
-          if git diff --quiet -- team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md; then
+          files="team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md"
+          if git diff --quiet -- $files; then
             echo "Team and player directories are already current"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -C automation/team-directory
-          git add team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md
+          git add $files
           git commit -m "docs: refresh team and player directories"
-          git push --force origin automation/team-directory
-          gh pr create --base main --head automation/team-directory \
-            --title "docs: refresh team and player directories" \
-            --body "Automated refresh of team and player names and IDs from supported league APIs." \
-            || echo "An update PR may already be open."
+          # `readme-maintenance` serializes the maintenance workflows, but the
+          # checkout can still predate a merge, so rebase onto main first. This
+          # keeps the generated commit on top instead of creating a merge commit.
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main

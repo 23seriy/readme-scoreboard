@@ -11,7 +11,6 @@ concurrency:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   update:
@@ -25,9 +24,13 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm run leagues:showcase
-      - name: Open update pull request
-        env:
-          GH_TOKEN: ${{ github.token }}
+      # Pushed straight to main rather than opened as a pull request. This
+      # gallery is generated from live league APIs and reviewed by nobody in
+      # practice — the refresh pull requests were merged unread 56 times and the
+      # two that were not had gone stale and been closed — and waiting for a
+      # human made main disagree with the generator for up to 29 hours, turning
+      # CI red for unrelated merges. `ci.yml` and CodeQL both run on push.
+      - name: Commit the refreshed gallery
         run: |
           if git diff --quiet -- examples/leagues; then
             echo "League showcase is already current"
@@ -35,11 +38,10 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -C automation/league-showcase
           git add examples/leagues
           git commit -m "docs: refresh league showcase from live data"
-          git push --force origin automation/league-showcase
-          gh pr create --base main --head automation/league-showcase \
-            --title "docs: refresh league showcase from live data" \
-            --body "Automated refresh of the per-league example gallery (examples/leagues) from live league APIs." \
-            || echo "An update PR may already be open."
+          # `readme-maintenance` serializes the maintenance workflows, but the
+          # checkout can still predate a merge, so rebase onto main first. This
+          # keeps the generated commit on top instead of creating a merge commit.
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main

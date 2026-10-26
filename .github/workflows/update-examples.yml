@@ -13,7 +13,6 @@ concurrency:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   update:
@@ -33,9 +32,13 @@ jobs:
       # without this the gate would go red on the next data change rather than
       # the board being refreshed.
       - run: npm run examples:generate
-      - name: Open update pull request
-        env:
-          GH_TOKEN: ${{ github.token }}
+      # Pushed straight to main rather than opened as a pull request. These are
+      # generated boards reviewed by nobody in practice — the refresh pull
+      # requests were merged unread 56 times and the two that were not had gone
+      # stale and been closed — and waiting for a human made main disagree with
+      # the generator for up to 29 hours, turning CI red for unrelated merges.
+      # `ci.yml` and CodeQL both run on push, so the machine checks are unchanged.
+      - name: Commit the refreshed boards
         run: |
           if git diff --quiet -- examples ':!examples/leagues'; then
             echo "Example boards are already current"
@@ -43,15 +46,14 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -C automation/example-boards
           # `examples/README.md` is regenerated alongside the boards, and a
           # board that no longer generates would have been DELETED by the
           # generator — `git add -A` records that removal instead of leaving a
           # stale file behind that the freshness gate would flag forever.
           git add -A -- examples
           git commit -m "docs: refresh example boards from live data"
-          git push --force origin automation/example-boards
-          gh pr create --base main --head automation/example-boards \
-            --title "docs: refresh example boards from live data" \
-            --body "Automated refresh of the example boards in \`examples/\` from live league APIs." \
-            || echo "An update PR may already be open."
+          # `readme-maintenance` serializes the maintenance workflows, but the
+          # checkout can still predate a merge, so rebase onto main first. This
+          # keeps the generated commit on top instead of creating a merge commit.
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main

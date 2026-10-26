@@ -54,11 +54,37 @@ describe("season status updater", () => {
     expect(workflow).toContain("--state open");
   });
 
-  it("opens a team-directory maintenance PR with the workflow token", () => {
-    expect(teamDirWorkflow).toContain("pull-requests: write");
-    expect(teamDirWorkflow).toContain("GH_TOKEN: ${{ github.token }}");
-    expect(teamDirWorkflow).toContain("gh pr create");
-    expect(teamDirWorkflow).toContain("automation/team-directory");
+  it("commits the team-directory artefacts straight to main", () => {
+    // The team/player directories are generated artefacts, so this workflow now
+    // pushes them straight to main: 56 of the refresh pull requests had been
+    // merged unread and the two that were not had gone stale and been closed.
+    // update-season-status keeps its pull request because it edits README prose.
+    expect(teamDirWorkflow).toContain("contents: write");
+    expect(teamDirWorkflow).toContain("git push origin HEAD:main");
+    expect(teamDirWorkflow).not.toContain("gh pr create");
+    expect(teamDirWorkflow).not.toContain("pull-requests: write");
+    expect(teamDirWorkflow).not.toContain("automation/team-directory");
+  });
+
+  it("commits the generated boards and gallery straight to main too", () => {
+    const examplesWorkflow = fs.readFileSync(
+      path.join(__dirname, "../../.github/workflows/update-examples.yml"),
+      "utf8",
+    );
+    const showcaseWorkflow = fs.readFileSync(
+      path.join(__dirname, "../../.github/workflows/update-league-showcase.yml"),
+      "utf8",
+    );
+
+    for (const workflow of [examplesWorkflow, showcaseWorkflow]) {
+      expect(workflow).toContain("contents: write");
+      expect(workflow).toContain("git push origin HEAD:main");
+      // The generated commit must sit on top of the current main rather than
+      // forming a merge, and must survive a checkout that predates a merge.
+      expect(workflow).toContain("git pull --rebase --autostash origin main");
+      expect(workflow).not.toContain("gh pr create");
+      expect(workflow).not.toContain("pull-requests: write");
+    }
   });
 
   it("verifies live season dates before allowing a README update", () => {

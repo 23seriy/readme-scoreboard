@@ -52,10 +52,23 @@ describe("README maintenance workflow coordination", () => {
 
     for (const file of [
       ".github/workflows/update-season-status.yml",
-      ".github/workflows/update-team-directory.yml",
     ]) {
       const workflow = fs.readFileSync(file, "utf8");
+      // Still opens a pull request, so it needs both scopes.
       expect(workflow).toMatch(/permissions:\n\s+contents: write\n\s+pull-requests: write/);
+    }
+
+    // The three artefact workflows push generated files straight to main, so
+    // they must NOT retain `pull-requests: write` — the scope is no longer used
+    // and leaving it would grant more than the workflow can act on.
+    for (const file of [
+      ".github/workflows/update-examples.yml",
+      ".github/workflows/update-team-directory.yml",
+      ".github/workflows/update-league-showcase.yml",
+    ]) {
+      const workflow = fs.readFileSync(file, "utf8");
+      expect(workflow).toMatch(/permissions:\n\s+contents: write\n/);
+      expect(workflow).not.toContain("pull-requests: write");
     }
   });
 });
