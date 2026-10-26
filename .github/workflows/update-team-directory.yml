@@ -33,7 +33,10 @@ jobs:
       - run: npm run players:directory:validate
       - name: Open update pull request
         env:
-          GH_TOKEN: ${{ github.token }}
+          # See update-league-showcase.yml: a PAT avoids the
+          # `first_time_contributors` approval gate that holds every
+          # `github-actions[bot]` run at `action_required`.
+          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN || github.token }}
         run: |
           if git diff --quiet -- team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md; then
             echo "Team and player directories are already current"

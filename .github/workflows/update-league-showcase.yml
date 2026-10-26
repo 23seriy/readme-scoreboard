@@ -27,7 +27,14 @@ jobs:
       - run: npm run leagues:showcase
       - name: Open update pull request
         env:
-          GH_TOKEN: ${{ github.token }}
+          # A PAT (not `github.token`) so the PR and its commits are attributed
+          # to a real user. Events raised by `github.token` are attributed to
+          # `github-actions[bot]`, which the repo's `first_time_contributors`
+          # approval policy holds at `action_required` — zero jobs run until a
+          # human clicks approve, so auto-merge could never fire on its own.
+          # Falls back to `github.token` so the workflow still refreshes the
+          # branch (just with the approval click) if the secret is absent.
+          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN || github.token }}
         run: |
           if git diff --quiet -- examples/leagues; then
             echo "League showcase is already current"
