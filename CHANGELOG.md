@@ -10,6 +10,28 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Changed
+
+- **The scheduled refreshes now commit generated files straight to `main` instea
+d of opening a pull
+  request.** The example boards, the league showcase, and the team and player di
+rectories are produced
+  from live league APIs by scheduled workflows, and 56 of the refresh pull reque
+sts had been merged
+  without review while the two that were not had gone stale and been closed. Wai
+ting for a human also had
+  a cost: a refresh request could sit open for up to 29 hours, during which the
+committed files no longer
+  matched the generator and the freshness check failed unrelated merges. Those t
+hree workflows push
+  directly; `update-season-status` keeps its pull request because it edits `READ
+ME.md` prose a person
+  reads. `ci.yml` and Code scanning both run on push, so the automated checks th
+at gated these changes
+  still apply. Each workflow rebases onto `main` before pushing, so the generat
+ed commit lands on top of
+  the current tip rather than forming a merge commit.
+
 ### Fixed
 
 - **A season that has barely started shows last season's games, not "No recent
