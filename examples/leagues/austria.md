@@ -12,20 +12,20 @@ Team: **ALU** · Category: Soccer · Data source: ESPN public API
 Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): Bundesliga · 9
+🏅 Standing (2026): Bundesliga · 10
 
-📅 Next: @ VIE (Oct 24)
+📅 Next: @ SLZ (Nov 1)
 
-📊 2026 Record: 2W - 5L - 2D  (8 pts)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 6L - 2D  (8 pts)
+   ███████▌░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-5 @ VIE   (Oct 24, 2026)
 ❌ L 0-4 vs LAS   (Oct 17, 2026)
 ❌ L 3-4 @ HAR   (Oct 11, 2026)
 ✅ W 2-0 vs SCR   (Sep 19, 2026)
 ❌ L 1-2 @ VIE   (Sep 13, 2026)
-❌ L 0-4 vs WST   (Aug 28, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): Bundesliga · 9
+🏅 Standing (2026): Bundesliga · 10
 
-📅 Next: @ VIE (Oct 24)
+📅 Next: @ SLZ (Nov 1)
 
-📊 2026 Record: 2W - 5L - 2D  (8 pts)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 6L - 2D  (8 pts)
+   ███████▌░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-5 @ VIE   (Oct 24, 2026)
 ❌ L 0-4 vs LAS   (Oct 17, 2026)
 ❌ L 3-4 @ HAR   (Oct 11, 2026)
 ✅ W 2-0 vs SCR   (Sep 19, 2026)
 ❌ L 1-2 @ VIE   (Sep 13, 2026)
-❌ L 0-4 vs WST   (Aug 28, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): Bundesliga · 9
+🏅 Standing (2026): Bundesliga · 10
 
-📅 Next: @ VIE (Oct 24)
+📅 Next: @ SLZ (Nov 1)
 
-📊 2026 Record: 2W - 5L - 2D  (8 pts)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 6L - 2D  (8 pts)
+   ███████▌░░░░░░░░░░░░░░░░░
 
 
 

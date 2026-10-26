@@ -14,18 +14,18 @@ Team: **ALV** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-2027 Portuguese Liga · 9
 
-📅 Next: vs FCA (Oct 24)
+📅 Next: @ SLB (Nov 2)
 
-📊 2026 Record: 3W - 3L - 2D  (11 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 3W - 4L - 2D  (11 pts)
+   ███████████░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-1 vs FCA   (Oct 24, 2026)
 ✅ W 4-1 @ FCF   (Oct 12, 2026)
 ✅ W 1-0 vs RAFC  (Sep 19, 2026)
 ✅ W 3-1 @ CDN   (Sep 12, 2026)
 ❌ L 1-2 vs SCB   (Sep 5, 2026)
-🟡 D 1-1 vs CDSC  (Aug 29, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-2027 Portuguese Liga · 9
 
-📅 Next: vs FCA (Oct 24)
+📅 Next: @ SLB (Nov 2)
 
-📊 2026 Record: 3W - 3L - 2D  (11 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 3W - 4L - 2D  (11 pts)
+   ███████████░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-1 vs FCA   (Oct 24, 2026)
 ✅ W 4-1 @ FCF   (Oct 12, 2026)
 ✅ W 1-0 vs RAFC  (Sep 19, 2026)
 ✅ W 3-1 @ CDN   (Sep 12, 2026)
 ❌ L 1-2 vs SCB   (Sep 5, 2026)
-🟡 D 1-1 vs CDSC  (Aug 29, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-2027 Portuguese Liga · 9
 
-📅 Next: vs FCA (Oct 24)
+📅 Next: @ SLB (Nov 2)
 
-📊 2026 Record: 3W - 3L - 2D  (11 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 3W - 4L - 2D  (11 pts)
+   ███████████░░░░░░░░░░░░░░
 
 
 

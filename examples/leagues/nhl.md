@@ -14,18 +14,18 @@ Western Conference · Pacific Division
 
 🏅 Standing (2026-27): Pacific · 5
 
-📅 Next: @ PHI (Oct 24)
+📅 Next: vs VAN (Oct 28)
 
-📊 2025-2026 Record: 4W - 6L (40.0%)
-   ██████████░░░░░░░░░░░░░░░
+📊 2025-2026 Record: 5W - 6L (45.5%)
+   ███████████▍░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W   5-4   @ PHI (Oct 24, 2026)
 ❌ L   1-4   @ NJD (Oct 22, 2026)
 ❌ L   2-3   @ NYI (Oct 20, 2026)
 ❌ L   2-5   @ NYR (Oct 19, 2026)
 ❌ L   2-4   vs BOS (Oct 16, 2026)
-❌ L   2-4   vs CGY (Oct 13, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ Western Conference · Pacific Division
 
 🏅 Standing (2026-27): Pacific · 5
 
-📅 Next: @ PHI (Oct 24)
+📅 Next: vs VAN (Oct 28)
 
-📊 2025-2026 Record: 4W - 6L (40.0%)
-   ██████████░░░░░░░░░░░░░░░
+📊 2025-2026 Record: 5W - 6L (45.5%)
+   ███████████▍░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W   5-4   @ PHI (Oct 24, 2026)
 ❌ L   1-4   @ NJD (Oct 22, 2026)
 ❌ L   2-3   @ NYI (Oct 20, 2026)
 ❌ L   2-5   @ NYR (Oct 19, 2026)
 ❌ L   2-4   vs BOS (Oct 16, 2026)
-❌ L   2-4   vs CGY (Oct 13, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ Western Conference · Pacific Division
 
 🏅 Standing (2026-27): Pacific · 5
 
-📅 Next: @ PHI (Oct 24)
+📅 Next: vs VAN (Oct 28)
 
-📊 2025-2026 Record: 4W - 6L (40.0%)
-   ██████████░░░░░░░░░░░░░░░
+📊 2025-2026 Record: 5W - 6L (45.5%)
+   ███████████▍░░░░░░░░░░░░░
 
 
 

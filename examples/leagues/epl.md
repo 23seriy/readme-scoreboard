@@ -14,18 +14,18 @@ Team: **ARS** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-27 English Premier League · 2
 
-📅 Next: vs EVE (Oct 24)
+📅 Next: @ LIV (Nov 1)
 
-📊 2026 Record: 6W - 1L - 0D  (18 pts)
-   █████████████████████▍░░░
+📊 2026 Record: 7W - 1L - 0D  (21 pts)
+   █████████████████████▉░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 vs EVE   (Oct 24, 2026)
 ✅ W 1-0 @ NFO   (Oct 18, 2026)
 ✅ W 2-1 vs LEE   (Oct 10, 2026)
 ❌ L 0-3 @ BHA   (Sep 19, 2026)
 ✅ W 2-0 @ SUN   (Sep 12, 2026)
-✅ W 2-1 vs CHE   (Sep 6, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-27 English Premier League · 2
 
-📅 Next: vs EVE (Oct 24)
+📅 Next: @ LIV (Nov 1)
 
-📊 2026 Record: 6W - 1L - 0D  (18 pts)
-   █████████████████████▍░░░
+📊 2026 Record: 7W - 1L - 0D  (21 pts)
+   █████████████████████▉░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 vs EVE   (Oct 24, 2026)
 ✅ W 1-0 @ NFO   (Oct 18, 2026)
 ✅ W 2-1 vs LEE   (Oct 10, 2026)
 ❌ L 0-3 @ BHA   (Sep 19, 2026)
 ✅ W 2-0 @ SUN   (Sep 12, 2026)
-✅ W 2-1 vs CHE   (Sep 6, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-27 English Premier League · 2
 
-📅 Next: vs EVE (Oct 24)
+📅 Next: @ LIV (Nov 1)
 
-📊 2026 Record: 6W - 1L - 0D  (18 pts)
-   █████████████████████▍░░░
+📊 2026 Record: 7W - 1L - 0D  (21 pts)
+   █████████████████████▉░░░
 
 
 
