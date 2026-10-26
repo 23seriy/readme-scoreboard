@@ -93,4 +93,24 @@ describe("README maintenance workflow coordination", () => {
       expect(workflow).toMatch(/permissions:\n\s+contents: write\n\s+pull-requests: write/);
     }
   });
+
+  // `github.token` attributes the PR to `github-actions[bot]`, and the repo's
+  // Actions approval policy is `first_time_contributors`. GitHub counts the bot
+  // as a first-time contributor, so every run is parked at `action_required`
+  // with ZERO jobs until a human approves — observed live on PR #441, where
+  // lint/demo/CodeQL all sat at `action_required` and auto-merge could not fire.
+  // A PAT fixes the attribution; `github.token` stays as a fallback so the
+  // refresh still happens (with an approval click) when the secret is missing.
+  it("authenticates refresh steps with a PAT so the approval gate does not apply", () => {
+    const workflows = [
+      ".github/workflows/update-examples.yml",
+      ".github/workflows/update-league-showcase.yml",
+      ".github/workflows/update-team-directory.yml",
+    ];
+
+    for (const file of workflows) {
+      const workflow = fs.readFileSync(file, "utf8");
+      expect(workflow).toContain("secrets.AUTOMATION_TOKEN || github.token");
+    }
+  });
 });
