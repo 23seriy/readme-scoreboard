@@ -51,7 +51,19 @@ jobs:
           git add -A -- examples
           git commit -m "docs: refresh example boards from live data"
           git push --force origin automation/example-boards
-          gh pr create --base main --head automation/example-boards \
+          # Reuse the open PR when there is one, otherwise open it. A direct push
+          # to main is not possible here: the repository ruleset ("main branch")
+          # requires `lint`, `demo` and `CodeQL` to pass before a commit may
+          # land, and those checks run on a commit only AFTER it exists, so a
+          # push can never satisfy them. A pull request is the route that lets
+          # the checks run first; auto-merge then lands it without waiting for a
+          # human, while still honouring the ruleset.
+          url=$(gh pr create --base main --head automation/example-boards \
             --title "docs: refresh example boards from live data" \
-            --body "Automated refresh of the example boards in \`examples/\` from live league APIs." \
-            || echo "An update PR may already be open."
+            --body "Automated refresh of the example boards in \`examples/\` from live league APIs.") \
+            || gh pr view automation/example-boards --json url --jq .url
+          echo "PR: $url"
+          # --auto waits for the required checks and for the branch to be up to
+          # date (`strict_required_status_checks_policy` is on), then merges.
+          gh pr merge "$url" --squash --auto \
+            || echo "Auto-merge could not be enabled; leaving the PR for review."

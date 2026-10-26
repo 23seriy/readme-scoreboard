@@ -45,7 +45,19 @@ jobs:
           git add team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md
           git commit -m "docs: refresh team and player directories"
           git push --force origin automation/team-directory
-          gh pr create --base main --head automation/team-directory \
+          # Reuse the open PR when there is one, otherwise open it. A direct push
+          # to main is not possible here: the repository ruleset ("main branch")
+          # requires `lint`, `demo` and `CodeQL` to pass before a commit may
+          # land, and those checks run on a commit only AFTER it exists, so a
+          # push can never satisfy them. A pull request is the route that lets
+          # the checks run first; auto-merge then lands it without waiting for a
+          # human, while still honouring the ruleset.
+          url=$(gh pr create --base main --head automation/team-directory \
             --title "docs: refresh team and player directories" \
-            --body "Automated refresh of team and player names and IDs from supported league APIs." \
-            || echo "An update PR may already be open."
+            --body "Automated refresh of team and player names and IDs from supported league APIs.") \
+            || gh pr view automation/team-directory --json url --jq .url
+          echo "PR: $url"
+          # --auto waits for the required checks and for the branch to be up to
+          # date (`strict_required_status_checks_policy` is on), then merges.
+          gh pr merge "$url" --squash --auto \
+            || echo "Auto-merge could not be enabled; leaving the PR for review."
