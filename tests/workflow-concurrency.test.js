@@ -58,4 +58,39 @@ describe("README maintenance workflow coordination", () => {
       expect(workflow).toMatch(/permissions:\n\s+contents: write\n\s+pull-requests: write/);
     }
   });
+
+  // The repository ruleset ("main branch") requires `lint`, `demo` and
+  // `CodeQL` before a commit may land on main. Those checks only run on a
+  // commit that already exists, so a workflow cannot push to main and satisfy
+  // them — a direct push was tried and rejected with GH013. A pull request is
+  // the only route that lets the checks run first, so every generated-artefact
+  // workflow must open a PR *and* let it land itself; otherwise the refresh
+  // silently rots until a human notices the open PR.
+  it("auto-merges generated-artefact refreshes instead of pushing to main", () => {
+    const workflows = [
+      ".github/workflows/update-examples.yml",
+      ".github/workflows/update-league-showcase.yml",
+      ".github/workflows/update-team-directory.yml",
+    ];
+
+    for (const file of workflows) {
+      const workflow = fs.readFileSync(file, "utf8");
+
+      // A pull request is mandatory — never a direct push to main.
+      expect(workflow).toContain("gh pr create");
+      expect(workflow).not.toMatch(/git push[^\n]*\b(origin\s+)?(HEAD:)?main\b/);
+
+      // The PR URL is captured so the same PR is reused across runs and can be
+      // handed to `gh pr merge`.
+      expect(workflow).toMatch(/url=\$\(gh pr create/);
+      expect(workflow).toMatch(/gh pr view[^\n]*--json url/);
+
+      // Auto-merge waits for the required checks and for the branch to be up
+      // to date, then squashes — honouring the ruleset without a human.
+      expect(workflow).toMatch(/gh pr merge "\$url" --squash --auto/);
+
+      // Auto-merge cannot be enabled without `pull-requests: write`.
+      expect(workflow).toMatch(/permissions:\n\s+contents: write\n\s+pull-requests: write/);
+    }
+  });
 });
