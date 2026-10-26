@@ -12,7 +12,7 @@ Team: **BC** · Category: Hockey · Data source: ESPN public API
 Hockey East Conference
 🟢 Season in progress
 
-🏅 Standing: Hockey East · 3
+🏅 Standing: Hockey East · 2
 
 📊 2026-2027 Record: 1W - 3L (25.0%)
    ██████▎░░░░░░░░░░░░░░░░░░
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 Hockey East Conference
 🟢 Season in progress
 
-🏅 Standing: Hockey East · 3
+🏅 Standing: Hockey East · 2
 
 📊 2026-2027 Record: 1W - 3L (25.0%)
    ██████▎░░░░░░░░░░░░░░░░░░
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 Hockey East Conference
 🟢 Season in progress
 
-🏅 Standing: Hockey East · 3
+🏅 Standing: Hockey East · 2
 
 📊 2026-2027 Record: 1W - 3L (25.0%)
    ██████▎░░░░░░░░░░░░░░░░░░

@@ -10,8 +10,8 @@ Player: **HAM** · Category: Racing · Data source: ESPN public API
 NASCAR Cup Series · Driver Championship
 🟢 Season in progress
 
-🏆 Championship position: 4
-📍 Points: 2339
+🏆 Championship position: 2
+📍 Points: 2368
 
 
 ## Custom title
@@ -24,8 +24,8 @@ The `title:` input replaces the default heading.
 NASCAR Cup Series · Driver Championship
 🟢 Season in progress
 
-🏆 Championship position: 4
-📍 Points: 2339
+🏆 Championship position: 2
+📍 Points: 2368
 
 
 ## Compact mode
@@ -38,8 +38,8 @@ The `compact: true` input drops the logo and recent-game details.
 NASCAR Cup Series · Driver Championship
 🟢 Season in progress
 
-🏆 Championship position: 4
-📍 Points: 2339
+🏆 Championship position: 2
+📍 Points: 2368
 
 
 ## Badge mode
