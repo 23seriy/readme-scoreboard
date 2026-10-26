@@ -14,18 +14,18 @@ NFC · NFC South
 
 🏅 Standing: NFC · 9
 
-📅 Next: vs SF (Oct 25)
+📅 Next: @ TB (Nov 1)
 
-📊 2026 Season: 2W - 4L (33.3%)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Season: 3W - 4L (42.9%)
+   ██████████▋░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 29-20 vs SF  (Oct 25, 2026)
 ❌ L 23-31 vs CHI (Oct 18, 2026)
 ❌ L 23-30 vs BAL (Oct 12, 2026)
 ✅ W 45-24 @ NO  (Oct 6, 2026)
 ✅ W 35-14 @ GB  (Sep 25, 2026)
-❌ L  3-34 vs CAR (Sep 20, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ NFC · NFC South
 
 🏅 Standing: NFC · 9
 
-📅 Next: vs SF (Oct 25)
+📅 Next: @ TB (Nov 1)
 
-📊 2026 Season: 2W - 4L (33.3%)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Season: 3W - 4L (42.9%)
+   ██████████▋░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 29-20 vs SF  (Oct 25, 2026)
 ❌ L 23-31 vs CHI (Oct 18, 2026)
 ❌ L 23-30 vs BAL (Oct 12, 2026)
 ✅ W 45-24 @ NO  (Oct 6, 2026)
 ✅ W 35-14 @ GB  (Sep 25, 2026)
-❌ L  3-34 vs CAR (Sep 20, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ NFC · NFC South
 
 🏅 Standing: NFC · 9
 
-📅 Next: vs SF (Oct 25)
+📅 Next: @ TB (Nov 1)
 
-📊 2026 Season: 2W - 4L (33.3%)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Season: 3W - 4L (42.9%)
+   ██████████▋░░░░░░░░░░░░░░
 
 
 

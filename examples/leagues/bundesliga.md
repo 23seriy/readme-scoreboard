@@ -14,18 +14,18 @@ Team: **B04** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-27 German Bundesliga · 4
 
-📅 Next: @ TSG (Oct 25)
+📅 Next: vs VFB (Oct 31)
 
-📊 2026 Record: 4W - 1L - 1D  (13 pts)
-   ██████████████████▊░░░░░░
+📊 2026 Record: 4W - 2L - 1D  (13 pts)
+   ████████████████░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-3 @ TSG   (Oct 25, 2026)
 ✅ W 2-1 vs SCF   (Oct 18, 2026)
 ✅ W 4-3 @ M05   (Oct 10, 2026)
 ✅ W 2-0 vs RBL   (Sep 20, 2026)
 🟡 D 2-2 @ FCA   (Sep 12, 2026)
-✅ W 4-0 vs FCU   (Sep 5, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-27 German Bundesliga · 4
 
-📅 Next: @ TSG (Oct 25)
+📅 Next: vs VFB (Oct 31)
 
-📊 2026 Record: 4W - 1L - 1D  (13 pts)
-   ██████████████████▊░░░░░░
+📊 2026 Record: 4W - 2L - 1D  (13 pts)
+   ████████████████░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-3 @ TSG   (Oct 25, 2026)
 ✅ W 2-1 vs SCF   (Oct 18, 2026)
 ✅ W 4-3 @ M05   (Oct 10, 2026)
 ✅ W 2-0 vs RBL   (Sep 20, 2026)
 🟡 D 2-2 @ FCA   (Sep 12, 2026)
-✅ W 4-0 vs FCU   (Sep 5, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-27 German Bundesliga · 4
 
-📅 Next: @ TSG (Oct 25)
+📅 Next: vs VFB (Oct 31)
 
-📊 2026 Record: 4W - 1L - 1D  (13 pts)
-   ██████████████████▊░░░░░░
+📊 2026 Record: 4W - 2L - 1D  (13 pts)
+   ████████████████░░░░░░░░░
 
 
 

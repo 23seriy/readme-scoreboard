@@ -16,16 +16,16 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 
 📅 Next: vs PAC (Oct 26)
 
-📊 2026 Record: 8W - 1L - 3D  (27 pts)
-   ███████████████████▊░░░░░
+📊 2026 Record: 8W - 2L - 3D  (27 pts)
+   ██████████████████▎░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 vs PAC   (Oct 25, 2026)
 ✅ W 5-2 @ ATS   (Oct 21, 2026)
 ✅ W 5-3 @ LEO   (Oct 17, 2026)
 🟡 D 1-1 vs MTY   (Oct 10, 2026)
 ✅ W 4-2 @ NCX   (Sep 27, 2026)
-🟡 D 2-2 vs GDL   (Sep 19, 2026)
 ```
 
 ## Custom title
@@ -44,16 +44,16 @@ The `title:` input replaces the default heading.
 
 📅 Next: vs PAC (Oct 26)
 
-📊 2026 Record: 8W - 1L - 3D  (27 pts)
-   ███████████████████▊░░░░░
+📊 2026 Record: 8W - 2L - 3D  (27 pts)
+   ██████████████████▎░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 vs PAC   (Oct 25, 2026)
 ✅ W 5-2 @ ATS   (Oct 21, 2026)
 ✅ W 5-3 @ LEO   (Oct 17, 2026)
 🟡 D 1-1 vs MTY   (Oct 10, 2026)
 ✅ W 4-2 @ NCX   (Sep 27, 2026)
-🟡 D 2-2 vs GDL   (Sep 19, 2026)
 ```
 
 ## Compact mode
@@ -71,8 +71,8 @@ The `compact: true` input drops the logo and recent-game details.
 
 📅 Next: vs PAC (Oct 26)
 
-📊 2026 Record: 8W - 1L - 3D  (27 pts)
-   ███████████████████▊░░░░░
+📊 2026 Record: 8W - 2L - 3D  (27 pts)
+   ██████████████████▎░░░░░░
 
 
 

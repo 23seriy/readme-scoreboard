@@ -14,18 +14,18 @@ Team: **ATA** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-2027 Italian Serie A · 11
 
-📅 Next: vs FRO (Oct 25)
+📅 Next: @ FIO (Oct 29)
 
-📊 2026 Record: 3W - 4L - 0D  (9 pts)
-   ██████████▋░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 4L - 1D  (10 pts)
+   ██████████▉░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 4-4 vs FRO   (Oct 25, 2026)
 ❌ L 2-3 @ MIL   (Oct 18, 2026)
 ✅ W 3-1 vs VEN   (Oct 12, 2026)
 ❌ L 0-2 @ JUV   (Sep 20, 2026)
 ❌ L 1-2 vs CAG   (Sep 12, 2026)
-❌ L 1-2 @ ROMA  (Sep 5, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-2027 Italian Serie A · 11
 
-📅 Next: vs FRO (Oct 25)
+📅 Next: @ FIO (Oct 29)
 
-📊 2026 Record: 3W - 4L - 0D  (9 pts)
-   ██████████▋░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 4L - 1D  (10 pts)
+   ██████████▉░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 4-4 vs FRO   (Oct 25, 2026)
 ❌ L 2-3 @ MIL   (Oct 18, 2026)
 ✅ W 3-1 vs VEN   (Oct 12, 2026)
 ❌ L 0-2 @ JUV   (Sep 20, 2026)
 ❌ L 1-2 vs CAG   (Sep 12, 2026)
-❌ L 1-2 @ ROMA  (Sep 5, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-2027 Italian Serie A · 11
 
-📅 Next: vs FRO (Oct 25)
+📅 Next: @ FIO (Oct 29)
 
-📊 2026 Record: 3W - 4L - 0D  (9 pts)
-   ██████████▋░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 4L - 1D  (10 pts)
+   ██████████▉░░░░░░░░░░░░░░
 
 
 
