@@ -8,18 +8,18 @@ AFC · AFC West
 
 🏅 Standing: AFC · 1
 
-📅 Next: @ SEA (Oct 26)
+📅 Next: @ DEN (Nov 1)
 
-📊 2026 Season: 5W - 0L (100.0%)
-   █████████████████████████
+📊 2026 Season: 5W - 1L (83.3%)
+   ████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  3-20 @ SEA (Oct 26, 2026)
 ✅ W 22-6  vs LAC (Oct 18, 2026)
 ✅ W 30-27 @ LV  (Oct 4, 2026)
 ✅ W 24-10 @ MIA (Sep 27, 2026)
 ✅ W 33-30 vs IND (Sep 21, 2026)
-✅ W 31-10 vs DEN (Sep 15, 2026)
 ```
 
 **👑 Player Spotlight: Patrick Mahomes**
@@ -28,5 +28,5 @@ AFC · AFC West
 
 **📅 Last Game:**
 ```
-No stats recorded vs LAC (Oct 18, 2026)
+No stats recorded vs SEA (Oct 25, 2026)
 ```
