@@ -113,4 +113,40 @@ describe("README maintenance workflow coordination", () => {
       expect(workflow).toContain("secrets.AUTOMATION_TOKEN || github.token");
     }
   });
+
+  // The ruleset sets `strict_required_status_checks_policy`, so a PR that is
+  // merely `BEHIND` main cannot auto-merge. Observed live: #446 merged, which
+  // moved main, and #443/#444/#445 then sat at `BEHIND` with auto-merge ARMED
+  // and never moved again — the only thing that refreshes those branches is a
+  // new run of the job, and the job exits early when the artefacts are
+  // unchanged, so the deadlock is permanent. Branching from `origin/main` on
+  // every run is what keeps the PR mergeable.
+  it("branches each automation branch from current main so the PR is never BEHIND", () => {
+    const workflows = [
+      ".github/workflows/update-examples.yml",
+      ".github/workflows/update-league-showcase.yml",
+      ".github/workflows/update-team-directory.yml",
+    ];
+
+    for (const file of workflows) {
+      const workflow = fs.readFileSync(file, "utf8");
+
+      // Must fetch main first, or `origin/main` may be stale in the checkout.
+      expect(workflow).toContain("git fetch --quiet origin main");
+
+      // Each `git switch -C automation/<x>` must name `origin/main` as its
+      // start point, otherwise it inherits the stale commit the action checked
+      // out and the PR goes straight back to BEHIND.
+      const switches = workflow.match(/git switch -C automation\/[a-z-]+[^\n]*/g);
+      expect(switches).not.toBeNull();
+      for (const line of switches) {
+        expect(line.trim()).toMatch(/^git switch -C automation\/[a-z-]+ origin\/main$/);
+      }
+
+      // The fetch has to happen before the switch.
+      expect(workflow.indexOf("git fetch --quiet origin main")).toBeLessThan(
+        workflow.indexOf("git switch -C automation/")
+      );
+    }
+  });
 });
