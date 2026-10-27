@@ -7,5 +7,5 @@ Formula 1 · Constructor Championship
 🟢 Season in progress
 
 🏆 Championship position: 1
-📍 Points: 578
+📍 Points: 607
 
