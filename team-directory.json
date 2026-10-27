@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-10-25T10:06:57.276Z",
+  "generatedAt": "2026-10-27T10:56:13.712Z",
   "teams": [
     {
       "league": "nba",
@@ -15979,8 +15979,8 @@
     {
       "league": "csl",
       "leagueName": "Chinese Super League",
-      "abbreviation": "Shanghai Shenh",
-      "name": "SHANGHAI SHENHUA FC",
+      "abbreviation": "SFC",
+      "name": "Shanghai Shenhua FC",
       "id": "977"
     },
     {
