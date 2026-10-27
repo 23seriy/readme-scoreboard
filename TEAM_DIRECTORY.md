@@ -2512,7 +2512,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Liaoning Tieren | `LIA` | 131705 |
 | Qingdao Hainiu | `QIN` | 21910 |
 | Qingdao West Coast | `QWC` | 22198 |
-| SHANGHAI SHENHUA FC | `Shanghai Shenh` | 977 |
+| Shanghai Shenhua FC | `SFC` | 977 |
 | Shanghai Port FC | `SHP` | 15515 |
 | Shandong Taishan | `SHT` | 7521 |
 | Shenzhen Xinpengcheng | `SHX` | 22199 |
