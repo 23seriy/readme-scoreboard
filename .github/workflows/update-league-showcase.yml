@@ -42,7 +42,14 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -C automation/league-showcase
+          # Branch from CURRENT main, not from whatever main was when the action
+          # started. The ruleset sets `strict_required_status_checks_policy`, so
+          # a PR whose branch is merely `BEHIND` cannot auto-merge — it would sit
+          # there forever, because the only thing that refreshes this branch is a
+          # new run of this job, and the job exits early when the artefacts are
+          # unchanged. Re-basing on main every run breaks that deadlock.
+          git fetch --quiet origin main
+          git switch -C automation/league-showcase origin/main
           git add examples/leagues
           git commit -m "docs: refresh league showcase from live data"
           git push --force origin automation/league-showcase
