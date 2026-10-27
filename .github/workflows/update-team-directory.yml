@@ -44,7 +44,10 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -C automation/team-directory
+          # Branch from CURRENT main — see update-league-showcase.yml. A PR that
+          # is only `BEHIND` can never auto-merge under the strict ruleset.
+          git fetch --quiet origin main
+          git switch -C automation/team-directory origin/main
           git add team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md
           git commit -m "docs: refresh team and player directories"
           git push --force origin automation/team-directory

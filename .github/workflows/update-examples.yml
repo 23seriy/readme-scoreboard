@@ -46,7 +46,10 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -C automation/example-boards
+          # Branch from CURRENT main — see update-league-showcase.yml. A PR that
+          # is only `BEHIND` can never auto-merge under the strict ruleset.
+          git fetch --quiet origin main
+          git switch -C automation/example-boards origin/main
           # `examples/README.md` is regenerated alongside the boards, and a
           # board that no longer generates would have been DELETED by the
           # generator — `git add -A` records that removal instead of leaving a
