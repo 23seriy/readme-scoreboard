@@ -204,23 +204,29 @@ async function fetchStandings(teamAbbr, seasonOverride) {
       { headers: ESPN_HEADERS }
     );
     for (const conf of (data.children || [])) {
-      const allDivEntries = (conf.children || []).flatMap((div) => div.standings?.entries || []);
-      const index = allDivEntries.findIndex(
-        (e) => e.team?.abbreviation?.toUpperCase() === espnAbbr.toUpperCase()
-      );
       for (const div of (conf.children || [])) {
         const entry = (div.standings?.entries || []).find(
           (e) => e.team?.abbreviation?.toUpperCase() === espnAbbr.toUpperCase()
         );
         if (entry) {
           const stats = Object.fromEntries((entry.stats || []).map((s) => [s.name, s.value]));
+          // `playoffSeed` is ESPN's own conference rank, and it is present for
+          // every entry. Use it rather than `index + 1` in `allDivEntries`: that
+          // array is conference -> division -> entries concatenated, and each
+          // division arrives ALPHABETICAL by team name, so the flat index is an
+          // alphabetical slot, not a standing. It put 2-2 Atlanta at "Eastern ·
+          // 13" between 0-4 Miami and 3-1 Charlotte, when ESPN ranks it 7th.
+          const seed = Number(stats.playoffSeed);
+          const played = Number(stats.wins || 0) + Number(stats.losses || 0) > 0;
           return {
             wins: stats.wins || 0,
             losses: stats.losses || 0,
             season,
             conference: conf.name?.replace(" Conference", "") || "",
             division: div.name?.replace(" Division", "") || "",
-            position: index >= 0 ? index + 1 : null,
+            // Before a season starts ESPN still publishes seeds in alphabetical
+            // order, so only trust the rank once a game has been played.
+            position: played && Number.isFinite(seed) && seed > 0 ? seed : null,
           };
         }
       }
