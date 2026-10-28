@@ -14,7 +14,7 @@ French Ligue 1 2026-27
 
 🏅 Standing (2026): French Ligue 1 2026-27 · 14
 
-📅 Next: @ LYON (Oct 31)
+📅 Next: @ LYON (Nov 1)
 
 📊 2026 Record: 2W - 4L - 2D  (8 pts)
    █████████▍░░░░░░░░░░░░░░░
@@ -42,7 +42,7 @@ French Ligue 1 2026-27
 
 🏅 Standing (2026): French Ligue 1 2026-27 · 14
 
-📅 Next: @ LYON (Oct 31)
+📅 Next: @ LYON (Nov 1)
 
 📊 2026 Record: 2W - 4L - 2D  (8 pts)
    █████████▍░░░░░░░░░░░░░░░
@@ -69,7 +69,7 @@ French Ligue 1 2026-27
 
 🏅 Standing (2026): French Ligue 1 2026-27 · 14
 
-📅 Next: @ LYON (Oct 31)
+📅 Next: @ LYON (Nov 1)
 
 📊 2026 Record: 2W - 4L - 2D  (8 pts)
    █████████▍░░░░░░░░░░░░░░░
