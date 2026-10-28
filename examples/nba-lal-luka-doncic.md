@@ -8,13 +8,14 @@ Western Conference · Pacific Division
 
 🏅 Standing: Western · 10
 
-📅 Next: vs POR (Oct 28)
+📅 Next: @ LAC (Oct 29)
 
-📊 2026-2027 Record: 3W - 0L (100.0%)
-   █████████████████████████
+📊 2026-2027 Record: 3W - 1L (75.0%)
+   ██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 129-136 vs POR (Oct 27, 2026)
 ✅ W 132-123 @ UTAH (Oct 25, 2026)
 ✅ W 125-117 vs LAC (Oct 23, 2026)
 ✅ W 127-105 vs GS  (Oct 21, 2026)
@@ -22,9 +23,9 @@ Western Conference · Pacific Division
 
 **👑 Player Spotlight: Luka Doncic**
 <img src="https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" alt="Luka Doncic headshot" height="72" align="right" />
-34.3 PPG · 7.3 RPG · 8.0 APG
+36.0 PPG · 6.8 RPG · 8.3 APG
 
 **📅 Last Game:**
 ```
-52 PTS · 8 REB · 10 AST · 38 MIN vs Utah Jazz (Oct 25, 2026)
+41 PTS · 5 REB · 9 AST · 37 MIN vs Portland Trail Blazers (Oct 27, 2026)
 ```
