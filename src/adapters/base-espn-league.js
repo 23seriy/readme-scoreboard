@@ -195,7 +195,24 @@ class BaseEspnLeagueAdapter {
         // claimed every team was undefeated, so leave it null and let the
         // renderer state wins without inventing a record or a win percentage.
         const losses = stats.losses !== undefined ? Number(stats.losses) || 0 : null;
-        return { wins, losses, season, conference: group.name || "", position: index + 1 };
+        // `entries` is the group's own list CONCATENATED with every child
+        // group's list, and ESPN returns each of them ALPHABETICAL by team
+        // name — so `index + 1` was an alphabetical slot, not a conference
+        // rank. Live SEC 2026: the flattened order starts UK, UGA, ALA, LSU,
+        // TENN while ESPN seeds it UGA, UK, ALA/LSU/MISS, TENN, which reported
+        // Texas as "· 9" and Oklahoma as "· 10" when their seeds are 10 and 9.
+        // `playoffSeed` is ESPN's own rank and is published alongside `wins`.
+        // There is deliberately NO fallback to the array slot: that is the
+        // defect itself, so a feed without a seed reports no position rather
+        // than a fabricated one.
+        const seed = Number(stats.playoffSeed);
+        return {
+          wins,
+          losses,
+          season,
+          conference: group.name || "",
+          position: Number.isFinite(seed) && seed > 0 ? seed : null,
+        };
       }
     }
     return { wins: 0, losses: 0, season, conference: "", position: null };
