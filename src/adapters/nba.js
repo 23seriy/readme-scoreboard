@@ -154,19 +154,59 @@ async function fetchPlayerLastGame(athleteId, teamAbbr) {
     const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/gamelog`, { headers: ESPN_HEADERS });
     const names = data.names || [];
     const events = data.seasonTypes?.[0]?.categories?.[0]?.events || [];
-    const latest = events[0];
-    if (!latest) return null;
+    if (events.length === 0) return null;
+
+    // The gamelog carries no dates — each entry only has an `eventId`, and the
+    // date is resolved from the game summary. So every entry has to be resolved
+    // before the newest can be picked; taking `events[0]` assumed ESPN serves
+    // this list newest-first, which was never checked. Resolve them in
+    // parallel and choose by date.
+    const metas = await Promise.all(events.map((event) => fetchPlayerLastGameMeta(event.eventId, teamAbbr)));
+    const dated = events
+      .map((event, index) => ({ event, meta: metas[index] }))
+      .filter((item) => item.meta?.date)
+      .sort((a, b) => new Date(b.meta.date) - new Date(a.meta.date));
+    if (dated.length === 0) return null;
+
+    // ESPN indexes a player's gamelog some time AFTER the game ends, so it
+    // routinely lags the team's schedule by a game. Showing that older game as
+    // "Last Game" is silently wrong (it happened here: the board showed the
+    // Oct 27 Portland game while the Lakers had already played the Clippers on
+    // Oct 28). If the team has played more recently than the newest gamelog
+    // entry, report nothing rather than something stale.
+    const teamLatest = await fetchTeamLatestGameDate(teamAbbr);
+    if (teamLatest && new Date(teamLatest) > new Date(dated[0].meta.date)) return null;
+
+    const { event: latest, meta } = dated[0];
     const points = statByName(names, latest.stats, "points");
     const rebounds = statByName(names, latest.stats, "totalRebounds");
     const assists = statByName(names, latest.stats, "assists");
     const minutes = statByName(names, latest.stats, "minutes");
     if (points == null || rebounds == null || assists == null || minutes == null) return null;
-    const result = { points, rebounds, assists, minutes };
-    const meta = await fetchPlayerLastGameMeta(latest.eventId, teamAbbr);
-    if (meta) Object.assign(result, meta);
-    return result;
+    return { points, rebounds, assists, minutes, ...meta };
   } catch (error) {
     console.error(`Failed to fetch NBA player last game: ${error.message}`);
+    return null;
+  }
+}
+
+// Date of the team's most recently COMPLETED game, straight from the team
+// schedule. Used to detect a player gamelog that is behind. Returns null when
+// the schedule cannot be read, in which case the caller keeps its best guess
+// rather than dropping the section.
+async function fetchTeamLatestGameDate(teamAbbr) {
+  try {
+    const { year, month } = utcParts();
+    const season = month >= 10 ? year + 1 : year;
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${(ESPN_ABBR[teamAbbr.toUpperCase()] || teamAbbr).toLowerCase()}/schedule?season=${season}`, { headers: ESPN_HEADERS });
+    const completed = (data.events || []).filter((event) => event.competitions?.[0]?.status?.type?.completed);
+    if (completed.length === 0) return null;
+    const newest = completed
+      .map((event) => event.date)
+      .filter(Boolean)
+      .sort((a, b) => new Date(b) - new Date(a))[0];
+    return newest || null;
+  } catch {
     return null;
   }
 }
