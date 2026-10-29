@@ -130,6 +130,10 @@ async function fetchStandings(teamAbbr) {
           losses: stats.losses || 0,
           season,
           conference: (conf.name || "").replace(" Conference", ""),
+          // Served already sorted by record, so the index is a real rank —
+          // do NOT swap this for a seed lookup. Contrast nba.js and
+          // base-espn-league.js, which flatten several alphabetical lists and
+          // were reporting the wrong number until #450.
           position: index + 1,
         };
       }
