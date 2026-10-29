@@ -12,20 +12,20 @@ Team: **BAH** · Category: Soccer · Data source: ESPN public API
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 7
+🏅 Standing (2026): Brasileirão · 6
 
-📅 Next: vs SAO (Oct 29)
+📅 Next: @ CRU (Nov 6)
 
-📊 2026 Record: 13W - 8L - 11D  (50 pts)
-   ██████████████▍░░░░░░░░░░
+📊 2026 Record: 14W - 8L - 11D  (53 pts)
+   ██████████████▊░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-2 vs SAO   (Oct 28, 2026)
 🟡 D 1-1 @ SAN   (Oct 24, 2026)
 ❌ L 0-3 vs FLA   (Oct 18, 2026)
 ✅ W 1-0 vs MIR   (Oct 11, 2026)
 ❌ L 0-1 @ PAL   (Oct 8, 2026)
-❌ L 1-2 @ CAP   (Sep 20, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 7
+🏅 Standing (2026): Brasileirão · 6
 
-📅 Next: vs SAO (Oct 29)
+📅 Next: @ CRU (Nov 6)
 
-📊 2026 Record: 13W - 8L - 11D  (50 pts)
-   ██████████████▍░░░░░░░░░░
+📊 2026 Record: 14W - 8L - 11D  (53 pts)
+   ██████████████▊░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-2 vs SAO   (Oct 28, 2026)
 🟡 D 1-1 @ SAN   (Oct 24, 2026)
 ❌ L 0-3 vs FLA   (Oct 18, 2026)
 ✅ W 1-0 vs MIR   (Oct 11, 2026)
 ❌ L 0-1 @ PAL   (Oct 8, 2026)
-❌ L 1-2 @ CAP   (Sep 20, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 7
+🏅 Standing (2026): Brasileirão · 6
 
-📅 Next: vs SAO (Oct 29)
+📅 Next: @ CRU (Nov 6)
 
-📊 2026 Record: 13W - 8L - 11D  (50 pts)
-   ██████████████▍░░░░░░░░░░
+📊 2026 Record: 14W - 8L - 11D  (53 pts)
+   ██████████████▊░░░░░░░░░░
 
 
 

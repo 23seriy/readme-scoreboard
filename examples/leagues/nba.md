@@ -14,13 +14,14 @@ Eastern Conference · Southeast Division
 
 🏅 Standing: Eastern · 13
 
-📅 Next: vs MIA (Oct 28)
+📅 Next: vs CLE (Oct 30)
 
-📊 2026-2027 Record: 2W - 2L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2026-2027 Record: 2W - 3L (40.0%)
+   ██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 117-129 vs MIA (Oct 28, 2026)
 ❌ L 110-120 @ HOU (Oct 26, 2026)
 ❌ L 114-121 vs HOU (Oct 24, 2026)
 ✅ W 128-81  @ CHA (Oct 23, 2026)
@@ -41,13 +42,14 @@ Eastern Conference · Southeast Division
 
 🏅 Standing: Eastern · 13
 
-📅 Next: vs MIA (Oct 28)
+📅 Next: vs CLE (Oct 30)
 
-📊 2026-2027 Record: 2W - 2L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2026-2027 Record: 2W - 3L (40.0%)
+   ██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 117-129 vs MIA (Oct 28, 2026)
 ❌ L 110-120 @ HOU (Oct 26, 2026)
 ❌ L 114-121 vs HOU (Oct 24, 2026)
 ✅ W 128-81  @ CHA (Oct 23, 2026)
@@ -67,10 +69,10 @@ Eastern Conference · Southeast Division
 
 🏅 Standing: Eastern · 13
 
-📅 Next: vs MIA (Oct 28)
+📅 Next: vs CLE (Oct 30)
 
-📊 2026-2027 Record: 2W - 2L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2026-2027 Record: 2W - 3L (40.0%)
+   ██████████░░░░░░░░░░░░░░░
 
 
 
