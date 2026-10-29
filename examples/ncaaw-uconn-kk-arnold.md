@@ -6,7 +6,7 @@
 Big East Conference Conference
 🔴 Off-season · Next season starts November 2, 2026
 
-🏅 Standing: Big East Conference · 11
+🏅 Standing: Big East Conference · 1
 
 📊 2025-2026 Record: 38W - 1L (97.4%)
    ████████████████████████▎

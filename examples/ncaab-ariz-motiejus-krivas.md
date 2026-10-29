@@ -6,7 +6,7 @@
 Big 12 Conference Conference
 🔴 Off-season · Next season starts November 2, 2026
 
-🏅 Standing: Big 12 Conference · 16
+🏅 Standing: Big 12 Conference · 1
 
 📊 2025-2026 Record: 36W - 3L (92.3%)
    ███████████████████████░░

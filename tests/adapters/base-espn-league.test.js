@@ -85,7 +85,15 @@ describe("BaseEspnLeagueAdapter — fetchData", () => {
       standings: {
         entries: [{
           team: { abbreviation: "ARIZ" },
-          stats: [{ name: "wins", value: 20 }, { name: "losses", value: 8 }],
+          // ESPN always publishes `playoffSeed` alongside `wins`, and it is the
+          // conference rank — the position is taken from it, not from the
+          // entry's index in the (alphabetical) list. See
+          // base-espn-league.findrecord.test.js.
+          stats: [
+            { name: "wins", value: 20 },
+            { name: "losses", value: 8 },
+            { name: "playoffSeed", value: 1 },
+          ],
         }],
       },
     }],

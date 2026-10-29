@@ -52,15 +52,17 @@ describe("base adapter richer stats", () => {
     expect(adapter.parseNextGame([], 1)).toBeNull();
   });
 
-  it("ESPN base adapter computes position from standings entries", () => {
+  it("ESPN base adapter takes position from ESPN's playoffSeed", () => {
     const adapter = ncaab;
+    // Deliberately NOT in seed order: the position must come from each entry's
+    // own `playoffSeed`, never from its index in the alphabetical list.
     const record = adapter.findRecord({
       children: [{ name: "Big 12", standings: { entries: [
-        { team: { abbreviation: "A" }, stats: [{ name: "wins", value: 20 }, { name: "losses", value: 5 }] },
-        { team: { abbreviation: "B" }, stats: [{ name: "wins", value: 18 }, { name: "losses", value: 7 }] },
+        { team: { abbreviation: "A" }, stats: [{ name: "wins", value: 18 }, { name: "losses", value: 7 }, { name: "playoffSeed", value: 2 }] },
+        { team: { abbreviation: "B" }, stats: [{ name: "wins", value: 20 }, { name: "losses", value: 5 }, { name: "playoffSeed", value: 1 }] },
       ] } }],
     }, "B", 2026);
-    expect(record.position).toBe(2);
+    expect(record.position).toBe(1);
     expect(record.conference).toBe("Big 12");
   });
 });
