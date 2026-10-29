@@ -90,16 +90,28 @@ async function fetchStandings(teamAbbr) {
     // Conferences, no divisions — entries sit directly under each conference.
     for (const conf of data.children || []) {
       const entries = conf.standings?.entries || [];
-      const index = entries.findIndex((e) => e.team?.abbreviation?.toUpperCase() === upper);
-      const entry = entries[index];
+      const entry = entries.find((e) => e.team?.abbreviation?.toUpperCase() === upper);
       if (entry) {
-        const stats = (entry.stats || []).reduce((acc, s) => { acc[s.name] = s.value; return acc; }, {});
+        // Take the FIRST occurrence of each stat: `stats` is every category
+        // concatenated (overall, then Home/Road/Conference splits), so
+        // `reduce` kept the LAST value and reported a split instead of the
+        // overall record — the same defect fixed for college football.
+        const stats = {};
+        for (const item of entry.stats || []) {
+          if (!(item.name in stats)) stats[item.name] = item.value;
+        }
+        // G League entries are NOT served in rank order — they arrive
+        // WORST-FIRST (a completed season starts 10-26 and ends 26-10), so
+        // `index + 1` reported the exact inverse of the real standing. Use
+        // ESPN's own `playoffSeed` instead. There is deliberately no fallback
+        // to the array index: that is the bug.
+        const seed = Number(stats.playoffSeed);
         return {
           wins: stats.wins || 0,
           losses: stats.losses || 0,
           season,
           conference: (conf.name || "").replace(" Conference", ""),
-          position: index + 1,
+          position: Number.isFinite(seed) && seed > 0 ? seed : null,
         };
       }
     }

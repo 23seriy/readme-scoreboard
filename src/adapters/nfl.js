@@ -122,6 +122,9 @@ async function fetchStandings(teamAbbr) {
           // ESPN names the conference nodes "American Football Conference" and
           // "National Football Conference"; boards show the short "AFC"/"NFC".
           conference: nflConferenceAbbr(conf.name, upper),
+          // `index + 1` IS the conference rank here, unlike in nba.js and
+          // base-espn-league.js: ESPN returns this list already sorted by
+          // record (5-1, 5-1, 5-2, ...), not alphabetically.
           position: index + 1,
         };
       }
