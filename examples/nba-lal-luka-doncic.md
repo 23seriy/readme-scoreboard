@@ -25,8 +25,3 @@ Western Conference · Pacific Division
 **👑 Player Spotlight: Luka Doncic**
 <img src="https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" alt="Luka Doncic headshot" height="72" align="right" />
 36.0 PPG · 6.8 RPG · 8.3 APG
-
-**📅 Last Game:**
-```
-41 PTS · 5 REB · 9 AST · 37 MIN vs Portland Trail Blazers (Oct 27, 2026)
-```
