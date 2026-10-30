@@ -12,7 +12,7 @@ Team: **CONN** · Category: Basketball · Data source: ESPN public API
 Big East Conference Conference
 🔴 Off-season · Next season starts November 2, 2026
 
-🏅 Standing: Big East Conference · 11
+🏅 Standing: Big East Conference · 1
 
 📊 2025-2026 Record: 38W - 1L (97.4%)
    ████████████████████████▎
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 Big East Conference Conference
 🔴 Off-season · Next season starts November 2, 2026
 
-🏅 Standing: Big East Conference · 11
+🏅 Standing: Big East Conference · 1
 
 📊 2025-2026 Record: 38W - 1L (97.4%)
    ████████████████████████▎
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 Big East Conference Conference
 🔴 Off-season · Next season starts November 2, 2026
 
-🏅 Standing: Big East Conference · 11
+🏅 Standing: Big East Conference · 1
 
 📊 2025-2026 Record: 38W - 1L (97.4%)
    ████████████████████████▎
