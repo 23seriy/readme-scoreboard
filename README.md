@@ -47,8 +47,10 @@ from live data and refreshed daily, showing the default board plus the
 ## Preview
 
 This is what the action writes between your markers — heading, logos and all.
-Live output for the Lakers (heading levels lowered by one so it nests here):
+The Lakers board below is the action's real output, regenerated from live league
+APIs by the daily refresh (heading levels lowered by one so it nests here):
 
+<!-- preview:start -->
 ### [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA" height="28" align="top"></picture> My Favourite NBA Team](https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams)
 
 <img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Los Angeles Lakers logo" width="72" align="right" />
@@ -57,21 +59,22 @@ Live output for the Lakers (heading levels lowered by one so it nests here):
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing: Western · 6
+🏅 Standing: Western · 4
 
-📅 Next: vs GS (Oct 22)
+📅 Next: @ GS (Oct 31)
 
-📊 2025-2026 Record: 53W - 29L (64.6%)
-   ████████████████▏░░░░░░░░
+📊 2026-2027 Record: 4W - 1L (80.0%)
+   ████████████████████░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L 110-115 vs OKC (May 11, 2026) [Playoffs]
-❌ L 108-131 vs OKC (May 9, 2026) [Playoffs]
-❌ L 107-125 @ OKC (May 7, 2026) [Playoffs]
-❌ L  90-108 @ OKC (May 5, 2026) [Playoffs]
-✅ W  98-78  @ HOU (May 1, 2026) [Playoffs]
+✅ W 103-87  @ LAC (Oct 28, 2026)
+❌ L 129-136 vs POR (Oct 27, 2026)
+✅ W 132-123 @ UTAH (Oct 25, 2026)
+✅ W 125-117 vs LAC (Oct 23, 2026)
+✅ W 127-105 vs GS  (Oct 21, 2026)
 ```
+<!-- preview:end -->
 
 ---
 
