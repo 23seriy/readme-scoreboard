@@ -531,17 +531,21 @@ describe("contributor guidance", () => {
   });
 });
 
-// The README's Preview section is a snapshot of real output, so it cannot be
-// compared for equality — every run of the action changes it. What it CAN be
-// held to is shape: the block must be an actual board, with the pieces the
-// renderer produces. Earlier it was a hand-pasted copy that had quietly lost
-// its standing row and gained a season-start line the action no longer emits,
-// and nothing read it.
-//
-// Freshness is not enforced here. If it drifts, it drifts — the honest fix for
-// that is regenerating it, not asserting that a snapshot equals a live feed.
+// The README's Preview section is generated from the real renderer by
+// `scripts/update-readme-preview.js` (npm run readme:preview), and refreshed by
+// the daily update-examples workflow. These assertions are about SHAPE, not
+// equality — the content changes with live data every day. Exact freshness is
+// covered by tests/scripts/readme-preview.test.js.
 describe("README preview", () => {
-  const lines = readme.split("Live output for the Lakers")[1]?.split("\n---\n")[0] || "";
+  // Delimited by the markers the generator writes, not by prose. The previous
+  // version keyed off the sentence "Live output for the Lakers", so rewording
+  // that sentence silently turned every assertion into a check of "".
+  const block = readme.split("<!-- preview:start -->")[1]?.split("<!-- preview:end -->")[0] || "";
+  const lines = block;
+
+  it("is delimited by the generator's markers", () => {
+    expect(block.trim().length).toBeGreaterThan(0);
+  });
 
   it("is present and nests one heading level down", () => {
     expect(lines).toContain("### [");

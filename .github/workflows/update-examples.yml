@@ -33,6 +33,11 @@ jobs:
       # without this the gate would go red on the next data change rather than
       # the board being refreshed.
       - run: npm run examples:generate
+      # The README "Preview" block is generated from the SAME renderer, so it
+      # cannot claim to be live while showing a board from last season. It has
+      # to run after examples:generate, which it reads nothing from, but both
+      # write tracked files and must land in one commit.
+      - run: npm run readme:preview
       - name: Open update pull request
         env:
           # See update-league-showcase.yml: a PAT avoids the
@@ -40,8 +45,11 @@ jobs:
           # `github-actions[bot]` run at `action_required`.
           GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN || github.token }}
         run: |
-          if git diff --quiet -- examples ':!examples/leagues'; then
-            echo "Example boards are already current"
+          # README.md is in scope because `readme:preview` rewrites the preview
+          # block from the same renderer; leaving it out would commit boards
+          # that disagree with the README.
+          if git diff --quiet -- examples ':!examples/leagues' README.md; then
+            echo "Example boards and the README preview are already current"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -55,7 +63,8 @@ jobs:
           # generator — `git add -A` records that removal instead of leaving a
           # stale file behind that the freshness gate would flag forever.
           git add -A -- examples
-          git commit -m "docs: refresh example boards from live data"
+          git add -- README.md
+          git commit -m "docs: refresh example boards and README preview from live data"
           git push --force origin automation/example-boards
           # Reuse the open PR when there is one, otherwise open it. A direct push
           # to main is not possible here: the repository ruleset ("main branch")
