@@ -434,6 +434,25 @@ describe("renderNba — player spotlight", () => {
     expect(output).not.toContain("Last Game");
   });
 
+  // ESPN indexes a player's gamelog after the game ends, so it lags the team's
+  // schedule. The newest known game is still shown — dropping it left a hole in
+  // the board — but it must not be labelled the LAST game when it is not.
+  it("labels a lagging game as Previous Game, keeping its stats and date", () => {
+    const stale = { ...SPOTLIGHT, lastGame: { ...SPOTLIGHT.lastGame, stale: true } };
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: stale });
+    expect(output).toContain("**📅 Previous Game:**");
+    expect(output).not.toContain("**📅 Last Game:**");
+    // The stats and the date still render, so the lag is visible rather than hidden.
+    expect(output).toContain("26 PTS · 4 REB · 7 AST · 34 MIN vs Minnesota Timberwolves (Sep 4, 2026)");
+  });
+
+  it("keeps the Last Game label when the game is current", () => {
+    const current = { ...SPOTLIGHT, lastGame: { ...SPOTLIGHT.lastGame, stale: false } };
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], spotlight: current });
+    expect(output).toContain("**📅 Last Game:**");
+    expect(output).not.toContain("Previous Game");
+  });
+
   it("omits the spotlight section entirely when data.spotlight is absent", () => {
     const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
     expect(output).not.toContain("Player Spotlight");

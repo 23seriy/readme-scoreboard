@@ -402,7 +402,11 @@ function renderNba(data, sport = "nba", title, compact = false) {
           detail += ` vs ${gopp}${when ? ` (${when})` : ""}`;
         }
         lines.push("");
-        lines.push("**📅 Last Game:**");
+        // ESPN indexes a player's gamelog some time after the game ends, so it
+        // can lag the team's schedule by a game. The newest known game is still
+        // worth showing — dropping it left a hole in the board — but the label
+        // must not claim it is the LAST game when it demonstrably is not.
+        lines.push(spotlight.lastGame.stale ? "**📅 Previous Game:**" : "**📅 Last Game:**");
         lines.push("```");
         lines.push(detail);
         lines.push("```");

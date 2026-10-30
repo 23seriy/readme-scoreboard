@@ -169,13 +169,12 @@ async function fetchPlayerLastGame(athleteId, teamAbbr) {
     if (dated.length === 0) return null;
 
     // ESPN indexes a player's gamelog some time AFTER the game ends, so it
-    // routinely lags the team's schedule by a game. Showing that older game as
-    // "Last Game" is silently wrong (it happened here: the board showed the
-    // Oct 27 Portland game while the Lakers had already played the Clippers on
-    // Oct 28). If the team has played more recently than the newest gamelog
-    // entry, report nothing rather than something stale.
+    // routinely lags the team's schedule by a game. That game is still a real
+    // game with real stats, so it is kept rather than dropped — but it must not
+    // be *called* the last game. `stale` tells the renderer to label it
+    // "Previous Game" so the date does the talking.
     const teamLatest = await fetchTeamLatestGameDate(teamAbbr);
-    if (teamLatest && new Date(teamLatest) > new Date(dated[0].meta.date)) return null;
+    const stale = Boolean(teamLatest && new Date(teamLatest) > new Date(dated[0].meta.date));
 
     const { event: latest, meta } = dated[0];
     const points = statByName(names, latest.stats, "points");
@@ -183,7 +182,7 @@ async function fetchPlayerLastGame(athleteId, teamAbbr) {
     const assists = statByName(names, latest.stats, "assists");
     const minutes = statByName(names, latest.stats, "minutes");
     if (points == null || rebounds == null || assists == null || minutes == null) return null;
-    return { points, rebounds, assists, minutes, ...meta };
+    return { points, rebounds, assists, minutes, ...meta, stale };
   } catch (error) {
     console.error(`Failed to fetch NBA player last game: ${error.message}`);
     return null;

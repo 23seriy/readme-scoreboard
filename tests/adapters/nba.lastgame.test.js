@@ -108,8 +108,10 @@ describe("NbaAdapter — fetchPlayerLastGame ordering", () => {
 });
 
 describe("NbaAdapter — fetchPlayerLastGame staleness", () => {
-  it("omits the game when the team has played since the newest gamelog entry", async () => {
+  it("flags the game as stale when the team has played since the newest entry", async () => {
     // The live failure: gamelog ends Oct 27, Lakers have since played Oct 28.
+    // The game is real and its stats are real, so it is returned — but marked
+    // stale so the renderer labels it "Previous Game" rather than "Last Game".
     mockEspn({
       events: [entry(1, 41, 5, 9, 37)],
       summaries: { 1: { date: "2026-10-28T03:00Z" } },
@@ -119,10 +121,13 @@ describe("NbaAdapter — fetchPlayerLastGame staleness", () => {
       ],
     });
 
-    expect(await adapter.fetchPlayerLastGame("3945274", "LAL")).toBeNull();
+    const game = await adapter.fetchPlayerLastGame("3945274", "LAL");
+
+    expect(game.points).toBe(41);
+    expect(game.stale).toBe(true);
   });
 
-  it("returns the game when the gamelog is up to date with the schedule", async () => {
+  it("does not flag the game when the gamelog is up to date with the schedule", async () => {
     mockEspn({
       events: [entry(2, 33, 7, 11, 36)],
       summaries: { 2: { date: "2026-10-29T02:30Z" } },
@@ -134,13 +139,13 @@ describe("NbaAdapter — fetchPlayerLastGame staleness", () => {
 
     const game = await adapter.fetchPlayerLastGame("3945274", "LAL");
 
-    expect(game).not.toBeNull();
     expect(game.points).toBe(33);
     expect(game.date).toBe("2026-10-29T02:30Z");
+    expect(game.stale).toBe(false);
   });
 
   it("ignores unplayed games when deciding whether the gamelog is stale", async () => {
-    // An upcoming fixture must not suppress the section.
+    // An upcoming fixture must not make a current entry look stale.
     mockEspn({
       events: [entry(1, 41, 5, 9, 37)],
       summaries: { 1: { date: "2026-10-28T03:00Z" } },
@@ -152,12 +157,12 @@ describe("NbaAdapter — fetchPlayerLastGame staleness", () => {
 
     const game = await adapter.fetchPlayerLastGame("3945274", "LAL");
 
-    expect(game).not.toBeNull();
     expect(game.date).toBe("2026-10-28T03:00Z");
+    expect(game.stale).toBe(false);
   });
 
-  it("keeps the game when the team schedule cannot be read", async () => {
-    // A failed schedule lookup must not silently drop a correct section.
+  it("does not flag the game when the team schedule cannot be read", async () => {
+    // A failed schedule lookup must not label a correct section as stale.
     axios.get.mockImplementation((url) => {
       const u = String(url);
       if (u.includes("/gamelog")) return Promise.resolve(gamelog([entry(1, 41, 5, 9, 37)]));
@@ -167,7 +172,7 @@ describe("NbaAdapter — fetchPlayerLastGame staleness", () => {
 
     const game = await adapter.fetchPlayerLastGame("3945274", "LAL");
 
-    expect(game).not.toBeNull();
     expect(game.points).toBe(41);
+    expect(game.stale).toBe(false);
   });
 });
