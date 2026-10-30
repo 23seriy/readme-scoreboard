@@ -5,7 +5,7 @@
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 4
+🏅 Standing: Eastern · 3
 
 📅 Next: vs CHI (Oct 30)
 
