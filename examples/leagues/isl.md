@@ -12,15 +12,16 @@ Team: **BFC** · Category: Soccer · Data source: ESPN public API
 2026-27 ISL
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 ISL · 4
+🏅 Standing (2026): 2026-27 ISL · 2
 
-📅 Next: @ NEU (Oct 30)
+📅 Next: @ FC Goa (Nov 6)
 
-📊 2026 Record: 2W - 0L - 0D  (6 pts)
-   █████████████████████████
+📊 2026 Record: 2W - 0L - 1D  (7 pts)
+   ████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 @ NEU   (Oct 30, 2026)
 ✅ W 2-0 vs CFC   (Oct 17, 2026)
 ✅ W 3-2 vs SCD   (Oct 10, 2026)
 ```
@@ -37,15 +38,16 @@ The `title:` input replaces the default heading.
 2026-27 ISL
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 ISL · 4
+🏅 Standing (2026): 2026-27 ISL · 2
 
-📅 Next: @ NEU (Oct 30)
+📅 Next: @ FC Goa (Nov 6)
 
-📊 2026 Record: 2W - 0L - 0D  (6 pts)
-   █████████████████████████
+📊 2026 Record: 2W - 0L - 1D  (7 pts)
+   ████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 @ NEU   (Oct 30, 2026)
 ✅ W 2-0 vs CFC   (Oct 17, 2026)
 ✅ W 3-2 vs SCD   (Oct 10, 2026)
 ```
@@ -61,12 +63,12 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 ISL
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 ISL · 4
+🏅 Standing (2026): 2026-27 ISL · 2
 
-📅 Next: @ NEU (Oct 30)
+📅 Next: @ FC Goa (Nov 6)
 
-📊 2026 Record: 2W - 0L - 0D  (6 pts)
-   █████████████████████████
+📊 2026 Record: 2W - 0L - 1D  (7 pts)
+   ████████████████████▊░░░░
 
 
 

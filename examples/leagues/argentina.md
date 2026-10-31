@@ -14,18 +14,18 @@ Group B
 
 🏅 Standing (2026): Group B · 10
 
-📅 Next: @ RAC (Oct 31)
+📅 Next: vs RIV (Nov 8)
 
-📊 2026 Record: 3W - 9L - 2D  (11 pts)
-   ███████▏░░░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 10L - 2D  (11 pts)
+   ██████▋░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ RAC   (Oct 30, 2026)
 ✅ W 1-0 vs BEL   (Oct 25, 2026)
 ❌ L 1-2 @ AAE   (Oct 18, 2026)
 ❌ L 1-3 vs SARM  (Oct 9, 2026)
 ❌ L 0-1 @ HUR   (Oct 4, 2026)
-✅ W 1-0 vs CAT   (Sep 21, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ Group B
 
 🏅 Standing (2026): Group B · 10
 
-📅 Next: @ RAC (Oct 31)
+📅 Next: vs RIV (Nov 8)
 
-📊 2026 Record: 3W - 9L - 2D  (11 pts)
-   ███████▏░░░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 10L - 2D  (11 pts)
+   ██████▋░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 @ RAC   (Oct 30, 2026)
 ✅ W 1-0 vs BEL   (Oct 25, 2026)
 ❌ L 1-2 @ AAE   (Oct 18, 2026)
 ❌ L 1-3 vs SARM  (Oct 9, 2026)
 ❌ L 0-1 @ HUR   (Oct 4, 2026)
-✅ W 1-0 vs CAT   (Sep 21, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ Group B
 
 🏅 Standing (2026): Group B · 10
 
-📅 Next: @ RAC (Oct 31)
+📅 Next: vs RIV (Nov 8)
 
-📊 2026 Record: 3W - 9L - 2D  (11 pts)
-   ███████▏░░░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 10L - 2D  (11 pts)
+   ██████▋░░░░░░░░░░░░░░░░░░
 
 
 

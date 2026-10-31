@@ -12,7 +12,7 @@ Team: **ATL** · Category: Basketball · Data source: ESPN public API
 Eastern Conference · Southeast Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 7
+🏅 Standing: Eastern · 6
 
 📅 Next: @ NO (Oct 31)
 
@@ -40,7 +40,7 @@ The `title:` input replaces the default heading.
 Eastern Conference · Southeast Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 7
+🏅 Standing: Eastern · 6
 
 📅 Next: @ NO (Oct 31)
 
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 Eastern Conference · Southeast Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 7
+🏅 Standing: Eastern · 6
 
 📅 Next: @ NO (Oct 31)
 
