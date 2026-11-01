@@ -12,20 +12,20 @@ Team: **ATL** · Category: Basketball · Data source: ESPN public API
 Eastern Conference · Southeast Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 6
+🏅 Standing: Eastern · 7
 
-📅 Next: @ NO (Oct 31)
+📅 Next: @ IND (Nov 3)
 
-📊 2026-2027 Record: 3W - 3L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2026-2027 Record: 3W - 4L (42.9%)
+   ██████████▋░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  99-121 @ NO  (Oct 31, 2026)
 ✅ W 114-111 vs CLE (Oct 29, 2026)
 ❌ L 117-129 vs MIA (Oct 28, 2026)
 ❌ L 110-120 @ HOU (Oct 26, 2026)
 ❌ L 114-121 vs HOU (Oct 24, 2026)
-✅ W 128-81  @ CHA (Oct 23, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 Eastern Conference · Southeast Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 6
+🏅 Standing: Eastern · 7
 
-📅 Next: @ NO (Oct 31)
+📅 Next: @ IND (Nov 3)
 
-📊 2026-2027 Record: 3W - 3L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2026-2027 Record: 3W - 4L (42.9%)
+   ██████████▋░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  99-121 @ NO  (Oct 31, 2026)
 ✅ W 114-111 vs CLE (Oct 29, 2026)
 ❌ L 117-129 vs MIA (Oct 28, 2026)
 ❌ L 110-120 @ HOU (Oct 26, 2026)
 ❌ L 114-121 vs HOU (Oct 24, 2026)
-✅ W 128-81  @ CHA (Oct 23, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 Eastern Conference · Southeast Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 6
+🏅 Standing: Eastern · 7
 
-📅 Next: @ NO (Oct 31)
+📅 Next: @ IND (Nov 3)
 
-📊 2026-2027 Record: 3W - 3L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2026-2027 Record: 3W - 4L (42.9%)
+   ██████████▋░░░░░░░░░░░░░░
 
 
 

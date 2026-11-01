@@ -9,10 +9,10 @@ Team: **CEL** · Category: Soccer · Data source: ESPN public API
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/256.png" alt="Celtic logo" width="72" align="right" />
 
 ### 🍀 Celtic (CEL)
-2026-27 Scottish Premiership
+First Phase
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Scottish Premiership · 1
+🏅 Standing (2026): First Phase · 1
 
 📅 Next: @ FALK (Nov 1)
 
@@ -37,10 +37,10 @@ The `title:` input replaces the default heading.
 <img src="https://a.espncdn.com/i/teamlogos/soccer/500/256.png" alt="Celtic logo" width="72" align="right" />
 
 ### 🍀 Celtic (CEL)
-2026-27 Scottish Premiership
+First Phase
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Scottish Premiership · 1
+🏅 Standing (2026): First Phase · 1
 
 📅 Next: @ FALK (Nov 1)
 
@@ -64,10 +64,10 @@ The `compact: true` input drops the logo and recent-game details.
 
 
 ### 🍀 Celtic (CEL)
-2026-27 Scottish Premiership
+First Phase
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Scottish Premiership · 1
+🏅 Standing (2026): First Phase · 1
 
 📅 Next: @ FALK (Nov 1)
 

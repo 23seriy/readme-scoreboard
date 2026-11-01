@@ -12,20 +12,20 @@ Team: **B04** · Category: Soccer · Data source: ESPN public API
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 German Bundesliga · 4
+🏅 Standing (2026): 2026-27 German Bundesliga · 6
 
-📅 Next: vs VFB (Oct 31)
+📅 Next: @ KOE (Nov 8)
 
-📊 2026 Record: 4W - 2L - 1D  (13 pts)
-   ████████████████░░░░░░░░░
+📊 2026 Record: 4W - 3L - 1D  (13 pts)
+   ██████████████░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-4 vs VFB   (Oct 31, 2026)
 ❌ L 0-3 @ TSG   (Oct 25, 2026)
 ✅ W 2-1 vs SCF   (Oct 18, 2026)
 ✅ W 4-3 @ M05   (Oct 10, 2026)
 ✅ W 2-0 vs RBL   (Sep 20, 2026)
-🟡 D 2-2 @ FCA   (Sep 12, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 German Bundesliga · 4
+🏅 Standing (2026): 2026-27 German Bundesliga · 6
 
-📅 Next: vs VFB (Oct 31)
+📅 Next: @ KOE (Nov 8)
 
-📊 2026 Record: 4W - 2L - 1D  (13 pts)
-   ████████████████░░░░░░░░░
+📊 2026 Record: 4W - 3L - 1D  (13 pts)
+   ██████████████░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-4 vs VFB   (Oct 31, 2026)
 ❌ L 0-3 @ TSG   (Oct 25, 2026)
 ✅ W 2-1 vs SCF   (Oct 18, 2026)
 ✅ W 4-3 @ M05   (Oct 10, 2026)
 ✅ W 2-0 vs RBL   (Sep 20, 2026)
-🟡 D 2-2 @ FCA   (Sep 12, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 German Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 German Bundesliga · 4
+🏅 Standing (2026): 2026-27 German Bundesliga · 6
 
-📅 Next: vs VFB (Oct 31)
+📅 Next: @ KOE (Nov 8)
 
-📊 2026 Record: 4W - 2L - 1D  (13 pts)
-   ████████████████░░░░░░░░░
+📊 2026 Record: 4W - 3L - 1D  (13 pts)
+   ██████████████░░░░░░░░░░░
 
 
 

@@ -12,7 +12,7 @@ Team: **BFC** · Category: Soccer · Data source: ESPN public API
 2026-27 ISL
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 ISL · 2
+🏅 Standing (2026): 2026-27 ISL · 3
 
 📅 Next: @ FC Goa (Nov 6)
 
@@ -38,7 +38,7 @@ The `title:` input replaces the default heading.
 2026-27 ISL
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 ISL · 2
+🏅 Standing (2026): 2026-27 ISL · 3
 
 📅 Next: @ FC Goa (Nov 6)
 
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 ISL
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 ISL · 2
+🏅 Standing (2026): 2026-27 ISL · 3
 
 📅 Next: @ FC Goa (Nov 6)
 
