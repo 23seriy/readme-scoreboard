@@ -14,18 +14,18 @@ Pro League
 
 🏅 Standing (2026): Pro League · 5
 
-📅 Next: vs KVCW (Oct 31)
+📅 Next: @ BRU (Nov 8)
 
-📊 2026 Record: 5W - 3L - 1D  (16 pts)
-   ███████████████▎░░░░░░░░░
+📊 2026 Record: 6W - 3L - 1D  (19 pts)
+   ████████████████▎░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-1 vs KVCW  (Oct 31, 2026)
 ❌ L 0-4 @ GENT  (Oct 25, 2026)
 ✅ W 2-1 @ CBK   (Oct 10, 2026)
 ✅ W 3-0 vs ZUL   (Sep 19, 2026)
 ✅ W 1-0 @ KVM   (Sep 11, 2026)
-🟡 D 0-0 vs GENK  (Sep 6, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ Pro League
 
 🏅 Standing (2026): Pro League · 5
 
-📅 Next: vs KVCW (Oct 31)
+📅 Next: @ BRU (Nov 8)
 
-📊 2026 Record: 5W - 3L - 1D  (16 pts)
-   ███████████████▎░░░░░░░░░
+📊 2026 Record: 6W - 3L - 1D  (19 pts)
+   ████████████████▎░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-1 vs KVCW  (Oct 31, 2026)
 ❌ L 0-4 @ GENT  (Oct 25, 2026)
 ✅ W 2-1 @ CBK   (Oct 10, 2026)
 ✅ W 3-0 vs ZUL   (Sep 19, 2026)
 ✅ W 1-0 @ KVM   (Sep 11, 2026)
-🟡 D 0-0 vs GENK  (Sep 6, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ Pro League
 
 🏅 Standing (2026): Pro League · 5
 
-📅 Next: vs KVCW (Oct 31)
+📅 Next: @ BRU (Nov 8)
 
-📊 2026 Record: 5W - 3L - 1D  (16 pts)
-   ███████████████▎░░░░░░░░░
+📊 2026 Record: 6W - 3L - 1D  (19 pts)
+   ████████████████▎░░░░░░░░
 
 
 

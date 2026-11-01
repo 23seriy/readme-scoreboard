@@ -12,15 +12,16 @@ Team: **ADL** · Category: Soccer · Data source: ESPN public API
 2026-27 A-League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 11
+🏅 Standing (2026): 2026-27 A-League · 12
 
-📅 Next: @ PER (Nov 1)
+📅 Next: vs MBV (Nov 8)
 
-📊 2026 Record: 0W - 1L - 0D  (0 pts)
+📊 2026 Record: 0W - 2L - 0D  (0 pts)
    ░░░░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-4 @ PER   (Nov 1, 2026)
 ❌ L 1-2 @ SYD   (Oct 25, 2026)
 ```
 
@@ -36,15 +37,16 @@ The `title:` input replaces the default heading.
 2026-27 A-League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 11
+🏅 Standing (2026): 2026-27 A-League · 12
 
-📅 Next: @ PER (Nov 1)
+📅 Next: vs MBV (Nov 8)
 
-📊 2026 Record: 0W - 1L - 0D  (0 pts)
+📊 2026 Record: 0W - 2L - 0D  (0 pts)
    ░░░░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-4 @ PER   (Nov 1, 2026)
 ❌ L 1-2 @ SYD   (Oct 25, 2026)
 ```
 
@@ -59,11 +61,11 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 A-League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 11
+🏅 Standing (2026): 2026-27 A-League · 12
 
-📅 Next: @ PER (Nov 1)
+📅 Next: vs MBV (Nov 8)
 
-📊 2026 Record: 0W - 1L - 0D  (0 pts)
+📊 2026 Record: 0W - 2L - 0D  (0 pts)
    ░░░░░░░░░░░░░░░░░░░░░░░░░
 
 
