@@ -59,7 +59,7 @@ APIs by the daily refresh (heading levels lowered by one so it nests here):
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing: Western · 5
+🏅 Standing: Western · 4
 
 📅 Next: vs TOR (Nov 2)
 

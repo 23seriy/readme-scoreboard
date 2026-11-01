@@ -5,7 +5,7 @@
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing: Western · 5
+🏅 Standing: Western · 4
 
 📅 Next: vs TOR (Nov 2)
 
