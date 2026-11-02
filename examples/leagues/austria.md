@@ -14,18 +14,18 @@ Bundesliga
 
 🏅 Standing (2026): Bundesliga · 10
 
-📅 Next: @ SLZ (Nov 1)
+📅 Next: vs GRA (Nov 7)
 
-📊 2026 Record: 2W - 6L - 2D  (8 pts)
-   ███████▌░░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 7L - 2D  (8 pts)
+   ██████▊░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-5 @ SLZ   (Nov 1, 2026)
 ❌ L 1-5 @ VIE   (Oct 24, 2026)
 ❌ L 0-4 vs LAS   (Oct 17, 2026)
 ❌ L 3-4 @ HAR   (Oct 11, 2026)
 ✅ W 2-0 vs SCR   (Sep 19, 2026)
-❌ L 1-2 @ VIE   (Sep 13, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ Bundesliga
 
 🏅 Standing (2026): Bundesliga · 10
 
-📅 Next: @ SLZ (Nov 1)
+📅 Next: vs GRA (Nov 7)
 
-📊 2026 Record: 2W - 6L - 2D  (8 pts)
-   ███████▌░░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 7L - 2D  (8 pts)
+   ██████▊░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-5 @ SLZ   (Nov 1, 2026)
 ❌ L 1-5 @ VIE   (Oct 24, 2026)
 ❌ L 0-4 vs LAS   (Oct 17, 2026)
 ❌ L 3-4 @ HAR   (Oct 11, 2026)
 ✅ W 2-0 vs SCR   (Sep 19, 2026)
-❌ L 1-2 @ VIE   (Sep 13, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ Bundesliga
 
 🏅 Standing (2026): Bundesliga · 10
 
-📅 Next: @ SLZ (Nov 1)
+📅 Next: vs GRA (Nov 7)
 
-📊 2026 Record: 2W - 6L - 2D  (8 pts)
-   ███████▌░░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 7L - 2D  (8 pts)
+   ██████▊░░░░░░░░░░░░░░░░░░
 
 
 

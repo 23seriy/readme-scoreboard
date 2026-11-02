@@ -12,20 +12,20 @@ Team: **ACH** · Category: Soccer · Data source: ESPN public API
 Regular Season
 🟢 Season in progress
 
-🏅 Standing (2026): Regular Season · 6
+🏅 Standing (2026): Regular Season · 7
 
-📅 Next: @ VIB (Nov 1)
+📅 Next: @ AGF (Nov 8)
 
-📊 2026 Record: 4W - 4L - 4D  (16 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 4W - 5L - 4D  (16 pts)
+   ███████████▌░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-1 @ VIB   (Nov 1, 2026)
 ✅ W 5-1 vs SON   (Oct 25, 2026)
 🟡 D 0-0 vs RAN   (Oct 16, 2026)
 🟡 D 3-3 @ SIF   (Oct 11, 2026)
 🟡 D 2-2 vs AGF   (Sep 20, 2026)
-❌ L 0-2 @ KBH   (Sep 11, 2026)
 ```
 
 ## Custom title
@@ -40,20 +40,20 @@ The `title:` input replaces the default heading.
 Regular Season
 🟢 Season in progress
 
-🏅 Standing (2026): Regular Season · 6
+🏅 Standing (2026): Regular Season · 7
 
-📅 Next: @ VIB (Nov 1)
+📅 Next: @ AGF (Nov 8)
 
-📊 2026 Record: 4W - 4L - 4D  (16 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 4W - 5L - 4D  (16 pts)
+   ███████████▌░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-1 @ VIB   (Nov 1, 2026)
 ✅ W 5-1 vs SON   (Oct 25, 2026)
 🟡 D 0-0 vs RAN   (Oct 16, 2026)
 🟡 D 3-3 @ SIF   (Oct 11, 2026)
 🟡 D 2-2 vs AGF   (Sep 20, 2026)
-❌ L 0-2 @ KBH   (Sep 11, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +67,12 @@ The `compact: true` input drops the logo and recent-game details.
 Regular Season
 🟢 Season in progress
 
-🏅 Standing (2026): Regular Season · 6
+🏅 Standing (2026): Regular Season · 7
 
-📅 Next: @ VIB (Nov 1)
+📅 Next: @ AGF (Nov 8)
 
-📊 2026 Record: 4W - 4L - 4D  (16 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 4W - 5L - 4D  (16 pts)
+   ███████████▌░░░░░░░░░░░░░
 
 
 
