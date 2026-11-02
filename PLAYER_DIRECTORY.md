@@ -166,34 +166,34 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 
 | Rank | Flag | Country | Player | Abbreviation | ID | Points |
 |------|------|---------|--------|--------------|----|--------|
-| #1 | 🇰🇿 | Kazakhstan | Elena Rybakina | `RYB` | 3126 | 9,501 |
-| #2 | 🇧🇾 | Belarus | Aryna Sabalenka | `SAB` | 3038 | 7,550 |
+| #1 | 🇰🇿 | Kazakhstan | Elena Rybakina | `RYB` | 3126 | 8,099 |
+| #2 | 🇧🇾 | Belarus | Aryna Sabalenka | `SAB` | 3038 | 6,485 |
 | #3 | 🇷🇺 | Russia | Mirra Andreeva | `AND` | 9820 | 6,306 |
-| #4 | 🇺🇸 | United States | Jessica Pegula | `PEG` | 2113 | 6,225 |
-| #5 | 🇺🇸 | United States | Coco Gauff | `GAU` | 3626 | 5,973 |
-| #6 | 🇺🇦 | Ukraine | Elina Svitolina | `SVI` | 1797 | 5,229 |
-| #7 | 🇨🇿 | Czechia | Karolina Muchova | `MUC` | 3039 | 4,725 |
-| #8 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 4,389 |
-| #9 | 🇨🇿 | Czechia | Linda Noskova | `NOS` | 6970 | 4,353 |
-| #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 3,920 |
-| #11 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 3,016 |
-| #12 | 🇺🇸 | United States | Iva Jovic | `JOV` | 14311 | 2,941 |
-| #13 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 2,798 |
+| #4 | 🇺🇸 | United States | Coco Gauff | `GAU` | 3626 | 5,763 |
+| #5 | 🇺🇸 | United States | Jessica Pegula | `PEG` | 2113 | 5,760 |
+| #6 | 🇺🇦 | Ukraine | Elina Svitolina | `SVI` | 1797 | 5,121 |
+| #7 | 🇨🇿 | Czechia | Karolina Muchova | `MUC` | 3039 | 4,665 |
+| #8 | 🇨🇿 | Czechia | Linda Noskova | `NOS` | 6970 | 4,343 |
+| #9 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 4,188 |
+| #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 3,910 |
+| #11 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 3,238 |
+| #12 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 3,016 |
+| #13 | 🇺🇸 | United States | Iva Jovic | `JOV` | 14311 | 2,941 |
 | #14 | 🇧🇪 | Belgium | Elise Mertens | `MER` | 2221 | 2,540 |
-| #15 | 🇨🇦 | Canada | Victoria Mboko | `MBO` | 11219 | 2,393 |
-| #16 | 🇷🇴 | Romania | Sorana Cirstea | `CIR` | 1774 | 2,386 |
-| #17 | 🇺🇸 | United States | Amanda Anisimova | `ANI` | 3221 | 2,363 |
-| #18 | 🇯🇵 | Japan | Naomi Osaka | `OSA` | 2789 | 2,287 |
-| #19 | 🇵🇭 | Philippines | Alexandra Eala | `EAL` | 7759 | 2,241 |
-| #20 | 🇨🇭 | Switzerland | Belinda Bencic | `BEN` | 2183 | 2,222 |
-| #21 | 🇺🇸 | United States | Madison Keys | `KEY` | 1556 | 2,029 |
-| #24 | 🇨🇿 | Czechia | Marie Bouzkova | `BOU` | 2392 | 1,959 |
-| #25 | 🇷🇺 | Russia | Anna Kalinskaya | `KAL` | 2977 | 1,935 |
+| #15 | 🇷🇴 | Romania | Sorana Cirstea | `CIR` | 1774 | 2,386 |
+| #16 | 🇯🇵 | Japan | Naomi Osaka | `OSA` | 2789 | 2,315 |
+| #17 | 🇵🇭 | Philippines | Alexandra Eala | `EAL` | 7759 | 2,289 |
+| #19 | 🇨🇭 | Switzerland | Belinda Bencic | `BEN` | 2183 | 2,168 |
+| #20 | 🇨🇦 | Canada | Victoria Mboko | `MBO` | 11219 | 2,143 |
+| #22 | 🇺🇸 | United States | Amanda Anisimova | `ANI` | 3221 | 1,963 |
+| #23 | 🇨🇿 | Czechia | Marie Bouzkova | `BOU` | 2392 | 1,959 |
+| #24 | 🇺🇸 | United States | Madison Keys | `KEY` | 1556 | 1,921 |
+| #26 | 🇷🇺 | Russia | Anna Kalinskaya | `KAL` | 2977 | 1,913 |
 | #27 | 🇷🇺 | Russia | Anastasia Potapova | `POT` | 2971 | 1,814 |
 | #28 | 🇺🇸 | United States | Emma Navarro | `NAV` | 3785 | 1,794 |
 | #31 | 🇺🇸 | United States | Ann Li | `ALI` | 3380 | 1,681 |
-| #32 | 🇨🇿 | Czechia | Sara Bejlek | `BEJ` | 7819 | 1,633 |
-| #33 | 🇷🇺 | Russia | Ekaterina Alexandrova | `ALE` | 3182 | 1,591 |
+| #32 | 🇷🇺 | Russia | Ekaterina Alexandrova | `ALE` | 3182 | 1,641 |
+| #33 | 🇨🇿 | Czechia | Sara Bejlek | `BEJ` | 7819 | 1,614 |
 | #35 | 🇮🇹 | Italy | Jasmine Paolini | `PAO` | 2615 | 1,512 |
-| #46 | 🇨🇿 | Czechia | Barbora Krejcikova | `KRE` | 2042 | 1,133 |
+| #48 | 🇨🇿 | Czechia | Barbora Krejcikova | `KRE` | 2042 | 1,133 |
 
