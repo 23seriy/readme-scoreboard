@@ -7,18 +7,18 @@ Western Conference · Pacific Division
 
 🏅 Standing: Western · 4
 
-📅 Next: vs TOR (Nov 2)
+📅 Next: vs MIA (Nov 3)
 
-📊 2026-2027 Record: 4W - 2L (66.7%)
-   ████████████████▋░░░░░░░░
+📊 2026-2027 Record: 5W - 2L (71.4%)
+   █████████████████▊░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 131-125 vs TOR (Nov 1, 2026)
 ❌ L  95-112 @ GS  (Oct 30, 2026)
 ✅ W 103-87  @ LAC (Oct 28, 2026)
 ❌ L 129-136 vs POR (Oct 27, 2026)
 ✅ W 132-123 @ UTAH (Oct 25, 2026)
-✅ W 125-117 vs LAC (Oct 23, 2026)
 ```
 
 
@@ -49,18 +49,18 @@ American League · AL East
 2026-27 English Premier League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 English Premier League · 2
+🏅 Standing (2026): 2026-27 English Premier League · 1
 
-📅 Next: @ LIV (Nov 1)
+📅 Next: vs HUL (Nov 7)
 
-📊 2026 Record: 7W - 1L - 0D  (21 pts)
-   █████████████████████▉░░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)
+   ██████████████████████▏░░
 
 **📅 Recent Games:**
 ```
+✅ W 1-0 @ LIV   (Nov 1, 2026)
 ✅ W 2-0 vs EVE   (Oct 24, 2026)
 ✅ W 1-0 @ NFO   (Oct 18, 2026)
 ✅ W 2-1 vs LEE   (Oct 10, 2026)
 ❌ L 0-3 @ BHA   (Sep 19, 2026)
-✅ W 2-0 @ SUN   (Sep 12, 2026)
 ```

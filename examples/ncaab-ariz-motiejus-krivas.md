@@ -4,7 +4,7 @@
 
 ### 🐻 Arizona Wildcats (ARIZ)
 Big 12 Conference Conference
-🔴 Off-season · Next season starts November 2, 2026
+🟢 Season in progress
 
 🏅 Standing: Big 12 Conference · 1
 
