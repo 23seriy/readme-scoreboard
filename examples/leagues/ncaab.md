@@ -10,7 +10,7 @@ Team: **ARIZ** · Category: Basketball · Data source: ESPN public API
 
 ### 🐻 Arizona Wildcats (ARIZ)
 Big 12 Conference Conference
-🔴 Off-season · Next season starts November 2, 2026
+🟢 Season in progress
 
 🏅 Standing: Big 12 Conference · 1
 
@@ -36,7 +36,7 @@ The `title:` input replaces the default heading.
 
 ### 🐻 Arizona Wildcats (ARIZ)
 Big 12 Conference Conference
-🔴 Off-season · Next season starts November 2, 2026
+🟢 Season in progress
 
 🏅 Standing: Big 12 Conference · 1
 
@@ -61,7 +61,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🐻 Arizona Wildcats (ARIZ)
 Big 12 Conference Conference
-🔴 Off-season · Next season starts November 2, 2026
+🟢 Season in progress
 
 🏅 Standing: Big 12 Conference · 1
 

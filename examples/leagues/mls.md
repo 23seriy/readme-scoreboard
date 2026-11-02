@@ -16,16 +16,16 @@ Eastern Conference
 
 📅 Next: vs TOR (Feb 21)
 
-📊 2026 Record: 8W - 18L - 6D  (30 pts)
-   ████████▌░░░░░░░░░░░░░░░░
+📊 2026 Record: 9W - 18L - 6D  (33 pts)
+   █████████░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-1 vs TOR   (Nov 1, 2026)
 ❌ L 1-2 @ NYC   (Oct 28, 2026)
 ❌ L 2-3 vs CHI   (Oct 24, 2026)
 ❌ L 1-3 vs MIA   (Oct 17, 2026)
 ✅ W 3-0 @ MTL   (Oct 14, 2026)
-❌ L 1-3 vs CIN   (Oct 10, 2026)
 ```
 
 ## Custom title
@@ -44,16 +44,16 @@ Eastern Conference
 
 📅 Next: vs TOR (Feb 21)
 
-📊 2026 Record: 8W - 18L - 6D  (30 pts)
-   ████████▌░░░░░░░░░░░░░░░░
+📊 2026 Record: 9W - 18L - 6D  (33 pts)
+   █████████░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-1 vs TOR   (Nov 1, 2026)
 ❌ L 1-2 @ NYC   (Oct 28, 2026)
 ❌ L 2-3 vs CHI   (Oct 24, 2026)
 ❌ L 1-3 vs MIA   (Oct 17, 2026)
 ✅ W 3-0 @ MTL   (Oct 14, 2026)
-❌ L 1-3 vs CIN   (Oct 10, 2026)
 ```
 
 ## Compact mode
@@ -71,8 +71,8 @@ Eastern Conference
 
 📅 Next: vs TOR (Feb 21)
 
-📊 2026 Record: 8W - 18L - 6D  (30 pts)
-   ████████▌░░░░░░░░░░░░░░░░
+📊 2026 Record: 9W - 18L - 6D  (33 pts)
+   █████████░░░░░░░░░░░░░░░░
 
 
 
