@@ -8,36 +8,36 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 
 | Rank | Flag | Country | Player | Abbreviation | ID | Points |
 |------|------|---------|--------|--------------|----|--------|
-| #1 | 🇮🇹 | Italy | Jannik Sinner | `SIN` | 3623 | 10,450 |
-| #2 | 🇩🇪 | Germany | Alexander Zverev | `ZVE` | 2375 | 9,750 |
-| #3 | 🇪🇸 | Spain | Carlos Alcaraz | `ALC` | 3782 | 5,610 |
-| #4 | 🇺🇸 | United States | Ben Shelton | `SHE` | 9250 | 4,680 |
+| #1 | 🇩🇪 | Germany | Alexander Zverev | `ZVE` | 2375 | 9,550 |
+| #2 | 🇮🇹 | Italy | Jannik Sinner | `SIN` | 3623 | 9,450 |
+| #3 | 🇪🇸 | Spain | Carlos Alcaraz | `ALC` | 3782 | 6,100 |
+| #4 | 🇺🇸 | United States | Ben Shelton | `SHE` | 9250 | 4,530 |
 | #5 | 🇷🇺 | Russia | Daniil Medvedev | `MED` | 2383 | 3,860 |
 | #6 | 🇮🇹 | Italy | Flavio Cobolli | `COB` | 7602 | 3,690 |
-| #7 | 🇨🇦 | Canada | Felix Auger-Aliassime | `FAA` | 3209 | 3,515 |
-| #8 | 🇫🇷 | France | Arthur Fils | `FIL` | 10052 | 3,425 |
-| #9 | 🇺🇸 | United States | Frances Tiafoe | `TIA` | 2708 | 3,380 |
-| #10 | 🇦🇺 | Australia | Alex de Minaur | `DEM` | 2651 | 3,280 |
-| #11 | 🇪🇸 | Spain | Rafael Jodar | `JOD` | 12657 | 3,234 |
-| #12 | 🇷🇸 | Serbia | Novak Djokovic | `DJO` | 296 | 3,090 |
-| #13 | 🇺🇸 | United States | Taylor Fritz | `FRI` | 2946 | 2,995 |
-| #14 | 🇺🇸 | United States | Tommy Paul | `PAU` | 2964 | 2,675 |
-| #15 | 🇪🇸 | Spain | Alejandro Davidovich Fokina | `DAV` | 3212 | 2,600 |
-| #16 | 🇨🇿 | Czechia | Jakub Mensik | `MEN` | 10319 | 2,495 |
-| #17 | 🇺🇸 | United States | Brandon Nakashima | `NAK` | 3774 | 2,375 |
-| #18 | 🇺🇸 | United States | Learner Tien | `LTI` | 10386 | 2,345 |
-| #19 | 🇦🇷 | Argentina | Francisco Cerundolo | `CER` | 3700 | 2,310 |
-| #20 | 🇰🇿 | Kazakhstan | Alexander Bublik | `BUB` | 2865 | 2,285 |
-| #21 | 🇨🇿 | Czechia | Jiri Lehecka | `LEH` | 3754 | 2,275 |
-| #22 | 🇷🇺 | Russia | Andrey Rublev | `RUB` | 2642 | 2,175 |
-| #23 | 🇮🇹 | Italy | Luciano Darderi | `DAR` | 7833 | 2,160 |
-| #25 | 🇳🇴 | Norway | Casper Ruud | `RUU` | 2989 | 1,995 |
-| #26 | 🇮🇹 | Italy | Lorenzo Musetti | `MUS` | 3764 | 1,920 |
+| #7 | 🇫🇷 | France | Arthur Fils | `FIL` | 10052 | 3,525 |
+| #8 | 🇺🇸 | United States | Frances Tiafoe | `TIA` | 2708 | 3,430 |
+| #9 | 🇦🇺 | Australia | Alex de Minaur | `DEM` | 2651 | 3,410 |
+| #10 | 🇪🇸 | Spain | Rafael Jodar | `JOD` | 12657 | 3,209 |
+| #11 | 🇷🇸 | Serbia | Novak Djokovic | `DJO` | 296 | 3,140 |
+| #12 | 🇺🇸 | United States | Taylor Fritz | `FRI` | 2946 | 3,095 |
+| #13 | 🇨🇦 | Canada | Felix Auger-Aliassime | `FAA` | 3209 | 2,875 |
+| #14 | 🇺🇸 | United States | Tommy Paul | `PAU` | 2964 | 2,775 |
+| #15 | 🇨🇿 | Czechia | Jiri Lehecka | `LEH` | 3754 | 2,580 |
+| #16 | 🇨🇿 | Czechia | Jakub Mensik | `MEN` | 10319 | 2,545 |
+| #17 | 🇪🇸 | Spain | Alejandro Davidovich Fokina | `DAV` | 3212 | 2,510 |
+| #18 | 🇺🇸 | United States | Brandon Nakashima | `NAK` | 3774 | 2,375 |
+| #19 | 🇺🇸 | United States | Learner Tien | `LTI` | 10386 | 2,345 |
+| #20 | 🇦🇷 | Argentina | Francisco Cerundolo | `CER` | 3700 | 2,260 |
+| #21 | 🇮🇹 | Italy | Luciano Darderi | `DAR` | 7833 | 2,200 |
+| #22 | 🇷🇺 | Russia | Andrey Rublev | `RUB` | 2642 | 2,085 |
+| #23 | 🇳🇴 | Norway | Casper Ruud | `RUU` | 2989 | 2,035 |
+| #24 | 🇮🇹 | Italy | Lorenzo Musetti | `MUS` | 3764 | 1,960 |
+| #26 | 🇰🇿 | Kazakhstan | Alexander Bublik | `BUB` | 2865 | 1,895 |
+| #27 | 🇲🇨 | Monaco | Valentin Vacherot | `VAC` | 9376 | 1,780 |
 | #30 | 🇨🇱 | Chile | Alejandro Tabilo | `TAB` | 2970 | 1,565 |
-| #31 | 🇲🇨 | Monaco | Valentin Vacherot | `VAC` | 9376 | 1,480 |
-| #32 | 🇵🇪 | Peru | Ignacio Buse | `BUS` | 11226 | 1,445 |
-| #40 | 🇧🇷 | Brazil | Joao Fonseca | `FON` | 11745 | 1,250 |
-| #61 | 🇫🇷 | France | Arthur Rinderknech | `RIN` | 3511 | 870 |
+| #33 | 🇵🇪 | Peru | Ignacio Buse | `BUS` | 11226 | 1,445 |
+| #41 | 🇧🇷 | Brazil | Joao Fonseca | `FON` | 11745 | 1,200 |
+| #68 | 🇫🇷 | France | Arthur Rinderknech | `RIN` | 3511 | 820 |
 
 ## IndyCar Series
 
