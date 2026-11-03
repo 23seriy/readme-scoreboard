@@ -7,9 +7,9 @@ Eastern Conference · Atlantic Division
 
 🏅 Standing: Eastern · 3
 
-📅 Next: @ HOU (Nov 3)
+📅 Next: vs MIL (Nov 5)
 
-📊 2026-2027 Record: 5W - 1L (83.3%)
-   ████████████████████▊░░░░
+📊 2026-2027 Record: 5W - 2L (71.4%)
+   █████████████████▊░░░░░░░
 
 
