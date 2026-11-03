@@ -14,7 +14,7 @@ Group B
 
 🏅 Standing (2026): Group B · 10
 
-📅 Next: vs RIV (Nov 8)
+📅 Next: vs RIV (Nov 5)
 
 📊 2026 Record: 3W - 10L - 2D  (11 pts)
    ██████▋░░░░░░░░░░░░░░░░░░
@@ -42,7 +42,7 @@ Group B
 
 🏅 Standing (2026): Group B · 10
 
-📅 Next: vs RIV (Nov 8)
+📅 Next: vs RIV (Nov 5)
 
 📊 2026 Record: 3W - 10L - 2D  (11 pts)
    ██████▋░░░░░░░░░░░░░░░░░░
@@ -69,7 +69,7 @@ Group B
 
 🏅 Standing (2026): Group B · 10
 
-📅 Next: vs RIV (Nov 8)
+📅 Next: vs RIV (Nov 5)
 
 📊 2026 Record: 3W - 10L - 2D  (11 pts)
    ██████▋░░░░░░░░░░░░░░░░░░
