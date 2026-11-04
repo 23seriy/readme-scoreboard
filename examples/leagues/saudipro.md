@@ -14,7 +14,7 @@ Saudi Pro League
 
 🏅 Standing (2026): Saudi Pro League · 18
 
-📅 Next: vs SHA (Nov 5)
+📅 Next: @ TAA (Nov 20)
 
 📊 2026 Record: 0W - 8L - 3D  (3 pts)
    ███▍░░░░░░░░░░░░░░░░░░░░░
@@ -42,7 +42,7 @@ Saudi Pro League
 
 🏅 Standing (2026): Saudi Pro League · 18
 
-📅 Next: vs SHA (Nov 5)
+📅 Next: @ TAA (Nov 20)
 
 📊 2026 Record: 0W - 8L - 3D  (3 pts)
    ███▍░░░░░░░░░░░░░░░░░░░░░
@@ -69,7 +69,7 @@ Saudi Pro League
 
 🏅 Standing (2026): Saudi Pro League · 18
 
-📅 Next: vs SHA (Nov 5)
+📅 Next: @ TAA (Nov 20)
 
 📊 2026 Record: 0W - 8L - 3D  (3 pts)
    ███▍░░░░░░░░░░░░░░░░░░░░░
