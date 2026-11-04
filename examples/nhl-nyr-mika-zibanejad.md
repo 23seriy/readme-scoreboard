@@ -6,20 +6,20 @@
 Eastern Conference · Metropolitan Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Metropolitan · 5
+🏅 Standing (2026-27): Metropolitan · 3
 
-📅 Next: vs STL (Nov 4)
+📅 Next: vs PHI (Nov 6)
 
-📊 2025-2026 Record: 7W - 8L (46.7%)
-   ███████████▋░░░░░░░░░░░░░
+📊 2025-2026 Record: 8W - 8L (50.0%)
+   ████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W   3-1   vs STL (Nov 3, 2026)
 ❌ L   1-4   vs EDM (Nov 1, 2026)
 ❌ L   3-6   vs LAK (Oct 26, 2026)
 ❌ L   4-7   @ OTT (Oct 24, 2026)
 ❌ L   4-5   @ TOR (Oct 22, 2026)
-✅ W   5-2   vs ANA (Oct 19, 2026)
 ```
 
 **🦢 Player Spotlight: Mika Zibanejad**
@@ -28,5 +28,5 @@ Eastern Conference · Metropolitan Division
 
 **📅 Last Game:**
 ```
-0 G · 1 A · 1 P vs EDM (Nov 1, 2026)
+0 G · 0 A · 0 P vs STL (Nov 3, 2026)
 ```

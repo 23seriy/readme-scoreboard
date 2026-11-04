@@ -7,8 +7,3 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
-**📅 Last Match:**
-```
-❌ L vs Ann Li (Oct 14, 2026) 6-3, 4-6, 6-7
-```
-
