@@ -6,7 +6,7 @@
 League Phase
 🟢 Season in progress
 
-🏅 Standing (2026): League Phase · 4
+🏅 Standing (2026): League Phase · 5
 
 📅 Next: @ AEK (Nov 4)
 
