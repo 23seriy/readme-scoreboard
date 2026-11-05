@@ -1638,7 +1638,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Cal Lutheran Kingsmen | `CLU` | 2094 |
 | Cumberlands Indians | `CMBS` | 511 |
 | Colorado School of Mines Orediggers | `CMIN` | 2146 |
-| Claremont Mudd Scripps Stags | `CMS` | 17 |
+| Claremont Mudd Scripps Stags/Athenas | `CMS` | 17 |
 | Central Michigan Chippewas | `CMU` | 2117 |
 | Carson Newman Eagles | `CN` | 2105 |
 | Cornell (IA) Rams | `CNIA` | 2155 |

@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-11-04T13:15:22.825Z",
+  "generatedAt": "2026-11-05T13:28:18.014Z",
   "teams": [
     {
       "league": "nba",
@@ -10226,7 +10226,7 @@
       "league": "ncaaf",
       "leagueName": "College Football",
       "abbreviation": "CMS",
-      "name": "Claremont Mudd Scripps Stags",
+      "name": "Claremont Mudd Scripps Stags/Athenas",
       "id": "17"
     },
     {
