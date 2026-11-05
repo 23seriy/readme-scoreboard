@@ -8,16 +8,16 @@ Eastern Conference · Atlantic Division
 
 🏅 Standing: Eastern · 3
 
-📅 Next: vs MIL (Nov 5)
+📅 Next: @ CHA (Nov 7)
 
-📊 2026-2027 Record: 5W - 2L (71.4%)
-   █████████████████▊░░░░░░░
+📊 2026-2027 Record: 6W - 2L (75.0%)
+   ██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 109-102 vs MIL (Nov 4, 2026)
 ❌ L  93-109 @ HOU (Nov 2, 2026)
 ✅ W 108-97  @ ORL (Nov 1, 2026)
 ✅ W 125-111 vs CHI (Oct 30, 2026)
 ✅ W 125-124 vs BKN (Oct 27, 2026)
-✅ W 134-99  vs CHI (Oct 26, 2026)
 ```
