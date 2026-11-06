@@ -668,7 +668,7 @@ files you may need to refresh.
 | `sport` | No | `nba` | League key (for example, `nba`). See [Supported Sports](#supported-sports). |
 | `team` | Yes | — | Team or player abbreviation (e.g. `LAL`, `NYR`, `MIA`, or `SIN` for Jannik Sinner). Invalid abbreviations show example names. |
 | `player` | No | — | Player full name to feature alongside the team board (e.g. `Luka Doncic` or `Napheesa Collier`); must match the roster's exact spelling, including any diacritics. Supported for `nba`, `wnba`, `ncaab`, `ncaaw`, `mlb`, `nfl`, `nhl` and every soccer league; not supported together with `teams:` (use `team:` instead). |
-| `entity` | No | `team` | Entity type: `team` (default) or `player`. Inferred from the sport — individual sports like ATP Tennis and WTA Tennis default to `player`. |
+| `entity` | No | — | Entity type: `team` or `player`. Inferred from the sport when unset — individual sports (ATP, WTA, NASCAR, IndyCar, UFC) default to `player`. Set only to override the inference. |
 | `teams` | No | — | Comma-separated team/player abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
 | `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard (individual sports default to `<League> Player`). |
 | `badge` | No | `false` | Render shields-style badges instead of a full scoreboard block. |

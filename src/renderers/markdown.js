@@ -3,79 +3,18 @@
 const { LEAGUES: LEAGUE_REGISTRY } = require("../config/leagues");
 const { utcParts } = require("../clock");
 
-const SEASON_WINDOWS = {
-  nba: { start: [10, 1], end: [6, 30], nextLabel: "October" },
-  mlb: { start: [3, 20], end: [11, 10], nextLabel: "late March" },
-  nfl: { start: [9, 1], end: [2, 15], nextLabel: "September" },
-  nhl: { start: [10, 1], end: [6, 30], nextLabel: "October" },
-  mls: { start: [2, 20], end: [12, 10], nextLabel: "late February" },
-  epl: { start: [8, 10], end: [5, 25], nextLabel: "August" },
-  laliga: { start: [8, 15], end: [5, 25], nextLabel: "August" },
-  bundesliga: { start: [8, 28], end: [5, 20], nextLabel: "August" },
-  seriea: { start: [8, 22], end: [5, 25], nextLabel: "August" },
-  ligue1: { start: [8, 23], end: [5, 20], nextLabel: "August" },
-  primeiraliga: { start: [8, 9], end: [5, 20], nextLabel: "August" },
-  eredivisie: { start: [8, 7], end: [5, 20], nextLabel: "August" },
-  wnba: { start: [5, 1], end: [10, 20], nextLabel: "May" },
-  gleague: { start: [11, 1], end: [4, 15], nextLabel: "November" },
-  // Liga MX plays two tournaments a year — Apertura (Jul–Dec) and Clausura
-  // (Jan–May) — so the only real gap is the June break.
-  ligamx: { start: [7, 16], end: [5, 31], nextLabel: "July" },
-  brasileirao: { start: [1, 28], end: [12, 2], nextLabel: "January" },
-  nwsl: { start: [3, 13], end: [11, 1], nextLabel: "March" },
-  saudipro: { start: [8, 13], end: [5, 29], nextLabel: "August" },
-  j1: { start: [8, 7], end: [6, 6], nextLabel: "August" },
-  scottish: { start: [7, 31], end: [5, 16], nextLabel: "July" },
-  belgian: { start: [8, 7], end: [5, 23], nextLabel: "August" },
-  ucl: { start: [7, 1], end: [6, 30], nextLabel: "July" },
-  uel: { start: [7, 1], end: [6, 30], nextLabel: "July" },
-  ncaab: { start: [11, 1], end: [4, 15], nextLabel: "November" },
-  ncaaw: { start: [11, 1], end: [4, 15], nextLabel: "November" },
-  ncaaf: { start: [8, 24], end: [1, 20], nextLabel: "August" },
-  ncaa_hockey: { start: [10, 1], end: [4, 15], nextLabel: "October" },
-};
-
-// League logos on ESPN's free CDN. Several marks are single-colour on
-// transparent (the Premier League wordmark is dark purple, the MLS crest has a
-// white half), so each needs both variants to stay readable in either theme.
-const LEAGUE_LOGOS = {
-  nba: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nba.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png", alt: "NBA" },
-  mlb: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/mlb.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/mlb.png", alt: "MLB" },
-  nfl: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nfl.png", alt: "NFL" },
-  nhl: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nhl.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nhl.png", alt: "NHL" },
-  mls: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/19.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/19.png", alt: "MLS" },
-  epl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/23.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png", alt: "Premier League" },
-  laliga: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/15.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/15.png", alt: "La Liga" },
-  bundesliga: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/10.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/10.png", alt: "Bundesliga" },
-  seriea: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/12.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/12.png", alt: "Serie A" },
-  ligue1: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/9.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/9.png", alt: "Ligue 1" },
-  primeiraliga: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/14.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/14.png", alt: "Primeira Liga" },
-  eredivisie: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/11.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/11.png", alt: "Eredivisie" },
-  wnba: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png", alt: "WNBA" },
-  gleague: { light: "https://a.espncdn.com/i/teamlogos/leagues/500/nba_gleague.png", dark: "https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba_gleague.png", alt: "NBA G League" },
-  ligamx: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/22.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/22.png", alt: "Liga MX" },
-  brasileirao: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/85.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/85.png", alt: "Brasileirão" },
-  nwsl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png", alt: "NWSL" },
-  saudipro: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png", alt: "Saudi Pro League" },
-  j1: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2199.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2199.png", alt: "J1 League" },
-  scottish: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/45.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/45.png", alt: "Scottish Premiership" },
-  belgian: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/6.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/6.png", alt: "Belgian Pro League" },
-  ucl: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png", alt: "UEFA Champions League" },
-  uel: { light: "https://a.espncdn.com/i/leaguelogos/soccer/500/2310.png", dark: "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2310.png", alt: "UEFA Europa League" },
-  ncaab: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", alt: "NCAA Men's Basketball" },
-  ncaaw: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png", alt: "NCAA Women's Basketball" },
-  ncaaf: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-football-college.png", alt: "College Football" },
-  ncaa_hockey: { light: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png", dark: "https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-hockey.png", alt: "NCAA Men's Ice Hockey" },
-};
-
-// The registry is authoritative; these assignments preserve the renderer's
-// existing lookup shape while keeping all league metadata in one place.
+// The league registry is the single source of truth for season windows, logos
+// and renderer families. Both maps are derived from it here so no hand-written
+// second copy can drift out of sync with it.
+const SEASON_WINDOWS = {};
+const LEAGUE_LOGOS = {};
 LEAGUE_REGISTRY.forEach((entry) => {
   // The dated window (`fallback`) travels with the month/day window because the
   // status line prefers it — see seasonStatusLine.
   SEASON_WINDOWS[entry.key] = { ...entry.seasonWindow, fallback: entry.fallback?.[0] };
   LEAGUE_LOGOS[entry.key] = { ...entry.logo, alt: entry.name };
 });
+
 
 /**
  * Section heading rendered inside the marker block, so the whole section is
@@ -1029,99 +968,34 @@ function renderWta(data, title) {
   return renderTennisPlayer("wta", "WTA", data, title);
 }
 
+// Map each registry renderer family to the function that renders it. The
+// `sport` argument is the registry key (e.g. "epl"), so one renderSoccer entry
+// covers every soccer league. Labels come from the registry's `name`, not from
+// a second hand-written list that can drift out of sync.
+const RENDERER_FNS = {
+  nba: (data, sport, title, compact) => renderNba(data, sport, title, compact),
+  mlb: (data, sport, title) => renderMlb(data, title),
+  nfl: (data, sport, title, compact) => renderNfl(data, sport, title, compact),
+  nhl: (data, sport, title, compact) => renderNhl(data, sport, title, compact),
+  soccer: (data, sport, title, compact, league) => renderSoccer(data, sport, league.name, title, compact),
+  f1: (data, sport, title) => renderF1(data, title),
+  atp: (data, sport, title) => renderAtp(data, title),
+  wta: (data, sport, title) => renderWta(data, title),
+  ufc: (data, sport, title) => renderUfc(data, title),
+  nascar: (data, sport, title, compact, league) => renderDriverStanding(sport, league.name, data, title),
+  indycar: (data, sport, title, compact, league) => renderDriverStanding(sport, league.name, data, title),
+};
+
 function render(sport, data, options = {}) {
   const title = options.title;
   const compact = options.compact || false;
-  switch (sport) {
-    case "nba":
-      return renderNba(data, "nba", title, compact);
-    case "wnba":
-      return renderNba(data, "wnba", title, compact);
-    case "gleague":
-      return renderNba(data, "gleague", title, compact);
-    case "ncaab":
-      return renderNba(data, "ncaab", title, compact);
-    case "ncaaw":
-      return renderNba(data, "ncaaw", title, compact);
-    case "mlb":
-      return renderMlb(data, title);
-    case "nfl":
-      return renderNfl(data, "nfl", title, compact);
-    case "ncaaf":
-      return renderNfl(data, "ncaaf", title, compact);
-    case "nhl":
-      return renderNhl(data, "nhl", title, compact);
-    case "ncaa_hockey":
-      return renderNhl(data, "ncaa_hockey", title, compact);
-    case "mls":
-      return renderSoccer(data, "mls", "MLS", title, compact);
-    case "epl":
-      return renderSoccer(data, "epl", "Premier League", title, compact);
-    case "laliga":
-      return renderSoccer(data, "laliga", "La Liga", title, compact);
-    case "bundesliga":
-      return renderSoccer(data, "bundesliga", "Bundesliga", title, compact);
-    case "seriea":
-      return renderSoccer(data, "seriea", "Serie A", title, compact);
-    case "ligue1":
-      return renderSoccer(data, "ligue1", "Ligue 1", title, compact);
-    case "primeiraliga":
-      return renderSoccer(data, "primeiraliga", "Primeira Liga", title, compact);
-    case "eredivisie":
-      return renderSoccer(data, "eredivisie", "Eredivisie", title, compact);
-    case "ligamx":
-      return renderSoccer(data, "ligamx", "Liga MX", title, compact);
-    case "brasileirao":
-      return renderSoccer(data, "brasileirao", "Série A", title, compact);
-    case "nwsl":
-      return renderSoccer(data, "nwsl", "NWSL", title, compact);
-    case "saudipro":
-      return renderSoccer(data, "saudipro", "Saudi Pro League", title, compact);
-    case "j1":
-      return renderSoccer(data, "j1", "J1 League", title, compact);
-    case "scottish":
-      return renderSoccer(data, "scottish", "Scottish Premiership", title, compact);
-    case "belgian":
-      return renderSoccer(data, "belgian", "Belgian Pro League", title, compact);
-    case "ucl":
-      return renderSoccer(data, "ucl", "UEFA Champions League", title, compact);
-    case "uel":
-      return renderSoccer(data, "uel", "UEFA Europa League", title, compact);
-    case "worldcup":
-      return renderSoccer(data, "worldcup", "FIFA World Cup", title, compact);
-    case "ufc":
-      return renderUfc(data, title);
-    case "argentina":
-      return renderSoccer(data, "argentina", "Argentine Primera", title, compact);
-    case "aleague":
-      return renderSoccer(data, "aleague", "A-League Men", title, compact);
-    case "isl":
-      return renderSoccer(data, "isl", "Indian Super League", title, compact);
-    case "csl":
-      return renderSoccer(data, "csl", "Chinese Super League", title, compact);
-    case "greek":
-      return renderSoccer(data, "greek", "Super League", title, compact);
-    case "austria":
-      return renderSoccer(data, "austria", "Bundesliga", title, compact);
-    case "denmark":
-      return renderSoccer(data, "denmark", "Superliga", title, compact);
-    case "norway":
-      return renderSoccer(data, "norway", "Eliteserien", title, compact);
-    case "sweden":
-      return renderSoccer(data, "sweden", "Allsvenskan", title, compact);
-    case "f1":
-      return renderF1(data, title);
-    case "atp":
-      return renderAtp(data, title);
-    case "wta":
-      return renderWta(data, title);
-    case "nascar":
-      return renderDriverStanding("nascar", "NASCAR Cup Series", data, title);
-    case "indycar":
-      return renderDriverStanding("indycar", "IndyCar Series", data, title);
-    default:
-      throw new Error(`Unsupported sport: ${sport}. Available: nba, mlb, nfl, nhl, mls, epl, laliga, bundesliga, seriea, ligue1, primeiraliga, eredivisie, wnba, ligamx, brasileirao, nwsl, saudipro, j1, scottish, belgian, ucl, uel, gleague, argentina, aleague, isl, csl, greek, austria, denmark, norway, sweden, f1, atp, wta, nascar, indycar`);
+  const league = LEAGUE_REGISTRY.find((entry) => entry.key === sport);
+  if (!league || !RENDERER_FNS[league.renderer]) {
+    throw new Error(
+      `Unsupported sport: "${sport}". Available: ${LEAGUE_REGISTRY.map((entry) => entry.key).sort().join(", ")}.`
+    );
   }
+  return RENDERER_FNS[league.renderer](data, sport, title, compact, league);
 }
 
 module.exports = { render };
