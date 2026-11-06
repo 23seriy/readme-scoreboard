@@ -1298,9 +1298,9 @@ describe("Soccer renderer — Brasileirão", () => {
     expect(out).toContain("leaguelogos/soccer/500-dark/85.png");
   });
 
-  it("falls back to 'Série A' rather than showing a bare year", () => {
+  it("falls back to the league name rather than showing a bare year", () => {
     const out = render("brasileirao", data());
-    expect(out).toContain("Série A");
+    expect(out).toContain("Brasileirão");
     expect(out).not.toMatch(/\n2026\n/);
   });
 
