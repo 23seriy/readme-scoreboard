@@ -22,9 +22,9 @@ Big 12 Conference Conference
 
 **🐻 Player Spotlight: Motiejus Krivas**
 <img src="https://a.espncdn.com/i/headshots/mens-college-basketball/players/full/5174954.png" alt="Motiejus Krivas headshot" height="72" align="right" />
-8.0 PPG · 9.0 RPG · 1.0 APG
+30.0 PPG · 8.0 RPG · 1.0 APG
 
 **📅 Last Game:**
 ```
-8 PTS · 9 REB · 1 AST · 31 MIN vs UCLA Bruins (Nov 2, 2026)
+30 PTS · 8 REB · 1 AST · 23 MIN vs Cal Poly Mustangs (Nov 5, 2026)
 ```
