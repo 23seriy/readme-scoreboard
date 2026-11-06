@@ -10,7 +10,17 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.17.1] - 2026-11-06
+
 ### Fixed
+
+- **A conference standing was an alphabetical slot, not a rank.** ESPN returns each
+  division's standings ALPHABETICAL by team name, and NBA and college football read a
+  team's position in that flattened list as its conference rank. A 7-2 Lakers side was
+  therefore published as `🏅 Standing: Western · 10` when ESPN seeds it 2nd, and every
+  NBA board was off by however far its name happened to sort from its record. The
+  position now comes from ESPN's own `playoffSeed`, and a table with no games played
+  reports no position rather than a fabricated one.
 
 - **A season that has barely started shows last season's games, not "No recent
  games found".** In
@@ -895,7 +905,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.0...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.1...HEAD
+[1.17.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.0...v1.17.1
 [1.17.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.16.0...v1.17.0
 [1.16.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.2...v1.16.0
 [1.15.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.1...v1.15.2
