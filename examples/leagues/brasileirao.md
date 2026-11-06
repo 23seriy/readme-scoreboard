@@ -14,18 +14,18 @@ Brasileirão
 
 🏅 Standing (2026): Brasileirão · 6
 
-📅 Next: @ CRU (Nov 6)
+📅 Next: @ GRE (Nov 19)
 
-📊 2026 Record: 14W - 8L - 11D  (53 pts)
-   ██████████████▊░░░░░░░░░░
+📊 2026 Record: 14W - 9L - 11D  (53 pts)
+   ██████████████▎░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-3 @ CRU   (Nov 5, 2026)
 ✅ W 3-2 vs SAO   (Oct 28, 2026)
 🟡 D 1-1 @ SAN   (Oct 24, 2026)
 ❌ L 0-3 vs FLA   (Oct 18, 2026)
 ✅ W 1-0 vs MIR   (Oct 11, 2026)
-❌ L 0-1 @ PAL   (Oct 8, 2026)
 ```
 
 ## Custom title
@@ -42,18 +42,18 @@ Brasileirão
 
 🏅 Standing (2026): Brasileirão · 6
 
-📅 Next: @ CRU (Nov 6)
+📅 Next: @ GRE (Nov 19)
 
-📊 2026 Record: 14W - 8L - 11D  (53 pts)
-   ██████████████▊░░░░░░░░░░
+📊 2026 Record: 14W - 9L - 11D  (53 pts)
+   ██████████████▎░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-3 @ CRU   (Nov 5, 2026)
 ✅ W 3-2 vs SAO   (Oct 28, 2026)
 🟡 D 1-1 @ SAN   (Oct 24, 2026)
 ❌ L 0-3 vs FLA   (Oct 18, 2026)
 ✅ W 1-0 vs MIR   (Oct 11, 2026)
-❌ L 0-1 @ PAL   (Oct 8, 2026)
 ```
 
 ## Compact mode
@@ -69,10 +69,10 @@ Brasileirão
 
 🏅 Standing (2026): Brasileirão · 6
 
-📅 Next: @ CRU (Nov 6)
+📅 Next: @ GRE (Nov 19)
 
-📊 2026 Record: 14W - 8L - 11D  (53 pts)
-   ██████████████▊░░░░░░░░░░
+📊 2026 Record: 14W - 9L - 11D  (53 pts)
+   ██████████████▎░░░░░░░░░░
 
 
 
