@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-11-05T13:28:18.014Z",
+  "generatedAt": "2026-11-06T13:12:16.127Z",
   "teams": [
     {
       "league": "nba",
@@ -9462,7 +9462,7 @@
     {
       "league": "ncaaf",
       "leagueName": "College Football",
-      "abbreviation": "AND",
+      "abbreviation": "ANDR",
       "name": "Andrew Fighting Tigers",
       "id": "134002"
     },
@@ -10226,7 +10226,7 @@
       "league": "ncaaf",
       "leagueName": "College Football",
       "abbreviation": "CMS",
-      "name": "Claremont Mudd Scripps Stags/Athenas",
+      "name": "Claremont Mudd Scripps Stags",
       "id": "17"
     },
     {
@@ -12206,8 +12206,8 @@
     {
       "league": "ncaaf",
       "leagueName": "College Football",
-      "abbreviation": "MON",
-      "name": "Monroe Mustangs",
+      "abbreviation": "MONR",
+      "name": "Monroe (NY) Mustangs",
       "id": "134001"
     },
     {
@@ -12480,7 +12480,7 @@
       "league": "ncaaf",
       "leagueName": "College Football",
       "abbreviation": "NCC",
-      "name": "North Central College Cardinals",
+      "name": "North Central (IL) Cardinals",
       "id": "3071"
     },
     {
@@ -14258,7 +14258,7 @@
       "league": "ncaaf",
       "leagueName": "College Football",
       "abbreviation": "WTAM",
-      "name": "West Texas Buffaloes",
+      "name": "West Texas A&M Buffaloes",
       "id": "2704"
     },
     {
@@ -14355,8 +14355,8 @@
     {
       "league": "ncaaf",
       "leagueName": "College Football",
-      "abbreviation": "WES",
-      "name": "Westgate Christian University Ravens",
+      "abbreviation": "WGCU",
+      "name": "Westgate Christian Ravens",
       "id": "134087"
     },
     {

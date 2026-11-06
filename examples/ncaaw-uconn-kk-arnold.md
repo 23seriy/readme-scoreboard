@@ -26,5 +26,5 @@ Big East Conference Conference
 
 **📅 Last Game:**
 ```
-11 PTS · 3 REB · 2 AST · 22 MIN vs Cornell Big Red (Nov 2, 2026)
+7 PTS · 3 REB · 4 AST · 31 MIN vs Michigan Wolverines (Nov 5, 2026)
 ```
