@@ -1537,7 +1537,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Alabama State Hornets | `ALST` | 2011 |
 | Alvernia Golden Wolves | `ALVR` | 111674 |
 | Amherst Mammoths | `AMH` | 7 |
-| Andrew Fighting Tigers | `AND` | 134002 |
+| Andrew Fighting Tigers | `ANDR` | 134002 |
 | Anderson (IN) Ravens | `ANIN` | 2023 |
 | Anderson (SC) Trojans | `ANSC` | 129469 |
 | App State Mountaineers | `APP` | 2026 |
@@ -1638,7 +1638,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Cal Lutheran Kingsmen | `CLU` | 2094 |
 | Cumberlands Indians | `CMBS` | 511 |
 | Colorado School of Mines Orediggers | `CMIN` | 2146 |
-| Claremont Mudd Scripps Stags/Athenas | `CMS` | 17 |
+| Claremont Mudd Scripps Stags | `CMS` | 17 |
 | Central Michigan Chippewas | `CMU` | 2117 |
 | Carson Newman Eagles | `CN` | 2105 |
 | Cornell (IA) Rams | `CNIA` | 2155 |
@@ -1908,8 +1908,8 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Minnesota Morris Cougars | `MNMO` | 2399 |
 | Minnesota State Mavericks | `MNST` | 2364 |
 | Missouri Baptist Spartans | `MOBU` | 2880 |
-| Monroe Mustangs | `MON` | 134001 |
 | Monmouth Hawks | `MONM` | 2405 |
+| Monroe (NY) Mustangs | `MONR` | 134001 |
 | Montana Grizzlies | `MONT` | 149 |
 | Moravian Greyhounds | `MOR` | 323 |
 | Morehead State Eagles | `MORE` | 2413 |
@@ -1944,7 +1944,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Navy Midshipmen | `NAVY` | 2426 |
 | Newberry Wolves | `NBRY` | 2444 |
 | North Carolina A&T Aggies | `NCAT` | 2448 |
-| North Central College Cardinals | `NCC` | 3071 |
+| North Central (IL) Cardinals | `NCC` | 3071 |
 | North Carolina Central Eagles | `NCCU` | 2428 |
 | NC State Wolfpack | `NCSU` | 152 |
 | North Carolina Wesleyan Battling Bishops | `NCW` | 286 |
@@ -2226,9 +2226,9 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Western Connecticut State Wolves | `WCSU` | 2843 |
 | Western Carolina Catamounts | `WCU` | 2717 |
 | Weber State Wildcats | `WEB` | 2692 |
-| Westgate Christian University Ravens | `WES` | 134087 |
 | Westfield State Owls | `WFST` | 2909 |
 | West Georgia Wolves | `WGA` | 2698 |
+| Westgate Christian Ravens | `WGCU` | 134087 |
 | Whitworth Pirates | `WHIW` | 2721 |
 | Wheeling Cardinals | `WHLG` | 112335 |
 | Whittier Poets | `WHTR` | 2850 |
@@ -2267,7 +2267,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Wayne State (NE) Wildcats | `WSNE` | 2844 |
 | Winston-Salem State Rams | `WSSU` | 2736 |
 | Washington State Cougars | `WSU` | 265 |
-| West Texas Buffaloes | `WTAM` | 2704 |
+| West Texas A&M Buffaloes | `WTAM` | 2704 |
 | Wartburg Knights | `WTBG` | 2685 |
 | Washington St. Louis Bears | `WUMO` | 143 |
 | West Virginia State Yellow Jackets | `WVSU` | 2707 |

@@ -8,16 +8,16 @@ Eastern Conference · Metropolitan Division
 
 🏅 Standing (2026-27): Metropolitan · 3
 
-📅 Next: vs PHI (Nov 6)
+📅 Next: @ SEA (Nov 7)
 
-📊 2025-2026 Record: 8W - 8L (50.0%)
-   ████████████▌░░░░░░░░░░░░
+📊 2025-2026 Record: 9W - 8L (52.9%)
+   █████████████▏░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W   3-2   vs PHI (Nov 5, 2026)
 ✅ W   3-1   vs STL (Nov 3, 2026)
 ❌ L   1-4   vs EDM (Nov 1, 2026)
 ❌ L   3-6   vs LAK (Oct 26, 2026)
 ❌ L   4-7   @ OTT (Oct 24, 2026)
-❌ L   4-5   @ TOR (Oct 22, 2026)
 ```
