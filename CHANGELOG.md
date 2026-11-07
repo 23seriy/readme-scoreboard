@@ -12,6 +12,11 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **The player headshot no longer floats beside the wrong section.** The spotlight emitted the
+  heading first and the right-floated headshot after it with no separating blank line, so GitHub put
+  the float on the heading's second wrapped line — the photo rendered next to the stats (or the next
+  section) rather than beside the player's name. The headshot is now emitted first, followed by a
+  blank line, mirroring the team logo so the float anchors to the spotlight heading.
 - **The win-rate bar no longer merges into the record line.** The bar was pushed as its own line
   with a single newline before it, which Markdown reads as a soft break — GitHub folded
   `📊 … (77.8%)` and `█████…` into one wrapped paragraph. The record and bar now share a line

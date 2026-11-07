@@ -159,11 +159,17 @@ function extraTeamLines(data) {
  * back to the plain bold text so nothing changes for those leagues.
  */
 function pushSpotlightHeading(lines, emoji, spotlight) {
-  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+  // Emit the headshot FIRST, followed by a blank line, exactly like the team
+  // logo beside the team heading. Emitting it after the heading put the float
+  // on the heading's second wrapped line, so the photo sat beside the stats
+  // (or the next section) instead of beside the name it belongs to.
   pushSpotlightHeadshot(lines, spotlight);
+  if (spotlight.headshotUrl) lines.push("");
+  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
 }
 
-// The image is emitted on its own line directly after the heading. It is
+// The image is emitted on its own line, separated from the heading it
+// accompanies by a blank line so the float anchors to the heading. It is
 // deliberately not emitted in compact mode (compactMarkdown strips every
 // `<img>` line anyway), so compact boards stay text-only.
 //
@@ -370,8 +376,9 @@ function renderNflSpotlight(lines, spotlight, emoji, compact) {
     }
     return;
   }
-  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
   pushSpotlightHeadshot(lines, spotlight);
+  if (spotlight.headshotUrl) lines.push("");
+  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
   if (position === "QB") {
     lines.push(`${stat(season.passingYards)} PASS YDS · ${stat(season.passingTouchdowns)} PASS TD · ${stat(season.rushingYards)} RUSH YDS`);
   } else if (position === "RB") {

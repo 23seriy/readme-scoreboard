@@ -19,8 +19,9 @@ Big East Conference Conference
 ✅ W  90-52  vs UTSA (Mar 21, 2026)
 ```
 
-**🏀 Player Spotlight: KK Arnold**
 <img src="https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174491.png" alt="KK Arnold headshot" height="72" align="right" />
+
+**🏀 Player Spotlight: KK Arnold**
 11.0 PPG · 3.0 RPG · 2.0 APG
 
 **📅 Last Game:**

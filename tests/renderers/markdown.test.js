@@ -417,6 +417,23 @@ describe("renderNba — player spotlight", () => {
     expect(output).toContain("26 PTS · 4 REB · 7 AST · 34 MIN vs Minnesota Timberwolves (Sep 4, 2026)");
   });
 
+  it("anchors the headshot to the heading, not the stats below it", () => {
+    // The headshot used to follow the heading with no blank line, which put
+    // the float on the heading's second wrapped line — the photo rendered
+    // beside the stats (or the next section) instead of beside the name.
+    // Emitting it first, separated by a blank line, mirrors the team logo.
+    const output = render("nba", {
+      ...BASE_NBA_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/headshot.png" },
+    });
+    const headshotIdx = output.indexOf("<img");
+    const headingIdx = output.indexOf("**👑 Player Spotlight: Luka Doncic**");
+    expect(headshotIdx).toBeGreaterThan(-1);
+    expect(headshotIdx).toBeLessThan(headingIdx);
+    expect(output).toContain('<img src="https://a.espncdn.com/headshot.png" alt="Luka Doncic headshot" height="72" align="right" />\n\n**👑 Player Spotlight: Luka Doncic**');
+  });
+
   it("renders a late-night game's date on the actual game day, not the UTC day", () => {
     // ESPN reports the game as a UTC instant. A game tipped at 9:30pm ET on
     // Apr 2 is timestamped 2026-04-03T01:30Z — rendering it in UTC would show

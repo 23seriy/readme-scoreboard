@@ -21,8 +21,9 @@
 ❌ L 0-3 @ BHA   (Sep 19, 2026)
 ```
 
-**🔴 Player Spotlight: Bukayo Saka**
 <img src="https://a.espncdn.com/i/headshots/soccer/players/full/280555.png" alt="Bukayo Saka headshot" height="72" align="right" />
+
+**🔴 Player Spotlight: Bukayo Saka**
 7 APP · 3 G · 0 A
 
 **📅 Last Game:**

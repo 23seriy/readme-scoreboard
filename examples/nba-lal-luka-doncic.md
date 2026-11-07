@@ -21,8 +21,9 @@ Western Conference · Pacific Division
 ✅ W 103-87  @ LAC (Oct 28, 2026)
 ```
 
-**👑 Player Spotlight: Luka Doncic**
 <img src="https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" alt="Luka Doncic headshot" height="72" align="right" />
+
+**👑 Player Spotlight: Luka Doncic**
 38.5 PPG · 8.1 RPG · 8.0 APG
 
 **📅 Last Game:**

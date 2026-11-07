@@ -19,8 +19,9 @@ American League · AL East
 ❌ L  2-4  @ BAL (Sep 23, 2026)
 ```
 
-**🐦 Player Spotlight: Vladimir Guerrero Jr.**
 <img src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/665489/headshot/67/current" alt="Vladimir Guerrero Jr. headshot" height="72" align="right" />
+
+**🐦 Player Spotlight: Vladimir Guerrero Jr.**
 .260 AVG · 9 HR · 57 RBI
 
 **📅 Last Game:**

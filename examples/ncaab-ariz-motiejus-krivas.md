@@ -19,8 +19,9 @@ Big 12 Conference Conference
 ✅ W  73-57  vs ISU (Mar 2, 2026)
 ```
 
-**🐻 Player Spotlight: Motiejus Krivas**
 <img src="https://a.espncdn.com/i/headshots/mens-college-basketball/players/full/5174954.png" alt="Motiejus Krivas headshot" height="72" align="right" />
+
+**🐻 Player Spotlight: Motiejus Krivas**
 30.0 PPG · 8.0 RPG · 1.0 APG
 
 **📅 Last Game:**

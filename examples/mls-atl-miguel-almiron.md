@@ -21,8 +21,9 @@ Eastern Conference
 ✅ W 3-0 @ MTL   (Oct 14, 2026)
 ```
 
-**🦅 Player Spotlight: Miguel Almirón**
 <img src="https://a.espncdn.com/i/headshots/soccer/players/full/48128.png" alt="Miguel Almirón headshot" height="72" align="right" />
+
+**🦅 Player Spotlight: Miguel Almirón**
 26 APP · 7 G · 7 A
 
 **📅 Last Game:**
