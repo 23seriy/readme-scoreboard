@@ -290,6 +290,21 @@ recent-games list — handy for a tighter profile:
           compact: true
 ```
 
+### How many recent games to list
+
+Boards list the five most recent results by default. Set `recent_games` from `1`
+to `5` to show fewer — five is the ceiling because that is how many results the
+data feeds return:
+
+```yaml
+      - uses: 23seriy/readme-scoreboard@v1
+        with:
+          gh_token: ${{ secrets.GH_TOKEN }}
+          sport: nba
+          team: LAL
+          recent_games: 3
+```
+
 ### Multiple teams in one run
 
 Set `teams:` to a comma-separated list to render several boards from a single
@@ -676,6 +691,7 @@ files you may need to refresh.
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
 | `dry_run` | No | `false` | Fetch and render live data without updating a README. Accepts `true`/`false` (also `1`/`0` or `yes`/`no`) |
 | `compact` | No | `false` | Use a smaller block without team logos or recent-game details. Accepts `true`/`false` |
+| `recent_games` | No | `5` | How many recent games to list, from `1` to `5`. Adapters fetch five results, so `5` is the ceiling |
 
 Inputs are validated before any API request or README update. If a team abbreviation
 is not recognized, the action reports several valid abbreviations for that league;

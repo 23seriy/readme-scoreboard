@@ -12,6 +12,17 @@ describe("input validation", () => {
     expect(() => validateInputs({ ...base, targetRepo: "owner/repository" })).not.toThrow();
   });
 
+  it("accepts an http(s) heading link and rejects anything else", () => {
+    expect(() => validateInputs({ ...base, link: "https://example.com/team" })).not.toThrow();
+    expect(() => validateInputs({ ...base, link: "http://example.com" })).not.toThrow();
+    // Omitted or empty keeps the league default, so it must not be rejected.
+    expect(() => validateInputs({ ...base, link: "" })).not.toThrow();
+    expect(() => validateInputs({ ...base, link: undefined })).not.toThrow();
+    // A bare host or a javascript: URL would render as a broken link.
+    expect(() => validateInputs({ ...base, link: "example.com" })).toThrow(/must be an http\(s\) URL/);
+    expect(() => validateInputs({ ...base, link: "javascript:alert(1)" })).toThrow(/must be an http\(s\) URL/);
+  });
+
   it("rejects unsupported sports before loading data", () => {
     expect(() => validateInputs({ ...base, sport: "cricket" })).toThrow(/Unsupported sport/);
   });

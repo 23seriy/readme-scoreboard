@@ -9,9 +9,13 @@ function teamLabel(adapter, abbreviation, isDemo) {
   return entry && typeof entry === "object" ? entry.full_name || entry.name : null;
 }
 
-function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adapter, supportedSports, player, teamsCount = 1 }) {
+function validateInputs({ sport, team, entity = "team", isDemo, targetRepo, adapter, supportedSports, player, teamsCount = 1, link }) {
   if (!supportedSports.includes(sport)) {
     throw new Error(`Unsupported sport: "${sport}". Available adapters: ${supportedSports.join(", ")}`);
+  }
+
+  if (link && !/^https?:\/\/[^\s]+$/i.test(String(link).trim())) {
+    throw new Error(`link: must be an http(s) URL; received "${link}"`);
   }
 
   if (player) {

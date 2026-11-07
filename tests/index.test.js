@@ -109,10 +109,41 @@ describe("multi-team, badge, and title helpers", () => {
 
   it("builds shields-style badges for each team", () => {
     const { buildBadge } = require("../src/index");
-    const blocks = ["### 👑 Los Angeles Lakers (LAL)", "### ☘️ Boston Celtics (BOS)"];
-    const output = buildBadge("nba", ["LAL", "BOS"], blocks);
+    const output = buildBadge("nba", ["LAL", "BOS"]);
     expect(output).toContain('https://img.shields.io/badge/NBA-LAL-orange?style=flat');
     expect(output).toContain('https://img.shields.io/badge/NBA-BOS-orange?style=flat');
     expect(output).toContain('<p align="center">');
+  });
+
+  it("badges abbreviations longer than three letters", () => {
+    // Badges used to be scraped out of the rendered markdown with
+    // /\(([A-Z]{2,3})\)/, so any longer abbreviation silently fell back to the
+    // raw input. A third of the directory's abbreviations are longer.
+    const { buildBadge } = require("../src/index");
+    const output = buildBadge("greek", ["PAOK"]);
+    expect(output).toContain("badge/GREEK-PAOK-orange");
+  });
+
+  it("parses the recent_games count and rejects values the feed cannot supply", () => {
+    const { parseRecentGames } = require("../src/index");
+    expect(parseRecentGames(undefined)).toBe(5);
+    expect(parseRecentGames("")).toBe(5);
+    expect(parseRecentGames("3")).toBe(3);
+    expect(parseRecentGames("5")).toBe(5);
+    expect(() => parseRecentGames("0")).toThrow(/1 to 5/);
+    expect(() => parseRecentGames("6")).toThrow(/1 to 5/);
+    expect(() => parseRecentGames("two")).toThrow(/1 to 5/);
+    expect(() => parseRecentGames("2.5")).toThrow(/whole number/);
+  });
+
+  it("trims the recent-games list to the requested count", () => {
+    const { trimRecentGames } = require("../src/index");
+    const games = [1, 2, 3, 4, 5];
+    expect(trimRecentGames(games, 3)).toEqual([1, 2, 3]);
+    expect(trimRecentGames(games, 5)).toEqual(games);
+    // A league with fewer results than requested keeps all of them.
+    expect(trimRecentGames([1, 2], 5)).toEqual([1, 2]);
+    // F1/tennis boards carry no game list at all; it must pass through intact.
+    expect(trimRecentGames(undefined, 3)).toBeUndefined();
   });
 });

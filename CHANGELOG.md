@@ -12,12 +12,18 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Added
 
+- **A `recent_games` input to control how many results a board lists.** Set it from `1` to `5`;
+  the default stays `5`, which is what every adapter fetches. Useful for a tighter profile.
 - **A `link` input to point the board heading at your own page.** The heading used to link to the
   league's raw ESPN API endpoint (a JSON URL). `link:` overrides that with any URL; leaving it
   unset keeps the existing behaviour.
 
 ### Fixed
 
+- **Badge mode used the wrong abbreviation for longer team codes.** Badges scraped the code out of
+  the rendered markdown with `/([A-Z]{2,3})/`, so every abbreviation longer than three letters —
+  about a third of the directory, e.g. `PAOK`, `FC GOA`, `VALLEY`, `ASTM` — silently fell back to the
+  raw input. Badges are now built from the abbreviation the adapter resolved.
 - **The player headshot no longer floats beside the wrong section.** The spotlight emitted the
   heading first and the right-floated headshot after it with no separating blank line, so GitHub put
   the float on the heading's second wrapped line — the photo rendered next to the stats (or the next
