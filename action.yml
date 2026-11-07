@@ -68,7 +68,7 @@ runs:
   steps:
     - uses: actions/setup-node@v7
       with:
-        node-version: "24"
+        node-version: "26"
     - run: npm ci --omit=dev --ignore-scripts
       shell: bash
       working-directory: ${{ github.action_path }}
