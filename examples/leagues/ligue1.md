@@ -16,8 +16,7 @@ French Ligue 1 2026-27
 
 📅 Next: vs NICE (Nov 8)
 
-📊 2026 Record: 2W - 5L - 2D  (8 pts)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 5L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ French Ligue 1 2026-27
 
 📅 Next: vs NICE (Nov 8)
 
-📊 2026 Record: 2W - 5L - 2D  (8 pts)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 5L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ French Ligue 1 2026-27
 
 📅 Next: vs NICE (Nov 8)
 
-📊 2026 Record: 2W - 5L - 2D  (8 pts)
-   ████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 5L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 
 

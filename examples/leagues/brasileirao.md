@@ -16,8 +16,7 @@ Brasileirão
 
 📅 Next: @ GRE (Nov 19)
 
-📊 2026 Record: 14W - 9L - 11D  (53 pts)
-   ██████████████▎░░░░░░░░░░
+📊 2026 Record: 14W - 9L - 11D  (53 pts)<br>&nbsp;&nbsp;&nbsp;██████████████▎░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ Brasileirão
 
 📅 Next: @ GRE (Nov 19)
 
-📊 2026 Record: 14W - 9L - 11D  (53 pts)
-   ██████████████▎░░░░░░░░░░
+📊 2026 Record: 14W - 9L - 11D  (53 pts)<br>&nbsp;&nbsp;&nbsp;██████████████▎░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ Brasileirão
 
 📅 Next: @ GRE (Nov 19)
 
-📊 2026 Record: 14W - 9L - 11D  (53 pts)
-   ██████████████▎░░░░░░░░░░
+📊 2026 Record: 14W - 9L - 11D  (53 pts)<br>&nbsp;&nbsp;&nbsp;██████████████▎░░░░░░░░░░
 
 
 

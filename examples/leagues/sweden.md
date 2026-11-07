@@ -16,8 +16,7 @@ Team: **AIK** · Category: Soccer · Data source: ESPN public API
 
 📅 Next: vs BKH (Nov 8)
 
-📊 2026 Record: 10W - 9L - 8D  (38 pts)
-   ████████████▉░░░░░░░░░░░░
+📊 2026 Record: 10W - 9L - 8D  (38 pts)<br>&nbsp;&nbsp;&nbsp;████████████▉░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ The `title:` input replaces the default heading.
 
 📅 Next: vs BKH (Nov 8)
 
-📊 2026 Record: 10W - 9L - 8D  (38 pts)
-   ████████████▉░░░░░░░░░░░░
+📊 2026 Record: 10W - 9L - 8D  (38 pts)<br>&nbsp;&nbsp;&nbsp;████████████▉░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 📅 Next: vs BKH (Nov 8)
 
-📊 2026 Record: 10W - 9L - 8D  (38 pts)
-   ████████████▉░░░░░░░░░░░░
+📊 2026 Record: 10W - 9L - 8D  (38 pts)<br>&nbsp;&nbsp;&nbsp;████████████▉░░░░░░░░░░░░
 
 
 

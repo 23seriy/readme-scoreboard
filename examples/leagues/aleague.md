@@ -16,8 +16,7 @@ Team: **ADL** · Category: Soccer · Data source: ESPN public API
 
 📅 Next: vs MBV (Nov 8)
 
-📊 2026 Record: 0W - 2L - 0D  (0 pts)
-   ░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 2L - 0D  (0 pts)<br>&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -41,8 +40,7 @@ The `title:` input replaces the default heading.
 
 📅 Next: vs MBV (Nov 8)
 
-📊 2026 Record: 0W - 2L - 0D  (0 pts)
-   ░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 2L - 0D  (0 pts)<br>&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -65,8 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 📅 Next: vs MBV (Nov 8)
 
-📊 2026 Record: 0W - 2L - 0D  (0 pts)
-   ░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 2L - 0D  (0 pts)<br>&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░
 
 
 

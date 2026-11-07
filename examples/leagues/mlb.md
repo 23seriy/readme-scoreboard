@@ -14,8 +14,7 @@ American League · AL West
 
 🏅 Standing: AL West · 4
 
-📊 2026 Record: 64W - 98L (39.5%)
-   █████████▉░░░░░░░░░░░░░░░
+📊 2026 Record: 64W - 98L (39.5%)<br>&nbsp;&nbsp;&nbsp;█████████▉░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -40,8 +39,7 @@ American League · AL West
 
 🏅 Standing: AL West · 4
 
-📊 2026 Record: 64W - 98L (39.5%)
-   █████████▉░░░░░░░░░░░░░░░
+📊 2026 Record: 64W - 98L (39.5%)<br>&nbsp;&nbsp;&nbsp;█████████▉░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -65,8 +63,7 @@ American League · AL West
 
 🏅 Standing: AL West · 4
 
-📊 2026 Record: 64W - 98L (39.5%)
-   █████████▉░░░░░░░░░░░░░░░
+📊 2026 Record: 64W - 98L (39.5%)<br>&nbsp;&nbsp;&nbsp;█████████▉░░░░░░░░░░░░░░░
 
 
 

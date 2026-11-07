@@ -16,8 +16,7 @@ Pro League
 
 📅 Next: @ BRU (Nov 8)
 
-📊 2026 Record: 6W - 3L - 1D  (19 pts)
-   ████████████████▎░░░░░░░░
+📊 2026 Record: 6W - 3L - 1D  (19 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▎░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ Pro League
 
 📅 Next: @ BRU (Nov 8)
 
-📊 2026 Record: 6W - 3L - 1D  (19 pts)
-   ████████████████▎░░░░░░░░
+📊 2026 Record: 6W - 3L - 1D  (19 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▎░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ Pro League
 
 📅 Next: @ BRU (Nov 8)
 
-📊 2026 Record: 6W - 3L - 1D  (19 pts)
-   ████████████████▎░░░░░░░░
+📊 2026 Record: 6W - 3L - 1D  (19 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▎░░░░░░░░
 
 
 

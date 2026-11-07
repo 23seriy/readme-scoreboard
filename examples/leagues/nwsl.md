@@ -14,8 +14,7 @@ NWSL Regular Season
 
 🏅 Standing (2026): NWSL Regular Season · 14
 
-📊 2026 Record: 7W - 16L - 6D  (27 pts)
-   ████████▌░░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 17L - 6D  (27 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -40,8 +39,7 @@ NWSL Regular Season
 
 🏅 Standing (2026): NWSL Regular Season · 14
 
-📊 2026 Record: 7W - 16L - 6D  (27 pts)
-   ████████▌░░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 17L - 6D  (27 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -65,8 +63,7 @@ NWSL Regular Season
 
 🏅 Standing (2026): NWSL Regular Season · 14
 
-📊 2026 Record: 7W - 16L - 6D  (27 pts)
-   ████████▌░░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 17L - 6D  (27 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 
 

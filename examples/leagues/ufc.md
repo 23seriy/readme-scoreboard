@@ -12,8 +12,7 @@ Player: **STR** · Category: MMA · Data source: ESPN public API
 Middleweight
 🟢 Season in progress
 
-🥊 Career record: 31W - 7L
-   ████████████████████▍░░░░
+🥊 Career record: 31W - 7L<br>&nbsp;&nbsp;&nbsp;████████████████████▍░░░░
 
 📅 No fight announced
 
@@ -38,8 +37,7 @@ The `title:` input replaces the default heading.
 Middleweight
 🟢 Season in progress
 
-🥊 Career record: 31W - 7L
-   ████████████████████▍░░░░
+🥊 Career record: 31W - 7L<br>&nbsp;&nbsp;&nbsp;████████████████████▍░░░░
 
 📅 No fight announced
 
@@ -63,8 +61,7 @@ The `compact: true` input drops the logo and recent-game details.
 Middleweight
 🟢 Season in progress
 
-🥊 Career record: 31W - 7L
-   ████████████████████▍░░░░
+🥊 Career record: 31W - 7L<br>&nbsp;&nbsp;&nbsp;████████████████████▍░░░░
 
 📅 No fight announced
 
