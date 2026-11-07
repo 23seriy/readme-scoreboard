@@ -19,6 +19,7 @@ const {
   TITLE: title,
   BADGE: badgeMode,
   PLAYER: playerName,
+  LINK: linkInput,
 } = process.env;
 
 const isDemo = process.argv.includes("--demo");
@@ -148,7 +149,7 @@ async function main() {
     const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
     const teamLogoUrl = adapter.getLogoUrl(data.team.abbreviation);
     const logoUrl = teamLogoUrl || LEAGUE_BY_KEY[sportName]?.logo?.light || "";
-    const renderData = { ...data, emoji, logoUrl };
+    const renderData = { ...data, emoji, logoUrl, link: linkInput };
 
     const rendered = render(sportName, renderData, { title, compact: isCompact });
     blocks.push((isCompact ? compactMarkdown(rendered) : rendered).trimEnd());

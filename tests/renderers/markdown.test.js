@@ -355,6 +355,17 @@ describe("renderNba / formatGameResult", () => {
     expect(output).toContain("✅");
   });
 
+  it("links the heading to a caller-supplied URL instead of the ESPN endpoint", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], link: "https://example.com/lakers" });
+    expect(output).toContain("](https://example.com/lakers)");
+    expect(output).not.toContain("site.api.espn.com");
+  });
+
+  it("links the heading to the league endpoint by default", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    expect(output).toContain("](https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams)");
+  });
+
   it("shows season as start-end using ESPN end-year convention (season=2025 → 2024-2025)", () => {
     const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
     expect(output).toContain("2024-2025");

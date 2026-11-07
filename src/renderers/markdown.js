@@ -22,12 +22,15 @@ LEAGUE_REGISTRY.forEach((entry) => {
  * means it survives every run — a heading written above them would be outside
  * the tool's reach, and one written inside by hand would be overwritten.
  */
-function headingLines(sport, title) {
+function headingLines(sport, title, link) {
   const logo = LEAGUE_LOGOS[sport];
   if (!logo) return [];
   const mark = `<picture><source media="(prefers-color-scheme: dark)" srcset="${logo.dark}"><img src="${logo.light}" alt="${logo.alt}" height="28" align="top"></picture> `;
   const league = LEAGUE_REGISTRY.find((entry) => entry.key === sport);
-  const endpoint = league?.endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]
+  // An explicit `link` wins over the league's default endpoint, so a user can
+  // point the heading at their own page instead of the raw ESPN API URL.
+  const endpoint = link
+    || league?.endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]
     || (league?.endpoint ? `https://site.api.espn.com/apis/site/v2/sports/${league.endpoint}/teams` : null);
   // Individual sports (tennis, F1) track players rather than teams, so the
   // default heading reads "Player" instead of "Team". A league may name the
@@ -280,7 +283,7 @@ function formatGameResult(game, teamId, sport) {
 function renderNba(data, sport = "nba", title, compact = false) {
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -468,7 +471,7 @@ function renderMlb(data, title) {
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
-  lines.push(...headingLines("mlb", title));
+  lines.push(...headingLines("mlb", title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -586,7 +589,7 @@ function renderNfl(data, sport = "nfl", title, compact = false) {
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -640,7 +643,7 @@ function renderNhl(data, sport = "nhl", title, compact = false) {
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -699,7 +702,7 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title, compact
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -784,7 +787,7 @@ function renderF1(data, title) {
   const { team, record, emoji, logoUrl, standing } = data;
   const lines = [];
 
-  lines.push(...headingLines("f1", title));
+  lines.push(...headingLines("f1", title, data.link));
   if (logoUrl) {
     lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
     lines.push("");
@@ -815,7 +818,7 @@ function renderDriverStanding(sport, label, data, title) {
   const { team, record, emoji, standing } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${label} · Driver Championship`);
   lines.push(seasonStatusLine(sport));
@@ -841,7 +844,7 @@ function renderUfc(data, title) {
   const { team, record, emoji, logoUrl, recentGames, nextGame } = data;
   const lines = [];
 
-  lines.push(...headingLines("ufc", title));
+  lines.push(...headingLines("ufc", title, data.link));
   if (logoUrl) {
     lines.push(`<img src="${logoUrl}" alt="UFC logo" width="72" align="right" />`);
     lines.push("");
@@ -902,7 +905,7 @@ function renderTennisPlayer(sport, tourLabel, data, title) {
   const { team, emoji, logoUrl, standing, previousRank, trend, lastMatch } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   if (logoUrl) {
     lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
     lines.push("");

@@ -10,6 +10,12 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Added
+
+- **A `link` input to point the board heading at your own page.** The heading used to link to the
+  league's raw ESPN API endpoint (a JSON URL). `link:` overrides that with any URL; leaving it
+  unset keeps the existing behaviour.
+
 ### Fixed
 
 - **The player headshot no longer floats beside the wrong section.** The spotlight emitted the
