@@ -239,6 +239,32 @@ describe("renderMlb / formatMlbGameResult", () => {
     expect(output).not.toContain("🔥 Form:");
   });
 
+  it("leaves the year off a next fixture that falls in the current year", () => {
+    // Derived from today rather than hardcoded: a fixed date would start
+    // asserting the other branch once that year passed.
+    const year = new Date().getUTCFullYear();
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      nextGame: { date: `${year}-06-15T16:00:00Z`, opponent: "NYY", isHome: true },
+    });
+    expect(output).toContain("📅 Next: vs NYY (Jun 15)");
+    expect(output).not.toContain(`Jun 15, ${year}`);
+  });
+
+  it("adds the year when the next fixture falls in another year", () => {
+    // A December board announcing "vs POR (Jan 2)" reads as a past game. Only
+    // the crossing case gets the year, so boards outside that window are
+    // unchanged (and the committed examples stay byte-identical).
+    const year = new Date().getUTCFullYear() + 1;
+    const output = render("mlb", {
+      ...BASE_MLB_DATA,
+      recentGames: [],
+      nextGame: { date: `${year}-01-05T16:00:00Z`, opponent: "POR", isHome: true },
+    });
+    expect(output).toContain(`📅 Next: vs POR (Jan 5, ${year})`);
+  });
+
   it("renders a Formula 1 constructor board with championship position and points", () => {
     const data = {
       team: { abbreviation: "LP", name: "Mercedes", full_name: "Mercedes", conference: "Formula 1", division: "" },

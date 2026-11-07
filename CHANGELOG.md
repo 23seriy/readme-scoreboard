@@ -20,6 +20,10 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **A next fixture across the new year now shows its year.** A December board announcing
+  `📅 Next: vs POR (Jan 2)` read as a game that had already been played. The year is added only
+  when the fixture falls outside the current year, so boards in the ordinary case are unchanged.
+  The MLS showcase was the live example: its next match is `Feb 21, 2027`.
 - **Badge mode used the wrong abbreviation for longer team codes.** Badges scraped the code out of
   the rendered markdown with `/([A-Z]{2,3})/`, so every abbreviation longer than three letters —
   about a third of the directory, e.g. `PAOK`, `FC GOA`, `VALLEY`, `ASTM` — silently fell back to the

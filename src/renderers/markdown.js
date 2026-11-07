@@ -140,11 +140,7 @@ function extraTeamLines(data) {
     // generated in UTC elsewhere in this file, so a soccer board stays
     // internally consistent.
     const when = nextGame.date
-      ? formatDate(nextGame.date, {
-          month: "short",
-          day: "numeric",
-          timeZone: nextGame.timeZone || "UTC",
-        })
+      ? formatNextGameDate(nextGame.date, nextGame.timeZone || "UTC")
       : "next";
     const place = nextGame.isHome !== false ? "vs" : "@";
     lines.push(`📅 Next: ${place} ${nextGame.opponent} (${when})`);
@@ -558,6 +554,27 @@ function formatDate(value, options) {
       .toLocaleDateString("en-US", { ...options, timeZone: "UTC" });
   }
   return new Date(raw).toLocaleDateString("en-US", options);
+}
+
+// A next fixture prints as "Nov 7" — but a December board announcing
+// "vs POR (Jan 2)" reads as a past game, and every league whose season crosses
+// the new year hits that window. The year is therefore added only when the
+// fixture is not in the current year, which is what keeps every board outside
+// that window byte-identical.
+function formatNextGameDate(value, timeZone) {
+  const raw = String(value);
+  // A bare calendar date carries no zone, and formatDate renders it in UTC.
+  // Comparing years in the sport's zone instead would disagree on New Year's Day.
+  const zone = /^\d{4}-\d{2}-\d{2}$/.test(raw) ? "UTC" : timeZone;
+  const date = new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw) ? `${raw}T00:00:00Z` : raw);
+  if (Number.isNaN(date.getTime())) {
+    return formatDate(value, { month: "short", day: "numeric", timeZone: zone });
+  }
+  const year = (moment) =>
+    new Intl.DateTimeFormat("en-US", { year: "numeric", timeZone: zone }).format(moment);
+  const options = { month: "short", day: "numeric", timeZone: zone };
+  if (year(date) !== year(new Date())) options.year = "numeric";
+  return formatDate(value, options);
 }
 
 function formatCalendarDate(value, sport) {
