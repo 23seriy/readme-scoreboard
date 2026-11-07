@@ -471,8 +471,12 @@ describe("documentation and action metadata", () => {
     }
   });
 
-  it("documents the locked Node 24 development workflow", () => {
-    expect(contributing).toContain("Node.js 24+");
+  it("documents the locked Node development workflow", () => {
+    // Read the pinned major instead of hardcoding it. This assertion used to
+    // say "Node.js 24+" alongside tests/node-version.test.js, so a major bump
+    // had two places to update and this one failed on the upgrade.
+    const pinnedMajor = fs.readFileSync(".nvmrc", "utf8").trim();
+    expect(contributing).toContain(`Node.js ${pinnedMajor}+`);
     expect(contributing).toContain("npm ci --ignore-scripts");
     expect(contributing).toContain("npm test -- --runInBand");
   });

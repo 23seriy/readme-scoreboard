@@ -79,7 +79,7 @@ logos, and season windows.
 
 ### Prerequisites
 
-- Node.js 24+
+- Node.js 26+
 - npm
 
 ### Running Locally

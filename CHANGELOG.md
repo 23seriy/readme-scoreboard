@@ -10,6 +10,15 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Changed
+
+- **Node.js 26 is now the supported runtime.** It became the active LTS ("Lithium") on
+  2026-10-28, so `.nvmrc`, `package.json`'s `engines`, `action.yml` and all nine workflows move
+  from 24 to 26 in one step, and `tests/node-version.test.js` keeps them from drifting apart again.
+  The full suite, lint, the demo smoke run across all 43 leagues and board regeneration were re-run
+  on 26.13.0 with no behaviour change: the committed example boards regenerate byte-identical, so
+  no board output moved.
+
 ### Added
 
 - **A `recent_games` input to control how many results a board lists.** Set it from `1` to `5`;
