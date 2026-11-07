@@ -63,8 +63,7 @@ Western Conference · Pacific Division
 
 📅 Next: vs POR (Nov 7)
 
-📊 2026-2027 Record: 7W - 2L (77.8%)
-   ███████████████████▍░░░░░
+📊 2026-2027 Record: 7W - 2L (77.8%)<br>&nbsp;&nbsp;&nbsp;███████████████████▍░░░░░
 
 **📅 Recent Games:**
 ```

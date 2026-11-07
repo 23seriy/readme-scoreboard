@@ -10,8 +10,7 @@ Eastern Conference
 
 📅 Next: vs TOR (Feb 21)
 
-📊 2026 Record: 9W - 18L - 6D  (33 pts)
-   █████████░░░░░░░░░░░░░░░░
+📊 2026 Record: 9W - 18L - 6D  (33 pts)<br>&nbsp;&nbsp;&nbsp;█████████░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```

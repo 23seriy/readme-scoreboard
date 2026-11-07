@@ -10,8 +10,7 @@ AFC · AFC East
 
 📅 Next: @ MIN (Nov 10)
 
-📊 2026 Season: 6W - 1L (85.7%)
-   █████████████████████▍░░░
+📊 2026 Season: 6W - 1L (85.7%)<br>&nbsp;&nbsp;&nbsp;█████████████████████▍░░░
 
 **📅 Recent Games:**
 ```

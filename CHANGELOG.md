@@ -10,6 +10,13 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- **The win-rate bar no longer merges into the record line.** The bar was pushed as its own line
+  with a single newline before it, which Markdown reads as a soft break — GitHub folded
+  `📊 … (77.8%)` and `█████…` into one wrapped paragraph. The record and bar now share a line
+  with an explicit `<br>`, so the bar renders on the next line, indented, on every league's board.
+
 ### Changed
 
 - **The renderer dispatch and its season/logo tables now derive from the league registry.**

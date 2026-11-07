@@ -302,9 +302,8 @@ function renderNba(data, sport = "nba", title, compact = false) {
       ? `${record.season}`
       : `${record.season - 1}-${record.season}`;
     lines.push(
-      `📊 ${seasonLabel} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      `📊 ${seasonLabel} Record: ${record.wins}W - ${record.losses}L (${winPct}%)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(parseFloat(winPct), 25)}`
     );
-    lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
   }
 
@@ -479,9 +478,8 @@ function renderMlb(data, title) {
 
   if (totalGames > 0) {
     lines.push(
-      `📊 ${record.season} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      `📊 ${record.season} Record: ${record.wins}W - ${record.losses}L (${winPct}%)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(parseFloat(winPct), 25)}`
     );
-    lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
   }
 
@@ -606,10 +604,9 @@ function renderNfl(data, sport = "nfl", title, compact = false) {
   if (totalGames > 0) {
     lines.push(
       lossesKnown
-        ? `📊 ${record.season} Season: ${record.wins}W - ${record.losses}L (${winPct}%)`
+        ? `📊 ${record.season} Season: ${record.wins}W - ${record.losses}L (${winPct}%)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(parseFloat(winPct), 25)}`
         : `📊 ${record.season} Season: ${record.wins}W`
     );
-    if (winPct !== null) lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
   }
 
@@ -655,9 +652,8 @@ function renderNhl(data, sport = "nhl", title, compact = false) {
 
   if (record.wins + record.losses > 0) {
     lines.push(
-      `📊 ${record.season}-${record.season + 1} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      `📊 ${record.season}-${record.season + 1} Record: ${record.wins}W - ${record.losses}L (${winPct}%)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(parseFloat(winPct), 25)}`
     );
-    lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
   }
 
@@ -718,9 +714,8 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title, compact
   const totalGames = record.wins + record.losses + record.draws;
   const pts = record.wins * 3 + record.draws;
   if (totalGames > 0) {
-    lines.push(`📊 ${record.season} Record: ${record.wins}W - ${record.losses}L - ${record.draws}D  (${pts} pts)`);
     const winPct = ((record.wins + record.draws * 0.5) / totalGames) * 100;
-    lines.push(`   ${generateBarChart(winPct, 25)}`);
+    lines.push(`📊 ${record.season} Record: ${record.wins}W - ${record.losses}L - ${record.draws}D  (${pts} pts)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(winPct, 25)}`);
     lines.push("");
   }
 
@@ -853,8 +848,7 @@ function renderUfc(data, title) {
   const bouts = record.wins + record.losses + record.draws;
   if (bouts > 0) {
     const draws = record.draws ? ` - ${record.draws}D` : "";
-    lines.push(`🥊 Career record: ${record.wins}W - ${record.losses}L${draws}`);
-    lines.push(`   ${generateBarChart((record.wins / bouts) * 100, 25)}`);
+    lines.push(`🥊 Career record: ${record.wins}W - ${record.losses}L${draws}<br>&nbsp;&nbsp;&nbsp;${generateBarChart((record.wins / bouts) * 100, 25)}`);
     lines.push("");
   }
 

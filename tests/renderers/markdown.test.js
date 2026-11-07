@@ -367,6 +367,14 @@ describe("renderNba / formatGameResult", () => {
     expect(output).toContain("69.5%");
   });
 
+  it("keeps the win-rate bar on its own line with a hard break", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    // A plain "\n" is a soft break, which GitHub folded into the record text
+    // ("... (69.5%) █████..."). A <br> keeps the bar on the next line.
+    expect(output).toContain("(69.5%)<br>&nbsp;&nbsp;&nbsp;");
+    expect(output).not.toMatch(/\n {3}/);
+  });
+
   it("renders W when home team wins", () => {
     const data = { ...BASE_NBA_DATA, recentGames: [makeGame({ homeId: 1610612747, awayId: 2, homeScore: 110, awayScore: 98 })] };
     expect(render("nba", data)).toContain("W");

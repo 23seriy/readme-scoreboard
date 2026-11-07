@@ -10,8 +10,7 @@
 
 📅 Next: vs HUL (Nov 7)
 
-📊 2026 Record: 8W - 1L - 0D  (24 pts)
-   ██████████████████████▏░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████████▏░░
 
 **📅 Recent Games:**
 ```

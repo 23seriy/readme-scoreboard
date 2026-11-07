@@ -8,8 +8,7 @@ Western Conference
 
 🏅 Standing: Western · 1
 
-📊 2026 Record: 33W - 11L (75.0%)
-   ██████████████████▊░░░░░░
+📊 2026 Record: 33W - 11L (75.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```

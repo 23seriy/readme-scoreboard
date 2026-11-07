@@ -10,8 +10,7 @@ AFC · AFC West
 
 📅 Next: vs NYJ (Nov 8)
 
-📊 2026 Season: 5W - 2L (71.4%)
-   █████████████████▊░░░░░░░
+📊 2026 Season: 5W - 2L (71.4%)<br>&nbsp;&nbsp;&nbsp;█████████████████▊░░░░░░░
 
 **📅 Recent Games:**
 ```

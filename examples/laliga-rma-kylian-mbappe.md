@@ -10,8 +10,7 @@
 
 📅 Next: @ VAL (Nov 7)
 
-📊 2026 Record: 9W - 2L - 0D  (27 pts)
-   ████████████████████▍░░░░
+📊 2026 Record: 9W - 2L - 0D  (27 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▍░░░░
 
 **📅 Recent Games:**
 ```

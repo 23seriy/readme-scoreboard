@@ -9,8 +9,7 @@ Western Conference · Pacific Division
 
 📅 Next: vs POR (Nov 7)
 
-📊 2026-2027 Record: 7W - 2L (77.8%)
-   ███████████████████▍░░░░░
+📊 2026-2027 Record: 7W - 2L (77.8%)<br>&nbsp;&nbsp;&nbsp;███████████████████▍░░░░░
 
 **📅 Recent Games:**
 ```
@@ -30,8 +29,7 @@ American League · AL East
 
 🏅 Standing: AL East · 2
 
-📊 2026 Record: 93W - 68L (57.8%)
-   ██████████████▍░░░░░░░░░░
+📊 2026 Record: 93W - 68L (57.8%)<br>&nbsp;&nbsp;&nbsp;██████████████▍░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -53,8 +51,7 @@ American League · AL East
 
 📅 Next: vs HUL (Nov 7)
 
-📊 2026 Record: 8W - 1L - 0D  (24 pts)
-   ██████████████████████▏░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████████▏░░
 
 **📅 Recent Games:**
 ```

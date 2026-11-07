@@ -10,8 +10,7 @@ Eastern Conference · Metropolitan Division
 
 📅 Next: @ SEA (Nov 7)
 
-📊 2025-2026 Record: 9W - 8L (52.9%)
-   █████████████▏░░░░░░░░░░░
+📊 2025-2026 Record: 9W - 8L (52.9%)<br>&nbsp;&nbsp;&nbsp;█████████████▏░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
