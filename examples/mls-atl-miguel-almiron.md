@@ -8,7 +8,7 @@ Eastern Conference
 
 🏅 Standing (2026): Eastern Conference · 12
 
-📅 Next: vs TOR (Feb 21)
+📅 Next: vs TOR (Feb 21, 2027)
 
 📊 2026 Record: 9W - 18L - 6D  (33 pts)<br>&nbsp;&nbsp;&nbsp;█████████░░░░░░░░░░░░░░░░
 
