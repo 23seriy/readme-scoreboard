@@ -16,8 +16,7 @@ League Phase
 
 📅 Next: vs PSV (Nov 24)
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)
-   █████████████████████████
+📊 2026 Record: 4W - 0L - 0D  (12 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
 
 **📅 Recent Games:**
 ```
@@ -43,8 +42,7 @@ League Phase
 
 📅 Next: vs PSV (Nov 24)
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)
-   █████████████████████████
+📊 2026 Record: 4W - 0L - 0D  (12 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
 
 **📅 Recent Games:**
 ```
@@ -69,8 +67,7 @@ League Phase
 
 📅 Next: vs PSV (Nov 24)
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)
-   █████████████████████████
+📊 2026 Record: 4W - 0L - 0D  (12 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
 
 
 

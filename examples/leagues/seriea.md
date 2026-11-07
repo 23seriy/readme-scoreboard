@@ -16,8 +16,7 @@ Team: **ATA** · Category: Soccer · Data source: ESPN public API
 
 📅 Next: @ MON (Nov 8)
 
-📊 2026 Record: 3W - 5L - 2D  (11 pts)
-   ██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 5L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ The `title:` input replaces the default heading.
 
 📅 Next: @ MON (Nov 8)
 
-📊 2026 Record: 3W - 5L - 2D  (11 pts)
-   ██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 5L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;██████████░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 📅 Next: @ MON (Nov 8)
 
-📊 2026 Record: 3W - 5L - 2D  (11 pts)
-   ██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 5L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;██████████░░░░░░░░░░░░░░░
 
 
 

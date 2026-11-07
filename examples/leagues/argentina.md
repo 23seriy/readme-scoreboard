@@ -14,8 +14,7 @@ Group B
 
 🏅 Standing (2026): Group B · 10
 
-📊 2026 Record: 3W - 11L - 2D  (11 pts)
-   ██████▎░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 11L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;██████▎░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -40,8 +39,7 @@ Group B
 
 🏅 Standing (2026): Group B · 10
 
-📊 2026 Record: 3W - 11L - 2D  (11 pts)
-   ██████▎░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 11L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;██████▎░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -65,8 +63,7 @@ Group B
 
 🏅 Standing (2026): Group B · 10
 
-📊 2026 Record: 3W - 11L - 2D  (11 pts)
-   ██████▎░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 11L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;██████▎░░░░░░░░░░░░░░░░░░
 
 
 

@@ -16,8 +16,7 @@ Team: **B04** · Category: Soccer · Data source: ESPN public API
 
 📅 Next: @ KOE (Nov 8)
 
-📊 2026 Record: 4W - 3L - 1D  (13 pts)
-   ██████████████░░░░░░░░░░░
+📊 2026 Record: 4W - 3L - 1D  (13 pts)<br>&nbsp;&nbsp;&nbsp;██████████████░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ The `title:` input replaces the default heading.
 
 📅 Next: @ KOE (Nov 8)
 
-📊 2026 Record: 4W - 3L - 1D  (13 pts)
-   ██████████████░░░░░░░░░░░
+📊 2026 Record: 4W - 3L - 1D  (13 pts)<br>&nbsp;&nbsp;&nbsp;██████████████░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 📅 Next: @ KOE (Nov 8)
 
-📊 2026 Record: 4W - 3L - 1D  (13 pts)
-   ██████████████░░░░░░░░░░░
+📊 2026 Record: 4W - 3L - 1D  (13 pts)<br>&nbsp;&nbsp;&nbsp;██████████████░░░░░░░░░░░
 
 
 

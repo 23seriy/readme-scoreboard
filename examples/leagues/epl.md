@@ -16,8 +16,7 @@ Team: **ARS** · Category: Soccer · Data source: ESPN public API
 
 📅 Next: vs HUL (Nov 7)
 
-📊 2026 Record: 8W - 1L - 0D  (24 pts)
-   ██████████████████████▏░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████████▏░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ The `title:` input replaces the default heading.
 
 📅 Next: vs HUL (Nov 7)
 
-📊 2026 Record: 8W - 1L - 0D  (24 pts)
-   ██████████████████████▏░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████████▏░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 📅 Next: vs HUL (Nov 7)
 
-📊 2026 Record: 8W - 1L - 0D  (24 pts)
-   ██████████████████████▏░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████████▏░░
 
 
 
