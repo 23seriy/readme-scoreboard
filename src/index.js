@@ -20,6 +20,7 @@ const {
   BADGE: badgeMode,
   PLAYER: playerName,
   LINK: linkInput,
+  RECENT_GAMES: recentGamesInput,
 } = process.env;
 
 const isDemo = process.argv.includes("--demo");
@@ -56,22 +57,61 @@ function parseEntity(value) {
   throw new Error(`ENTITY must be "team" or "player"; received "${value}"`);
 }
 
-function buildBadge(sportName, teams, blocks) {
+// Adapters fetch five results, so five is the ceiling; asking for fewer is
+// honoured by trimming before the board is rendered.
+const MAX_RECENT_GAMES = 5;
+
+// Trims the adapter's list to the requested count. Adapters fetch at most
+// MAX_RECENT_GAMES results, so this only ever shortens the list.
+function trimRecentGames(games, count) {
+  return Array.isArray(games) ? games.slice(0, count) : games;
+}
+
+function parseRecentGames(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return MAX_RECENT_GAMES;
+  const count = Number(raw);
+  if (!Number.isInteger(count) || count < 1 || count > MAX_RECENT_GAMES) {
+    throw new Error(`RECENT_GAMES must be a whole number from 1 to ${MAX_RECENT_GAMES}; received "${value}"`);
+  }
+  return count;
+}
+
+function buildBadge(sportName, abbreviations) {
+  // Badges are built from the abbreviations the adapters resolved, not from a
+  // pattern match over the rendered markdown. Scraping `(XXX)` only recognised
+  // two or three UPPERCASE letters, and roughly a third of the leagues' real
+  // abbreviations are longer (PAOK, FC GOA, VALLEY, ASTM), so those boards
+  // silently fell back to the raw input and a renamed abbreviation could never
+  // reach the badge. The rendered `team.abbreviation` is authoritative.
   const lines = [`<p align="center">`];
-  teams.forEach((team, index) => {
-    const match = blocks[index]?.match(/\(([A-Z]{2,3})\)/);
-    const abbr = match ? match[1] : team;
+  for (const abbr of abbreviations) {
     lines.push(
       `<img src="https://img.shields.io/badge/${encodeURIComponent(sportName.toUpperCase())}-${encodeURIComponent(abbr)}-orange?style=flat" />`
     );
-  });
+  }
   lines.push("</p>");
   return lines.join("\n");
 }
 
-const isDryRun = parseDryRun(process.env.DRY_RUN);
-const isCompact = parseCompact(process.env.COMPACT);
-const isBadge = parseBoolean(badgeMode, "BADGE");
+// Read once at import time, but report a bad value as a one-line message: a
+// typo in a workflow input used to surface as a Node stack trace in the job log.
+function parseRuntimeOptions() {
+  try {
+    return {
+      isDryRun: parseDryRun(process.env.DRY_RUN),
+      isCompact: parseCompact(process.env.COMPACT),
+      isBadge: parseBoolean(badgeMode, "BADGE"),
+      recentGameCount: parseRecentGames(recentGamesInput),
+    };
+  } catch (error) {
+    console.error(error.message);
+    process.exit(1);
+    return {};
+  }
+}
+
+const { isDryRun, isCompact, isBadge, recentGameCount } = parseRuntimeOptions();
 
 async function main() {
   const sportName = (sport || "nba").toLowerCase();
@@ -110,6 +150,7 @@ async function main() {
       supportedSports: Object.keys(LEAGUE_BY_KEY),
       player: playerName,
       teamsCount: teams.length,
+      link: linkInput,
     });
   } catch (error) {
     console.error(error.message);
@@ -120,6 +161,7 @@ async function main() {
   const generatedAt = new Date().toISOString();
   const defaultEmoji = LEAGUE_BY_KEY[sportName]?.emoji || "🏀";
   const blocks = [];
+  const renderedAbbrs = [];
 
   for (const team of teams) {
     let data;
@@ -149,15 +191,25 @@ async function main() {
     const emoji = adapter.TEAM_EMOJI[data.team.abbreviation] || defaultEmoji;
     const teamLogoUrl = adapter.getLogoUrl(data.team.abbreviation);
     const logoUrl = teamLogoUrl || LEAGUE_BY_KEY[sportName]?.logo?.light || "";
-    const renderData = { ...data, emoji, logoUrl, link: linkInput };
+    const renderData = {
+      ...data,
+      emoji,
+      logoUrl,
+      link: linkInput,
+      // Adapters fetch up to five results; the action's `recent_games` input
+      // only ever trims that list, so the board never claims a count the feed
+      // cannot supply.
+      recentGames: trimRecentGames(data.recentGames, recentGameCount),
+    };
 
     const rendered = render(sportName, renderData, { title, compact: isCompact });
     blocks.push((isCompact ? compactMarkdown(rendered) : rendered).trimEnd());
+    renderedAbbrs.push(data.team.abbreviation || team);
   }
 
   const joined = blocks.join("\n\n---\n\n");
   const content = isBadge
-    ? buildBadge(sportName, teams, blocks)
+    ? buildBadge(sportName, renderedAbbrs)
     : `${joined}\n\n_Last updated: ${generatedAt}_`;
 
   console.log("\n--- Preview ---");
@@ -217,4 +269,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { main, parseDryRun, parseCompact, parseBoolean, parseTeams, compactMarkdown, buildBadge };
+module.exports = { main, parseDryRun, parseCompact, parseBoolean, parseTeams, parseRecentGames, trimRecentGames, compactMarkdown, buildBadge };

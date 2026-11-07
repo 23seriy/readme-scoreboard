@@ -49,6 +49,10 @@ inputs:
     description: "Use a smaller README block without team logos or recent-game details (true/false)."
     required: false
     default: "false"
+  recent_games:
+    description: "How many recent games to list, from 1 to 5 (default: 5). Adapters fetch five results, so 5 is the ceiling."
+    required: false
+    default: "5"
 outputs:
   updated:
     description: "Whether the target README was changed"
@@ -86,3 +90,4 @@ runs:
         PLAYER: ${{ inputs.player }}
         DRY_RUN: ${{ inputs.dry_run }}
         COMPACT: ${{ inputs.compact }}
+        RECENT_GAMES: ${{ inputs.recent_games }}
