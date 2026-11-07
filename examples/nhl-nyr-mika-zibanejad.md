@@ -10,8 +10,7 @@ Eastern Conference · Metropolitan Division
 
 📅 Next: @ SEA (Nov 7)
 
-📊 2025-2026 Record: 9W - 8L (52.9%)
-   █████████████▏░░░░░░░░░░░
+📊 2025-2026 Record: 9W - 8L (52.9%)<br>&nbsp;&nbsp;&nbsp;█████████████▏░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -22,8 +21,9 @@ Eastern Conference · Metropolitan Division
 ❌ L   4-7   @ OTT (Oct 24, 2026)
 ```
 
-**🦢 Player Spotlight: Mika Zibanejad**
 <img src="https://assets.nhle.com/mugs/nhl/latest/8476459.png" alt="Mika Zibanejad headshot" height="72" align="right" />
+
+**🦢 Player Spotlight: Mika Zibanejad**
 3 G · 10 A · 13 PTS
 
 **📅 Last Game:**

@@ -8,8 +8,7 @@ American League · AL East
 
 🏅 Standing: AL East · 2
 
-📊 2026 Record: 93W - 68L (57.8%)
-   ██████████████▍░░░░░░░░░░
+📊 2026 Record: 93W - 68L (57.8%)<br>&nbsp;&nbsp;&nbsp;██████████████▍░░░░░░░░░░
 
 **📅 Recent Games:**
 ```

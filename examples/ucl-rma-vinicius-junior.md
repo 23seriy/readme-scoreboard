@@ -10,8 +10,7 @@ League Phase
 
 📅 Next: vs PSV (Nov 24)
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)
-   █████████████████████████
+📊 2026 Record: 4W - 0L - 0D  (12 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
 
 **📅 Recent Games:**
 ```
@@ -21,8 +20,9 @@ League Phase
 ✅ W 2-1 vs INT   (Sep 8, 2026)
 ```
 
-**👑 Player Spotlight: Vinícius Júnior**
 <img src="https://a.espncdn.com/i/headshots/soccer/players/full/252107.png" alt="Vinícius Júnior headshot" height="72" align="right" />
+
+**👑 Player Spotlight: Vinícius Júnior**
 8 APP · 1 G · 3 A
 
 **📅 Last Game:**

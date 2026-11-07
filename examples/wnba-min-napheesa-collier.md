@@ -8,8 +8,7 @@ Western Conference
 
 🏅 Standing: Western · 1
 
-📊 2026 Record: 33W - 11L (75.0%)
-   ██████████████████▊░░░░░░
+📊 2026 Record: 33W - 11L (75.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -20,8 +19,9 @@ Western Conference
 ✅ W 101-89  @ CON (Sep 20, 2026)
 ```
 
-**🐆 Player Spotlight: Napheesa Collier**
 <img src="https://a.espncdn.com/i/headshots/wnba/players/full/3917450.png" alt="Napheesa Collier headshot" height="72" align="right" />
+
+**🐆 Player Spotlight: Napheesa Collier**
 16.8 PPG · 6.9 RPG · 2.6 APG
 
 **📅 Last Game:**

@@ -22,12 +22,15 @@ LEAGUE_REGISTRY.forEach((entry) => {
  * means it survives every run — a heading written above them would be outside
  * the tool's reach, and one written inside by hand would be overwritten.
  */
-function headingLines(sport, title) {
+function headingLines(sport, title, link) {
   const logo = LEAGUE_LOGOS[sport];
   if (!logo) return [];
   const mark = `<picture><source media="(prefers-color-scheme: dark)" srcset="${logo.dark}"><img src="${logo.light}" alt="${logo.alt}" height="28" align="top"></picture> `;
   const league = LEAGUE_REGISTRY.find((entry) => entry.key === sport);
-  const endpoint = league?.endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]
+  // An explicit `link` wins over the league's default endpoint, so a user can
+  // point the heading at their own page instead of the raw ESPN API URL.
+  const endpoint = link
+    || league?.endpointOverride?.match(/\((https:\/\/[^)]+)\)/)?.[1]
     || (league?.endpoint ? `https://site.api.espn.com/apis/site/v2/sports/${league.endpoint}/teams` : null);
   // Individual sports (tennis, F1) track players rather than teams, so the
   // default heading reads "Player" instead of "Team". A league may name the
@@ -159,11 +162,17 @@ function extraTeamLines(data) {
  * back to the plain bold text so nothing changes for those leagues.
  */
 function pushSpotlightHeading(lines, emoji, spotlight) {
-  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
+  // Emit the headshot FIRST, followed by a blank line, exactly like the team
+  // logo beside the team heading. Emitting it after the heading put the float
+  // on the heading's second wrapped line, so the photo sat beside the stats
+  // (or the next section) instead of beside the name it belongs to.
   pushSpotlightHeadshot(lines, spotlight);
+  if (spotlight.headshotUrl) lines.push("");
+  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
 }
 
-// The image is emitted on its own line directly after the heading. It is
+// The image is emitted on its own line, separated from the heading it
+// accompanies by a blank line so the float anchors to the heading. It is
 // deliberately not emitted in compact mode (compactMarkdown strips every
 // `<img>` line anyway), so compact boards stay text-only.
 //
@@ -274,7 +283,7 @@ function formatGameResult(game, teamId, sport) {
 function renderNba(data, sport = "nba", title, compact = false) {
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -302,9 +311,8 @@ function renderNba(data, sport = "nba", title, compact = false) {
       ? `${record.season}`
       : `${record.season - 1}-${record.season}`;
     lines.push(
-      `📊 ${seasonLabel} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      `📊 ${seasonLabel} Record: ${record.wins}W - ${record.losses}L (${winPct}%)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(parseFloat(winPct), 25)}`
     );
-    lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
   }
 
@@ -371,8 +379,9 @@ function renderNflSpotlight(lines, spotlight, emoji, compact) {
     }
     return;
   }
-  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
   pushSpotlightHeadshot(lines, spotlight);
+  if (spotlight.headshotUrl) lines.push("");
+  lines.push(`**${emoji} Player Spotlight: ${spotlight.name}**`);
   if (position === "QB") {
     lines.push(`${stat(season.passingYards)} PASS YDS · ${stat(season.passingTouchdowns)} PASS TD · ${stat(season.rushingYards)} RUSH YDS`);
   } else if (position === "RB") {
@@ -462,7 +471,7 @@ function renderMlb(data, title) {
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
-  lines.push(...headingLines("mlb", title));
+  lines.push(...headingLines("mlb", title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -479,9 +488,8 @@ function renderMlb(data, title) {
 
   if (totalGames > 0) {
     lines.push(
-      `📊 ${record.season} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      `📊 ${record.season} Record: ${record.wins}W - ${record.losses}L (${winPct}%)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(parseFloat(winPct), 25)}`
     );
-    lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
   }
 
@@ -581,7 +589,7 @@ function renderNfl(data, sport = "nfl", title, compact = false) {
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -606,10 +614,9 @@ function renderNfl(data, sport = "nfl", title, compact = false) {
   if (totalGames > 0) {
     lines.push(
       lossesKnown
-        ? `📊 ${record.season} Season: ${record.wins}W - ${record.losses}L (${winPct}%)`
+        ? `📊 ${record.season} Season: ${record.wins}W - ${record.losses}L (${winPct}%)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(parseFloat(winPct), 25)}`
         : `📊 ${record.season} Season: ${record.wins}W`
     );
-    if (winPct !== null) lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
   }
 
@@ -636,7 +643,7 @@ function renderNhl(data, sport = "nhl", title, compact = false) {
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -655,9 +662,8 @@ function renderNhl(data, sport = "nhl", title, compact = false) {
 
   if (record.wins + record.losses > 0) {
     lines.push(
-      `📊 ${record.season}-${record.season + 1} Record: ${record.wins}W - ${record.losses}L (${winPct}%)`
+      `📊 ${record.season}-${record.season + 1} Record: ${record.wins}W - ${record.losses}L (${winPct}%)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(parseFloat(winPct), 25)}`
     );
-    lines.push(`   ${generateBarChart(parseFloat(winPct), 25)}`);
     lines.push("");
   }
 
@@ -696,7 +702,7 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title, compact
   const { team, recentGames, record, emoji, logoUrl, spotlight } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
   lines.push("");
 
@@ -718,9 +724,8 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title, compact
   const totalGames = record.wins + record.losses + record.draws;
   const pts = record.wins * 3 + record.draws;
   if (totalGames > 0) {
-    lines.push(`📊 ${record.season} Record: ${record.wins}W - ${record.losses}L - ${record.draws}D  (${pts} pts)`);
     const winPct = ((record.wins + record.draws * 0.5) / totalGames) * 100;
-    lines.push(`   ${generateBarChart(winPct, 25)}`);
+    lines.push(`📊 ${record.season} Record: ${record.wins}W - ${record.losses}L - ${record.draws}D  (${pts} pts)<br>&nbsp;&nbsp;&nbsp;${generateBarChart(winPct, 25)}`);
     lines.push("");
   }
 
@@ -782,7 +787,7 @@ function renderF1(data, title) {
   const { team, record, emoji, logoUrl, standing } = data;
   const lines = [];
 
-  lines.push(...headingLines("f1", title));
+  lines.push(...headingLines("f1", title, data.link));
   if (logoUrl) {
     lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
     lines.push("");
@@ -813,7 +818,7 @@ function renderDriverStanding(sport, label, data, title) {
   const { team, record, emoji, standing } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   lines.push(`${label} · Driver Championship`);
   lines.push(seasonStatusLine(sport));
@@ -839,7 +844,7 @@ function renderUfc(data, title) {
   const { team, record, emoji, logoUrl, recentGames, nextGame } = data;
   const lines = [];
 
-  lines.push(...headingLines("ufc", title));
+  lines.push(...headingLines("ufc", title, data.link));
   if (logoUrl) {
     lines.push(`<img src="${logoUrl}" alt="UFC logo" width="72" align="right" />`);
     lines.push("");
@@ -853,8 +858,7 @@ function renderUfc(data, title) {
   const bouts = record.wins + record.losses + record.draws;
   if (bouts > 0) {
     const draws = record.draws ? ` - ${record.draws}D` : "";
-    lines.push(`🥊 Career record: ${record.wins}W - ${record.losses}L${draws}`);
-    lines.push(`   ${generateBarChart((record.wins / bouts) * 100, 25)}`);
+    lines.push(`🥊 Career record: ${record.wins}W - ${record.losses}L${draws}<br>&nbsp;&nbsp;&nbsp;${generateBarChart((record.wins / bouts) * 100, 25)}`);
     lines.push("");
   }
 
@@ -901,7 +905,7 @@ function renderTennisPlayer(sport, tourLabel, data, title) {
   const { team, emoji, logoUrl, standing, previousRank, trend, lastMatch } = data;
   const lines = [];
 
-  lines.push(...headingLines(sport, title));
+  lines.push(...headingLines(sport, title, data.link));
   if (logoUrl) {
     lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
     lines.push("");

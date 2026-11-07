@@ -10,8 +10,7 @@
 
 📅 Next: vs HUL (Nov 7)
 
-📊 2026 Record: 8W - 1L - 0D  (24 pts)
-   ██████████████████████▏░░
+📊 2026 Record: 8W - 1L - 0D  (24 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████████▏░░
 
 **📅 Recent Games:**
 ```
@@ -22,8 +21,9 @@
 ❌ L 0-3 @ BHA   (Sep 19, 2026)
 ```
 
-**🔴 Player Spotlight: Bukayo Saka**
 <img src="https://a.espncdn.com/i/headshots/soccer/players/full/280555.png" alt="Bukayo Saka headshot" height="72" align="right" />
+
+**🔴 Player Spotlight: Bukayo Saka**
 7 APP · 3 G · 0 A
 
 **📅 Last Game:**

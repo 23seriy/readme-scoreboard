@@ -8,8 +8,7 @@ Big East Conference Conference
 
 🏅 Standing: Big East Conference · 1
 
-📊 2025-2026 Record: 38W - 1L (97.4%)
-   ████████████████████████▎
+📊 2025-2026 Record: 38W - 1L (97.4%)<br>&nbsp;&nbsp;&nbsp;████████████████████████▎
 
 **📅 Recent Games:**
 ```
@@ -20,8 +19,9 @@ Big East Conference Conference
 ✅ W  90-52  vs UTSA (Mar 21, 2026)
 ```
 
-**🏀 Player Spotlight: KK Arnold**
 <img src="https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174491.png" alt="KK Arnold headshot" height="72" align="right" />
+
+**🏀 Player Spotlight: KK Arnold**
 11.0 PPG · 3.0 RPG · 2.0 APG
 
 **📅 Last Game:**

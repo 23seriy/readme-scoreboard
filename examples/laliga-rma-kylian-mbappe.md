@@ -10,8 +10,7 @@
 
 📅 Next: @ VAL (Nov 7)
 
-📊 2026 Record: 9W - 2L - 0D  (27 pts)
-   ████████████████████▍░░░░
+📊 2026 Record: 9W - 2L - 0D  (27 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▍░░░░
 
 **📅 Recent Games:**
 ```
@@ -22,8 +21,9 @@
 ❌ L 1-2 @ ATM   (Sep 20, 2026)
 ```
 
-**👑 Player Spotlight: Kylian Mbappé**
 <img src="https://a.espncdn.com/i/headshots/soccer/players/full/231388.png" alt="Kylian Mbappé headshot" height="72" align="right" />
+
+**👑 Player Spotlight: Kylian Mbappé**
 11 APP · 12 G · 2 A
 
 **📅 Last Game:**

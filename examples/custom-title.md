@@ -10,8 +10,7 @@ Eastern Conference · Atlantic Division
 
 📅 Next: @ CHA (Nov 7)
 
-📊 2026-2027 Record: 6W - 2L (75.0%)
-   ██████████████████▊░░░░░░
+📊 2026-2027 Record: 6W - 2L (75.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```

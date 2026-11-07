@@ -10,8 +10,7 @@ AFC · AFC West
 
 📅 Next: vs NYJ (Nov 8)
 
-📊 2026 Season: 5W - 2L (71.4%)
-   █████████████████▊░░░░░░░
+📊 2026 Season: 5W - 2L (71.4%)<br>&nbsp;&nbsp;&nbsp;█████████████████▊░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -22,8 +21,9 @@ AFC · AFC West
 ✅ W 24-10 @ MIA (Sep 27, 2026)
 ```
 
-**👑 Player Spotlight: Patrick Mahomes**
 <img src="https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" alt="Patrick Mahomes headshot" height="72" align="right" />
+
+**👑 Player Spotlight: Patrick Mahomes**
 0 PASS YDS · 0 PASS TD · 0 RUSH YDS
 
 **📅 Last Game:**

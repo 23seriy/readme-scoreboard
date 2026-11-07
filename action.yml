@@ -24,6 +24,9 @@ inputs:
   title:
     description: "Custom heading text for the scoreboard (default: 'My Favourite <League> Team')."
     required: false
+  link:
+    description: "URL the board heading links to. Defaults to the league's data endpoint; set this to link the heading to your own page instead."
+    required: false
   badge:
     description: "Render shields-style badges instead of a full scoreboard block (true/false)."
     required: false
@@ -76,6 +79,7 @@ runs:
         TEAMS: ${{ inputs.teams }}
         ENTITY: ${{ inputs.entity }}
         TITLE: ${{ inputs.title }}
+        LINK: ${{ inputs.link }}
         BADGE: ${{ inputs.badge }}
         MARKER: ${{ inputs.marker }}
         TARGET_REPO: ${{ inputs.target_repo }}

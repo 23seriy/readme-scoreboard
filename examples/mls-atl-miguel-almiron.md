@@ -10,8 +10,7 @@ Eastern Conference
 
 📅 Next: vs TOR (Feb 21)
 
-📊 2026 Record: 9W - 18L - 6D  (33 pts)
-   █████████░░░░░░░░░░░░░░░░
+📊 2026 Record: 9W - 18L - 6D  (33 pts)<br>&nbsp;&nbsp;&nbsp;█████████░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -22,8 +21,9 @@ Eastern Conference
 ✅ W 3-0 @ MTL   (Oct 14, 2026)
 ```
 
-**🦅 Player Spotlight: Miguel Almirón**
 <img src="https://a.espncdn.com/i/headshots/soccer/players/full/48128.png" alt="Miguel Almirón headshot" height="72" align="right" />
+
+**🦅 Player Spotlight: Miguel Almirón**
 26 APP · 7 G · 7 A
 
 **📅 Last Game:**

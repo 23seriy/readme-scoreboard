@@ -355,6 +355,17 @@ describe("renderNba / formatGameResult", () => {
     expect(output).toContain("✅");
   });
 
+  it("links the heading to a caller-supplied URL instead of the ESPN endpoint", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [], link: "https://example.com/lakers" });
+    expect(output).toContain("](https://example.com/lakers)");
+    expect(output).not.toContain("site.api.espn.com");
+  });
+
+  it("links the heading to the league endpoint by default", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    expect(output).toContain("](https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams)");
+  });
+
   it("shows season as start-end using ESPN end-year convention (season=2025 → 2024-2025)", () => {
     const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
     expect(output).toContain("2024-2025");
@@ -365,6 +376,14 @@ describe("renderNba / formatGameResult", () => {
     const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
     expect(output).toContain("57W - 25L");
     expect(output).toContain("69.5%");
+  });
+
+  it("keeps the win-rate bar on its own line with a hard break", () => {
+    const output = render("nba", { ...BASE_NBA_DATA, recentGames: [] });
+    // A plain "\n" is a soft break, which GitHub folded into the record text
+    // ("... (69.5%) █████..."). A <br> keeps the bar on the next line.
+    expect(output).toContain("(69.5%)<br>&nbsp;&nbsp;&nbsp;");
+    expect(output).not.toMatch(/\n {3}/);
   });
 
   it("renders W when home team wins", () => {
@@ -407,6 +426,23 @@ describe("renderNba — player spotlight", () => {
     expect(output).toContain("33.5 PPG · 7.7 RPG · 8.3 APG");
     expect(output).toContain("**📅 Last Game:**");
     expect(output).toContain("26 PTS · 4 REB · 7 AST · 34 MIN vs Minnesota Timberwolves (Sep 4, 2026)");
+  });
+
+  it("anchors the headshot to the heading, not the stats below it", () => {
+    // The headshot used to follow the heading with no blank line, which put
+    // the float on the heading's second wrapped line — the photo rendered
+    // beside the stats (or the next section) instead of beside the name.
+    // Emitting it first, separated by a blank line, mirrors the team logo.
+    const output = render("nba", {
+      ...BASE_NBA_DATA,
+      recentGames: [],
+      spotlight: { ...SPOTLIGHT, headshotUrl: "https://a.espncdn.com/headshot.png" },
+    });
+    const headshotIdx = output.indexOf("<img");
+    const headingIdx = output.indexOf("**👑 Player Spotlight: Luka Doncic**");
+    expect(headshotIdx).toBeGreaterThan(-1);
+    expect(headshotIdx).toBeLessThan(headingIdx);
+    expect(output).toContain('<img src="https://a.espncdn.com/headshot.png" alt="Luka Doncic headshot" height="72" align="right" />\n\n**👑 Player Spotlight: Luka Doncic**');
   });
 
   it("renders a late-night game's date on the actual game day, not the UTC day", () => {

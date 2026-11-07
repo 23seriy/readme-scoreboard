@@ -63,8 +63,7 @@ Western Conference · Pacific Division
 
 📅 Next: vs POR (Nov 7)
 
-📊 2026-2027 Record: 7W - 2L (77.8%)
-   ███████████████████▍░░░░░
+📊 2026-2027 Record: 7W - 2L (77.8%)<br>&nbsp;&nbsp;&nbsp;███████████████████▍░░░░░
 
 **📅 Recent Games:**
 ```
@@ -671,6 +670,7 @@ files you may need to refresh.
 | `entity` | No | — | Entity type: `team` or `player`. Inferred from the sport when unset — individual sports (ATP, WTA, NASCAR, IndyCar, UFC) default to `player`. Set only to override the inference. |
 | `teams` | No | — | Comma-separated team/player abbreviations to render multiple boards in one run (e.g. `LAL, NYY, ARS`). |
 | `title` | No | `My Favourite <League> Team` | Custom heading text for the scoreboard (individual sports default to `<League> Player`). |
+| `link` | No | — | URL the board heading links to. Defaults to the league's data endpoint; set this to link the heading to your own page instead. |
 | `badge` | No | `false` | Render shields-style badges instead of a full scoreboard block. |
 | `marker` | No | `readme-scoreboard` | HTML comment marker name. Must match a marker pair in your README, or the job fails. Give each sport a unique name — sharing one pair means the later step silently overwrites the earlier |
 | `target_repo` | No | your profile repo | Repo to update, format: `owner/repo` |
