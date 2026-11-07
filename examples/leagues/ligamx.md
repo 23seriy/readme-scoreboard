@@ -16,8 +16,7 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 
 📅 Next: @ UNAM (Nov 8)
 
-📊 2026 Record: 8W - 2L - 5D  (29 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 8W - 2L - 5D  (29 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ The `title:` input replaces the default heading.
 
 📅 Next: @ UNAM (Nov 8)
 
-📊 2026 Record: 8W - 2L - 5D  (29 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 8W - 2L - 5D  (29 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▌░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 📅 Next: @ UNAM (Nov 8)
 
-📊 2026 Record: 8W - 2L - 5D  (29 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 8W - 2L - 5D  (29 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▌░░░░░░░
 
 
 

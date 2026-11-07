@@ -16,8 +16,7 @@ Team: **AAL** · Category: Soccer · Data source: ESPN public API
 
 📅 Next: @ LSK (Nov 8)
 
-📊 2026 Record: 5W - 11L - 9D  (24 pts)
-   █████████▌░░░░░░░░░░░░░░░
+📊 2026 Record: 5W - 11L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▌░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ The `title:` input replaces the default heading.
 
 📅 Next: @ LSK (Nov 8)
 
-📊 2026 Record: 5W - 11L - 9D  (24 pts)
-   █████████▌░░░░░░░░░░░░░░░
+📊 2026 Record: 5W - 11L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▌░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 📅 Next: @ LSK (Nov 8)
 
-📊 2026 Record: 5W - 11L - 9D  (24 pts)
-   █████████▌░░░░░░░░░░░░░░░
+📊 2026 Record: 5W - 11L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▌░░░░░░░░░░░░░░░
 
 
 

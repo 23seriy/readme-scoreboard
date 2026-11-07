@@ -16,8 +16,7 @@ NFC · NFC South
 
 📅 Next: vs CIN (Nov 8)
 
-📊 2026 Season: 3W - 5L (37.5%)
-   █████████▍░░░░░░░░░░░░░░░
+📊 2026 Season: 3W - 5L (37.5%)<br>&nbsp;&nbsp;&nbsp;█████████▍░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ NFC · NFC South
 
 📅 Next: vs CIN (Nov 8)
 
-📊 2026 Season: 3W - 5L (37.5%)
-   █████████▍░░░░░░░░░░░░░░░
+📊 2026 Season: 3W - 5L (37.5%)<br>&nbsp;&nbsp;&nbsp;█████████▍░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ NFC · NFC South
 
 📅 Next: vs CIN (Nov 8)
 
-📊 2026 Season: 3W - 5L (37.5%)
-   █████████▍░░░░░░░░░░░░░░░
+📊 2026 Season: 3W - 5L (37.5%)<br>&nbsp;&nbsp;&nbsp;█████████▍░░░░░░░░░░░░░░░
 
 
 

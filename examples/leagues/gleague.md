@@ -14,6 +14,8 @@ South Division Conference
 
 📅 Next: vs STO (Dec 27)
 
+📊 2026-2027 Record: 1W - 0L (100.0%)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
+
 📅 No recent games found
 
 ## Custom title
@@ -30,6 +32,8 @@ South Division Conference
 
 📅 Next: vs STO (Dec 27)
 
+📊 2026-2027 Record: 1W - 0L (100.0%)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
+
 📅 No recent games found
 
 ## Compact mode
@@ -44,6 +48,8 @@ South Division Conference
 🔴 Off-season · Next season starts December 19, 2026
 
 📅 Next: vs STO (Dec 27)
+
+📊 2026-2027 Record: 1W - 0L (100.0%)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
 
 📅 No recent games found
 

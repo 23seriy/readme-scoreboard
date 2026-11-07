@@ -16,8 +16,7 @@ First Phase
 
 📅 Next: vs KIL (Nov 8)
 
-📊 2026 Record: 9W - 2L - 1D  (28 pts)
-   ███████████████████▊░░░░░
+📊 2026 Record: 9W - 2L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▊░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ First Phase
 
 📅 Next: vs KIL (Nov 8)
 
-📊 2026 Record: 9W - 2L - 1D  (28 pts)
-   ███████████████████▊░░░░░
+📊 2026 Record: 9W - 2L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▊░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ First Phase
 
 📅 Next: vs KIL (Nov 8)
 
-📊 2026 Record: 9W - 2L - 1D  (28 pts)
-   ███████████████████▊░░░░░
+📊 2026 Record: 9W - 2L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▊░░░░░
 
 
 

@@ -16,8 +16,7 @@ Saudi Pro League
 
 📅 Next: @ TAA (Nov 20)
 
-📊 2026 Record: 0W - 8L - 3D  (3 pts)
-   ███▍░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 8L - 3D  (3 pts)<br>&nbsp;&nbsp;&nbsp;███▍░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ Saudi Pro League
 
 📅 Next: @ TAA (Nov 20)
 
-📊 2026 Record: 0W - 8L - 3D  (3 pts)
-   ███▍░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 8L - 3D  (3 pts)<br>&nbsp;&nbsp;&nbsp;███▍░░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ Saudi Pro League
 
 📅 Next: @ TAA (Nov 20)
 
-📊 2026 Record: 0W - 8L - 3D  (3 pts)
-   ███▍░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 8L - 3D  (3 pts)<br>&nbsp;&nbsp;&nbsp;███▍░░░░░░░░░░░░░░░░░░░░░
 
 
 
