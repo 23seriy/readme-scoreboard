@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.18.0] - 2026-11-08
+
 ### Changed
 
 - **Node.js 26 is now the supported runtime.** It became the active LTS ("Lithium") on
@@ -18,6 +20,19 @@ that would alter what appears in your README or require editing your workflow.
   The full suite, lint, the demo smoke run across all 43 leagues and board regeneration were re-run
   on 26.13.0 with no behaviour change: the committed example boards regenerate byte-identical, so
   no board output moved.
+- **The renderer dispatch and its season/logo tables now derive from the league registry.**
+  `render()` repeated a hand-written switch over all 43 leagues, and `markdown.js` kept a second
+  copy of the season windows and league logos that was overwritten by the registry at load time.
+  Both are now built from `src/config/leagues.js`, the single source of truth. This fixes a real
+  drift: the fallback conference label showed the wrong name for five leagues (`Greek Super League`
+  rendered as `Super League`, `Austrian Bundesliga` as `Bundesliga`, `Danish Superliga` as
+  `Superliga`, `Norwegian Eliteserien` as `Eliteserien`, `Swedish Allsvenskan` as `Allsvenskan`),
+  and the unsupported-sport error omitted six leagues (`ufc`, `worldcup`, `ncaab`, `ncaaw`,
+  `ncaaf`, `ncaa_hockey`).
+- **`entity` is inferred from the sport again.** `action.yml` declared `entity: team` as its
+  default, so the action always passed `team` and the per-sport inference (`player` for tennis,
+  racing and MMA) never ran. The input now has no default, so individual sports are described as
+  players again in headings and error messages.
 
 ### Added
 
@@ -26,6 +41,8 @@ that would alter what appears in your README or require editing your workflow.
 - **A `link` input to point the board heading at your own page.** The heading used to link to the
   league's raw ESPN API endpoint (a JSON URL). `link:` overrides that with any URL; leaving it
   unset keeps the existing behaviour.
+
+## [1.17.2] - 2026-11-08
 
 ### Fixed
 
@@ -46,22 +63,6 @@ that would alter what appears in your README or require editing your workflow.
   with a single newline before it, which Markdown reads as a soft break — GitHub folded
   `📊 … (77.8%)` and `█████…` into one wrapped paragraph. The record and bar now share a line
   with an explicit `<br>`, so the bar renders on the next line, indented, on every league's board.
-
-### Changed
-
-- **The renderer dispatch and its season/logo tables now derive from the league registry.**
-  `render()` repeated a hand-written switch over all 43 leagues, and `markdown.js` kept a second
-  copy of the season windows and league logos that was overwritten by the registry at load time.
-  Both are now built from `src/config/leagues.js`, the single source of truth. This fixes a real
-  drift: the fallback conference label showed the wrong name for five leagues (`Greek Super League`
-  rendered as `Super League`, `Austrian Bundesliga` as `Bundesliga`, `Danish Superliga` as
-  `Superliga`, `Norwegian Eliteserien` as `Eliteserien`, `Swedish Allsvenskan` as `Allsvenskan`),
-  and the unsupported-sport error omitted six leagues (`ufc`, `worldcup`, `ncaab`, `ncaaw`,
-  `ncaaf`, `ncaa_hockey`).
-- **`entity` is inferred from the sport again.** `action.yml` declared `entity: team` as its
-  default, so the action always passed `team` and the per-sport inference (`player` for tennis,
-  racing and MMA) never ran. The input now has no default, so individual sports are described as
-  players again in headings and error messages.
 
 ## [1.17.1] - 2026-11-06
 
@@ -958,7 +959,9 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.1...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.18.0...HEAD
+[1.18.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.2...v1.18.0
+[1.17.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.1...v1.17.2
 [1.17.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.0...v1.17.1
 [1.17.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.16.0...v1.17.0
 [1.16.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.2...v1.16.0
