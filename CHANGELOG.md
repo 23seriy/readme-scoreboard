@@ -20,6 +20,19 @@ that would alter what appears in your README or require editing your workflow.
   The full suite, lint, the demo smoke run across all 43 leagues and board regeneration were re-run
   on 26.13.0 with no behaviour change: the committed example boards regenerate byte-identical, so
   no board output moved.
+- **The renderer dispatch and its season/logo tables now derive from the league registry.**
+  `render()` repeated a hand-written switch over all 43 leagues, and `markdown.js` kept a second
+  copy of the season windows and league logos that was overwritten by the registry at load time.
+  Both are now built from `src/config/leagues.js`, the single source of truth. This fixes a real
+  drift: the fallback conference label showed the wrong name for five leagues (`Greek Super League`
+  rendered as `Super League`, `Austrian Bundesliga` as `Bundesliga`, `Danish Superliga` as
+  `Superliga`, `Norwegian Eliteserien` as `Eliteserien`, `Swedish Allsvenskan` as `Allsvenskan`),
+  and the unsupported-sport error omitted six leagues (`ufc`, `worldcup`, `ncaab`, `ncaaw`,
+  `ncaaf`, `ncaa_hockey`).
+- **`entity` is inferred from the sport again.** `action.yml` declared `entity: team` as its
+  default, so the action always passed `team` and the per-sport inference (`player` for tennis,
+  racing and MMA) never ran. The input now has no default, so individual sports are described as
+  players again in headings and error messages.
 
 ### Added
 
@@ -57,22 +70,6 @@ that would alter what appears in your README or require editing your workflow.
 - **`glob` and `minimatch` are pinned past their GitHub advisories**, alongside the existing
   `deepmerge` pin. Both are development-only dependencies, so nothing changes for the action at
   runtime — the alerts simply could not be closed by upgrading a parent package.
-
-### Changed
-
-- **The renderer dispatch and its season/logo tables now derive from the league registry.**
-  `render()` repeated a hand-written switch over all 43 leagues, and `markdown.js` kept a second
-  copy of the season windows and league logos that was overwritten by the registry at load time.
-  Both are now built from `src/config/leagues.js`, the single source of truth. This fixes a real
-  drift: the fallback conference label showed the wrong name for five leagues (`Greek Super League`
-  rendered as `Super League`, `Austrian Bundesliga` as `Bundesliga`, `Danish Superliga` as
-  `Superliga`, `Norwegian Eliteserien` as `Eliteserien`, `Swedish Allsvenskan` as `Allsvenskan`),
-  and the unsupported-sport error omitted six leagues (`ufc`, `worldcup`, `ncaab`, `ncaaw`,
-  `ncaaf`, `ncaa_hockey`).
-- **`entity` is inferred from the sport again.** `action.yml` declared `entity: team` as its
-  default, so the action always passed `team` and the per-sport inference (`player` for tennis,
-  racing and MMA) never ran. The input now has no default, so individual sports are described as
-  players again in headings and error messages.
 
 ## [1.17.1] - 2026-11-06
 
