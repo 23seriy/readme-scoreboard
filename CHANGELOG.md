@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.18.0] - 2026-11-08
+
 ### Changed
 
 - **Node.js 26 is now the supported runtime.** It became the active LTS ("Lithium") on
@@ -26,6 +28,8 @@ that would alter what appears in your README or require editing your workflow.
 - **A `link` input to point the board heading at your own page.** The heading used to link to the
   league's raw ESPN API endpoint (a JSON URL). `link:` overrides that with any URL; leaving it
   unset keeps the existing behaviour.
+
+## [1.17.2] - 2026-11-08
 
 ### Fixed
 
@@ -46,6 +50,13 @@ that would alter what appears in your README or require editing your workflow.
   with a single newline before it, which Markdown reads as a soft break — GitHub folded
   `📊 … (77.8%)` and `█████…` into one wrapped paragraph. The record and bar now share a line
   with an explicit `<br>`, so the bar renders on the next line, indented, on every league's board.
+- **A boolean input with a typo now reports one line instead of a stack trace.**
+
+### Security
+
+- **`glob` and `minimatch` are pinned past their GitHub advisories**, alongside the existing
+  `deepmerge` pin. Both are development-only dependencies, so nothing changes for the action at
+  runtime — the alerts simply could not be closed by upgrading a parent package.
 
 ### Changed
 
@@ -958,7 +969,9 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.1...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.18.0...HEAD
+[1.18.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.2...v1.18.0
+[1.17.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.1...v1.17.2
 [1.17.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.0...v1.17.1
 [1.17.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.16.0...v1.17.0
 [1.16.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.2...v1.16.0
