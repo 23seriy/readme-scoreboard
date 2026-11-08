@@ -10,6 +10,8 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.18.0] - 2026-11-08
+
 ### Changed
 
 - **Node.js 26 is now the supported runtime.** It became the active LTS ("Lithium") on
@@ -967,7 +969,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.2...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.18.0...HEAD
+[1.18.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.2...v1.18.0
 [1.17.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.1...v1.17.2
 [1.17.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.0...v1.17.1
 [1.17.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.16.0...v1.17.0
