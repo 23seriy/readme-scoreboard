@@ -6,17 +6,17 @@
 Southeastern Conference
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 3
+🏅 Standing: Southeastern Conference · 2
 
-📅 Next: @ LSU (Nov 7)
+📅 Next: @ VAN (Nov 14)
 
-📊 2026 Season: 6W
+📊 2026 Season: 7W
 
 **📅 Recent Games:**
 ```
+✅ W 31-13 @ LSU (Nov 7, 2026)
 ✅ W 31-20 @ TA&M (Oct 24, 2026)
 ❌ L 10-26 @ TENN (Oct 17, 2026)
 ❌ L 17-20 @ UGA (Oct 10, 2026)
 ✅ W 56-23 @ MSST (Oct 3, 2026)
-✅ W 49-18 @ SC  (Sep 26, 2026)
 ```
