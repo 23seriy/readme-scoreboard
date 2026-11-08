@@ -14,8 +14,7 @@ Group J
 
 🏅 Standing (2026): Group J · 3
 
-📊 2026 Record: 1W - 1L - 1D  (4 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 1W - 1L - 1D  (4 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -39,8 +38,7 @@ Group J
 
 🏅 Standing (2026): Group J · 3
 
-📊 2026 Record: 1W - 1L - 1D  (4 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 1W - 1L - 1D  (4 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -63,8 +61,7 @@ Group J
 
 🏅 Standing (2026): Group J · 3
 
-📊 2026 Record: 1W - 1L - 1D  (4 pts)
-   ████████████▌░░░░░░░░░░░░
+📊 2026 Record: 1W - 1L - 1D  (4 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
 
 
 

@@ -16,8 +16,7 @@ Regular Season
 
 📅 Next: @ AGF (Nov 8)
 
-📊 2026 Record: 4W - 5L - 4D  (16 pts)
-   ███████████▌░░░░░░░░░░░░░
+📊 2026 Record: 4W - 5L - 4D  (16 pts)<br>&nbsp;&nbsp;&nbsp;███████████▌░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -44,8 +43,7 @@ Regular Season
 
 📅 Next: @ AGF (Nov 8)
 
-📊 2026 Record: 4W - 5L - 4D  (16 pts)
-   ███████████▌░░░░░░░░░░░░░
+📊 2026 Record: 4W - 5L - 4D  (16 pts)<br>&nbsp;&nbsp;&nbsp;███████████▌░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -71,8 +69,7 @@ Regular Season
 
 📅 Next: @ AGF (Nov 8)
 
-📊 2026 Record: 4W - 5L - 4D  (16 pts)
-   ███████████▌░░░░░░░░░░░░░
+📊 2026 Record: 4W - 5L - 4D  (16 pts)<br>&nbsp;&nbsp;&nbsp;███████████▌░░░░░░░░░░░░░
 
 
 

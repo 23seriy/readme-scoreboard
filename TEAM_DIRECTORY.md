@@ -921,6 +921,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Lehigh Mountain Hawks | `LEH` | 2329 |
 | Le Moyne Dolphins | `LEM` | 2330 |
 | Liberty Flames | `LIB` | 2335 |
+| Lindenwood Lions | `LIN` | 2815 |
 | Lipscomb Bisons | `LIP` | 288 |
 | Long Island University Sharks | `LIU` | 112358 |
 | Loyola Marymount Lions | `LMU` | 2351 |
@@ -1005,6 +1006,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Penn State Nittany Lions | `PSU` | 213 |
 | Purdue Boilermakers | `PUR` | 2509 |
 | Prairie View A&M Panthers | `PV` | 2504 |
+| Queens University Royals | `QUC` | 2511 |
 | Quinnipiac Bobcats | `QUIN` | 2514 |
 | Radford Highlanders | `RAD` | 2515 |
 | UT Rio Grande Valley Vaqueros | `RGV` | 292 |
@@ -1100,6 +1102,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | USC Trojans | `USC` | 30 |
 | San Diego Toreros | `USD` | 301 |
 | South Florida Bulls | `USF` | 58 |
+| Southern Indiana Screaming Eagles | `USI` | 88 |
 | Southern Miss Golden Eagles | `USM` | 2572 |
 | Utah State Aggies | `USU` | 328 |
 | UT Arlington Mavericks | `UTA` | 250 |
@@ -1308,6 +1311,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Maine Black Bears | `ME` | 311 |
 | Memphis Tigers | `MEM` | 235 |
 | Mercer Bears | `MER` | 2382 |
+| Mercyhurst Lakers | `MERC` | 2385 |
 | Miami Hurricanes | `MIA` | 2390 |
 | Michigan Wolverines | `MICH` | 130 |
 | Milwaukee Panthers | `MILW` | 270 |
@@ -1690,6 +1694,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | Delaware State Hornets | `DSU` | 2169 |
 | Duke Blue Devils | `DUKE` | 150 |
 | Duquesne Dukes | `DUQ` | 2184 |
+| Davenport Panthers | `DVPT` | 110254 |
 | Delaware Valley Aggies | `DVU` | 2808 |
 | Dakota Wesleyan Tigers | `DWU` | 513 |
 | East Central Tigers | `ECNU` | 2191 |

@@ -12,20 +12,19 @@ Team: **ALA** · Category: Soccer · Data source: ESPN public API
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 LALIGA · 11
+🏅 Standing (2026): 2026-27 LALIGA · 10
 
-📅 Next: @ SEV (Nov 6)
+📅 Next: vs DEP (Nov 21)
 
-📊 2026 Record: 3W - 5L - 3D  (12 pts)
-   ██████████▏░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 5L - 4D  (13 pts)<br>&nbsp;&nbsp;&nbsp;██████████▍░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 @ SEV   (Nov 6, 2026)
 ❌ L 1-6 @ BAR   (Oct 31, 2026)
 🟡 D 1-1 vs MCF   (Oct 23, 2026)
 ❌ L 1-2 @ CEL   (Oct 18, 2026)
 ❌ L 1-2 vs ATM   (Oct 10, 2026)
-🟡 D 0-0 @ ATH   (Sep 19, 2026)
 ```
 
 ## Custom title
@@ -40,20 +39,19 @@ The `title:` input replaces the default heading.
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 LALIGA · 11
+🏅 Standing (2026): 2026-27 LALIGA · 10
 
-📅 Next: @ SEV (Nov 6)
+📅 Next: vs DEP (Nov 21)
 
-📊 2026 Record: 3W - 5L - 3D  (12 pts)
-   ██████████▏░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 5L - 4D  (13 pts)<br>&nbsp;&nbsp;&nbsp;██████████▍░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 @ SEV   (Nov 6, 2026)
 ❌ L 1-6 @ BAR   (Oct 31, 2026)
 🟡 D 1-1 vs MCF   (Oct 23, 2026)
 ❌ L 1-2 @ CEL   (Oct 18, 2026)
 ❌ L 1-2 vs ATM   (Oct 10, 2026)
-🟡 D 0-0 @ ATH   (Sep 19, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 LALIGA · 11
+🏅 Standing (2026): 2026-27 LALIGA · 10
 
-📅 Next: @ SEV (Nov 6)
+📅 Next: vs DEP (Nov 21)
 
-📊 2026 Record: 3W - 5L - 3D  (12 pts)
-   ██████████▏░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 5L - 4D  (13 pts)<br>&nbsp;&nbsp;&nbsp;██████████▍░░░░░░░░░░░░░░
 
 
 

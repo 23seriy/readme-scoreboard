@@ -14,8 +14,7 @@ Eastern Conference
 
 🏅 Standing: Eastern · 1
 
-📊 2026 Record: 30W - 14L (68.2%)
-   █████████████████░░░░░░░░
+📊 2026 Record: 30W - 14L (68.2%)<br>&nbsp;&nbsp;&nbsp;█████████████████░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -40,8 +39,7 @@ Eastern Conference
 
 🏅 Standing: Eastern · 1
 
-📊 2026 Record: 30W - 14L (68.2%)
-   █████████████████░░░░░░░░
+📊 2026 Record: 30W - 14L (68.2%)<br>&nbsp;&nbsp;&nbsp;█████████████████░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -65,8 +63,7 @@ Eastern Conference
 
 🏅 Standing: Eastern · 1
 
-📊 2026 Record: 30W - 14L (68.2%)
-   █████████████████░░░░░░░░
+📊 2026 Record: 30W - 14L (68.2%)<br>&nbsp;&nbsp;&nbsp;█████████████████░░░░░░░░
 
 
 

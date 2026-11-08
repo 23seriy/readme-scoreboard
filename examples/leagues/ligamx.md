@@ -12,20 +12,19 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Torneo Apertura · 1
+🏅 Standing (2026): 2026 Torneo Apertura · 2
 
-📅 Next: @ UNAM (Nov 8)
+📅 Next: @ UANL (Nov 22)
 
-📊 2026 Record: 8W - 2L - 5D  (29 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 8W - 2L - 6D  (30 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▏░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 @ UNAM  (Nov 7, 2026)
 🟡 D 2-2 vs TOL   (Oct 31, 2026)
 🟡 D 1-1 vs TIJ   (Oct 28, 2026)
 ❌ L 1-2 vs PAC   (Oct 25, 2026)
 ✅ W 5-2 @ ATS   (Oct 21, 2026)
-✅ W 5-3 @ LEO   (Oct 17, 2026)
 ```
 
 ## Custom title
@@ -40,20 +39,19 @@ The `title:` input replaces the default heading.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Torneo Apertura · 1
+🏅 Standing (2026): 2026 Torneo Apertura · 2
 
-📅 Next: @ UNAM (Nov 8)
+📅 Next: @ UANL (Nov 22)
 
-📊 2026 Record: 8W - 2L - 5D  (29 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 8W - 2L - 6D  (30 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▏░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 @ UNAM  (Nov 7, 2026)
 🟡 D 2-2 vs TOL   (Oct 31, 2026)
 🟡 D 1-1 vs TIJ   (Oct 28, 2026)
 ❌ L 1-2 vs PAC   (Oct 25, 2026)
 ✅ W 5-2 @ ATS   (Oct 21, 2026)
-✅ W 5-3 @ LEO   (Oct 17, 2026)
 ```
 
 ## Compact mode
@@ -67,12 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Torneo Apertura
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Torneo Apertura · 1
+🏅 Standing (2026): 2026 Torneo Apertura · 2
 
-📅 Next: @ UNAM (Nov 8)
+📅 Next: @ UANL (Nov 22)
 
-📊 2026 Record: 8W - 2L - 5D  (29 pts)
-   █████████████████▌░░░░░░░
+📊 2026 Record: 8W - 2L - 6D  (30 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▏░░░░░░░
 
 
 
