@@ -10,6 +10,34 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+## [1.17.2] - 2026-11-08
+
+### Fixed
+
+- **A next fixture across the new year now shows its year.** A December board announcing
+  `📅 Next: vs POR (Jan 2)` read as a game that had already been played. The year is added only
+  when the fixture falls outside the current year, so boards in the ordinary case are unchanged.
+  The MLS showcase was the live example: its next match is `Feb 21, 2027`.
+- **Badge mode used the wrong abbreviation for longer team codes.** Badges scraped the code out of
+  the rendered markdown with `/([A-Z]{2,3})/`, so every abbreviation longer than three letters —
+  about a third of the directory, e.g. `PAOK`, `FC GOA`, `VALLEY`, `ASTM` — silently fell back to the
+  raw input. Badges are now built from the abbreviation the adapter resolved.
+- **The player headshot no longer floats beside the wrong section.** The spotlight emitted the
+  heading first and the right-floated headshot after it with no separating blank line, so GitHub
+  put the float on the heading's second wrapped line — the photo rendered next to the stats (or
+  the next section) rather than beside the player's name.
+- **The win-rate bar no longer merges into the record line.** It was pushed as its own line with a
+  single newline before it, which Markdown reads as a soft break — GitHub folded `📊 … (77.8%)`
+  and `█████…` into one wrapped paragraph. The record and bar now share a line with an explicit
+  `<br>`, so the bar renders on the next line, indented, on every league's board.
+- **A boolean input with a typo now reports one line instead of a stack trace.**
+
+### Security
+
+- **`glob` and `minimatch` are pinned past their GitHub advisories**, alongside the existing
+  `deepmerge` pin. Both are development-only dependencies, so nothing changes for the action at
+  runtime.
+
 ### Changed
 
 - **Node.js 26 is now the supported runtime.** It became the active LTS ("Lithium") on
@@ -958,7 +986,8 @@ Initial release.
 - `marker` input, so multiple scoreboards can live in one README
 - Team abbreviation tables and demo mode (`--demo`)
 
-[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.1...HEAD
+[Unreleased]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.2...HEAD
+[1.17.2]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.1...v1.17.2
 [1.17.1]: https://github.com/23seriy/readme-scoreboard/compare/v1.17.0...v1.17.1
 [1.17.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.16.0...v1.17.0
 [1.16.0]: https://github.com/23seriy/readme-scoreboard/compare/v1.15.2...v1.16.0
