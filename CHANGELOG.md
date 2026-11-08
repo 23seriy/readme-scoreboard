@@ -63,6 +63,13 @@ that would alter what appears in your README or require editing your workflow.
   with a single newline before it, which Markdown reads as a soft break — GitHub folded
   `📊 … (77.8%)` and `█████…` into one wrapped paragraph. The record and bar now share a line
   with an explicit `<br>`, so the bar renders on the next line, indented, on every league's board.
+- **A boolean input with a typo now reports one line instead of a stack trace.**
+
+### Security
+
+- **`glob` and `minimatch` are pinned past their GitHub advisories**, alongside the existing
+  `deepmerge` pin. Both are development-only dependencies, so nothing changes for the action at
+  runtime — the alerts simply could not be closed by upgrading a parent package.
 
 ## [1.17.1] - 2026-11-06
 
