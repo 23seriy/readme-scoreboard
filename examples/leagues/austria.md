@@ -12,19 +12,19 @@ Team: **ALU** · Category: Soccer · Data source: ESPN public API
 Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): Bundesliga · 10
+🏅 Standing (2026): Bundesliga · 8
 
-📅 Next: vs GRA (Nov 7)
+📅 Next: @ WST (Nov 21)
 
-📊 2026 Record: 2W - 7L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;██████▊░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 7L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-1 vs GRA   (Nov 7, 2026)
 ❌ L 1-5 @ SLZ   (Nov 1, 2026)
 ❌ L 1-5 @ VIE   (Oct 24, 2026)
 ❌ L 0-4 vs LAS   (Oct 17, 2026)
 ❌ L 3-4 @ HAR   (Oct 11, 2026)
-✅ W 2-0 vs SCR   (Sep 19, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): Bundesliga · 10
+🏅 Standing (2026): Bundesliga · 8
 
-📅 Next: vs GRA (Nov 7)
+📅 Next: @ WST (Nov 21)
 
-📊 2026 Record: 2W - 7L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;██████▊░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 7L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-1 vs GRA   (Nov 7, 2026)
 ❌ L 1-5 @ SLZ   (Nov 1, 2026)
 ❌ L 1-5 @ VIE   (Oct 24, 2026)
 ❌ L 0-4 vs LAS   (Oct 17, 2026)
 ❌ L 3-4 @ HAR   (Oct 11, 2026)
-✅ W 2-0 vs SCR   (Sep 19, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 Bundesliga
 🟢 Season in progress
 
-🏅 Standing (2026): Bundesliga · 10
+🏅 Standing (2026): Bundesliga · 8
 
-📅 Next: vs GRA (Nov 7)
+📅 Next: @ WST (Nov 21)
 
-📊 2026 Record: 2W - 7L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;██████▊░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 7L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 
 

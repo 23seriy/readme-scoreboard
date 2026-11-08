@@ -12,7 +12,7 @@ Team: **AEK** · Category: Soccer · Data source: ESPN public API
 2026-27 Greek Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Greek Super League · 4
+🏅 Standing (2026): 2026-27 Greek Super League · 5
 
 📅 Next: vs LEV (Nov 8)
 
@@ -39,7 +39,7 @@ The `title:` input replaces the default heading.
 2026-27 Greek Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Greek Super League · 4
+🏅 Standing (2026): 2026-27 Greek Super League · 5
 
 📅 Next: vs LEV (Nov 8)
 
@@ -65,7 +65,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 Greek Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Greek Super League · 4
+🏅 Standing (2026): 2026-27 Greek Super League · 5
 
 📅 Next: vs LEV (Nov 8)
 

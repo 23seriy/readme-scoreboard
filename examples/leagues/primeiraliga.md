@@ -14,17 +14,17 @@ Team: **ALV** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-2027 Portuguese Liga · 11
 
-📅 Next: vs CPAC (Nov 7)
+📅 Next: @ ACV (Nov 28)
 
-📊 2026 Record: 3W - 5L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 5L - 3D  (12 pts)<br>&nbsp;&nbsp;&nbsp;██████████▏░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 vs CPAC  (Nov 7, 2026)
 ❌ L 0-1 @ SLB   (Nov 2, 2026)
 ❌ L 0-1 vs FCA   (Oct 24, 2026)
 ✅ W 4-1 @ FCF   (Oct 12, 2026)
 ✅ W 1-0 vs RAFC  (Sep 19, 2026)
-✅ W 3-1 @ CDN   (Sep 12, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-2027 Portuguese Liga · 11
 
-📅 Next: vs CPAC (Nov 7)
+📅 Next: @ ACV (Nov 28)
 
-📊 2026 Record: 3W - 5L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 5L - 3D  (12 pts)<br>&nbsp;&nbsp;&nbsp;██████████▏░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 vs CPAC  (Nov 7, 2026)
 ❌ L 0-1 @ SLB   (Nov 2, 2026)
 ❌ L 0-1 vs FCA   (Oct 24, 2026)
 ✅ W 4-1 @ FCF   (Oct 12, 2026)
 ✅ W 1-0 vs RAFC  (Sep 19, 2026)
-✅ W 3-1 @ CDN   (Sep 12, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-2027 Portuguese Liga · 11
 
-📅 Next: vs CPAC (Nov 7)
+📅 Next: @ ACV (Nov 28)
 
-📊 2026 Record: 3W - 5L - 2D  (11 pts)<br>&nbsp;&nbsp;&nbsp;██████████░░░░░░░░░░░░░░░
+📊 2026 Record: 3W - 5L - 3D  (12 pts)<br>&nbsp;&nbsp;&nbsp;██████████▏░░░░░░░░░░░░░░
 
 
 

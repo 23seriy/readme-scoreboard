@@ -14,12 +14,13 @@ Team: **ADL** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-27 A-League · 12
 
-📅 Next: vs MBV (Nov 8)
+📅 Next: @ WSW (Nov 20)
 
-📊 2026 Record: 0W - 2L - 0D  (0 pts)<br>&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 2L - 1D  (1 pts)<br>&nbsp;&nbsp;&nbsp;████▏░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 vs MBV   (Nov 8, 2026)
 ❌ L 0-4 @ PER   (Nov 1, 2026)
 ❌ L 1-2 @ SYD   (Oct 25, 2026)
 ```
@@ -38,12 +39,13 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-27 A-League · 12
 
-📅 Next: vs MBV (Nov 8)
+📅 Next: @ WSW (Nov 20)
 
-📊 2026 Record: 0W - 2L - 0D  (0 pts)<br>&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 2L - 1D  (1 pts)<br>&nbsp;&nbsp;&nbsp;████▏░░░░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 vs MBV   (Nov 8, 2026)
 ❌ L 0-4 @ PER   (Nov 1, 2026)
 ❌ L 1-2 @ SYD   (Oct 25, 2026)
 ```
@@ -61,9 +63,9 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-27 A-League · 12
 
-📅 Next: vs MBV (Nov 8)
+📅 Next: @ WSW (Nov 20)
 
-📊 2026 Record: 0W - 2L - 0D  (0 pts)<br>&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 0W - 2L - 1D  (1 pts)<br>&nbsp;&nbsp;&nbsp;████▏░░░░░░░░░░░░░░░░░░░░
 
 
 
