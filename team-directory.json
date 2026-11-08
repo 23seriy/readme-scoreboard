@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-11-07T11:54:22.215Z",
+  "generatedAt": "2026-11-08T12:10:12.044Z",
   "teams": [
     {
       "league": "nba",
@@ -5220,6 +5220,13 @@
     {
       "league": "ncaab",
       "leagueName": "NCAA Men's Basketball",
+      "abbreviation": "LIN",
+      "name": "Lindenwood Lions",
+      "id": "2815"
+    },
+    {
+      "league": "ncaab",
+      "leagueName": "NCAA Men's Basketball",
       "abbreviation": "LIP",
       "name": "Lipscomb Bisons",
       "id": "288"
@@ -5885,6 +5892,13 @@
     {
       "league": "ncaab",
       "leagueName": "NCAA Men's Basketball",
+      "abbreviation": "QUC",
+      "name": "Queens University Royals",
+      "id": "2511"
+    },
+    {
+      "league": "ncaab",
+      "leagueName": "NCAA Men's Basketball",
       "abbreviation": "QUIN",
       "name": "Quinnipiac Bobcats",
       "id": "2514"
@@ -6133,6 +6147,13 @@
       "abbreviation": "SIU",
       "name": "Southern Illinois Salukis",
       "id": "79"
+    },
+    {
+      "league": "ncaab",
+      "leagueName": "NCAA Men's Basketball",
+      "abbreviation": "USI",
+      "name": "Southern Indiana Screaming Eagles",
+      "id": "88"
     },
     {
       "league": "ncaab",
@@ -7939,6 +7960,13 @@
       "abbreviation": "MER",
       "name": "Mercer Bears",
       "id": "2382"
+    },
+    {
+      "league": "ncaaw",
+      "leagueName": "NCAA Women's Basketball",
+      "abbreviation": "MERC",
+      "name": "Mercyhurst Lakers",
+      "id": "2385"
     },
     {
       "league": "ncaaw",
@@ -10452,6 +10480,13 @@
       "abbreviation": "DART",
       "name": "Dartmouth Big Green",
       "id": "159"
+    },
+    {
+      "league": "ncaaf",
+      "leagueName": "College Football",
+      "abbreviation": "DVPT",
+      "name": "Davenport Panthers",
+      "id": "110254"
     },
     {
       "league": "ncaaf",
