@@ -51,3 +51,27 @@ here so a future reader does not spend time re-investigating it.
 - **Revisit when:** `deepmerge` publishes a patched release, or `jest-config`
   drops or replaces the dependency. Dependabot alert #7 tracks this.
 
+## Transitive dependency overrides
+
+Two **dev-only** transitive packages are pinned above the ranges their
+dependants declare, because no parent release accepts the fixed version yet:
+
+| Override                | Required by                                                      | Advisory fixed                                            |
+| ----------------------- | ---------------------------------------------------------------- | --------------------------------------------------------- |
+| `glob` → `^14.0.4`      | `@jest/reporters`, `jest-config`, `jest-runtime`, `test-exclude`  | GHSA-3g3m-2fjr-6pw4 (CVE-2026-118773), patched in 14.0.2 |
+| `minimatch` → `^11.0.5` | `glob`, `test-exclude`, `eslint`                                 | GHSA-g3hv-75wg-m249 (CVE-2026-118764), patched in 11.0.1  |
+
+- **Why overrides and not upgrades:** Jest 30.5.2 (the latest) still asks for
+  `glob@^13` and `test-exclude@^7`, and `test-exclude@8` still asks for
+  `minimatch@^10`. Neither resolved tree clears the advisories, so the pinned
+  versions are lifted in `package.json` until those releases catch up.
+- **Why they move together:** `glob@13` reads `Minimatch#set` entries as regular
+  expressions, which `minimatch@11` no longer produces. Pinning `minimatch`
+  alone breaks Jest's file walking, so `glob` must be on `14` whenever
+  `minimatch` is on `11`.
+- **Why the exposure was limited anyway:** both advisories require
+  attacker-controlled patterns or cancellation signals; the only consumers here
+  are Jest's own test-file and coverage globs plus ESLint's config globs.
+- **Revisit when:** Jest or ESLint ship dependency ranges that accept
+  `glob@>=14.0.2` and `minimatch@>=11.0.1`; then the overrides can be dropped.
+  `tests/scripts/dependency-advisories.test.js` fails if they are removed early.

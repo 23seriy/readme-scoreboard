@@ -48,3 +48,45 @@ describe("deepmerge advisory (GHSA-gcqx-w48m-w2h4)", () => {
     expect(offenders).toEqual([]);
   });
 });
+
+// GHSA-g3hv-75wg-m249 (minimatch DoS) and GHSA-3g3m-2fjr-6pw4 (glob AbortSignal
+// bypass) both have fixes that no intermediate release accepts yet — Jest 30
+// still asks for glob@^13 and test-exclude@^8 still asks for minimatch@^10 — so
+// the resolved versions are lifted via `overrides`. Deleting an override, or a
+// lockfile refresh that reintroduces the vulnerable copies, must fail loudly.
+describe("transitive glob/minimatch advisories", () => {
+  const lock = require(path.join(ROOT, "package-lock.json"));
+
+  const resolvedVersions = (name) =>
+    Object.entries(lock.packages || {})
+      .filter(([entry]) => entry === `node_modules/${name}` || entry.endsWith(`/node_modules/${name}`))
+      .map(([, meta]) => meta.version);
+
+  it("pins glob and minimatch above their patched versions", () => {
+    expect(pkg.overrides.glob).toBe("^14.0.4");
+    expect(pkg.overrides.minimatch).toBe("^11.0.5");
+  });
+
+  it.each([
+    ["glob", 14, 0, 2],
+    ["minimatch", 11, 0, 1],
+  ])("resolves every %s copy above the patched version", (name, major, minor, patch) => {
+    const versions = resolvedVersions(name);
+    expect(versions.length).toBeGreaterThan(0);
+    for (const version of versions) {
+      expect(isAtLeast(version, major, minor, patch)).toBe(true);
+    }
+  });
+
+  it("documents both advisories and why the overrides must move together", () => {
+    expect(security).toContain("GHSA-g3hv-75wg-m249");
+    expect(security).toContain("GHSA-3g3m-2fjr-6pw4");
+  });
+});
+
+function isAtLeast(version, major, minor, patch) {
+  const [actualMajor, actualMinor, actualPatch] = version.split("-")[0].split(".").map(Number);
+  if (actualMajor !== major) return actualMajor > major;
+  if (actualMinor !== minor) return actualMinor > minor;
+  return actualPatch >= patch;
+}
