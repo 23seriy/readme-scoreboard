@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-11-08T12:10:12.044Z",
+  "generatedAt": "2026-11-09T14:18:27.327Z",
   "teams": [
     {
       "league": "nba",
@@ -1093,6 +1093,20 @@
       "abbreviation": "VAN",
       "name": "Vancouver Whitecaps",
       "id": "9727"
+    },
+    {
+      "league": "mls",
+      "leagueName": "MLS",
+      "abbreviation": "TBD Away",
+      "name": "TBD Away",
+      "id": "131554"
+    },
+    {
+      "league": "mls",
+      "leagueName": "MLS",
+      "abbreviation": "TBD Home",
+      "name": "TBD Home",
+      "id": "131556"
     },
     {
       "league": "epl",

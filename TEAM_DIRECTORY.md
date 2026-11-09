@@ -190,6 +190,8 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 | San Jose Earthquakes | `SJ` | 191 |
 | Sporting Kansas City | `SKC` | 186 |
 | St. Louis CITY SC | `STL` | 21812 |
+| TBD Away | `TBD Away` | 131554 |
+| TBD Home | `TBD Home` | 131556 |
 | Toronto FC | `TOR` | 7318 |
 | Vancouver Whitecaps | `VAN` | 9727 |
 
