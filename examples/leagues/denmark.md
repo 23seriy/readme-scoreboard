@@ -14,17 +14,17 @@ Regular Season
 
 🏅 Standing (2026): Regular Season · 7
 
-📅 Next: @ AGF (Nov 8)
+📅 Next: vs SIF (Nov 22)
 
-📊 2026 Record: 4W - 5L - 4D  (16 pts)<br>&nbsp;&nbsp;&nbsp;███████████▌░░░░░░░░░░░░░
+📊 2026 Record: 4W - 6L - 4D  (16 pts)<br>&nbsp;&nbsp;&nbsp;██████████▋░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-2 @ AGF   (Nov 8, 2026)
 ❌ L 0-1 @ VIB   (Nov 1, 2026)
 ✅ W 5-1 vs SON   (Oct 25, 2026)
 🟡 D 0-0 vs RAN   (Oct 16, 2026)
 🟡 D 3-3 @ SIF   (Oct 11, 2026)
-🟡 D 2-2 vs AGF   (Sep 20, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ Regular Season
 
 🏅 Standing (2026): Regular Season · 7
 
-📅 Next: @ AGF (Nov 8)
+📅 Next: vs SIF (Nov 22)
 
-📊 2026 Record: 4W - 5L - 4D  (16 pts)<br>&nbsp;&nbsp;&nbsp;███████████▌░░░░░░░░░░░░░
+📊 2026 Record: 4W - 6L - 4D  (16 pts)<br>&nbsp;&nbsp;&nbsp;██████████▋░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-2 @ AGF   (Nov 8, 2026)
 ❌ L 0-1 @ VIB   (Nov 1, 2026)
 ✅ W 5-1 vs SON   (Oct 25, 2026)
 🟡 D 0-0 vs RAN   (Oct 16, 2026)
 🟡 D 3-3 @ SIF   (Oct 11, 2026)
-🟡 D 2-2 vs AGF   (Sep 20, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ Regular Season
 
 🏅 Standing (2026): Regular Season · 7
 
-📅 Next: @ AGF (Nov 8)
+📅 Next: vs SIF (Nov 22)
 
-📊 2026 Record: 4W - 5L - 4D  (16 pts)<br>&nbsp;&nbsp;&nbsp;███████████▌░░░░░░░░░░░░░
+📊 2026 Record: 4W - 6L - 4D  (16 pts)<br>&nbsp;&nbsp;&nbsp;██████████▋░░░░░░░░░░░░░░
 
 
 

@@ -14,17 +14,17 @@ Team: **AAL** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026 Norwegian Eliteserien · 14
 
-📅 Next: @ LSK (Nov 8)
+📅 Next: vs ROS (Nov 22)
 
-📊 2026 Record: 5W - 11L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▌░░░░░░░░░░░░░░░
+📊 2026 Record: 5W - 12L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▏░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-3 @ LSK   (Nov 8, 2026)
 ❌ L 3-4 vs SAN   (Oct 31, 2026)
 ❌ L 1-2 @ SAR   (Oct 25, 2026)
 ✅ W 4-1 @ KRI   (Oct 17, 2026)
 ❌ L 2-4 vs SAR   (Oct 11, 2026)
-✅ W 2-1 @ MOL   (Sep 19, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026 Norwegian Eliteserien · 14
 
-📅 Next: @ LSK (Nov 8)
+📅 Next: vs ROS (Nov 22)
 
-📊 2026 Record: 5W - 11L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▌░░░░░░░░░░░░░░░
+📊 2026 Record: 5W - 12L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▏░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 2-3 @ LSK   (Nov 8, 2026)
 ❌ L 3-4 vs SAN   (Oct 31, 2026)
 ❌ L 1-2 @ SAR   (Oct 25, 2026)
 ✅ W 4-1 @ KRI   (Oct 17, 2026)
 ❌ L 2-4 vs SAR   (Oct 11, 2026)
-✅ W 2-1 @ MOL   (Sep 19, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026 Norwegian Eliteserien · 14
 
-📅 Next: @ LSK (Nov 8)
+📅 Next: vs ROS (Nov 22)
 
-📊 2026 Record: 5W - 11L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▌░░░░░░░░░░░░░░░
+📊 2026 Record: 5W - 12L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▏░░░░░░░░░░░░░░░
 
 
 

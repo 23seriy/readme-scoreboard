@@ -12,7 +12,7 @@ Team: **ALA** · Category: Soccer · Data source: ESPN public API
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 LALIGA · 10
+🏅 Standing (2026): 2026-27 LALIGA · 12
 
 📅 Next: vs DEP (Nov 21)
 
@@ -39,7 +39,7 @@ The `title:` input replaces the default heading.
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 LALIGA · 10
+🏅 Standing (2026): 2026-27 LALIGA · 12
 
 📅 Next: vs DEP (Nov 21)
 
@@ -65,7 +65,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 LALIGA
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 LALIGA · 10
+🏅 Standing (2026): 2026-27 LALIGA · 12
 
 📅 Next: vs DEP (Nov 21)
 

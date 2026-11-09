@@ -12,19 +12,19 @@ Team: **ANG** · Category: Soccer · Data source: ESPN public API
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing (2026): French Ligue 1 2026-27 · 15
+🏅 Standing (2026): French Ligue 1 2026-27 · 16
 
-📅 Next: vs NICE (Nov 8)
+📅 Next: @ PAR (Nov 22)
 
-📊 2026 Record: 2W - 5L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 6L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;███████▌░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-2 vs NICE  (Nov 8, 2026)
 ❌ L 0-2 @ LYON  (Nov 1, 2026)
 🟡 D 0-0 vs LOR   (Oct 25, 2026)
 ❌ L 2-5 vs OLM   (Oct 18, 2026)
 ❌ L 1-5 @ BRE   (Oct 10, 2026)
-✅ W 2-0 vs TRY   (Sep 19, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing (2026): French Ligue 1 2026-27 · 15
+🏅 Standing (2026): French Ligue 1 2026-27 · 16
 
-📅 Next: vs NICE (Nov 8)
+📅 Next: @ PAR (Nov 22)
 
-📊 2026 Record: 2W - 5L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 6L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;███████▌░░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-2 vs NICE  (Nov 8, 2026)
 ❌ L 0-2 @ LYON  (Nov 1, 2026)
 🟡 D 0-0 vs LOR   (Oct 25, 2026)
 ❌ L 2-5 vs OLM   (Oct 18, 2026)
 ❌ L 1-5 @ BRE   (Oct 10, 2026)
-✅ W 2-0 vs TRY   (Sep 19, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 French Ligue 1 2026-27
 🟢 Season in progress
 
-🏅 Standing (2026): French Ligue 1 2026-27 · 15
+🏅 Standing (2026): French Ligue 1 2026-27 · 16
 
-📅 Next: vs NICE (Nov 8)
+📅 Next: @ PAR (Nov 22)
 
-📊 2026 Record: 2W - 5L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
+📊 2026 Record: 2W - 6L - 2D  (8 pts)<br>&nbsp;&nbsp;&nbsp;███████▌░░░░░░░░░░░░░░░░░
 
 
 

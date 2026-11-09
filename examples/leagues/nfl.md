@@ -12,19 +12,19 @@ Team: **ATL** · Category: Football · Data source: ESPN public API
 NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: NFC · 11
+🏅 Standing: NFC · 13
 
-📅 Next: vs CIN (Nov 8)
+📅 Next: vs KC (Nov 15)
 
-📊 2026 Season: 3W - 5L (37.5%)<br>&nbsp;&nbsp;&nbsp;█████████▍░░░░░░░░░░░░░░░
+📊 2026 Season: 3W - 6L (33.3%)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 17-34 vs CIN (Nov 8, 2026)
 ❌ L  0-16 @ TB  (Nov 1, 2026)
 ✅ W 29-20 vs SF  (Oct 25, 2026)
 ❌ L 23-31 vs CHI (Oct 18, 2026)
 ❌ L 23-30 vs BAL (Oct 12, 2026)
-✅ W 45-24 @ NO  (Oct 6, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: NFC · 11
+🏅 Standing: NFC · 13
 
-📅 Next: vs CIN (Nov 8)
+📅 Next: vs KC (Nov 15)
 
-📊 2026 Season: 3W - 5L (37.5%)<br>&nbsp;&nbsp;&nbsp;█████████▍░░░░░░░░░░░░░░░
+📊 2026 Season: 3W - 6L (33.3%)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 17-34 vs CIN (Nov 8, 2026)
 ❌ L  0-16 @ TB  (Nov 1, 2026)
 ✅ W 29-20 vs SF  (Oct 25, 2026)
 ❌ L 23-31 vs CHI (Oct 18, 2026)
 ❌ L 23-30 vs BAL (Oct 12, 2026)
-✅ W 45-24 @ NO  (Oct 6, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 NFC · NFC South
 🟢 Season in progress
 
-🏅 Standing: NFC · 11
+🏅 Standing: NFC · 13
 
-📅 Next: vs CIN (Nov 8)
+📅 Next: vs KC (Nov 15)
 
-📊 2026 Season: 3W - 5L (37.5%)<br>&nbsp;&nbsp;&nbsp;█████████▍░░░░░░░░░░░░░░░
+📊 2026 Season: 3W - 6L (33.3%)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
 
 
 
