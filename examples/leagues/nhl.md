@@ -12,19 +12,19 @@ Team: **ANA** · Category: Hockey · Data source: official league API
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 4
+🏅 Standing (2026-27): Pacific · 3
 
-📅 Next: vs PIT (Nov 9)
+📅 Next: vs NSH (Nov 12)
 
-📊 2025-2026 Record: 9W - 8L (52.9%)<br>&nbsp;&nbsp;&nbsp;█████████████▏░░░░░░░░░░░
+📊 2025-2026 Record: 10W - 8L (55.6%)<br>&nbsp;&nbsp;&nbsp;█████████████▉░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W   5-2   vs PIT (Nov 8, 2026)
 ✅ W   5-3   @ CGY (Nov 6, 2026)
 ✅ W   5-4   @ EDM (Nov 5, 2026)
 ✅ W   5-4   @ VAN (Nov 3, 2026)
 ✅ W   6-3   vs OTT (Nov 1, 2026)
-❌ L   6-7   vs BUF (Oct 29, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 4
+🏅 Standing (2026-27): Pacific · 3
 
-📅 Next: vs PIT (Nov 9)
+📅 Next: vs NSH (Nov 12)
 
-📊 2025-2026 Record: 9W - 8L (52.9%)<br>&nbsp;&nbsp;&nbsp;█████████████▏░░░░░░░░░░░
+📊 2025-2026 Record: 10W - 8L (55.6%)<br>&nbsp;&nbsp;&nbsp;█████████████▉░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W   5-2   vs PIT (Nov 8, 2026)
 ✅ W   5-3   @ CGY (Nov 6, 2026)
 ✅ W   5-4   @ EDM (Nov 5, 2026)
 ✅ W   5-4   @ VAN (Nov 3, 2026)
 ✅ W   6-3   vs OTT (Nov 1, 2026)
-❌ L   6-7   vs BUF (Oct 29, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Pacific · 4
+🏅 Standing (2026-27): Pacific · 3
 
-📅 Next: vs PIT (Nov 9)
+📅 Next: vs NSH (Nov 12)
 
-📊 2025-2026 Record: 9W - 8L (52.9%)<br>&nbsp;&nbsp;&nbsp;█████████████▏░░░░░░░░░░░
+📊 2025-2026 Record: 10W - 8L (55.6%)<br>&nbsp;&nbsp;&nbsp;█████████████▉░░░░░░░░░░░
 
 
 

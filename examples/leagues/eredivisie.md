@@ -12,19 +12,19 @@ Team: **AJA** · Category: Soccer · Data source: ESPN public API
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 2
+🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 3
 
-📅 Next: @ TWE (Nov 8)
+📅 Next: vs ADO (Nov 22)
 
-📊 2026 Record: 7W - 1L - 3D  (24 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▎░░░░░
+📊 2026 Record: 7W - 1L - 4D  (25 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 @ TWE   (Nov 8, 2026)
 ✅ W 1-0 vs AZ    (Oct 31, 2026)
 ✅ W 2-1 @ SPA   (Oct 25, 2026)
 ✅ W 5-2 @ GRO   (Oct 18, 2026)
 🟡 D 1-1 vs NEC   (Oct 10, 2026)
-🟡 D 2-2 vs EXC   (Sep 19, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 2
+🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 3
 
-📅 Next: @ TWE (Nov 8)
+📅 Next: vs ADO (Nov 22)
 
-📊 2026 Record: 7W - 1L - 3D  (24 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▎░░░░░
+📊 2026 Record: 7W - 1L - 4D  (25 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 @ TWE   (Nov 8, 2026)
 ✅ W 1-0 vs AZ    (Oct 31, 2026)
 ✅ W 2-1 @ SPA   (Oct 25, 2026)
 ✅ W 5-2 @ GRO   (Oct 18, 2026)
 🟡 D 1-1 vs NEC   (Oct 10, 2026)
-🟡 D 2-2 vs EXC   (Sep 19, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 2026-2027 Dutch Eredivisie
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 2
+🏅 Standing (2026): 2026-2027 Dutch Eredivisie · 3
 
-📅 Next: @ TWE (Nov 8)
+📅 Next: vs ADO (Nov 22)
 
-📊 2026 Record: 7W - 1L - 3D  (24 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▎░░░░░
+📊 2026 Record: 7W - 1L - 4D  (25 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 
 

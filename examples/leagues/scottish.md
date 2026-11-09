@@ -14,17 +14,17 @@ First Phase
 
 🏅 Standing (2026): First Phase · 1
 
-📅 Next: vs KIL (Nov 8)
+📅 Next: vs STM (Nov 21)
 
-📊 2026 Record: 9W - 2L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▊░░░░░
+📊 2026 Record: 10W - 2L - 1D  (31 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 1-0 vs KIL   (Nov 8, 2026)
 ❌ L 0-2 @ FALK  (Nov 1, 2026)
 🟡 D 2-2 vs DUN   (Oct 28, 2026)
 ✅ W 2-1 @ HIBS  (Oct 25, 2026)
 ✅ W 7-1 vs HOM   (Oct 18, 2026)
-✅ W 2-0 @ MOT   (Oct 11, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ First Phase
 
 🏅 Standing (2026): First Phase · 1
 
-📅 Next: vs KIL (Nov 8)
+📅 Next: vs STM (Nov 21)
 
-📊 2026 Record: 9W - 2L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▊░░░░░
+📊 2026 Record: 10W - 2L - 1D  (31 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 1-0 vs KIL   (Nov 8, 2026)
 ❌ L 0-2 @ FALK  (Nov 1, 2026)
 🟡 D 2-2 vs DUN   (Oct 28, 2026)
 ✅ W 2-1 @ HIBS  (Oct 25, 2026)
 ✅ W 7-1 vs HOM   (Oct 18, 2026)
-✅ W 2-0 @ MOT   (Oct 11, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ First Phase
 
 🏅 Standing (2026): First Phase · 1
 
-📅 Next: vs KIL (Nov 8)
+📅 Next: vs STM (Nov 21)
 
-📊 2026 Record: 9W - 2L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▊░░░░░
+📊 2026 Record: 10W - 2L - 1D  (31 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
 
 
 
