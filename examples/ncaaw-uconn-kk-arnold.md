@@ -22,9 +22,9 @@ Big East Conference Conference
 <img src="https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174491.png" alt="KK Arnold headshot" height="72" align="right" />
 
 **🏀 Player Spotlight: KK Arnold**
-11.0 PPG · 3.0 RPG · 2.0 APG
+12.5 PPG · 2.5 RPG · 3.5 APG
 
 **📅 Last Game:**
 ```
-7 PTS · 3 REB · 4 AST · 31 MIN vs Michigan Wolverines (Nov 5, 2026)
+14 PTS · 2 REB · 5 AST · 32 MIN vs Iowa Hawkeyes (Nov 8, 2026)
 ```
