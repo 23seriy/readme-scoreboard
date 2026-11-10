@@ -7,3 +7,8 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
+**📅 Last Match:**
+```
+✅ W vs Karolina Muchova (Nov 9, 2026) 7-6, 7-5
+```
+
