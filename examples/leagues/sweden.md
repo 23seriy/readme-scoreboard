@@ -10,7 +10,7 @@ Team: **AIK** · Category: Soccer · Data source: ESPN public API
 
 ### 🟡 AIK (AIK)
 2026 Swedish Allsvenskan
-🟢 Season in progress
+🔴 Off-season · Next season starts March 28, 2027
 
 🏅 Standing (2026): 2026 Swedish Allsvenskan · 8
 
@@ -37,7 +37,7 @@ The `title:` input replaces the default heading.
 
 ### 🟡 AIK (AIK)
 2026 Swedish Allsvenskan
-🟢 Season in progress
+🔴 Off-season · Next season starts March 28, 2027
 
 🏅 Standing (2026): 2026 Swedish Allsvenskan · 8
 
@@ -63,7 +63,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 ### 🟡 AIK (AIK)
 2026 Swedish Allsvenskan
-🟢 Season in progress
+🔴 Off-season · Next season starts March 28, 2027
 
 🏅 Standing (2026): 2026 Swedish Allsvenskan · 8
 
