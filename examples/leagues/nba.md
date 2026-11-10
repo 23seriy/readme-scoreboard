@@ -14,17 +14,17 @@ Eastern Conference · Southeast Division
 
 🏅 Standing: Eastern · 4
 
-📅 Next: vs LAL (Nov 10)
+📅 Next: @ CHI (Nov 14)
 
-📊 2026-2027 Record: 7W - 4L (63.6%)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
+📊 2026-2027 Record: 7W - 5L (58.3%)<br>&nbsp;&nbsp;&nbsp;██████████████▌░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 114-124 vs LAL (Nov 9, 2026)
 ✅ W 124-121 vs BKN (Nov 7, 2026)
 ✅ W 139-132 vs WSH (Nov 6, 2026)
 ✅ W 120-105 @ WSH (Nov 4, 2026)
 ✅ W 108-104 @ IND (Nov 2, 2026)
-❌ L  99-121 @ NO  (Oct 31, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ Eastern Conference · Southeast Division
 
 🏅 Standing: Eastern · 4
 
-📅 Next: vs LAL (Nov 10)
+📅 Next: @ CHI (Nov 14)
 
-📊 2026-2027 Record: 7W - 4L (63.6%)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
+📊 2026-2027 Record: 7W - 5L (58.3%)<br>&nbsp;&nbsp;&nbsp;██████████████▌░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 114-124 vs LAL (Nov 9, 2026)
 ✅ W 124-121 vs BKN (Nov 7, 2026)
 ✅ W 139-132 vs WSH (Nov 6, 2026)
 ✅ W 120-105 @ WSH (Nov 4, 2026)
 ✅ W 108-104 @ IND (Nov 2, 2026)
-❌ L  99-121 @ NO  (Oct 31, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ Eastern Conference · Southeast Division
 
 🏅 Standing: Eastern · 4
 
-📅 Next: vs LAL (Nov 10)
+📅 Next: @ CHI (Nov 14)
 
-📊 2026-2027 Record: 7W - 4L (63.6%)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
+📊 2026-2027 Record: 7W - 5L (58.3%)<br>&nbsp;&nbsp;&nbsp;██████████████▌░░░░░░░░░░
 
 
 

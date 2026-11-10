@@ -12,7 +12,7 @@ Team: **AAL** · Category: Soccer · Data source: ESPN public API
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Norwegian Eliteserien · 14
+🏅 Standing (2026): 2026 Norwegian Eliteserien · 15
 
 📅 Next: vs ROS (Nov 22)
 
@@ -39,7 +39,7 @@ The `title:` input replaces the default heading.
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Norwegian Eliteserien · 14
+🏅 Standing (2026): 2026 Norwegian Eliteserien · 15
 
 📅 Next: vs ROS (Nov 22)
 
@@ -65,7 +65,7 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Norwegian Eliteserien · 14
+🏅 Standing (2026): 2026 Norwegian Eliteserien · 15
 
 📅 Next: vs ROS (Nov 22)
 
