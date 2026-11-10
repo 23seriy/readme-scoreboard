@@ -61,17 +61,17 @@ Western Conference · Pacific Division
 
 🏅 Standing: Western · 1
 
-📅 Next: @ ATL (Nov 10)
+📅 Next: @ MIL (Nov 12)
 
-📊 2026-2027 Record: 9W - 2L (81.8%)<br>&nbsp;&nbsp;&nbsp;████████████████████▍░░░░
+📊 2026-2027 Record: 10W - 2L (83.3%)<br>&nbsp;&nbsp;&nbsp;████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 124-114 @ ATL (Nov 9, 2026)
 ✅ W 121-116 @ DET (Nov 8, 2026)
 ✅ W 124-118 vs POR (Nov 6, 2026)
 ✅ W 116-103 @ SAC (Nov 4, 2026)
 ✅ W 138-117 vs MIA (Nov 2, 2026)
-✅ W 131-125 vs TOR (Nov 1, 2026)
 ```
 <!-- preview:end -->
 
