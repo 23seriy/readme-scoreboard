@@ -4,7 +4,7 @@
 
 ### ⚾ New York Yankees (NYY)
 American League · AL East
-🟢 Season in progress
+🔴 Off-season · Next season starts March 25, 2027
 
 🏅 Standing: AL East · 2
 
