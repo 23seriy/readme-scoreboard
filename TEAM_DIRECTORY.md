@@ -403,7 +403,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 |------|--------------|----|
 | Atlanta Dream | `ATL` | 20 |
 | Chicago Sky | `CHI` | 19 |
-| Connecticut Sun | `CON` | 18 |
+| CON | `CON` | 18 |
 | Dallas Wings | `DAL` | 3 |
 | Golden State Valkyries | `GS` | 129689 |
 | Indiana Fever | `IND` | 5 |
