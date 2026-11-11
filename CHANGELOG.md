@@ -10,6 +10,14 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Security
+
+- **Dependabot alert #7 (`deepmerge`, GHSA-gcqx-w48m-w2h4) is dismissed as accepted risk.**
+  `4.3.1` is the newest published version and the advisory lists no patched release, so no
+  upgrade can clear it. It is dev-only (`jest → jest-config`), only merges this repo's static
+  `jest.config.js`, and `npm audit --omit=dev` reports no vulnerabilities. The reasoning and the
+  revisit trigger are recorded in [`SECURITY.md`](SECURITY.md).
+
 ## [1.18.0] - 2026-11-08
 
 ### Changed
