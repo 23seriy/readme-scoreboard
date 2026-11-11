@@ -91,23 +91,32 @@ describe("renderMlb / formatMlbGameResult", () => {
   });
 
   it("renders standing and next game when the adapter provides them", () => {
-    const data = {
-      ...BASE_MLB_DATA,
-      recentGames: [],
-      standing: { position: 2, label: "American League" },
-      nextGame: { date: "2026-07-20T20:00:00Z", opponent: "NYY", isHome: false },
-      form: ["W", "L", "W", "W", "D"],
-    };
-    const output = render("mlb", data);
-    expect(output).toContain("🏅 Standing: American League · 2");
-    expect(output).toContain("📅 Next: @ NYY");
-    // The last-five form is intentionally not rendered: the Recent Games list
-    // already shows the W/L/D sequence, so a separate 🔥 Form line is redundant.
-    expect(output).not.toContain("🔥 Form:");
-    // Standing and next game sit on their own separated row (a blank line
-    // precedes them) so they read clearly instead of wrapping into the
-    // conference/season paragraph.
-    expect(output).toMatch(/🟢 Season in progress\n\n🏅 Standing: American League · 2/);
+    // The season line is a function of today's date, so pin it inside the MLB
+    // window: the fixture date alone does not decide whether the season reads
+    // as in progress, and without a pin this test failed every off-season.
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date("2026-07-15T12:00:00Z"));
+    try {
+      const data = {
+        ...BASE_MLB_DATA,
+        recentGames: [],
+        standing: { position: 2, label: "American League" },
+        nextGame: { date: "2026-07-20T20:00:00Z", opponent: "NYY", isHome: false },
+        form: ["W", "L", "W", "W", "D"],
+      };
+      const output = render("mlb", data);
+      expect(output).toContain("🏅 Standing: American League · 2");
+      expect(output).toContain("📅 Next: @ NYY");
+      // The last-five form is intentionally not rendered: the Recent Games list
+      // already shows the W/L/D sequence, so a separate 🔥 Form line is redundant.
+      expect(output).not.toContain("🔥 Form:");
+      // Standing and next game sit on their own separated row (a blank line
+      // precedes them) so they read clearly instead of wrapping into the
+      // conference/season paragraph.
+      expect(output).toMatch(/🟢 Season in progress\n\n🏅 Standing: American League · 2/);
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   it("puts the next game on its own row, not joined to the standing", () => {
