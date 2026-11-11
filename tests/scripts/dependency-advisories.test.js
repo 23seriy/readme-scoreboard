@@ -30,6 +30,19 @@ describe("deepmerge advisory (GHSA-gcqx-w48m-w2h4)", () => {
     expect(security).toMatch(/jest-config/);
   });
 
+  it("keeps the project from importing deepmerge itself", () => {
+    // The accepted risk rests on jest-config being the only caller. If the
+    // project ever imported deepmerge directly, that reasoning no longer holds
+    // and this test should force the decision to be revisited.
+    const sources = fs.readdirSync(path.join(ROOT, "src"), { recursive: true })
+      .filter((file) => String(file).endsWith(".js"));
+    expect(sources.length).toBeGreaterThan(0);
+    for (const file of sources) {
+      const code = fs.readFileSync(path.join(ROOT, "src", file), "utf8");
+      expect(code).not.toMatch(/require\(["']deepmerge["']\)/);
+    }
+  });
+
   it("keeps deepmerge out of the production dependency graph", () => {
     // If this ever fails, the advisory stops being dev-only and the accepted
     // risk above must be reconsidered rather than silently inherited.

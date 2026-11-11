@@ -34,6 +34,11 @@ Dependencies are kept current and `npm audit` is expected to be clean. The
 following is knowingly accepted because **no fix exists yet**; it is recorded
 here so a future reader does not spend time re-investigating it.
 
+Dependabot alert #7 is dismissed as `tolerable_risk` rather than fixed, because a
+dismissal is the only lever left when no patched release exists. It is
+reversible: the alert reopens if a fix becomes available or the package
+re-enters scope.
+
 ### GHSA-gcqx-w48m-w2h4 — `deepmerge` prototype poisoning (`<= 4.3.1`)
 
 - **Why it cannot be patched:** `4.3.1` is the newest version published on npm
@@ -44,12 +49,29 @@ here so a future reader does not spend time re-investigating it.
 - **Why the exposure is limited:** it is reached only through
   `jest → @jest/core → jest-config → deepmerge`, a **devDependency**. Nothing in
   `dependencies` pulls it in, so it is absent from any published runtime.
-- **Why it is not exploitable here:** `jest-config` calls `deepmerge.all([defaults,
-  overrides])` to merge its own defaults with this repo's static `jest.config.js`.
-  No attacker-controlled object reaches it — the advisory requires merging
-  untrusted input. The project itself never imports `deepmerge`.
+- **Why it is not exploitable here:** the poisoning needs an attacker-controlled
+  object on either side of the merge, and none reaches `deepmerge` here:
+  - The only caller is `jest-config`, which calls `deepmerge.all([defaults,
+    overrides])` — its own compiled defaults plus this repo's static
+    [`jest.config.js`](jest.config.js). Both are literals committed here; the
+    config is never built from environment variables, CLI arguments, or files a
+    contributor does not review.
+  - The project never imports `deepmerge`, and nothing in `src/` merges league
+    API JSON with it.
+  - Checked against the installed copy: `merge({}, hostile)` and
+    `merge.all([hostile, …])` — the source-side and `all()` forms — return an
+    object with a clean prototype, and `Object.prototype` is never modified. Only
+    `merge(hostile, …)`, where the untrusted object is the *target*, carries the
+    polluted prototype onto the result, and Jest's target is always its own
+    defaults object.
+- **Why dismissal rather than a fix:** the alert cannot be closed by code — there
+  is no patched release to upgrade to and no parent release accepts one — so a
+  documented dismissal is the only remaining lever. `npm audit --omit=dev`
+  reports **0 vulnerabilities**, so nothing is hidden from a runtime audit.
 - **Revisit when:** `deepmerge` publishes a patched release, or `jest-config`
-  drops or replaces the dependency. Dependabot alert #7 tracks this.
+  drops or replaces the dependency. The dismissal reopens by itself once a fix
+  exists, and `tests/scripts/dependency-advisories.test.js` fails if the pin, the
+  dev-only guarantee, or this record disappears. Dependabot alert #7 tracks this.
 
 ## Transitive dependency overrides
 
