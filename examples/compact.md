@@ -5,10 +5,10 @@
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 2
+🏅 Standing: Eastern · 1
 
-📅 Next: @ PHI (Nov 11)
+📅 Next: @ TOR (Nov 12)
 
-📊 2026-2027 Record: 8W - 2L (80.0%)<br>&nbsp;&nbsp;&nbsp;████████████████████░░░░░
+📊 2026-2027 Record: 9W - 2L (81.8%)<br>&nbsp;&nbsp;&nbsp;████████████████████▍░░░░
 
 
