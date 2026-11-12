@@ -9,22 +9,32 @@ class NHLAdapter extends BaseFreeApiAdapter {
   // Selects the opponent pool used to pad sample boards in the base class.
   DEMO_POOL_KEY = "hockey";
   TEAM_EMOJI = {
-    ANA: "🦆", ARI: "🐺", BOS: "🐻", BUF: "🦬", CAR: "🐱",
+    ANA: "🦆", BOS: "🐻", BUF: "🦬", CAR: "🐱",
     CBJ: "💣", CGY: "🔥", CHI: "🐂", COL: "🏔️", DAL: "⭐",
     DET: "🐙", EDM: "🧡", FLA: "🐆", LAK: "👑", MIN: "🌲",
     MTL: "🔴", NJ: "😈", NSH: "🎸", NYI: "🗽", NYR: "🦢",
     OTT: "🏛️", PHI: "🔔", PIT: "🐧", SJ: "🦈", SEA: "⚓",
-    STL: "🦁", TB: "⚡", TOR: "🍁", VAN: "🐋", VGK: "🏆",
+    STL: "🦁", TB: "⚡", TOR: "🍁", UTA: "🦣", VAN: "🐋", VGK: "🏆",
     WPG: "✈️", WSH: "🧙",
   };
 
+  // The Arizona Coyotes ceased operations after the 2023-24 season; the
+  // franchise plays in Utah as the Mammoth (NHL id 68, verified against
+  // api-web.nhle.com). ARI must not come back: no live source lists it, so
+  // the team directory cannot resolve a name for it.
   TEAM_IDS = {
-    ANA: 24, ARI: 53, BOS: 6, BUF: 7, CAR: 12, CBJ: 29, CGY: 20,
+    ANA: 24, BOS: 6, BUF: 7, CAR: 12, CBJ: 29, CGY: 20,
     CHI: 16, COL: 21, DAL: 25, DET: 17, EDM: 22, FLA: 13, LAK: 26,
     MIN: 30, MTL: 8, NJ: 1, NSH: 18, NYI: 2, NYR: 3, OTT: 9, PHI: 4,
-    PIT: 5, SJ: 28, SEA: 55, STL: 19, TB: 14, TOR: 10, VAN: 23,
+    PIT: 5, SJ: 28, SEA: 55, STL: 19, TB: 14, TOR: 10, UTA: 68, VAN: 23,
     VGK: 54, WPG: 52, WSH: 15,
   };
+
+  // ESPN spells two clubs differently from this adapter (and from the NHL's
+  // own API): the Kings are "LA" and Utah is "UTAH". The team-directory
+  // generator translates through this map when matching the live roster;
+  // the registry abbreviations above are what boards and the directory use.
+  ESPN_ABBR = { LAK: "LA", UTA: "UTAH" };
 
   // NHL logo CDN codes, where they differ from the abbreviations above.
   LOGO_ABBR = { NJ: "NJD", SJ: "SJS", TB: "TBL" };

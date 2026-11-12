@@ -10,10 +10,10 @@ describe("NHLAdapter", () => {
 
     it("should have emojis for all expected teams", () => {
       const expectedTeams = [
-        "ANA", "ARI", "BOS", "BUF", "CAR", "CBJ", "CGY", "CHI",
+        "ANA", "BOS", "BUF", "CAR", "CBJ", "CGY", "CHI",
         "COL", "DAL", "DET", "EDM", "FLA", "LAK", "MIN", "MTL",
         "NJ", "NSH", "NYI", "NYR", "OTT", "PHI", "PIT", "SJ",
-        "SEA", "STL", "TB", "TOR", "VAN", "VGK", "WPG", "WSH",
+        "SEA", "STL", "TB", "TOR", "UTA", "VAN", "VGK", "WPG", "WSH",
       ];
       for (const team of expectedTeams) {
         expect(adapter.TEAM_EMOJI[team]).toBeDefined();
@@ -39,10 +39,10 @@ describe("NHLAdapter", () => {
 
     it("should have correct team IDs for all expected teams", () => {
       const expectedTeams = {
-        ANA: 24, ARI: 53, BOS: 6, BUF: 7, CAR: 12, CBJ: 29, CGY: 20,
+        ANA: 24, BOS: 6, BUF: 7, CAR: 12, CBJ: 29, CGY: 20,
         CHI: 16, COL: 21, DAL: 25, DET: 17, EDM: 22, FLA: 13, LAK: 26,
         MIN: 30, MTL: 8, NJ: 1, NSH: 18, NYI: 2, NYR: 3, OTT: 9, PHI: 4,
-        PIT: 5, SJ: 28, SEA: 55, STL: 19, TB: 14, TOR: 10, VAN: 23,
+        PIT: 5, SJ: 28, SEA: 55, STL: 19, TB: 14, TOR: 10, UTA: 68, VAN: 23,
         VGK: 54, WPG: 52, WSH: 15,
       };
       for (const [abbr, id] of Object.entries(expectedTeams)) {
