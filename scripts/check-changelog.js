@@ -16,19 +16,19 @@
  *
  *   npm run changelog:check
  */
-const { execSync } = require("node:child_process");
+const { execFileSync } = require("node:child_process");
 
 const BASE = process.env.GITHUB_BASE_REF || "main";
 
-function git(command) {
-  return execSync(command, { encoding: "utf8" }).trim();
-}
-
 function changedFiles() {
   // Needs the base branch: actions/checkout fetches the PR's merge ref only.
-  execSync(`git fetch --quiet --depth=1 origin ${BASE}`, { stdio: "ignore" });
+  // execFileSync (no shell) on purpose: BASE comes from GITHUB_BASE_REF, and
+  // interpolating it into a shell command would let a crafted ref run
+  // arbitrary commands. A hostile value now just makes the fetch fail, which
+  // is caught below and skips the check.
+  execFileSync("git", ["fetch", "--quiet", "--depth=1", "origin", BASE], { stdio: "ignore" });
   const range = `origin/${BASE}...HEAD`;
-  return git(`git diff --name-only ${range}`).split("\n").filter(Boolean);
+  return execFileSync("git", ["diff", "--name-only", range], { encoding: "utf8" }).trim().split("\n").filter(Boolean);
 }
 
 function main() {

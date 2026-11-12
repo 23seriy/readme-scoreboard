@@ -33,9 +33,25 @@ that would alter what appears in your README or require editing your workflow.
 - **Off-season boards show the correct next season start date.** The "next season starts" line
   only ever produced 2027, so from late 2027 an off-season board would have printed a date
   already past. It now rolls forward from the current year.
+- **Validation accepts every team in the team directory.** It used to check the abbreviation
+  against the adapter's demo-sized team table, so real teams were rejected as unknown — every
+  Belgian club (that table was empty), 9 of 12 Scottish clubs, 31 of 36 Champions League clubs
+  and hundreds of NCAA teams. The allowed set is now the team directory plus the adapter's
+  table, so nothing the adapter can fetch is rejected.
+- **ESPN requests share one browser-like header set, and a 403 says so.** Seven adapters each
+  defined their own identical headers while the soccer leagues sent none at all; all ESPN
+  requests now go through the shared helper with the same headers. A 403 no longer surfaces as
+  a bare "Request failed with status code 403" or a "check the abbreviation" hint — the log
+  says ESPN is likely bot-gating the request, and the Troubleshooting table covers 403, 429
+  and off-season boards.
 
 ### Security
 
+- **The sport allowlist is checked before the adapter is loaded.** The adapter path was built
+  from the `SPORT` input and required first, so a value like `../scripts/check-changelog`
+  would execute that file's top-level code. The allowlist now rejects unknown sports before
+  any `require`, matching `scripts/doctor.js`. `scripts/check-changelog.js` also no longer
+  interpolates `GITHUB_BASE_REF` into a shell command (it uses `execFileSync` with arguments).
 - **Dependabot alert #7 (`deepmerge`, GHSA-gcqx-w48m-w2h4) is dismissed as accepted risk.**
   `4.3.1` is the newest published version and the advisory lists no patched release, so no
   upgrade can clear it. It is dev-only (`jest → jest-config`), only merges this repo's static

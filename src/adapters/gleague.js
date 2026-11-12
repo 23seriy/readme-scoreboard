@@ -4,13 +4,6 @@ const { dateOffset } = require("../demo");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development";
 const ESPN_BASE_V2 = "https://site.api.espn.com/apis/v2/sports/basketball/nba-development";
-const ESPN_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-  "Accept": "application/json",
-  "Origin": "https://www.espn.com",
-  "Referer": "https://www.espn.com/",
-};
-
 const TEAM_EMOJI = {
   AUS: "🐐", CAP: "🏛️", CLC: "⚡", CPS: "🦅", CVL: "🌴",
   DEL: "🧥", GBO: "🐝", GRD: "🥇", IWA: "🐺", LAK: "🌊",
@@ -64,7 +57,7 @@ async function fetchTeamInfo(teamAbbr) {
   const espnId = TEAM_IDS[teamAbbr.toUpperCase()];
   if (!espnId) return null;
   try {
-    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}`);
     const team = data.team;
     if (!team) return null;
     return {
@@ -86,7 +79,7 @@ async function fetchStandings(teamAbbr) {
   const empty = { wins: 0, losses: 0, season, conference: "", position: null };
   try {
     const upper = teamAbbr.toUpperCase();
-    const { data } = await httpGet(`${ESPN_BASE_V2}/standings?season=${season}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE_V2}/standings?season=${season}`);
     // Conferences, no divisions — entries sit directly under each conference.
     for (const conf of data.children || []) {
       const entries = conf.standings?.entries || [];
@@ -130,8 +123,8 @@ async function fetchScheduleEvents(teamAbbr) {
   // Regular season and playoffs are separate seasontype values. Showcase and
   // preseason games (seasontype 1) are deliberately not fetched.
   const [regData, postData] = await Promise.all([
-    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
-    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`),
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`),
   ]);
 
   return [

@@ -73,6 +73,38 @@ describe("main", () => {
     expect(updateReadmeLocal).not.toHaveBeenCalled();
   });
 
+  it("rejects a sport path traversal before requiring any file", async () => {
+    // SPORT feeds the adapter require path, so a value like
+    // ../scripts/check-changelog used to execute that file's top-level code.
+    // The allowlist must reject it before any require happens. Note the
+    // probe lives under src/scripts: require("./adapters/../scripts/x")
+    // from src/index.js resolves to src/scripts/x.
+    const marker = path.join(os.tmpdir(), `readme-scoreboard-traversal-${process.pid}.txt`);
+    const probeDir = path.join(__dirname, "..", "src", "scripts");
+    const probe = path.join(probeDir, `traversal-probe-${process.pid}.js`);
+    fs.mkdirSync(probeDir, { recursive: true });
+    fs.writeFileSync(probe, `require("node:fs").writeFileSync(${JSON.stringify(marker)}, "executed");\nmodule.exports = {};`);
+    process.env.SPORT = `../scripts/traversal-probe-${process.pid}`;
+    const exitSpy = jest.spyOn(process, "exit").mockImplementation(() => { throw new Error("process.exit"); });
+    const errorSpy = jest.spyOn(console, "error").mockImplementation();
+
+    const { main } = require("../src/index");
+
+    // Check for the marker before the finally below removes it — the
+    // cleanup must not destroy the evidence this test is asserting on.
+    let markerExisted;
+    try {
+      await expect(main()).rejects.toThrow("process.exit");
+      markerExisted = fs.existsSync(marker);
+    } finally {
+      fs.rmSync(probeDir, { recursive: true, force: true });
+      fs.rmSync(marker, { force: true });
+    }
+    expect(markerExisted).toBe(false);
+    expect(exitSpy).toHaveBeenCalledWith(1);
+    expect(errorSpy).toHaveBeenCalledWith(expect.stringContaining("Unsupported sport"));
+  });
+
   it("accepts explicit dry-run boolean values and rejects typos", () => {
     const { parseDryRun, parseCompact } = require("../src/index");
 

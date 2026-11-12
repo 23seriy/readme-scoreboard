@@ -3,13 +3,6 @@ const { utcParts } = require("../clock");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/tennis/wta";
 const ESPN_CORE_BASE = "https://sports.core.api.espn.com/v2/sports/tennis/leagues/wta";
-const ESPN_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-  "Accept": "application/json",
-  "Origin": "https://www.espn.com",
-  "Referer": "https://www.espn.com/",
-};
-
 // Player abbreviations → ESPN athlete ids (from the WTA rankings response).
 // Tennis is an individual sport, so a "team" is a single ranked player.
 // Roster is the top 30 WTA singles ranking as of the adapter's last refresh.
@@ -81,7 +74,7 @@ function getLogoUrl(abbr) {
 }
 
 async function fetchRankings() {
-  const { data } = await httpGet(`${ESPN_BASE}/rankings`, { headers: ESPN_HEADERS });
+  const { data } = await httpGet(`${ESPN_BASE}/rankings`);
   return data.rankings?.[0]?.ranks || [];
 }
 
@@ -105,21 +98,20 @@ async function fetchLastMatch(playerId) {
   try {
     const { data: comps } = await httpGet(
       `${ESPN_CORE_BASE}/athletes/${playerId}/competitions`,
-      { headers: ESPN_HEADERS },
     );
     const items = comps.items || [];
     if (items.length === 0) return null;
 
     let competition = null;
     for (const item of items) {
-      const { data: comp } = await httpGet(item.$ref.split("?")[0], { headers: ESPN_HEADERS });
+      const { data: comp } = await httpGet(item.$ref.split("?")[0]);
       if (!comp) continue;
 
       const statusRef = comp.status?.$ref;
       let completed = false;
       if (statusRef) {
         try {
-          const { data: status } = await httpGet(statusRef, { headers: ESPN_HEADERS });
+          const { data: status } = await httpGet(statusRef);
           completed = status?.type?.completed === true || status?.type?.state === "post";
         } catch {
           /* ignore status fetch failures */
@@ -148,7 +140,7 @@ async function fetchLastMatch(playerId) {
       const ref = competitor.linescores?.$ref;
       if (!ref) continue;
       try {
-        const { data: scores } = await httpGet(ref.split("?")[0], { headers: ESPN_HEADERS });
+        const { data: scores } = await httpGet(ref.split("?")[0]);
         sets.push((scores.items || []).map((s) => s.value));
       } catch {
         /* ignore linescore fetch failures */

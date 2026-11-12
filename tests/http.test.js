@@ -3,7 +3,7 @@ jest.mock("axios");
 const axios = require("axios");
 const fs = require("node:fs");
 const path = require("node:path");
-const { DEFAULT_TIMEOUT_MS, get, isRetryableError, retryAfterMilliseconds } = require("../src/http");
+const { DEFAULT_TIMEOUT_MS, ESPN_HEADERS, get, isRetryableError, retryAfterMilliseconds } = require("../src/http");
 
 describe("HTTP request helper", () => {
   beforeEach(() => jest.clearAllMocks());
@@ -41,6 +41,57 @@ describe("HTTP request helper", () => {
     expect(retryAfterMilliseconds({ response: { headers: { "retry-after": "2" } } }, 250)).toBe(2000);
     expect(retryAfterMilliseconds({ response: { headers: { "retry-after": "60" } } }, 250)).toBe(5000);
     expect(retryAfterMilliseconds({ response: { headers: { "retry-after": "invalid" } } }, 250)).toBe(250);
+  });
+
+  it("applies the shared ESPN headers to ESPN hosts only", async () => {
+    axios.get.mockResolvedValue({ data: { ok: true } });
+
+    await get("https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1");
+
+    expect(axios.get).toHaveBeenCalledWith(
+      "https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1",
+      { headers: ESPN_HEADERS, timeout: DEFAULT_TIMEOUT_MS },
+    );
+  });
+
+  it("lets caller headers win over the ESPN defaults", async () => {
+    axios.get.mockResolvedValue({ data: { ok: true } });
+
+    await get("https://site.api.espn.com/apis/v2/sports/soccer/epl/teams/1", {
+      headers: { "User-Agent": "Custom Agent" },
+    });
+
+    expect(axios.get).toHaveBeenCalledWith(
+      "https://site.api.espn.com/apis/v2/sports/soccer/epl/teams/1",
+      { headers: { ...ESPN_HEADERS, "User-Agent": "Custom Agent" }, timeout: DEFAULT_TIMEOUT_MS },
+    );
+  });
+
+  it("does not send ESPN headers to other hosts", async () => {
+    axios.get.mockResolvedValue({ data: { ok: true } });
+
+    await get("https://api-web.nhle.com/v1/teams");
+
+    expect(axios.get).toHaveBeenCalledWith("https://api-web.nhle.com/v1/teams", { timeout: DEFAULT_TIMEOUT_MS });
+  });
+
+  it("rewrites an ESPN 403 into a distinct bot-gating message and does not retry it", async () => {
+    const error = new Error("Request failed with status code 403");
+    error.response = { status: 403 };
+    axios.get.mockRejectedValue(error);
+
+    await expect(get("https://site.web.api.espn.com/apis/site/v2/sports/basketball/wnba/teams/18"))
+      .rejects.toThrow(/ESPN returned 403.*likely bot-gating/);
+    expect(axios.get).toHaveBeenCalledTimes(1);
+  });
+
+  it("leaves a non-ESPN 403 message untouched", async () => {
+    const error = new Error("Request failed with status code 403");
+    error.response = { status: 403 };
+    axios.get.mockRejectedValue(error);
+
+    await expect(get("https://api-web.nhle.com/v1/teams")).rejects.toThrow("Request failed with status code 403");
+    expect(axios.get).toHaveBeenCalledTimes(1);
   });
 
   it("does not retry client errors", async () => {

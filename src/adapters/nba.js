@@ -14,13 +14,6 @@ const DEMO_SEASON = 2026;
 const ESPN_BASE = "https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba";
 const ESPN_BASE_V2 = "https://site.web.api.espn.com/apis/v2/sports/basketball/nba";
 const ESPN_ATHLETE_BASE = "https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes";
-const ESPN_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-  "Accept": "application/json",
-  "Origin": "https://www.espn.com",
-  "Referer": "https://www.espn.com/",
-};
-
 const TEAM_EMOJI = {
   ATL: "🦅", BOS: "☘️", BKN: "🏙️", CHA: "🐝", CHI: "🐂",
   CLE: "⚔️", DAL: "🐴", DEN: "⛏️", DET: "🏎️", GSW: "🌉",
@@ -68,7 +61,7 @@ async function fetchTeamInfo(teamAbbr) {
     const upper = teamAbbr.toUpperCase();
     const espnId = ESPN_TEAM_IDS[upper];
     if (!espnId) { console.error(`Unknown NBA team: ${upper}`); return null; }
-    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}`);
     const team = data.team;
     if (!team) return null;
     return {
@@ -90,7 +83,7 @@ async function fetchTeamRoster(teamAbbr) {
   const espnId = ESPN_TEAM_IDS[upper];
   if (!espnId) return [];
   try {
-    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}/roster`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}/roster`);
     return (data.athletes || []).map((athlete) => ({ id: String(athlete.id), fullName: athlete.fullName }));
   } catch (error) {
     console.error(`Failed to fetch NBA roster: ${error.message}`);
@@ -110,7 +103,7 @@ function statByName(names, stats, name) {
 
 async function fetchPlayerSeasonAverages(athleteId) {
   try {
-    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/splits`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/splits`);
     const names = data.names || [];
     const stats = data.splitCategories?.[0]?.splits?.[0]?.stats || [];
     const points = statByName(names, stats, "avgPoints");
@@ -132,7 +125,6 @@ async function fetchPlayerLastGameMeta(eventId, teamAbbr) {
     const espnAbbr = (ESPN_ABBR[teamAbbr] || teamAbbr).toUpperCase();
     const { data } = await httpGet(
       `https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=${eventId}`,
-      { headers: ESPN_HEADERS }
     );
     const comp = data.header?.competitions?.[0];
     if (!comp) return null;
@@ -151,7 +143,7 @@ async function fetchPlayerLastGameMeta(eventId, teamAbbr) {
 
 async function fetchPlayerLastGame(athleteId, teamAbbr) {
   try {
-    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/gamelog`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/gamelog`);
     const names = data.names || [];
     const events = data.seasonTypes?.[0]?.categories?.[0]?.events || [];
     if (events.length === 0) return null;
@@ -197,7 +189,7 @@ async function fetchTeamLatestGameDate(teamAbbr) {
   try {
     const { year, month } = utcParts();
     const season = month >= 10 ? year + 1 : year;
-    const { data } = await httpGet(`${ESPN_BASE}/teams/${(ESPN_ABBR[teamAbbr.toUpperCase()] || teamAbbr).toLowerCase()}/schedule?season=${season}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${(ESPN_ABBR[teamAbbr.toUpperCase()] || teamAbbr).toLowerCase()}/schedule?season=${season}`);
     const completed = (data.events || []).filter((event) => event.competitions?.[0]?.status?.type?.completed);
     if (completed.length === 0) return null;
     const newest = completed
@@ -240,7 +232,6 @@ async function fetchStandings(teamAbbr, seasonOverride) {
     const season = seasonOverride ?? (month >= 10 ? year + 1 : year);
     const { data } = await httpGet(
       `${ESPN_BASE_V2}/standings?level=3&season=${season}&seasontype=2`,
-      { headers: ESPN_HEADERS }
     );
     for (const conf of (data.children || [])) {
       for (const div of (conf.children || [])) {
@@ -283,8 +274,8 @@ async function fetchScheduleEvents(teamAbbr, seasonOverride) {
   const { year, month } = utcParts();
   const season = seasonOverride ?? (month >= 10 ? year + 1 : year);
   const [regData, postData] = await Promise.all([
-    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
-    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`),
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`),
   ]);
   return [
     ...(regData.data.events || []).map((e) => ({ ...e, gameType: 2 })),

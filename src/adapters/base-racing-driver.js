@@ -1,13 +1,6 @@
 const { get: httpGet } = require("../http");
 const { utcParts } = require("../clock");
 
-const ESPN_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-  "Accept": "application/json",
-  "Origin": "https://www.espn.com",
-  "Referer": "https://www.espn.com/",
-};
-
 // Fixed season for sample boards so generated examples don't drift.
 const DEMO_SEASON = 2026;
 
@@ -35,7 +28,6 @@ class BaseRacingDriverAdapter {
     try {
       const { data } = await httpGet(
         `https://site.api.espn.com/apis/v2/sports/racing/${this.SERIES}/standings?season=${season}`,
-        { headers: ESPN_HEADERS },
       );
       const entries = (data.children || [])
         .flatMap((group) => group.standings?.entries || []);
