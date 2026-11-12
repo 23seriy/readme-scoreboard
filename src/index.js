@@ -116,6 +116,18 @@ const { isDryRun, isCompact, isBadge, recentGameCount } = parseRuntimeOptions();
 async function main() {
   const sportName = (sport || "nba").toLowerCase();
 
+  // Check the allowlist before requiring the adapter: the adapter path is
+  // built from user input, so requiring first would execute any file the
+  // input points at (e.g. SPORT=../scripts/check-changelog would run that
+  // script's top-level main(), including its git fetch). scripts/doctor.js
+  // already does it in this order.
+  const league = LEAGUE_BY_KEY[sportName];
+  if (!league) {
+    console.error(`Unsupported sport: "${sportName}". Check the Supported Sports table for available options.`);
+    process.exit(1);
+    return;
+  }
+
   // Load the sport adapter
   let adapter;
   try {
@@ -128,7 +140,6 @@ async function main() {
 
   // Entity type: explicit `entity` input, else inferred from the league's registry
   // entry. Team sports default to "team"; individual sports (tennis, F1) to "player".
-  const league = LEAGUE_BY_KEY[sportName];
   const entity = parseEntity(entityInput) || league?.entity || "team";
 
   const teams = parseTeams(teamsList, teamAbbr || (isDemo ? "LAL" : ""));
@@ -175,7 +186,7 @@ async function main() {
     } else {
       data = await adapter.fetchData(team);
       if (!data) {
-        console.error(`Could not fetch ${entity} data for ${sportName.toUpperCase()} ${entity} "${team}". Check the abbreviation in the Supported Sports section, then try npm run doctor -- --demo.`);
+        console.error(`Could not fetch ${entity} data for ${sportName.toUpperCase()} ${entity} "${team}". If the abbreviation is right, ESPN is likely refusing the request (HTTP 403 — bot-gating); the board keeps the last good version, and npm run doctor -- --demo previews it from sample data.`);
         process.exit(1);
       }
       if (playerName) {

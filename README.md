@@ -728,6 +728,9 @@ also reports the data source and generation time.
 | `Could not update README` or a permission error | Confirm `GH_TOKEN` can read and write Contents in `target_repo`. |
 | `TARGET_REPO must use the owner/repository format` | Use a value such as `23seriy/23seriy`, with exactly one `/`. |
 | `Unsupported sport` or an unknown team | Check the supported-sports table and use the current abbreviation listed for that league. |
+| `ESPN returned 403` / `Could not fetch … data` | ESPN is refusing the request (bot-gating), not a bad abbreviation. The board keeps the last good version; wait a while and re-run, or preview the board from sample data with `--demo`. |
+| `429` / rate-limited responses | The request helper retries these automatically (up to 3 attempts, honouring `Retry-After`); if it still fails, wait a few minutes and re-run. |
+| Board shows `Off-season` / `Next season starts …` | The league is between seasons — expected, not an error. The board returns when the next season starts; see the season dates in the Supported Sports table. |
 
 For a safe local check that makes no API requests, run `npm run doctor -- --demo`.
 

@@ -4,13 +4,6 @@ const { dateOffset } = require("../demo");
 
 const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/racing/f1";
 const ESPN_BASE_V2 = "https://site.api.espn.com/apis/v2/sports/racing/f1";
-const ESPN_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-  "Accept": "application/json",
-  "Origin": "https://www.espn.com",
-  "Referer": "https://www.espn.com/",
-};
-
 // Constructor abbreviations → ESPN team ids (from the F1 teams endpoint).
 // The abbreviations are ESPN's own (odd-looking) values and are matched against
 // the Constructor Standings entries, so don't rename them. Audi and Cadillac
@@ -57,7 +50,7 @@ async function fetchTeamInfo(abbr) {
   const id = TEAM_IDS[upper];
   if (!id) return null;
   try {
-    const { data } = await httpGet(`${ESPN_BASE}/teams/${id}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${id}`);
     const team = data.team;
     if (!team) return null;
     return {
@@ -81,7 +74,7 @@ async function fetchConstructorStandings(abbr) {
   try {
     const upper = abbr.toUpperCase();
     const id = TEAM_IDS[upper];
-    const { data } = await httpGet(`${ESPN_BASE_V2}/standings?season=${season}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE_V2}/standings?season=${season}`);
     const group = (data.children || []).find((c) => String(c.name).toLowerCase().includes("constructor"));
     const entries = group?.standings?.entries || [];
     // Match on the team id first: the newer constructors (Audi, Cadillac) carry

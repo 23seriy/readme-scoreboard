@@ -10,13 +10,6 @@ const ESPN_ATHLETE_BASE = "https://site.web.api.espn.com/apis/common/v3/sports/b
 // Fixed season for sample boards so generated examples don't drift.
 const DEMO_SEASON = 2026;
 
-const ESPN_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-  "Accept": "application/json",
-  "Origin": "https://www.espn.com",
-  "Referer": "https://www.espn.com/",
-};
-
 const TEAM_EMOJI = {
   ATL: "🌙", CHI: "☁️", CON: "☀️", DAL: "🪽", GS: "⚔️",
   IND: "🔥", LA: "✨", LV: "🎰", MIN: "🐆", NY: "🗽",
@@ -87,7 +80,7 @@ async function fetchTeamInfo(teamAbbr) {
   const espnId = TEAM_IDS[teamAbbr.toUpperCase()];
   if (!espnId) return null;
   try {
-    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}`);
     const team = data.team;
     if (!team) return null;
     return {
@@ -115,7 +108,6 @@ async function fetchStandings(teamAbbr) {
     const upper = teamAbbr.toUpperCase();
     const { data } = await httpGet(
       `${ESPN_BASE_V2}/standings?season=${season}`,
-      { headers: ESPN_HEADERS }
     );
     // The WNBA has conferences but no divisions, so entries sit directly under
     // each conference rather than a nested division level.
@@ -153,8 +145,8 @@ async function fetchScheduleEvents(teamAbbr) {
   // Regular season and playoffs are separate seasontype values. Preseason
   // (seasontype 1) is deliberately not fetched — it isn't a real result.
   const [regData, postData] = await Promise.all([
-    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`, { headers: ESPN_HEADERS }),
-    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`, { headers: ESPN_HEADERS }),
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=2`),
+    httpGet(`${ESPN_BASE}/teams/${espnId}/schedule?season=${season}&seasontype=3`),
   ]);
 
   return [
@@ -275,7 +267,7 @@ async function fetchTeamRoster(teamAbbr) {
   const espnId = TEAM_IDS[teamAbbr.toUpperCase()];
   if (!espnId) return [];
   try {
-    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}/roster`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_BASE}/teams/${espnId}/roster`);
     return (data.athletes || []).map((athlete) => ({
       id: String(athlete.id),
       fullName: athlete.fullName,
@@ -299,7 +291,7 @@ function statByName(names, stats, name) {
 
 async function fetchPlayerSeasonAverages(athleteId) {
   try {
-    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/splits`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/splits`);
     const names = data.names || [];
     const stats = data.splitCategories?.[0]?.splits?.[0]?.stats || [];
     const points = statByName(names, stats, "avgPoints");
@@ -321,7 +313,6 @@ async function fetchPlayerLastGameMeta(eventId, teamAbbr) {
     const upper = teamAbbr.toUpperCase();
     const { data } = await httpGet(
       `${ESPN_BASE}/summary?event=${eventId}`,
-      { headers: ESPN_HEADERS }
     );
     const comp = data.header?.competitions?.[0];
     if (!comp) return null;
@@ -345,7 +336,7 @@ async function fetchPlayerLastGameMeta(eventId, teamAbbr) {
 
 async function fetchPlayerLastGame(athleteId, teamAbbr) {
   try {
-    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/gamelog`, { headers: ESPN_HEADERS });
+    const { data } = await httpGet(`${ESPN_ATHLETE_BASE}/${athleteId}/gamelog`);
     const names = data.names || [];
     // The game log is newest-first, so the most recent game is the first event.
     const events = (data.seasonTypes || [])
