@@ -30,6 +30,9 @@ that would alter what appears in your README or require editing your workflow.
   `UTA` → `UTAH`). NFL gains `WSH` in the conference/division map.
 - **Directory ids are numbers.** ESPN sends string ids, which left whole leagues with mixed
   number/string ids in the committed JSON; every row now carries a number.
+- **Off-season boards show the correct next season start date.** The "next season starts" line
+  only ever produced 2027, so from late 2027 an off-season board would have printed a date
+  already past. It now rolls forward from the current year.
 
 ### Security
 

@@ -24,9 +24,9 @@ Eastern Conference · Metropolitan Division
 <img src="https://assets.nhle.com/mugs/nhl/latest/8476459.png" alt="Mika Zibanejad headshot" height="72" align="right" />
 
 **🦢 Player Spotlight: Mika Zibanejad**
-3 G · 13 A · 16 PTS
+5 G · 13 A · 18 PTS
 
 **📅 Last Game:**
 ```
-0 G · 1 A · 1 P vs EDM (Nov 9, 2026)
+2 G · 0 A · 2 P vs CGY (Nov 11, 2026)
 ```
