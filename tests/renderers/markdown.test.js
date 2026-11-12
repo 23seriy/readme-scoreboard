@@ -887,6 +887,19 @@ describe("Season status — next-season year", () => {
     // reported August 2027 — a full year late.
     expect(line("epl", 2026, 7, 8)).not.toContain("2027");
   });
+
+  it("rolls the fallback month/day forward past its fixed year", () => {
+    // The fallback is a fixed 2026 date, so adding one year to it only ever
+    // yielded 2027: an MLS board in Dec 2027 printed February 21, 2027, a
+    // date already past. The next start now rolls forward from the current year.
+    expect(line("mls", 2027, 11, 20)).toContain("Next season starts February 21, 2028");
+    expect(line("mls", 2028, 0, 15)).toContain("Next season starts February 21, 2028");
+  });
+
+  it("still names the next year in the first off-season after the fallback", () => {
+    // Jan 2027 is off-season with the Feb 21 start ahead: 2027, not 2028.
+    expect(line("mls", 2027, 0, 15)).toContain("Next season starts February 21, 2027");
+  });
 });
 
 describe("Team logo sizing", () => {
@@ -1614,11 +1627,21 @@ describe("renderNfl", () => {
   };
 
   it("renders the standing and next game on their own row", () => {
-    const output = render("nfl", BASE_NFL_DATA);
-    expect(output).toContain("🏅 Standing: AFC · 2");
-    expect(output).toContain("📅 Next: @ DEN");
-    // Separated from the conference/season paragraph by a blank line.
-    expect(output).toMatch(/🟢 Season in progress\n\n🏅 Standing: AFC · 2/);
+    // The season line is a function of today's date, so pin it inside the NFL
+    // window (Sep–Feb): the fixture date alone does not decide whether the
+    // season reads as in progress, and without a pin this test failed every
+    // off-season — the same shape as the MLB failure fixed in PR #515.
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date("2026-10-15T12:00:00Z"));
+    try {
+      const output = render("nfl", BASE_NFL_DATA);
+      expect(output).toContain("🏅 Standing: AFC · 2");
+      expect(output).toContain("📅 Next: @ DEN");
+      // Separated from the conference/season paragraph by a blank line.
+      expect(output).toMatch(/🟢 Season in progress\n\n🏅 Standing: AFC · 2/);
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   it("renders a home next game with 'vs'", () => {

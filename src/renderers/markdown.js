@@ -87,9 +87,14 @@ function seasonStatusLine(sport) {
   if (dated && window.nextStartYear) {
     nextStart = `${window.nextStartYear}-${dated.slice(5)}`;
   } else if (dated) {
-    // Already behind us this year? The next edition starts on the same day next
-    // year, which is the arithmetic the month-only version kept getting wrong.
-    nextStart = dated > today ? dated : `${Number(dated.slice(0, 4)) + 1}-${dated.slice(5)}`;
+    // Roll the fallback month/day forward from the current UTC year. The
+    // fallback is a fixed 2026 date, so adding one year to it only ever
+    // yielded 2027: from the 2027-28 off-season onward the line named a start
+    // date already past (an MLS board in Dec 2027 printed February 21, 2027).
+    const monthDay = dated.slice(5);
+    let candidate = `${utcYear}-${monthDay}`;
+    if (candidate < today) candidate = `${utcYear + 1}-${monthDay}`;
+    nextStart = candidate;
   } else if (sm && sd) {
     const { month: m, day: d } = utcParts();
     const startPassed = m > sm || (m === sm && d > sd);
