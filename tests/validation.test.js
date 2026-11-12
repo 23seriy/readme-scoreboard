@@ -27,6 +27,40 @@ describe("input validation", () => {
     expect(() => validateInputs({ ...base, sport: "cricket" })).toThrow(/Unsupported sport/);
   });
 
+  it("validates live teams against the team directory, not just the adapter tables", () => {
+    // belgian ships TEAM_IDS = {}, scottish only CEL/RAN of 12 clubs — both
+    // used to reject real teams that the README's own directory lists.
+    const emptyAdapter = { TEAM_IDS: {}, DEMO_TEAMS: { AND: {}, BRU: {} } };
+    expect(() => validateInputs({ ...base, sport: "belgian", team: "AND", adapter: emptyAdapter, supportedSports: ["nba", "belgian"] })).not.toThrow();
+    expect(() => validateInputs({ ...base, sport: "belgian", team: "ZZZ", adapter: emptyAdapter, supportedSports: ["nba", "belgian"] }))
+      .toThrow(/Unknown belgian team abbreviation "ZZZ".*AND \(Anderlecht\)/);
+
+    const scottishAdapter = { TEAM_IDS: { CEL: 256, RAN: 257 }, DEMO_TEAMS: { CEL: {}, RAN: {} } };
+    expect(() => validateInputs({ ...base, sport: "scottish", team: "ABE", adapter: scottishAdapter, supportedSports: ["nba", "scottish"] })).not.toThrow();
+    expect(() => validateInputs({ ...base, sport: "scottish", team: "HIBS", adapter: scottishAdapter, supportedSports: ["nba", "scottish"] })).not.toThrow();
+  });
+
+  it("accepts directory-only college teams and the NFL WAS alias", () => {
+    // The NCAA adapters only list 4 teams each; the directory lists hundreds.
+    const ncaafAdapter = { TEAM_IDS: { ALA: 1, OSU: 2, MICH: 3, UGA: 4 }, DEMO_TEAMS: {} };
+    expect(() => validateInputs({ ...base, sport: "ncaaf", team: "TEX", adapter: ncaafAdapter, supportedSports: ["nba", "ncaaf"] })).not.toThrow();
+
+    // WAS is not in the directory (it lists WSH); it survives only because
+    // the adapter's table still contributes its keys.
+    const nflAdapter = { TEAM_IDS: { WAS: 32 }, DEMO_TEAMS: {} };
+    expect(() => validateInputs({ ...base, sport: "nfl", team: "WAS", adapter: nflAdapter, supportedSports: ["nba", "nfl"] })).not.toThrow();
+  });
+
+  it("keeps validating individual sports from the adapter tables", () => {
+    // atp, wta, nascar, indycar and ufc have no directory entries — their
+    // TEAM_IDS are players, drivers and fighters, so validation still comes
+    // from the adapter alone.
+    const atpAdapter = { TEAM_IDS: { SIN: 1, ALC: 2 }, DEMO_TEAMS: {} };
+    expect(() => validateInputs({ ...base, sport: "atp", team: "SIN", adapter: atpAdapter, supportedSports: ["nba", "atp"] })).not.toThrow();
+    expect(() => validateInputs({ ...base, sport: "atp", team: "ZZZ", adapter: atpAdapter, supportedSports: ["nba", "atp"] }))
+      .toThrow(/Unknown atp team abbreviation "ZZZ"/);
+  });
+
   it("rejects unknown team abbreviations with examples", () => {
     expect(() => validateInputs({ ...base, team: "ZZZ" })).toThrow(/Unknown nba team abbreviation "ZZZ".*LAL/);
 
