@@ -23,6 +23,15 @@ function validate(directory) {
   directory.players.forEach((player) => {
     if (!expected.has(player.league)) errors.push(`unsupported player league: ${player.league}`);
     if (!player.abbreviation || !Number.isFinite(Number(player.id))) errors.push(`invalid player entry: ${JSON.stringify(player)}`);
+    if (typeof player.name !== "string" || player.name.trim().length === 0) {
+      errors.push(`missing player name: ${JSON.stringify(player)}`);
+    } else if (player.name === player.abbreviation) {
+      // A player is a person, so the name is never legitimately just the
+      // abbreviation — that would mean the generator fell back to the
+      // abbreviation the way the team directory used to (see the PR #512
+      // "CON" regression in validate-team-directory.js).
+      errors.push(`player name is just the abbreviation: ${JSON.stringify(player)}`);
+    }
     const key = `${player.league}:${player.id}`;
     if (seen.has(key)) errors.push(`duplicate player: ${key}`);
     seen.add(key);

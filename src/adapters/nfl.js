@@ -66,6 +66,7 @@ const TEAM_CONF_DIV = {
   MIN: ["NFC", "NFC North"], NE:  ["AFC", "AFC East"],  NO:  ["NFC", "NFC South"], NYG: ["NFC", "NFC East"],
   NYJ: ["AFC", "AFC East"],  PHI: ["NFC", "NFC East"],  PIT: ["AFC", "AFC North"], SF:  ["NFC", "NFC West"],
   SEA: ["NFC", "NFC West"],  TB:  ["NFC", "NFC South"], TEN: ["AFC", "AFC South"], WAS: ["NFC", "NFC East"],
+  WSH: ["NFC", "NFC East"],
 };
 
 async function fetchTeamInfo(teamAbbr) {
@@ -531,4 +532,8 @@ module.exports = {
   DEMO_TEAMS,
   DEMO_PLAYERS,
   TEAM_IDS,
+  // Exported so the team-directory generator can tell an alias key (WAS)
+  // apart from a real team: the alias row is skipped and the canonical
+  // abbreviation's row comes from the live roster instead.
+  TEAM_ALIASES,
 };

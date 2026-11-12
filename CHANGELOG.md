@@ -10,6 +10,27 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- **The team directory no longer publishes a team's abbreviation as its name.** When live data
+  missed a team, the generator fell back to the abbreviation itself and wrote rows like
+  `{ name: "CON", id: 18 }`; the merge then swallowed every live-roster error, and the validator
+  could not see the problem. Names now resolve from the live roster, the registry, demo data or the
+  ESPN detail endpoint, and generation **fails loudly** instead of writing a directory with
+  missing names. 54 rows were repaired: 48 rescued with real names (Connecticut Sun, Burnley,
+  Girona, …) and six allowlisted because the club's name genuinely is its initials (`PAOK`, `AGF`,
+  `AIK`, `GAIS`, `AVS`). Duplicate rows were resolved (`NFL` `TEN`, `NFL` `WAS`/`WSH`, `austria`
+  `VIE`, a stale `NCAAF` `RSVT` id) while genuinely different clubs that share an abbreviation
+  (`DUN`, `CEL`, `OSU`, `RIV`) stay.
+- **League showcase picker prefers a team with demo coverage**, so a league API outage no longer
+  fails gallery generation with `No data available for wnba/ATL`.
+- **Wrong team ids corrected.** NCAAW `ND` pointed at Wisconsin's ESPN id (275) — Notre Dame is 87,
+  so those boards fetched the wrong team. The NHL registry still listed the defunct Coyotes;
+  `ARI` is replaced by the Utah Mammoth (`UTA`, id 68) with an ESPN abbreviation map (`LAK` → `LA`,
+  `UTA` → `UTAH`). NFL gains `WSH` in the conference/division map.
+- **Directory ids are numbers.** ESPN sends string ids, which left whole leagues with mixed
+  number/string ids in the committed JSON; every row now carries a number.
+
 ### Security
 
 - **Dependabot alert #7 (`deepmerge`, GHSA-gcqx-w48m-w2h4) is dismissed as accepted risk.**

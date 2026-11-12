@@ -59,19 +59,19 @@ APIs by the daily refresh (heading levels lowered by one so it nests here):
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing: Western · 1
+🏅 Standing: Western · 2
 
-📅 Next: @ MIL (Nov 12)
+📅 Next: @ PHX (Nov 15)
 
 📊 2026-2027 Record: 10W - 2L (83.3%)<br>&nbsp;&nbsp;&nbsp;████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 123-112 @ MIL (Nov 11, 2026)
 ✅ W 124-114 @ ATL (Nov 9, 2026)
 ✅ W 121-116 @ DET (Nov 8, 2026)
 ✅ W 124-118 vs POR (Nov 6, 2026)
 ✅ W 116-103 @ SAC (Nov 4, 2026)
-✅ W 138-117 vs MIA (Nov 2, 2026)
 ```
 <!-- preview:end -->
 

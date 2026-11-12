@@ -24,9 +24,18 @@ function renderBadge(sportName, abbr) {
 }
 
 function pickDemoTeam(league) {
-  const fromDirectory = directory.teams.find((t) => t.league === league.key);
-  if (fromDirectory) return fromDirectory.abbreviation;
   const adapter = require(`../src/adapters/${league.key}`);
+  const demoAbbrs = new Set(
+    Object.keys(adapter.DEMO_TEAMS || {}).map((abbr) => abbr.toUpperCase())
+  );
+  // Prefer a directory team that also has demo data, so the live-fetch
+  // fallback in buildLeagueShowcase can never come up empty (e.g. wnba/ATL
+  // when the ESPN endpoint is unreachable).
+  const fromDirectory =
+    directory.teams.find(
+      (t) => t.league === league.key && demoAbbrs.has(String(t.abbreviation).toUpperCase())
+    ) || directory.teams.find((t) => t.league === league.key);
+  if (fromDirectory) return fromDirectory.abbreviation;
   const fallback = Object.keys(adapter.DEMO_TEAMS || {})[0];
   if (!fallback) throw new Error(`No demo team available for league ${league.key}`);
   return fallback;
@@ -130,4 +139,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { buildLeagueShowcase, renderBadge, compactMarkdown };
+module.exports = { buildLeagueShowcase, renderBadge, compactMarkdown, pickDemoTeam };
