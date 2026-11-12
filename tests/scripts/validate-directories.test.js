@@ -1,4 +1,4 @@
-const { validate: validateTeams } = require("../../scripts/validate-team-directory");
+const { validate: validateTeams, NAME_EQUALS_ABBREVIATION_ALLOWLIST } = require("../../scripts/validate-team-directory");
 const { validate: validatePlayers } = require("../../scripts/validate-player-directory");
 
 describe("validate-team-directory name checks", () => {
@@ -23,7 +23,6 @@ describe("validate-team-directory name checks", () => {
 
   it("allows the allowlisted clubs whose real name is their initials", () => {
     const errors = validateTeams(base([
-      { league: "mls", leagueName: "MLS", abbreviation: "LAFC", name: "LAFC", id: 18966 },
       { league: "greek", leagueName: "Super League Greece", abbreviation: "PAOK", name: "PAOK", id: 605 },
       { league: "denmark", leagueName: "Danish Superliga", abbreviation: "AGF", name: "AGF", id: 7853 },
       { league: "sweden", leagueName: "Allsvenskan", abbreviation: "AIK", name: "AIK", id: 994 },
@@ -63,5 +62,20 @@ describe("validate-player-directory name checks", () => {
     expect(errors).toEqual(
       expect.arrayContaining([expect.stringContaining("missing player name")]),
     );
+  });
+});
+
+// The allowlist is the only place a name is allowed to equal its
+// abbreviation, so an entry that no longer describes a real row quietly
+// widens what the validator accepts. It must track the committed directory.
+describe("name-equals-abbreviation allowlist", () => {
+  it("matches committed rows whose name really is their abbreviation", () => {
+    const directory = require("../../team-directory.json");
+    const actual = directory.teams
+      .filter((team) => team.name === team.abbreviation)
+      .map((team) => `${team.league}:${team.abbreviation}`)
+      .sort();
+
+    expect(actual).toEqual([...NAME_EQUALS_ABBREVIATION_ALLOWLIST].sort());
   });
 });

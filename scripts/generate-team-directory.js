@@ -62,7 +62,9 @@ async function liveTeams(league) {
   return apiTeams(response.data).map((team) => ({
     abbreviation: team.abbreviation,
     name: team.displayName || team.name,
-    id: team.id,
+    // ESPN sends ids as strings. Normalised here so the directory holds one
+    // type regardless of whether a row came from the registry or the roster.
+    id: team.id === undefined || team.id === null ? team.id : Number(team.id),
   }));
 }
 
@@ -269,17 +271,30 @@ async function generate() {
         // under the canonical abbreviation, carrying the alias entry's id,
         // so the canonical row keeps the registry id instead of the live
         // ESPN id — which can collide with another registry id (NFL WSH's
-        // ESPN id 28 is the 49ers' registry id). If the canonical
-        // abbreviation is already a registry key, the real row wins and the
-        // alias contributes nothing.
+        // ESPN id 28 is the 49ers' registry id). The alias is looked up
+        // under its canonical name too: the demo data and the emoji map are
+        // keyed by WSH, not WAS, so resolving under WAS found neither.
+        //
+        // When the canonical abbreviation is itself a registry key, the
+        // canonical entry is the row that carries that id (NFL WSH holds 32,
+        // the Commanders' id), so the alias contributes nothing: a second row
+        // would duplicate the pair and write the *alias* id instead.
         const canonical = aliases[abbreviation];
-        if (canonical && registry[canonical] !== undefined) return null;
-        const key = canonical || abbreviation;
+        let registryAbbr = abbreviation;
+        if (canonical) {
+          if (registry[canonical] !== undefined) return null;
+          value = registry[abbreviation];
+          registryAbbr = canonical;
+        }
+        // Ids are numbers in ESPN payloads; a registry entry wrapped as
+        // { id: "388" } used to keep its string, which left whole leagues
+        // with mixed number/string ids in the committed JSON.
+        const id = typeof value === "object" && value !== null ? value.id : value;
         return {
-          abbreviation: key,
-          name: resolveName(adapter, key, value, null),
-          id: typeof value === "object" ? value.id : value,
-          matchAbbr: espnAbbr[key] || key,
+          abbreviation: registryAbbr,
+          name: resolveName(adapter, registryAbbr, value, null),
+          id: id === undefined || id === null ? id : Number(id),
+          matchAbbr: espnAbbr[registryAbbr] || registryAbbr,
         };
       })
       .filter(Boolean);

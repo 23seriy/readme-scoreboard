@@ -7,14 +7,12 @@ const { LEAGUES } = require("../src/config/leagues");
 // both report the abbreviation as the name). These are the only rows allowed
 // to have name === abbreviation; anything else is a generator failure that
 // must fail validation rather than ship (see the PR #512 "CON" regression).
-//   LAFC   Los Angeles FC — branded and listed by ESPN as "LAFC"
 //   PAOK   PAOK FC (Thessaloniki)
 //   AGF    Aarhus Gymnastikforening — branded AGF
 //   AIK    Allmänna Idrottsklubben — branded AIK
 //   GAIS   Göteborgs Atlet- och Idrottssällskap — branded GAIS
 //   AVS    AVS Futebol SAD — branded AVS
 const NAME_EQUALS_ABBREVIATION_ALLOWLIST = new Set([
-  "mls:LAFC",
   "greek:PAOK",
   "denmark:AGF",
   "sweden:AIK",

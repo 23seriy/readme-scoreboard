@@ -6,7 +6,7 @@
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing: Western · 1
+🏅 Standing: Western · 2
 
 📅 Next: @ MIL (Nov 12)
 

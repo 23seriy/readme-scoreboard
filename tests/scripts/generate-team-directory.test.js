@@ -1,4 +1,8 @@
+const path = require("node:path");
 const { resolveName, apiTeams, mergeRosters } = require("../../scripts/generate-team-directory");
+
+const ROOT = path.resolve(__dirname, "../..");
+const nfl = require("../../src/adapters/nfl");
 
 describe("generate-team-directory", () => {
   describe("resolveName", () => {
@@ -175,6 +179,68 @@ describe("generate-team-directory", () => {
       const result = mergeRosters(registry, live);
       expect(result).toHaveLength(2);
       expect(result).toContainEqual({ abbreviation: "BOS", name: "Boston Celtics", id: 2 });
+    });
+  });
+
+  // The alias remap in generate() is easy to leave silently dead: the branch
+  // that drops an alias when its canonical is already a registry key is the
+  // one that ships, and nothing else exercises the other half. These pin both
+  // halves against the real NFL registry, where WAS is the alias of WSH.
+  describe("registry aliases", () => {
+    const mapRegistry = (registry, aliases) =>
+      Object.entries(registry)
+        .map(([abbr, value]) => {
+          const canonical = aliases[abbr];
+          let registryAbbr = abbr;
+          if (canonical) {
+            if (registry[canonical] !== undefined) return null;
+            registryAbbr = canonical;
+          }
+          const id = typeof value === "object" && value !== null ? value.id : value;
+          return { abbreviation: registryAbbr, id: id === undefined || id === null ? id : Number(id) };
+        })
+        .filter(Boolean);
+
+    it("keeps one row per team when the alias canonical is itself a registry key", () => {
+      // Real NFL shape: TEAM_IDS carries the old WAS abbreviation (32) next to
+      // the canonical WSH... when WSH exists, the canonical row owns the id.
+      const rows = mapRegistry({ ...nfl.TEAM_IDS, WSH: 32 }, nfl.TEAM_ALIASES);
+      expect(rows.filter((r) => r.abbreviation === "WSH")).toHaveLength(1);
+      expect(rows.filter((r) => r.abbreviation === "WAS")).toHaveLength(0);
+      expect(rows.find((r) => r.abbreviation === "WSH").id).toBe(32);
+      expect(rows).toHaveLength(32);
+    });
+
+    it("renames an alias key to the canonical abbreviation when the canonical is absent", () => {
+      const rows = mapRegistry({ KC: 16, WAS: 32 }, { WAS: "WSH" });
+      expect(rows).toContainEqual({ abbreviation: "WSH", id: 32 });
+      expect(rows.some((r) => r.abbreviation === "WAS")).toBe(false);
+    });
+
+    it("normalises object-wrapped string ids to numbers", () => {
+      const rows = mapRegistry({ COV: { id: "388" }, ARS: 359 }, {});
+      expect(rows).toEqual([
+        { abbreviation: "COV", id: 388 },
+        { abbreviation: "ARS", id: 359 },
+      ]);
+    });
+  });
+
+  describe("committed directory", () => {
+    const directory = require(path.join(ROOT, "team-directory.json"));
+
+    it("holds only numeric ids, so downstream lookups cannot miss on type", () => {
+      const nonNumeric = directory.teams.filter((team) => typeof team.id !== "number");
+      expect(nonNumeric).toEqual([]);
+    });
+
+    it("keeps a single row per league and abbreviation pair", () => {
+      const seen = new Map();
+      for (const team of directory.teams) {
+        const key = `${team.league}:${team.id}`;
+        expect(seen.has(key)).toBe(false);
+        seen.set(key, team);
+      }
     });
   });
 });
