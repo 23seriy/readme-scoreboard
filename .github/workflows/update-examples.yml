@@ -40,11 +40,22 @@ jobs:
       - run: npm run readme:preview
       - name: Open update pull request
         env:
-          # See update-league-showcase.yml: a PAT avoids the
-          # `first_time_contributors` approval gate that holds every
-          # `github-actions[bot]` run at `action_required`.
-          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN || github.token }}
+          # `github.token`, not the `AUTOMATION_TOKEN` PAT. The PAT expired
+          # (HTTP 401 from 2026-11-12), and a credential that can silently die
+          # turns every refresh into a failed run nobody sees. The bot's PRs run
+          # their checks normally in this repository; if GitHub ever starts
+          # holding them behind an approval, the PR step below fails loudly
+          # instead of retrying an expired secret at runtime.
+          GH_TOKEN: ${{ github.token }}
         run: |
+          # Fail here, not after the push, when the token cannot reach the API.
+          # An expired or revoked PAT used to surface as a bare
+          # "HTTP 401: Bad credentials" once the branch already existed, which
+          # reads like a code problem and leaves the branch orphaned.
+          if ! gh api user --jq .login >/dev/null 2>&1; then
+            echo "::error::The workflow token cannot authenticate to GitHub. Refusing to push a branch with no pull request."
+            exit 1
+          fi
           # README.md is in scope because `readme:preview` rewrites the preview
           # block from the same renderer; leaving it out would commit boards
           # that disagree with the README.
@@ -73,12 +84,22 @@ jobs:
           # push can never satisfy them. A pull request is the route that lets
           # the checks run first; auto-merge then lands it without waiting for a
           # human, while still honouring the ruleset.
+          reason=""
           url=$(gh pr create --base main --head automation/example-boards \
             --title "docs: refresh example boards from live data" \
-            --body "Automated refresh of the example boards in \`examples/\` from live league APIs.") \
-            || gh pr view automation/example-boards --json url --jq .url
+            --body "Automated refresh of the example boards in \`examples/\` from live league APIs." 2>&1) \
+            || reason=$url
+          if [ -z "$url" ] || [ -n "$reason" ]; then
+            # The branch was already pushed; recover the existing PR if this run
+            # merely raced another one, otherwise fail with the real reason.
+            url=$(gh pr view automation/example-boards --json url --jq .url 2>/dev/null) \
+              || { echo "::error::Could not open a pull request: ${reason:-unknown error}"; exit 1; }
+          fi
           echo "PR: $url"
           # --auto waits for the required checks and for the branch to be up to
           # date (`strict_required_status_checks_policy` is on), then merges.
-          gh pr merge "$url" --squash --auto \
-            || echo "Auto-merge could not be enabled; leaving the PR for review."
+          # Swallowing this used to leave a refresh PR open forever with nothing
+          # in the run summary saying auto-merge had not been enabled.
+          if ! gh pr merge "$url" --squash --auto; then
+            echo "::warning::Auto-merge could not be enabled for $url; merge it by hand."
+          fi

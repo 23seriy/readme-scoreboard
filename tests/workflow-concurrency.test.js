@@ -94,23 +94,48 @@ describe("README maintenance workflow coordination", () => {
     }
   });
 
-  // `github.token` attributes the PR to `github-actions[bot]`, and the repo's
-  // Actions approval policy is `first_time_contributors`. GitHub counts the bot
-  // as a first-time contributor, so every run is parked at `action_required`
-  // with ZERO jobs until a human approves — observed live on PR #441, where
-  // lint/demo/CodeQL all sat at `action_required` and auto-merge could not fire.
-  // A PAT fixes the attribution; `github.token` stays as a fallback so the
-  // refresh still happens (with an approval click) when the secret is missing.
-  it("authenticates refresh steps with a PAT so the approval gate does not apply", () => {
+  // These steps used the `AUTOMATION_TOKEN` PAT so the PR was attributed to a
+  // user rather than `github-actions[bot]`. That PAT expired, and from
+  // 2026-11-12 every refresh pushed its branch and then died at `gh pr create`
+  // with `HTTP 401: Bad credentials` — three scheduled workflows silently
+  // stopped landing for two days. Nothing in the repo said which credential was
+  // in use, so the 401 looked like a code problem.
+  //
+  // The built-in `github.token` has no expiry and is issued by the run itself.
+  // Its bot-attributed PRs have run their checks normally in this repository
+  // (see the automation refresh PRs), and the ruleset still requires
+  // `lint`/`demo`/`CodeQL`, so switching does not weaken the gate.
+  it("authenticates refresh steps with the run's built-in token, not a PAT", () => {
     const workflows = [
       ".github/workflows/update-examples.yml",
       ".github/workflows/update-league-showcase.yml",
       ".github/workflows/update-team-directory.yml",
+      ".github/workflows/update-season-status.yml",
     ];
 
     for (const file of workflows) {
       const workflow = fs.readFileSync(file, "utf8");
-      expect(workflow).toContain("secrets.AUTOMATION_TOKEN || github.token");
+      expect(workflow).toContain("GH_TOKEN: ${{ github.token }}");
+      // A PAT can expire without anything in this repository changing, which
+      // is exactly how the outage above started.
+      expect(workflow).not.toContain("secrets.AUTOMATION_TOKEN");
+    }
+  });
+
+  // The 401 arrived after the branch had been pushed, so the run left a branch
+  // with no pull request and a stack-free error that named no cause. Both
+  // workflows must now check authentication up front and report why.
+  it("fails loudly when the workflow token cannot authenticate", () => {
+    for (const file of [
+      ".github/workflows/update-examples.yml",
+      ".github/workflows/update-league-showcase.yml",
+      ".github/workflows/update-team-directory.yml",
+    ]) {
+      const workflow = fs.readFileSync(file, "utf8");
+      expect(workflow).toContain("gh api user");
+      expect(workflow).toMatch(/::error::The workflow token cannot authenticate/);
+      // The check must precede the push, or the branch is left orphaned.
+      expect(workflow.indexOf("gh api user")).toBeLessThan(workflow.indexOf("git push --force origin automation/"));
     }
   });
 

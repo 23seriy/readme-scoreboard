@@ -33,11 +33,18 @@ jobs:
       - run: npm run players:directory:validate
       - name: Open update pull request
         env:
-          # See update-league-showcase.yml: a PAT avoids the
-          # `first_time_contributors` approval gate that holds every
-          # `github-actions[bot]` run at `action_required`.
-          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN || github.token }}
+          # See update-examples.yml: the PAT expired (HTTP 401 from
+          # 2026-11-12), so the run authenticates with `github.token`.
+          GH_TOKEN: ${{ github.token }}
         run: |
+          # Fail here, not after the push, when the token cannot reach the API.
+          # An expired or revoked PAT used to surface as a bare
+          # "HTTP 401: Bad credentials" once the branch already existed, which
+          # reads like a code problem and leaves the branch orphaned.
+          if ! gh api user --jq .login >/dev/null 2>&1; then
+            echo "::error::The workflow token cannot authenticate to GitHub. Refusing to push a branch with no pull request."
+            exit 1
+          fi
           if git diff --quiet -- team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md; then
             echo "Team and player directories are already current"
             exit 0
@@ -58,12 +65,18 @@ jobs:
           # push can never satisfy them. A pull request is the route that lets
           # the checks run first; auto-merge then lands it without waiting for a
           # human, while still honouring the ruleset.
+          reason=""
           url=$(gh pr create --base main --head automation/team-directory \
             --title "docs: refresh team and player directories" \
             --body "Automated refresh of team and player names and IDs from supported league APIs.") \
-            || gh pr view automation/team-directory --json url --jq .url
+            || reason=$url
+          if [ -z "$url" ] || [ -n "$reason" ]; then
+            url=$(gh pr view automation/team-directory --json url --jq .url 2>/dev/null) \
+              || { echo "::error::Could not open a pull request: ${reason:-unknown error}"; exit 1; }
+          fi
           echo "PR: $url"
           # --auto waits for the required checks and for the branch to be up to
           # date (`strict_required_status_checks_policy` is on), then merges.
-          gh pr merge "$url" --squash --auto \
-            || echo "Auto-merge could not be enabled; leaving the PR for review."
+          if ! gh pr merge "$url" --squash --auto; then
+            echo "::warning::Auto-merge could not be enabled for $url; merge it by hand."
+          fi
