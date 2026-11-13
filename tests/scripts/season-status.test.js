@@ -56,11 +56,11 @@ describe("season status updater", () => {
 
   it("opens a team-directory maintenance PR with the workflow token", () => {
     expect(teamDirWorkflow).toContain("pull-requests: write");
-    // Prefers the PAT so the PR is not attributed to `github-actions[bot]`,
-    // which the `first_time_contributors` approval policy parks at
-    // `action_required` (see workflow-concurrency.test.js). `github.token`
-    // remains as the fallback.
-    expect(teamDirWorkflow).toContain("secrets.AUTOMATION_TOKEN || github.token");
+    // The run's own token: the PAT these steps used to prefer expired and made
+    // every refresh fail at `gh pr create` with HTTP 401 (see
+    // workflow-concurrency.test.js). A token the run issues cannot expire.
+    expect(teamDirWorkflow).toContain("GH_TOKEN: ${{ github.token }}");
+    expect(teamDirWorkflow).not.toContain("secrets.AUTOMATION_TOKEN");
     expect(teamDirWorkflow).toContain("gh pr create");
     expect(teamDirWorkflow).toContain("automation/team-directory");
   });

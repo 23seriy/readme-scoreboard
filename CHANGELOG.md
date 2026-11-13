@@ -10,6 +10,17 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Fixed
+
+- **The scheduled refreshes authenticate with the run's own token again.** They used a
+  `AUTOMATION_TOKEN` PAT so the pull request was attributed to a person; that PAT expired and, from
+  2026-11-12, `update-examples`, `update-team-directory` and `update-league-showcase` each pushed
+  their branch and then failed at `gh pr create` with `HTTP 401: Bad credentials`, so no refresh
+  landed for two days. They now use `github.token`, which the run issues itself and which cannot
+  expire, and each one checks authentication *before* pushing, failing with an explicit message
+  that names the cause instead of a bare 401. Auto-merge failures are reported as a warning rather
+  than silently skipped.
+
 ### Changed
 
 - **CI runs hourly**, as well as on every push and pull request. The boards come from live league

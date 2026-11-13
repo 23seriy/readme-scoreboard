@@ -27,15 +27,21 @@ jobs:
       - run: npm run leagues:showcase
       - name: Open update pull request
         env:
-          # A PAT (not `github.token`) so the PR and its commits are attributed
-          # to a real user. Events raised by `github.token` are attributed to
-          # `github-actions[bot]`, which the repo's `first_time_contributors`
-          # approval policy holds at `action_required` — zero jobs run until a
-          # human clicks approve, so auto-merge could never fire on its own.
-          # Falls back to `github.token` so the workflow still refreshes the
-          # branch (just with the approval click) if the secret is absent.
-          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN || github.token }}
+          # `github.token`, not the `AUTOMATION_TOKEN` PAT. The PAT expired
+          # (HTTP 401 from 2026-11-12) and took this workflow down with it; a
+          # credential that dies on its own schedule is worse than the approval
+          # click it was meant to avoid. The PR step fails loudly if the bot's
+          # PRs are ever held for approval.
+          GH_TOKEN: ${{ github.token }}
         run: |
+          # Fail here, not after the push, when the token cannot reach the API.
+          # An expired or revoked PAT used to surface as a bare
+          # "HTTP 401: Bad credentials" once the branch already existed, which
+          # reads like a code problem and leaves the branch orphaned.
+          if ! gh api user --jq .login >/dev/null 2>&1; then
+            echo "::error::The workflow token cannot authenticate to GitHub. Refusing to push a branch with no pull request."
+            exit 1
+          fi
           if git diff --quiet -- examples/leagues; then
             echo "League showcase is already current"
             exit 0
@@ -60,12 +66,18 @@ jobs:
           # push can never satisfy them. A pull request is the route that lets
           # the checks run first; auto-merge then lands it without waiting for a
           # human, while still honouring the ruleset.
+          reason=""
           url=$(gh pr create --base main --head automation/league-showcase \
             --title "docs: refresh league showcase from live data" \
             --body "Automated refresh of the per-league example gallery (examples/leagues) from live league APIs.") \
-            || gh pr view automation/league-showcase --json url --jq .url
+            || reason=$url
+          if [ -z "$url" ] || [ -n "$reason" ]; then
+            url=$(gh pr view automation/league-showcase --json url --jq .url 2>/dev/null) \
+              || { echo "::error::Could not open a pull request: ${reason:-unknown error}"; exit 1; }
+          fi
           echo "PR: $url"
           # --auto waits for the required checks and for the branch to be up to
           # date (`strict_required_status_checks_policy` is on), then merges.
-          gh pr merge "$url" --squash --auto \
-            || echo "Auto-merge could not be enabled; leaving the PR for review."
+          if ! gh pr merge "$url" --squash --auto; then
+            echo "::warning::Auto-merge could not be enabled for $url; merge it by hand."
+          fi
