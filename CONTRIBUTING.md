@@ -113,7 +113,12 @@ SPORT=nba TEAM=BOS node src/index.js --demo
 ## Quality Gates
 
 Two rules keep this repository honest. CI enforces the mechanical parts of both, but the judgement
-is yours.
+is yours. CI itself runs on every push and pull request **and hourly on `main`**, because the boards
+and several suites read the calendar and live data: a breakage that needs no commit still shows up
+the same day.
+
+On a scheduled run a stale example board only **warns** — the `update-examples` workflow owns that
+refresh — so a red hourly run means a real test failure, not board drift. Read the failing step.
 
 ### Coverage must not drop
 

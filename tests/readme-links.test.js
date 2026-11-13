@@ -282,6 +282,28 @@ describe("repository CI configuration", () => {
     expect(boardStep).not.toContain("git diff --exit-code");
   });
 
+  it("runs CI hourly so a calendar-driven failure surfaces without a push", () => {
+    // The boards and several suites depend on today's date (season windows,
+    // the board freshness check). Nothing pushes a commit when the clock
+    // crosses a boundary, so without a schedule a breakage waits for the next
+    // unrelated PR. Hourly is the coarsest useful cadence that still notices
+    // the same day.
+    const triggers = ci.slice(ci.indexOf("on:"), ci.indexOf("permissions:"));
+    expect(triggers).toMatch(/schedule:[\s\S]*?- cron: "0 \* \* \* \*"/);
+    // A scheduled run has no `base_ref`, so diffing against it would fail the
+    // step. The schedule must therefore take the "always check" branch.
+    expect(ci).toContain('if [ "${{ github.event_name }}" = "schedule" ]');
+    expect(ci).toContain('if: github.event_name == \'pull_request\' || github.event_name == \'schedule\'');
+    // A scheduled run must never block anything: it reports like a push, so
+    // its failure cannot gate a merge it has no business gating.
+    const boardStep = ci.slice(
+      ci.indexOf("Check the generated example boards are current"),
+      ci.indexOf("Check a src change came with a changelog entry"),
+    );
+    expect(boardStep).toMatch(/pull_request" \]; then[\s\S]*?exit 1/);
+    expect(boardStep.indexOf("::warning::")).toBeGreaterThan(boardStep.indexOf("exit 1"));
+  });
+
   it("scopes the board freshness check to changes that can alter a board", () => {
     // The gate is conditional, so verify the condition itself rather than just
     // the command.
