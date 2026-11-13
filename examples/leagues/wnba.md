@@ -1,53 +1,57 @@
 # WNBA (wnba)
 
-Team: **ATL** · Category: Basketball · Data source: ESPN public API
+Team: **DAL** · Category: Basketball · Data source: ESPN public API
 
 ## Default
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA" height="28" align="top"></picture> My Favourite WNBA Team](https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/wnba/500/atl.png" alt="Atlanta Dream logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/wnba/500/dal.png" alt="Dallas Wings logo" width="72" align="right" />
 
-### 🌙 Atlanta Dream (ATL)
-Eastern Conference
+### 🪽 Dallas Wings (DAL)
+Western Conference
 🔴 Off-season · Next season starts May 8, 2027
 
-🏅 Standing: Eastern · 1
+🏅 Standing: Western · 4
 
-📊 2026 Record: 30W - 14L (68.2%)<br>&nbsp;&nbsp;&nbsp;█████████████████░░░░░░░░
+📅 Next: vs NY (Jul 17)
+
+📊 2026 Record: 27W - 17L (61.4%)<br>&nbsp;&nbsp;&nbsp;███████████████▎░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L  63-68  @ GS  (Oct 31, 2026) [Playoffs]
-✅ W  80-69  vs GS  (Oct 29, 2026) [Playoffs]
-❌ L  55-64  @ GS  (Oct 26, 2026) [Playoffs]
-❌ L  62-67  vs GS  (Oct 24, 2026) [Playoffs]
-✅ W  97-71  vs GS  (Oct 21, 2026) [Playoffs]
+❌ L  73-77  @ GS  (Oct 2, 2026) [Playoffs]
+✅ W 108-100 vs GS  (Sep 30, 2026) [Playoffs]
+❌ L  80-104 @ GS  (Sep 27, 2026) [Playoffs]
+✅ W 103-91  @ SEA (Sep 23, 2026)
+❌ L  86-87  @ PHX (Sep 21, 2026)
 ```
 
 ## Custom title
 
 The `title:` input replaces the default heading.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA" height="28" align="top"></picture> My Atlanta Dream](https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA" height="28" align="top"></picture> My Dallas Wings](https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/wnba/500/atl.png" alt="Atlanta Dream logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/wnba/500/dal.png" alt="Dallas Wings logo" width="72" align="right" />
 
-### 🌙 Atlanta Dream (ATL)
-Eastern Conference
+### 🪽 Dallas Wings (DAL)
+Western Conference
 🔴 Off-season · Next season starts May 8, 2027
 
-🏅 Standing: Eastern · 1
+🏅 Standing: Western · 4
 
-📊 2026 Record: 30W - 14L (68.2%)<br>&nbsp;&nbsp;&nbsp;█████████████████░░░░░░░░
+📅 Next: vs NY (Jul 17)
+
+📊 2026 Record: 27W - 17L (61.4%)<br>&nbsp;&nbsp;&nbsp;███████████████▎░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L  63-68  @ GS  (Oct 31, 2026) [Playoffs]
-✅ W  80-69  vs GS  (Oct 29, 2026) [Playoffs]
-❌ L  55-64  @ GS  (Oct 26, 2026) [Playoffs]
-❌ L  62-67  vs GS  (Oct 24, 2026) [Playoffs]
-✅ W  97-71  vs GS  (Oct 21, 2026) [Playoffs]
+❌ L  73-77  @ GS  (Oct 2, 2026) [Playoffs]
+✅ W 108-100 vs GS  (Sep 30, 2026) [Playoffs]
+❌ L  80-104 @ GS  (Sep 27, 2026) [Playoffs]
+✅ W 103-91  @ SEA (Sep 23, 2026)
+❌ L  86-87  @ PHX (Sep 21, 2026)
 ```
 
 ## Compact mode
@@ -57,13 +61,15 @@ The `compact: true` input drops the logo and recent-game details.
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/wnba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/wnba.png" alt="WNBA" height="28" align="top"></picture> My Favourite WNBA Team](https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/teams)
 
 
-### 🌙 Atlanta Dream (ATL)
-Eastern Conference
+### 🪽 Dallas Wings (DAL)
+Western Conference
 🔴 Off-season · Next season starts May 8, 2027
 
-🏅 Standing: Eastern · 1
+🏅 Standing: Western · 4
 
-📊 2026 Record: 30W - 14L (68.2%)<br>&nbsp;&nbsp;&nbsp;█████████████████░░░░░░░░
+📅 Next: vs NY (Jul 17)
+
+📊 2026 Record: 27W - 17L (61.4%)<br>&nbsp;&nbsp;&nbsp;███████████████▎░░░░░░░░░
 
 
 
@@ -72,6 +78,6 @@ Eastern Conference
 The `badge: true` input renders a shields-style badge instead of a full board.
 
 <p align="center">
-<img src="https://img.shields.io/badge/WNBA-ATL-orange?style=flat" />
+<img src="https://img.shields.io/badge/WNBA-DAL-orange?style=flat" />
 </p>
 

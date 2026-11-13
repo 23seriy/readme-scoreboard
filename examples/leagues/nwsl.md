@@ -1,53 +1,57 @@
 # NWSL (nwsl)
 
-Team: **BAY** · Category: Soccer · Data source: ESPN public API
+Team: **GFC** · Category: Soccer · Data source: ESPN public API
 
 ## Default
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="NWSL" height="28" align="top"></picture> My Favourite NWSL Team](https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/22187.png" alt="Bay FC logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/15364.png" alt="Gotham FC logo" width="72" align="right" />
 
-### 🌉 Bay FC (BAY)
+### 🦇 Gotham FC (GFC)
 NWSL Regular Season
 🔴 Off-season · Next season starts March 13, 2027
 
-🏅 Standing (2026): NWSL Regular Season · 14
+🏅 Standing (2026): NWSL Regular Season · 1
 
-📊 2026 Record: 7W - 17L - 6D  (27 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
+📅 Next: vs KC (Nov 15)
+
+📊 2026 Record: 18W - 5L - 7D  (61 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▉░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L 0-1 vs SD    (Nov 1, 2026)
-❌ L 0-2 @ LA    (Oct 25, 2026)
-🟡 D 2-2 vs POR   (Oct 18, 2026)
-❌ L 1-5 @ KC    (Oct 3, 2026)
-❌ L 1-3 vs ORL   (Sep 27, 2026)
+✅ W 1-0 vs SEA   (Nov 8, 2026)
+✅ W 2-0 vs UTA   (Nov 1, 2026)
+✅ W 2-1 @ ORL   (Oct 25, 2026)
+❌ L 0-1 @ WAS   (Oct 17, 2026)
+🟡 D 1-1 vs LA    (Oct 4, 2026)
 ```
 
 ## Custom title
 
 The `title:` input replaces the default heading.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="NWSL" height="28" align="top"></picture> My Bay FC](https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="NWSL" height="28" align="top"></picture> My Gotham FC](https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/22187.png" alt="Bay FC logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/15364.png" alt="Gotham FC logo" width="72" align="right" />
 
-### 🌉 Bay FC (BAY)
+### 🦇 Gotham FC (GFC)
 NWSL Regular Season
 🔴 Off-season · Next season starts March 13, 2027
 
-🏅 Standing (2026): NWSL Regular Season · 14
+🏅 Standing (2026): NWSL Regular Season · 1
 
-📊 2026 Record: 7W - 17L - 6D  (27 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
+📅 Next: vs KC (Nov 15)
+
+📊 2026 Record: 18W - 5L - 7D  (61 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▉░░░░░░░
 
 **📅 Recent Games:**
 ```
-❌ L 0-1 vs SD    (Nov 1, 2026)
-❌ L 0-2 @ LA    (Oct 25, 2026)
-🟡 D 2-2 vs POR   (Oct 18, 2026)
-❌ L 1-5 @ KC    (Oct 3, 2026)
-❌ L 1-3 vs ORL   (Sep 27, 2026)
+✅ W 1-0 vs SEA   (Nov 8, 2026)
+✅ W 2-0 vs UTA   (Nov 1, 2026)
+✅ W 2-1 @ ORL   (Oct 25, 2026)
+❌ L 0-1 @ WAS   (Oct 17, 2026)
+🟡 D 1-1 vs LA    (Oct 4, 2026)
 ```
 
 ## Compact mode
@@ -57,13 +61,15 @@ The `compact: true` input drops the logo and recent-game details.
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2323.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2323.png" alt="NWSL" height="28" align="top"></picture> My Favourite NWSL Team](https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/teams)
 
 
-### 🌉 Bay FC (BAY)
+### 🦇 Gotham FC (GFC)
 NWSL Regular Season
 🔴 Off-season · Next season starts March 13, 2027
 
-🏅 Standing (2026): NWSL Regular Season · 14
+🏅 Standing (2026): NWSL Regular Season · 1
 
-📊 2026 Record: 7W - 17L - 6D  (27 pts)<br>&nbsp;&nbsp;&nbsp;████████▎░░░░░░░░░░░░░░░░
+📅 Next: vs KC (Nov 15)
+
+📊 2026 Record: 18W - 5L - 7D  (61 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▉░░░░░░░
 
 
 
@@ -72,6 +78,6 @@ NWSL Regular Season
 The `badge: true` input renders a shields-style badge instead of a full board.
 
 <p align="center">
-<img src="https://img.shields.io/badge/NWSL-BAY-orange?style=flat" />
+<img src="https://img.shields.io/badge/NWSL-GFC-orange?style=flat" />
 </p>
 

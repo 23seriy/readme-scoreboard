@@ -1,57 +1,57 @@
 # Norwegian Eliteserien (norway)
 
-Team: **AAL** · Category: Soccer · Data source: ESPN public API
+Team: **BODO** · Category: Soccer · Data source: ESPN public API
 
 ## Default
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Favourite Norwegian Eliteserien Team](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/3278.png" alt="Aalesund logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/2980.png" alt="Bodo/Glimt logo" width="72" align="right" />
 
-### 🔵 Aalesund (AAL)
+### 🟡 Bodo/Glimt (BODO)
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Norwegian Eliteserien · 15
+🏅 Standing (2026): 2026 Norwegian Eliteserien · 2
 
-📅 Next: vs ROS (Nov 22)
+📅 Next: @ MOL (Nov 20)
 
-📊 2026 Record: 5W - 12L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▏░░░░░░░░░░░░░░░
+📊 2026 Record: 20W - 4L - 2D  (62 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
 
 **📅 Recent Games:**
 ```
-❌ L 2-3 @ LSK   (Nov 8, 2026)
-❌ L 3-4 vs SAN   (Oct 31, 2026)
-❌ L 1-2 @ SAR   (Oct 25, 2026)
-✅ W 4-1 @ KRI   (Oct 17, 2026)
-❌ L 2-4 vs SAR   (Oct 11, 2026)
+✅ W 2-0 @ TRO   (Nov 8, 2026)
+✅ W 3-2 vs VFK   (Oct 30, 2026)
+❌ L 0-1 vs VAL   (Oct 24, 2026)
+✅ W 2-0 @ HAM   (Oct 17, 2026)
+✅ W 3-1 vs KRI   (Oct 10, 2026)
 ```
 
 ## Custom title
 
 The `title:` input replaces the default heading.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Aalesund](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Bodo/Glimt](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/3278.png" alt="Aalesund logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/2980.png" alt="Bodo/Glimt logo" width="72" align="right" />
 
-### 🔵 Aalesund (AAL)
+### 🟡 Bodo/Glimt (BODO)
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Norwegian Eliteserien · 15
+🏅 Standing (2026): 2026 Norwegian Eliteserien · 2
 
-📅 Next: vs ROS (Nov 22)
+📅 Next: @ MOL (Nov 20)
 
-📊 2026 Record: 5W - 12L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▏░░░░░░░░░░░░░░░
+📊 2026 Record: 20W - 4L - 2D  (62 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
 
 **📅 Recent Games:**
 ```
-❌ L 2-3 @ LSK   (Nov 8, 2026)
-❌ L 3-4 vs SAN   (Oct 31, 2026)
-❌ L 1-2 @ SAR   (Oct 25, 2026)
-✅ W 4-1 @ KRI   (Oct 17, 2026)
-❌ L 2-4 vs SAR   (Oct 11, 2026)
+✅ W 2-0 @ TRO   (Nov 8, 2026)
+✅ W 3-2 vs VFK   (Oct 30, 2026)
+❌ L 0-1 vs VAL   (Oct 24, 2026)
+✅ W 2-0 @ HAM   (Oct 17, 2026)
+✅ W 3-1 vs KRI   (Oct 10, 2026)
 ```
 
 ## Compact mode
@@ -61,15 +61,15 @@ The `compact: true` input drops the logo and recent-game details.
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-soccer.png" alt="Norwegian Eliteserien" height="28" align="top"></picture> My Favourite Norwegian Eliteserien Team](https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/teams)
 
 
-### 🔵 Aalesund (AAL)
+### 🟡 Bodo/Glimt (BODO)
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Norwegian Eliteserien · 15
+🏅 Standing (2026): 2026 Norwegian Eliteserien · 2
 
-📅 Next: vs ROS (Nov 22)
+📅 Next: @ MOL (Nov 20)
 
-📊 2026 Record: 5W - 12L - 9D  (24 pts)<br>&nbsp;&nbsp;&nbsp;█████████▏░░░░░░░░░░░░░░░
+📊 2026 Record: 20W - 4L - 2D  (62 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
 
 
 
@@ -78,6 +78,6 @@ The `compact: true` input drops the logo and recent-game details.
 The `badge: true` input renders a shields-style badge instead of a full board.
 
 <p align="center">
-<img src="https://img.shields.io/badge/NORWEGIAN%20ELITESERIEN-AAL-orange?style=flat" />
+<img src="https://img.shields.io/badge/NORWEGIAN%20ELITESERIEN-BODO-orange?style=flat" />
 </p>
 
