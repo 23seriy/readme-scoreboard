@@ -34,7 +34,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: nfl
-    team: ATL
+    team: ARI
     marker: readme-scoreboard-nfl
 ```
 
@@ -310,7 +310,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: ncaaw
-    team: CONN
+    team: UCONN
     marker: readme-scoreboard-ncaaw
 ```
 
@@ -418,7 +418,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: aleague
-    team: ADL
+    team: ADE
     marker: readme-scoreboard-aleague
 ```
 
@@ -442,7 +442,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: csl
-    team: BEI
+    team: BG
     marker: readme-scoreboard-csl
 ```
 
