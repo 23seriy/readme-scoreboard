@@ -10,6 +10,14 @@ that would alter what appears in your README or require editing your workflow.
 
 ## [Unreleased]
 
+### Changed
+
+- **CI runs hourly**, as well as on every push and pull request. The boards come from live league
+  APIs and several suites read the calendar, so a broken board or a rolled-over season window used
+  to wait for the next unrelated PR before anyone saw it. A scheduled run only reports on stale
+  boards, exactly like a push: the `update-examples` workflow's refresh PR is what fixes them, and a
+  scheduled failure gating a merge it did not cause would be noise.
+
 ### Fixed
 
 - **The team directory no longer publishes a team's abbreviation as its name.** When live data

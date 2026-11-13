@@ -3,8 +3,28 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    # Hourly. The boards are built from live league APIs, so a committed board
+    # goes stale whenever a game ends — and the offline suites (season windows,
+    # the board freshness check, demo boards) can start failing as the calendar
+    # moves without anyone pushing a commit. On a schedule the job runs against
+    # main at :00 every hour. GitHub deprioritises scheduled runs at busy
+    # times, so the slot can slip by minutes; it never runs more often.
+    #
+    # The board freshness check only REPORTS on push and schedule (it fails on
+    # a pull request), because a stale board is fixed by the update-examples
+    # workflow's refresh PR, not by whoever happens to push next. A scheduled
+    # failure therefore shows as a red run with the reason in its summary
+    # rather than as a red `lint` job that blocks nothing.
+    - cron: "0 * * * *"
+  workflow_dispatch:
 permissions:
   contents: read
+# A scheduled run only ever inspects main, so a new commit supersedes it: the
+# hourly job must not queue behind an older run whose answer is already stale.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'schedule' }}
 jobs:
   lint:
     runs-on: ubuntu-24.04
@@ -39,9 +59,16 @@ jobs:
       # and would pull the gallery back in.
       - name: Note which files changed
         id: changed
-        if: github.event_name == 'pull_request'
+        # A schedule has no base to diff against; it always checks, because
+        # noticing that main has drifted is the point of the hourly run.
+        if: github.event_name == 'pull_request' || github.event_name == 'schedule'
         run: |
           base="origin/${{ github.base_ref }}"
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            # Nothing changed by definition; check the committed boards.
+            echo "boards=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
           # The generator, the renderers, the adapters and the league registry
           # are the only things that change what a board renders.
