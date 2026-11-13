@@ -48,6 +48,10 @@ jobs:
             echo "::error::The workflow token cannot read ${GITHUB_REPOSITORY}. Check the workflow's permissions: block."
             exit 1
           fi
+          # The PR's runs will be parked at `action_required` until a human
+          # approves them (`first_time_contributors` vs `github-actions[bot]`).
+          # Auto-merge then lands the PR on its own; see PR #527, which needed
+          # one click and then merged unattended.
           if git diff --quiet -- team-directory.json TEAM_DIRECTORY.md player-directory.json PLAYER_DIRECTORY.md LEAGUE_WORKFLOW_EXAMPLES.md; then
             echo "Team and player directories are already current"
             exit 0

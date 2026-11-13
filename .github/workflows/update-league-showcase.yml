@@ -27,11 +27,18 @@ jobs:
       - run: npm run leagues:showcase
       - name: Open update pull request
         env:
-          # `github.token`, not the `AUTOMATION_TOKEN` PAT. The PAT expired
-          # (HTTP 401 from 2026-11-12) and took this workflow down with it; a
+          # `github.token`, not a stored PAT: the `AUTOMATION_TOKEN` PAT expired
+          # (HTTP 401 from 2026-11-12) and took this workflow down with it. A
           # credential that dies on its own schedule is worse than the approval
-          # click it was meant to avoid. The PR step fails loudly if the bot's
-          # PRs are ever held for approval.
+          # click it was meant to avoid.
+          #
+          # Cost, observed live on PR #527: `first_time_contributors` parks a
+          # `github-actions[bot]` PR's runs at `action_required` with zero jobs,
+          # so auto-merge waits for a human "Approve and run". Fine here -- the
+          # gallery is cosmetic -- and the alternative (a PAT) has now failed
+          # silently once. If this workflow must land unattended, re-run it via
+          # `workflow_dispatch`, whose `GITHUB_ACTOR` is a real user and whose
+          # PR runs then execute normally.
           GH_TOKEN: ${{ github.token }}
         run: |
           # Fail here, not after the push, when the token cannot reach the API.

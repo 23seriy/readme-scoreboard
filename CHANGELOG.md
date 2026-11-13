@@ -19,7 +19,10 @@ that would alter what appears in your README or require editing your workflow.
   landed for two days. They now use `github.token`, which the run issues itself and which cannot
   expire, and each one checks authentication *before* pushing, failing with an explicit message
   that names the cause instead of a bare 401. Auto-merge failures are reported as a warning rather
-  than silently skipped.
+  than silently skipped. Two follow-ups are recorded rather than re-litigated later: the guard probes
+  `repos/{owner}/{repo}` (the identity endpoint is GraphQL-only, so a scoped token 401s there on a
+  valid credential), and a `github-actions[bot]` refresh PR's checks wait for one human approval under
+  `first_time_contributors` before auto-merge fires.
 
 ### Changed
 
