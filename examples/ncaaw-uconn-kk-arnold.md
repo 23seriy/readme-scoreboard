@@ -26,5 +26,5 @@ Big East Conference Conference
 
 **📅 Last Game:**
 ```
-14 PTS · 2 REB · 5 AST · 32 MIN vs Iowa Hawkeyes (Nov 8, 2026)
+10 PTS · 0 REB · 5 AST · 27 MIN vs Ohio State Buckeyes (Nov 12, 2026)
 ```
