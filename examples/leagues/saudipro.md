@@ -1,57 +1,57 @@
 # Saudi Pro League (saudipro)
 
-Team: **ABH** · Category: Soccer · Data source: ESPN public API
+Team: **AHL** · Category: Soccer · Data source: ESPN public API
 
 ## Default
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png" alt="Saudi Pro League" height="28" align="top"></picture> My Favourite Saudi Pro League Team](https://site.api.espn.com/apis/site/v2/sports/soccer/ksa.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/21833.png" alt="Abha logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/8346.png" alt="Al Ahli logo" width="72" align="right" />
 
-### 🟠 Abha (ABH)
+### 🟢 Al Ahli (AHL)
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing (2026): Saudi Pro League · 18
+🏅 Standing (2026): Saudi Pro League · 6
 
-📅 Next: vs SHA (Nov 26)
+📅 Next: vs NSR (Nov 20)
 
-📊 2026 Record: 0W - 8L - 3D  (3 pts)<br>&nbsp;&nbsp;&nbsp;███▍░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 4L - 0D  (21 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-🟡 D 1-1 vs ITT   (Oct 30, 2026)
-❌ L 0-1 vs ALF   (Oct 27, 2026)
-❌ L 0-2 @ NEOM  (Oct 24, 2026)
-❌ L 1-2 @ QAD   (Oct 16, 2026)
-🟡 D 0-0 @ DIR   (Sep 13, 2026)
+❌ L 1-6 @ SHA   (Oct 30, 2026)
+✅ W 4-1 vs KHA   (Oct 23, 2026)
+✅ W 3-2 @ FAY   (Oct 19, 2026)
+✅ W 4-0 @ FAT   (Oct 9, 2026)
+✅ W 3-1 vs HAZ   (Sep 11, 2026)
 ```
 
 ## Custom title
 
 The `title:` input replaces the default heading.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png" alt="Saudi Pro League" height="28" align="top"></picture> My Abha](https://site.api.espn.com/apis/site/v2/sports/soccer/ksa.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png" alt="Saudi Pro League" height="28" align="top"></picture> My Al Ahli](https://site.api.espn.com/apis/site/v2/sports/soccer/ksa.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/21833.png" alt="Abha logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/8346.png" alt="Al Ahli logo" width="72" align="right" />
 
-### 🟠 Abha (ABH)
+### 🟢 Al Ahli (AHL)
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing (2026): Saudi Pro League · 18
+🏅 Standing (2026): Saudi Pro League · 6
 
-📅 Next: vs SHA (Nov 26)
+📅 Next: vs NSR (Nov 20)
 
-📊 2026 Record: 0W - 8L - 3D  (3 pts)<br>&nbsp;&nbsp;&nbsp;███▍░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 4L - 0D  (21 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
 
 **📅 Recent Games:**
 ```
-🟡 D 1-1 vs ITT   (Oct 30, 2026)
-❌ L 0-1 vs ALF   (Oct 27, 2026)
-❌ L 0-2 @ NEOM  (Oct 24, 2026)
-❌ L 1-2 @ QAD   (Oct 16, 2026)
-🟡 D 0-0 @ DIR   (Sep 13, 2026)
+❌ L 1-6 @ SHA   (Oct 30, 2026)
+✅ W 4-1 vs KHA   (Oct 23, 2026)
+✅ W 3-2 @ FAY   (Oct 19, 2026)
+✅ W 4-0 @ FAT   (Oct 9, 2026)
+✅ W 3-1 vs HAZ   (Sep 11, 2026)
 ```
 
 ## Compact mode
@@ -61,15 +61,15 @@ The `compact: true` input drops the logo and recent-game details.
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2488.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2488.png" alt="Saudi Pro League" height="28" align="top"></picture> My Favourite Saudi Pro League Team](https://site.api.espn.com/apis/site/v2/sports/soccer/ksa.1/teams)
 
 
-### 🟠 Abha (ABH)
+### 🟢 Al Ahli (AHL)
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing (2026): Saudi Pro League · 18
+🏅 Standing (2026): Saudi Pro League · 6
 
-📅 Next: vs SHA (Nov 26)
+📅 Next: vs NSR (Nov 20)
 
-📊 2026 Record: 0W - 8L - 3D  (3 pts)<br>&nbsp;&nbsp;&nbsp;███▍░░░░░░░░░░░░░░░░░░░░░
+📊 2026 Record: 7W - 4L - 0D  (21 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
 
 
 
@@ -78,6 +78,6 @@ Saudi Pro League
 The `badge: true` input renders a shields-style badge instead of a full board.
 
 <p align="center">
-<img src="https://img.shields.io/badge/SAUDI%20PRO%20LEAGUE-ABH-orange?style=flat" />
+<img src="https://img.shields.io/badge/SAUDI%20PRO%20LEAGUE-AHL-orange?style=flat" />
 </p>
 

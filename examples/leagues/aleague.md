@@ -1,53 +1,47 @@
 # A-League Men (aleague)
 
-Team: **ADL** · Category: Soccer · Data source: ESPN public API
+Team: **MBC** · Category: Soccer · Data source: ESPN public API
 
 ## Default
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men" height="28" align="top"></picture> My Favourite A-League Men Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/5321.png" alt="Adelaide United FC logo" width="72" align="right" />
+<img src="null" alt="Melbourne City FC logo" width="72" align="right" />
 
-### ⚽ Adelaide United FC (ADL)
-2026-27 A-League
+### ⚽ Melbourne City FC (MBC)
+A-League Men
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 12
-
-📅 Next: @ WSW (Nov 20)
-
-📊 2026 Record: 0W - 2L - 1D  (1 pts)<br>&nbsp;&nbsp;&nbsp;████▏░░░░░░░░░░░░░░░░░░░░
+📅 Next: @ MAC (Nov 27)
 
 **📅 Recent Games:**
 ```
-🟡 D 2-2 vs MBV   (Nov 8, 2026)
-❌ L 0-4 @ PER   (Nov 1, 2026)
-❌ L 1-2 @ SYD   (Oct 25, 2026)
+✅ W 2-1 vs WSW   (Nov 7, 2026)
+✅ W 2-1 vs SYD   (Oct 31, 2026)
+🟡 D 1-1 @ MBV   (Oct 24, 2026)
+❌ L 1-3 @ AUC   (Oct 17, 2026)
 ```
 
 ## Custom title
 
 The `title:` input replaces the default heading.
 
-## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men" height="28" align="top"></picture> My Adelaide United FC](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams)
+## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men" height="28" align="top"></picture> My Melbourne City FC](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/soccer/500/5321.png" alt="Adelaide United FC logo" width="72" align="right" />
+<img src="null" alt="Melbourne City FC logo" width="72" align="right" />
 
-### ⚽ Adelaide United FC (ADL)
-2026-27 A-League
+### ⚽ Melbourne City FC (MBC)
+A-League Men
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 12
-
-📅 Next: @ WSW (Nov 20)
-
-📊 2026 Record: 0W - 2L - 1D  (1 pts)<br>&nbsp;&nbsp;&nbsp;████▏░░░░░░░░░░░░░░░░░░░░
+📅 Next: @ MAC (Nov 27)
 
 **📅 Recent Games:**
 ```
-🟡 D 2-2 vs MBV   (Nov 8, 2026)
-❌ L 0-4 @ PER   (Nov 1, 2026)
-❌ L 1-2 @ SYD   (Oct 25, 2026)
+✅ W 2-1 vs WSW   (Nov 7, 2026)
+✅ W 2-1 vs SYD   (Oct 31, 2026)
+🟡 D 1-1 @ MBV   (Oct 24, 2026)
+❌ L 1-3 @ AUC   (Oct 17, 2026)
 ```
 
 ## Compact mode
@@ -57,15 +51,11 @@ The `compact: true` input drops the logo and recent-game details.
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men" height="28" align="top"></picture> My Favourite A-League Men Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams)
 
 
-### ⚽ Adelaide United FC (ADL)
-2026-27 A-League
+### ⚽ Melbourne City FC (MBC)
+A-League Men
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 A-League · 12
-
-📅 Next: @ WSW (Nov 20)
-
-📊 2026 Record: 0W - 2L - 1D  (1 pts)<br>&nbsp;&nbsp;&nbsp;████▏░░░░░░░░░░░░░░░░░░░░
+📅 Next: @ MAC (Nov 27)
 
 
 
@@ -74,6 +64,6 @@ The `compact: true` input drops the logo and recent-game details.
 The `badge: true` input renders a shields-style badge instead of a full board.
 
 <p align="center">
-<img src="https://img.shields.io/badge/A-LEAGUE%20MEN-ADL-orange?style=flat" />
+<img src="https://img.shields.io/badge/A-LEAGUE%20MEN-MBC-orange?style=flat" />
 </p>
 

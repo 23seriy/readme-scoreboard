@@ -6,7 +6,7 @@ Team: **CONN** · Category: Basketball · Data source: ESPN public API
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png" alt="NCAA Women's Basketball" height="28" align="top"></picture> My Favourite NCAA Women's Basketball Team](https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/ncaa/500/41.png" alt="UConn Huskies logo" width="72" align="right" />
+<img src="null" alt="UConn Huskies logo" width="72" align="right" />
 
 ### 🏀 UConn Huskies (CONN)
 Big East Conference Conference
@@ -31,7 +31,7 @@ The `title:` input replaces the default heading.
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png"><img src="https://a.espncdn.com/redesign/assets/img/icons/ESPN-icon-basketball.png" alt="NCAA Women's Basketball" height="28" align="top"></picture> My UConn Huskies](https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/teams)
 
-<img src="https://a.espncdn.com/i/teamlogos/ncaa/500/41.png" alt="UConn Huskies logo" width="72" align="right" />
+<img src="null" alt="UConn Huskies logo" width="72" align="right" />
 
 ### 🏀 UConn Huskies (CONN)
 Big East Conference Conference
