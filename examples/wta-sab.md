@@ -7,8 +7,3 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
-**📅 Last Match:**
-```
-❌ L vs Mirra Andreeva (Nov 11, 2026) 4-6, 0-6
-```
-
