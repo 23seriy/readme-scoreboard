@@ -49,11 +49,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           # Fail here, not after the push, when the token cannot reach the API.
-          # An expired or revoked PAT used to surface as a bare
+          # An expired or revoked credential used to surface as a bare
           # "HTTP 401: Bad credentials" once the branch already existed, which
           # reads like a code problem and leaves the branch orphaned.
-          if ! gh api user --jq .login >/dev/null 2>&1; then
-            echo "::error::The workflow token cannot authenticate to GitHub. Refusing to push a branch with no pull request."
+          # Probe an endpoint the token is actually scoped for: the identity
+          # endpoint goes through GraphQL, which a scoped `GITHUB_TOKEN` (and a
+          # fine-grained PAT) cannot query -- it 401s on a valid credential. The
+          # repository endpoint is what these steps need.
+          if ! gh api "repos/${GITHUB_REPOSITORY}" --jq .full_name >/dev/null 2>&1; then
+            echo "::error::The workflow token cannot read ${GITHUB_REPOSITORY}. Check the workflow's permissions: block."
             exit 1
           fi
           # README.md is in scope because `readme:preview` rewrites the preview

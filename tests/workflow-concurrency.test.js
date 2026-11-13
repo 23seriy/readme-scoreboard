@@ -132,10 +132,14 @@ describe("README maintenance workflow coordination", () => {
       ".github/workflows/update-team-directory.yml",
     ]) {
       const workflow = fs.readFileSync(file, "utf8");
-      expect(workflow).toContain("gh api user");
-      expect(workflow).toMatch(/::error::The workflow token cannot authenticate/);
+      // Probe a repository endpoint, not /user: `gh api user` goes through
+      // GraphQL, which a scoped GITHUB_TOKEN cannot query, so it reports a
+      // valid token as unauthenticated (run 43431615479).
+      expect(workflow).toContain('gh api "repos/${GITHUB_REPOSITORY}"');
+      expect(workflow).not.toContain("gh api user");
+      expect(workflow).toMatch(/::error::The workflow token cannot read/);
       // The check must precede the push, or the branch is left orphaned.
-      expect(workflow.indexOf("gh api user")).toBeLessThan(workflow.indexOf("git push --force origin automation/"));
+      expect(workflow.indexOf('gh api "repos/')).toBeLessThan(workflow.indexOf("git push --force origin automation/"));
     }
   });
 

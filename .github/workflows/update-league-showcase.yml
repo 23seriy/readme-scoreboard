@@ -38,8 +38,11 @@ jobs:
           # An expired or revoked PAT used to surface as a bare
           # "HTTP 401: Bad credentials" once the branch already existed, which
           # reads like a code problem and leaves the branch orphaned.
-          if ! gh api user --jq .login >/dev/null 2>&1; then
-            echo "::error::The workflow token cannot authenticate to GitHub. Refusing to push a branch with no pull request."
+          # Probe an endpoint the token is actually scoped for: the identity
+          # endpoint goes through GraphQL, which a scoped `GITHUB_TOKEN` (and a
+          # fine-grained PAT) cannot query -- it 401s on a valid credential.
+          if ! gh api "repos/${GITHUB_REPOSITORY}" --jq .full_name >/dev/null 2>&1; then
+            echo "::error::The workflow token cannot read ${GITHUB_REPOSITORY}. Check the workflow's permissions: block."
             exit 1
           fi
           if git diff --quiet -- examples/leagues; then
