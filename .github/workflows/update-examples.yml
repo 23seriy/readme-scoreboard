@@ -148,10 +148,13 @@ jobs:
           # Only this commit's runs, and only while they are parked. Any other
           # state is left alone, so a re-run cannot double-approve.
           # Numeric ids, not file names: the `Lint` workflow lives in ci.yml, and
-          # the CodeQL workflow is dynamic (no path), so a name-based URL 404s.
-          # CodeQL is not listed because it is not a per-commit run that starts
-          # parked; it reports a check-run on the commit instead.
-          for wf in 323800866 337411263; do
+          # CodeQL has moved between ids (a dynamic workflow and an advanced-setup
+          # one), so a name-based URL 404s and a hardcoded id can go stale. These
+          # are resolved from the API on every run instead: the three workflows
+          # whose runs the ruleset requires.
+          ids=$(gh api "repos/$GH_REPO/actions/workflows?per_page=100" \
+            --jq '.workflows[] | select(.name == "Lint" or .name == "Demo smoke tests" or .name == "Code scanning") | .id')
+          for wf in $ids; do
             gh api "repos/$GH_REPO/actions/workflows/$wf/runs?head_sha=$HEAD_SHA&per_page=20" \
               --jq '.workflow_runs[] | select(.conclusion == "action_required") | .id' \
               | while read -r id; do
@@ -163,7 +166,7 @@ jobs:
           # race the first-check run. Wait briefly and take a second pass; a
           # parked run left behind stalls the refresh PR until someone clicks.
           sleep 30
-          for wf in 323800866 337411263; do
+          for wf in $ids; do
             gh api "repos/$GH_REPO/actions/workflows/$wf/runs?head_sha=$HEAD_SHA&per_page=20" \
               --jq '.workflow_runs[] | select(.conclusion == "action_required") | .id' \
               | while read -r id; do

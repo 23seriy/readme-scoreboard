@@ -195,12 +195,15 @@ describe("README maintenance workflow coordination", () => {
       // `action_required` run would approve PRs this job knows nothing about.
       expect(workflow).toContain("head_sha=$HEAD_SHA");
       expect(workflow).not.toMatch(/select\(\.head_branch/);
-      // Numeric workflow ids: the `Lint` workflow lives in ci.yml, so a
-      // `workflows/lint.yml` URL 404s -- the first version of this job did
-      // exactly that. CodeQL is dynamic (no path) and is not a per-commit run
-      // that starts parked, so it is not listed.
-      expect(workflow).toContain("for wf in 323800866 337411263");
+      // Workflow ids are resolved from the API. A hardcoded id went stale when
+      // the CodeQL workflow moved, which left its parked run unapproved and the
+      // PR blocked on a missing `CodeQL` check (#532/#535). File-name URLs are
+      // also wrong: `Lint` lives in ci.yml.
+      expect(workflow).toContain('actions/workflows?per_page=100');
+      expect(workflow).toContain('.name == "Code scanning"');
+      expect(workflow).toContain("for wf in $ids");
       expect(workflow).not.toMatch(/actions\/workflows\/[a-z-]+\.yml\/runs/);
+      expect(workflow).not.toMatch(/for wf in [0-9]/);
       // Waiting for the push means the commit exists before anything is looked
       // up, and there is nothing to approve when the artefacts are current.
       expect(workflow).toMatch(/needs: update/);

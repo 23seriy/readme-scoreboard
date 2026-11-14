@@ -31,7 +31,9 @@ that would alter what appears in your README or require editing your workflow.
   "first-time contributors" policy. The ruleset requires `lint`, `demo` and `CodeQL`, so an armed
   auto-merge could never fire — PRs #531/#532/#533 waited on checks that had not started. Each
   refresh workflow now approves the runs of the exact commit it pushed, which *starts* the required
-  checks rather than bypassing them; the PR still has to pass all three before it merges.
+  checks rather than bypassing them; the PR still has to pass all three before it merges. The
+  workflows are looked up by name at run time — `Lint` lives in `ci.yml` and the Code scanning
+  workflow has changed id, so a hardcoded one left `CodeQL` unapproved and the PR blocked.
 
 ### Changed
 
