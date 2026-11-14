@@ -202,20 +202,20 @@ describe("README maintenance workflow coordination", () => {
     }
     slots.sort((a, b) => a.at - b.at);
 
-    for (let i = 1; i < slots.length; i += 1) {
-      const gap = slots[i].at - slots[i - 1].at;
-      expect({ prev: slots[i - 1], next: slots[i], ok: gap >= 20 }).toEqual({
-        prev: slots[i - 1],
-        next: slots[i],
-        ok: true,
-      });
+    // Compare each slot with its predecessor *and* wrap the last one round to
+    // the first, so a run at 23:40 and one at 00:10 is the same 30-minute gap
+    // whichever side of midnight it is listed on.
+    for (let i = 0; i < slots.length; i += 1) {
+      const prev = slots[(i - 1 + slots.length) % slots.length];
+      const gap = (slots[i].at - prev.at + 24 * 60) % (24 * 60);
+      expect({ prev, next: slots[i], ok: gap >= 20 }).toEqual({ prev, next: slots[i], ok: true });
     }
 
-    // The boards refresh more than once a day: one overnight run left a
-    // result from the afternoon invisible for ~20 hours, which reads as a
-    // wrong board rather than a stale one.
-    const boardCrons = slots.filter((slot) => slot.file.endsWith("update-examples.yml"));
-    expect(boardCrons.length).toBeGreaterThanOrEqual(2);
+    // The boards refresh many times a day: one run left a result from the
+    // afternoon invisible for ~20 hours, which reads as a wrong board rather
+    // than a stale one.
+    const boards = slots.filter((slot) => slot.file.endsWith("update-examples.yml"));
+    expect(boards.length).toBeGreaterThanOrEqual(6);
   });
 
   it("approves the refresh PR's parked runs so auto-merge can fire", () => {
