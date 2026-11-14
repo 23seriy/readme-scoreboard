@@ -24,6 +24,15 @@ that would alter what appears in your README or require editing your workflow.
   valid credential), and a `github-actions[bot]` refresh PR's checks wait for one human approval under
   `first_time_contributors` before auto-merge fires.
 
+### Fixed
+
+- **Refresh pull requests now merge on their own.** Every workflow run raised by a
+  `github-actions[bot]` pull request sits at `action_required` with **zero jobs** under the
+  "first-time contributors" policy. The ruleset requires `lint`, `demo` and `CodeQL`, so an armed
+  auto-merge could never fire — PRs #531/#532/#533 waited on checks that had not started. Each
+  refresh workflow now approves the runs of the exact commit it pushed, which *starts* the required
+  checks rather than bypassing them; the PR still has to pass all three before it merges.
+
 ### Changed
 
 - **CI runs hourly**, as well as on every push and pull request. The boards come from live league
