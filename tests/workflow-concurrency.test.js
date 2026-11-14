@@ -182,25 +182,40 @@ describe("README maintenance workflow coordination", () => {
   // The ruleset uses `strict_required_status_checks_policy`, and a refresh
   // workflow exits early once its artefacts are current — so a PR left `BEHIND`
   // by a *later* refresh merging first can never rebase itself. Observed live:
-  // #535 needed a manual re-run. Keep the crons far enough apart that one
-  // refresh finishes merging before the next starts (a run is ~2 min plus ~3 of
-  // CI; 20 minutes is ample).
-  it("spaces the refresh crons so one lands before the next starts", () => {
+  // #535 needed a manual re-run. Keep every scheduled run far enough apart that
+  // one finishes merging before the next starts (a run is ~2 min plus ~3 of CI;
+  // 20 minutes is ample).
+  it("spaces every scheduled refresh so one lands before the next starts", () => {
     const workflows = [
       ".github/workflows/update-examples.yml",
       ".github/workflows/update-team-directory.yml",
       ".github/workflows/update-league-showcase.yml",
     ];
 
-    const minutes = workflows.map((file) => {
-      const cron = fs.readFileSync(file, "utf8").match(/- cron: "(\d+) (\d+) \* \* \*"/);
-      expect(cron).not.toBeNull();
-      return Number(cron[1]) + Number(cron[2]) * 60;
-    }).sort((a, b) => a - b);
-
-    for (let i = 1; i < minutes.length; i += 1) {
-      expect(minutes[i] - minutes[i - 1]).toBeGreaterThanOrEqual(20);
+    const slots = [];
+    for (const file of workflows) {
+      const crons = [...fs.readFileSync(file, "utf8").matchAll(/- cron: "(\d+) (\d+) \* \* \*"/g)];
+      expect(crons.length).toBeGreaterThan(0);
+      for (const [, minute, hour] of crons) {
+        slots.push({ file, at: Number(minute) + Number(hour) * 60 });
+      }
     }
+    slots.sort((a, b) => a.at - b.at);
+
+    for (let i = 1; i < slots.length; i += 1) {
+      const gap = slots[i].at - slots[i - 1].at;
+      expect({ prev: slots[i - 1], next: slots[i], ok: gap >= 20 }).toEqual({
+        prev: slots[i - 1],
+        next: slots[i],
+        ok: true,
+      });
+    }
+
+    // The boards refresh more than once a day: one overnight run left a
+    // result from the afternoon invisible for ~20 hours, which reads as a
+    // wrong board rather than a stale one.
+    const boardCrons = slots.filter((slot) => slot.file.endsWith("update-examples.yml"));
+    expect(boardCrons.length).toBeGreaterThanOrEqual(2);
   });
 
   it("approves the refresh PR's parked runs so auto-merge can fire", () => {

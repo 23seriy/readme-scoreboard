@@ -48,7 +48,8 @@ from live data and refreshed daily, showing the default board plus the
 
 This is what the action writes between your markers — heading, logos and all.
 The Lakers board below is the action's real output, regenerated from live league
-APIs by the daily refresh (heading levels lowered by one so it nests here):
+APIs twice a day, so it can lag a result by up to twelve hours (heading levels
+lowered by one so it nests here):
 
 <!-- preview:start -->
 ### [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/teamlogos/leagues/500-dark/nba.png"><img src="https://a.espncdn.com/i/teamlogos/leagues/500/nba.png" alt="NBA" height="28" align="top"></picture> My Favourite NBA Team](https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams)
