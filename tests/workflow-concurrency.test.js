@@ -130,6 +130,55 @@ describe("README maintenance workflow coordination", () => {
   // lint/demo/CodeQL, so auto-merge could never fire (#531/#532/#533 sat armed
   // and untouched). The refresh workflow now approves its own PR's runs, which
   // STARTS the checks — it does not skip them.
+  // A botched edit that added a second `timeout-minutes:` to a job parsed fine
+  // with a YAML parser (which keeps the LAST duplicate silently) and then
+  // GitHub refused the workflow: "Invalid Argument - failed to parse workflow".
+  // Text that repeats in a workflow fails here too: a duplicated key in the raw
+  // file means two keys at the same indentation inside one block.
+  it("keeps each workflow's job bodies free of repeated keys", () => {
+    const files = fs.readdirSync(".github/workflows").filter((f) => f.endsWith(".yml"));
+    expect(files.length).toBeGreaterThan(5);
+
+    for (const file of files) {
+      const lines = fs.readFileSync(`.github/workflows/${file}`, "utf8").split("\n");
+      let blockIndent = 0;
+      let block = null;
+      const blocks = [];
+
+      for (const line of lines) {
+        const job = line.match(/^ {2}([a-z][a-z0-9_-]*):\s*$/);
+        if (job) {
+          if (block) blocks.push({ name: block, lines: blockIndent });
+          block = job[1];
+          blockIndent = 4;
+          continue;
+        }
+        const entry = line.match(/^( {4})([a-z-]+):/);
+        if (block && entry) blocks.push({ name: block, key: entry[2], line: line.trim() });
+      }
+      if (block) blocks.push({ name: block, lines: blockIndent });
+
+      // Every top-level key inside a job body must appear once.
+      const jobNames = [...new Set(blocks.filter((b) => b.name).map((b) => b.name))];
+      for (const name of jobNames) {
+        const start = lines.findIndex((line) => line === `  ${name}:`);
+        let end = lines.length;
+        for (let i = start + 1; i < lines.length; i += 1) {
+          if (/^ {2}[a-z][a-z0-9_-]*:\s*$/.test(lines[i])) { end = i; break; }
+        }
+        const keys = lines
+          .slice(start + 1, end)
+          .map((line) => line.match(/^ {4}([a-z-]+):/)?.[1])
+          .filter(Boolean);
+        expect({ file, job: name, duplicated: keys.length !== new Set(keys).size }).toEqual({
+          file,
+          job: name,
+          duplicated: false,
+        });
+      }
+    }
+  });
+
   it("approves the refresh PR's parked runs so auto-merge can fire", () => {
     for (const file of [
       ".github/workflows/update-examples.yml",
