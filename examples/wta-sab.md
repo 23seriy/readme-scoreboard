@@ -7,3 +7,8 @@ WTA · World Ranking
 
 🏆 World No. 2 · 📈 Movement: — (was No. 2)
 
+**📅 Last Match:**
+```
+❌ L vs Elina Svitolina (Nov 13, 2026) 3-6, 6-3, 1-6
+```
+
