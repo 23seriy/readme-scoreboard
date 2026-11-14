@@ -2,7 +2,9 @@ name: Update league showcase
 
 on:
   schedule:
-    - cron: "15 6 * * *"
+    # Last of the three refresh crons; see update-examples.yml for why they are
+    # spaced 20 minutes apart.
+    - cron: "40 6 * * *"
   workflow_dispatch:
 
 concurrency:

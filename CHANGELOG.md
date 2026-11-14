@@ -37,6 +37,12 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Changed
 
+- **The three refresh crons are spaced 20 minutes apart.** They ran 10 minutes apart, and the ruleset
+  uses strict required checks: when two artefacts changed in the same window, the second PR went
+  `BEHIND` and could not recover, because the workflow exits early once the artefacts are current
+  (#535 needed a manual re-run). Boards now run at 05:20, directories at 06:00 and the league gallery
+  at 06:40 UTC, in dependency order. A test fails if the gap drops below 20 minutes.
+
 - **CI runs hourly**, as well as on every push and pull request. The boards come from live league
   APIs and several suites read the calendar, so a broken board or a rolled-over season window used
   to wait for the next unrelated PR before anyone saw it. A scheduled run only reports on stale

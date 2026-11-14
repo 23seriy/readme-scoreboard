@@ -179,6 +179,30 @@ describe("README maintenance workflow coordination", () => {
     }
   });
 
+  // The ruleset uses `strict_required_status_checks_policy`, and a refresh
+  // workflow exits early once its artefacts are current — so a PR left `BEHIND`
+  // by a *later* refresh merging first can never rebase itself. Observed live:
+  // #535 needed a manual re-run. Keep the crons far enough apart that one
+  // refresh finishes merging before the next starts (a run is ~2 min plus ~3 of
+  // CI; 20 minutes is ample).
+  it("spaces the refresh crons so one lands before the next starts", () => {
+    const workflows = [
+      ".github/workflows/update-examples.yml",
+      ".github/workflows/update-team-directory.yml",
+      ".github/workflows/update-league-showcase.yml",
+    ];
+
+    const minutes = workflows.map((file) => {
+      const cron = fs.readFileSync(file, "utf8").match(/- cron: "(\d+) (\d+) \* \* \*"/);
+      expect(cron).not.toBeNull();
+      return Number(cron[1]) + Number(cron[2]) * 60;
+    }).sort((a, b) => a - b);
+
+    for (let i = 1; i < minutes.length; i += 1) {
+      expect(minutes[i] - minutes[i - 1]).toBeGreaterThanOrEqual(20);
+    }
+  });
+
   it("approves the refresh PR's parked runs so auto-merge can fire", () => {
     for (const file of [
       ".github/workflows/update-examples.yml",
