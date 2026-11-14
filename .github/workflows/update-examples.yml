@@ -2,9 +2,14 @@ name: Update example boards
 
 on:
   schedule:
-    # Ahead of the league showcase so a live failure here is visible before the
+    # The refresh crons are spaced 20 minutes apart, in dependency order:
+    # boards (here) -> team/player directories -> league gallery. The ruleset
+    # uses strict required checks, so two refreshes landing inside the same few
+    # minutes leave the second PR `BEHIND`; it cannot self-heal, because the
+    # workflow exits early once the artefacts are current (#535 had to be
+    # re-run by hand). Ordered so a live board failure is visible before the
     # gallery run, which shares the readme-maintenance concurrency group.
-    - cron: "5 6 * * *"
+    - cron: "20 5 * * *"
   workflow_dispatch:
 
 concurrency:
