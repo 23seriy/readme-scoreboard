@@ -2,17 +2,26 @@ name: Update example boards
 
 on:
   schedule:
+    # Twice a day: a board in the repository's own README is public, and one
+    # overnight run meant a result from the afternoon showed up ~20 hours later
+    # (the standings reseed as games finish, so it looked wrong rather than
+    # old). 05:20 UTC feeds the directories (06:00) and gallery (06:40);
+    # 17:20 sits clear of those by hours in both directions.
+    #
     # The refresh crons are spaced 20 minutes apart, in dependency order:
-    # boards (here) -> team/player directories -> league gallery. The ruleset
-    # uses strict required checks, so two refreshes landing inside the same few
+    # boards -> team/player directories -> league gallery. The ruleset uses
+    # strict required checks, so two refreshes landing inside the same few
     # minutes leave the second PR `BEHIND`; it cannot self-heal, because the
     # workflow exits early once the artefacts are current (#535 had to be
     # re-run by hand). Ordered so a live board failure is visible before the
     # gallery run, which shares the readme-maintenance concurrency group.
     - cron: "20 5 * * *"
+    - cron: "20 17 * * *"
   workflow_dispatch:
 
 concurrency:
+  # Shared with the other refresh workflows so they never overlap; the two
+  # board runs are 12 hours apart, so queuing is not a concern.
   group: readme-maintenance
   cancel-in-progress: false
 
