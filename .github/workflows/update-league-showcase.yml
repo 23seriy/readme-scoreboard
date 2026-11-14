@@ -16,10 +16,9 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     outputs:
       head_sha: ${{ steps.push.outputs.head_sha }}
-    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
