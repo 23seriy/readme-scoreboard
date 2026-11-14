@@ -125,6 +125,40 @@ describe("README maintenance workflow coordination", () => {
   // The 401 arrived after the branch had been pushed, so the run left a branch
   // with no pull request and a stack-free error that named no cause. Both
   // workflows must now check authentication up front and report why.
+  // A `github-actions[bot]` PR's runs are parked at `action_required` with zero
+  // jobs by the "first-time contributors" policy, and the ruleset requires
+  // lint/demo/CodeQL, so auto-merge could never fire (#531/#532/#533 sat armed
+  // and untouched). The refresh workflow now approves its own PR's runs, which
+  // STARTS the checks — it does not skip them.
+  it("approves the refresh PR's parked runs so auto-merge can fire", () => {
+    for (const file of [
+      ".github/workflows/update-examples.yml",
+      ".github/workflows/update-league-showcase.yml",
+      ".github/workflows/update-team-directory.yml",
+    ]) {
+      const workflow = fs.readFileSync(file, "utf8");
+
+      expect(workflow).toMatch(/\n {2}approve:\n/);
+      expect(workflow).toContain("actions: write");
+      expect(workflow).toMatch(/actions\/runs\/\$id\/approve/);
+      // Scoped to the commit this run pushed: approving by branch name would
+      // also touch a human's PR on the same branch, and approving every open
+      // `action_required` run would approve PRs this job knows nothing about.
+      expect(workflow).toContain("head_sha=$HEAD_SHA");
+      expect(workflow).not.toMatch(/select\(\.head_branch/);
+      // Numeric workflow ids: the `Lint` workflow lives in ci.yml, so a
+      // `workflows/lint.yml` URL 404s -- the first version of this job did
+      // exactly that. CodeQL is dynamic (no path) and is not a per-commit run
+      // that starts parked, so it is not listed.
+      expect(workflow).toContain("for wf in 323800866 337411263");
+      expect(workflow).not.toMatch(/actions\/workflows\/[a-z-]+\.yml\/runs/);
+      // Waiting for the push means the commit exists before anything is looked
+      // up, and there is nothing to approve when the artefacts are current.
+      expect(workflow).toMatch(/needs: update/);
+      expect(workflow).toContain('if [ -z "$HEAD_SHA" ]');
+    }
+  });
+
   it("fails loudly when the workflow token cannot authenticate", () => {
     for (const file of [
       ".github/workflows/update-examples.yml",

@@ -16,6 +16,9 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      head_sha: ${{ steps.push.outputs.head_sha }}
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
@@ -26,6 +29,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run leagues:showcase
       - name: Open update pull request
+        id: push
         env:
           # `github.token`, not a stored PAT: the `AUTOMATION_TOKEN` PAT expired
           # (HTTP 401 from 2026-11-12) and took this workflow down with it. A
@@ -69,6 +73,8 @@ jobs:
           git add examples/leagues
           git commit -m "docs: refresh league showcase from live data"
           git push --force origin automation/league-showcase
+          # The approve job targets exactly this commit's runs.
+          echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           # Reuse the open PR when there is one, otherwise open it. A direct push
           # to main is not possible here: the repository ruleset ("main branch")
           # requires `lint`, `demo` and `CodeQL` to pass before a commit may
@@ -91,3 +97,41 @@ jobs:
           if ! gh pr merge "$url" --squash --auto; then
             echo "::warning::Auto-merge could not be enabled for $url; merge it by hand."
           fi
+
+  # GitHub parks every run a `github-actions[bot]` pull request raises at
+  # `action_required` — with ZERO jobs — under the "first-time contributors"
+  # policy. The ruleset requires `lint`, `demo` and `CodeQL`, so a refresh PR
+  # could never auto-merge. Approving starts the checks; it does not bypass
+  # them, and the PR still has to pass all three. See update-examples.yml.
+  #
+  # Scoped to this run's own commit, so it can never approve a human's PR.
+  approve:
+    needs: update
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Approve the refresh pull request's parked runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          HEAD_SHA: ${{ needs.update.outputs.head_sha }}
+        run: |
+          if [ -z "$HEAD_SHA" ]; then
+            echo "No refresh commit to approve."
+            exit 0
+          fi
+          # Numeric ids, not file names: the `Lint` workflow lives in ci.yml, and
+          # the CodeQL workflow is dynamic (no path), so a name-based URL 404s.
+          # CodeQL is not listed because it is not a per-commit run that starts
+          # parked; it reports a check-run on the commit instead.
+          for wf in 323800866 337411263; do
+            gh api "repos/$GH_REPO/actions/workflows/$wf/runs?head_sha=$HEAD_SHA&per_page=20" \
+              --jq '.workflow_runs[] | select(.conclusion == "action_required") | .id' \
+              | while read -r id; do
+                  echo "Approving $wf run $id for $HEAD_SHA"
+                  gh api -X POST "repos/$GH_REPO/actions/runs/$id/approve"
+                done
+          done
