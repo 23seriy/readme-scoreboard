@@ -48,7 +48,7 @@ from live data and refreshed daily, showing the default board plus the
 
 This is what the action writes between your markers — heading, logos and all.
 The Lakers board below is the action's real output, regenerated from live league
-APIs twice a day, so it can lag a result by up to twelve hours (heading levels
+APIs six times a day, so it can lag a recent game by a few hours (heading levels
 lowered by one so it nests here):
 
 <!-- preview:start -->

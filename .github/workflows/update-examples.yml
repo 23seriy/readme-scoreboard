@@ -2,26 +2,25 @@ name: Update example boards
 
 on:
   schedule:
-    # Twice a day: a board in the repository's own README is public, and one
-    # overnight run meant a result from the afternoon showed up ~20 hours later
-    # (the standings reseed as games finish, so it looked wrong rather than
-    # old). 05:20 UTC feeds the directories (06:00) and gallery (06:40);
-    # 17:20 sits clear of those by hours in both directions.
-    #
-    # The refresh crons are spaced 20 minutes apart, in dependency order:
-    # boards -> team/player directories -> league gallery. The ruleset uses
-    # strict required checks, so two refreshes landing inside the same few
-    # minutes leave the second PR `BEHIND`; it cannot self-heal, because the
-    # workflow exits early once the artefacts are current (#535 had to be
-    # re-run by hand). Ordered so a live board failure is visible before the
-    # gallery run, which shares the readme-maintenance concurrency group.
+    # Six times a day, roughly four hours apart. The repository's own README
+    # preview is public, and a board that is merely old reads as a board that is
+    # wrong: the conference seed moves as each game finishes, so a result from
+    # the afternoon used to sit unexplained for ~20 hours. Every slot is at
+    # least 20 minutes clear of the other refreshes (directories 06:00, gallery
+    # 06:40), because the ruleset uses strict required checks and two refreshes
+    # landing together leave the second PR `BEHIND`, unable to self-heal (#535).
+    - cron: "20 1 * * *"
     - cron: "20 5 * * *"
-    - cron: "20 17 * * *"
+    - cron: "20 9 * * *"
+    - cron: "20 13 * * *"
+    - cron: "40 16 * * *"
+    - cron: "20 20 * * *"
   workflow_dispatch:
 
 concurrency:
-  # Shared with the other refresh workflows so they never overlap; the two
-  # board runs are 12 hours apart, so queuing is not a concern.
+  # Shared with the other refresh workflows so they never overlap. Runs are
+  # ~4 hours apart, and a queued run only delays the next by however long this
+  # one takes (~5 minutes including its checks), so leaving it queued is right.
   group: readme-maintenance
   cancel-in-progress: false
 

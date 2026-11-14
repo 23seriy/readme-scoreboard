@@ -37,12 +37,13 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Changed
 
-- **The example boards and the README preview refresh twice a day.** They ran once, overnight, so a
-  result from the afternoon stayed invisible for roughly twenty hours — and because the conference
+- **The example boards and the README preview refresh six times a day.** They ran once, overnight, so
+  a result from the afternoon stayed invisible for roughly twenty hours — and because the conference
   seed moves as games finish, a stale board reads as a *wrong* board rather than an old one. Boards
-  now run at 05:20 and 17:20 UTC, still ahead of the directories (06:00) and gallery (06:40). The
-  spacing test now checks every scheduled slot against its neighbours, so a second run cannot be
-  added on top of the first.
+  now run at 01:20, 05:20, 09:20, 13:20, 16:40 and 20:20 UTC, each at least 20 minutes clear of the
+  directory (06:00) and gallery (06:40) refreshes. The spacing test compares every scheduled slot
+  with its neighbour — wrapping across midnight, so 23:40 and 00:10 are one 30-minute gap — and
+  requires the boards to run at least six times.
 
 - **The three refresh crons are spaced 20 minutes apart.** They ran 10 minutes apart, and the ruleset
   uses strict required checks: when two artefacts changed in the same window, the second PR went
