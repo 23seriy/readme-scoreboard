@@ -122,11 +122,13 @@ jobs:
             echo "No refresh commit to approve."
             exit 0
           fi
-          # Numeric ids, not file names: the `Lint` workflow lives in ci.yml, and
-          # the CodeQL workflow is dynamic (no path), so a name-based URL 404s.
-          # CodeQL is not listed because it is not a per-commit run that starts
-          # parked; it reports a check-run on the commit instead.
-          for wf in 323800866 337411263; do
+          # Workflow ids are resolved from the API, not hardcoded: the `Lint`
+          # workflow lives in ci.yml (so a name-based URL 404s), and CodeQL has
+          # moved between ids, which quietly left its parked run unapproved and
+          # the PR blocked on a missing CodeQL check.
+          ids=$(gh api "repos/$GH_REPO/actions/workflows?per_page=100" \
+            --jq '.workflows[] | select(.name == "Lint" or .name == "Demo smoke tests" or .name == "Code scanning") | .id')
+          for wf in $ids; do
             gh api "repos/$GH_REPO/actions/workflows/$wf/runs?head_sha=$HEAD_SHA&per_page=20" \
               --jq '.workflow_runs[] | select(.conclusion == "action_required") | .id' \
               | while read -r id; do
