@@ -6,19 +6,19 @@
 AFC · AFC West
 🟢 Season in progress
 
-🏅 Standing: AFC · 5
+🏅 Standing: AFC · 2
 
-📅 Next: @ ATL (Nov 15)
+📅 Next: vs ARI (Nov 22)
 
-📊 2026 Season: 6W - 2L (75.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
+📊 2026 Season: 7W - 2L (77.8%)<br>&nbsp;&nbsp;&nbsp;███████████████████▍░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 35-13 @ ATL (Nov 15, 2026)
 ✅ W 35-12 vs NYJ (Nov 8, 2026)
 ❌ L 24-28 @ DEN (Nov 1, 2026)
 ❌ L  3-20 @ SEA (Oct 26, 2026)
 ✅ W 22-6  vs LAC (Oct 18, 2026)
-✅ W 30-27 @ LV  (Oct 4, 2026)
 ```
 
 <img src="https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png" alt="Patrick Mahomes headshot" height="72" align="right" />
@@ -28,5 +28,5 @@ AFC · AFC West
 
 **📅 Last Game:**
 ```
-No stats recorded vs NYJ (Nov 8, 2026)
+No stats recorded vs ATL (Nov 15, 2026)
 ```
