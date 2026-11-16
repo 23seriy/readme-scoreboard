@@ -24,7 +24,7 @@ Western Conference · Pacific Division
 <img src="https://a.espncdn.com/i/headshots/nba/players/full/3945274.png" alt="Luka Doncic headshot" height="72" align="right" />
 
 **👑 Player Spotlight: Luka Doncic**
-38.6 PPG · 7.5 RPG · 7.6 APG
+39.0 PPG · 7.2 RPG · 7.8 APG
 
 **📅 Last Game:**
 ```
