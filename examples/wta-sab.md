@@ -5,7 +5,7 @@
 ### 🇧🇾 Aryna Sabalenka (SAB)
 WTA · World Ranking
 
-🏆 World No. 2 · 📈 Movement: — (was No. 2)
+🏆 World No. 3 · 📈 Movement: ▼ (was No. 2)
 
 **📅 Last Match:**
 ```
