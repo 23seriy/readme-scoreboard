@@ -14,17 +14,15 @@ NWSL Regular Season
 
 🏅 Standing (2026): NWSL Regular Season · 1
 
-📅 Next: vs KC (Nov 15)
-
 📊 2026 Record: 18W - 5L - 7D  (61 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▉░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 vs KC    (Nov 15, 2026)
 ✅ W 1-0 vs SEA   (Nov 8, 2026)
 ✅ W 2-0 vs UTA   (Nov 1, 2026)
 ✅ W 2-1 @ ORL   (Oct 25, 2026)
 ❌ L 0-1 @ WAS   (Oct 17, 2026)
-🟡 D 1-1 vs LA    (Oct 4, 2026)
 ```
 
 ## Custom title
@@ -41,17 +39,15 @@ NWSL Regular Season
 
 🏅 Standing (2026): NWSL Regular Season · 1
 
-📅 Next: vs KC (Nov 15)
-
 📊 2026 Record: 18W - 5L - 7D  (61 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▉░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 1-2 vs KC    (Nov 15, 2026)
 ✅ W 1-0 vs SEA   (Nov 8, 2026)
 ✅ W 2-0 vs UTA   (Nov 1, 2026)
 ✅ W 2-1 @ ORL   (Oct 25, 2026)
 ❌ L 0-1 @ WAS   (Oct 17, 2026)
-🟡 D 1-1 vs LA    (Oct 4, 2026)
 ```
 
 ## Compact mode
@@ -66,8 +62,6 @@ NWSL Regular Season
 🔴 Off-season · Next season starts March 13, 2027
 
 🏅 Standing (2026): NWSL Regular Season · 1
-
-📅 Next: vs KC (Nov 15)
 
 📊 2026 Record: 18W - 5L - 7D  (61 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████▉░░░░░░░
 
