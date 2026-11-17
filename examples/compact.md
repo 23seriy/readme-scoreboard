@@ -7,8 +7,8 @@ Eastern Conference · Atlantic Division
 
 🏅 Standing: Eastern · 1
 
-📅 Next: vs ORL (Nov 17)
+📅 Next: @ DEN (Nov 19)
 
-📊 2026-2027 Record: 11W - 2L (84.6%)<br>&nbsp;&nbsp;&nbsp;█████████████████████▏░░░
+📊 2026-2027 Record: 11W - 3L (78.6%)<br>&nbsp;&nbsp;&nbsp;███████████████████▋░░░░░
 
 
