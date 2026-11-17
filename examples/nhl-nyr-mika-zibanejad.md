@@ -8,17 +8,17 @@ Eastern Conference · Metropolitan Division
 
 🏅 Standing (2026-27): Metropolitan · 3
 
-📅 Next: vs MTL (Nov 17)
+📅 Next: vs CAR (Nov 22)
 
-📊 2025-2026 Record: 12W - 9L (57.1%)<br>&nbsp;&nbsp;&nbsp;██████████████▎░░░░░░░░░░
+📊 2025-2026 Record: 13W - 9L (59.1%)<br>&nbsp;&nbsp;&nbsp;██████████████▊░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W   3-1   vs MTL (Nov 16, 2026)
 ✅ W   5-1   @ VAN (Nov 13, 2026)
 ✅ W   3-1   @ CGY (Nov 11, 2026)
 ❌ L   1-3   @ EDM (Nov 9, 2026)
 ✅ W   4-3   @ SEA (Nov 7, 2026)
-✅ W   3-2   vs PHI (Nov 5, 2026)
 ```
 
 <img src="https://assets.nhle.com/mugs/nhl/latest/8476459.png" alt="Mika Zibanejad headshot" height="72" align="right" />
@@ -28,5 +28,5 @@ Eastern Conference · Metropolitan Division
 
 **📅 Last Game:**
 ```
-0 G · 1 A · 1 P vs VAN (Nov 13, 2026)
+0 G · 0 A · 0 P vs MTL (Nov 16, 2026)
 ```
