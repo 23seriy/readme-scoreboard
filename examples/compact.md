@@ -5,7 +5,7 @@
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 1
+🏅 Standing: Eastern · 2
 
 📅 Next: @ DEN (Nov 19)
 
