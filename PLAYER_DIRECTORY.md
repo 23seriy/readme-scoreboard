@@ -167,13 +167,13 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 | Rank | Flag | Country | Player | Abbreviation | ID | Points |
 |------|------|---------|--------|--------------|----|--------|
 | #1 | 🇰🇿 | Kazakhstan | Elena Rybakina | `RYB` | 3126 | 8,099 |
-| #2 | 🇧🇾 | Belarus | Aryna Sabalenka | `SAB` | 3038 | 6,485 |
-| #3 | 🇷🇺 | Russia | Mirra Andreeva | `AND` | 9820 | 6,306 |
-| #4 | 🇺🇸 | United States | Coco Gauff | `GAU` | 3626 | 5,763 |
-| #5 | 🇺🇸 | United States | Jessica Pegula | `PEG` | 2113 | 5,760 |
-| #6 | 🇺🇦 | Ukraine | Elina Svitolina | `SVI` | 1797 | 5,121 |
-| #7 | 🇨🇿 | Czechia | Karolina Muchova | `MUC` | 3039 | 4,665 |
-| #8 | 🇨🇿 | Czechia | Linda Noskova | `NOS` | 6970 | 4,343 |
+| #2 | 🇷🇺 | Russia | Mirra Andreeva | `AND` | 9820 | 7,806 |
+| #3 | 🇧🇾 | Belarus | Aryna Sabalenka | `SAB` | 3038 | 6,685 |
+| #4 | 🇺🇸 | United States | Coco Gauff | `GAU` | 3626 | 6,163 |
+| #5 | 🇺🇸 | United States | Jessica Pegula | `PEG` | 2113 | 6,160 |
+| #6 | 🇺🇦 | Ukraine | Elina Svitolina | `SVI` | 1797 | 5,921 |
+| #7 | 🇨🇿 | Czechia | Linda Noskova | `NOS` | 6970 | 4,743 |
+| #8 | 🇨🇿 | Czechia | Karolina Muchova | `MUC` | 3039 | 4,665 |
 | #9 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 4,188 |
 | #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 3,910 |
 | #11 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 3,238 |
