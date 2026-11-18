@@ -46,6 +46,13 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Changed
 
+- **Human pull requests now arm auto-merge themselves.** GitHub only merges by itself when something
+  arms auto-merge on the PR; only the three generated-artefact workflows did, so a green human PR sat
+  open until someone clicked (PR #553 was merged by hand). A new `auto-merge.yml` arms auto-merge on
+  `opened`, `reopened`, `ready_for_review` and `synchronize` for same-repository, non-draft,
+  non-bot PRs. It arms rather than merges, so the `main` ruleset's `lint`, `demo` and `CodeQL` checks
+  still gate the merge; fork PRs are deliberately left for a human to merge.
+
 - **The example boards and the README preview refresh six times a day.** They ran once, overnight, so
   a result from the afternoon stayed invisible for roughly twenty hours — and because the conference
   seed moves as games finish, a stale board reads as a *wrong* board rather than an old one. Boards

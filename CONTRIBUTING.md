@@ -110,6 +110,11 @@ SPORT=nba TEAM=BOS node src/index.js --demo
 - Add a clear description of what your PR does
 - Include tests for new behavior and confirm the full local checks pass
 
+Pull requests opened from a branch in this repository arm auto-merge automatically (see
+`.github/workflows/auto-merge.yml`). Drafts, bot refreshes and fork PRs are left alone. Auto-merge
+still waits for the `main` ruleset's required checks — `lint`, `demo` and `CodeQL` — so a green PR
+lands without a manual click, while a red one stays open.
+
 ## Quality Gates
 
 Two rules keep this repository honest. CI enforces the mechanical parts of both, but the judgement

@@ -1,0 +1,61 @@
+name: Auto-merge
+
+# GitHub only merges a pull request by itself when something *arms* auto-merge
+# on it. The three generated-artefact workflows arm their own PRs, which left
+# every human PR waiting for a manual click even after `lint`, `demo` and
+# `CodeQL` were green — PR #553 sat CLEAN until it was merged by hand. This
+# workflow arms auto-merge on human PRs so the ruleset decides when they land,
+# not whether someone remembers to click.
+#
+# This does not weaken the gate: auto-merge still waits for the required checks
+# and the up-to-date branch policy. It only removes the click.
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+
+concurrency:
+  # One arming run per PR; a newer push supersedes an older run.
+  group: auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  arm:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    # Drafts are not mergeable yet, and a fork's PR is never armed: the person
+    # who opened it cannot be assumed to have merge rights here.
+    if: >-
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          # Bot refreshes arm their own PRs and keep that behaviour. They are
+          # also not triggered here (a GITHUB_TOKEN push starts no new runs),
+          # but the explicit check keeps the intent obvious.
+          if [ "${{ github.event.pull_request.user.type }}" = "Bot" ]; then
+            echo "Skipping bot-authored pull request #${PR_NUMBER}"
+            exit 0
+          fi
+
+          # `synchronize` re-runs this on every push, so do not fail when
+          # auto-merge is already armed.
+          if [ "$(gh pr view "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --json autoMergeRequest --jq '.autoMergeRequest != null')" = "true" ]; then
+            echo "Auto-merge already enabled for #${PR_NUMBER}"
+            exit 0
+          fi
+
+          # Same warning-not-failure convention as the refresh workflows: a PR
+          # that cannot arm (conflicts, a policy change) should stay visible as
+          # an open PR rather than turn every push into a red check.
+          if ! gh pr merge "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --squash --auto; then
+            echo "::warning::Auto-merge could not be enabled for #${PR_NUMBER}; merge it by hand."
+          fi
