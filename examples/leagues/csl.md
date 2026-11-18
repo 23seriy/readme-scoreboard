@@ -6,8 +6,6 @@ Team: **BEI** · Category: Soccer · Data source: ESPN public API
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My Favourite Chinese Super League Team](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
 
-<img src="null" alt="Beijing Guoan logo" width="72" align="right" />
-
 ### ⚽ Beijing Guoan (BEI)
 Chinese Super League
 🟢 Season in progress
@@ -27,8 +25,6 @@ The `title:` input replaces the default heading.
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My Beijing Guoan](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
 
-<img src="null" alt="Beijing Guoan logo" width="72" align="right" />
-
 ### ⚽ Beijing Guoan (BEI)
 Chinese Super League
 🟢 Season in progress
@@ -47,7 +43,6 @@ Chinese Super League
 The `compact: true` input drops the logo and recent-game details.
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2350.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/2350.png" alt="Chinese Super League" height="28" align="top"></picture> My Favourite Chinese Super League Team](https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/teams)
-
 
 ### ⚽ Beijing Guoan (BEI)
 Chinese Super League
