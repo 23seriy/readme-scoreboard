@@ -12,6 +12,15 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **A-League boards show a logo, standing and record again.** ESPN renamed five clubs
+  (Adelaide `ADE` → `ADL`, Auckland `AFC` → `AUC`, Brisbane `BRR` → `BRI`, Melbourne City
+  `MCY` → `MBC`, Melbourne Victory `MVC` → `MBV`). The adapter's registry still used the old
+  codes, so the team had no logo (`<img src="null">`), the emoji fell back to the league's ⚽,
+  and the standings lookup — which matches on the live abbreviation — returned 0W-0L-0D with no
+  table position. The registry, the generated team directory and the showcase now use ESPN's
+  abbreviations; the soccer renderer also omits the logo instead of emitting `src="null"` when
+  an adapter cannot resolve one.
+
 - **The scheduled refreshes authenticate with the run's own token again.** They used a
   `AUTOMATION_TOKEN` PAT so the pull request was attributed to a person; that PAT expired and, from
   2026-11-12, `update-examples`, `update-team-directory` and `update-league-showcase` each pushed

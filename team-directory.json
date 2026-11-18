@@ -15734,21 +15734,21 @@
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "ADE",
+      "abbreviation": "ADL",
       "name": "Adelaide United FC",
       "id": 5321
     },
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "AFC",
+      "abbreviation": "AUC",
       "name": "Auckland FC",
       "id": 22344
     },
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "BRR",
+      "abbreviation": "BRI",
       "name": "Brisbane Roar FC",
       "id": 5326
     },
@@ -15769,14 +15769,14 @@
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "MCY",
+      "abbreviation": "MBC",
       "name": "Melbourne City FC",
       "id": 11143
     },
     {
       "league": "aleague",
       "leagueName": "A-League Men",
-      "abbreviation": "MVC",
+      "abbreviation": "MBV",
       "name": "Melbourne Victory",
       "id": 5328
     },
