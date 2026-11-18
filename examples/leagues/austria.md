@@ -6,8 +6,6 @@ Team: **VIE** · Category: Soccer · Data source: ESPN public API
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/5.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/5.png" alt="Austrian Bundesliga" height="28" align="top"></picture> My Favourite Austrian Bundesliga Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams)
 
-<img src="null" alt="Rapid Vienna logo" width="72" align="right" />
-
 ### ⚽ Rapid Vienna (VIE)
 Austrian Bundesliga
 🟢 Season in progress
@@ -29,8 +27,6 @@ The `title:` input replaces the default heading.
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/5.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/5.png" alt="Austrian Bundesliga" height="28" align="top"></picture> My Rapid Vienna](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams)
 
-<img src="null" alt="Rapid Vienna logo" width="72" align="right" />
-
 ### ⚽ Rapid Vienna (VIE)
 Austrian Bundesliga
 🟢 Season in progress
@@ -51,7 +47,6 @@ Austrian Bundesliga
 The `compact: true` input drops the logo and recent-game details.
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/5.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/5.png" alt="Austrian Bundesliga" height="28" align="top"></picture> My Favourite Austrian Bundesliga Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/teams)
-
 
 ### ⚽ Rapid Vienna (VIE)
 Austrian Bundesliga
