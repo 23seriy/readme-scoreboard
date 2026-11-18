@@ -606,7 +606,7 @@ SPORT=wta TEAM=SAB node src/index.js --demo
 SPORT=nascar TEAM=HAM node src/index.js --demo
 SPORT=indycar TEAM=PAL node src/index.js --demo
 SPORT=argentina TEAM=RIV node src/index.js --demo
-SPORT=aleague TEAM=MCY node src/index.js --demo
+SPORT=aleague TEAM=MBC node src/index.js --demo
 SPORT=isl TEAM=BFC node src/index.js --demo
 SPORT=csl TEAM=SIPG node src/index.js --demo
 SPORT=greek TEAM=OLY node src/index.js --demo

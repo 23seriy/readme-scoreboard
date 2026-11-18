@@ -6,13 +6,17 @@ Team: **MBC** · Category: Soccer · Data source: ESPN public API
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men" height="28" align="top"></picture> My Favourite A-League Men Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams)
 
-<img src="null" alt="Melbourne City FC logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/11143.png" alt="Melbourne City FC logo" width="72" align="right" />
 
-### ⚽ Melbourne City FC (MBC)
-A-League Men
+### 🔵 Melbourne City FC (MBC)
+2026-27 A-League
 🟢 Season in progress
 
+🏅 Standing (2026): 2026-27 A-League · 4
+
 📅 Next: @ MAC (Nov 27)
+
+📊 2026 Record: 2W - 1L - 1D  (7 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▋░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -28,13 +32,17 @@ The `title:` input replaces the default heading.
 
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men" height="28" align="top"></picture> My Melbourne City FC](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams)
 
-<img src="null" alt="Melbourne City FC logo" width="72" align="right" />
+<img src="https://a.espncdn.com/i/teamlogos/soccer/500/11143.png" alt="Melbourne City FC logo" width="72" align="right" />
 
-### ⚽ Melbourne City FC (MBC)
-A-League Men
+### 🔵 Melbourne City FC (MBC)
+2026-27 A-League
 🟢 Season in progress
 
+🏅 Standing (2026): 2026-27 A-League · 4
+
 📅 Next: @ MAC (Nov 27)
+
+📊 2026 Record: 2W - 1L - 1D  (7 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▋░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -51,11 +59,15 @@ The `compact: true` input drops the logo and recent-game details.
 ## [<picture><source media="(prefers-color-scheme: dark)" srcset="https://a.espncdn.com/i/leaguelogos/soccer/500-dark/1308.png"><img src="https://a.espncdn.com/i/leaguelogos/soccer/500/1308.png" alt="A-League Men" height="28" align="top"></picture> My Favourite A-League Men Team](https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/teams)
 
 
-### ⚽ Melbourne City FC (MBC)
-A-League Men
+### 🔵 Melbourne City FC (MBC)
+2026-27 A-League
 🟢 Season in progress
 
+🏅 Standing (2026): 2026-27 A-League · 4
+
 📅 Next: @ MAC (Nov 27)
+
+📊 2026 Record: 2W - 1L - 1D  (7 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▋░░░░░░░░░
 
 
 

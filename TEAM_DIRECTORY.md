@@ -2465,13 +2465,13 @@ Generated from the adapter registries. Use the abbreviation in the `team` input.
 
 | Team | Abbreviation | ID |
 |------|--------------|----|
-| Adelaide United FC | `ADE` | 5321 |
-| Auckland FC | `AFC` | 22344 |
-| Brisbane Roar FC | `BRR` | 5326 |
+| Adelaide United FC | `ADL` | 5321 |
+| Auckland FC | `AUC` | 22344 |
+| Brisbane Roar FC | `BRI` | 5326 |
 | Central Coast Mariners FC | `CCM` | 5325 |
 | Macarthur FC | `MAC` | 19340 |
-| Melbourne City FC | `MCY` | 11143 |
-| Melbourne Victory | `MVC` | 5328 |
+| Melbourne City FC | `MBC` | 11143 |
+| Melbourne Victory | `MBV` | 5328 |
 | Newcastle Jets | `NEW` | 5323 |
 | Perth Glory FC | `PER` | 5322 |
 | Sydney FC | `SYD` | 5327 |

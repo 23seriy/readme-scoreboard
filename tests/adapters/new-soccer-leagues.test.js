@@ -32,3 +32,24 @@ describe.each(leagues)("%s adapter", (sport, slug, name, spansYears) => {
     expect(adapter.getDemoData("ZZZ")).toBeNull();
   });
 });
+
+describe("aleague adapter — ESPN abbreviations", () => {
+  const adapter = require("../../src/adapters/aleague");
+
+  // ESPN renamed five clubs (ADE -> ADL, AFC -> AUC, BRR -> BRI, MCY -> MBC,
+  // MVC -> MBV). Standings match on the live abbreviation, so stale keys left
+  // the board with no record and a null logo.
+  it("uses the abbreviations ESPN publishes", () => {
+    expect(Object.keys(adapter.TEAM_IDS).sort()).toEqual([
+      "ADL", "AUC", "BRI", "CCM", "MAC", "MBC", "MBV", "NEW", "PER", "SYD", "WEL", "WSW",
+    ]);
+    expect(adapter.getLogoUrl("MBC")).toBe("https://a.espncdn.com/i/teamlogos/soccer/500/11143.png");
+    expect(adapter.getLogoUrl("MBV")).toBe("https://a.espncdn.com/i/teamlogos/soccer/500/5328.png");
+  });
+
+  it("keys every demo team by its own abbreviation", () => {
+    Object.entries(adapter.DEMO_TEAMS).forEach(([abbr, team]) => {
+      expect(team.abbreviation).toBe(abbr);
+    });
+  });
+});

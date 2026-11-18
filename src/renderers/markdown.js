@@ -725,8 +725,10 @@ function renderSoccer(data, sport = "mls", fallbackLabel = "MLS", title, compact
   const lines = [];
 
   lines.push(...headingLines(sport, title, data.link));
-  lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
-  lines.push("");
+  if (logoUrl) {
+    lines.push(`<img src="${logoUrl}" alt="${team.full_name} logo" width="72" align="right" />`);
+    lines.push("");
+  }
 
   lines.push(`### ${emoji} ${team.full_name} (${team.abbreviation})`);
   // MLS splits into conferences; single-table leagues report their own

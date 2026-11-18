@@ -373,6 +373,16 @@ describe("Soccer renderer — Saudi Pro League and J1 League", () => {
     expect(out).toContain("My Favourite J1 League Team");
     expect(out).toContain("Kawasaki Frontale (KAW)");
   });
+
+  it("omits the logo instead of emitting a null src", () => {
+    const out = render("aleague", data(
+      { abbreviation: "MBC", full_name: "Melbourne City FC", league: "A-League Men" },
+      { logoUrl: null },
+    ));
+    expect(out).not.toContain('<img src="null"');
+    expect(out).not.toContain("Melbourne City FC logo");
+    expect(out).toContain("Melbourne City FC (MBC)");
+  });
 });
 
 const BASE_NBA_DATA = {

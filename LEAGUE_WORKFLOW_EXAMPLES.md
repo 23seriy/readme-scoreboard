@@ -418,7 +418,7 @@ Copy a step below into your workflow. Add a matching marker pair to your README 
     gh_token: ${{ secrets.GH_TOKEN }}
     target_repo: ${{ github.repository }}
     sport: aleague
-    team: ADE
+    team: ADL
     marker: readme-scoreboard-aleague
 ```
 
