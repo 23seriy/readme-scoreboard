@@ -26,5 +26,5 @@ Big 12 Conference Conference
 
 **📅 Last Game:**
 ```
-16 PTS · 12 REB · 4 AST · 29 MIN vs Auburn Tigers (Nov 13, 2026)
+18 PTS · 12 REB · 2 AST · 37 MIN vs UConn Huskies (Nov 18, 2026)
 ```
