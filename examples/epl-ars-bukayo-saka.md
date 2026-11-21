@@ -8,17 +8,17 @@
 
 🏅 Standing (2026): 2026-27 English Premier League · 1
 
-📅 Next: @ NEW (Nov 21)
+📅 Next: vs MNC (Nov 29)
 
-📊 2026 Record: 9W - 1L - 0D  (27 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████████▌░░
+📊 2026 Record: 9W - 1L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████▌░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 2-2 @ NEW   (Nov 21, 2026)
 ✅ W 1-0 vs HUL   (Nov 7, 2026)
 ✅ W 1-0 @ LIV   (Nov 1, 2026)
 ✅ W 2-0 vs EVE   (Oct 24, 2026)
 ✅ W 1-0 @ NFO   (Oct 18, 2026)
-✅ W 2-1 vs LEE   (Oct 10, 2026)
 ```
 
 <img src="https://a.espncdn.com/i/headshots/soccer/players/full/280555.png" alt="Bukayo Saka headshot" height="72" align="right" />
