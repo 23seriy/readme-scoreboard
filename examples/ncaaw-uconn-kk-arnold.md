@@ -26,5 +26,5 @@ Big East Conference Conference
 
 **📅 Last Game:**
 ```
-2 PTS · 3 REB · 5 AST · 32 MIN vs Louisville Cardinals (Nov 15, 2026)
+5 PTS · 1 REB · 9 AST · 28 MIN vs Seton Hall Pirates (Nov 20, 2026)
 ```
