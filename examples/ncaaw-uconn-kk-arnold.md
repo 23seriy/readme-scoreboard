@@ -22,7 +22,7 @@ Big East Conference Conference
 <img src="https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174491.png" alt="KK Arnold headshot" height="72" align="right" />
 
 **🏀 Player Spotlight: KK Arnold**
-12.5 PPG · 2.5 RPG · 3.5 APG
+10.0 PPG · 2.0 RPG · 5.3 APG
 
 **📅 Last Game:**
 ```
