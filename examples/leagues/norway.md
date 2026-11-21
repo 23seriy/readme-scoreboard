@@ -12,19 +12,19 @@ Team: **BODO** · Category: Soccer · Data source: ESPN public API
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Norwegian Eliteserien · 2
+🏅 Standing (2026): 2026 Norwegian Eliteserien · 1
 
-📅 Next: @ MOL (Nov 20)
+📅 Next: vs KFUM (Nov 28)
 
-📊 2026 Record: 20W - 4L - 2D  (62 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
+📊 2026 Record: 21W - 4L - 2D  (65 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▎░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-2 @ MOL   (Nov 20, 2026)
 ✅ W 2-0 @ TRO   (Nov 8, 2026)
 ✅ W 3-2 vs VFK   (Oct 30, 2026)
 ❌ L 0-1 vs VAL   (Oct 24, 2026)
 ✅ W 2-0 @ HAM   (Oct 17, 2026)
-✅ W 3-1 vs KRI   (Oct 10, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Norwegian Eliteserien · 2
+🏅 Standing (2026): 2026 Norwegian Eliteserien · 1
 
-📅 Next: @ MOL (Nov 20)
+📅 Next: vs KFUM (Nov 28)
 
-📊 2026 Record: 20W - 4L - 2D  (62 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
+📊 2026 Record: 21W - 4L - 2D  (65 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▎░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 4-2 @ MOL   (Nov 20, 2026)
 ✅ W 2-0 @ TRO   (Nov 8, 2026)
 ✅ W 3-2 vs VFK   (Oct 30, 2026)
 ❌ L 0-1 vs VAL   (Oct 24, 2026)
 ✅ W 2-0 @ HAM   (Oct 17, 2026)
-✅ W 3-1 vs KRI   (Oct 10, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Norwegian Eliteserien
 🟢 Season in progress
 
-🏅 Standing (2026): 2026 Norwegian Eliteserien · 2
+🏅 Standing (2026): 2026 Norwegian Eliteserien · 1
 
-📅 Next: @ MOL (Nov 20)
+📅 Next: vs KFUM (Nov 28)
 
-📊 2026 Record: 20W - 4L - 2D  (62 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
+📊 2026 Record: 21W - 4L - 2D  (65 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▎░░░░
 
 
 
