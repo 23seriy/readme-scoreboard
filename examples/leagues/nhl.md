@@ -14,17 +14,17 @@ Eastern Conference · Atlantic Division
 
 🏅 Standing (2026-27): Atlantic · 4
 
-📅 Next: vs WSH (Nov 22)
+📅 Next: vs WPG (Nov 26)
 
-📊 2025-2026 Record: 14W - 8L (63.6%)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
+📊 2025-2026 Record: 15W - 8L (65.2%)<br>&nbsp;&nbsp;&nbsp;████████████████▎░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W   7-5   vs WSH (Nov 21, 2026)
 ✅ W   4-1   @ DET (Nov 18, 2026)
 ❌ L   0-3   vs LAK (Nov 17, 2026)
 ❌ L   2-6   vs MIN (Nov 14, 2026)
 ❌ L   2-5   vs MTL (Nov 12, 2026)
-✅ W   4-1   vs FLA (Nov 8, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ Eastern Conference · Atlantic Division
 
 🏅 Standing (2026-27): Atlantic · 4
 
-📅 Next: vs WSH (Nov 22)
+📅 Next: vs WPG (Nov 26)
 
-📊 2025-2026 Record: 14W - 8L (63.6%)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
+📊 2025-2026 Record: 15W - 8L (65.2%)<br>&nbsp;&nbsp;&nbsp;████████████████▎░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W   7-5   vs WSH (Nov 21, 2026)
 ✅ W   4-1   @ DET (Nov 18, 2026)
 ❌ L   0-3   vs LAK (Nov 17, 2026)
 ❌ L   2-6   vs MIN (Nov 14, 2026)
 ❌ L   2-5   vs MTL (Nov 12, 2026)
-✅ W   4-1   vs FLA (Nov 8, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ Eastern Conference · Atlantic Division
 
 🏅 Standing (2026-27): Atlantic · 4
 
-📅 Next: vs WSH (Nov 22)
+📅 Next: vs WPG (Nov 26)
 
-📊 2025-2026 Record: 14W - 8L (63.6%)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
+📊 2025-2026 Record: 15W - 8L (65.2%)<br>&nbsp;&nbsp;&nbsp;████████████████▎░░░░░░░░
 
 
 

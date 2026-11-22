@@ -12,19 +12,19 @@ Team: **AEK** · Category: Soccer · Data source: ESPN public API
 2026-27 Greek Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Greek Super League · 3
+🏅 Standing (2026): 2026-27 Greek Super League · 2
 
-📅 Next: @ KAL (Nov 21)
+📅 Next: vs PAOK (Nov 29)
 
-📊 2026 Record: 6W - 1L - 2D  (20 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▍░░░░░
+📊 2026 Record: 7W - 1L - 2D  (23 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 1-0 @ KAL   (Nov 21, 2026)
 ✅ W 2-1 vs LEV   (Nov 8, 2026)
 ❌ L 0-2 @ PAO   (Nov 1, 2026)
 ✅ W 5-0 vs PAN   (Oct 24, 2026)
 ✅ W 3-0 vs OFI   (Oct 10, 2026)
-✅ W 2-1 @ VOL   (Sep 20, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 2026-27 Greek Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Greek Super League · 3
+🏅 Standing (2026): 2026-27 Greek Super League · 2
 
-📅 Next: @ KAL (Nov 21)
+📅 Next: vs PAOK (Nov 29)
 
-📊 2026 Record: 6W - 1L - 2D  (20 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▍░░░░░
+📊 2026 Record: 7W - 1L - 2D  (23 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 1-0 @ KAL   (Nov 21, 2026)
 ✅ W 2-1 vs LEV   (Nov 8, 2026)
 ❌ L 0-2 @ PAO   (Nov 1, 2026)
 ✅ W 5-0 vs PAN   (Oct 24, 2026)
 ✅ W 3-0 vs OFI   (Oct 10, 2026)
-✅ W 2-1 @ VOL   (Sep 20, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 2026-27 Greek Super League
 🟢 Season in progress
 
-🏅 Standing (2026): 2026-27 Greek Super League · 3
+🏅 Standing (2026): 2026-27 Greek Super League · 2
 
-📅 Next: @ KAL (Nov 21)
+📅 Next: vs PAOK (Nov 29)
 
-📊 2026 Record: 6W - 1L - 2D  (20 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▍░░░░░
+📊 2026 Record: 7W - 1L - 2D  (23 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████░░░░░
 
 
 

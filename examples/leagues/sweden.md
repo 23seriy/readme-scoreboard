@@ -12,19 +12,19 @@ Team: **AIK** · Category: Soccer · Data source: ESPN public API
 2026 Swedish Allsvenskan
 🔴 Off-season · Next season starts March 28, 2027
 
-🏅 Standing (2026): 2026 Swedish Allsvenskan · 8
+🏅 Standing (2026): 2026 Swedish Allsvenskan · 9
 
-📅 Next: vs DEG (Nov 21)
+📅 Next: @ KFF (Nov 29)
 
-📊 2026 Record: 11W - 9L - 8D  (41 pts)<br>&nbsp;&nbsp;&nbsp;█████████████▍░░░░░░░░░░░
+📊 2026 Record: 11W - 9L - 9D  (42 pts)<br>&nbsp;&nbsp;&nbsp;█████████████▎░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 vs DEG   (Nov 21, 2026)
 ✅ W 3-2 vs BKH   (Nov 8, 2026)
 ❌ L 1-2 @ GAIS  (Nov 2, 2026)
 🟡 D 2-2 vs ELF   (Oct 27, 2026)
 ✅ W 2-1 @ SIR   (Oct 24, 2026)
-🟡 D 2-2 vs GOT   (Oct 17, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 2026 Swedish Allsvenskan
 🔴 Off-season · Next season starts March 28, 2027
 
-🏅 Standing (2026): 2026 Swedish Allsvenskan · 8
+🏅 Standing (2026): 2026 Swedish Allsvenskan · 9
 
-📅 Next: vs DEG (Nov 21)
+📅 Next: @ KFF (Nov 29)
 
-📊 2026 Record: 11W - 9L - 8D  (41 pts)<br>&nbsp;&nbsp;&nbsp;█████████████▍░░░░░░░░░░░
+📊 2026 Record: 11W - 9L - 9D  (42 pts)<br>&nbsp;&nbsp;&nbsp;█████████████▎░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 vs DEG   (Nov 21, 2026)
 ✅ W 3-2 vs BKH   (Nov 8, 2026)
 ❌ L 1-2 @ GAIS  (Nov 2, 2026)
 🟡 D 2-2 vs ELF   (Oct 27, 2026)
 ✅ W 2-1 @ SIR   (Oct 24, 2026)
-🟡 D 2-2 vs GOT   (Oct 17, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 2026 Swedish Allsvenskan
 🔴 Off-season · Next season starts March 28, 2027
 
-🏅 Standing (2026): 2026 Swedish Allsvenskan · 8
+🏅 Standing (2026): 2026 Swedish Allsvenskan · 9
 
-📅 Next: vs DEG (Nov 21)
+📅 Next: @ KFF (Nov 29)
 
-📊 2026 Record: 11W - 9L - 8D  (41 pts)<br>&nbsp;&nbsp;&nbsp;█████████████▍░░░░░░░░░░░
+📊 2026 Record: 11W - 9L - 9D  (42 pts)<br>&nbsp;&nbsp;&nbsp;█████████████▎░░░░░░░░░░░
 
 
 
