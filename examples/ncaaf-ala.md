@@ -6,9 +6,9 @@
 Southeastern Conference
 🟢 Season in progress
 
-🏅 Standing: Southeastern Conference · 2
+🏅 Standing: Southeastern Conference · 4
 
-📅 Next: vs AUB (Nov 28)
+📅 Next: vs AUB (Nov 29)
 
 📊 2026 Season: 9W
 
