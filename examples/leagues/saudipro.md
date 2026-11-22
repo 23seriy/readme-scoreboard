@@ -12,19 +12,19 @@ Team: **AHL** · Category: Soccer · Data source: ESPN public API
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing (2026): Saudi Pro League · 6
+🏅 Standing (2026): Saudi Pro League · 4
 
-📅 Next: vs NSR (Nov 20)
+📅 Next: vs TAA (Nov 28)
 
-📊 2026 Record: 7W - 4L - 0D  (21 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
+📊 2026 Record: 8W - 4L - 0D  (24 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▋░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-1 vs NSR   (Nov 20, 2026)
 ❌ L 1-6 @ SHA   (Oct 30, 2026)
 ✅ W 4-1 vs KHA   (Oct 23, 2026)
 ✅ W 3-2 @ FAY   (Oct 19, 2026)
 ✅ W 4-0 @ FAT   (Oct 9, 2026)
-✅ W 3-1 vs HAZ   (Sep 11, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing (2026): Saudi Pro League · 6
+🏅 Standing (2026): Saudi Pro League · 4
 
-📅 Next: vs NSR (Nov 20)
+📅 Next: vs TAA (Nov 28)
 
-📊 2026 Record: 7W - 4L - 0D  (21 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
+📊 2026 Record: 8W - 4L - 0D  (24 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▋░░░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-1 vs NSR   (Nov 20, 2026)
 ❌ L 1-6 @ SHA   (Oct 30, 2026)
 ✅ W 4-1 vs KHA   (Oct 23, 2026)
 ✅ W 3-2 @ FAY   (Oct 19, 2026)
 ✅ W 4-0 @ FAT   (Oct 9, 2026)
-✅ W 3-1 vs HAZ   (Sep 11, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing (2026): Saudi Pro League · 6
+🏅 Standing (2026): Saudi Pro League · 4
 
-📅 Next: vs NSR (Nov 20)
+📅 Next: vs TAA (Nov 28)
 
-📊 2026 Record: 7W - 4L - 0D  (21 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▉░░░░░░░░░
+📊 2026 Record: 8W - 4L - 0D  (24 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▋░░░░░░░░
 
 
 

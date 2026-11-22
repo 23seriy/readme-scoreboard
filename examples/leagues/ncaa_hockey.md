@@ -12,7 +12,7 @@ Team: **BC** · Category: Hockey · Data source: ESPN public API
 Hockey East Conference
 🟢 Season in progress
 
-📊 2026-2027 Record: 4W - 5L (44.4%)<br>&nbsp;&nbsp;&nbsp;███████████░░░░░░░░░░░░░░
+📊 2026-2027 Record: 6W - 5L (54.5%)<br>&nbsp;&nbsp;&nbsp;█████████████▋░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -35,7 +35,7 @@ The `title:` input replaces the default heading.
 Hockey East Conference
 🟢 Season in progress
 
-📊 2026-2027 Record: 4W - 5L (44.4%)<br>&nbsp;&nbsp;&nbsp;███████████░░░░░░░░░░░░░░
+📊 2026-2027 Record: 6W - 5L (54.5%)<br>&nbsp;&nbsp;&nbsp;█████████████▋░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
@@ -57,7 +57,7 @@ The `compact: true` input drops the logo and recent-game details.
 Hockey East Conference
 🟢 Season in progress
 
-📊 2026-2027 Record: 4W - 5L (44.4%)<br>&nbsp;&nbsp;&nbsp;███████████░░░░░░░░░░░░░░
+📊 2026-2027 Record: 6W - 5L (54.5%)<br>&nbsp;&nbsp;&nbsp;█████████████▋░░░░░░░░░░░
 
 
 

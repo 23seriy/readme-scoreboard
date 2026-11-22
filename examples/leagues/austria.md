@@ -10,15 +10,15 @@ Team: **VIE** · Category: Soccer · Data source: ESPN public API
 Austrian Bundesliga
 🟢 Season in progress
 
-📅 Next: @ GRA (Nov 21)
+📅 Next: @ ALU (Nov 28)
 
 **📅 Recent Games:**
 ```
+✅ W 3-0 @ GRA   (Nov 21, 2026)
 ✅ W 6-0 vs WOL   (Nov 6, 2026)
 ✅ W 2-0 @ VIE   (Nov 1, 2026)
 ✅ W 5-1 vs ALU   (Oct 24, 2026)
 ✅ W 3-1 vs HAR   (Oct 16, 2026)
-✅ W 2-0 @ LAS   (Oct 11, 2026)
 ```
 
 ## Custom title
@@ -31,15 +31,15 @@ The `title:` input replaces the default heading.
 Austrian Bundesliga
 🟢 Season in progress
 
-📅 Next: @ GRA (Nov 21)
+📅 Next: @ ALU (Nov 28)
 
 **📅 Recent Games:**
 ```
+✅ W 3-0 @ GRA   (Nov 21, 2026)
 ✅ W 6-0 vs WOL   (Nov 6, 2026)
 ✅ W 2-0 @ VIE   (Nov 1, 2026)
 ✅ W 5-1 vs ALU   (Oct 24, 2026)
 ✅ W 3-1 vs HAR   (Oct 16, 2026)
-✅ W 2-0 @ LAS   (Oct 11, 2026)
 ```
 
 ## Compact mode
@@ -52,7 +52,7 @@ The `compact: true` input drops the logo and recent-game details.
 Austrian Bundesliga
 🟢 Season in progress
 
-📅 Next: @ GRA (Nov 21)
+📅 Next: @ ALU (Nov 28)
 
 
 
