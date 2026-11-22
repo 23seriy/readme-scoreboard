@@ -10,7 +10,7 @@ AFC · AFC West
 
 📅 Next: vs ARI (Nov 22)
 
-📊 2026 Season: 7W - 2L (77.8%)<br>&nbsp;&nbsp;&nbsp;███████████████████▍░░░░░
+📊 2026 Season: 8W - 2L (80.0%)<br>&nbsp;&nbsp;&nbsp;████████████████████░░░░░
 
 **📅 Recent Games:**
 ```
@@ -28,5 +28,5 @@ AFC · AFC West
 
 **📅 Last Game:**
 ```
-No stats recorded vs ATL (Nov 15, 2026)
+No stats recorded vs ARI (Nov 22, 2026)
 ```

@@ -10,7 +10,7 @@ AFC · AFC East
 
 📅 Next: vs MIA (Nov 22)
 
-📊 2026 Season: 8W - 1L (88.9%)<br>&nbsp;&nbsp;&nbsp;██████████████████████▏░░
+📊 2026 Season: 9W - 1L (90.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████████▌░░
 
 **📅 Recent Games:**
 ```
