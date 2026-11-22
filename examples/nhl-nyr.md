@@ -6,17 +6,17 @@
 Eastern Conference · Metropolitan Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Metropolitan · 3
+🏅 Standing (2026-27): Metropolitan · 4
 
-📅 Next: vs CAR (Nov 22)
+📅 Next: @ BUF (Nov 26)
 
-📊 2025-2026 Record: 13W - 9L (59.1%)<br>&nbsp;&nbsp;&nbsp;██████████████▊░░░░░░░░░░
+📊 2025-2026 Record: 13W - 10L (56.5%)<br>&nbsp;&nbsp;&nbsp;██████████████▏░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L   2-5   vs CAR (Nov 22, 2026)
 ✅ W   3-1   vs MTL (Nov 16, 2026)
 ✅ W   5-1   @ VAN (Nov 13, 2026)
 ✅ W   3-1   @ CGY (Nov 11, 2026)
 ❌ L   1-3   @ EDM (Nov 9, 2026)
-✅ W   4-3   @ SEA (Nov 7, 2026)
 ```
