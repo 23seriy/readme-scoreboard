@@ -14,17 +14,17 @@ Team: **ATM** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-27 LALIGA · 3
 
-📅 Next: @ GET (Nov 22)
+📅 Next: @ ELC (Nov 28)
 
-📊 2026 Record: 9W - 2L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▊░░░░░
+📊 2026 Record: 10W - 2L - 1D  (31 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-0 @ GET   (Nov 22, 2026)
 ❌ L 1-2 vs BAR   (Nov 8, 2026)
 ✅ W 2-0 @ LEV   (Oct 31, 2026)
 ✅ W 1-0 vs DEP   (Oct 24, 2026)
 ✅ W 1-0 @ ESP   (Oct 17, 2026)
-✅ W 2-1 @ ALA   (Oct 10, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-27 LALIGA · 3
 
-📅 Next: @ GET (Nov 22)
+📅 Next: @ ELC (Nov 28)
 
-📊 2026 Record: 9W - 2L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▊░░░░░
+📊 2026 Record: 10W - 2L - 1D  (31 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 3-0 @ GET   (Nov 22, 2026)
 ❌ L 1-2 vs BAR   (Nov 8, 2026)
 ✅ W 2-0 @ LEV   (Oct 31, 2026)
 ✅ W 1-0 vs DEP   (Oct 24, 2026)
 ✅ W 1-0 @ ESP   (Oct 17, 2026)
-✅ W 2-1 @ ALA   (Oct 10, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-27 LALIGA · 3
 
-📅 Next: @ GET (Nov 22)
+📅 Next: @ ELC (Nov 28)
 
-📊 2026 Record: 9W - 2L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;███████████████████▊░░░░░
+📊 2026 Record: 10W - 2L - 1D  (31 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▏░░░░
 
 
 

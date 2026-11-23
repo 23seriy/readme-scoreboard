@@ -14,17 +14,17 @@ Team: **INT** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-2027 Italian Serie A · 3
 
-📅 Next: @ ATA (Nov 22)
+📅 Next: vs GEN (Nov 28)
 
-📊 2026 Record: 9W - 1L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████▌░░░
+📊 2026 Record: 9W - 1L - 2D  (29 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 4-4 @ ATA   (Nov 22, 2026)
 ✅ W 2-0 vs COMO  (Nov 8, 2026)
 ❌ L 1-3 @ MIL   (Oct 31, 2026)
 ✅ W 2-0 @ VEN   (Oct 28, 2026)
 ✅ W 2-1 vs FIO   (Oct 25, 2026)
-✅ W 3-1 @ BOL   (Oct 17, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-2027 Italian Serie A · 3
 
-📅 Next: @ ATA (Nov 22)
+📅 Next: vs GEN (Nov 28)
 
-📊 2026 Record: 9W - 1L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████▌░░░
+📊 2026 Record: 9W - 1L - 2D  (29 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▊░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 4-4 @ ATA   (Nov 22, 2026)
 ✅ W 2-0 vs COMO  (Nov 8, 2026)
 ❌ L 1-3 @ MIL   (Oct 31, 2026)
 ✅ W 2-0 @ VEN   (Oct 28, 2026)
 ✅ W 2-1 vs FIO   (Oct 25, 2026)
-✅ W 3-1 @ BOL   (Oct 17, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-2027 Italian Serie A · 3
 
-📅 Next: @ ATA (Nov 22)
+📅 Next: vs GEN (Nov 28)
 
-📊 2026 Record: 9W - 1L - 1D  (28 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████▌░░░
+📊 2026 Record: 9W - 1L - 2D  (29 pts)<br>&nbsp;&nbsp;&nbsp;████████████████████▊░░░░
 
 
 
