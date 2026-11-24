@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/config/leagues.js",
-  "generatedAt": "2026-11-20T14:36:51.849Z",
+  "generatedAt": "2026-11-24T16:42:51.311Z",
   "players": [
     {
       "league": "atp",
@@ -11,7 +11,7 @@
       "flag": "🇪🇸",
       "country": "Spain",
       "rank": 3,
-      "points": 6100
+      "points": 7600
     },
     {
       "league": "atp",
@@ -54,7 +54,7 @@
       "id": "7602",
       "flag": "🇮🇹",
       "country": "Italy",
-      "rank": 6,
+      "rank": 7,
       "points": 3680
     },
     {
@@ -120,8 +120,8 @@
       "id": "10052",
       "flag": "🇫🇷",
       "country": "France",
-      "rank": 7,
-      "points": 3625
+      "rank": 6,
+      "points": 3825
     },
     {
       "league": "atp",
@@ -187,7 +187,7 @@
       "flag": "🇷🇺",
       "country": "Russia",
       "rank": 5,
-      "points": 3820
+      "points": 4220
     },
     {
       "league": "atp",
@@ -241,7 +241,7 @@
       "id": "3511",
       "flag": "🇫🇷",
       "country": "France",
-      "rank": 58,
+      "rank": 57,
       "points": 920
     },
     {
@@ -275,7 +275,7 @@
       "flag": "🇺🇸",
       "country": "United States",
       "rank": 4,
-      "points": 5170
+      "points": 5570
     },
     {
       "league": "atp",
@@ -308,7 +308,7 @@
       "flag": "🇺🇸",
       "country": "United States",
       "rank": 8,
-      "points": 3390
+      "points": 3590
     },
     {
       "league": "atp",
@@ -330,7 +330,7 @@
       "flag": "🇩🇪",
       "country": "Germany",
       "rank": 1,
-      "points": 9320
+      "points": 10350
     },
     {
       "league": "indycar",
@@ -1518,7 +1518,7 @@
       "flag": "🇵🇱",
       "country": "Poland",
       "rank": 12,
-      "points": 3016
+      "points": 3004
     },
     {
       "league": "wta",
