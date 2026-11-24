@@ -8,14 +8,14 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 
 | Rank | Flag | Country | Player | Abbreviation | ID | Points |
 |------|------|---------|--------|--------------|----|--------|
-| #1 | 🇩🇪 | Germany | Alexander Zverev | `ZVE` | 2375 | 9,320 |
+| #1 | 🇩🇪 | Germany | Alexander Zverev | `ZVE` | 2375 | 10,350 |
 | #2 | 🇮🇹 | Italy | Jannik Sinner | `SIN` | 3623 | 7,950 |
-| #3 | 🇪🇸 | Spain | Carlos Alcaraz | `ALC` | 3782 | 6,100 |
-| #4 | 🇺🇸 | United States | Ben Shelton | `SHE` | 9250 | 5,170 |
-| #5 | 🇷🇺 | Russia | Daniil Medvedev | `MED` | 2383 | 3,820 |
-| #6 | 🇮🇹 | Italy | Flavio Cobolli | `COB` | 7602 | 3,680 |
-| #7 | 🇫🇷 | France | Arthur Fils | `FIL` | 10052 | 3,625 |
-| #8 | 🇺🇸 | United States | Frances Tiafoe | `TIA` | 2708 | 3,390 |
+| #3 | 🇪🇸 | Spain | Carlos Alcaraz | `ALC` | 3782 | 7,600 |
+| #4 | 🇺🇸 | United States | Ben Shelton | `SHE` | 9250 | 5,570 |
+| #5 | 🇷🇺 | Russia | Daniil Medvedev | `MED` | 2383 | 4,220 |
+| #6 | 🇫🇷 | France | Arthur Fils | `FIL` | 10052 | 3,825 |
+| #7 | 🇮🇹 | Italy | Flavio Cobolli | `COB` | 7602 | 3,680 |
+| #8 | 🇺🇸 | United States | Frances Tiafoe | `TIA` | 2708 | 3,590 |
 | #9 | 🇺🇸 | United States | Taylor Fritz | `FRI` | 2946 | 3,300 |
 | #10 | 🇪🇸 | Spain | Rafael Jodar | `JOD` | 12657 | 3,234 |
 | #11 | 🇦🇺 | Australia | Alex de Minaur | `DEM` | 2651 | 3,170 |
@@ -37,7 +37,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 | #31 | 🇨🇱 | Chile | Alejandro Tabilo | `TAB` | 2970 | 1,595 |
 | #33 | 🇵🇪 | Peru | Ignacio Buse | `BUS` | 11226 | 1,495 |
 | #46 | 🇧🇷 | Brazil | Joao Fonseca | `FON` | 11745 | 1,200 |
-| #58 | 🇫🇷 | France | Arthur Rinderknech | `RIN` | 3511 | 920 |
+| #57 | 🇫🇷 | France | Arthur Rinderknech | `RIN` | 3511 | 920 |
 
 ## IndyCar Series
 
@@ -177,7 +177,7 @@ Generated from the adapter registries. Use the abbreviation in the `team` input 
 | #9 | 🇵🇱 | Poland | Iga Swiatek | `SWI` | 3730 | 4,188 |
 | #10 | 🇺🇦 | Ukraine | Marta Kostyuk | `KOS` | 3382 | 3,910 |
 | #11 | 🇷🇺 | Russia | Diana Shnaider | `SHN` | 8017 | 3,238 |
-| #12 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 3,016 |
+| #12 | 🇵🇱 | Poland | Maja Chwalinska | `CHW` | 3417 | 3,004 |
 | #13 | 🇺🇸 | United States | Iva Jovic | `JOV` | 14311 | 2,941 |
 | #14 | 🇧🇪 | Belgium | Elise Mertens | `MER` | 2221 | 2,540 |
 | #15 | 🇵🇭 | Philippines | Alexandra Eala | `EAL` | 7759 | 2,392 |
