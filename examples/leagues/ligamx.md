@@ -14,6 +14,8 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026 Torneo Apertura · 3
 
+📅 Next: @ MTY (Nov 26)
+
 📊 2026 Record: 8W - 3L - 6D  (30 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▏░░░░░░░░
 
 **📅 Recent Games:**
@@ -39,6 +41,8 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026 Torneo Apertura · 3
 
+📅 Next: @ MTY (Nov 26)
+
 📊 2026 Record: 8W - 3L - 6D  (30 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▏░░░░░░░░
 
 **📅 Recent Games:**
@@ -62,6 +66,8 @@ The `compact: true` input drops the logo and recent-game details.
 🟢 Season in progress
 
 🏅 Standing (2026): 2026 Torneo Apertura · 3
+
+📅 Next: @ MTY (Nov 26)
 
 📊 2026 Record: 8W - 3L - 6D  (30 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▏░░░░░░░░
 

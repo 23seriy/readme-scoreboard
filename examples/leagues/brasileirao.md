@@ -12,7 +12,7 @@ Team: **COR** · Category: Soccer · Data source: ESPN public API
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 16
+🏅 Standing (2026): Brasileirão · 17
 
 📅 Next: @ CAM (Nov 25)
 
@@ -39,7 +39,7 @@ The `title:` input replaces the default heading.
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 16
+🏅 Standing (2026): Brasileirão · 17
 
 📅 Next: @ CAM (Nov 25)
 
@@ -65,7 +65,7 @@ The `compact: true` input drops the logo and recent-game details.
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 16
+🏅 Standing (2026): Brasileirão · 17
 
 📅 Next: @ CAM (Nov 25)
 
