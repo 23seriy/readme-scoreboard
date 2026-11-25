@@ -22,7 +22,7 @@ Big 12 Conference Conference
 <img src="https://a.espncdn.com/i/headshots/mens-college-basketball/players/full/5174954.png" alt="Motiejus Krivas headshot" height="72" align="right" />
 
 **🐻 Player Spotlight: Motiejus Krivas**
-20.3 PPG · 8.5 RPG · 2.3 APG
+20.2 PPG · 8.2 RPG · 2.4 APG
 
 **📅 Last Game:**
 ```
