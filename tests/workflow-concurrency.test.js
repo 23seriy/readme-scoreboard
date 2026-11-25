@@ -232,7 +232,11 @@ describe("README maintenance workflow coordination", () => {
       // Scoped to the commit this run pushed: approving by branch name would
       // also touch a human's PR on the same branch, and approving every open
       // `action_required` run would approve PRs this job knows nothing about.
-      expect(workflow).toContain("head_sha=$HEAD_SHA");
+      expect(workflow).toContain("awk -v sha=\"$HEAD_SHA\"");
+      // NOT the `?head_sha=` query parameter: that index silently missed a
+      // parked `Lint` run created seconds earlier, so the job reported success
+      // and left PR #583 blocked on a check that never started.
+      expect(workflow).not.toContain("runs?head_sha=");
       expect(workflow).not.toMatch(/select\(\.head_branch/);
       // Workflow ids are resolved from the API. A hardcoded id went stale when
       // the CodeQL workflow moved, which left its parked run unapproved and the
