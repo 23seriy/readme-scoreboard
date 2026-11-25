@@ -12,14 +12,15 @@ Team: **RMA** · Category: Soccer · Data source: ESPN public API
 League Phase
 🟢 Season in progress
 
-🏅 Standing (2026): League Phase · 2
+🏅 Standing (2026): League Phase · 1
 
-📅 Next: vs PSV (Nov 24)
+📅 Next: @ ARS (Dec 9)
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
+📊 2026 Record: 5W - 0L - 0D  (15 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
 
 **📅 Recent Games:**
 ```
+✅ W 5-1 vs PSV   (Nov 24, 2026)
 ✅ W 3-2 @ AEK   (Nov 4, 2026)
 ✅ W 4-1 vs RBL   (Oct 21, 2026)
 ✅ W 4-3 @ ROMA  (Oct 14, 2026)
@@ -38,14 +39,15 @@ The `title:` input replaces the default heading.
 League Phase
 🟢 Season in progress
 
-🏅 Standing (2026): League Phase · 2
+🏅 Standing (2026): League Phase · 1
 
-📅 Next: vs PSV (Nov 24)
+📅 Next: @ ARS (Dec 9)
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
+📊 2026 Record: 5W - 0L - 0D  (15 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
 
 **📅 Recent Games:**
 ```
+✅ W 5-1 vs PSV   (Nov 24, 2026)
 ✅ W 3-2 @ AEK   (Nov 4, 2026)
 ✅ W 4-1 vs RBL   (Oct 21, 2026)
 ✅ W 4-3 @ ROMA  (Oct 14, 2026)
@@ -63,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 League Phase
 🟢 Season in progress
 
-🏅 Standing (2026): League Phase · 2
+🏅 Standing (2026): League Phase · 1
 
-📅 Next: vs PSV (Nov 24)
+📅 Next: @ ARS (Dec 9)
 
-📊 2026 Record: 4W - 0L - 0D  (12 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
+📊 2026 Record: 5W - 0L - 0D  (15 pts)<br>&nbsp;&nbsp;&nbsp;█████████████████████████
 
 
 
