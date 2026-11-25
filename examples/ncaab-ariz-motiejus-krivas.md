@@ -26,5 +26,5 @@ Big 12 Conference Conference
 
 **📅 Last Game:**
 ```
-20 PTS · 7 REB · 3 AST · 25 MIN vs Providence Friars (Nov 24, 2026)
+31 PTS · 17 REB · 2 AST · 35 MIN vs Ole Miss Rebels (Nov 25, 2026)
 ```
