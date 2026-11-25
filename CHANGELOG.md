@@ -12,6 +12,15 @@ that would alter what appears in your README or require editing your workflow.
 
 ### Fixed
 
+- **A refresh PR could be left blocked on a `Lint` check that never started.** The approve job asked
+  GitHub for the parked runs of one commit with the `head_sha` query parameter; that lookup returned
+  an empty list for a `Lint` run created seconds earlier, so the job reported success while the check
+  stayed at `action_required` and auto-merge had nothing to wait on — PR #583 sat blocked for that
+  reason. The commit is now matched in the fetched run list instead of via that filter, which was
+  verified against the exact run that was missed.
+
+### Fixed
+
 - **A-League boards show a logo, standing and record again.** ESPN renamed five clubs
   (Adelaide `ADE` → `ADL`, Auckland `AFC` → `AUC`, Brisbane `BRR` → `BRI`, Melbourne City
   `MCY` → `MBC`, Melbourne Victory `MVC` → `MBV`). The adapter's registry still used the old

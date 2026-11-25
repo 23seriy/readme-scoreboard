@@ -126,11 +126,18 @@ jobs:
           # the PR blocked on a missing CodeQL check.
           ids=$(gh api "repos/$GH_REPO/actions/workflows?per_page=100" \
             --jq '.workflows[] | select(.name == "Lint" or .name == "Demo smoke tests" or .name == "Code scanning") | .id')
+          # Filter by the commit HERE, not with the API's head_sha query
+          # parameter: that index is unreliable for runs created seconds
+          # earlier. On 2026-11-25 the parked `Lint` run for 549e783 existed and
+          # appeared in the unfiltered run list, yet asking the API for it by
+          # commit returned nothing -- so the approve job reported success and
+          # left the refresh PR blocked on a check that never started (PR #583).
           for wf in $ids; do
-            gh api "repos/$GH_REPO/actions/workflows/$wf/runs?head_sha=$HEAD_SHA&per_page=20" \
-              --jq '.workflow_runs[] | select(.conclusion == "action_required") | .id' \
+            gh api "repos/$GH_REPO/actions/workflows/$wf/runs?per_page=30" \
+              --jq '.workflow_runs[] | "\(.head_sha) \(.conclusion) \(.id)"' \
+              | awk -v sha="$HEAD_SHA" '$1 == sha && $2 == "action_required" { print $3 }' \
               | while read -r id; do
                   echo "Approving $wf run $id for $HEAD_SHA"
-                  gh api -X POST "repos/$GH_REPO/actions/runs/$id/approve"
+                  gh api -X POST "repos/$GH_REPO/actions/runs/$id/approve" || exit 1
                 done
           done
