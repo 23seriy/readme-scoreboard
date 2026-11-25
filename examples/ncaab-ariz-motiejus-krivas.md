@@ -26,5 +26,5 @@ Big 12 Conference Conference
 
 **📅 Last Game:**
 ```
-17 PTS · 7 REB · 5 AST · 29 MIN vs Colorado State Rams (Nov 23, 2026)
+20 PTS · 7 REB · 3 AST · 25 MIN vs Providence Friars (Nov 24, 2026)
 ```
