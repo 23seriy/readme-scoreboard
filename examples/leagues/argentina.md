@@ -14,17 +14,17 @@ Group A
 
 🏅 Standing (2026): Group A · 1
 
-📅 Next: vs RIV (Nov 26)
+📅 Next: vs GLP (Nov 29)
 
 📊 2026 Record: 9W - 1L - 6D  (33 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 vs RIV   (Nov 25, 2026)
 ✅ W 1-0 vs DYJ   (Nov 7, 2026)
 ✅ W 1-0 vs RIV   (Nov 1, 2026)
 ✅ W 1-0 @ IND   (Oct 25, 2026)
 ✅ W 2-1 vs TALL  (Oct 16, 2026)
-🟡 D 2-2 @ IACC  (Oct 9, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ Group A
 
 🏅 Standing (2026): Group A · 1
 
-📅 Next: vs RIV (Nov 26)
+📅 Next: vs GLP (Nov 29)
 
 📊 2026 Record: 9W - 1L - 6D  (33 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 **📅 Recent Games:**
 ```
+✅ W 2-0 vs RIV   (Nov 25, 2026)
 ✅ W 1-0 vs DYJ   (Nov 7, 2026)
 ✅ W 1-0 vs RIV   (Nov 1, 2026)
 ✅ W 1-0 @ IND   (Oct 25, 2026)
 ✅ W 2-1 vs TALL  (Oct 16, 2026)
-🟡 D 2-2 @ IACC  (Oct 9, 2026)
 ```
 
 ## Compact mode
@@ -67,7 +67,7 @@ Group A
 
 🏅 Standing (2026): Group A · 1
 
-📅 Next: vs RIV (Nov 26)
+📅 Next: vs GLP (Nov 29)
 
 📊 2026 Record: 9W - 1L - 6D  (33 pts)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 

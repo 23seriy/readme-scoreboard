@@ -14,17 +14,17 @@ Team: **AME** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026 Torneo Apertura · 3
 
-📅 Next: @ MTY (Nov 26)
+📅 Next: vs MTY (Nov 29)
 
 📊 2026 Record: 8W - 3L - 6D  (30 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▏░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 @ MTY   (Nov 25, 2026)
 ❌ L 0-1 @ UANL  (Nov 21, 2026)
 🟡 D 2-2 @ UNAM  (Nov 7, 2026)
 🟡 D 2-2 vs TOL   (Oct 31, 2026)
 🟡 D 1-1 vs TIJ   (Oct 28, 2026)
-❌ L 1-2 vs PAC   (Oct 25, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026 Torneo Apertura · 3
 
-📅 Next: @ MTY (Nov 26)
+📅 Next: vs MTY (Nov 29)
 
 📊 2026 Record: 8W - 3L - 6D  (30 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▏░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 0-0 @ MTY   (Nov 25, 2026)
 ❌ L 0-1 @ UANL  (Nov 21, 2026)
 🟡 D 2-2 @ UNAM  (Nov 7, 2026)
 🟡 D 2-2 vs TOL   (Oct 31, 2026)
 🟡 D 1-1 vs TIJ   (Oct 28, 2026)
-❌ L 1-2 vs PAC   (Oct 25, 2026)
 ```
 
 ## Compact mode
@@ -67,7 +67,7 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026 Torneo Apertura · 3
 
-📅 Next: @ MTY (Nov 26)
+📅 Next: vs MTY (Nov 29)
 
 📊 2026 Record: 8W - 3L - 6D  (30 pts)<br>&nbsp;&nbsp;&nbsp;████████████████▏░░░░░░░░
 
