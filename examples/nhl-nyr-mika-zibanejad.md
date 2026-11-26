@@ -28,5 +28,5 @@ Eastern Conference · Metropolitan Division
 
 **📅 Last Game:**
 ```
-1 G · 0 A · 1 P vs CAR (Nov 22, 2026)
+0 G · 0 A · 0 P vs BUF (Nov 25, 2026)
 ```

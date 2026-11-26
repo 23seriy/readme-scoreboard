@@ -5,7 +5,7 @@
 Western Conference · Pacific Division
 🟢 Season in progress
 
-🏅 Standing: Western · 2
+🏅 Standing: Western · 1
 
 📅 Next: @ SA (Nov 28)
 
