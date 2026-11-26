@@ -12,19 +12,19 @@ Team: **COR** · Category: Soccer · Data source: ESPN public API
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 17
+🏅 Standing (2026): Brasileirão · 15
 
-📅 Next: @ CAM (Nov 25)
+📅 Next: vs GRE (Nov 29)
 
-📊 2026 Record: 10W - 15L - 10D  (40 pts)<br>&nbsp;&nbsp;&nbsp;██████████▋░░░░░░░░░░░░░░
+📊 2026 Record: 10W - 15L - 11D  (41 pts)<br>&nbsp;&nbsp;&nbsp;██████████▊░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 @ CAM   (Nov 25, 2026)
 ✅ W 4-0 vs BOT   (Nov 18, 2026)
 🟡 D 0-0 @ SAO   (Nov 4, 2026)
 ✅ W 2-0 vs MIR   (Oct 30, 2026)
 ❌ L 2-3 @ VAS   (Oct 24, 2026)
-🟡 D 1-1 vs VIT   (Oct 19, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 17
+🏅 Standing (2026): Brasileirão · 15
 
-📅 Next: @ CAM (Nov 25)
+📅 Next: vs GRE (Nov 29)
 
-📊 2026 Record: 10W - 15L - 10D  (40 pts)<br>&nbsp;&nbsp;&nbsp;██████████▋░░░░░░░░░░░░░░
+📊 2026 Record: 10W - 15L - 11D  (41 pts)<br>&nbsp;&nbsp;&nbsp;██████████▊░░░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 @ CAM   (Nov 25, 2026)
 ✅ W 4-0 vs BOT   (Nov 18, 2026)
 🟡 D 0-0 @ SAO   (Nov 4, 2026)
 ✅ W 2-0 vs MIR   (Oct 30, 2026)
 ❌ L 2-3 @ VAS   (Oct 24, 2026)
-🟡 D 1-1 vs VIT   (Oct 19, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 Brasileirão
 🟢 Season in progress
 
-🏅 Standing (2026): Brasileirão · 17
+🏅 Standing (2026): Brasileirão · 15
 
-📅 Next: @ CAM (Nov 25)
+📅 Next: vs GRE (Nov 29)
 
-📊 2026 Record: 10W - 15L - 10D  (40 pts)<br>&nbsp;&nbsp;&nbsp;██████████▋░░░░░░░░░░░░░░
+📊 2026 Record: 10W - 15L - 11D  (41 pts)<br>&nbsp;&nbsp;&nbsp;██████████▊░░░░░░░░░░░░░░
 
 
 
