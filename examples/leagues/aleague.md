@@ -14,12 +14,13 @@ Team: **MBC** · Category: Soccer · Data source: ESPN public API
 
 🏅 Standing (2026): 2026-27 A-League · 7
 
-📅 Next: @ MAC (Nov 27)
+📅 Next: @ PER (Dec 11)
 
-📊 2026 Record: 2W - 1L - 1D  (7 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▋░░░░░░░░░
+📊 2026 Record: 2W - 2L - 1D  (7 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-2 @ MAC   (Nov 27, 2026)
 ✅ W 2-1 vs WSW   (Nov 7, 2026)
 ✅ W 2-1 vs SYD   (Oct 31, 2026)
 🟡 D 1-1 @ MBV   (Oct 24, 2026)
@@ -40,12 +41,13 @@ The `title:` input replaces the default heading.
 
 🏅 Standing (2026): 2026-27 A-League · 7
 
-📅 Next: @ MAC (Nov 27)
+📅 Next: @ PER (Dec 11)
 
-📊 2026 Record: 2W - 1L - 1D  (7 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▋░░░░░░░░░
+📊 2026 Record: 2W - 2L - 1D  (7 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L 0-2 @ MAC   (Nov 27, 2026)
 ✅ W 2-1 vs WSW   (Nov 7, 2026)
 ✅ W 2-1 vs SYD   (Oct 31, 2026)
 🟡 D 1-1 @ MBV   (Oct 24, 2026)
@@ -65,9 +67,9 @@ The `compact: true` input drops the logo and recent-game details.
 
 🏅 Standing (2026): 2026-27 A-League · 7
 
-📅 Next: @ MAC (Nov 27)
+📅 Next: @ PER (Dec 11)
 
-📊 2026 Record: 2W - 1L - 1D  (7 pts)<br>&nbsp;&nbsp;&nbsp;███████████████▋░░░░░░░░░
+📊 2026 Record: 2W - 2L - 1D  (7 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
 
 
 
