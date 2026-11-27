@@ -14,17 +14,17 @@ AFC · AFC East
 
 🏅 Standing: AFC · 1
 
-📅 Next: vs KC (Nov 27)
+📅 Next: @ NE (Dec 6)
 
-📊 2026 Season: 9W - 1L (90.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████████▌░░
+📊 2026 Season: 10W - 1L (90.9%)<br>&nbsp;&nbsp;&nbsp;██████████████████████▋░░
 
 **📅 Recent Games:**
 ```
+✅ W 13-10 vs KC  (Nov 27, 2026)
 ✅ W 26-9  vs MIA (Nov 22, 2026)
 ✅ W 31-12 @ NYJ (Nov 15, 2026)
 ✅ W 23-6  @ MIN (Nov 10, 2026)
 ✅ W 36-10 vs BAL (Nov 1, 2026)
-✅ W 33-30 @ LV  (Oct 18, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ AFC · AFC East
 
 🏅 Standing: AFC · 1
 
-📅 Next: vs KC (Nov 27)
+📅 Next: @ NE (Dec 6)
 
-📊 2026 Season: 9W - 1L (90.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████████▌░░
+📊 2026 Season: 10W - 1L (90.9%)<br>&nbsp;&nbsp;&nbsp;██████████████████████▋░░
 
 **📅 Recent Games:**
 ```
+✅ W 13-10 vs KC  (Nov 27, 2026)
 ✅ W 26-9  vs MIA (Nov 22, 2026)
 ✅ W 31-12 @ NYJ (Nov 15, 2026)
 ✅ W 23-6  @ MIN (Nov 10, 2026)
 ✅ W 36-10 vs BAL (Nov 1, 2026)
-✅ W 33-30 @ LV  (Oct 18, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ AFC · AFC East
 
 🏅 Standing: AFC · 1
 
-📅 Next: vs KC (Nov 27)
+📅 Next: @ NE (Dec 6)
 
-📊 2026 Season: 9W - 1L (90.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████████▌░░
+📊 2026 Season: 10W - 1L (90.9%)<br>&nbsp;&nbsp;&nbsp;██████████████████████▋░░
 
 
 
