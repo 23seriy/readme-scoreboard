@@ -14,7 +14,7 @@ South Division Conference
 
 📅 Next: @ GRD (Dec 27)
 
-📊 2026-2027 Record: 6W - 1L (85.7%)<br>&nbsp;&nbsp;&nbsp;█████████████████████▍░░░
+📊 2026-2027 Record: 6W - 2L (75.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 📅 No recent games found
 
@@ -32,7 +32,7 @@ South Division Conference
 
 📅 Next: @ GRD (Dec 27)
 
-📊 2026-2027 Record: 6W - 1L (85.7%)<br>&nbsp;&nbsp;&nbsp;█████████████████████▍░░░
+📊 2026-2027 Record: 6W - 2L (75.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 📅 No recent games found
 
@@ -49,7 +49,7 @@ South Division Conference
 
 📅 Next: @ GRD (Dec 27)
 
-📊 2026-2027 Record: 6W - 1L (85.7%)<br>&nbsp;&nbsp;&nbsp;█████████████████████▍░░░
+📊 2026-2027 Record: 6W - 2L (75.0%)<br>&nbsp;&nbsp;&nbsp;██████████████████▊░░░░░░
 
 📅 No recent games found
 
