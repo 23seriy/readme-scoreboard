@@ -12,19 +12,19 @@ Team: **BOS** · Category: Hockey · Data source: official league API
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Atlantic · 4
+🏅 Standing (2026-27): Atlantic · 5
 
-📅 Next: vs TOR (Nov 27)
+📅 Next: vs VAN (Nov 29)
 
-📊 2025-2026 Record: 15W - 9L (62.5%)<br>&nbsp;&nbsp;&nbsp;███████████████▋░░░░░░░░░
+📊 2025-2026 Record: 15W - 10L (60.0%)<br>&nbsp;&nbsp;&nbsp;███████████████░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L   1-3   vs TOR (Nov 27, 2026)
 ❌ L   2-4   vs WPG (Nov 25, 2026)
 ✅ W   7-5   vs WSH (Nov 21, 2026)
 ✅ W   4-1   @ DET (Nov 18, 2026)
 ❌ L   0-3   vs LAK (Nov 17, 2026)
-❌ L   2-6   vs MIN (Nov 14, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Atlantic · 4
+🏅 Standing (2026-27): Atlantic · 5
 
-📅 Next: vs TOR (Nov 27)
+📅 Next: vs VAN (Nov 29)
 
-📊 2025-2026 Record: 15W - 9L (62.5%)<br>&nbsp;&nbsp;&nbsp;███████████████▋░░░░░░░░░
+📊 2025-2026 Record: 15W - 10L (60.0%)<br>&nbsp;&nbsp;&nbsp;███████████████░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L   1-3   vs TOR (Nov 27, 2026)
 ❌ L   2-4   vs WPG (Nov 25, 2026)
 ✅ W   7-5   vs WSH (Nov 21, 2026)
 ✅ W   4-1   @ DET (Nov 18, 2026)
 ❌ L   0-3   vs LAK (Nov 17, 2026)
-❌ L   2-6   vs MIN (Nov 14, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing (2026-27): Atlantic · 4
+🏅 Standing (2026-27): Atlantic · 5
 
-📅 Next: vs TOR (Nov 27)
+📅 Next: vs VAN (Nov 29)
 
-📊 2025-2026 Record: 15W - 9L (62.5%)<br>&nbsp;&nbsp;&nbsp;███████████████▋░░░░░░░░░
+📊 2025-2026 Record: 15W - 10L (60.0%)<br>&nbsp;&nbsp;&nbsp;███████████████░░░░░░░░░░
 
 
 

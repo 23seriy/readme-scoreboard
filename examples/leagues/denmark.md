@@ -14,17 +14,17 @@ Regular Season
 
 🏅 Standing (2026): Regular Season · 5
 
-📅 Next: @ SON (Nov 27)
+📅 Next: vs OBK (Dec 6)
 
-📊 2026 Record: 7W - 7L - 1D  (22 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
+📊 2026 Record: 7W - 7L - 2D  (23 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 @ SON   (Nov 27, 2026)
 ❌ L 0-2 vs MID   (Nov 23, 2026)
 ❌ L 0-1 @ KBH   (Nov 8, 2026)
 ✅ W 2-0 vs AGF   (Nov 1, 2026)
 ✅ W 3-1 @ RAN   (Oct 23, 2026)
-❌ L 1-2 @ OBK   (Oct 18, 2026)
 ```
 
 ## Custom title
@@ -41,17 +41,17 @@ Regular Season
 
 🏅 Standing (2026): Regular Season · 5
 
-📅 Next: @ SON (Nov 27)
+📅 Next: vs OBK (Dec 6)
 
-📊 2026 Record: 7W - 7L - 1D  (22 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
+📊 2026 Record: 7W - 7L - 2D  (23 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+🟡 D 1-1 @ SON   (Nov 27, 2026)
 ❌ L 0-2 vs MID   (Nov 23, 2026)
 ❌ L 0-1 @ KBH   (Nov 8, 2026)
 ✅ W 2-0 vs AGF   (Nov 1, 2026)
 ✅ W 3-1 @ RAN   (Oct 23, 2026)
-❌ L 1-2 @ OBK   (Oct 18, 2026)
 ```
 
 ## Compact mode
@@ -67,9 +67,9 @@ Regular Season
 
 🏅 Standing (2026): Regular Season · 5
 
-📅 Next: @ SON (Nov 27)
+📅 Next: vs OBK (Dec 6)
 
-📊 2026 Record: 7W - 7L - 1D  (22 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
+📊 2026 Record: 7W - 7L - 2D  (23 pts)<br>&nbsp;&nbsp;&nbsp;████████████▌░░░░░░░░░░░░
 
 
 

@@ -12,19 +12,19 @@ Team: **BOS** · Category: Basketball · Data source: ESPN public API
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 2
+🏅 Standing: Eastern · 4
 
-📅 Next: vs ATL (Nov 28)
+📅 Next: @ SA (Nov 29)
 
-📊 2026-2027 Record: 12W - 6L (66.7%)<br>&nbsp;&nbsp;&nbsp;████████████████▋░░░░░░░░
+📊 2026-2027 Record: 12W - 7L (63.2%)<br>&nbsp;&nbsp;&nbsp;███████████████▊░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  86-87  vs ATL (Nov 27, 2026)
 ✅ W 131-116 @ WSH (Nov 24, 2026)
 ❌ L  87-88  @ GS  (Nov 22, 2026)
 ❌ L  96-97  @ SAC (Nov 21, 2026)
 ❌ L 101-105 @ DEN (Nov 18, 2026)
-❌ L 105-115 vs ORL (Nov 16, 2026)
 ```
 
 ## Custom title
@@ -39,19 +39,19 @@ The `title:` input replaces the default heading.
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 2
+🏅 Standing: Eastern · 4
 
-📅 Next: vs ATL (Nov 28)
+📅 Next: @ SA (Nov 29)
 
-📊 2026-2027 Record: 12W - 6L (66.7%)<br>&nbsp;&nbsp;&nbsp;████████████████▋░░░░░░░░
+📊 2026-2027 Record: 12W - 7L (63.2%)<br>&nbsp;&nbsp;&nbsp;███████████████▊░░░░░░░░░
 
 **📅 Recent Games:**
 ```
+❌ L  86-87  vs ATL (Nov 27, 2026)
 ✅ W 131-116 @ WSH (Nov 24, 2026)
 ❌ L  87-88  @ GS  (Nov 22, 2026)
 ❌ L  96-97  @ SAC (Nov 21, 2026)
 ❌ L 101-105 @ DEN (Nov 18, 2026)
-❌ L 105-115 vs ORL (Nov 16, 2026)
 ```
 
 ## Compact mode
@@ -65,11 +65,11 @@ The `compact: true` input drops the logo and recent-game details.
 Eastern Conference · Atlantic Division
 🟢 Season in progress
 
-🏅 Standing: Eastern · 2
+🏅 Standing: Eastern · 4
 
-📅 Next: vs ATL (Nov 28)
+📅 Next: @ SA (Nov 29)
 
-📊 2026-2027 Record: 12W - 6L (66.7%)<br>&nbsp;&nbsp;&nbsp;████████████████▋░░░░░░░░
+📊 2026-2027 Record: 12W - 7L (63.2%)<br>&nbsp;&nbsp;&nbsp;███████████████▊░░░░░░░░░
 
 
 

@@ -12,7 +12,7 @@ Team: **AHL** · Category: Soccer · Data source: ESPN public API
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing (2026): Saudi Pro League · 4
+🏅 Standing (2026): Saudi Pro League · 5
 
 📅 Next: vs TAA (Nov 28)
 
@@ -39,7 +39,7 @@ The `title:` input replaces the default heading.
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing (2026): Saudi Pro League · 4
+🏅 Standing (2026): Saudi Pro League · 5
 
 📅 Next: vs TAA (Nov 28)
 
@@ -65,7 +65,7 @@ The `compact: true` input drops the logo and recent-game details.
 Saudi Pro League
 🟢 Season in progress
 
-🏅 Standing (2026): Saudi Pro League · 4
+🏅 Standing (2026): Saudi Pro League · 5
 
 📅 Next: vs TAA (Nov 28)
 
